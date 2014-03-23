@@ -2,8 +2,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2006-2012 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2012 The OpenNMS Group, Inc.
+ * Copyright (C) 2006-2014 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -51,13 +51,25 @@
   <jsp:param name="script" value="<script type='text/javascript' src='js/tooltip.js'></script>" />
 </jsp:include>
 
+  <script type="text/javascript">
+  function validateId() {
+    var alarmId = document.alarmIdForm.id.value;
+    if (alarmId.length > 1 && parseInt(alarmId).toString() == alarmId) {
+      return true;
+    } else {
+      alert("Please enter a valid alarm ID.");
+      return false;
+    }
+  }
+  </script>
+
   <div class="TwoColLeft">
       <h3>Alarm Queries</h3>
       <div class="boxWrapper">
        <%-- <jsp:include page="/includes/alarm-querypanel.jsp" flush="false" />--%>
-        <form action="alarm/detail.htm" method="get">
+        <form name="alarmIdForm" action="alarm/detail.htm" method="get" onsubmit="return validateId();">
           <p align="right">Alarm ID:          
-            <input type="TEXT" NAME="id" />
+            <input type="text" name="id" />
             <input type="submit" value="Get details"/></p>                
         </form>
         <ul class="plain">

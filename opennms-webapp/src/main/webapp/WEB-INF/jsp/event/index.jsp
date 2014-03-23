@@ -1,7 +1,3 @@
-<%@ page import="org.opennms.web.filter.NormalizedQueryParameters" %>
-<%@ page import="org.opennms.web.tags.filters.EventFilterCallback" %>
-<%@ page import="org.opennms.web.tags.filters.FilterCallback" %>
-<%@ page import="org.opennms.netmgt.model.OnmsFilterFavorite" %>
 <%--
 /*******************************************************************************
  * This file is part of OpenNMS(R).
@@ -37,6 +33,10 @@
 	contentType="text/html"
 	session="true"
 %>
+<%@ page import="org.opennms.netmgt.model.OnmsFilterFavorite" %>
+<%@ page import="org.opennms.web.filter.NormalizedQueryParameters" %>
+<%@ page import="org.opennms.web.tags.filters.EventFilterCallback" %>
+<%@ page import="org.opennms.web.tags.filters.FilterCallback" %>
 
 <jsp:include page="/includes/header.jsp" flush="false" >
   <jsp:param name="title" value="Events" />
@@ -49,11 +49,23 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="../../taglib.tld" prefix="onms" %>
 
+  <script type="text/javascript">
+  function validateId() {
+    var eventId = document.eventIdForm.id.value;
+    if (eventId.length > 1 && parseInt(eventId).toString() === eventId) {
+      return true;
+    } else {
+      alert("Please enter a valid event ID.");
+      return false;
+    }
+  }
+  </script>
+
   <div class="TwoColLeft">
       <h3>Event Queries</h3>
       <div class="boxWrapper">
         <%--<jsp:include page="/includes/event-querypanel.jsp" flush="false" />--%>
-        <form action="event/detail.jsp" method="get">
+        <form name="eventIdForm" action="event/detail.jsp" method="get" onsubmit="return validateId();">
             <p align="right">Event ID:
                 <input type="text" name="id" />
                 <input type="submit" value="Get details"/></p>

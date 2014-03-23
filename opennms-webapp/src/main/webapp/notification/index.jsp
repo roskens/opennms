@@ -41,6 +41,18 @@
   <jsp:param name="breadcrumb" value="Notification" />
 </jsp:include>
 
+  <script type="text/javascript">
+  function validateId() {
+    var noticeId = document.noticeIdForm.notice.value;
+    if (noticeId.length > 1 && parseInt(noticeId).toString() == noticeId) {
+      return true;
+    } else {
+      alert("Please enter a valid notification ID.");
+      return false;
+    }
+  }
+  </script>
+
   <div class="TwoColLeft">
       <h3>Notification queries</h3>
       <div class="boxWrapper">
@@ -49,7 +61,7 @@
           <input type="text" name="user"/>
           <input type="submit" value="Check notices" /></p>
         </form>
-        <form method="get" action="notification/detail.jsp" >
+        <form name="noticeIdForm" action="notification/detail.jsp" method="get" onsubmit="return validateId();">
           <p align="right">Notice:
           <input type="text" name="notice" />
           <input type="submit" value="Get details" /></p>       
