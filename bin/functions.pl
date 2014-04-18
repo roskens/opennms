@@ -173,7 +173,11 @@ if (-r File::Spec->catfile($ENV{'HOME'}, '.opennms-buildrc')) {
 	if (open(FILEIN, File::Spec->catfile($ENV{'HOME'}, '/.opennms-buildrc'))) {
 		while (my $line = <FILEIN>) {
 			chomp($line);
+			#if ($line =~ s/^#MAVEN_OPTS:\s*//) {
+			#	$MAVEN_OPTS .= ' '.$line;
+			#}
 			if ($line !~ /^\s*$/ && $line !~ /^\s*\#/) {
+				$line =~ s/\%PWD\%/$ENV{'PWD'}/;
 				unshift(@ARGS, $line);
 			}
 		}
