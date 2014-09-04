@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.felix.gogo.commands.Command;
+import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.console.OsgiCommandSupport;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.blueprint.container.BlueprintContainer;

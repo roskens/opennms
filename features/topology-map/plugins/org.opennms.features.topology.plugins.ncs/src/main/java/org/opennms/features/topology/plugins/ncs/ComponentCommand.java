@@ -1,6 +1,6 @@
 package org.opennms.features.topology.plugins.ncs;
 
-import org.apache.felix.gogo.commands.Command;
+import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.console.OsgiCommandSupport;
 import org.opennms.netmgt.model.ncs.NCSComponent;
 import org.opennms.netmgt.model.ncs.NCSComponentRepository;

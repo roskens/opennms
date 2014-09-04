@@ -184,15 +184,15 @@
       </plugin>
       <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
-        <artifactId>features-maven-plugin</artifactId>
+        <artifactId>karaf-maven-plugin</artifactId>
         <version>${karafVersion}</version>
 
         <executions>
           <execution>
-            <id>add-features-to-repo</id>
+            <id>features-add-to-repository</id>
             <phase>process-resources</phase>
             <goals>
-              <goal>add-features-to-repo</goal>
+              <goal>features-add-to-repository</goal>
             </goals>
             <configuration>
               <karafVersion>DONT_USE_STANDARD_FEATURES</karafVersion>

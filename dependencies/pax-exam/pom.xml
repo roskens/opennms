@@ -79,7 +79,7 @@
     <dependency>
       <groupId>org.apache.karaf.tooling.exam</groupId>
       <artifactId>org.apache.karaf.tooling.exam.container</artifactId>
-      <version>${karafVersion}</version>
+      <version>3.0.0.RC1</version>
     </dependency>
     <!-- replace asm/asm from pax-exam-junit4 -->
     <dependency>

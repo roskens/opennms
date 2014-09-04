@@ -36,7 +36,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.felix.gogo.commands.Command;
+import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.console.OsgiCommandSupport;
 import org.opennms.features.topology.api.Operation;
 import org.osgi.framework.ServiceReference;
