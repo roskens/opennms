@@ -233,6 +233,8 @@
             </goals>
             <configuration>
               <staleMillis>1000</staleMillis>
+              <descriptors>false</descriptors>
+              <verbose>true</verbose>
             </configuration>
           </execution>
         </executions>
