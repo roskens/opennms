@@ -1,0 +1,128 @@
+
+[[poller-web-monitor]]
+==== WebMonitor
+
+The web monitor tests an HTTP server with the Apache HttpClient and 'GET' request.
+The response is parsed and a return code extracted and verified.
+
+===== Monitor facts
+
+[options="autowidth"]
+|===
+| Class Name | `org.opennms.netmgt.poller.monitors.WebMonitor`
+| Remote Enabled | true
+|===
+
+===== Configuration and Usage
+
+.Monitor specific parameters for the WebMonitor
+[options="header, autowidth"]
+|===
+| Parameter              | Description                                                                                 | Required | Default value
+| `scheme`
+| `port`                 | The TCP port on which the connection will be tried. | optional | `80`
+| `path`
+| `queryString`
+| `timeout`
+| `user-agent`           | Allows you to set the _User-Agent_ HTTP header (see also http://www.rfc-editor.org/rfc/rfc2616.txt[RFC2616] section 14.43).            | optional | `OpenNMS HttpMonitor`
+| `virtual-host`         | Specify the _Host_ header's value. | optional | `-`
+| `http-1.0`             | If the `http-1.0` parameter is set, and is set to `true`, then the HTTP version for the +
+                           request is set to `HTTP/1.0`. | optional | `false`
+| `header_[0-9]+`        | Additional headers to be sent along with the request. +
+                           Example of valid parameter's names are +
+                           `header_0`, `header_1` and `header_180`. `header` is *not* a valid parameter name.            | optional | `-`
+| `use-ssl-filter`
+| `auth-user`
+| `auth-password`
+| `auth-preemptive`
+| `response-text`        | Text to look for in the response body. This will be matched against every line, and it +
+                           will be considered a success at the first match. If there is a `~` at the beginning of +
+                           the parameter, the rest of the string will be used as a regular expression pattern match, +
+                           otherwise the match will be a substring match. The regular expression match is anchored +
+                           at the beginning and end of the line, so you will likely need to put a `.*` on both sides +
+                           of your pattern unless you are going to be matching on the entire line.                     | optional | `-`
+| `response-range`       | A list of acceptable HTTP response code ranges.
+                           Example: `200-202`                                                                      | optional | `100-399`
+
+| `password`             | This parameter is meant to be used together with the `user` parameter to perform basic +
+                           authentication. This parameter specify to password to be used. The `user` and `password` +
+                           parameters are ignored when the `basic-authentication` parameter is defined.                | optional | `empty string`
+| `retry`                | Number of attempts to get a valid HTTP response/response-text | optional | `0`
+| `resolve-ip`           | If the `host-name` parameter isn't set and this parameter is set to `true`, OpenNMS will +
+                           use DNS to resolve the node interface's IP address, and use the result to set the _Host_ +
+                           header's value. When set to `false` and the `host-name` parameter isn't set, OpenNMS will +
+                           try to use the `nodelabel-host-name` parameter to set the _Host_ header's value.            | optional | `false`
+| `timeout`              | Timeout in milliseconds for TCP connection establishment.                                   | optional | `3000`
+| `url`                  | URL to be retrieved via the HTTP 'GET' command                                              | optional | `/`
+| `user`                 | This parameter is meant to be used together with the `password` parameter to perform +
+                           basic authentication. This parameter specify to user ID to be used. The `user` and +
+                           `password` parameters are ignored when the `basic-authentication` parameter is defined.     | optional | `-`
+| `verbose`              | When set to _true_, full communication between client and the webserver will be logged +
+                           (with a log level of `DEBUG`).                                                              | optional | `-`
+|===
+
+===== Examples
+
+[source, xml]
+----
+<!-- Test HTTP service on port 80 only -->
+<service name="HTTP" interval="300000" user-defined="false" status="on">
+  <parameter key="retry" value="2"/>
+  <parameter key="timeout" value="3000"/>
+  <parameter key="port" value="80"/>
+  <parameter key="url" value="/"/>
+</service>
+
+<!-- Test for virtual host opennms.com running -->
+<service name="OpenNMSdotCom" interval="300000" user-defined="false" status="on">
+  <parameter key="retry" value="1"/>
+  <parameter key="timeout" value="3000"/>
+  <parameter key="port" value="80"/>
+  <parameter key="host-name" value="opennms.com"/>
+  <parameter key="url" value="/solutions"/>
+  <parameter key="response" value="200-202,299"/>
+  <parameter key="response-text" value="~.*[Cc]onsulting.*"/>
+</service>
+
+<!-- Test for instance of OpenNMS 1.2.9 running -->
+<service name="OpenNMS-129" interval="300000" user-defined="false" status="on">
+  <parameter key="retry" value="1"/>
+  <parameter key="timeout" value="3000"/>
+  <parameter key="port" value="8080"/>
+  <parameter key="url" value="/opennms/event/list"/>
+  <parameter key="basic-authentication" value="admin:admin"/>
+  <parameter key="response" value="200"/>
+</service>
+
+<monitor service="HTTP" class-name="org.opennms.netmgt.poller.monitors.HttpMonitor" />
+<monitor service="OpenNMSdotCom" class-name="org.opennms.netmgt.poller.monitors.HttpMonitor" />
+<monitor service="OpenNMS-129" class-name="org.opennms.netmgt.poller.monitors.HttpMonitor" />
+----
+
+===== Testing filtering proxies with HttpMonitor
+
+If you have a filtering proxy server that is supposed to allow retrieval of some URLs but deny others, you can use the HttpMonitor to verify this behavior.
+
+Let's say that our proxy server is running on TCP port 3128, and that we should always be able to retrieve http://www.opennms.org/ but never http://www.myspace.com/ (hey, this is a workplace after all!). To test this behaviour, one could create the following service monitors:
+
+[source, xml]
+----
+<service name="HTTP-Allow-opennms.org" interval="300000" user-defined="false" status="on">
+  <parameter key="retry" value="1"/>
+  <parameter key="timeout" value="3000"/>
+  <parameter key="port" value="3128"/>
+  <parameter key="url" value="http://www.opennms.org/"/>
+  <parameter key="response" value="200-399"/>
+</service>
+
+<service name="HTTP-Block-myspace.com" interval="300000" user-defined="false" status="on">
+  <parameter key="retry" value="1"/>
+  <parameter key="timeout" value="3000"/>
+  <parameter key="port" value="3128"/>
+  <parameter key="url" value="http://www.myspace.com/"/>
+  <parameter key="response" value="400-599"/>
+</service>
+
+<monitor service="HTTP-Allow-opennms.org" class-name="org.opennms.netmgt.poller.monitors.HttpMonitor"/>
+<monitor service="HTTP-Block-myspace.com" class-name="org.opennms.netmgt.poller.monitors.HttpMonitor"/>
+----
