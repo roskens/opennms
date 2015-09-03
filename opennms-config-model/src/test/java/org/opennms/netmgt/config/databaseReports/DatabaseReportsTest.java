@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.databaseReports;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -43,14 +41,31 @@ public class DatabaseReportsTest extends XmlTestNoCastor<DatabaseReports> {
         super(sampleObject, sampleXml, schemaFile);
     }
 
+    private static void addReport(DatabaseReports dbReport, final String id, final String displayName, final String reportService, final String description) {
+        Report r1 = new Report();
+        r1.setId(id);
+        r1.setDisplayName(displayName);
+        r1.setReportService(reportService);
+        r1.setDescription(description);
+        dbReport.addReport(r1);
+
+    }
+
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
         DatabaseReports databaseReports = new DatabaseReports();
+        addReport(databaseReports, "defaultCalendarReport", "Default calendar report", "availabilityReportService", "standard opennms report in calendar format");
+        addReport(databaseReports, "defaultClassicReport", "Default classic report", "availabilityReportService", "standard opennms report in tabular format");
 
         return Arrays.asList(new Object[][] { {
                 databaseReports,
-                "", /* configuration */
+                "<database-reports>\n" +
+"<report id=\"defaultCalendarReport\" display-name=\"Default calendar report\"\n" +
+"                report-service=\"availabilityReportService\" description=\"standard opennms report in calendar format\" />\n" +
+"        <report id=\"defaultClassicReport\" display-name=\"Default classic report\"\n" +
+"                report-service=\"availabilityReportService\" description=\"standard opennms report in tabular format\" />\n" +
+"</database-reports>",
                 "target/classes/xsds/database-reports.xsd", }, });
     }
 }

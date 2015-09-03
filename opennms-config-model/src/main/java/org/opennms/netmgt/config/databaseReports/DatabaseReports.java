@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="database-reports")
@@ -63,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * A report definition
      */
+    @XmlElement(name="report")
     private java.util.List<org.opennms.netmgt.config.databaseReports.Report> _reportList;
 
 

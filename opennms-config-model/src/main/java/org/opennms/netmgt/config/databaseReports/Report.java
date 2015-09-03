@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="report")
@@ -63,23 +64,27 @@ import org.opennms.core.xml.ValidateUsing;
      * the name of this report as defined in engine
      *  configuration
      */
+    @XmlAttribute(name="id")
     private java.lang.String _id;
 
     /**
      * the name of this report as displayed in the webui
      *
      */
+    @XmlAttribute(name="display-name")
     private java.lang.String _displayName;
 
     /**
      * the name of the engine to use to process and
      *  render this report
      */
+    @XmlAttribute(name="report-service")
     private java.lang.String _reportService;
 
     /**
      * report description
      */
+    @XmlAttribute(name="description")
     private java.lang.String _description;
 
     /**
@@ -88,12 +93,8 @@ import org.opennms.core.xml.ValidateUsing;
      * the report
      *  must be executed in batch mode.
      */
-    private boolean _online;
-
-    /**
-     * keeps track of state for field: _online
-     */
-    private boolean _has_online;
+    @XmlAttribute(name="online")
+    private Boolean _online;
 
 
       //----------------/
@@ -113,7 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteOnline(
     ) {
-        this._has_online= false;
+        this._online= null;
     }
 
     /**
@@ -159,9 +160,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._description != null)
                 return false;
-            if (this._online != temp._online)
-                return false;
-            if (this._has_online != temp._has_online)
+            if (this._online != null) {
+                if (temp._online == null) return false;
+                else if (!(this._online.equals(temp._online)))
+                    return false;
+            }
+            else if (temp._online != null)
                 return false;
             return true;
         }
@@ -216,9 +220,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Online'.
      */
-    public boolean getOnline(
+    public Boolean getOnline(
     ) {
-        return this._online;
+        return this._online == null ? false : this._online;
     }
 
     /**
@@ -241,7 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasOnline(
     ) {
-        return this._has_online;
+        return this._online != null;
     }
 
     /**
@@ -257,7 +261,6 @@ import org.opennms.core.xml.ValidateUsing;
     ) {
         int result = 17;
 
-        long tmp;
         if (_id != null) {
            result = 37 * result + _id.hashCode();
         }
@@ -270,7 +273,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_description != null) {
            result = 37 * result + _description.hashCode();
         }
-        result = 37 * result + (_online?0:1);
+        if (_online != null) {
+           result = 37 * result + _online.hashCode();
+        }
 
         return result;
     }
@@ -285,7 +290,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Online'.
      */
-    public boolean isOnline(
+    public Boolean isOnline(
     ) {
         return this._online;
     }
@@ -386,9 +391,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param online the value of field 'online'.
      */
     public void setOnline(
-            final boolean online) {
+            final Boolean online) {
         this._online = online;
-        this._has_online = true;
     }
 
     /**
