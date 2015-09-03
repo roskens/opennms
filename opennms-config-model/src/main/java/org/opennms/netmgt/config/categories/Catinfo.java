@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="catinfo")
@@ -63,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Header for this file.
      */
+    @XmlElement(name="header")
     private org.opennms.netmgt.config.categories.Header _header;
 
     /**
      * The category groups.
      */
+    @XmlElement(name="categorygroup")
     private java.util.List<org.opennms.netmgt.config.categories.Categorygroup> _categorygroupList;
 
 

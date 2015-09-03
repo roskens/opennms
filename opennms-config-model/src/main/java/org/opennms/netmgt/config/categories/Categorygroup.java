@@ -50,6 +50,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="categorygroup")
@@ -66,24 +67,28 @@ import org.opennms.core.xml.ValidateUsing;
      * The name of the category group. This is seemingly
      *  unused.
      */
+    @XmlElement(name="name")
     private java.lang.String _name;
 
     /**
      * A comment describing the category group. This is
      *  seemingly unused.
      */
+    @XmlElement(name="comment")
     private java.lang.String _comment;
 
     /**
      * Common attributes that apply to all categories in
      *  the group.
      */
+    @XmlElement(name="common")
     private org.opennms.netmgt.config.categories.Common _common;
 
     /**
      * The categories belonging to this category
      *  group.
      */
+    @XmlElement(name="categories")
     private org.opennms.netmgt.config.categories.Categories _categories;
 
 

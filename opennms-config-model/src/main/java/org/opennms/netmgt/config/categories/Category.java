@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="category")
@@ -63,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
      * The category label. NOTE: category labels will need
      *  to be unique across category groups.
      */
+    @XmlElement(name="label")
     private java.lang.String _label;
 
     /**
      * A comment describing the category.
      */
+    @XmlElement(name="comment")
     private java.lang.String _comment;
 
     /**
@@ -78,12 +81,8 @@ import org.opennms.core.xml.ValidateUsing;
      * this
      *  value.
      */
-    private double _normal;
-
-    /**
-     * keeps track of state for field: _normal
-     */
-    private boolean _has_normal;
+    @XmlElement(name="normal")
+    private Double _normal;
 
     /**
      * The warning threshold value for the category in
@@ -95,12 +94,8 @@ import org.opennms.core.xml.ValidateUsing;
      * is less
      *  than this value, category is displayed in red.
      */
-    private double _warning;
-
-    /**
-     * keeps track of state for field: _warning
-     */
-    private boolean _has_warning;
+    @XmlElement(name="warning")
+    private Double _warning;
 
     /**
      * A service relevant to this category. For a
@@ -113,11 +108,13 @@ import org.opennms.core.xml.ValidateUsing;
      * added to
      *  the category.
      */
+    @XmlElement(name="service")
     private java.util.List<java.lang.String> _serviceList;
 
     /**
      * The category rule.
      */
+    @XmlElement(name="rule")
     private java.lang.String _rule;
 
 
@@ -167,14 +164,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteNormal(
     ) {
-        this._has_normal= false;
+        this._normal= null;
     }
 
     /**
      */
     public void deleteWarning(
     ) {
-        this._has_warning= false;
+        this._warning= null;
     }
 
     /**
@@ -217,13 +214,19 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._comment != null)
                 return false;
-            if (this._normal != temp._normal)
+            if (this._normal != null) {
+                if (temp._normal == null) return false;
+                else if (!(this._normal.equals(temp._normal)))
+                    return false;
+            }
+            else if (temp._normal != null)
                 return false;
-            if (this._has_normal != temp._has_normal)
-                return false;
-            if (this._warning != temp._warning)
-                return false;
-            if (this._has_warning != temp._has_warning)
+            if (this._warning != null) {
+                if (temp._warning == null) return false;
+                else if (!(this._warning.equals(temp._warning)))
+                    return false;
+            }
+            else if (temp._warning != null)
                 return false;
             if (this._serviceList != null) {
                 if (temp._serviceList == null) return false;
@@ -379,7 +382,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNormal(
     ) {
-        return this._has_normal;
+        return this._normal != null;
     }
 
     /**
@@ -389,7 +392,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasWarning(
     ) {
-        return this._has_warning;
+        return this._warning != null;
     }
 
     /**
@@ -553,9 +556,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param normal the value of field 'normal'.
      */
     public void setNormal(
-            final double normal) {
+            final Double normal) {
         this._normal = normal;
-        this._has_normal = true;
     }
 
     /**
@@ -645,9 +647,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param warning the value of field 'warning'.
      */
     public void setWarning(
-            final double warning) {
+            final Double warning) {
         this._warning = warning;
-        this._has_warning = true;
     }
 
     /**
