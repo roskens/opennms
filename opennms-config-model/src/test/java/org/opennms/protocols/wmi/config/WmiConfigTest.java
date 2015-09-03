@@ -29,10 +29,8 @@
 package org.opennms.protocols.wmi.config;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,16 @@ public class WmiConfigTest extends XmlTestNoCastor<WmiConfig> {
     public static Collection<Object[]> data() throws ParseException {
 
         WmiConfig wmiConfig = new WmiConfig();
+        wmiConfig.setRetry(2);
+        wmiConfig.setTimeout(1500);
+        wmiConfig.setUsername("Administrator");
+        wmiConfig.setDomain("WORKGROUP");
+        wmiConfig.setPassword("password");
 
         return Arrays.asList(new Object[][] { {
                 wmiConfig,
-                "", /* configuration */
+                "<wmi-config retry=\"2\" timeout=\"1500\" username=\"Administrator\" domain=\"WORKGROUP\" password=\"password\">"
+                + "</wmi-config>",
                 "target/classes/xsds/wmi-config.xsd", }, });
     }
 }

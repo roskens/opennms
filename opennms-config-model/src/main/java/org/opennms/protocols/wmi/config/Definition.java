@@ -51,6 +51,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="definition")
@@ -66,36 +68,31 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _retry.
      */
-    private int _retry;
-
-    /**
-     * keeps track of state for field: _retry
-     */
-    private boolean _has_retry;
+    @XmlAttribute(name="retry")
+    private Integer _retry;
 
     /**
      * Field _timeout.
      */
-    private int _timeout;
-
-    /**
-     * keeps track of state for field: _timeout
-     */
-    private boolean _has_timeout;
+    @XmlAttribute(name="timeout")
+    private Integer _timeout;
 
     /**
      * Field _username.
      */
+    @XmlAttribute(name="username")
     private java.lang.String _username;
 
     /**
      * Field _domain.
      */
+    @XmlAttribute(name="domain")
     private java.lang.String _domain;
 
     /**
      * Field _password.
      */
+    @XmlAttribute(name="password")
     private java.lang.String _password;
 
     /**
@@ -103,6 +100,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  applies.
      *
      */
+    @XmlElement(name="range")
     private java.util.List<org.opennms.protocols.wmi.config.Range> _rangeList;
 
     /**
@@ -110,12 +108,14 @@ import org.opennms.core.xml.ValidateUsing;
      *  applies.
      *
      */
+    @XmlElement(name="specific")
     private java.util.List<java.lang.String> _specificList;
 
     /**
      * Match Octets (as in IPLIKE)
      *
      */
+    @XmlElement(name="ip-match")
     private java.util.List<java.lang.String> _ipMatchList;
 
 
@@ -223,14 +223,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteRetry(
     ) {
-        this._has_retry= false;
+        this._retry= null;
     }
 
     /**
      */
     public void deleteTimeout(
     ) {
-        this._has_timeout= false;
+        this._timeout= null;
     }
 
     /**
@@ -283,11 +283,19 @@ import org.opennms.core.xml.ValidateUsing;
             Definition temp = (Definition)obj;
             if (this._retry != temp._retry)
                 return false;
-            if (this._has_retry != temp._has_retry)
+            if (this._retry != null) {
+                if (temp._retry == null) return false;
+                else if (!(this._retry.equals(temp._retry)))
+                    return false;
+            }
+            else if (temp._retry != null)
                 return false;
-            if (this._timeout != temp._timeout)
-                return false;
-            if (this._has_timeout != temp._has_timeout)
+            if (this._timeout != null) {
+                if (temp._timeout == null) return false;
+                else if (!(this._timeout.equals(temp._timeout)))
+                    return false;
+            }
+            else if (temp._timeout != null)
                 return false;
             if (this._username != null) {
                 if (temp._username == null) return false;
@@ -474,9 +482,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retry'.
      */
-    public int getRetry(
+    public Integer getRetry(
     ) {
-        return this._retry;
+        return this._retry == null ? 0 : this._retry;
     }
 
     /**
@@ -540,9 +548,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timeout'.
      */
-    public int getTimeout(
+    public Integer getTimeout(
     ) {
-        return this._timeout;
+        return this._timeout == null ? 0 : this._timeout;
     }
 
     /**
@@ -562,7 +570,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRetry(
     ) {
-        return this._has_retry;
+        return this._retry != null;
     }
 
     /**
@@ -572,7 +580,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasTimeout(
     ) {
-        return this._has_timeout;
+        return this._timeout != null;
     }
 
     /**
@@ -934,9 +942,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param retry the value of field 'retry'.
      */
     public void setRetry(
-            final int retry) {
+            final Integer retry) {
         this._retry = retry;
-        this._has_retry = true;
     }
 
     /**
@@ -1006,9 +1013,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param timeout the value of field 'timeout'.
      */
     public void setTimeout(
-            final int timeout) {
+            final Integer timeout) {
         this._timeout = timeout;
-        this._has_timeout = true;
     }
 
     /**

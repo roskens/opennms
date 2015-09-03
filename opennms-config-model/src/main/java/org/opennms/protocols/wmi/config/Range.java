@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="range")
@@ -62,11 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Starting IP address of the range.
      */
+    @XmlAttribute(name="begin")
     private java.lang.String _begin;
 
     /**
      * Ending IP address of the range.
      */
+    @XmlAttribute(name="end")
     private java.lang.String _end;
 
 
