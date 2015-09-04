@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="title")
@@ -62,31 +64,31 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _value.
      */
+    @XmlAttribute(name="value")
     private java.lang.String _value;
 
     /**
      * Field _font.
      */
+    @XmlAttribute(name="font")
     private java.lang.String _font;
 
     /**
      * Field _pitch.
      */
-    private int _pitch;
-
-    /**
-     * keeps track of state for field: _pitch
-     */
-    private boolean _has_pitch;
+    @XmlAttribute(name="pitch")
+    private Integer _pitch;
 
     /**
      * Field _style.
      */
+    @XmlAttribute(name="style")
     private java.lang.String _style;
 
     /**
      * Field _rgb.
      */
+    @XmlElement(name="rgb")
     private org.opennms.netmgt.config.charts.Rgb _rgb;
 
 
@@ -107,7 +109,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deletePitch(
     ) {
-        this._has_pitch= false;
+        this._pitch= null;
     }
 
     /**
@@ -139,9 +141,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._font != null)
                 return false;
-            if (this._pitch != temp._pitch)
-                return false;
-            if (this._has_pitch != temp._has_pitch)
+            if (this._pitch != null) {
+                if (temp._pitch == null) return false;
+                else if (!(this._pitch.equals(temp._pitch)))
+                    return false;
+            }
+            else if (temp._pitch != null)
                 return false;
             if (this._style != null) {
                 if (temp._style == null) return false;
@@ -177,7 +182,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Pitch'.
      */
-    public int getPitch(
+    public Integer getPitch(
     ) {
         return this._pitch;
     }
@@ -219,7 +224,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasPitch(
     ) {
-        return this._has_pitch;
+        return this._pitch != null;
     }
 
     /**
@@ -242,7 +247,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_font != null) {
            result = 37 * result + _font.hashCode();
         }
-        result = 37 * result + _pitch;
+        if (_pitch != null) {
+           result = 37 * result + _pitch.hashCode();
+        }
         if (_style != null) {
            result = 37 * result + _style.hashCode();
         }
@@ -316,9 +323,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param pitch the value of field 'pitch'.
      */
     public void setPitch(
-            final int pitch) {
+            final Integer pitch) {
         this._pitch = pitch;
-        this._has_pitch = true;
     }
 
     /**

@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="hz-size")
@@ -62,13 +63,8 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _pixels.
      */
-    private int _pixels;
-
-    /**
-     * keeps track of state for field: _pixels
-     */
-    private boolean _has_pixels;
-
+    @XmlElement(name="pixels")
+    private Integer _pixels;
 
       //----------------/
      //- Constructors -/
@@ -87,7 +83,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deletePixels(
     ) {
-        this._has_pixels= false;
+        this._pixels= null;
     }
 
     /**
@@ -105,9 +101,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof HzSize) {
 
             HzSize temp = (HzSize)obj;
-            if (this._pixels != temp._pixels)
-                return false;
-            if (this._has_pixels != temp._has_pixels)
+            if (this._pixels != null) {
+                if (temp._pixels == null) return false;
+                else if (!(this._pixels.equals(temp._pixels)))
+                    return false;
+            }
+            else if (temp._pixels != null)
                 return false;
             return true;
         }
@@ -119,7 +118,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Pixels'.
      */
-    public int getPixels(
+    public Integer getPixels(
     ) {
         return this._pixels;
     }
@@ -131,7 +130,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasPixels(
     ) {
-        return this._has_pixels;
+        return this._pixels != null;
     }
 
     /**
@@ -206,9 +205,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param pixels the value of field 'pixels'.
      */
     public void setPixels(
-            final int pixels) {
+            final Integer pixels) {
         this._pixels = pixels;
-        this._has_pixels = true;
     }
 
     /**

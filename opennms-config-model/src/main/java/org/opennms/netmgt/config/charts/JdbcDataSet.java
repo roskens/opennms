@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="jdbc-data-set")
@@ -62,11 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _dbName.
      */
+    @XmlAttribute(name="db-name", required = true)
     private java.lang.String _dbName;
 
     /**
      * Field _sql.
      */
+    @XmlAttribute(name="sql", required = true)
     private java.lang.String _sql;
 
 

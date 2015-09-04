@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="rgb")
@@ -62,16 +63,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _red.
      */
+    @XmlElement(name="red")
     private org.opennms.netmgt.config.charts.Red _red;
 
     /**
      * Field _green.
      */
+    @XmlElement(name="green")
     private org.opennms.netmgt.config.charts.Green _green;
 
     /**
      * Field _blue.
      */
+    @XmlElement(name="blue")
     private org.opennms.netmgt.config.charts.Blue _blue;
 
 

@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="bar-chart")
@@ -62,111 +64,109 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _domainAxisLabel.
      */
+    @XmlAttribute(name="domain-axis-label", required = true)
     private java.lang.String _domainAxisLabel;
 
     /**
      * Field _rangeAxisLabel.
      */
+    @XmlAttribute(name="range-axis-label", required = true)
     private java.lang.String _rangeAxisLabel;
 
     /**
      * Field _subLabelClass.
      */
+    @XmlAttribute(name="sub-label-class")
     private java.lang.String _subLabelClass;
 
     /**
      * Field _seriesColorClass.
      */
+    @XmlAttribute(name="series-color-class")
     private java.lang.String _seriesColorClass;
 
     /**
      * Field _drawBarOutline.
      */
-    private boolean _drawBarOutline = true;
-
-    /**
-     * keeps track of state for field: _drawBarOutline
-     */
-    private boolean _has_drawBarOutline;
+    @XmlAttribute(name="draw-bar-outline")
+    private Boolean _drawBarOutline = true;
 
     /**
      * Field _showLegend.
      */
-    private boolean _showLegend = true;
-
-    /**
-     * keeps track of state for field: _showLegend
-     */
-    private boolean _has_showLegend;
+    @XmlAttribute(name="show-legend")
+    private Boolean _showLegend = true;
 
     /**
      * Field _showToolTips.
      */
-    private boolean _showToolTips = false;
-
-    /**
-     * keeps track of state for field: _showToolTips
-     */
-    private boolean _has_showToolTips;
+    @XmlAttribute(name="show-tool-tips")
+    private Boolean _showToolTips = false;
 
     /**
      * Field _showUrls.
      */
-    private boolean _showUrls = false;
-
-    /**
-     * keeps track of state for field: _showUrls
-     */
-    private boolean _has_showUrls;
+    @XmlAttribute(name="show-urls")
+    private Boolean _showUrls = false;
 
     /**
      * Field _variation.
      */
+    @XmlAttribute(name="variation")
     private java.lang.String _variation;
 
     /**
      * Field _plotOrientation.
      */
+    @XmlAttribute(name="plot-orientation")
     private java.lang.String _plotOrientation;
 
     /**
      * Field _title.
      */
+    @XmlElement(name="title")
     private org.opennms.netmgt.config.charts.Title _title;
 
     /**
      * Field _imageSize.
      */
+    @XmlElement(name="image-size")
     private org.opennms.netmgt.config.charts.ImageSize _imageSize;
 
     /**
      * Field _subTitleList.
      */
+    @XmlElement(name="sub-title")
     private java.util.List<org.opennms.netmgt.config.charts.SubTitle> _subTitleList;
 
     /**
      * Field _gridLines.
      */
+    @XmlElement(name="grid-lines")
     private org.opennms.netmgt.config.charts.GridLines _gridLines;
 
     /**
      * Field _seriesDefList.
      */
+    @XmlElement(name="series-def")
     private java.util.List<org.opennms.netmgt.config.charts.SeriesDef> _seriesDefList;
 
     /**
      * Field _plotBackgroundColor.
      */
+    @XmlElement(name="plot-background-color")
     private org.opennms.netmgt.config.charts.PlotBackgroundColor _plotBackgroundColor;
 
     /**
      * Field _chartBackgroundColor.
      */
+    @XmlElement(name="chart-background-color")
     private org.opennms.netmgt.config.charts.ChartBackgroundColor _chartBackgroundColor;
 
 
@@ -245,28 +245,28 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteDrawBarOutline(
     ) {
-        this._has_drawBarOutline= false;
+        this._drawBarOutline = null;
     }
 
     /**
      */
     public void deleteShowLegend(
     ) {
-        this._has_showLegend= false;
+        this._showLegend= null;
     }
 
     /**
      */
     public void deleteShowToolTips(
     ) {
-        this._has_showToolTips= false;
+        this._showToolTips= null;
     }
 
     /**
      */
     public void deleteShowUrls(
     ) {
-        this._has_showUrls= false;
+        this._showUrls= null;
     }
 
     /**
@@ -341,21 +341,33 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._seriesColorClass != null)
                 return false;
-            if (this._drawBarOutline != temp._drawBarOutline)
+            if (this._drawBarOutline != null) {
+                if (temp._drawBarOutline == null) return false;
+                else if (!(this._drawBarOutline.equals(temp._drawBarOutline)))
+                    return false;
+            }
+            else if (temp._drawBarOutline != null)
                 return false;
-            if (this._has_drawBarOutline != temp._has_drawBarOutline)
+            if (this._showLegend != null) {
+                if (temp._showLegend == null) return false;
+                else if (!(this._showLegend.equals(temp._showLegend)))
+                    return false;
+            }
+            else if (temp._showLegend != null)
                 return false;
-            if (this._showLegend != temp._showLegend)
+            if (this._showToolTips != null) {
+                if (temp._showToolTips == null) return false;
+                else if (!(this._showToolTips.equals(temp._showToolTips)))
+                    return false;
+            }
+            else if (temp._showToolTips != null)
                 return false;
-            if (this._has_showLegend != temp._has_showLegend)
-                return false;
-            if (this._showToolTips != temp._showToolTips)
-                return false;
-            if (this._has_showToolTips != temp._has_showToolTips)
-                return false;
-            if (this._showUrls != temp._showUrls)
-                return false;
-            if (this._has_showUrls != temp._has_showUrls)
+            if (this._showUrls != null) {
+                if (temp._showUrls == null) return false;
+                else if (!(this._showUrls.equals(temp._showUrls)))
+                    return false;
+            }
+            else if (temp._showUrls != null)
                 return false;
             if (this._variation != null) {
                 if (temp._variation == null) return false;
@@ -704,9 +716,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one DrawBarOutline has been added
      */
-    public boolean hasDrawBarOutline(
+    public Boolean hasDrawBarOutline(
     ) {
-        return this._has_drawBarOutline;
+        return this._drawBarOutline != null;
     }
 
     /**
@@ -716,7 +728,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasShowLegend(
     ) {
-        return this._has_showLegend;
+        return this._showLegend != null;
     }
 
     /**
@@ -726,7 +738,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasShowToolTips(
     ) {
-        return this._has_showToolTips;
+        return this._showToolTips != null;
     }
 
     /**
@@ -736,7 +748,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasShowUrls(
     ) {
-        return this._has_showUrls;
+        return this._showUrls != null;
     }
 
     /**
@@ -768,10 +780,18 @@ import org.opennms.core.xml.ValidateUsing;
         if (_seriesColorClass != null) {
            result = 37 * result + _seriesColorClass.hashCode();
         }
-        result = 37 * result + (_drawBarOutline?0:1);
-        result = 37 * result + (_showLegend?0:1);
-        result = 37 * result + (_showToolTips?0:1);
-        result = 37 * result + (_showUrls?0:1);
+        if (_drawBarOutline != null) {
+           result = 37 * result + _drawBarOutline.hashCode();
+        }
+        if (_showLegend != null) {
+           result = 37 * result + _showLegend.hashCode();
+        }
+        if (_showToolTips != null) {
+           result = 37 * result + _showToolTips.hashCode();
+        }
+        if (_showUrls != null) {
+           result = 37 * result + _showUrls.hashCode();
+        }
         if (_variation != null) {
            result = 37 * result + _variation.hashCode();
         }
@@ -808,7 +828,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DrawBarOutline'.
      */
-    public boolean isDrawBarOutline(
+    public Boolean isDrawBarOutline(
     ) {
         return this._drawBarOutline;
     }
@@ -818,7 +838,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowLegend'.
      */
-    public boolean isShowLegend(
+    public Boolean isShowLegend(
     ) {
         return this._showLegend;
     }
@@ -828,7 +848,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowToolTips'.
      */
-    public boolean isShowToolTips(
+    public Boolean isShowToolTips(
     ) {
         return this._showToolTips;
     }
@@ -838,7 +858,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowUrls'.
      */
-    public boolean isShowUrls(
+    public Boolean isShowUrls(
     ) {
         return this._showUrls;
     }
@@ -1001,9 +1021,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param drawBarOutline the value of field 'drawBarOutline'.
      */
     public void setDrawBarOutline(
-            final boolean drawBarOutline) {
+            final Boolean drawBarOutline) {
         this._drawBarOutline = drawBarOutline;
-        this._has_drawBarOutline = true;
     }
 
     /**
@@ -1144,9 +1163,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param showLegend the value of field 'showLegend'.
      */
     public void setShowLegend(
-            final boolean showLegend) {
+            final Boolean showLegend) {
         this._showLegend = showLegend;
-        this._has_showLegend = true;
     }
 
     /**
@@ -1155,9 +1173,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param showToolTips the value of field 'showToolTips'.
      */
     public void setShowToolTips(
-            final boolean showToolTips) {
+            final Boolean showToolTips) {
         this._showToolTips = showToolTips;
-        this._has_showToolTips = true;
     }
 
     /**
@@ -1166,9 +1183,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param showUrls the value of field 'showUrls'.
      */
     public void setShowUrls(
-            final boolean showUrls) {
+            final Boolean showUrls) {
         this._showUrls = showUrls;
-        this._has_showUrls = true;
     }
 
     /**

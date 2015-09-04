@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="image-size")
@@ -62,11 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _hzSize.
      */
+    @XmlElement(name="hz-size")
     private org.opennms.netmgt.config.charts.HzSize _hzSize;
 
     /**
      * Field _vtSize.
      */
+    @XmlElement(name="vt-size")
     private org.opennms.netmgt.config.charts.VtSize _vtSize;
 
 

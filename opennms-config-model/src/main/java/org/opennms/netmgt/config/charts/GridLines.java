@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="grid-lines")
@@ -62,16 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _visible.
      */
-    private boolean _visible;
-
-    /**
-     * keeps track of state for field: _visible
-     */
-    private boolean _has_visible;
+    @XmlAttribute(name="visible")
+    private Boolean _visible;
 
     /**
      * Field _rgb.
      */
+    @XmlElement(name="rgb")
     private org.opennms.netmgt.config.charts.Rgb _rgb;
 
 
@@ -92,7 +91,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteVisible(
     ) {
-        this._has_visible= false;
+        this._visible= null;
     }
 
     /**
@@ -110,9 +109,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof GridLines) {
 
             GridLines temp = (GridLines)obj;
-            if (this._visible != temp._visible)
-                return false;
-            if (this._has_visible != temp._has_visible)
+            if (this._visible != null) {
+                if (temp._visible == null) return false;
+                else if (!(this._visible.equals(temp._visible)))
+                    return false;
+            }
+            else if (temp._visible != null)
                 return false;
             if (this._rgb != null) {
                 if (temp._rgb == null) return false;
@@ -141,7 +143,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Visible'.
      */
-    public boolean getVisible(
+    public Boolean getVisible(
     ) {
         return this._visible;
     }
@@ -153,7 +155,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasVisible(
     ) {
-        return this._has_visible;
+        return this._visible != null;
     }
 
     /**
@@ -170,7 +172,9 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (_visible?0:1);
+        if (_visible != null) {
+           result = 37 * result + _visible.hashCode();
+        }
         if (_rgb != null) {
            result = 37 * result + _rgb.hashCode();
         }
@@ -251,9 +255,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param visible the value of field 'visible'.
      */
     public void setVisible(
-            final boolean visible) {
+            final Boolean visible) {
         this._visible = visible;
-        this._has_visible = true;
     }
 
     /**

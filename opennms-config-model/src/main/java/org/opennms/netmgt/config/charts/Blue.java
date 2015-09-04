@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlValue;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="blue")
@@ -62,12 +63,8 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _rgbColor.
      */
-    private int _rgbColor;
-
-    /**
-     * keeps track of state for field: _rgbColor
-     */
-    private boolean _has_rgbColor;
+    @XmlValue
+    private Integer _rgbColor;
 
 
       //----------------/
@@ -87,7 +84,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteRgbColor(
     ) {
-        this._has_rgbColor= false;
+        this._rgbColor= null;
     }
 
     /**
@@ -105,9 +102,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof Blue) {
 
             Blue temp = (Blue)obj;
-            if (this._rgbColor != temp._rgbColor)
-                return false;
-            if (this._has_rgbColor != temp._has_rgbColor)
+            if (this._rgbColor != null) {
+                if (temp._rgbColor == null) return false;
+                else if (!(this._rgbColor.equals(temp._rgbColor)))
+                    return false;
+            }
+            else if (temp._rgbColor != null)
                 return false;
             return true;
         }
@@ -119,7 +119,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RgbColor'.
      */
-    public int getRgbColor(
+    public Integer getRgbColor(
     ) {
         return this._rgbColor;
     }
@@ -131,7 +131,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRgbColor(
     ) {
-        return this._has_rgbColor;
+        return this._rgbColor != null;
     }
 
     /**
@@ -148,7 +148,7 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _rgbColor;
+        result = 37 * result + _rgbColor.hashCode();
 
         return result;
     }
@@ -206,9 +206,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param rgbColor the value of field 'rgbColor'.
      */
     public void setRgbColor(
-            final int rgbColor) {
+            final Integer rgbColor) {
         this._rgbColor = rgbColor;
-        this._has_rgbColor = true;
     }
 
     /**

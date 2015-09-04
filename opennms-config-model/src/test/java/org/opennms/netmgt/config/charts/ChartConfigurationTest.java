@@ -50,7 +50,8 @@ public class ChartConfigurationTest extends XmlTestNoCastor<ChartConfiguration> 
 
         return Arrays.asList(new Object[][] { {
                 chartConfiguration,
-                "", /* configuration */
+                "<chart-configuration>"
+                + "</chart-configuration>", /* configuration */
                 "target/classes/xsds/chart-configuration.xsd", }, });
     }
 }

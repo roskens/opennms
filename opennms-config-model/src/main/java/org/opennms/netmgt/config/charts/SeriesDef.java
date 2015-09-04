@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="series-def")
@@ -62,12 +63,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _number.
      */
-    private int _number;
-
-    /**
-     * keeps track of state for field: _number
-     */
-    private boolean _has_number;
+    private Integer _number;
 
     /**
      * Field _seriesName.
@@ -77,21 +73,18 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _useLabels.
      */
-    private boolean _useLabels = true;
-
-    /**
-     * keeps track of state for field: _useLabels
-     */
-    private boolean _has_useLabels;
+    private Boolean _useLabels = true;
 
     /**
      * Field _jdbcDataSet.
      */
+    @XmlElement(name="jdbc-data-set")
     private org.opennms.netmgt.config.charts.JdbcDataSet _jdbcDataSet;
 
     /**
      * Field _rgb.
      */
+    @XmlElement(name="rgb")
     private org.opennms.netmgt.config.charts.Rgb _rgb;
 
 
@@ -112,14 +105,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteNumber(
     ) {
-        this._has_number= false;
+        this._number= null;
     }
 
     /**
      */
     public void deleteUseLabels(
     ) {
-        this._has_useLabels= false;
+        this._useLabels= null;
     }
 
     /**
@@ -137,9 +130,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof SeriesDef) {
 
             SeriesDef temp = (SeriesDef)obj;
-            if (this._number != temp._number)
-                return false;
-            if (this._has_number != temp._has_number)
+            if (this._number != null) {
+                if (temp._number == null) return false;
+                else if (!(this._number.equals(temp._number)))
+                    return false;
+            }
+            else if (temp._number != null)
                 return false;
             if (this._seriesName != null) {
                 if (temp._seriesName == null) return false;
@@ -148,9 +144,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._seriesName != null)
                 return false;
-            if (this._useLabels != temp._useLabels)
-                return false;
-            if (this._has_useLabels != temp._has_useLabels)
+            if (this._useLabels != null) {
+                if (temp._useLabels == null) return false;
+                else if (!(this._useLabels.equals(temp._useLabels)))
+                    return false;
+            }
+            else if (temp._useLabels != null)
                 return false;
             if (this._jdbcDataSet != null) {
                 if (temp._jdbcDataSet == null) return false;
@@ -186,7 +185,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Number'.
      */
-    public int getNumber(
+    public Integer getNumber(
     ) {
         return this._number;
     }
@@ -216,7 +215,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseLabels'.
      */
-    public boolean getUseLabels(
+    public Boolean getUseLabels(
     ) {
         return this._useLabels;
     }
@@ -228,7 +227,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNumber(
     ) {
-        return this._has_number;
+        return this._number != null;
     }
 
     /**
@@ -238,7 +237,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUseLabels(
     ) {
-        return this._has_useLabels;
+        return this._useLabels != null;
     }
 
     /**
@@ -254,12 +253,15 @@ import org.opennms.core.xml.ValidateUsing;
     ) {
         int result = 17;
 
-        long tmp;
-        result = 37 * result + _number;
+        if (_number != null) {
+           result = 37 * result + _number.hashCode();
+        }
         if (_seriesName != null) {
            result = 37 * result + _seriesName.hashCode();
         }
-        result = 37 * result + (_useLabels?0:1);
+        if (_useLabels != null) {
+           result = 37 * result + _useLabels.hashCode();
+        }
         if (_jdbcDataSet != null) {
            result = 37 * result + _jdbcDataSet.hashCode();
         }
@@ -275,7 +277,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseLabels'.
      */
-    public boolean isUseLabels(
+    public Boolean isUseLabels(
     ) {
         return this._useLabels;
     }
@@ -343,9 +345,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param number the value of field 'number'.
      */
     public void setNumber(
-            final int number) {
+            final Integer number) {
         this._number = number;
-        this._has_number = true;
     }
 
     /**
@@ -374,9 +375,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param useLabels the value of field 'useLabels'.
      */
     public void setUseLabels(
-            final boolean useLabels) {
+            final Boolean useLabels) {
         this._useLabels = useLabels;
-        this._has_useLabels = true;
     }
 
     /**

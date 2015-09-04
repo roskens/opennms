@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="sub-title")
@@ -62,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _position.
      */
+    @XmlAttribute(name="position")
     private java.lang.String _position;
 
     /**
      * Field _horizontalAlignment.
      */
+    @XmlAttribute(name="horizontal-alignment")
     private java.lang.String _horizontalAlignment;
 
     /**
      * Field _title.
      */
+    @XmlElement(name="title")
     private org.opennms.netmgt.config.charts.Title _title;
 
 
