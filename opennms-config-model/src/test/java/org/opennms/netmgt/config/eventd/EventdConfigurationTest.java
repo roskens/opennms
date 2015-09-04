@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.eventd;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,27 @@ public class EventdConfigurationTest extends XmlTestNoCastor<EventdConfiguration
     public static Collection<Object[]> data() throws ParseException {
 
         EventdConfiguration eventdConfiguration = new EventdConfiguration();
+        eventdConfiguration.setTCPAddress("127.0.0.1");
+        eventdConfiguration.setTCPPort(5817);
+        eventdConfiguration.setUDPAddress("127.0.0.1");
+        eventdConfiguration.setUDPPort(5817);
+        eventdConfiguration.setReceivers(5);
+        eventdConfiguration.setGetNextEventID("SELECT nextval('eventsNxtId')");
+        eventdConfiguration.setSocketSoTimeoutPeriod(3000);
+        eventdConfiguration.setSocketSoTimeoutRequired("yes");
 
         return Arrays.asList(new Object[][] { {
                 eventdConfiguration,
-                "", /* configuration */
+                "<EventdConfiguration\n" +
+"        TCPAddress=\"127.0.0.1\"\n" +
+"        TCPPort=\"5817\"\n" +
+"        UDPAddress=\"127.0.0.1\"\n" +
+"        UDPPort=\"5817\"\n" +
+"        receivers=\"5\"\n" +
+"        getNextEventID=\"SELECT nextval('eventsNxtId')\"\n" +
+"        socketSoTimeoutRequired=\"yes\"\n" +
+"        socketSoTimeoutPeriod=\"3000\">\n" +
+"</EventdConfiguration>", /* configuration */
                 "target/classes/xsds/eventd-configuration.xsd", }, });
     }
 }

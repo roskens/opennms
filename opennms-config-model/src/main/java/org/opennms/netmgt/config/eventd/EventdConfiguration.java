@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="eventdConfiguration")
@@ -66,18 +67,15 @@ import org.opennms.core.xml.ValidateUsing;
      * default
      *  address is 127.0.0.1.
      */
-    private java.lang.String _TCPAddress = "127.0.0.1";
+    @XmlAttribute(name="TCPAddress")
+    private java.lang.String _TCPAddress;
 
     /**
      * The port on which eventd listens for TCP connections.
      *  The default port is 5817.
      */
-    private int _TCPPort;
-
-    /**
-     * keeps track of state for field: _TCPPort
-     */
-    private boolean _has_TCPPort;
+    @XmlAttribute(name="TCPPort")
+    private Integer _TCPPort;
 
     /**
      * The IP address on which eventd listens for UDP packets.
@@ -85,40 +83,27 @@ import org.opennms.core.xml.ValidateUsing;
      * default
      *  address is 127.0.0.1.
      */
-    private java.lang.String _UDPAddress = "127.0.0.1";
+    @XmlAttribute(name="UDPAddress")
+    private java.lang.String _UDPAddress;
 
     /**
      * The port on which eventd listens for UDP packets. The
      *  default port is 5817.
      */
-    private int _UDPPort;
-
-    /**
-     * keeps track of state for field: _UDPPort
-     */
-    private boolean _has_UDPPort;
+    @XmlAttribute(name="UDPPort")
+    private Integer _UDPPort;
 
     /**
      * The maximum number of threads used for reading and
      *  processing of incoming events.
      */
-    private int _receivers;
-
-    /**
-     * keeps track of state for field: _receivers
-     */
-    private boolean _has_receivers;
+    private Integer _receivers;
 
     /**
      * The maximum number of incoming events that can be
      *  queued inside eventd for processing.
      */
-    private int _queueLength;
-
-    /**
-     * keeps track of state for field: _queueLength
-     */
-    private boolean _has_queueLength;
+    private Integer _queueLength;
 
     /**
      * SQL query to get next value of the 'nodeNxtId'
@@ -142,12 +127,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  eventd's sockets if socketSoTimeoutRequired is set to
      *  'yes'.
      */
-    private int _socketSoTimeoutPeriod;
-
-    /**
-     * keeps track of state for field: _socketSoTimeoutPeriod
-     */
-    private boolean _has_socketSoTimeoutPeriod;
+    private Integer _socketSoTimeoutPeriod;
 
     /**
      * Whether or not to log a simple event summary. By default,
@@ -157,13 +137,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  it will additionally log a simple summary of events
      * received at INFO.
      */
-    private boolean _logEventSummaries = true;
-
-    /**
-     * keeps track of state for field: _logEventSummaries
-     */
-    private boolean _has_logEventSummaries;
-
+    private Boolean _logEventSummaries;
 
       //----------------/
      //- Constructors -/
@@ -171,8 +145,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public EventdConfiguration() {
         super();
-        setTCPAddress("127.0.0.1");
-        setUDPAddress("127.0.0.1");
     }
 
 
@@ -184,42 +156,42 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteLogEventSummaries(
     ) {
-        this._has_logEventSummaries= false;
+        this._logEventSummaries = null;
     }
 
     /**
      */
     public void deleteQueueLength(
     ) {
-        this._has_queueLength= false;
+        this._queueLength = null;
     }
 
     /**
      */
     public void deleteReceivers(
     ) {
-        this._has_receivers= false;
+        this._receivers = null;
     }
 
     /**
      */
     public void deleteSocketSoTimeoutPeriod(
     ) {
-        this._has_socketSoTimeoutPeriod= false;
+        this._socketSoTimeoutPeriod = null;
     }
 
     /**
      */
     public void deleteTCPPort(
     ) {
-        this._has_TCPPort= false;
+        this._TCPPort = null;
     }
 
     /**
      */
     public void deleteUDPPort(
     ) {
-        this._has_UDPPort= false;
+        this._UDPPort = null;
     }
 
     /**
@@ -244,9 +216,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._TCPAddress != null)
                 return false;
-            if (this._TCPPort != temp._TCPPort)
-                return false;
-            if (this._has_TCPPort != temp._has_TCPPort)
+            if (this._TCPPort != null) {
+                if (temp._TCPPort == null) return false;
+                else if (!(this._TCPPort.equals(temp._TCPPort)))
+                    return false;
+            }
+            else if (temp._TCPPort != null)
                 return false;
             if (this._UDPAddress != null) {
                 if (temp._UDPAddress == null) return false;
@@ -255,17 +230,26 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._UDPAddress != null)
                 return false;
-            if (this._UDPPort != temp._UDPPort)
+            if (this._UDPPort != null) {
+                if (temp._UDPPort == null) return false;
+                else if (!(this._UDPPort.equals(temp._UDPPort)))
+                    return false;
+            }
+            else if (temp._UDPPort != null)
                 return false;
-            if (this._has_UDPPort != temp._has_UDPPort)
+            if (this._receivers != null) {
+                if (temp._receivers == null) return false;
+                else if (!(this._receivers.equals(temp._receivers)))
+                    return false;
+            }
+            else if (temp._receivers != null)
                 return false;
-            if (this._receivers != temp._receivers)
-                return false;
-            if (this._has_receivers != temp._has_receivers)
-                return false;
-            if (this._queueLength != temp._queueLength)
-                return false;
-            if (this._has_queueLength != temp._has_queueLength)
+            if (this._queueLength != null) {
+                if (temp._queueLength == null) return false;
+                else if (!(this._queueLength.equals(temp._queueLength)))
+                    return false;
+            }
+            else if (temp._queueLength != null)
                 return false;
             if (this._getNextEventID != null) {
                 if (temp._getNextEventID == null) return false;
@@ -281,13 +265,19 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._socketSoTimeoutRequired != null)
                 return false;
-            if (this._socketSoTimeoutPeriod != temp._socketSoTimeoutPeriod)
+            if (this._socketSoTimeoutPeriod != null) {
+                if (temp._socketSoTimeoutPeriod == null) return false;
+                else if (!(this._socketSoTimeoutPeriod.equals(temp._socketSoTimeoutPeriod)))
+                    return false;
+            }
+            else if (temp._socketSoTimeoutPeriod != null)
                 return false;
-            if (this._has_socketSoTimeoutPeriod != temp._has_socketSoTimeoutPeriod)
-                return false;
-            if (this._logEventSummaries != temp._logEventSummaries)
-                return false;
-            if (this._has_logEventSummaries != temp._has_logEventSummaries)
+            if (this._logEventSummaries != null) {
+                if (temp._logEventSummaries == null) return false;
+                else if (!(this._logEventSummaries.equals(temp._logEventSummaries)))
+                    return false;
+            }
+            else if (temp._logEventSummaries != null)
                 return false;
             return true;
         }
@@ -319,7 +309,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'LogEventSummaries'.
      */
-    public boolean getLogEventSummaries(
+    public Boolean getLogEventSummaries(
     ) {
         return this._logEventSummaries;
     }
@@ -332,7 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'QueueLength'.
      */
-    public int getQueueLength(
+    public Integer getQueueLength(
     ) {
         return this._queueLength;
     }
@@ -345,7 +335,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Receivers'.
      */
-    public int getReceivers(
+    public Integer getReceivers(
     ) {
         return this._receivers;
     }
@@ -359,7 +349,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SocketSoTimeoutPeriod'.
      */
-    public int getSocketSoTimeoutPeriod(
+    public Integer getSocketSoTimeoutPeriod(
     ) {
         return this._socketSoTimeoutPeriod;
     }
@@ -394,7 +384,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getTCPAddress(
     ) {
-        return this._TCPAddress;
+        return this._TCPAddress == null ? "127.0.0.1" : this._TCPAddress;
     }
 
     /**
@@ -405,9 +395,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'TCPPort'.
      */
-    public int getTCPPort(
+    public Integer getTCPPort(
     ) {
-        return this._TCPPort;
+        return this._TCPPort == null ? 5817 : this._TCPPort;
     }
 
     /**
@@ -422,7 +412,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getUDPAddress(
     ) {
-        return this._UDPAddress;
+        return this._UDPAddress == null ? "127.0.0.1" : this._UDPAddress;
     }
 
     /**
@@ -433,9 +423,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UDPPort'.
      */
-    public int getUDPPort(
+    public Integer getUDPPort(
     ) {
-        return this._UDPPort;
+        return this._UDPPort == null ? 5817 : this._UDPPort;
     }
 
     /**
@@ -445,7 +435,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasLogEventSummaries(
     ) {
-        return this._has_logEventSummaries;
+        return this._logEventSummaries != null;
     }
 
     /**
@@ -455,7 +445,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasQueueLength(
     ) {
-        return this._has_queueLength;
+        return this._queueLength != null;
     }
 
     /**
@@ -465,7 +455,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasReceivers(
     ) {
-        return this._has_receivers;
+        return this._receivers != null;
     }
 
     /**
@@ -476,7 +466,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSocketSoTimeoutPeriod(
     ) {
-        return this._has_socketSoTimeoutPeriod;
+        return this._socketSoTimeoutPeriod != null;
     }
 
     /**
@@ -486,7 +476,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasTCPPort(
     ) {
-        return this._has_TCPPort;
+        return this._TCPPort != null;
     }
 
     /**
@@ -496,7 +486,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUDPPort(
     ) {
-        return this._has_UDPPort;
+        return this._UDPPort != null;
     }
 
     /**
@@ -516,21 +506,33 @@ import org.opennms.core.xml.ValidateUsing;
         if (_TCPAddress != null) {
            result = 37 * result + _TCPAddress.hashCode();
         }
-        result = 37 * result + _TCPPort;
+        if (_TCPPort != null) {
+           result = 37 * result + _TCPPort.hashCode();
+        }
         if (_UDPAddress != null) {
            result = 37 * result + _UDPAddress.hashCode();
         }
-        result = 37 * result + _UDPPort;
-        result = 37 * result + _receivers;
-        result = 37 * result + _queueLength;
+        if (_UDPPort != null) {
+           result = 37 * result + _UDPPort.hashCode();
+        }
+        if (_receivers != null) {
+           result = 37 * result + _receivers.hashCode();
+        }
+        if (_queueLength != null) {
+           result = 37 * result + _queueLength.hashCode();
+        }
         if (_getNextEventID != null) {
            result = 37 * result + _getNextEventID.hashCode();
         }
         if (_socketSoTimeoutRequired != null) {
            result = 37 * result + _socketSoTimeoutRequired.hashCode();
         }
-        result = 37 * result + _socketSoTimeoutPeriod;
-        result = 37 * result + (_logEventSummaries?0:1);
+        if (_socketSoTimeoutPeriod != null) {
+           result = 37 * result + _socketSoTimeoutPeriod.hashCode();
+        }
+        if (_logEventSummaries != null) {
+           result = 37 * result + _logEventSummaries.hashCode();
+        }
 
         return result;
     }
@@ -625,9 +627,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'logEventSummaries'.
      */
     public void setLogEventSummaries(
-            final boolean logEventSummaries) {
+            final Boolean logEventSummaries) {
         this._logEventSummaries = logEventSummaries;
-        this._has_logEventSummaries = true;
     }
 
     /**
@@ -639,9 +640,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param queueLength the value of field 'queueLength'.
      */
     public void setQueueLength(
-            final int queueLength) {
+            final Integer queueLength) {
         this._queueLength = queueLength;
-        this._has_queueLength = true;
     }
 
     /**
@@ -653,9 +653,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param receivers the value of field 'receivers'.
      */
     public void setReceivers(
-            final int receivers) {
+            final Integer receivers) {
         this._receivers = receivers;
-        this._has_receivers = true;
     }
 
     /**
@@ -669,9 +668,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'socketSoTimeoutPeriod'.
      */
     public void setSocketSoTimeoutPeriod(
-            final int socketSoTimeoutPeriod) {
+            final Integer socketSoTimeoutPeriod) {
         this._socketSoTimeoutPeriod = socketSoTimeoutPeriod;
-        this._has_socketSoTimeoutPeriod = true;
     }
 
     /**
@@ -716,9 +714,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param TCPPort the value of field 'TCPPort'.
      */
     public void setTCPPort(
-            final int TCPPort) {
+            final Integer TCPPort) {
         this._TCPPort = TCPPort;
-        this._has_TCPPort = true;
     }
 
     /**
@@ -745,9 +742,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param UDPPort the value of field 'UDPPort'.
      */
     public void setUDPPort(
-            final int UDPPort) {
+            final Integer UDPPort) {
         this._UDPPort = UDPPort;
-        this._has_UDPPort = true;
     }
 
     /**
