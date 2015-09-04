@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="path")
@@ -62,21 +63,25 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlElement(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _initialDelay.
      */
-    private java.lang.String _initialDelay = "0s";
+    @XmlElement(name="initial-delay", defaultValue = "0s")
+    private java.lang.String _initialDelay;
 
     /**
      * Field _targetList.
      */
+    @XmlElement(name="target")
     private java.util.List<org.opennms.netmgt.config.destinationPaths.Target> _targetList;
 
     /**
      * Field _escalateList.
      */
+    @XmlElement(name="escalate")
     private java.util.List<org.opennms.netmgt.config.destinationPaths.Escalate> _escalateList;
 
 
@@ -86,7 +91,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Path() {
         super();
-        setInitialDelay("0s");
         this._targetList = new java.util.ArrayList<org.opennms.netmgt.config.destinationPaths.Target>();
         this._escalateList = new java.util.ArrayList<org.opennms.netmgt.config.destinationPaths.Escalate>();
     }
@@ -287,7 +291,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getInitialDelay(
     ) {
-        return this._initialDelay;
+        return this._initialDelay == null ? "0s" : this._initialDelay;
     }
 
     /**

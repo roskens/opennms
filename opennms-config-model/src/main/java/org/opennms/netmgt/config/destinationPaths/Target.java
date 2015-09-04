@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="target")
@@ -62,21 +64,25 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _interval.
      */
-    private java.lang.String _interval = "0s";
+    @XmlAttribute(name="interval")
+    private java.lang.String _interval;
 
     /**
      * Field _name.
      */
+    @XmlElement(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _autoNotify.
      */
+    @XmlElement(name="autoNotify")
     private java.lang.String _autoNotify;
 
     /**
      * Field _commandList.
      */
+    @XmlElement(name="command", required = true)
     private java.util.List<java.lang.String> _commandList;
 
 
@@ -86,7 +92,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Target() {
         super();
-        setInterval("0s");
         this._commandList = new java.util.ArrayList<java.lang.String>();
     }
 
@@ -255,7 +260,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getInterval(
     ) {
-        return this._interval;
+        return this._interval == null ? "0s" : this._interval;
     }
 
     /**
