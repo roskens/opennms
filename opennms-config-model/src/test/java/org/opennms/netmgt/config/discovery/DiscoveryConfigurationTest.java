@@ -50,7 +50,8 @@ public class DiscoveryConfigurationTest extends XmlTestNoCastor<DiscoveryConfigu
 
         return Arrays.asList(new Object[][] { {
                 discoveryConfiguration,
-                "", /* configuration */
+                "<discovery-configuration>"
+                + "</discovery-configuration>", /* configuration */
                 "target/classes/xsds/discovery-configuration.xsd", }, });
     }
 }

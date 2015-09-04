@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="discovery-configuration")
@@ -64,34 +66,22 @@ import org.opennms.core.xml.ValidateUsing;
      * the number of threads to be used for
      *  discovery
      */
-    private int _threads;
-
-    /**
-     * keeps track of state for field: _threads
-     */
-    private boolean _has_threads;
+    @XmlAttribute(name="threads", required = true)
+    private Integer _threads;
 
     /**
      * the total number of ping packets sent per second from
      *  OpenNMS for discovery
      */
-    private int _packetsPerSecond;
-
-    /**
-     * keeps track of state for field: _packetsPerSecond
-     */
-    private boolean _has_packetsPerSecond;
+    @XmlAttribute(name="packets-per-second", required = true)
+    private Integer _packetsPerSecond;
 
     /**
      * The initial pause (in milliseconds) after discovery
      *  starts up before discovery is started.
      */
-    private long _initialSleepTime;
-
-    /**
-     * keeps track of state for field: _initialSleepTime
-     */
-    private boolean _has_initialSleepTime;
+    @XmlAttribute(name="initial-sleep-time", required = true)
+    private Long _initialSleepTime;
 
     /**
      * The pause (in milliseconds) between discovery passes.
@@ -101,12 +91,8 @@ import org.opennms.core.xml.ValidateUsing;
      * another
      *  sweep.
      */
-    private long _restartSleepTime;
-
-    /**
-     * keeps track of state for field: _restartSleepTime
-     */
-    private boolean _has_restartSleepTime;
+    @XmlAttribute(name="restart-sleep-time", required = true)
+    private Long _restartSleepTime;
 
     /**
      * The default number of times a ping is retried for an
@@ -118,12 +104,8 @@ import org.opennms.core.xml.ValidateUsing;
      * addresses or
      *  sets of addresses that are configured in this file.
      */
-    private int _retries;
-
-    /**
-     * keeps track of state for field: _retries
-     */
-    private boolean _has_retries;
+    @XmlAttribute(name="retries")
+    private Integer _retries;
 
     /**
      * The default timeout on each poll. This timeout is a
@@ -131,38 +113,39 @@ import org.opennms.core.xml.ValidateUsing;
      * sets of
      *  addresses that are configured in this file.
      */
-    private long _timeout;
-
-    /**
-     * keeps track of state for field: _timeout
-     */
-    private boolean _has_timeout;
+    @XmlAttribute(name="timeout")
+    private Long _timeout;
 
     /**
      * Field _foreignSource.
      */
+    @XmlAttribute(name="foreign-source")
     private java.lang.String _foreignSource;
 
     /**
      * the specific addresses to be polled
      */
+    @XmlElement(name="specific")
     private java.util.List<org.opennms.netmgt.config.discovery.Specific> _specificList;
 
     /**
      * the range of addresses to be polled
      */
+    @XmlElement(name="include-range")
     private java.util.List<org.opennms.netmgt.config.discovery.IncludeRange> _includeRangeList;
 
     /**
      * the range of addresses to be excluded from the
      *  polling
      */
+    @XmlElement(name="exclude-range")
     private java.util.List<org.opennms.netmgt.config.discovery.ExcludeRange> _excludeRangeList;
 
     /**
      * a file URL holding specific addresses to be
      *  polled
      */
+    @XmlElement(name="include-url")
     private java.util.List<org.opennms.netmgt.config.discovery.IncludeUrl> _includeUrlList;
 
 
@@ -299,42 +282,42 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteInitialSleepTime(
     ) {
-        this._has_initialSleepTime= false;
+        this._initialSleepTime= null;
     }
 
     /**
      */
     public void deletePacketsPerSecond(
     ) {
-        this._has_packetsPerSecond= false;
+        this._packetsPerSecond= null;
     }
 
     /**
      */
     public void deleteRestartSleepTime(
     ) {
-        this._has_restartSleepTime= false;
+        this._restartSleepTime= null;
     }
 
     /**
      */
     public void deleteRetries(
     ) {
-        this._has_retries= false;
+        this._retries= null;
     }
 
     /**
      */
     public void deleteThreads(
     ) {
-        this._has_threads= false;
+        this._threads= null;
     }
 
     /**
      */
     public void deleteTimeout(
     ) {
-        this._has_timeout= false;
+        this._timeout= null;
     }
 
     /**
@@ -396,29 +379,47 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof DiscoveryConfiguration) {
 
             DiscoveryConfiguration temp = (DiscoveryConfiguration)obj;
-            if (this._threads != temp._threads)
+            if (this._threads != null) {
+                if (temp._threads == null) return false;
+                else if (!(this._threads.equals(temp._threads)))
+                    return false;
+            }
+            else if (temp._threads != null)
                 return false;
-            if (this._has_threads != temp._has_threads)
+            if (this._packetsPerSecond != null) {
+                if (temp._packetsPerSecond == null) return false;
+                else if (!(this._packetsPerSecond.equals(temp._packetsPerSecond)))
+                    return false;
+            }
+            else if (temp._packetsPerSecond != null)
                 return false;
-            if (this._packetsPerSecond != temp._packetsPerSecond)
+            if (this._initialSleepTime != null) {
+                if (temp._initialSleepTime == null) return false;
+                else if (!(this._initialSleepTime.equals(temp._initialSleepTime)))
+                    return false;
+            }
+            else if (temp._initialSleepTime != null)
                 return false;
-            if (this._has_packetsPerSecond != temp._has_packetsPerSecond)
+            if (this._restartSleepTime != null) {
+                if (temp._restartSleepTime == null) return false;
+                else if (!(this._restartSleepTime.equals(temp._restartSleepTime)))
+                    return false;
+            }
+            else if (temp._restartSleepTime != null)
                 return false;
-            if (this._initialSleepTime != temp._initialSleepTime)
+            if (this._retries != null) {
+                if (temp._retries == null) return false;
+                else if (!(this._retries.equals(temp._retries)))
+                    return false;
+            }
+            else if (temp._retries != null)
                 return false;
-            if (this._has_initialSleepTime != temp._has_initialSleepTime)
-                return false;
-            if (this._restartSleepTime != temp._restartSleepTime)
-                return false;
-            if (this._has_restartSleepTime != temp._has_restartSleepTime)
-                return false;
-            if (this._retries != temp._retries)
-                return false;
-            if (this._has_retries != temp._has_retries)
-                return false;
-            if (this._timeout != temp._timeout)
-                return false;
-            if (this._has_timeout != temp._has_timeout)
+            if (this._timeout != null) {
+                if (temp._timeout == null) return false;
+                else if (!(this._timeout.equals(temp._timeout)))
+                    return false;
+            }
+            else if (temp._timeout != null)
                 return false;
             if (this._foreignSource != null) {
                 if (temp._foreignSource == null) return false;
@@ -654,7 +655,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'InitialSleepTime'.
      */
-    public long getInitialSleepTime(
+    public Long getInitialSleepTime(
     ) {
         return this._initialSleepTime;
     }
@@ -667,7 +668,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PacketsPerSecond'.
      */
-    public int getPacketsPerSecond(
+    public Integer getPacketsPerSecond(
     ) {
         return this._packetsPerSecond;
     }
@@ -684,7 +685,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RestartSleepTime'.
      */
-    public long getRestartSleepTime(
+    public Long getRestartSleepTime(
     ) {
         return this._restartSleepTime;
     }
@@ -703,7 +704,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retries'.
      */
-    public int getRetries(
+    public Integer getRetries(
     ) {
         return this._retries;
     }
@@ -774,7 +775,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Threads'.
      */
-    public int getThreads(
+    public Integer getThreads(
     ) {
         return this._threads;
     }
@@ -789,7 +790,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timeout'.
      */
-    public long getTimeout(
+    public Long getTimeout(
     ) {
         return this._timeout;
     }
@@ -801,7 +802,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasInitialSleepTime(
     ) {
-        return this._has_initialSleepTime;
+        return this._initialSleepTime != null;
     }
 
     /**
@@ -811,7 +812,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasPacketsPerSecond(
     ) {
-        return this._has_packetsPerSecond;
+        return this._packetsPerSecond != null;
     }
 
     /**
@@ -821,7 +822,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRestartSleepTime(
     ) {
-        return this._has_restartSleepTime;
+        return this._restartSleepTime != null;
     }
 
     /**
@@ -831,7 +832,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRetries(
     ) {
-        return this._has_retries;
+        return this._retries != null;
     }
 
     /**
@@ -841,7 +842,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasThreads(
     ) {
-        return this._has_threads;
+        return this._threads != null;
     }
 
     /**
@@ -851,7 +852,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasTimeout(
     ) {
-        return this._has_timeout;
+        return this._timeout != null;
     }
 
     /**
@@ -868,12 +869,24 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _threads;
-        result = 37 * result + _packetsPerSecond;
-        result = 37 * result + (int)(_initialSleepTime^(_initialSleepTime>>>32));
-        result = 37 * result + (int)(_restartSleepTime^(_restartSleepTime>>>32));
-        result = 37 * result + _retries;
-        result = 37 * result + (int)(_timeout^(_timeout>>>32));
+        if (_threads != null) {
+           result = 37 * result + _threads.hashCode();
+        }
+        if (_packetsPerSecond != null) {
+           result = 37 * result + _packetsPerSecond.hashCode();
+        }
+        if (_initialSleepTime != null) {
+           result = 37 * result + _initialSleepTime.hashCode();
+        }
+        if (_restartSleepTime != null) {
+           result = 37 * result + _restartSleepTime.hashCode();
+        }
+        if (_retries != null) {
+           result = 37 * result + _retries.hashCode();
+        }
+        if (_timeout != null) {
+           result = 37 * result + _timeout.hashCode();
+        }
         if (_foreignSource != null) {
            result = 37 * result + _foreignSource.hashCode();
         }
@@ -1310,9 +1323,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param initialSleepTime the value of field 'initialSleepTime'
      */
     public void setInitialSleepTime(
-            final long initialSleepTime) {
+            final Long initialSleepTime) {
         this._initialSleepTime = initialSleepTime;
-        this._has_initialSleepTime = true;
     }
 
     /**
@@ -1324,9 +1336,11 @@ import org.opennms.core.xml.ValidateUsing;
      * @param packetsPerSecond the value of field 'packetsPerSecond'
      */
     public void setPacketsPerSecond(
-            final int packetsPerSecond) {
+            final Integer packetsPerSecond) {
+        if (packetsPerSecond < 1) {
+            throw new IllegalArgumentException("Invalid number of ping packets to send per second, must be at least 1: " + packetsPerSecond);
+        }
         this._packetsPerSecond = packetsPerSecond;
-        this._has_packetsPerSecond = true;
     }
 
     /**
@@ -1342,9 +1356,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param restartSleepTime the value of field 'restartSleepTime'
      */
     public void setRestartSleepTime(
-            final long restartSleepTime) {
+            final Long restartSleepTime) {
         this._restartSleepTime = restartSleepTime;
-        this._has_restartSleepTime = true;
     }
 
     /**
@@ -1362,9 +1375,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param retries the value of field 'retries'.
      */
     public void setRetries(
-            final int retries) {
+            final Integer retries) {
         this._retries = retries;
-        this._has_retries = true;
     }
 
     /**
@@ -1437,9 +1449,11 @@ import org.opennms.core.xml.ValidateUsing;
      * @param threads the value of field 'threads'.
      */
     public void setThreads(
-            final int threads) {
+            final Integer threads) {
+        if (threads < 1) {
+            throw new IllegalArgumentException("Invalid number of threads, must be at least 1: " + threads);
+        }
         this._threads = threads;
-        this._has_threads = true;
     }
 
     /**
@@ -1453,9 +1467,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param timeout the value of field 'timeout'.
      */
     public void setTimeout(
-            final long timeout) {
+            final Long timeout) {
         this._timeout = timeout;
-        this._has_timeout = true;
     }
 
     /**
