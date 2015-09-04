@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="table")
@@ -62,26 +64,31 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _visible.
      */
-    private java.lang.String _visible = "true";
+    @XmlAttribute(name="visible")
+    private java.lang.String _visible;
 
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _key.
      */
-    private java.lang.String _key = "secondary";
+    @XmlAttribute(name="key")
+    private java.lang.String _key;
 
     /**
      * Field _joinList.
      */
+    @XmlElement(name="join")
     private java.util.List<org.opennms.netmgt.config.filter.Join> _joinList;
 
     /**
      * Field _columnList.
      */
+    @XmlElement(name="column")
     private java.util.List<org.opennms.netmgt.config.filter.Column> _columnList;
 
 
@@ -91,8 +98,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Table() {
         super();
-        setVisible("true");
-        setKey("secondary");
         this._joinList = new java.util.ArrayList<org.opennms.netmgt.config.filter.Join>();
         this._columnList = new java.util.ArrayList<org.opennms.netmgt.config.filter.Column>();
     }
@@ -356,7 +361,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getKey(
     ) {
-        return this._key;
+        return this._key == null ? "secondary" : this._key;
     }
 
     /**
@@ -376,7 +381,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getVisible(
     ) {
-        return this._visible;
+        return this._visible == null ? "true" : this._visible;
     }
 
     /**

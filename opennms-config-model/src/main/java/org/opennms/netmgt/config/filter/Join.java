@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="join")
@@ -62,21 +63,25 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _type.
      */
-    private java.lang.String _type = "inner";
+    @XmlAttribute(name="type")
+    private java.lang.String _type;
 
     /**
      * Field _column.
      */
+    @XmlAttribute(name="column", required = true)
     private java.lang.String _column;
 
     /**
      * Field _table.
      */
+    @XmlAttribute(name="table", required = true)
     private java.lang.String _table;
 
     /**
      * Field _tableColumn.
      */
+    @XmlAttribute(name="table-column", required = true)
     private java.lang.String _tableColumn;
 
 

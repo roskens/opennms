@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="column")
@@ -62,31 +64,37 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _sqlType.
      */
+    @XmlAttribute(name="sql-type")
     private java.lang.String _sqlType;
 
     /**
      * Field _javaType.
      */
+    @XmlAttribute(name="java-type")
     private java.lang.String _javaType;
 
     /**
      * Field _visible.
      */
-    private java.lang.String _visible = "true";
+    @XmlAttribute(name="visible")
+    private java.lang.String _visible;
 
     /**
      * Field _aliasList.
      */
+    @XmlElement(name="alias")
     private java.util.List<org.opennms.netmgt.config.filter.Alias> _aliasList;
 
     /**
      * Field _constraintList.
      */
+    @XmlElement(name="constraint")
     private java.util.List<org.opennms.netmgt.config.filter.Constraint> _constraintList;
 
 
@@ -96,7 +104,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Column() {
         super();
-        setVisible("true");
         this._aliasList = new java.util.ArrayList<org.opennms.netmgt.config.filter.Alias>();
         this._constraintList = new java.util.ArrayList<org.opennms.netmgt.config.filter.Constraint>();
     }
@@ -397,7 +404,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getVisible(
     ) {
-        return this._visible;
+        return this._visible == null ? "true" : this._visible;
     }
 
     /**

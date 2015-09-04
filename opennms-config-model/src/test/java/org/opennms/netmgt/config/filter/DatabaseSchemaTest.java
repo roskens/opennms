@@ -29,15 +29,25 @@
 package org.opennms.netmgt.config.filter;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class DatabaseSchemaTest extends XmlTestNoCastor<DatabaseSchema> {
+
+    private static void addTable(DatabaseSchema databaseSchema, String tableName, String[] columns, String visible) {
+        Table t = new Table();
+        t.setName(tableName);
+        t.setVisible(visible);
+        for(String column : columns) {
+            Column c = new Column();
+            c.setName(column);
+            t.addColumn(c);
+        }
+        databaseSchema.addTable(t);
+    }
 
     public DatabaseSchemaTest(final DatabaseSchema sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
@@ -47,10 +57,21 @@ public class DatabaseSchemaTest extends XmlTestNoCastor<DatabaseSchema> {
     public static Collection<Object[]> data() throws ParseException {
 
         DatabaseSchema databaseSchema = new DatabaseSchema();
+        addTable(databaseSchema, "distPoller", new String[] { "dpNumber", "dpName", "dpIP", "dpComment", "dpDiscLimit", "dpAdminState", "dpRunState" }, "false");
 
         return Arrays.asList(new Object[][] { {
                 databaseSchema,
-                "", /* configuration */
+                "<database-schema>\n" +
+"        <table name=\"distPoller\" visible=\"false\">\n" +
+"                <column name=\"dpNumber\"/>\n" +
+"                <column name=\"dpName\"/>\n" +
+"                <column name=\"dpIP\"/>\n" +
+"                <column name=\"dpComment\"/>\n" +
+"                <column name=\"dpDiscLimit\"/>\n" +
+"                <column name=\"dpAdminState\"/>\n" +
+"                <column name=\"dpRunState\"/>\n" +
+"        </table>\n" +
+"</database-schema>",
                 "target/classes/xsds/database-schema.xsd", }, });
     }
 }
