@@ -66,96 +66,55 @@ import org.opennms.core.xml.ValidateUsing;
      *  devices and discovery links.
      *
      */
-    private int _threads;
-
-    /**
-     * keeps track of state for field: _threads
-     */
-    private boolean _has_threads;
+    private Integer _threads;
 
     /**
      * The initial sleep time in mill seconds before starting
      *  node Link Discovery.
      *
      */
-    private long _initial_sleep_time;
-
-    /**
-     * keeps track of state for field: _initial_sleep_time
-     */
-    private boolean _has_initial_sleep_time;
+    private Long _initial_sleep_time;
 
     /**
      * Node Link Discovery Rescan Time interval in mill seconds.
      *
      */
-    private long _rescan_interval;
-
-    /**
-     * keeps track of state for field: _rescan_interval
-     */
-    private boolean _has_rescan_interval;
+    private Long _rescan_interval;
 
     /**
      * Whether links discovery process should use
      *  cisco discovery protocol cache table.
      *
      */
-    private boolean _useCdpDiscovery = true;
-
-    /**
-     * keeps track of state for field: _useCdpDiscovery
-     */
-    private boolean _has_useCdpDiscovery;
+    private Boolean _useCdpDiscovery;
 
     /**
      * Whether links discovery process should use
      *  Bridge mib data.
      *
      */
-    private boolean _useBridgeDiscovery = true;
-
-    /**
-     * keeps track of state for field: _useBridgeDiscovery
-     */
-    private boolean _has_useBridgeDiscovery;
+    private Boolean _useBridgeDiscovery;
 
     /**
      * Whether links discovery process should use
      *  lldp mib data.
      *
      */
-    private boolean _useLldpDiscovery = true;
-
-    /**
-     * keeps track of state for field: _useLldpDiscovery
-     */
-    private boolean _has_useLldpDiscovery;
+    private Boolean _useLldpDiscovery;
 
     /**
      * Whether links discovery process should use
      *  ospf mib data.
      *
      */
-    private boolean _useOspfDiscovery = true;
-
-    /**
-     * keeps track of state for field: _useOspfDiscovery
-     */
-    private boolean _has_useOspfDiscovery;
+    private Boolean _useOspfDiscovery;
 
     /**
      * Whether links discovery process should use
      *  isis mib data.
      *
      */
-    private boolean _useIsisDiscovery = true;
-
-    /**
-     * keeps track of state for field: _useIsisDiscovery
-     */
-    private boolean _has_useIsisDiscovery;
-
+    private Boolean _useIsisDiscovery;
 
       //----------------/
      //- Constructors -/
@@ -174,56 +133,56 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteInitial_sleep_time(
     ) {
-        this._has_initial_sleep_time= false;
+        this._initial_sleep_time= null;
     }
 
     /**
      */
     public void deleteRescan_interval(
     ) {
-        this._has_rescan_interval= false;
+        this._rescan_interval= null;
     }
 
     /**
      */
     public void deleteThreads(
     ) {
-        this._has_threads= false;
+        this._threads= null;
     }
 
     /**
      */
     public void deleteUseBridgeDiscovery(
     ) {
-        this._has_useBridgeDiscovery= false;
+        this._useBridgeDiscovery= null;
     }
 
     /**
      */
     public void deleteUseCdpDiscovery(
     ) {
-        this._has_useCdpDiscovery= false;
+        this._useCdpDiscovery= null;
     }
 
     /**
      */
     public void deleteUseIsisDiscovery(
     ) {
-        this._has_useIsisDiscovery= false;
+        this._useIsisDiscovery= null;
     }
 
     /**
      */
     public void deleteUseLldpDiscovery(
     ) {
-        this._has_useLldpDiscovery= false;
+        this._useLldpDiscovery= null;
     }
 
     /**
      */
     public void deleteUseOspfDiscovery(
     ) {
-        this._has_useOspfDiscovery= false;
+        this._useOspfDiscovery= null;
     }
 
     /**
@@ -241,37 +200,61 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof EnlinkdConfiguration) {
 
             EnlinkdConfiguration temp = (EnlinkdConfiguration)obj;
-            if (this._threads != temp._threads)
+            if (this._threads != null) {
+                if (temp._threads == null) return false;
+                else if (!(this._threads.equals(temp._threads)))
+                    return false;
+            }
+            else if (temp._threads != null)
                 return false;
-            if (this._has_threads != temp._has_threads)
+            if (this._initial_sleep_time != null) {
+                if (temp._initial_sleep_time == null) return false;
+                else if (!(this._initial_sleep_time.equals(temp._initial_sleep_time)))
+                    return false;
+            }
+            else if (temp._initial_sleep_time != null)
                 return false;
-            if (this._initial_sleep_time != temp._initial_sleep_time)
+            if (this._rescan_interval != null) {
+                if (temp._rescan_interval == null) return false;
+                else if (!(this._rescan_interval.equals(temp._rescan_interval)))
+                    return false;
+            }
+            else if (temp._rescan_interval != null)
                 return false;
-            if (this._has_initial_sleep_time != temp._has_initial_sleep_time)
+            if (this._useCdpDiscovery != null) {
+                if (temp._useCdpDiscovery == null) return false;
+                else if (!(this._useCdpDiscovery.equals(temp._useCdpDiscovery)))
+                    return false;
+            }
+            else if (temp._useCdpDiscovery != null)
                 return false;
-            if (this._rescan_interval != temp._rescan_interval)
+            if (this._useBridgeDiscovery != null) {
+                if (temp._useBridgeDiscovery == null) return false;
+                else if (!(this._useBridgeDiscovery.equals(temp._useBridgeDiscovery)))
+                    return false;
+            }
+            else if (temp._useBridgeDiscovery != null)
                 return false;
-            if (this._has_rescan_interval != temp._has_rescan_interval)
+            if (this._useLldpDiscovery != null) {
+                if (temp._useLldpDiscovery == null) return false;
+                else if (!(this._useLldpDiscovery.equals(temp._useLldpDiscovery)))
+                    return false;
+            }
+            else if (temp._useLldpDiscovery != null)
                 return false;
-            if (this._useCdpDiscovery != temp._useCdpDiscovery)
+            if (this._useOspfDiscovery != null) {
+                if (temp._useOspfDiscovery == null) return false;
+                else if (!(this._useOspfDiscovery.equals(temp._useOspfDiscovery)))
+                    return false;
+            }
+            else if (temp._useOspfDiscovery != null)
                 return false;
-            if (this._has_useCdpDiscovery != temp._has_useCdpDiscovery)
-                return false;
-            if (this._useBridgeDiscovery != temp._useBridgeDiscovery)
-                return false;
-            if (this._has_useBridgeDiscovery != temp._has_useBridgeDiscovery)
-                return false;
-            if (this._useLldpDiscovery != temp._useLldpDiscovery)
-                return false;
-            if (this._has_useLldpDiscovery != temp._has_useLldpDiscovery)
-                return false;
-            if (this._useOspfDiscovery != temp._useOspfDiscovery)
-                return false;
-            if (this._has_useOspfDiscovery != temp._has_useOspfDiscovery)
-                return false;
-            if (this._useIsisDiscovery != temp._useIsisDiscovery)
-                return false;
-            if (this._has_useIsisDiscovery != temp._has_useIsisDiscovery)
+            if (this._useIsisDiscovery != null) {
+                if (temp._useIsisDiscovery == null) return false;
+                else if (!(this._useIsisDiscovery.equals(temp._useIsisDiscovery)))
+                    return false;
+            }
+            else if (temp._useIsisDiscovery != null)
                 return false;
             return true;
         }
@@ -287,7 +270,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Initial_sleep_time'.
      */
-    public long getInitial_sleep_time(
+    public Long getInitial_sleep_time(
     ) {
         return this._initial_sleep_time;
     }
@@ -300,7 +283,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rescan_interval'.
      */
-    public long getRescan_interval(
+    public Long getRescan_interval(
     ) {
         return this._rescan_interval;
     }
@@ -314,7 +297,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Threads'.
      */
-    public int getThreads(
+    public Integer getThreads(
     ) {
         return this._threads;
     }
@@ -328,9 +311,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseBridgeDiscovery'.
      */
-    public boolean getUseBridgeDiscovery(
+    public Boolean getUseBridgeDiscovery(
     ) {
-        return this._useBridgeDiscovery;
+        return this._useBridgeDiscovery == null ? true : this._useBridgeDiscovery;
     }
 
     /**
@@ -342,9 +325,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseCdpDiscovery'.
      */
-    public boolean getUseCdpDiscovery(
+    public Boolean getUseCdpDiscovery(
     ) {
-        return this._useCdpDiscovery;
+        return this._useCdpDiscovery == null ? true : this._useCdpDiscovery;
     }
 
     /**
@@ -356,9 +339,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseIsisDiscovery'.
      */
-    public boolean getUseIsisDiscovery(
+    public Boolean getUseIsisDiscovery(
     ) {
-        return this._useIsisDiscovery;
+        return this._useIsisDiscovery == null ? true : this._useIsisDiscovery;
     }
 
     /**
@@ -370,9 +353,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseLldpDiscovery'.
      */
-    public boolean getUseLldpDiscovery(
+    public Boolean getUseLldpDiscovery(
     ) {
-        return this._useLldpDiscovery;
+        return this._useLldpDiscovery == null ? true : this._useLldpDiscovery;
     }
 
     /**
@@ -384,9 +367,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseOspfDiscovery'.
      */
-    public boolean getUseOspfDiscovery(
+    public Boolean getUseOspfDiscovery(
     ) {
-        return this._useOspfDiscovery;
+        return this._useOspfDiscovery == null ? true : this._useOspfDiscovery;
     }
 
     /**
@@ -396,7 +379,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasInitial_sleep_time(
     ) {
-        return this._has_initial_sleep_time;
+        return this._initial_sleep_time != null;
     }
 
     /**
@@ -406,7 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRescan_interval(
     ) {
-        return this._has_rescan_interval;
+        return this._rescan_interval != null;
     }
 
     /**
@@ -416,7 +399,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasThreads(
     ) {
-        return this._has_threads;
+        return this._threads != null;
     }
 
     /**
@@ -426,7 +409,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUseBridgeDiscovery(
     ) {
-        return this._has_useBridgeDiscovery;
+        return this._useBridgeDiscovery != null;
     }
 
     /**
@@ -436,7 +419,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUseCdpDiscovery(
     ) {
-        return this._has_useCdpDiscovery;
+        return this._useCdpDiscovery != null;
     }
 
     /**
@@ -446,7 +429,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUseIsisDiscovery(
     ) {
-        return this._has_useIsisDiscovery;
+        return this._useIsisDiscovery != null;
     }
 
     /**
@@ -456,7 +439,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUseLldpDiscovery(
     ) {
-        return this._has_useLldpDiscovery;
+        return this._useLldpDiscovery != null;
     }
 
     /**
@@ -466,7 +449,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUseOspfDiscovery(
     ) {
-        return this._has_useOspfDiscovery;
+        return this._useOspfDiscovery != null;
     }
 
     /**
@@ -483,14 +466,30 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _threads;
-        result = 37 * result + (int)(_initial_sleep_time^(_initial_sleep_time>>>32));
-        result = 37 * result + (int)(_rescan_interval^(_rescan_interval>>>32));
-        result = 37 * result + (_useCdpDiscovery?0:1);
-        result = 37 * result + (_useBridgeDiscovery?0:1);
-        result = 37 * result + (_useLldpDiscovery?0:1);
-        result = 37 * result + (_useOspfDiscovery?0:1);
-        result = 37 * result + (_useIsisDiscovery?0:1);
+        if (_threads != null) {
+            result = 37 * result + _threads.hashCode();
+        }
+        if (_initial_sleep_time != null) {
+            result = 37 * result + _initial_sleep_time.hashCode();
+        }
+        if (_rescan_interval != null) {
+            result = 37 * result + _rescan_interval.hashCode();
+        }
+        if (_useCdpDiscovery != null) {
+            result = 37 * result + _useCdpDiscovery.hashCode();
+        }
+        if (_useBridgeDiscovery != null) {
+            result = 37 * result + _useBridgeDiscovery.hashCode();
+        }
+        if (_useLldpDiscovery != null) {
+            result = 37 * result + _useLldpDiscovery.hashCode();
+        }
+        if (_useOspfDiscovery != null) {
+            result = 37 * result + _useOspfDiscovery.hashCode();
+        }
+        if (_useIsisDiscovery != null) {
+            result = 37 * result + _useIsisDiscovery.hashCode();
+        }
 
         return result;
     }
@@ -623,9 +622,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'initial_sleep_time'.
      */
     public void setInitial_sleep_time(
-            final long initial_sleep_time) {
+            final Long initial_sleep_time) {
         this._initial_sleep_time = initial_sleep_time;
-        this._has_initial_sleep_time = true;
     }
 
     /**
@@ -637,9 +635,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param rescan_interval the value of field 'rescan_interval'.
      */
     public void setRescan_interval(
-            final long rescan_interval) {
+            final Long rescan_interval) {
         this._rescan_interval = rescan_interval;
-        this._has_rescan_interval = true;
     }
 
     /**
@@ -652,9 +649,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param threads the value of field 'threads'.
      */
     public void setThreads(
-            final int threads) {
+            final Integer threads) {
         this._threads = threads;
-        this._has_threads = true;
     }
 
     /**
@@ -668,9 +664,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'useBridgeDiscovery'.
      */
     public void setUseBridgeDiscovery(
-            final boolean useBridgeDiscovery) {
+            final Boolean useBridgeDiscovery) {
         this._useBridgeDiscovery = useBridgeDiscovery;
-        this._has_useBridgeDiscovery = true;
     }
 
     /**
@@ -683,9 +678,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param useCdpDiscovery the value of field 'useCdpDiscovery'.
      */
     public void setUseCdpDiscovery(
-            final boolean useCdpDiscovery) {
+            final Boolean useCdpDiscovery) {
         this._useCdpDiscovery = useCdpDiscovery;
-        this._has_useCdpDiscovery = true;
     }
 
     /**
@@ -698,9 +692,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param useIsisDiscovery the value of field 'useIsisDiscovery'
      */
     public void setUseIsisDiscovery(
-            final boolean useIsisDiscovery) {
+            final Boolean useIsisDiscovery) {
         this._useIsisDiscovery = useIsisDiscovery;
-        this._has_useIsisDiscovery = true;
     }
 
     /**
@@ -713,9 +706,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param useLldpDiscovery the value of field 'useLldpDiscovery'
      */
     public void setUseLldpDiscovery(
-            final boolean useLldpDiscovery) {
+            final Boolean useLldpDiscovery) {
         this._useLldpDiscovery = useLldpDiscovery;
-        this._has_useLldpDiscovery = true;
     }
 
     /**
@@ -728,9 +720,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param useOspfDiscovery the value of field 'useOspfDiscovery'
      */
     public void setUseOspfDiscovery(
-            final boolean useOspfDiscovery) {
+            final Boolean useOspfDiscovery) {
         this._useOspfDiscovery = useOspfDiscovery;
-        this._has_useOspfDiscovery = true;
     }
 
     /**

@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.enlinkd;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,26 @@ public class EnlinkdConfigurationTest extends XmlTestNoCastor<EnlinkdConfigurati
     public static Collection<Object[]> data() throws ParseException {
 
         EnlinkdConfiguration enlinkdConfiguration = new EnlinkdConfiguration();
+        enlinkdConfiguration.setInitial_sleep_time(60000L);
+        enlinkdConfiguration.setRescan_interval(86400000L);
+        enlinkdConfiguration.setThreads(5);
+        enlinkdConfiguration.setUseBridgeDiscovery(Boolean.FALSE);
+        enlinkdConfiguration.setUseCdpDiscovery(Boolean.FALSE);
+        enlinkdConfiguration.setUseIsisDiscovery(Boolean.FALSE);
+        enlinkdConfiguration.setUseLldpDiscovery(Boolean.FALSE);
+        enlinkdConfiguration.setUseOspfDiscovery(Boolean.FALSE);
 
         return Arrays.asList(new Object[][] { {
                 enlinkdConfiguration,
-                "", /* configuration */
+                "<enlinkd-configuration threads=\"5\" \n" +
+"                     initial_sleep_time=\"60000\"\n" +
+"                     rescan_interval=\"86400000\" \n" +
+"                     use-cdp-discovery=\"false\"\n" +
+"                     use-bridge-discovery=\"false\"\n" +
+"                     use-lldp-discovery=\"false\"\n" +
+"                     use-ospf-discovery=\"false\"\n" +
+"                     use-isis-discovery=\"false\"\n" +
+"                     />", /* configuration */
                 "target/classes/xsds/enlinkd-configuration.xsd", }, });
     }
 }
