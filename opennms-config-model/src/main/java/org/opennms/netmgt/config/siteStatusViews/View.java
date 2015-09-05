@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="view")
@@ -62,31 +64,40 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _tableName.
      */
-    private java.lang.String _tableName = "assets";
+    @XmlAttribute(name="table-name")
+    private java.lang.String _tableName;
+    private static final String DEFAULT_TABLE_NAME = "assets";
 
     /**
      * Field _columnName.
      */
-    private java.lang.String _columnName = "building";
+    @XmlAttribute(name="column-name")
+    private java.lang.String _columnName;
+    private static final String DEFAULT_COLUMN_NAME = "building";
 
     /**
      * Field _columnType.
      */
-    private java.lang.String _columnType = "varchar";
+    @XmlAttribute(name="column-type")
+    private java.lang.String _columnType;
+    private static final String DEFAULT_COLUMN_TYPE = "varchar";
 
     /**
      * Field _columnValue.
      */
+    @XmlAttribute(name="column-value")
     private java.lang.String _columnValue;
 
     /**
      * Field _rows.
      */
+    @XmlElement(name="rows")
     private org.opennms.netmgt.config.siteStatusViews.Rows _rows;
 
 
@@ -96,9 +107,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public View() {
         super();
-        setTableName("assets");
-        setColumnName("building");
-        setColumnType("varchar");
     }
 
 
@@ -175,7 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getColumnName(
     ) {
-        return this._columnName;
+        return this._columnName == null ? DEFAULT_COLUMN_NAME : this._columnName;
     }
 
     /**
@@ -185,7 +193,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getColumnType(
     ) {
-        return this._columnType;
+        return this._columnType == null ? DEFAULT_COLUMN_TYPE : this._columnType;
     }
 
     /**
@@ -225,7 +233,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getTableName(
     ) {
-        return this._tableName;
+        return this._tableName == null ? DEFAULT_TABLE_NAME : this._tableName;
     }
 
     /**

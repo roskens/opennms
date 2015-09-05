@@ -29,15 +29,21 @@
 package org.opennms.netmgt.config.siteStatusViews;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class SiteStatusViewConfigurationTest extends XmlTestNoCastor<SiteStatusViewConfiguration> {
+
+    private static void addRow(Rows rows, String label, String categoryName) {
+        RowDef rowDef = new RowDef();
+        rowDef.setLabel(label);
+        Category category = new Category();
+        category.setName(categoryName);
+        rows.addRowDef(rowDef);
+    }
 
     public SiteStatusViewConfigurationTest(final SiteStatusViewConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
@@ -46,11 +52,38 @@ public class SiteStatusViewConfigurationTest extends XmlTestNoCastor<SiteStatusV
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        SiteStatusViewConfiguration siteStatusViewConfiguration = new SiteStatusViewConfiguration();
+        SiteStatusViewConfiguration config = new SiteStatusViewConfiguration();
+        config.setDefaultView("default");
+        Views views = new Views();
+        View view = new View();
+        view.setName("default");
+        Rows rows = new Rows();
+        addRow(rows, "Routers", "Routers");
+        addRow(rows, "Switches", "Switches");
+        addRow(rows, "Servers", "Servers");
+        view.setRows(rows);
+        views.addView(view);
+        config.setViews(views);
 
-        return Arrays.asList(new Object[][] { {
-                siteStatusViewConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/site-status-views.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<site-status-view-configuration default-view=\"default\">\n"
+            + "  <views>\n"
+            + "    <view name=\"default\" >\n"
+            + "      <rows>\n"
+            + "        <row-def label=\"Routers\">\n"
+            + "          <category name=\"Routers\"/>\n"
+            + "        </row-def>\n"
+            + "        <row-def label=\"Switches\">\n"
+            + "          <category name=\"Switches\"/>\n"
+            + "        </row-def>\n"
+            + "        <row-def label=\"Servers\">\n"
+            + "          <category name=\"Servers\"/>\n"
+            + "        </row-def>\n"
+            + "      </rows>\n"
+            + "    </view>\n"
+            + "  </views>\n"
+            + "</site-status-view-configuration>",
+            "target/classes/xsds/site-status-views.xsd",},});
     }
 }

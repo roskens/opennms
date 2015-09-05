@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="row-def")
@@ -62,12 +64,15 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _label.
      */
+    @XmlAttribute(name="label", required = true)
     private java.lang.String _label;
 
     /**
      * Field _reportCategory.
      */
-    private java.lang.String _reportCategory = "Network Interfaces";
+    @XmlAttribute(name="report-category")
+    private java.lang.String _reportCategory;
+    private static final String DEFAULT_REPORT_CATEGORY = "Network Interfaces";
 
     /**
      * This element is used to specify OpenNMS specific categories.
@@ -80,6 +85,7 @@ import org.opennms.core.xml.ValidateUsing;
      * changed and the service layer is adapted for this behavior.
      *
      */
+    @XmlElement(name="category")
     private java.util.List<org.opennms.netmgt.config.siteStatusViews.Category> _categoryList;
 
 
@@ -89,7 +95,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public RowDef() {
         super();
-        setReportCategory("Network Interfaces");
         this._categoryList = new java.util.ArrayList<org.opennms.netmgt.config.siteStatusViews.Category>();
     }
 
@@ -253,7 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getReportCategory(
     ) {
-        return this._reportCategory;
+        return this._reportCategory == null ? DEFAULT_REPORT_CATEGORY : this._reportCategory;
     }
 
     /**
