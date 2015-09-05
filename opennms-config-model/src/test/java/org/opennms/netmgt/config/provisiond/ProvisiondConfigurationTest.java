@@ -25,14 +25,11 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.provisiond;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -46,11 +43,30 @@ public class ProvisiondConfigurationTest extends XmlTestNoCastor<ProvisiondConfi
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        ProvisiondConfiguration provisiondConfiguration = new ProvisiondConfiguration();
+        ProvisiondConfiguration config = new ProvisiondConfiguration();
+        config.setForeignSourceDir("${install.dir}/etc/foreign-sources");
+        config.setRequistionDir("${install.dir}/etc/imports");
+        config.setImportThreads(8L);
+        config.setScanThreads(10L);
+        config.setRescanThreads(10L);
+        config.setWriteThreads(8L);
+        RequisitionDef rDef = new RequisitionDef();
+        rDef.setImportName("the-import-name-to-use");
+        rDef.setImportUrlResource("vmware://ip-address-or-hostname/foreignSource-Name?parameters");
+        rDef.setCronSchedule("0 0 0 * * ? *");
+        config.addRequisitionDef(rDef);
 
-        return Arrays.asList(new Object[][] { {
-                provisiondConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/provisiond-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<provisiond-configuration"
+            + " foreign-source-dir=\"${install.dir}/etc/foreign-sources\" "
+            + " requistion-dir=\"${install.dir}/etc/imports\""
+            + " importThreads=\"8\" scanThreads=\"10\" rescanThreads=\"10\" writeThreads=\"8\" >"
+            + "<requisition-def import-name=\"the-import-name-to-use\""
+            + " import-url-resource=\"vmware://ip-address-or-hostname/foreignSource-Name?parameters\">\n"
+            + "<cron-schedule>0 0 0 * * ? *</cron-schedule>"
+            + "</requisition-def>"
+            + "</provisiond-configuration>",
+            "target/classes/xsds/provisiond-configuration.xsd",},});
     }
 }

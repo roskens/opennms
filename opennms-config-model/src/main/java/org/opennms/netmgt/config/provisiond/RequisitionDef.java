@@ -58,6 +58,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="requisition-def")
@@ -73,21 +75,26 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _importUrlResource.
      */
+    @XmlAttribute(name="import-url-resource", required = true)
     private java.lang.String _importUrlResource;
 
     /**
      * Field _importName.
      */
+    @XmlAttribute(name="import-name", required = true)
     private java.lang.String _importName;
 
     /**
      * Field _rescanExisting.
      */
-    private java.lang.String _rescanExisting = "true";
+    @XmlAttribute(name="rescan-existing")
+    private java.lang.String _rescanExisting;
+    private static final String DEFAULT_RESCAN_EXISTING = "true";
 
     /**
      * Field _cronSchedule.
      */
+    @XmlElement(name="cron-schedule")
     private java.lang.String _cronSchedule;
 
 
@@ -97,7 +104,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public RequisitionDef() {
         super();
-        setRescanExisting("true");
     }
 
 
@@ -190,7 +196,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getRescanExisting(
     ) {
-        return this._rescanExisting;
+        return this._rescanExisting == null ? DEFAULT_RESCAN_EXISTING : this._rescanExisting;
     }
 
     /**

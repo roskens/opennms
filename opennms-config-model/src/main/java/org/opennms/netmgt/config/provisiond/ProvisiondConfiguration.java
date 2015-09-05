@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="provisiond-configuration")
@@ -63,52 +65,44 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _importThreads.
      */
-    private long _importThreads = 8;
-
-    /**
-     * keeps track of state for field: _importThreads
-     */
-    private boolean _has_importThreads;
+    @XmlAttribute(name="importThreads")
+    private Long _importThreads;
+    private static final Long DEFAULT_IMPORT_THREADS = 8L;
 
     /**
      * Field _scanThreads.
      */
-    private long _scanThreads = 10;
-
-    /**
-     * keeps track of state for field: _scanThreads
-     */
-    private boolean _has_scanThreads;
+    @XmlAttribute(name="scanThreads")
+    private Long _scanThreads;
+    private static final Long DEFAULT_SCAN_THREADS = 10L;
 
     /**
      * Field _rescanThreads.
      */
-    private long _rescanThreads = 10;
-
-    /**
-     * keeps track of state for field: _rescanThreads
-     */
-    private boolean _has_rescanThreads;
+    @XmlAttribute(name="rescanThreads")
+    private Long _rescanThreads;
+    private static final Long DEFAULT_RESCAN_THREADS = 10L;
 
     /**
      * Field _writeThreads.
      */
-    private long _writeThreads = 8;
-
-    /**
-     * keeps track of state for field: _writeThreads
-     */
-    private boolean _has_writeThreads;
+    @XmlAttribute(name="writeThreads")
+    private Long _writeThreads;
+    private static final Long DEFAULT_WRITE_THREADS = 8L;
 
     /**
      * Field _requistionDir.
      */
-    private java.lang.String _requistionDir = "${install.dir}/etc/imports";
+    @XmlAttribute(name="requistion-dir")
+    private java.lang.String _requistionDir;
+    private static final String DEFAULT_REQUISTION_DIR = "${install.dir}/etc/imports";
 
     /**
      * Field _foreignSourceDir.
      */
-    private java.lang.String _foreignSourceDir = "${install.dir}/etc/foreign-sources";
+    @XmlAttribute(name="foreign-source-dir")
+    private java.lang.String _foreignSourceDir;
+    private static final String DEFAULT_FOREIGN_SOURCE_DIR = "${install.dir}/etc/foreign-sources";
 
     /**
      * Defines an import job with a cron expression
@@ -124,6 +118,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  Year (Opt) empty, 1970-2099 , - /
      *
      */
+    @XmlElement(name="requisition-def")
     private java.util.List<org.opennms.netmgt.config.provisiond.RequisitionDef> _requisitionDefList;
 
 
@@ -133,8 +128,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public ProvisiondConfiguration() {
         super();
-        setRequistionDir("${install.dir}/etc/imports");
-        setForeignSourceDir("${install.dir}/etc/foreign-sources");
         this._requisitionDefList = new java.util.ArrayList<org.opennms.netmgt.config.provisiond.RequisitionDef>();
     }
 
@@ -175,28 +168,28 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteImportThreads(
     ) {
-        this._has_importThreads= false;
+        this._importThreads = null;
     }
 
     /**
      */
     public void deleteRescanThreads(
     ) {
-        this._has_rescanThreads= false;
+        this._rescanThreads = null;
     }
 
     /**
      */
     public void deleteScanThreads(
     ) {
-        this._has_scanThreads= false;
+        this._scanThreads = null;
     }
 
     /**
      */
     public void deleteWriteThreads(
     ) {
-        this._has_writeThreads= false;
+        this._writeThreads = null;
     }
 
     /**
@@ -225,21 +218,33 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof ProvisiondConfiguration) {
 
             ProvisiondConfiguration temp = (ProvisiondConfiguration)obj;
-            if (this._importThreads != temp._importThreads)
+            if (this._importThreads != null) {
+                if (temp._importThreads == null) return false;
+                else if (!(this._importThreads.equals(temp._importThreads)))
+                    return false;
+            }
+            else if (temp._importThreads != null)
                 return false;
-            if (this._has_importThreads != temp._has_importThreads)
+            if (this._scanThreads != null) {
+                if (temp._scanThreads == null) return false;
+                else if (!(this._scanThreads.equals(temp._scanThreads)))
+                    return false;
+            }
+            else if (temp._scanThreads != null)
                 return false;
-            if (this._scanThreads != temp._scanThreads)
+            if (this._rescanThreads != null) {
+                if (temp._rescanThreads == null) return false;
+                else if (!(this._rescanThreads.equals(temp._rescanThreads)))
+                    return false;
+            }
+            else if (temp._rescanThreads != null)
                 return false;
-            if (this._has_scanThreads != temp._has_scanThreads)
-                return false;
-            if (this._rescanThreads != temp._rescanThreads)
-                return false;
-            if (this._has_rescanThreads != temp._has_rescanThreads)
-                return false;
-            if (this._writeThreads != temp._writeThreads)
-                return false;
-            if (this._has_writeThreads != temp._has_writeThreads)
+            if (this._writeThreads != null) {
+                if (temp._writeThreads == null) return false;
+                else if (!(this._writeThreads.equals(temp._writeThreads)))
+                    return false;
+            }
+            else if (temp._writeThreads != null)
                 return false;
             if (this._requistionDir != null) {
                 if (temp._requistionDir == null) return false;
@@ -353,7 +358,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getRequistionDir(
     ) {
-        return this._requistionDir;
+        return this._requistionDir == null ? DEFAULT_REQUISTION_DIR : this._requistionDir;
     }
 
     /**
@@ -361,9 +366,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RescanThreads'.
      */
-    public long getRescanThreads(
+    public Long getRescanThreads(
     ) {
-        return this._rescanThreads;
+        return this._rescanThreads == null ? DEFAULT_RESCAN_THREADS : this._rescanThreads;
     }
 
     /**
@@ -371,9 +376,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ScanThreads'.
      */
-    public long getScanThreads(
+    public Long getScanThreads(
     ) {
-        return this._scanThreads;
+        return this._scanThreads == null ? DEFAULT_SCAN_THREADS : this._scanThreads;
     }
 
     /**
@@ -381,9 +386,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'WriteThreads'.
      */
-    public long getWriteThreads(
+    public Long getWriteThreads(
     ) {
-        return this._writeThreads;
+        return this._writeThreads == null ? DEFAULT_WRITE_THREADS : this._writeThreads;
     }
 
     /**
@@ -393,7 +398,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasImportThreads(
     ) {
-        return this._has_importThreads;
+        return this._importThreads != null;
     }
 
     /**
@@ -403,7 +408,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRescanThreads(
     ) {
-        return this._has_rescanThreads;
+        return this._rescanThreads != null;
     }
 
     /**
@@ -413,7 +418,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasScanThreads(
     ) {
-        return this._has_scanThreads;
+        return this._scanThreads != null;
     }
 
     /**
@@ -423,7 +428,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasWriteThreads(
     ) {
-        return this._has_writeThreads;
+        return this._writeThreads != null;
     }
 
     /**
@@ -440,10 +445,18 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (int)(_importThreads^(_importThreads>>>32));
-        result = 37 * result + (int)(_scanThreads^(_scanThreads>>>32));
-        result = 37 * result + (int)(_rescanThreads^(_rescanThreads>>>32));
-        result = 37 * result + (int)(_writeThreads^(_writeThreads>>>32));
+        if (_importThreads != null) {
+           result = 37 * result + _importThreads.hashCode();
+        }
+        if (_scanThreads != null) {
+           result = 37 * result + _scanThreads.hashCode();
+        }
+        if (_rescanThreads != null) {
+           result = 37 * result + _rescanThreads.hashCode();
+        }
+        if (_writeThreads != null) {
+           result = 37 * result + _writeThreads.hashCode();
+        }
         if (_requistionDir != null) {
            result = 37 * result + _requistionDir.hashCode();
         }
@@ -562,9 +575,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param importThreads the value of field 'importThreads'.
      */
     public void setImportThreads(
-            final long importThreads) {
+            final Long importThreads) {
         this._importThreads = importThreads;
-        this._has_importThreads = true;
     }
 
     /**
@@ -644,9 +656,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param rescanThreads the value of field 'rescanThreads'.
      */
     public void setRescanThreads(
-            final long rescanThreads) {
+            final Long rescanThreads) {
         this._rescanThreads = rescanThreads;
-        this._has_rescanThreads = true;
     }
 
     /**
@@ -655,9 +666,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param scanThreads the value of field 'scanThreads'.
      */
     public void setScanThreads(
-            final long scanThreads) {
+            final Long scanThreads) {
         this._scanThreads = scanThreads;
-        this._has_scanThreads = true;
     }
 
     /**
@@ -666,9 +676,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param writeThreads the value of field 'writeThreads'.
      */
     public void setWriteThreads(
-            final long writeThreads) {
+            final Long writeThreads) {
         this._writeThreads = writeThreads;
-        this._has_writeThreads = true;
     }
 
     /**
