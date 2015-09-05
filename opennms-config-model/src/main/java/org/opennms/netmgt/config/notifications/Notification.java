@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="notification")
@@ -62,71 +64,86 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _status.
      */
+    @XmlAttribute(name="status", required = true)
     private java.lang.String _status;
 
     /**
      * Field _writeable.
      */
-    private java.lang.String _writeable = "yes";
+    @XmlAttribute(name="writeable")
+    private java.lang.String _writeable;
+    private static final String DEFAULT_WRITEABLE = "yes";
 
     /**
      * Field _uei.
      */
+    @XmlElement(name="uei")
     private java.lang.String _uei;
 
     /**
      * Field _description.
      */
+    @XmlElement(name="description")
     private java.lang.String _description;
 
     /**
      * Field _rule.
      */
+    @XmlElement(name="rule")
     private java.lang.String _rule;
 
     /**
      * Field _noticeQueue.
      */
+    @XmlElement(name="notice-queue")
     private java.lang.String _noticeQueue;
 
     /**
      * Field _destinationPath.
      */
+    @XmlElement(name="destinationPath")
     private java.lang.String _destinationPath;
 
     /**
      * Field _textMessage.
      */
+    @XmlElement(name="text-message")
     private java.lang.String _textMessage;
 
     /**
      * Field _subject.
      */
+    @XmlElement(name="subject")
     private java.lang.String _subject;
 
     /**
      * Field _numericMessage.
      */
+    @XmlElement(name="numeric-message")
     private java.lang.String _numericMessage;
 
     /**
      * Field _eventSeverity.
      */
+    @XmlElement(name="event-severity")
     private java.lang.String _eventSeverity;
 
     /**
      * Field _parameterList.
      */
+    @XmlElement(name="parameter")
     private java.util.List<org.opennms.netmgt.config.notifications.Parameter> _parameterList;
 
     /**
      * The varbind element
      */
+    @XmlElement(name="varbind")
     private org.opennms.netmgt.config.notifications.Varbind _varbind;
 
 
@@ -136,7 +153,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Notification() {
         super();
-        setWriteable("yes");
         this._parameterList = new java.util.ArrayList<org.opennms.netmgt.config.notifications.Parameter>();
     }
 
@@ -488,7 +504,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getWriteable(
     ) {
-        return this._writeable;
+        return this._writeable == null ? DEFAULT_WRITEABLE : this._writeable;
     }
 
     /**
