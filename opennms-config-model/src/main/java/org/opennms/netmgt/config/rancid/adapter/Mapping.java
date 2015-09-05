@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="mapping")
@@ -62,17 +63,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * sysoid to match.
      */
+    @XmlAttribute(name="sysoid-mask", required = true)
     private java.lang.String _sysoidMask;
 
     /**
      * regular expression to match sysdescription.
      */
+    @XmlAttribute(name="sysdescr-match")
     private java.lang.String _sysdescrMatch;
 
     /**
      * The rancid device type
      *  for the specified sysoid mask.
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
 

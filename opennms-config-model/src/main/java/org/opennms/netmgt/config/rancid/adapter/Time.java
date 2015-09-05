@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="time")
@@ -66,21 +67,25 @@ import org.opennms.core.xml.ValidateUsing;
      * by web gui.
      *
      */
+    @XmlAttribute(name="id")
     private java.lang.String _id;
 
     /**
      * Field _day.
      */
+    @XmlAttribute(name="day")
     private java.lang.String _day;
 
     /**
      * when the outage starts
      */
+    @XmlAttribute(name="begins")
     private java.lang.String _begins;
 
     /**
      * when the outage ends
      */
+    @XmlAttribute(name="ends")
     private java.lang.String _ends;
 
 

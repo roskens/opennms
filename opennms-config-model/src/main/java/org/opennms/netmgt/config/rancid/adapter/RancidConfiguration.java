@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="rancid-configuration")
@@ -68,51 +70,44 @@ import org.opennms.core.xml.ValidateUsing;
      *  Otherwise you wait until schedule let you write on rancid.
      *
      */
-    private long _delay;
-
-    /**
-     * keeps track of state for field: _delay
-     */
-    private boolean _has_delay;
+    @XmlAttribute(name="delay", required = true)
+    private Long _delay;
 
     /**
      * The maximum number of retry before
      *  sending a failure.
      */
-    private int _retries;
-
-    /**
-     * keeps track of state for field: _retries
-     */
-    private boolean _has_retries;
+    @XmlAttribute(name="retries", required = true)
+    private Integer _retries;
 
     /**
      * If you want to use opennms categories
      *  to match rancid device type.
      */
-    private boolean _useCategories = false;
-
-    /**
-     * keeps track of state for field: _useCategories
-     */
-    private boolean _has_useCategories;
+    @XmlAttribute(name="useCategories")
+    private Boolean _useCategories;
+    private static final Boolean DEFAULT_USE_CATEGORIES = false;
 
     /**
      * The Default Rancid type, it is used when no device type
      *  for provisioned node is found.
      *
      */
-    private java.lang.String _defaultType = "cisco";
+    @XmlAttribute(name="default-type")
+    private java.lang.String _defaultType;
+    private static final String DEFAULT_TYPE = "cisco";
 
     /**
      * Configuration of Policy
      *  functionality
      */
+    @XmlElement(name="policies")
     private org.opennms.netmgt.config.rancid.adapter.Policies _policies;
 
     /**
      * A map from sysoids masks and rancid device type.
      */
+    @XmlElement(name="mapping")
     private java.util.List<org.opennms.netmgt.config.rancid.adapter.Mapping> _mappingList;
 
 
@@ -122,7 +117,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public RancidConfiguration() {
         super();
-        setDefaultType("cisco");
         this._mappingList = new java.util.ArrayList<org.opennms.netmgt.config.rancid.adapter.Mapping>();
     }
 
@@ -163,21 +157,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteDelay(
     ) {
-        this._has_delay= false;
+        this._delay = null;
     }
 
     /**
      */
     public void deleteRetries(
     ) {
-        this._has_retries= false;
+        this._retries = null;
     }
 
     /**
      */
     public void deleteUseCategories(
     ) {
-        this._has_useCategories= false;
+        this._useCategories = null;
     }
 
     /**
@@ -206,17 +200,26 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof RancidConfiguration) {
 
             RancidConfiguration temp = (RancidConfiguration)obj;
-            if (this._delay != temp._delay)
+            if (this._delay != null) {
+                if (temp._delay == null) return false;
+                else if (!(this._delay.equals(temp._delay)))
+                    return false;
+            }
+            else if (temp._delay != null)
                 return false;
-            if (this._has_delay != temp._has_delay)
+            if (this._retries != null) {
+                if (temp._retries == null) return false;
+                else if (!(this._retries.equals(temp._retries)))
+                    return false;
+            }
+            else if (temp._retries != null)
                 return false;
-            if (this._retries != temp._retries)
-                return false;
-            if (this._has_retries != temp._has_retries)
-                return false;
-            if (this._useCategories != temp._useCategories)
-                return false;
-            if (this._has_useCategories != temp._has_useCategories)
+            if (this._useCategories != null) {
+                if (temp._useCategories == null) return false;
+                else if (!(this._useCategories.equals(temp._useCategories)))
+                    return false;
+            }
+            else if (temp._useCategories != null)
                 return false;
             if (this._defaultType != null) {
                 if (temp._defaultType == null) return false;
@@ -255,7 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDefaultType(
     ) {
-        return this._defaultType;
+        return this._defaultType == null ? DEFAULT_TYPE : this._defaultType;
     }
 
     /**
@@ -270,7 +273,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Delay'.
      */
-    public long getDelay(
+    public Long getDelay(
     ) {
         return this._delay;
     }
@@ -353,7 +356,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retries'.
      */
-    public int getRetries(
+    public Integer getRetries(
     ) {
         return this._retries;
     }
@@ -366,9 +369,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseCategories'.
      */
-    public boolean getUseCategories(
+    public Boolean getUseCategories(
     ) {
-        return this._useCategories;
+        return this._useCategories == null ? DEFAULT_USE_CATEGORIES : this._useCategories;
     }
 
     /**
@@ -378,7 +381,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasDelay(
     ) {
-        return this._has_delay;
+        return this._delay != null;
     }
 
     /**
@@ -388,7 +391,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRetries(
     ) {
-        return this._has_retries;
+        return this._retries != null;
     }
 
     /**
@@ -398,7 +401,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUseCategories(
     ) {
-        return this._has_useCategories;
+        return this._useCategories != null;
     }
 
     /**
@@ -415,9 +418,15 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (int)(_delay^(_delay>>>32));
-        result = 37 * result + _retries;
-        result = 37 * result + (_useCategories?0:1);
+        if (_delay != null) {
+           result = 37 * result + _delay.hashCode();
+        }
+        if (_retries != null) {
+           result = 37 * result + _retries.hashCode();
+        }
+        if (_useCategories != null) {
+           result = 37 * result + _useCategories.hashCode();
+        }
         if (_defaultType != null) {
            result = 37 * result + _defaultType.hashCode();
         }
@@ -559,9 +568,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param delay the value of field 'delay'.
      */
     public void setDelay(
-            final long delay) {
+            final Long delay) {
         this._delay = delay;
-        this._has_delay = true;
     }
 
     /**
@@ -646,9 +654,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param retries the value of field 'retries'.
      */
     public void setRetries(
-            final int retries) {
+            final Integer retries) {
         this._retries = retries;
-        this._has_retries = true;
     }
 
     /**
@@ -660,9 +667,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param useCategories the value of field 'useCategories'.
      */
     public void setUseCategories(
-            final boolean useCategories) {
+            final Boolean useCategories) {
         this._useCategories = useCategories;
-        this._has_useCategories = true;
     }
 
     /**

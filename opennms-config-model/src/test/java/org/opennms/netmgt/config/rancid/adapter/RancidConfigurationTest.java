@@ -25,19 +25,23 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.rancid.adapter;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class RancidConfigurationTest extends XmlTestNoCastor<RancidConfiguration> {
+
+    private static void addMapping(RancidConfiguration config, String mask, String type) {
+        Mapping mapping = new Mapping();
+        mapping.setSysoidMask(mask);
+        mapping.setType(type);
+        config.addMapping(mapping);
+    }
 
     public RancidConfigurationTest(final RancidConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
@@ -46,11 +50,26 @@ public class RancidConfigurationTest extends XmlTestNoCastor<RancidConfiguration
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        RancidConfiguration rancidConfiguration = new RancidConfiguration();
+        RancidConfiguration config = new RancidConfiguration();
+        config.setDelay(60L);
+        config.setRetries(1);
+        addMapping(config, ".1.3.6.1.4.1.9.1", "cisco");
+        addMapping(config, ".1.3.6.1.4.1.9.5", "cat5");
+        addMapping(config, ".1.3.6.1.4.1.1916.2", "extreme");
+        addMapping(config, ".1.3.6.1.4.1.2636.1", "juniper");
+        addMapping(config, ".1.3.6.1.4.1.4874.1", "erx");
+        addMapping(config, ".1.3.6.1.4.1.11.2.3.7.11", "hp");
 
-        return Arrays.asList(new Object[][] { {
-                rancidConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/rancid-adapter-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<rancid-configuration delay=\"60\" retries=\"1\">"
+            + "<mapping sysoid-mask=\".1.3.6.1.4.1.9.1\" type=\"cisco\"/>"
+            + "<mapping sysoid-mask=\".1.3.6.1.4.1.9.5\" type=\"cat5\"/>"
+            + "<mapping sysoid-mask=\".1.3.6.1.4.1.1916.2\" type=\"extreme\"/>"
+            + "<mapping sysoid-mask=\".1.3.6.1.4.1.2636.1\" type=\"juniper\"/>"
+            + "<mapping sysoid-mask=\".1.3.6.1.4.1.4874.1\" type=\"erx\"/>"
+            + "<mapping sysoid-mask=\".1.3.6.1.4.1.11.2.3.7.11\" type=\"hp\"/>"
+            + "</rancid-configuration>",
+            "target/classes/xsds/rancid-adapter-configuration.xsd",},});
     }
 }
