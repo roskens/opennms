@@ -25,32 +25,156 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.reporting.opennms;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
-import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.netmgt.config.reporting.DateParm;
+import org.opennms.netmgt.config.reporting.DefaultTime;
+import org.opennms.netmgt.config.reporting.IntParm;
+import org.opennms.netmgt.config.reporting.Parameters;
+import org.opennms.netmgt.config.reporting.StringParm;
 
 public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
+
+    private static void addCalendarReport(OpennmsReports opennmsReports) {
+        Report report = new Report();
+        opennmsReports.addReport(report);
+        report.setId("defaultCalendarReport");
+        report.setType("calendar");
+        report.setLogo("logo.gif");
+        report.setSvgTemplate("SVGAvailReport.xsl");
+        report.setPdfTemplate("PDFAvailReport.xsl");
+        report.setHtmlTemplate("HTMLAvailReport.xsl");
+        Parameters params = new Parameters();
+
+        StringParm sParm = new StringParm();
+        sParm.setName("reportCategory");
+        sParm.setDisplayName("report category");
+        sParm.setInputType("reportCategorySelector");
+        params.addStringParm(sParm);
+
+        DateParm dateParm = new DateParm();
+        dateParm.setName("endDate");
+        dateParm.setDisplayName("end date");
+        dateParm.setUseAbsoluteDate(false);
+        dateParm.setDefaultInterval("day");
+        dateParm.setDefaultCount(1);
+        DefaultTime defTime = new DefaultTime();
+        defTime.setHours(23);
+        defTime.setMinutes(59);
+        dateParm.setDefaultTime(defTime);
+        params.addDateParm(dateParm);
+        
+        IntParm intParm = new IntParm();
+        intParm.setName("offenderCount");
+        intParm.setDisplayName("top offender count");
+        intParm.setInputType("freeText");
+        intParm.setDefault(20);
+        params.addIntParm(intParm);
+        
+        report.setParameters(params);
+        opennmsReports.addReport(report);
+    }
+
+    private static void addClassicReport(OpennmsReports opennmsReports) {
+        Report report = new Report();
+        opennmsReports.addReport(report);
+        report.setId("defaultClassicReport");
+        report.setType("classic");
+        report.setLogo("logo.gif");
+        report.setPdfTemplate("PDFAvailReport.xsl");
+        report.setHtmlTemplate("HTMLAvailReport.xsl");
+        Parameters params = new Parameters();
+
+        StringParm sParm = new StringParm();
+        sParm.setName("reportCategory");
+        sParm.setDisplayName("report category");
+        sParm.setInputType("reportCategorySelector");
+        params.addStringParm(sParm);
+
+        DateParm dateParm = new DateParm();
+        dateParm.setName("endDate");
+        dateParm.setDisplayName("end date");
+        dateParm.setUseAbsoluteDate(false);
+        dateParm.setDefaultInterval("day");
+        dateParm.setDefaultCount(1);
+        DefaultTime defTime = new DefaultTime();
+        defTime.setHours(23);
+        defTime.setMinutes(59);
+        dateParm.setDefaultTime(defTime);
+        params.addDateParm(dateParm);
+        
+        IntParm intParm = new IntParm();
+        intParm.setName("offenderCount");
+        intParm.setDisplayName("top offender count");
+        intParm.setInputType("freeText");
+        intParm.setDefault(20);
+        params.addIntParm(intParm);
+        
+        report.setParameters(params);
+        opennmsReports.addReport(report);
+    }
 
     public OpennmsReportsTest(final OpennmsReports sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
     }
 
-    @Parameters
+    @org.junit.runners.Parameterized.Parameters
     public static Collection<Object[]> data() throws ParseException {
 
         OpennmsReports opennmsReports = new OpennmsReports();
+        addCalendarReport(opennmsReports);
+        addClassicReport(opennmsReports);
 
-        return Arrays.asList(new Object[][] { {
-                opennmsReports,
-                "", /* configuration */
-                "target/classes/xsds/opennms-reports.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            opennmsReports,
+            "<opennms-reports>"
+            + "  <report id=\"defaultCalendarReport\" "
+            + "    type=\"calendar\">"
+            + "    <logo>logo.gif</logo>"
+            + "    <svg-template>SVGAvailReport.xsl</svg-template>"
+            + "    <pdf-template>PDFAvailReport.xsl</pdf-template>"
+            + "    <html-template>HTMLAvailReport.xsl</html-template>"
+            + "    <parameters>"
+            + "      <string-parm name=\"reportCategory\" display-name=\"report category\" input-type=\"reportCategorySelector\" />"
+            + "      <date-parm name=\"endDate\" display-name=\"end date\" use-absolute-date=\"false\">"
+            + "        <default-interval>day</default-interval>"
+            + "        <default-count>1</default-count>"
+            + "        <default-time>"
+            + "          <hours>23</hours>"
+            + "          <minutes>59</minutes>"
+            + "        </default-time>"
+            + "      </date-parm>"
+            + "      <int-parm name=\"offenderCount\" display-name=\"top offender count\" input-type=\"freeText\">"
+            + "        <default>20</default>"
+            + "      </int-parm>"
+            + "    </parameters>"
+            + "  </report>"
+            + "  <report id=\"defaultClassicReport\" "
+            + "    type=\"calendar\">"
+            + "    <logo>logo.gif</logo>"
+            + "    <pdf-template>PDFAvailReport.xsl</pdf-template>"
+            + "    <html-template>HTMLAvailReport.xsl</html-template>"
+            + "    <parameters>"
+            + "      <string-parm name=\"reportCategory\" display-name=\"report category\" input-type=\"reportCategorySelector\" />"
+            + "      <date-parm name=\"endDate\" display-name=\"end date\" use-absolute-date=\"false\">"
+            + "        <default-interval>day</default-interval>"
+            + "        <default-count>1</default-count>"
+            + "        <default-time>"
+            + "          <hours>23</hours>"
+            + "          <minutes>59</minutes>"
+            + "        </default-time>"
+            + "      </date-parm>"
+            + "      <int-parm name=\"offenderCount\" display-name=\"top offender count\" input-type=\"freeText\">"
+            + "        <default>20</default>"
+            + "      </int-parm>"
+            + "    </parameters>"
+            + "  </report>"
+            + "</opennms-reports>", /* configuration */
+            "target/classes/xsds/opennms-reports.xsd",},});
     }
 }

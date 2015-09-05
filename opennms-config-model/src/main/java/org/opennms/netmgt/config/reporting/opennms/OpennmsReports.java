@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="opennms-reports")
@@ -63,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * report definition for legacy opennms availability reports
      */
+    @XmlElement(name="report")
     private java.util.List<org.opennms.netmgt.config.reporting.opennms.Report> _reportList;
 
 

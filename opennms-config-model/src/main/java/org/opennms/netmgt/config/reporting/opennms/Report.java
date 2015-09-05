@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="report")
@@ -62,39 +64,46 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * the name of this report
      */
+    @XmlAttribute(name="id", required = true)
     private java.lang.String _id;
 
     /**
      * type of this report (calendar/classic)
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
     /**
      * Field _parameters.
      */
+    @XmlElement(name="parameters")
     private org.opennms.netmgt.config.reporting.Parameters _parameters;
 
     /**
      * template to convert to display the report
      *  in PDF format
      */
+    @XmlElement(name="pdf-template")
     private java.lang.String _pdfTemplate;
 
     /**
      * template to convert to display the report
      *  in PDF format with embedded SVG
      */
+    @XmlElement(name="svg-template")
     private java.lang.String _svgTemplate;
 
     /**
      * template to convert to display the report
      *  in HTML format
      */
+    @XmlElement(name="html-template")
     private java.lang.String _htmlTemplate;
 
     /**
      * path to the logo file
      */
+    @XmlElement(name="logo")
     private java.lang.String _logo;
 
 
