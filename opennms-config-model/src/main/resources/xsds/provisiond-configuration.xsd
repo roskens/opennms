@@ -14,10 +14,10 @@
       <sequence>
         <element ref="this:requisition-def" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
-      <attribute name="importThreads" type="positiveInteger" use="optional" default="8"/>
-      <attribute name="scanThreads" type="positiveInteger" use="optional" default="10" />
-      <attribute name="rescanThreads" type="positiveInteger" use="optional" default="10" />
-      <attribute name="writeThreads" type="positiveInteger" use="optional" default="8" />
+      <attribute name="importThreads" type="unsignedInt" use="optional" default="8"/>
+      <attribute name="scanThreads" type="unsignedInt" use="optional" default="10" />
+      <attribute name="rescanThreads" type="unsignedInt" use="optional" default="10" />
+      <attribute name="writeThreads" type="unsignedInt" use="optional" default="8" />
       <attribute name="requistion-dir" type="string" use="optional" default="${install.dir}/etc/imports" />
       <attribute name="foreign-source-dir" type="string" use="optional" default="${install.dir}/etc/foreign-sources" />
     </complexType>
