@@ -37,7 +37,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.opennms.netmgt.config.ThresholdingConfigFactory;
-import org.opennms.netmgt.config.threshd.Basethresholddef;
+import org.opennms.netmgt.config.thresholding.Basethresholddef;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;

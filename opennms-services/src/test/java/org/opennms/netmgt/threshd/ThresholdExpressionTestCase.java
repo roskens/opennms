@@ -32,7 +32,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.opennms.netmgt.config.threshd.Expression;
+import org.opennms.netmgt.config.thresholding.Expression;
 
 import junit.framework.TestCase;
 

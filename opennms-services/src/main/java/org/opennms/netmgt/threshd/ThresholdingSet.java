@@ -50,7 +50,7 @@ import org.opennms.netmgt.config.ThreshdConfigFactory;
 import org.opennms.netmgt.config.ThreshdConfigManager;
 import org.opennms.netmgt.config.ThresholdingConfigFactory;
 import org.opennms.netmgt.config.poller.outages.Outage;
-import org.opennms.netmgt.config.threshd.ResourceFilter;
+import org.opennms.netmgt.config.thresholding.ResourceFilter;
 import org.opennms.netmgt.rrd.RrdRepository;
 import org.opennms.netmgt.xml.event.Event;
 import org.slf4j.Logger;

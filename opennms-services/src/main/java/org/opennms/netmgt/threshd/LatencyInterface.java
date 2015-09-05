@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.Map;
 
 import org.opennms.core.utils.InetAddressUtils;
-import org.opennms.netmgt.config.threshd.Threshold;
+import org.opennms.netmgt.config.thresholding.Threshold;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.poller.NetworkInterface;
 import org.opennms.netmgt.threshd.ThresholdingVisitor.ThresholdingResult;

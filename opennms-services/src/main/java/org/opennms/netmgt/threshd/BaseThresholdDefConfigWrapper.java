@@ -35,10 +35,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.opennms.netmgt.config.threshd.Basethresholddef;
-import org.opennms.netmgt.config.threshd.Expression;
-import org.opennms.netmgt.config.threshd.ResourceFilter;
-import org.opennms.netmgt.config.threshd.Threshold;
+import org.opennms.netmgt.config.thresholding.Basethresholddef;
+import org.opennms.netmgt.config.thresholding.Expression;
+import org.opennms.netmgt.config.thresholding.ResourceFilter;
+import org.opennms.netmgt.config.thresholding.Threshold;
 
 /**
  * <p>Abstract BaseThresholdDefConfigWrapper class.</p>

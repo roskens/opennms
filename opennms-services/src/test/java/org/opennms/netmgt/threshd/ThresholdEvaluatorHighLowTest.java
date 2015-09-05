@@ -35,7 +35,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 
 import org.junit.Test;
-import org.opennms.netmgt.config.threshd.Threshold;
+import org.opennms.netmgt.config.thresholding.Threshold;
 import org.opennms.netmgt.events.api.EventConstants;
 import org.opennms.netmgt.threshd.ThresholdEvaluatorHighLow.ThresholdEvaluatorStateHighLow;
 import org.opennms.netmgt.threshd.ThresholdEvaluatorState.Status;

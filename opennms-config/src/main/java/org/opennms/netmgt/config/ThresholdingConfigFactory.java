@@ -50,9 +50,9 @@ import org.opennms.core.utils.ConfigFileConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.opennms.core.xml.CastorUtils;
-import org.opennms.netmgt.config.threshd.Basethresholddef;
-import org.opennms.netmgt.config.threshd.Group;
-import org.opennms.netmgt.config.threshd.ThresholdingConfig;
+import org.opennms.netmgt.config.thresholding.Basethresholddef;
+import org.opennms.netmgt.config.thresholding.Group;
+import org.opennms.netmgt.config.thresholding.ThresholdingConfig;
 
 /**
  * This class is the main repository for thresholding configuration information
@@ -178,7 +178,7 @@ public final class ThresholdingConfigFactory {
 
         for (String groupName : tcf.getGroupNames()) {
             Group g = tcf.getGroup(groupName);
-            for (org.opennms.netmgt.config.threshd.Threshold threshold :  g.getThresholdCollection()) {
+            for (org.opennms.netmgt.config.thresholding.Threshold threshold :  g.getThresholdCollection()) {
                 if (threshold.getDsName().length() > ConfigFileConstants.RRD_DS_MAX_SIZE) {
                     throw new ValidationException(
                         String.format("ds-name '%s' in group '%s' is greater than %d characters",

@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-import org.opennms.netmgt.config.threshd.Threshold;
+import org.opennms.netmgt.config.thresholding.Threshold;
 
 /**
  * <p>ThresholdConfigWrapper class.</p>

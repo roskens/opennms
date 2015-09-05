@@ -37,7 +37,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.opennms.core.test.MockLogAppender;
-import org.opennms.netmgt.config.threshd.Expression;
+import org.opennms.netmgt.config.thresholding.Expression;
 
 /**
  * 

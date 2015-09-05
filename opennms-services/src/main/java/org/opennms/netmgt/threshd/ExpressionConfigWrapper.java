@@ -37,7 +37,7 @@ import java.util.Map;
 import org.apache.commons.jexl2.ExpressionImpl;
 import org.apache.commons.jexl2.JexlEngine;
 import org.apache.commons.jexl2.MapContext;
-import org.opennms.netmgt.config.threshd.Expression;
+import org.opennms.netmgt.config.thresholding.Expression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

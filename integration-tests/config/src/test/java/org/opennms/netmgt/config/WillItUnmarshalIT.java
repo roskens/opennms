@@ -100,7 +100,7 @@ import org.opennms.netmgt.config.statsd.StatisticsDaemonConfiguration;
 import org.opennms.netmgt.config.surveillanceViews.SurveillanceViewConfiguration;
 import org.opennms.netmgt.config.syslogd.SyslogdConfiguration;
 import org.opennms.netmgt.config.threshd.ThreshdConfiguration;
-import org.opennms.netmgt.config.threshd.ThresholdingConfig;
+import org.opennms.netmgt.config.thresholding.ThresholdingConfig;
 import org.opennms.netmgt.config.tl1d.Tl1dConfiguration;
 import org.opennms.netmgt.config.translator.EventTranslatorConfiguration;
 import org.opennms.netmgt.config.trapd.TrapdConfiguration;
