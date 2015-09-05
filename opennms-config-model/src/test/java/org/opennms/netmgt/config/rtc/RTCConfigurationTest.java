@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.rtc;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -46,11 +44,28 @@ public class RTCConfigurationTest extends XmlTestNoCastor<RTCConfiguration> {
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        RTCConfiguration rTCConfiguration = new RTCConfiguration();
+        RTCConfiguration rtcConfig = new RTCConfiguration();
+        rtcConfig.setUpdaters(10);
+        rtcConfig.setSenders(5);
+        rtcConfig.setRollingWindow("24h");
+        rtcConfig.setMaxEventsBeforeResend(100);
+        rtcConfig.setLowThresholdInterval("20s");
+        rtcConfig.setHighThresholdInterval("45s");
+        rtcConfig.setUserRefreshInterval("2m");
+        rtcConfig.setErrorsBeforeUrlUnsubscribe(5);
 
-        return Arrays.asList(new Object[][] { {
-                rTCConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/rtc-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            rtcConfig,
+            "<RTCConfiguration"
+            + "  updaters=\"10\""
+            + "  senders=\"5\""
+            + "  rollingWindow=\"24h\""
+            + "  maxEventsBeforeResend=\"100\""
+            + "  lowThresholdInterval=\"20s\""
+            + "  highThresholdInterval=\"45s\""
+            + "  userRefreshInterval=\"2m\""
+            + "  errorsBeforeUrlUnsubscribe=\"5\">"
+            + "</RTCConfiguration>",
+            "target/classes/xsds/rtc-configuration.xsd",},});
     }
 }

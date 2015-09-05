@@ -50,7 +50,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="rTCConfiguration")
+@XmlRootElement(name="RTCConfiguration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("rtc-configuration.xsd")
 @SuppressWarnings("all") public class RTCConfiguration implements java.io.Serializable {
@@ -64,23 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
      * Maximum number of threads reading the events and
      *  updating the RTC data.
      */
-    private int _updaters;
-
-    /**
-     * keeps track of state for field: _updaters
-     */
-    private boolean _has_updaters;
+    private Integer _updaters;
 
     /**
      * Maximum number of threads sending data to the
      *  UI.
      */
-    private int _senders;
-
-    /**
-     * keeps track of state for field: _senders
-     */
-    private boolean _has_senders;
+    private Integer _senders;
 
     /**
      * The rolling window over which availability is
@@ -96,12 +86,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  immediately instead of waiting for a timer to go
      *  off.
      */
-    private int _maxEventsBeforeResend;
-
-    /**
-     * keeps track of state for field: _maxEventsBeforeResend
-     */
-    private boolean _has_maxEventsBeforeResend;
+    private Integer _maxEventsBeforeResend;
 
     /**
      * Low threshold timer interval.
@@ -126,12 +111,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  the URL is not unsubscribed until an 'unsubscribe' event is
      *  received.
      */
-    private int _errorsBeforeUrlUnsubscribe;
-
-    /**
-     * keeps track of state for field: _errorsBeforeUrlUnsubscribe
-     */
-    private boolean _has_errorsBeforeUrlUnsubscribe;
+    private Integer _errorsBeforeUrlUnsubscribe;
 
 
       //----------------/
@@ -151,28 +131,28 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteErrorsBeforeUrlUnsubscribe(
     ) {
-        this._has_errorsBeforeUrlUnsubscribe= false;
+        this._errorsBeforeUrlUnsubscribe = null;
     }
 
     /**
      */
     public void deleteMaxEventsBeforeResend(
     ) {
-        this._has_maxEventsBeforeResend= false;
+        this._maxEventsBeforeResend = null;
     }
 
     /**
      */
     public void deleteSenders(
     ) {
-        this._has_senders= false;
+        this._senders = null;
     }
 
     /**
      */
     public void deleteUpdaters(
     ) {
-        this._has_updaters= false;
+        this._updaters = null;
     }
 
     /**
@@ -190,13 +170,19 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof RTCConfiguration) {
 
             RTCConfiguration temp = (RTCConfiguration)obj;
-            if (this._updaters != temp._updaters)
+            if (this._updaters != null) {
+                if (temp._updaters == null) return false;
+                else if (!(this._updaters.equals(temp._updaters)))
+                    return false;
+            }
+            else if (temp._updaters != null)
                 return false;
-            if (this._has_updaters != temp._has_updaters)
-                return false;
-            if (this._senders != temp._senders)
-                return false;
-            if (this._has_senders != temp._has_senders)
+            if (this._senders != null) {
+                if (temp._senders == null) return false;
+                else if (!(this._senders.equals(temp._senders)))
+                    return false;
+            }
+            else if (temp._senders != null)
                 return false;
             if (this._rollingWindow != null) {
                 if (temp._rollingWindow == null) return false;
@@ -205,9 +191,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._rollingWindow != null)
                 return false;
-            if (this._maxEventsBeforeResend != temp._maxEventsBeforeResend)
-                return false;
-            if (this._has_maxEventsBeforeResend != temp._has_maxEventsBeforeResend)
+            if (this._maxEventsBeforeResend != null) {
+                if (temp._maxEventsBeforeResend == null) return false;
+                else if (!(this._maxEventsBeforeResend.equals(temp._maxEventsBeforeResend)))
+                    return false;
+            }
+            else if (temp._maxEventsBeforeResend != null)
                 return false;
             if (this._lowThresholdInterval != null) {
                 if (temp._lowThresholdInterval == null) return false;
@@ -230,9 +219,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._userRefreshInterval != null)
                 return false;
-            if (this._errorsBeforeUrlUnsubscribe != temp._errorsBeforeUrlUnsubscribe)
-                return false;
-            if (this._has_errorsBeforeUrlUnsubscribe != temp._has_errorsBeforeUrlUnsubscribe)
+            if (this._errorsBeforeUrlUnsubscribe != null) {
+                if (temp._errorsBeforeUrlUnsubscribe == null) return false;
+                else if (!(this._errorsBeforeUrlUnsubscribe.equals(temp._errorsBeforeUrlUnsubscribe)))
+                    return false;
+            }
+            else if (temp._errorsBeforeUrlUnsubscribe != null)
                 return false;
             return true;
         }
@@ -250,7 +242,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ErrorsBeforeUrlUnsubscribe'.
      */
-    public int getErrorsBeforeUrlUnsubscribe(
+    public Integer getErrorsBeforeUrlUnsubscribe(
     ) {
         return this._errorsBeforeUrlUnsubscribe;
     }
@@ -290,7 +282,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MaxEventsBeforeResend'.
      */
-    public int getMaxEventsBeforeResend(
+    public Integer getMaxEventsBeforeResend(
     ) {
         return this._maxEventsBeforeResend;
     }
@@ -317,7 +309,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Senders'.
      */
-    public int getSenders(
+    public Integer getSenders(
     ) {
         return this._senders;
     }
@@ -330,7 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Updaters'.
      */
-    public int getUpdaters(
+    public Integer getUpdaters(
     ) {
         return this._updaters;
     }
@@ -356,7 +348,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasErrorsBeforeUrlUnsubscribe(
     ) {
-        return this._has_errorsBeforeUrlUnsubscribe;
+        return this._errorsBeforeUrlUnsubscribe != null;
     }
 
     /**
@@ -367,7 +359,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMaxEventsBeforeResend(
     ) {
-        return this._has_maxEventsBeforeResend;
+        return this._maxEventsBeforeResend != null;
     }
 
     /**
@@ -377,7 +369,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSenders(
     ) {
-        return this._has_senders;
+        return this._senders != null;
     }
 
     /**
@@ -387,7 +379,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUpdaters(
     ) {
-        return this._has_updaters;
+        return this._updaters != null;
     }
 
     /**
@@ -404,12 +396,18 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _updaters;
-        result = 37 * result + _senders;
+        if (_updaters != null) {
+           result = 37 * result + _updaters.hashCode();
+        }
+        if (_senders != null) {
+           result = 37 * result + _senders.hashCode();
+        }
+        if (_maxEventsBeforeResend != null) {
+           result = 37 * result + _maxEventsBeforeResend.hashCode();
+        }
         if (_rollingWindow != null) {
            result = 37 * result + _rollingWindow.hashCode();
         }
-        result = 37 * result + _maxEventsBeforeResend;
         if (_lowThresholdInterval != null) {
            result = 37 * result + _lowThresholdInterval.hashCode();
         }
@@ -419,7 +417,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_userRefreshInterval != null) {
            result = 37 * result + _userRefreshInterval.hashCode();
         }
-        result = 37 * result + _errorsBeforeUrlUnsubscribe;
+        if (_errorsBeforeUrlUnsubscribe != null) {
+           result = 37 * result + _errorsBeforeUrlUnsubscribe.hashCode();
+        }
 
         return result;
     }
@@ -484,9 +484,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'errorsBeforeUrlUnsubscribe'.
      */
     public void setErrorsBeforeUrlUnsubscribe(
-            final int errorsBeforeUrlUnsubscribe) {
+            final Integer errorsBeforeUrlUnsubscribe) {
         this._errorsBeforeUrlUnsubscribe = errorsBeforeUrlUnsubscribe;
-        this._has_errorsBeforeUrlUnsubscribe = true;
     }
 
     /**
@@ -528,9 +527,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'maxEventsBeforeResend'.
      */
     public void setMaxEventsBeforeResend(
-            final int maxEventsBeforeResend) {
+            final Integer maxEventsBeforeResend) {
         this._maxEventsBeforeResend = maxEventsBeforeResend;
-        this._has_maxEventsBeforeResend = true;
     }
 
     /**
@@ -556,9 +554,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param senders the value of field 'senders'.
      */
     public void setSenders(
-            final int senders) {
+            final Integer senders) {
         this._senders = senders;
-        this._has_senders = true;
     }
 
     /**
@@ -570,9 +567,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param updaters the value of field 'updaters'.
      */
     public void setUpdaters(
-            final int updaters) {
+            final Integer updaters) {
         this._updaters = updaters;
-        this._has_updaters = true;
     }
 
     /**
