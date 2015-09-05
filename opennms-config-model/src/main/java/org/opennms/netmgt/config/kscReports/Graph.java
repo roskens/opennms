@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="graph")
@@ -62,46 +63,55 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _title.
      */
+    @XmlAttribute(name="title", required = true)
     private java.lang.String _title;
 
     /**
      * Field _resourceId.
      */
+    @XmlAttribute(name="resourceId")
     private java.lang.String _resourceId;
 
     /**
      * Field _nodeId.
      */
+    @XmlAttribute(name="nodeId")
     private java.lang.String _nodeId;
 
     /**
      * Field _nodeSource.
      */
+    @XmlAttribute(name="nodeSource")
     private java.lang.String _nodeSource;
 
     /**
      * Field _domain.
      */
+    @XmlAttribute(name="domain")
     private java.lang.String _domain;
 
     /**
      * Field _interfaceId.
      */
+    @XmlAttribute(name="interfaceId")
     private java.lang.String _interfaceId;
 
     /**
      * Field _timespan.
      */
+    @XmlAttribute(name="timespan", required = true)
     private java.lang.String _timespan;
 
     /**
      * Field _graphtype.
      */
+    @XmlAttribute(name="graphttype", required = true)
     private java.lang.String _graphtype;
 
     /**
      * Field _extlink.
      */
+    @XmlAttribute(name="extlink")
     private java.lang.String _extlink;
 
 

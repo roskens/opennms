@@ -48,9 +48,10 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="reportsList")
+@XmlRootElement(name="ReportsList")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("ksc-performance-reports.xsd")
 @SuppressWarnings("all") public class ReportsList implements java.io.Serializable {
@@ -63,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _reportList.
      */
+    @XmlElement(name="Report")
     private java.util.List<org.opennms.netmgt.config.kscReports.Report> _reportList;
 
 

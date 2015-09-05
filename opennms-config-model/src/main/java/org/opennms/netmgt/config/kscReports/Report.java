@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="report")
@@ -62,51 +64,37 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _id.
      */
-    private int _id;
-
-    /**
-     * keeps track of state for field: _id
-     */
-    private boolean _has_id;
+    @XmlAttribute(name="id")
+    private Integer _id;
 
     /**
      * Field _title.
      */
+    @XmlAttribute(name="title", required = true)
     private java.lang.String _title;
 
     /**
      * Field _show_timespan_button.
      */
-    private boolean _show_timespan_button;
-
-    /**
-     * keeps track of state for field: _show_timespan_button
-     */
-    private boolean _has_show_timespan_button;
+    @XmlAttribute(name="show_timespan_button")
+    private Boolean _show_timespan_button;
 
     /**
      * Field _show_graphtype_button.
      */
-    private boolean _show_graphtype_button;
-
-    /**
-     * keeps track of state for field: _show_graphtype_button
-     */
-    private boolean _has_show_graphtype_button;
+    @XmlAttribute(name="show_graphtype_button")
+    private Boolean _show_graphtype_button;
 
     /**
      * Field _graphs_per_line.
      */
-    private int _graphs_per_line;
-
-    /**
-     * keeps track of state for field: _graphs_per_line
-     */
-    private boolean _has_graphs_per_line;
+    @XmlAttribute(name="graphs_per_line")
+    private Integer _graphs_per_line;
 
     /**
      * Field _graphList.
      */
+    @XmlElement(name="graph")
     private java.util.List<org.opennms.netmgt.config.kscReports.Graph> _graphList;
 
 
@@ -156,28 +144,28 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteGraphs_per_line(
     ) {
-        this._has_graphs_per_line= false;
+        this._graphs_per_line = null;
     }
 
     /**
      */
     public void deleteId(
     ) {
-        this._has_id= false;
+        this._id = null;
     }
 
     /**
      */
     public void deleteShow_graphtype_button(
     ) {
-        this._has_show_graphtype_button= false;
+        this._show_graphtype_button = null;
     }
 
     /**
      */
     public void deleteShow_timespan_button(
     ) {
-        this._has_show_timespan_button= false;
+        this._show_timespan_button = null;
     }
 
     /**
@@ -206,9 +194,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof Report) {
 
             Report temp = (Report)obj;
-            if (this._id != temp._id)
-                return false;
-            if (this._has_id != temp._has_id)
+            if (this._id != null) {
+                if (temp._id == null) return false;
+                else if (!(this._id.equals(temp._id)))
+                    return false;
+            }
+            else if (temp._id != null)
                 return false;
             if (this._title != null) {
                 if (temp._title == null) return false;
@@ -217,17 +208,26 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._title != null)
                 return false;
-            if (this._show_timespan_button != temp._show_timespan_button)
+            if (this._show_timespan_button != null) {
+                if (temp._show_timespan_button == null) return false;
+                else if (!(this._show_timespan_button.equals(temp._show_timespan_button)))
+                    return false;
+            }
+            else if (temp._show_timespan_button != null)
                 return false;
-            if (this._has_show_timespan_button != temp._has_show_timespan_button)
+            if (this._show_graphtype_button != null) {
+                if (temp._show_graphtype_button == null) return false;
+                else if (!(this._show_graphtype_button.equals(temp._show_graphtype_button)))
+                    return false;
+            }
+            else if (temp._show_graphtype_button != null)
                 return false;
-            if (this._show_graphtype_button != temp._show_graphtype_button)
-                return false;
-            if (this._has_show_graphtype_button != temp._has_show_graphtype_button)
-                return false;
-            if (this._graphs_per_line != temp._graphs_per_line)
-                return false;
-            if (this._has_graphs_per_line != temp._has_graphs_per_line)
+            if (this._graphs_per_line != null) {
+                if (temp._graphs_per_line == null) return false;
+                else if (!(this._graphs_per_line.equals(temp._graphs_per_line)))
+                    return false;
+            }
+            else if (temp._graphs_per_line != null)
                 return false;
             if (this._graphList != null) {
                 if (temp._graphList == null) return false;
@@ -303,7 +303,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Graphs_per_line'.
      */
-    public int getGraphs_per_line(
+    public Integer getGraphs_per_line(
     ) {
         return this._graphs_per_line;
     }
@@ -313,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Id'.
      */
-    public int getId(
+    public Integer getId(
     ) {
         return this._id;
     }
@@ -323,7 +323,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Show_graphtype_button'.
      */
-    public boolean getShow_graphtype_button(
+    public Boolean getShow_graphtype_button(
     ) {
         return this._show_graphtype_button;
     }
@@ -333,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Show_timespan_button'.
      */
-    public boolean getShow_timespan_button(
+    public Boolean getShow_timespan_button(
     ) {
         return this._show_timespan_button;
     }
@@ -355,7 +355,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasGraphs_per_line(
     ) {
-        return this._has_graphs_per_line;
+        return this._graphs_per_line != null;
     }
 
     /**
@@ -365,7 +365,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasId(
     ) {
-        return this._has_id;
+        return this._id != null;
     }
 
     /**
@@ -376,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasShow_graphtype_button(
     ) {
-        return this._has_show_graphtype_button;
+        return this._show_graphtype_button != null;
     }
 
     /**
@@ -387,7 +387,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasShow_timespan_button(
     ) {
-        return this._has_show_timespan_button;
+        return this._show_timespan_button != null;
     }
 
     /**
@@ -404,13 +404,21 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _id;
+        if (_id != null) {
+           result = 37 * result + _id.hashCode();
+        }
         if (_title != null) {
            result = 37 * result + _title.hashCode();
         }
-        result = 37 * result + (_show_timespan_button?0:1);
-        result = 37 * result + (_show_graphtype_button?0:1);
-        result = 37 * result + _graphs_per_line;
+        if (_show_timespan_button != null) {
+           result = 37 * result + _show_timespan_button.hashCode();
+        }
+        if (_show_graphtype_button != null) {
+           result = 37 * result + _show_graphtype_button.hashCode();
+        }
+        if (_graphs_per_line != null) {
+           result = 37 * result + _graphs_per_line.hashCode();
+        }
         if (_graphList != null) {
            result = 37 * result + _graphList.hashCode();
         }
@@ -594,9 +602,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param graphs_per_line the value of field 'graphs_per_line'.
      */
     public void setGraphs_per_line(
-            final int graphs_per_line) {
+            final Integer graphs_per_line) {
         this._graphs_per_line = graphs_per_line;
-        this._has_graphs_per_line = true;
     }
 
     /**
@@ -605,9 +612,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param id the value of field 'id'.
      */
     public void setId(
-            final int id) {
+            final Integer id) {
         this._id = id;
-        this._has_id = true;
     }
 
     /**
@@ -617,9 +623,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'show_graphtype_button'.
      */
     public void setShow_graphtype_button(
-            final boolean show_graphtype_button) {
+            final Boolean show_graphtype_button) {
         this._show_graphtype_button = show_graphtype_button;
-        this._has_show_graphtype_button = true;
     }
 
     /**
@@ -629,9 +634,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'show_timespan_button'.
      */
     public void setShow_timespan_button(
-            final boolean show_timespan_button) {
+            final Boolean show_timespan_button) {
         this._show_timespan_button = show_timespan_button;
-        this._has_show_timespan_button = true;
     }
 
     /**
