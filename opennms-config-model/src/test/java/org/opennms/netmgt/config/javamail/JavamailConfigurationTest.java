@@ -93,7 +93,7 @@ public class JavamailConfigurationTest extends XmlTestNoCastor<JavamailConfigura
         rmConf.addJavamailProperty(jp2);
         ReadmailHost rmHost = new ReadmailHost();
         rmHost.setHost("127.0.0.1");
-        rmHost.setPort(110L);
+        rmHost.setPort(110);
         ReadmailProtocol rmProto = new ReadmailProtocol();
         rmProto.setSslEnable(Boolean.FALSE);
         rmProto.setStartTls(Boolean.FALSE);

@@ -149,7 +149,7 @@
         <element ref="this:readmail-protocol" minOccurs="1" maxOccurs="1" />
       </sequence>
       <attribute name="host" type="string" use="optional" default="127.0.0.1" />
-      <attribute name="port" type="integer" use="optional" default="110" />
+      <attribute name="port" type="int" use="optional" default="110" />
     </complexType>
   </element>
   
