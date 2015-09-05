@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="role")
@@ -62,26 +64,31 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _membershipGroup.
      */
+    @XmlAttribute(name="membership-group", required = true)
     private java.lang.String _membershipGroup;
 
     /**
      * Field _supervisor.
      */
+    @XmlAttribute(name="supervisor", required = true)
     private java.lang.String _supervisor;
 
     /**
      * Field _description.
      */
+    @XmlAttribute(name="description")
     private java.lang.String _description;
 
     /**
      * Field _scheduleList.
      */
+    @XmlElement(name="schedule")
     private java.util.List<org.opennms.netmgt.config.groups.Schedule> _scheduleList;
 
 

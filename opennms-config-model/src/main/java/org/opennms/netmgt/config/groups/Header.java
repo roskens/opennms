@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="header")
@@ -63,18 +64,21 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Revision of this file.
      */
+    @XmlElement(name="rev")
     private java.lang.String _rev;
 
     /**
      * Creation time in the 'dow mon dd hh:mm:ss zzz yyyy'
      *  format.
      */
+    @XmlElement(name="created")
     private java.lang.String _created;
 
     /**
      * Monitoring station? This is seemingly
      *  unused.
      */
+    @XmlElement(name="mstation")
     private java.lang.String _mstation;
 
 

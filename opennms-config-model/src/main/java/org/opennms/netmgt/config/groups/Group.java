@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="group")
@@ -62,26 +63,31 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlElement(name="name")
     private java.lang.String _name;
 
     /**
      * Field _defaultMap.
      */
+    @XmlElement(name="default-map")
     private java.lang.String _defaultMap;
 
     /**
      * Field _comments.
      */
+    @XmlElement(name="comments")
     private java.lang.String _comments;
 
     /**
      * Field _userList.
      */
+    @XmlElement(name="user")
     private java.util.List<java.lang.String> _userList;
 
     /**
      * Field _dutyScheduleList.
      */
+    @XmlElement(name="duty-schedule")
     private java.util.List<java.lang.String> _dutyScheduleList;
 
 

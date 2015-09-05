@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="groupinfo")
@@ -64,16 +65,19 @@ import org.opennms.core.xml.ValidateUsing;
      * Header containing information about this configuration
      *  file.
      */
+    @XmlElement(name="header")
     private org.opennms.netmgt.config.groups.Header _header;
 
     /**
      * Field _groups.
      */
+    @XmlElement(name="groups")
     private org.opennms.netmgt.config.groups.Groups _groups;
 
     /**
      * Field _roles.
      */
+    @XmlElement(name="roles")
     private org.opennms.netmgt.config.groups.Roles _roles;
 
 

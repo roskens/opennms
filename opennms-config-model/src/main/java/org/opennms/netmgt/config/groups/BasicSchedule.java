@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="basicSchedule")
@@ -62,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * outage name
      */
+    @XmlAttribute(name="name")
     private java.lang.String _name;
 
     /**
      * outage type
      */
+    @XmlAttribute(name="type")
     private java.lang.String _type;
 
     /**
      * defines start/end time for the outage
      */
+    @XmlElement(name="time")
     private java.util.List<org.opennms.netmgt.config.groups.Time> _timeList;
 
 

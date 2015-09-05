@@ -47,10 +47,45 @@ public class GroupinfoTest extends XmlTestNoCastor<Groupinfo> {
     public static Collection<Object[]> data() throws ParseException {
 
         Groupinfo groupinfo = new Groupinfo();
+        Header header = new Header();
+        header.setCreated("Wednesday, February 6, 2002 10:10:00 AM EST");
+        header.setMstation("dhcp-219.internal.opennms.org");
+        header.setRev("1.3");
+        groupinfo.setHeader(header);
+        Groups groups = new Groups();
+        Group g1 = new Group();
+        groups.addGroup(g1);
+        g1.setName("Admin");
+        g1.setComments("The administrators");
+        g1.setUser(new String[] { "admin" });
+        Group g2 = new Group();
+        g1.setName("Remoting Users");
+        g1.setComments("Users with access for submitting remote poller management data.");
+        g1.setUser(new String[] { "remoting" });
+        groups.addGroup(g2);
+        groupinfo.setGroups(groups);
 
         return Arrays.asList(new Object[][] { {
                 groupinfo,
-                "", /* configuration */
+                "<groupinfo  xmlns=\"http://xmlns.opennms.org/xsd/groups\">\n" +
+"        <header>\n" +
+"                <rev>1.3</rev>\n" +
+"                <created>Wednesday, February 6, 2002 10:10:00 AM EST</created>\n" +
+"                <mstation>dhcp-219.internal.opennms.org</mstation>\n" +
+"        </header>\n" +
+"        <groups>\n" +
+"                <group>\n" +
+"                        <name>Admin</name>\n" +
+"                        <comments>The administrators</comments>\n" +
+"                        <user>admin</user>\n" +
+"                </group>\n" +
+"                <group>\n" +
+"                        <name>Remoting Users</name>\n" +
+"                        <comments>Users with access for submitting remote poller management data.</comments>\n" +
+"                        <user>remoting</user>\n" +
+"                </group>\n" +
+"        </groups>\n" +
+"</groupinfo>", /* configuration */
                 "target/classes/xsds/groups.xsd", }, });
     }
 }
