@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlValue;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="stop-script")
@@ -62,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * internal content storage
      */
-    private java.lang.String _content = "";
+    @XmlValue
+    private java.lang.String _content;
 
     /**
      * Field _language.
      */
+    @XmlAttribute(name="language")
     private java.lang.String _language;
 
 
@@ -76,7 +80,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public StopScript() {
         super();
-        setContent("");
     }
 
 
@@ -126,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getContent(
     ) {
-        return this._content;
+        return this._content == null ? "" : this._content;
     }
 
     /**

@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="engine")
@@ -62,16 +63,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _language.
      */
+    @XmlAttribute(name="language", required = true)
     private java.lang.String _language;
 
     /**
      * Field _className.
      */
+    @XmlAttribute(name="className", required = true)
     private java.lang.String _className;
 
     /**
      * Field _extensions.
      */
+    @XmlAttribute(name="extensions")
     private java.lang.String _extensions;
 
 

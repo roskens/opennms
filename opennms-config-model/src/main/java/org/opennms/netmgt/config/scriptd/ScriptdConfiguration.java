@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="scriptd-configuration")
@@ -63,26 +64,31 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _engineList.
      */
+    @XmlElement(name="engine")
     private java.util.List<org.opennms.netmgt.config.scriptd.Engine> _engineList;
 
     /**
      * Field _startScriptList.
      */
+    @XmlElement(name="start-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.StartScript> _startScriptList;
 
     /**
      * Field _stopScriptList.
      */
+    @XmlElement(name="stop-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.StopScript> _stopScriptList;
 
     /**
      * Field _reloadScriptList.
      */
+    @XmlElement(name="reload-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.ReloadScript> _reloadScriptList;
 
     /**
      * Field _eventScriptList.
      */
+    @XmlElement(name="event-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.EventScript> _eventScriptList;
 
 

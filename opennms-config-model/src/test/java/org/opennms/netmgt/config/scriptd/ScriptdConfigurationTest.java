@@ -29,28 +29,33 @@
 package org.opennms.netmgt.config.scriptd;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class ScriptdConfigurationTest extends XmlTestNoCastor<ScriptdConfiguration> {
-
+    
     public ScriptdConfigurationTest(final ScriptdConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
     }
-
+    
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
-
+        
         ScriptdConfiguration scriptdConfiguration = new ScriptdConfiguration();
-
-        return Arrays.asList(new Object[][] { {
-                scriptdConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/scriptd-configuration.xsd", }, });
+        Engine engine = new Engine();
+        engine.setLanguage("beanshell");
+        engine.setClassName("bsh.util.BeanShellBSFEngine");
+        engine.setExtensions("bsh");
+        scriptdConfiguration.addEngine(engine);
+        
+        return Arrays.asList(new Object[][]{{
+            scriptdConfiguration,
+            "<scriptd-configuration>"
+            + "<engine language=\"beanshell\" className=\"bsh.util.BeanShellBSFEngine\" extensions=\"bsh\"/>"
+            + "</scriptd-configuration>",
+            "target/classes/xsds/scriptd-configuration.xsd",},});
     }
 }
