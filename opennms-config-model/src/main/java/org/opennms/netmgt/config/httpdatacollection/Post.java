@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="post")
@@ -62,11 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _parm.
      */
+    @XmlAttribute(name="parm")
     private java.lang.String _parm;
 
     /**
      * Field _value.
      */
+    @XmlAttribute(name="value")
     private java.lang.String _value;
 
 

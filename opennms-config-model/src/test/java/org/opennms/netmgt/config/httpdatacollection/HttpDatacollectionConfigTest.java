@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.httpdatacollection;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,61 @@ public class HttpDatacollectionConfigTest extends XmlTestNoCastor<HttpDatacollec
     public static Collection<Object[]> data() throws ParseException {
 
         HttpDatacollectionConfig httpDatacollectionConfig = new HttpDatacollectionConfig();
+        httpDatacollectionConfig.setRrdRepository("${install.share.dir}/rrd/snmp");
+        HttpCollection hc = new HttpCollection();
+        httpDatacollectionConfig.addHttpCollection(hc);
+        hc.setName("doc-count");
+        Rrd rrd = new Rrd();
+        rrd.setStep(300);
+        rrd.addRra("RRA:AVERAGE:0.5:1:2016");
+        rrd.addRra("RRA:AVERAGE:0.5:12:1488");
+        rrd.addRra("RRA:AVERAGE:0.5:288:366");
+        rrd.addRra("RRA:MAX:0.5:288:366");
+        rrd.addRra("RRA:MIN:0.5:288:366");
+        hc.setRrd(rrd);
+        Uris uris = new Uris();
+        hc.setUris(uris);
+        Uri uri = new Uri();
+        uris.addUri(uri);
+        uri.setName("document-counts");
+        Url url = new Url();
+        uri.setUrl(url);
+        url.setPath("/test/resources/httpcolltest.html");
+        url.setUserAgent("Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/412 (KHTML, like Gecko) Safari/412");
+        url.setMatches(".*([0-9]+).*");
+        url.setResponseRange("100-399");
+        Attributes attrs = new Attributes();
+        uri.setAttributes(attrs);
+        Attrib attr = new Attrib();
+        attr.setAlias("documentCount");
+        attr.setMatchGroup(1);
+        attr.setType("counter32");
+        attrs.addAttrib(attr);
 
         return Arrays.asList(new Object[][] { {
                 httpDatacollectionConfig,
-                "", /* configuration */
+                "<http-datacollection-config rrdRepository=\"${install.share.dir}/rrd/snmp\" >\n" +
+"  <http-collection name=\"doc-count\">\n" +
+"    <rrd step=\"300\">\n" +
+"      <rra>RRA:AVERAGE:0.5:1:2016</rra>\n" +
+"      <rra>RRA:AVERAGE:0.5:12:1488</rra>\n" +
+"      <rra>RRA:AVERAGE:0.5:288:366</rra>\n" +
+"      <rra>RRA:MAX:0.5:288:366</rra>\n" +
+"      <rra>RRA:MIN:0.5:288:366</rra>\n" +
+"    </rrd>\n" +
+"    <uris>\n" +
+"      <uri name=\"document-counts\">\n" +
+"        <url path=\"/test/resources/httpcolltest.html\"\n" +
+"             user-agent=\"Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/412 (KHTML, like Gecko) Safari/412\" \n" +
+"             matches=\".*([0-9]+).*\" response-range=\"100-399\" >\n" +
+"        </url>\n" +
+"        <attributes>\n" +
+"          <attrib alias=\"documentCount\" match-group=\"1\" type=\"counter32\"/>\n" +
+"        </attributes>\n" +
+"      </uri>\n" +
+"    </uris>\n" +
+"  </http-collection>\n" +
+"</http-datacollection-config>",
                 "target/classes/xsds/http-datacollection-config.xsd", }, });
     }
 }

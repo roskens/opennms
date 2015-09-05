@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="parameter")
@@ -62,11 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _key.
      */
+    @XmlElement(name="key")
     private java.lang.String _key;
 
     /**
      * Field _value.
      */
+    @XmlElement(name="value")
     private java.lang.String _value;
 
 

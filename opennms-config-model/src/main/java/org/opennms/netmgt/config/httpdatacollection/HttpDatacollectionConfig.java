@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="http-datacollection-config")
@@ -63,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * full path to the RRD repository for collected SNMP data
      */
+    @XmlAttribute(name="rrdRepository", required = true)
     private java.lang.String _rrdRepository;
 
     /**
      * Field _httpCollectionList.
      */
+    @XmlAttribute(name="http-collection")
     private java.util.List<org.opennms.netmgt.config.httpdatacollection.HttpCollection> _httpCollectionList;
 
 

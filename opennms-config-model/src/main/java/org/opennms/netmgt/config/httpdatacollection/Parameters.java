@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="parameters")
@@ -62,6 +63,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Parameters to be used for configuration this strategy.
      */
+    @XmlElement(name="parameter")
     private java.util.List<org.opennms.netmgt.config.httpdatacollection.Parameter> _parameterList;
 
 

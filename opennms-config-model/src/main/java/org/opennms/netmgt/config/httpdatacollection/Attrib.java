@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="attrib")
@@ -62,21 +63,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _alias.
      */
+    @XmlAttribute(name="alias", required = true)
     private java.lang.String _alias;
 
     /**
      * Field _matchGroup.
      */
-    private int _matchGroup;
-
-    /**
-     * keeps track of state for field: _matchGroup
-     */
-    private boolean _has_matchGroup;
+    @XmlAttribute(name="match-group", required = true)
+    private Integer _matchGroup;
 
     /**
      * Field _type.
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
 
@@ -97,7 +96,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteMatchGroup(
     ) {
-        this._has_matchGroup= false;
+        this._matchGroup= null;
     }
 
     /**
@@ -122,9 +121,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._alias != null)
                 return false;
-            if (this._matchGroup != temp._matchGroup)
-                return false;
-            if (this._has_matchGroup != temp._has_matchGroup)
+            if (this._matchGroup != null) {
+                if (temp._matchGroup == null) return false;
+                else if (!(this._matchGroup.equals(temp._matchGroup)))
+                    return false;
+            }
+            else if (temp._matchGroup != null)
                 return false;
             if (this._type != null) {
                 if (temp._type == null) return false;
@@ -153,7 +155,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchGroup'.
      */
-    public int getMatchGroup(
+    public Integer getMatchGroup(
     ) {
         return this._matchGroup;
     }
@@ -175,7 +177,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMatchGroup(
     ) {
-        return this._has_matchGroup;
+        return this._matchGroup != null;
     }
 
     /**
@@ -195,7 +197,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_alias != null) {
            result = 37 * result + _alias.hashCode();
         }
-        result = 37 * result + _matchGroup;
+        if (_matchGroup != null) {
+           result = 37 * result + _matchGroup.hashCode();
+        }
         if (_type != null) {
            result = 37 * result + _type.hashCode();
         }
@@ -266,9 +270,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param matchGroup the value of field 'matchGroup'.
      */
     public void setMatchGroup(
-            final int matchGroup) {
+            final Integer matchGroup) {
         this._matchGroup = matchGroup;
-        this._has_matchGroup = true;
     }
 
     /**

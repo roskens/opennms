@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="http-collection")
@@ -62,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
-    private java.lang.String _name = "default";
+    @XmlAttribute(name="name")
+    private java.lang.String _name;
 
     /**
      * RRD parms
      */
+    @XmlElement(name="rrd")
     private org.opennms.netmgt.config.httpdatacollection.Rrd _rrd;
 
     /**
      * Field _uris.
      */
+    @XmlElement(name="uris")
     private org.opennms.netmgt.config.httpdatacollection.Uris _uris;
 
 
@@ -81,7 +86,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public HttpCollection() {
         super();
-        setName("default");
     }
 
 
@@ -137,7 +141,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getName(
     ) {
-        return this._name;
+        return this._name == null ? "default" : this._name;
     }
 
     /**

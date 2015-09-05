@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="url")
@@ -62,156 +64,133 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _method.
      */
-    private java.lang.String _method = "GET";
+    @XmlAttribute(name="method")
+    private java.lang.String _method;
 
     /**
      * Field _httpVersion.
      */
-    private java.lang.String _httpVersion = "1.1";
+    @XmlAttribute(name="http-version")
+    private java.lang.String _httpVersion;
 
     /**
      * Field _userAgent.
      */
+    @XmlAttribute(name="user-agent")
     private java.lang.String _userAgent;
 
     /**
      * Field _virtualHost.
      */
+    @XmlAttribute(name="virtual-host")
     private java.lang.String _virtualHost;
 
     /**
      * Field _scheme.
      */
-    private java.lang.String _scheme = "http";
+    @XmlAttribute(name="scheme")
+    private java.lang.String _scheme;
 
     /**
      * Field _userInfo.
      */
+    @XmlAttribute(name="user-info")
     private java.lang.String _userInfo;
 
     /**
      * Field _host.
      */
-    private java.lang.String _host = "${ipaddr}";
+    @XmlAttribute(name="host")
+    private java.lang.String _host;
 
     /**
      * Field _port.
      */
-    private int _port = 80;
-
-    /**
-     * keeps track of state for field: _port
-     */
-    private boolean _has_port;
+    @XmlAttribute(name="port")
+    private Integer _port;
 
     /**
      * Field _path.
      */
+    @XmlAttribute(name="path", required = true)
     private java.lang.String _path;
 
     /**
      * Field _query.
      */
+    @XmlAttribute(name="query")
     private java.lang.String _query;
 
     /**
      * Field _fragment.
      */
+    @XmlAttribute(name="fragment")
     private java.lang.String _fragment;
 
     /**
      * Field _matches.
      */
-    private java.lang.String _matches = "(.*)";
+    @XmlAttribute(name="matches")
+    private java.lang.String _matches;
 
     /**
      * Field _responseRange.
      */
-    private java.lang.String _responseRange = "100-399";
+    @XmlAttribute(name="response-range")
+    private java.lang.String _responseRange;
 
     /**
      * Field _canonicalEquivalence.
      */
-    private boolean _canonicalEquivalence = false;
-
-    /**
-     * keeps track of state for field: _canonicalEquivalence
-     */
-    private boolean _has_canonicalEquivalence;
+    @XmlAttribute(name="canonical-equivalence")
+    private Boolean _canonicalEquivalence;
 
     /**
      * Field _caseInsensitive.
      */
-    private boolean _caseInsensitive = false;
-
-    /**
-     * keeps track of state for field: _caseInsensitive
-     */
-    private boolean _has_caseInsensitive;
+    @XmlAttribute(name="case-insensitive")
+    private Boolean _caseInsensitive;
 
     /**
      * Field _comments.
      */
-    private boolean _comments = false;
-
-    /**
-     * keeps track of state for field: _comments
-     */
-    private boolean _has_comments;
+    @XmlAttribute(name="case-insensitive")
+    private Boolean _comments;
 
     /**
      * Field _dotall.
      */
-    private boolean _dotall = false;
-
-    /**
-     * keeps track of state for field: _dotall
-     */
-    private boolean _has_dotall;
+    @XmlAttribute(name="dotall")
+    private Boolean _dotall;
 
     /**
      * Field _literal.
      */
-    private boolean _literal = false;
-
-    /**
-     * keeps track of state for field: _literal
-     */
-    private boolean _has_literal;
+    @XmlAttribute(name="literal")
+    private Boolean _literal;
 
     /**
      * Field _multiline.
      */
-    private boolean _multiline = false;
-
-    /**
-     * keeps track of state for field: _multiline
-     */
-    private boolean _has_multiline;
+    @XmlAttribute(name="multiline")
+    private Boolean _multiline;
 
     /**
      * Field _unicodeCase.
      */
-    private boolean _unicodeCase = false;
-
-    /**
-     * keeps track of state for field: _unicodeCase
-     */
-    private boolean _has_unicodeCase;
+    @XmlAttribute(name="unicode-case")
+    private Boolean _unicodeCase;
 
     /**
      * Field _unixLines.
      */
-    private boolean _unixLines = false;
-
-    /**
-     * keeps track of state for field: _unixLines
-     */
-    private boolean _has_unixLines;
+    @XmlAttribute(name="unix-lines")
+    private Boolean _unixLines;
 
     /**
      * Field _parameters.
      */
+    @XmlElement(name="parameters")
     private org.opennms.netmgt.config.httpdatacollection.Parameters _parameters;
 
 
@@ -238,63 +217,63 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteCanonicalEquivalence(
     ) {
-        this._has_canonicalEquivalence= false;
+        this._canonicalEquivalence = null;
     }
 
     /**
      */
     public void deleteCaseInsensitive(
     ) {
-        this._has_caseInsensitive= false;
+        this._caseInsensitive = null;
     }
 
     /**
      */
     public void deleteComments(
     ) {
-        this._has_comments= false;
+        this._comments = null;
     }
 
     /**
      */
     public void deleteDotall(
     ) {
-        this._has_dotall= false;
+        this._dotall = null;
     }
 
     /**
      */
     public void deleteLiteral(
     ) {
-        this._has_literal= false;
+        this._literal = null;
     }
 
     /**
      */
     public void deleteMultiline(
     ) {
-        this._has_multiline= false;
+        this._multiline = null;
     }
 
     /**
      */
     public void deletePort(
     ) {
-        this._has_port= false;
+        this._port = null;
     }
 
     /**
      */
     public void deleteUnicodeCase(
     ) {
-        this._has_unicodeCase= false;
+        this._unicodeCase = null;
     }
 
     /**
      */
     public void deleteUnixLines(
     ) {
-        this._has_unixLines= false;
+        this._unixLines = null;
     }
 
     /**
@@ -361,9 +340,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._host != null)
                 return false;
-            if (this._port != temp._port)
-                return false;
-            if (this._has_port != temp._has_port)
+            if (this._port != null) {
+                if (temp._port == null) return false;
+                else if (!(this._port.equals(temp._port)))
+                    return false;
+            }
+            else if (temp._port != null)
                 return false;
             if (this._path != null) {
                 if (temp._path == null) return false;
@@ -400,37 +382,61 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._responseRange != null)
                 return false;
-            if (this._canonicalEquivalence != temp._canonicalEquivalence)
+            if (this._canonicalEquivalence != null) {
+                if (temp._canonicalEquivalence == null) return false;
+                else if (!(this._canonicalEquivalence.equals(temp._canonicalEquivalence)))
+                    return false;
+            }
+            else if (temp._canonicalEquivalence != null)
                 return false;
-            if (this._has_canonicalEquivalence != temp._has_canonicalEquivalence)
+            if (this._caseInsensitive != null) {
+                if (temp._caseInsensitive == null) return false;
+                else if (!(this._caseInsensitive.equals(temp._caseInsensitive)))
+                    return false;
+            }
+            else if (temp._caseInsensitive != null)
                 return false;
-            if (this._caseInsensitive != temp._caseInsensitive)
+            if (this._comments != null) {
+                if (temp._comments == null) return false;
+                else if (!(this._comments.equals(temp._comments)))
+                    return false;
+            }
+            else if (temp._comments != null)
                 return false;
-            if (this._has_caseInsensitive != temp._has_caseInsensitive)
+            if (this._dotall != null) {
+                if (temp._dotall == null) return false;
+                else if (!(this._dotall.equals(temp._dotall)))
+                    return false;
+            }
+            else if (temp._dotall != null)
                 return false;
-            if (this._comments != temp._comments)
+            if (this._literal != null) {
+                if (temp._literal == null) return false;
+                else if (!(this._literal.equals(temp._literal)))
+                    return false;
+            }
+            else if (temp._literal != null)
                 return false;
-            if (this._has_comments != temp._has_comments)
+            if (this._multiline != null) {
+                if (temp._multiline == null) return false;
+                else if (!(this._multiline.equals(temp._multiline)))
+                    return false;
+            }
+            else if (temp._multiline != null)
                 return false;
-            if (this._dotall != temp._dotall)
+            if (this._unicodeCase != null) {
+                if (temp._unicodeCase == null) return false;
+                else if (!(this._unicodeCase.equals(temp._unicodeCase)))
+                    return false;
+            }
+            else if (temp._unicodeCase != null)
                 return false;
-            if (this._has_dotall != temp._has_dotall)
-                return false;
-            if (this._literal != temp._literal)
-                return false;
-            if (this._has_literal != temp._has_literal)
-                return false;
-            if (this._multiline != temp._multiline)
-                return false;
-            if (this._has_multiline != temp._has_multiline)
-                return false;
-            if (this._unicodeCase != temp._unicodeCase)
-                return false;
-            if (this._has_unicodeCase != temp._has_unicodeCase)
-                return false;
-            if (this._unixLines != temp._unixLines)
-                return false;
-            if (this._has_unixLines != temp._has_unixLines)
+            if (this._unixLines != null) {
+                if (temp._unixLines == null) return false;
+                else if (!(this._unixLines.equals(temp._unixLines)))
+                    return false;
+            }
+            else if (temp._unixLines != null)
                 return false;
             if (this._parameters != null) {
                 if (temp._parameters == null) return false;
@@ -449,9 +455,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'CanonicalEquivalence'.
      */
-    public boolean getCanonicalEquivalence(
+    public Boolean getCanonicalEquivalence(
     ) {
-        return this._canonicalEquivalence;
+        return this._canonicalEquivalence == null ? false : this._canonicalEquivalence;
     }
 
     /**
@@ -459,9 +465,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'CaseInsensitive'.
      */
-    public boolean getCaseInsensitive(
+    public Boolean getCaseInsensitive(
     ) {
-        return this._caseInsensitive;
+        return this._caseInsensitive == null ? false : this._caseInsensitive;
     }
 
     /**
@@ -469,9 +475,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Comments'.
      */
-    public boolean getComments(
+    public Boolean getComments(
     ) {
-        return this._comments;
+        return this._comments == null ? false : this._comments;
     }
 
     /**
@@ -479,9 +485,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Dotall'.
      */
-    public boolean getDotall(
+    public Boolean getDotall(
     ) {
-        return this._dotall;
+        return this._dotall == null ? false : this._dotall;
     }
 
     /**
@@ -501,7 +507,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getHost(
     ) {
-        return this._host;
+        return this._host == null ? "${ipaddr}" : this._host;
     }
 
     /**
@@ -511,7 +517,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getHttpVersion(
     ) {
-        return this._httpVersion;
+        return this._httpVersion == null ? "1.1" : this._httpVersion;
     }
 
     /**
@@ -519,9 +525,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Literal'.
      */
-    public boolean getLiteral(
+    public Boolean getLiteral(
     ) {
-        return this._literal;
+        return this._literal == null ? false : this._literal;
     }
 
     /**
@@ -531,7 +537,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMatches(
     ) {
-        return this._matches;
+        return this._matches == null ? "(.*)" : this._matches;
     }
 
     /**
@@ -541,7 +547,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMethod(
     ) {
-        return this._method;
+        return this._method == null ? "GET" : this._method;
     }
 
     /**
@@ -549,9 +555,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Multiline'.
      */
-    public boolean getMultiline(
+    public Boolean getMultiline(
     ) {
-        return this._multiline;
+        return this._multiline == null ? false : this._multiline;
     }
 
     /**
@@ -579,9 +585,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Port'.
      */
-    public int getPort(
+    public Integer getPort(
     ) {
-        return this._port;
+        return this._port == null ? 80 : this._port;
     }
 
     /**
@@ -601,7 +607,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getResponseRange(
     ) {
-        return this._responseRange;
+        return this._responseRange == null ? "100-399" : this._responseRange;
     }
 
     /**
@@ -611,7 +617,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getScheme(
     ) {
-        return this._scheme;
+        return this._scheme == null ? "http" : this._scheme;
     }
 
     /**
@@ -619,9 +625,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UnicodeCase'.
      */
-    public boolean getUnicodeCase(
+    public Boolean getUnicodeCase(
     ) {
-        return this._unicodeCase;
+        return this._unicodeCase == null ? false : this._unicodeCase;
     }
 
     /**
@@ -629,9 +635,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UnixLines'.
      */
-    public boolean getUnixLines(
+    public Boolean getUnixLines(
     ) {
-        return this._unixLines;
+        return this._unixLines == null ? false : this._unixLines;
     }
 
     /**
@@ -672,7 +678,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasCanonicalEquivalence(
     ) {
-        return this._has_canonicalEquivalence;
+        return this._canonicalEquivalence != null;
     }
 
     /**
@@ -682,7 +688,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasCaseInsensitive(
     ) {
-        return this._has_caseInsensitive;
+        return this._caseInsensitive != null;
     }
 
     /**
@@ -692,7 +698,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasComments(
     ) {
-        return this._has_comments;
+        return this._comments != null;
     }
 
     /**
@@ -702,7 +708,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasDotall(
     ) {
-        return this._has_dotall;
+        return this._dotall != null;
     }
 
     /**
@@ -712,7 +718,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasLiteral(
     ) {
-        return this._has_literal;
+        return this._literal != null;
     }
 
     /**
@@ -722,7 +728,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMultiline(
     ) {
-        return this._has_multiline;
+        return this._multiline != null;
     }
 
     /**
@@ -732,7 +738,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasPort(
     ) {
-        return this._has_port;
+        return this._port != null;
     }
 
     /**
@@ -742,7 +748,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUnicodeCase(
     ) {
-        return this._has_unicodeCase;
+        return this._unicodeCase != null;
     }
 
     /**
@@ -752,7 +758,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUnixLines(
     ) {
-        return this._has_unixLines;
+        return this._unixLines != null;
     }
 
     /**
@@ -790,7 +796,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_host != null) {
            result = 37 * result + _host.hashCode();
         }
-        result = 37 * result + _port;
+        if (_port != null) {
+           result = 37 * result + _port.hashCode();
+        }
         if (_path != null) {
            result = 37 * result + _path.hashCode();
         }
@@ -806,14 +814,30 @@ import org.opennms.core.xml.ValidateUsing;
         if (_responseRange != null) {
            result = 37 * result + _responseRange.hashCode();
         }
-        result = 37 * result + (_canonicalEquivalence?0:1);
-        result = 37 * result + (_caseInsensitive?0:1);
-        result = 37 * result + (_comments?0:1);
-        result = 37 * result + (_dotall?0:1);
-        result = 37 * result + (_literal?0:1);
-        result = 37 * result + (_multiline?0:1);
-        result = 37 * result + (_unicodeCase?0:1);
-        result = 37 * result + (_unixLines?0:1);
+        if (_canonicalEquivalence != null) {
+           result = 37 * result + _canonicalEquivalence.hashCode();
+        }
+        if (_caseInsensitive != null) {
+           result = 37 * result + _caseInsensitive.hashCode();
+        }
+        if (_comments != null) {
+           result = 37 * result + _comments.hashCode();
+        }
+        if (_dotall != null) {
+           result = 37 * result + _dotall.hashCode();
+        }
+        if (_literal != null) {
+           result = 37 * result + _literal.hashCode();
+        }
+        if (_multiline != null) {
+           result = 37 * result + _multiline.hashCode();
+        }
+        if (_unicodeCase != null) {
+           result = 37 * result + _unicodeCase.hashCode();
+        }
+        if (_unixLines != null) {
+           result = 37 * result + _unixLines.hashCode();
+        }
         if (_parameters != null) {
            result = 37 * result + _parameters.hashCode();
         }
@@ -955,9 +979,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'canonicalEquivalence'.
      */
     public void setCanonicalEquivalence(
-            final boolean canonicalEquivalence) {
+            final Boolean canonicalEquivalence) {
         this._canonicalEquivalence = canonicalEquivalence;
-        this._has_canonicalEquivalence = true;
     }
 
     /**
@@ -966,9 +989,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param caseInsensitive the value of field 'caseInsensitive'.
      */
     public void setCaseInsensitive(
-            final boolean caseInsensitive) {
+            final Boolean caseInsensitive) {
         this._caseInsensitive = caseInsensitive;
-        this._has_caseInsensitive = true;
     }
 
     /**
@@ -977,9 +999,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param comments the value of field 'comments'.
      */
     public void setComments(
-            final boolean comments) {
+            final Boolean comments) {
         this._comments = comments;
-        this._has_comments = true;
     }
 
     /**
@@ -988,9 +1009,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param dotall the value of field 'dotall'.
      */
     public void setDotall(
-            final boolean dotall) {
+            final Boolean dotall) {
         this._dotall = dotall;
-        this._has_dotall = true;
     }
 
     /**
@@ -1029,9 +1049,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param literal the value of field 'literal'.
      */
     public void setLiteral(
-            final boolean literal) {
+            final Boolean literal) {
         this._literal = literal;
-        this._has_literal = true;
     }
 
     /**
@@ -1060,9 +1079,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param multiline the value of field 'multiline'.
      */
     public void setMultiline(
-            final boolean multiline) {
+            final Boolean multiline) {
         this._multiline = multiline;
-        this._has_multiline = true;
     }
 
     /**
@@ -1091,9 +1109,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param port the value of field 'port'.
      */
     public void setPort(
-            final int port) {
+            final Integer port) {
         this._port = port;
-        this._has_port = true;
     }
 
     /**
@@ -1132,9 +1149,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param unicodeCase the value of field 'unicodeCase'.
      */
     public void setUnicodeCase(
-            final boolean unicodeCase) {
+            final Boolean unicodeCase) {
         this._unicodeCase = unicodeCase;
-        this._has_unicodeCase = true;
     }
 
     /**
@@ -1143,9 +1159,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param unixLines the value of field 'unixLines'.
      */
     public void setUnixLines(
-            final boolean unixLines) {
+            final Boolean unixLines) {
         this._unixLines = unixLines;
-        this._has_unixLines = true;
     }
 
     /**
