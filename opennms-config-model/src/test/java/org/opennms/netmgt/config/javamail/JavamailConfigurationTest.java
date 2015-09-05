@@ -48,7 +48,7 @@ public class JavamailConfigurationTest extends XmlTestNoCastor<JavamailConfigura
         jmConfig.setDefaultSendConfigName("localhost");
         SendmailConfig smConf = new SendmailConfig();
         smConf.setName("");
-        smConf.setAttemptInterval(3000L);
+        smConf.setAttemptInterval(3000);
         smConf.setUseAuthentication(Boolean.FALSE);
         smConf.setUseJmta(Boolean.TRUE);
         smConf.setDebug(Boolean.TRUE);
