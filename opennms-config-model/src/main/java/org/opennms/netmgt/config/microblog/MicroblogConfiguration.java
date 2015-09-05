@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="microblog-configuration")
@@ -63,12 +65,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _defaultMicroblogProfileName.
      */
+    @XmlAttribute(name="default-microblog-profile-name")
     private java.lang.String _defaultMicroblogProfileName;
 
     /**
      * This entity defines the parameters for a microblog service.
      *
      */
+    @XmlElement(name="microblog-profile")
     private java.util.List<org.opennms.netmgt.config.microblog.MicroblogProfile> _microblogProfileList;
 
 

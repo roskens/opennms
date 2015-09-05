@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="microblog-profile")
@@ -63,41 +64,49 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _serviceUrl.
      */
+    @XmlAttribute(name="service-url", required = true)
     private java.lang.String _serviceUrl;
 
     /**
      * Field _authenUsername.
      */
+    @XmlAttribute(name="authen-username")
     private java.lang.String _authenUsername;
 
     /**
      * Field _authenPassword.
      */
+    @XmlAttribute(name="authen-password")
     private java.lang.String _authenPassword;
 
     /**
      * Field _oauthConsumerKey.
      */
+    @XmlAttribute(name="oauth-consumer-key")
     private java.lang.String _oauthConsumerKey;
 
     /**
      * Field _oauthConsumerSecret.
      */
+    @XmlAttribute(name="oauth-consumer-secret")
     private java.lang.String _oauthConsumerSecret;
 
     /**
      * Field _oauthAccessToken.
      */
+    @XmlAttribute(name="oauth-access-token")
     private java.lang.String _oauthAccessToken;
 
     /**
      * Field _oauthAccessTokenSecret.
      */
+    @XmlAttribute(name="oauth-access-token-secret")
     private java.lang.String _oauthAccessTokenSecret;
 
 

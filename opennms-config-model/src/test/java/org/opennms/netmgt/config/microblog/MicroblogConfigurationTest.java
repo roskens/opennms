@@ -46,11 +46,41 @@ public class MicroblogConfigurationTest extends XmlTestNoCastor<MicroblogConfigu
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        MicroblogConfiguration microblogConfiguration = new MicroblogConfiguration();
+        MicroblogConfiguration mbconfig = new MicroblogConfiguration();
+        mbconfig.setDefaultMicroblogProfileName("twitter");
+        MicroblogProfile mbp1 = new MicroblogProfile();
+        mbconfig.addMicroblogProfile(mbp1);
+        mbp1.setName("identica");
+        mbp1.setServiceUrl("https://identi.ca/api/");
+        mbp1.setAuthenUsername("yourusername");
+        mbp1.setAuthenPassword("yourpassword");
+        MicroblogProfile mbp2 = new MicroblogProfile();
+        mbconfig.addMicroblogProfile(mbp2);
+        mbp2.setName("twitter");
+        mbp2.setServiceUrl("https://twitter.com/");
+        mbp2.setOauthConsumerKey("consumer-key");
+        mbp2.setOauthConsumerSecret("consumer-secret");
+        mbp2.setOauthAccessToken("access-token-1");
+        mbp2.setOauthAccessTokenSecret("access-token-1-secret");
 
         return Arrays.asList(new Object[][] { {
-                microblogConfiguration,
-                "", /* configuration */
+                mbconfig,
+                "<microblog-configuration default-microblog-profile-name=\"twitter\">\n" +
+"        <microblog-profile\n" +
+"                name=\"identica\"\n" +
+"                service-url=\"https://identi.ca/api/\"\n" +
+"                authen-username=\"yourusername\"\n" +
+"                authen-password=\"yourpassword\"\n" +
+"        />\n" +
+"        <microblog-profile\n" +
+"                name=\"twitter\"\n" +
+"                service-url=\"https://twitter.com/\"\n" +
+"                oauth-consumer-key=\"consumer-key\"\n" +
+"                oauth-consumer-secret=\"consumer-secret\"\n" +
+"                oauth-access-token=\"access-token-1\"\n" +
+"                oauth-access-token-secret=\"access-token-1-secret\"\n" +
+"        />\n" +
+"</microblog-configuration>", /* configuration */
                 "target/classes/xsds/microblog-configuration.xsd", }, });
     }
 }
