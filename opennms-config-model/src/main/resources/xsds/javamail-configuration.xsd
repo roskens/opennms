@@ -109,7 +109,7 @@
     </annotation>
     <complexType>
       <attribute name="host" type="string" use="optional" default="127.0.0.1" />
-      <attribute name="port" type="integer" use="optional" default="25" />
+      <attribute name="port" type="int" use="optional" default="25" />
     </complexType>
   </element>
   

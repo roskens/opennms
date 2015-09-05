@@ -72,7 +72,7 @@ import org.opennms.core.xml.ValidateUsing;
      * Field _port.
      */
     @XmlAttribute(name="port")
-    private Long _port;
+    private Integer _port;
 
       //----------------/
      //- Constructors -/
@@ -143,9 +143,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Port'.
      */
-    public Long getPort(
+    public Integer getPort(
     ) {
-        return this._port == null ? 25L : this._port;
+        return this._port == null ? 25 : this._port;
     }
 
     /**
@@ -245,7 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param port the value of field 'port'.
      */
     public void setPort(
-            final Long port) {
+            final Integer port) {
         this._port = port;
     }
 

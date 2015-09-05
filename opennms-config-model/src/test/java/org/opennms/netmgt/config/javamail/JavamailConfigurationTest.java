@@ -54,7 +54,7 @@ public class JavamailConfigurationTest extends XmlTestNoCastor<JavamailConfigura
         smConf.setDebug(Boolean.TRUE);
         SendmailHost smHost = new SendmailHost();
         smHost.setHost("127.0.0.1");
-        smHost.setPort(25L);
+        smHost.setPort(25);
         smConf.setSendmailHost(smHost);
         SendmailProtocol smProtocol = new SendmailProtocol();
         smProtocol.setCharSet("us-ascii");
