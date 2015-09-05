@@ -46,11 +46,45 @@ public class NotifdConfigurationTest extends XmlTestNoCastor<NotifdConfiguration
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        NotifdConfiguration notifdConfiguration = new NotifdConfiguration();
+        NotifdConfiguration config = new NotifdConfiguration();
+        config.setStatus("off");
+        config.setMatchAll(Boolean.TRUE);
+        AutoAcknowledge autoAck = new AutoAcknowledge();
+        autoAck.setResolutionPrefix("RESOLVED: ");
+        autoAck.setUei("uei.opennms.org/nodes/serviceResponsive");
+        autoAck.setAcknowledge("uei.opennms.org/nodes/serviceUnresponsive");
+        autoAck.addMatch("nodeid");
+        autoAck.addMatch("interfaceid");
+        autoAck.addMatch("serviceid");
+        config.addAutoAcknowledge(autoAck);
+        Queue queue = new Queue();
+        queue.setQueueId("default");
+        queue.setInterval("20s");
+        HandlerClass hc = new HandlerClass();
+        hc.setName("org.opennms.netmgt.notifd.DefaultQueueHandler");
+        queue.setHandlerClass(hc);
+        config.addQueue(queue);
 
         return Arrays.asList(new Object[][] { {
-                notifdConfiguration,
-                "", /* configuration */
+                config,
+                "<notifd-configuration \n" +
+"        status=\"off\"\n" +
+"        match-all=\"true\">\n" +
+"        <auto-acknowledge resolution-prefix=\"RESOLVED: \" \n" +
+"                          uei=\"uei.opennms.org/nodes/serviceResponsive\" \n" +
+"                          acknowledge=\"uei.opennms.org/nodes/serviceUnresponsive\">\n" +
+"                          <match>nodeid</match>\n" +
+"                          <match>interfaceid</match>\n" +
+"                          <match>serviceid</match>\n" +
+"        </auto-acknowledge>\n" +
+"        <queue>\n" +
+"                <queue-id>default</queue-id>\n" +
+"                <interval>20s</interval>\n" +
+"                <handler-class>\n" +
+"                        <name>org.opennms.netmgt.notifd.DefaultQueueHandler</name>\n" +
+"                </handler-class>\n" +
+"        </queue>\n" +
+"</notifd-configuration>",
                 "target/classes/xsds/notifd-configuration.xsd", }, });
     }
 }

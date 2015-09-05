@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="notifd-configuration")
@@ -55,6 +57,15 @@ import org.opennms.core.xml.ValidateUsing;
 @ValidateUsing("notifd-configuration.xsd")
 @SuppressWarnings("all") public class NotifdConfiguration implements java.io.Serializable {
 
+    private static final String DEFAULT_PAGES_SENT = "SELECT * FROM notifications";
+    private static final String DEFAULT_NEXT_NOTIF_ID = "SELECT nextval('notifynxtid')";
+    private static final String DEFAULT_NEXT_USER_NOTIF_ID = "SELECT nextval('userNotifNxtId')";
+    private static final String DEFAULT_NEXT_GROUP_ID = "SELECT nextval('notifygrpid')";
+    private static final String DEFAULT_SERVICE_ID_SQL = "SELECT serviceID from service where serviceName = ?";
+    private static final String DEFAULT_OUTSTANDING_NOTICES_SQL = "SELECT notifyid FROM notifications where notifyId = ? AND respondTime is not null";
+    private static final String DEFAULT_ACKNOWLEDGE_ID_SQL = "SELECT notifyid FROM notifications WHERE eventuei=? AND nodeid=? AND interfaceid=? AND serviceid=?";
+    private static final String DEFAULT_ACKNOWLEDGE_UPDATE_SQL = "UPDATE notifications SET answeredby=?, respondtime=? WHERE notifyId=?";
+    private static final String DEFAULT_EMAIL_ADDRESS_COMMAND = "javaEmail";
 
       //--------------------------/
      //- Class/Member Variables -/
@@ -63,91 +74,97 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _status.
      */
+    @XmlAttribute(name="status", required = true)
     private java.lang.String _status;
 
     /**
      * Field _pagesSent.
      */
-    private java.lang.String _pagesSent = "SELECT * FROM notifications";
+    @XmlAttribute(name="pages-sent")
+    private java.lang.String _pagesSent;
 
     /**
      * Field _nextNotifId.
      */
-    private java.lang.String _nextNotifId = "SELECT nextval('notifynxtid')";
+    @XmlAttribute(name="next-notif-id")
+    private java.lang.String _nextNotifId;
 
     /**
      * Field _nextUserNotifId.
      */
-    private java.lang.String _nextUserNotifId = "SELECT nextval('userNotifNxtId')";
+    @XmlAttribute(name="next-user-notif-id")
+    private java.lang.String _nextUserNotifId;
 
     /**
      * Field _nextGroupId.
      */
-    private java.lang.String _nextGroupId = "SELECT nextval('notifygrpid')";
+    @XmlAttribute(name="next-group-id")
+    private java.lang.String _nextGroupId;
 
     /**
      * Field _serviceIdSql.
      */
-    private java.lang.String _serviceIdSql = "SELECT serviceID from service where serviceName = ?";
+    @XmlAttribute(name="service-id-sql")
+    private java.lang.String _serviceIdSql;
 
     /**
      * Field _outstandingNoticesSql.
      */
-    private java.lang.String _outstandingNoticesSql = "SELECT notifyid FROM notifications where notifyId = ? AND respondTime is not null";
+    @XmlAttribute(name="outstanding-notices-sql")
+    private java.lang.String _outstandingNoticesSql;
 
     /**
      * Field _acknowledgeIdSql.
      */
-    private java.lang.String _acknowledgeIdSql = "SELECT notifyid FROM notifications WHERE eventuei=? AND nodeid=? AND interfaceid=? AND serviceid=?";
+    @XmlAttribute(name="acknowledge-id-sql")
+    private java.lang.String _acknowledgeIdSql;
 
     /**
      * Field _acknowledgeUpdateSql.
      */
-    private java.lang.String _acknowledgeUpdateSql = "UPDATE notifications SET answeredby=?, respondtime=? WHERE notifyId=?";
+    @XmlAttribute(name="acknowledge-update-sql")
+    private java.lang.String _acknowledgeUpdateSql;
 
     /**
      * Field _matchAll.
      */
-    private boolean _matchAll;
-
-    /**
-     * keeps track of state for field: _matchAll
-     */
-    private boolean _has_matchAll;
+    @XmlAttribute(name="match-all", required = true)
+    private Boolean _matchAll;
 
     /**
      * Field _emailAddressCommand.
      */
-    private java.lang.String _emailAddressCommand = "javaEmail";
+    @XmlAttribute(name="email-address-command")
+    private java.lang.String _emailAddressCommand;
 
     /**
      * Field _numericSkipResolutionPrefix.
      */
-    private boolean _numericSkipResolutionPrefix = false;
-
-    /**
-     * keeps track of state for field: _numericSkipResolutionPrefix
-     */
-    private boolean _has_numericSkipResolutionPrefix;
+    @XmlAttribute(name="numeric-skip-resolution-prefix")
+    private Boolean _numericSkipResolutionPrefix;
 
     /**
      * Field _autoAcknowledgeAlarm.
      */
+    @XmlElement(name="auto-acknowledge-alarm")
     private org.opennms.netmgt.config.notifd.AutoAcknowledgeAlarm _autoAcknowledgeAlarm;
 
     /**
      * Field _autoAcknowledgeList.
      */
+    @XmlElement(name="auto-acknowledge")
     private java.util.List<org.opennms.netmgt.config.notifd.AutoAcknowledge> _autoAcknowledgeList;
 
     /**
      * Field _queueList.
      */
+    @XmlElement(name="queue")
     private java.util.List<org.opennms.netmgt.config.notifd.Queue> _queueList;
 
     /**
      * Field _outageCalendarList.
      */
+    @XmlElement(name="outage-calendar")
     private java.util.List<java.lang.String> _outageCalendarList;
 
 
@@ -157,15 +174,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public NotifdConfiguration() {
         super();
-        setPagesSent("SELECT * FROM notifications");
-        setNextNotifId("SELECT nextval('notifynxtid')");
-        setNextUserNotifId("SELECT nextval('userNotifNxtId')");
-        setNextGroupId("SELECT nextval('notifygrpid')");
-        setServiceIdSql("SELECT serviceID from service where serviceName = ?");
-        setOutstandingNoticesSql("SELECT notifyid FROM notifications where notifyId = ? AND respondTime is not null");
-        setAcknowledgeIdSql("SELECT notifyid FROM notifications WHERE eventuei=? AND nodeid=? AND interfaceid=? AND serviceid=?");
-        setAcknowledgeUpdateSql("UPDATE notifications SET answeredby=?, respondtime=? WHERE notifyId=?");
-        setEmailAddressCommand("javaEmail");
         this._autoAcknowledgeList = new java.util.ArrayList<org.opennms.netmgt.config.notifd.AutoAcknowledge>();
         this._queueList = new java.util.ArrayList<org.opennms.netmgt.config.notifd.Queue>();
         this._outageCalendarList = new java.util.ArrayList<java.lang.String>();
@@ -264,14 +272,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteMatchAll(
     ) {
-        this._has_matchAll= false;
+        this._matchAll = null;
     }
 
     /**
      */
     public void deleteNumericSkipResolutionPrefix(
     ) {
-        this._has_numericSkipResolutionPrefix= false;
+        this._numericSkipResolutionPrefix = null;
     }
 
     /**
@@ -385,9 +393,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._acknowledgeUpdateSql != null)
                 return false;
-            if (this._matchAll != temp._matchAll)
-                return false;
-            if (this._has_matchAll != temp._has_matchAll)
+            if (this._matchAll != null) {
+                if (temp._matchAll == null) return false;
+                else if (!(this._matchAll.equals(temp._matchAll)))
+                    return false;
+            }
+            else if (temp._matchAll != null)
                 return false;
             if (this._emailAddressCommand != null) {
                 if (temp._emailAddressCommand == null) return false;
@@ -396,9 +407,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._emailAddressCommand != null)
                 return false;
-            if (this._numericSkipResolutionPrefix != temp._numericSkipResolutionPrefix)
-                return false;
-            if (this._has_numericSkipResolutionPrefix != temp._has_numericSkipResolutionPrefix)
+            if (this._numericSkipResolutionPrefix != null) {
+                if (temp._numericSkipResolutionPrefix == null) return false;
+                else if (!(this._numericSkipResolutionPrefix.equals(temp._numericSkipResolutionPrefix)))
+                    return false;
+            }
+            else if (temp._numericSkipResolutionPrefix != null)
                 return false;
             if (this._autoAcknowledgeAlarm != null) {
                 if (temp._autoAcknowledgeAlarm == null) return false;
@@ -440,7 +454,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getAcknowledgeIdSql(
     ) {
-        return this._acknowledgeIdSql;
+        return this._acknowledgeIdSql == null ? DEFAULT_ACKNOWLEDGE_ID_SQL : this._acknowledgeIdSql;
     }
 
     /**
@@ -450,7 +464,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getAcknowledgeUpdateSql(
     ) {
-        return this._acknowledgeUpdateSql;
+        return this._acknowledgeUpdateSql == null ? DEFAULT_ACKNOWLEDGE_UPDATE_SQL : this._acknowledgeUpdateSql;
     }
 
     /**
@@ -529,7 +543,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getEmailAddressCommand(
     ) {
-        return this._emailAddressCommand;
+        return this._emailAddressCommand == null ? DEFAULT_EMAIL_ADDRESS_COMMAND : this._emailAddressCommand;
     }
 
     /**
@@ -537,7 +551,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchAll'.
      */
-    public boolean getMatchAll(
+    public Boolean getMatchAll(
     ) {
         return this._matchAll;
     }
@@ -549,7 +563,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getNextGroupId(
     ) {
-        return this._nextGroupId;
+        return this._nextGroupId == null ? DEFAULT_NEXT_GROUP_ID : this._nextGroupId;
     }
 
     /**
@@ -559,7 +573,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getNextNotifId(
     ) {
-        return this._nextNotifId;
+        return this._nextNotifId == null ? DEFAULT_NEXT_NOTIF_ID : this._nextNotifId;
     }
 
     /**
@@ -569,7 +583,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getNextUserNotifId(
     ) {
-        return this._nextUserNotifId;
+        return this._nextUserNotifId == null ? DEFAULT_NEXT_USER_NOTIF_ID : this._nextUserNotifId;
     }
 
     /**
@@ -577,9 +591,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NumericSkipResolutionPrefix'.
      */
-    public boolean getNumericSkipResolutionPrefix(
+    public Boolean getNumericSkipResolutionPrefix(
     ) {
-        return this._numericSkipResolutionPrefix;
+        return this._numericSkipResolutionPrefix == null ? Boolean.FALSE : this._numericSkipResolutionPrefix;
     }
 
     /**
@@ -646,7 +660,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getOutstandingNoticesSql(
     ) {
-        return this._outstandingNoticesSql;
+        return this._outstandingNoticesSql == null ? DEFAULT_OUTSTANDING_NOTICES_SQL : this._outstandingNoticesSql;
     }
 
     /**
@@ -656,7 +670,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getPagesSent(
     ) {
-        return this._pagesSent;
+        return this._pagesSent == null ? DEFAULT_PAGES_SENT : this._pagesSent;
     }
 
     /**
@@ -743,7 +757,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMatchAll(
     ) {
-        return this._has_matchAll;
+        return this._matchAll != null;
     }
 
     /**
@@ -754,7 +768,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNumericSkipResolutionPrefix(
     ) {
-        return this._has_numericSkipResolutionPrefix;
+        return this._numericSkipResolutionPrefix != null;
     }
 
     /**
@@ -1122,9 +1136,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param matchAll the value of field 'matchAll'.
      */
     public void setMatchAll(
-            final boolean matchAll) {
+            final Boolean matchAll) {
         this._matchAll = matchAll;
-        this._has_matchAll = true;
     }
 
     /**
@@ -1164,9 +1177,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'numericSkipResolutionPrefix'.
      */
     public void setNumericSkipResolutionPrefix(
-            final boolean numericSkipResolutionPrefix) {
+            final Boolean numericSkipResolutionPrefix) {
         this._numericSkipResolutionPrefix = numericSkipResolutionPrefix;
-        this._has_numericSkipResolutionPrefix = true;
     }
 
     /**

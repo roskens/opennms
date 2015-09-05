@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="auto-acknowledge")
@@ -62,31 +64,32 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _resolutionPrefix.
      */
-    private java.lang.String _resolutionPrefix = "RESOLVED: ";
+    @XmlAttribute(name="resolution-prefix")
+    private java.lang.String _resolutionPrefix;
+    private static final String DEFAULT_RESOLUTION_PREFIX = "RESOLVED: ";
 
     /**
      * Field _uei.
      */
+    @XmlAttribute(name="uei", required = true)
     private java.lang.String _uei;
 
     /**
      * Field _acknowledge.
      */
+    @XmlAttribute(name="acknowledge", required = true)
     private java.lang.String _acknowledge;
 
     /**
      * Field _notify.
      */
-    private boolean _notify = true;
-
-    /**
-     * keeps track of state for field: _notify
-     */
-    private boolean _has_notify;
+    @XmlAttribute(name="notify")
+    private Boolean _notify;
 
     /**
      * Field _matchList.
      */
+    @XmlElement(name="match")
     private java.util.List<java.lang.String> _matchList;
 
 
@@ -96,7 +99,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public AutoAcknowledge() {
         super();
-        setResolutionPrefix("RESOLVED: ");
         this._matchList = new java.util.ArrayList<java.lang.String>();
     }
 
@@ -137,7 +139,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteNotify(
     ) {
-        this._has_notify= false;
+        this._notify = null;
     }
 
     /**
@@ -187,9 +189,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._acknowledge != null)
                 return false;
-            if (this._notify != temp._notify)
-                return false;
-            if (this._has_notify != temp._has_notify)
+            if (this._notify != null) {
+                if (temp._notify == null) return false;
+                else if (!(this._notify.equals(temp._notify)))
+                    return false;
+            }
+            else if (temp._notify != null)
                 return false;
             if (this._matchList != null) {
                 if (temp._matchList == null) return false;
@@ -274,9 +279,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Notify'.
      */
-    public boolean getNotify(
+    public Boolean getNotify(
     ) {
-        return this._notify;
+        return this._notify == null ? true : this._notify;
     }
 
     /**
@@ -286,7 +291,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getResolutionPrefix(
     ) {
-        return this._resolutionPrefix;
+        return this._resolutionPrefix == null ? DEFAULT_RESOLUTION_PREFIX : this._resolutionPrefix;
     }
 
     /**
@@ -306,7 +311,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNotify(
     ) {
-        return this._has_notify;
+        return this._notify != null;
     }
 
     /**
@@ -332,7 +337,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_acknowledge != null) {
            result = 37 * result + _acknowledge.hashCode();
         }
-        result = 37 * result + (_notify?0:1);
+        if (_notify != null) {
+           result = 37 * result + _notify.hashCode();
+        }
         if (_matchList != null) {
            result = 37 * result + _matchList.hashCode();
         }
@@ -516,9 +523,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param notify the value of field 'notify'.
      */
     public void setNotify(
-            final boolean notify) {
+            final Boolean notify) {
         this._notify = notify;
-        this._has_notify = true;
     }
 
     /**

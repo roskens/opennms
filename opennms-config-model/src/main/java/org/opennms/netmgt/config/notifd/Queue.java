@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="queue")
@@ -62,16 +63,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _queueId.
      */
+    @XmlElement(name="queue-id")
     private java.lang.String _queueId;
 
     /**
      * Field _interval.
      */
+    @XmlElement(name="interval")
     private java.lang.String _interval;
 
     /**
      * Field _handlerClass.
      */
+    @XmlElement(name="handler-class")
     private org.opennms.netmgt.config.notifd.HandlerClass _handlerClass;
 
 
