@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="header")
@@ -62,17 +63,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _ver.
      */
+    @XmlElement(name="ver")
     private java.lang.String _ver;
 
     /**
      * creation time in the 'dow mon dd hh:mm:ss zzz yyyy'
      *  format
      */
+    @XmlElement(name="created")
     private java.lang.String _created;
 
     /**
      * Field _mstation.
      */
+    @XmlElement(name="mstation")
     private java.lang.String _mstation;
 
 

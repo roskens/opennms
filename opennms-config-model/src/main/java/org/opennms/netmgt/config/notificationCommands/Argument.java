@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="argument")
@@ -62,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _streamed.
      */
+    @XmlAttribute(name="streamed", required = true)
     private java.lang.String _streamed;
 
     /**
      * Field _substitution.
      */
+    @XmlElement(name="substitution")
     private java.lang.String _substitution;
 
     /**
      * Field _switch.
      */
+    @XmlElement(name="switch")
     private java.lang.String _switch;
 
 

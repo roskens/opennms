@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="command")
@@ -62,31 +64,38 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _binary.
      */
-    private java.lang.String _binary = "true";
+    @XmlAttribute(name="binary")
+    private java.lang.String _binary;
+    private static final String DEFAULT_BINARY = "true";
 
     /**
      * Field _name.
      */
+    @XmlElement(name="name")
     private java.lang.String _name;
 
     /**
      * Field _execute.
      */
+    @XmlElement(name="execute")
     private java.lang.String _execute;
 
     /**
      * Field _comment.
      */
+    @XmlElement(name="comment")
     private java.lang.String _comment;
 
     /**
      * Field _contactType.
      */
+    @XmlElement(name="contact-type")
     private java.lang.String _contactType;
 
     /**
      * Field _argumentList.
      */
+    @XmlElement(name="argument")
     private java.util.List<org.opennms.netmgt.config.notificationCommands.Argument> _argumentList;
 
 
@@ -96,7 +105,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Command() {
         super();
-        setBinary("true");
         this._argumentList = new java.util.ArrayList<org.opennms.netmgt.config.notificationCommands.Argument>();
     }
 
@@ -271,7 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getBinary(
     ) {
-        return this._binary;
+        return this._binary == null ? DEFAULT_BINARY : this._binary;
     }
 
     /**

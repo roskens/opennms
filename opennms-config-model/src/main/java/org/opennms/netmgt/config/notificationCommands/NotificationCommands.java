@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="notification-commands")
@@ -63,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _header.
      */
+    @XmlElement(name="header")
     private org.opennms.netmgt.config.notificationCommands.Header _header;
 
     /**
      * Field _commandList.
      */
+    @XmlElement(name="command")
     private java.util.List<org.opennms.netmgt.config.notificationCommands.Command> _commandList;
 
 
