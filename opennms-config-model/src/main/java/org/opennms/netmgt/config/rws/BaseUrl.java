@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="base-url")
@@ -62,31 +63,33 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _server_url.
      */
+    @XmlAttribute(name="server_url", required = true)
     private java.lang.String _server_url;
 
     /**
      * Field _timeout.
      */
-    private int _timeout = 3;
-
-    /**
-     * keeps track of state for field: _timeout
-     */
-    private boolean _has_timeout;
+    @XmlAttribute(name="timeout")
+    private Integer _timeout;
+    private static final Integer DEFAULT_TIMEOUT = 3;
 
     /**
      * Field _directory.
      */
-    private java.lang.String _directory = "/rws";
+    @XmlAttribute(name="directory")
+    private java.lang.String _directory;
+    private static final String DEFAULT_DIRECTORY = "/rws";
 
     /**
      * Field _username.
      */
+    @XmlAttribute(name="username")
     private java.lang.String _username;
 
     /**
      * Field _password.
      */
+    @XmlAttribute(name="password")
     private java.lang.String _password;
 
 
@@ -96,7 +99,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public BaseUrl() {
         super();
-        setDirectory("/rws");
     }
 
 
@@ -108,7 +110,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteTimeout(
     ) {
-        this._has_timeout= false;
+        this._timeout = null;
     }
 
     /**
@@ -133,9 +135,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._server_url != null)
                 return false;
-            if (this._timeout != temp._timeout)
-                return false;
-            if (this._has_timeout != temp._has_timeout)
+            if (this._timeout != null) {
+                if (temp._timeout == null) return false;
+                else if (!(this._timeout.equals(temp._timeout)))
+                    return false;
+            }
+            else if (temp._timeout != null)
                 return false;
             if (this._directory != null) {
                 if (temp._directory == null) return false;
@@ -170,7 +175,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDirectory(
     ) {
-        return this._directory;
+        return this._directory == null ? DEFAULT_DIRECTORY : this._directory;
     }
 
     /**
@@ -198,9 +203,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timeout'.
      */
-    public int getTimeout(
+    public Integer getTimeout(
     ) {
-        return this._timeout;
+        return this._timeout == null ? DEFAULT_TIMEOUT : this._timeout;
     }
 
     /**
@@ -220,7 +225,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasTimeout(
     ) {
-        return this._has_timeout;
+        return this._timeout != null;
     }
 
     /**
@@ -240,7 +245,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_server_url != null) {
            result = 37 * result + _server_url.hashCode();
         }
-        result = 37 * result + _timeout;
+        if (_timeout != null) {
+           result = 37 * result + _timeout.hashCode();
+        }
         if (_directory != null) {
            result = 37 * result + _directory.hashCode();
         }
@@ -337,9 +344,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param timeout the value of field 'timeout'.
      */
     public void setTimeout(
-            final int timeout) {
+            final Integer timeout) {
         this._timeout = timeout;
-        this._has_timeout = true;
     }
 
     /**

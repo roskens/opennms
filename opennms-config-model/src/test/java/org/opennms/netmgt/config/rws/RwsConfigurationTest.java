@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.rws;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,19 @@ public class RwsConfigurationTest extends XmlTestNoCastor<RwsConfiguration> {
     public static Collection<Object[]> data() throws ParseException {
 
         RwsConfiguration rwsConfiguration = new RwsConfiguration();
+        BaseUrl baseUrl = new BaseUrl();
+        baseUrl.setServer_url("http://rws-not-configured");
+        rwsConfiguration.setBaseUrl(baseUrl);
+        StandbyUrl standbyUrl = new StandbyUrl();
+        standbyUrl.setServer_url("http://rws-not-configured");
+        rwsConfiguration.addStandbyUrl(standbyUrl);
 
-        return Arrays.asList(new Object[][] { {
-                rwsConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/rws-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            rwsConfiguration,
+            "<rws-configuration>"
+            + "<base-url server_url=\"http://rws-not-configured\"/>"
+            + "<standby-url server_url=\"http://standby-rws-not-configured\"/>"
+            + "</rws-configuration>",
+            "target/classes/xsds/rws-configuration.xsd",},});
     }
 }

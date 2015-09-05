@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="rws-configuration")
@@ -63,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Base Url(s) for Rancid Server.
      */
+    @XmlElement(name="base-url")
     private org.opennms.netmgt.config.rws.BaseUrl _baseUrl;
 
     /**
      * Stand By Url(s) for Rancid Servers.
      */
+    @XmlElement(name="standby-url")
     private java.util.List<org.opennms.netmgt.config.rws.StandbyUrl> _standbyUrlList;
 
 
