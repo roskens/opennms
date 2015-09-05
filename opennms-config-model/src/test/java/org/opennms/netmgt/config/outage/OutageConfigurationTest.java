@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.outage;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,12 @@ public class OutageConfigurationTest extends XmlTestNoCastor<OutageConfiguration
     public static Collection<Object[]> data() throws ParseException {
 
         OutageConfiguration outageConfiguration = new OutageConfiguration();
+        outageConfiguration.setWriters(123);
+        outageConfiguration.setGetNextOutageID("SELECT nextval('outageNxtId')");
 
         return Arrays.asList(new Object[][] { {
                 outageConfiguration,
-                "", /* configuration */
+                "<OutageConfiguration writers=\"123\" getNextOutageID=\"SELECT nextval('outageNxtId')\" />", /* configuration */
                 "target/classes/xsds/outage-configuration.xsd", }, });
     }
 }

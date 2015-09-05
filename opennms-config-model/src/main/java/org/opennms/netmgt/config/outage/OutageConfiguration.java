@@ -48,9 +48,10 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="outageConfiguration")
+@XmlRootElement(name="OutageConfiguration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("outage-configuration.xsd")
 @SuppressWarnings("all") public class OutageConfiguration implements java.io.Serializable {
@@ -64,18 +65,15 @@ import org.opennms.core.xml.ValidateUsing;
      * Maximum number of threads reading the events and
      *  updating the database.
      */
-    private int _writers;
-
-    /**
-     * keeps track of state for field: _writers
-     */
-    private boolean _has_writers;
+    @XmlAttribute(name="writers", required = true)
+    private Integer _writers;
 
     /**
      * SQL query to get next value of the 'outageNxtId'
      *  database sequence to make the access database
      *  independant.
      */
+    @XmlAttribute(name="getNextOutageID", required = true)
     private java.lang.String _getNextOutageID;
 
     /**
@@ -83,7 +81,9 @@ import org.opennms.core.xml.ValidateUsing;
      *  propagate to a delete interface or delete node event, if
      *  approciate.
      */
-    private java.lang.String _deletePropagation = "true";
+    @XmlAttribute(name="deletePropagation")
+    private java.lang.String _deletePropagation;
+    private static final String DEFAULT_DELETEPRAPAGATION = "true";
 
 
       //----------------/
@@ -92,7 +92,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public OutageConfiguration() {
         super();
-        setDeletePropagation("true");
     }
 
 
@@ -104,7 +103,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteWriters(
     ) {
-        this._has_writers= false;
+        this._writers = null;
     }
 
     /**
@@ -122,9 +121,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof OutageConfiguration) {
 
             OutageConfiguration temp = (OutageConfiguration)obj;
-            if (this._writers != temp._writers)
-                return false;
-            if (this._has_writers != temp._has_writers)
+            if (this._writers != null) {
+                if (temp._writers == null) return false;
+                else if (!(this._writers.equals(temp._writers)))
+                    return false;
+            }
+            else if (temp._writers != null)
                 return false;
             if (this._getNextOutageID != null) {
                 if (temp._getNextOutageID == null) return false;
@@ -156,7 +158,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDeletePropagation(
     ) {
-        return this._deletePropagation;
+        return this._deletePropagation == null ? DEFAULT_DELETEPRAPAGATION : this._deletePropagation;
     }
 
     /**
@@ -181,7 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Writers'.
      */
-    public int getWriters(
+    public Integer getWriters(
     ) {
         return this._writers;
     }
@@ -193,7 +195,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasWriters(
     ) {
-        return this._has_writers;
+        return this._writers != null;
     }
 
     /**
@@ -306,9 +308,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param writers the value of field 'writers'.
      */
     public void setWriters(
-            final int writers) {
+            final Integer writers) {
         this._writers = writers;
-        this._has_writers = true;
     }
 
     /**
