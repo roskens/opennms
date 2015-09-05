@@ -56,7 +56,7 @@
       <attribute name="debug" type="boolean" use="optional" default="true" />
       <attribute name="use-authentication" type="boolean" use="optional" default="false" />
       <attribute name="use-jmta" type="boolean" use="optional" default="true" />
-      <attribute name="attempt-interval" type="integer" use="optional" default="3000" />
+      <attribute name="attempt-interval" type="int" use="optional" default="3000" />
       <attribute name="name" type="string" use="required" />
     </complexType>
   </element>

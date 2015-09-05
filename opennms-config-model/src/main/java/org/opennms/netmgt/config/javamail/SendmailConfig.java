@@ -92,7 +92,7 @@ import org.opennms.core.xml.ValidateUsing;
      * Field _attemptInterval.
      */
     @XmlAttribute(name="attempt-interval")
-    private Long _attemptInterval;
+    private Integer _attemptInterval;
 
     /**
      * Field _name.
@@ -321,9 +321,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AttemptInterval'.
      */
-    public Long getAttemptInterval(
+    public Integer getAttemptInterval(
     ) {
-        return this._attemptInterval == null ? 3000L : this._attemptInterval;
+        return this._attemptInterval == null ? 3000 : this._attemptInterval;
     }
 
     /**
@@ -697,7 +697,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param attemptInterval the value of field 'attemptInterval'.
      */
     public void setAttemptInterval(
-            final Long attemptInterval) {
+            final Integer attemptInterval) {
         this._attemptInterval = attemptInterval;
     }
 
