@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.reportd;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -46,11 +44,23 @@ public class ReportdConfigurationTest extends XmlTestNoCastor<ReportdConfigurati
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        ReportdConfiguration reportdConfiguration = new ReportdConfiguration();
+        ReportdConfiguration config = new ReportdConfiguration();
+        config.setStorageLocation("${install.share.dir}/reports");
+        config.setPersistReports("yes");
+        Report report = new Report();
+        report.setReportName("sample-report");
+        report.setReportTemplate("sample-report.jrxml");
+        report.setReportEngine("jdbc");
+        report.setCronSchedule("0 0 0 * * ? *");
+        config.addReport(report);
 
-        return Arrays.asList(new Object[][] { {
-                reportdConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/reportd-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<reportd-configuration storage-location=\"${install.share.dir}/reports\" persist-reports=\"yes\">"
+            + "    <report report-name=\"sample-report\" report-template=\"sample-report.jrxml\" report-engine=\"jdbc\">"
+            + "        <cron-schedule>0 0 0 * * ? *</cron-schedule>"
+            + "    </report> "
+            + "</reportd-configuration>",
+            "target/classes/xsds/reportd-configuration.xsd",},});
     }
 }

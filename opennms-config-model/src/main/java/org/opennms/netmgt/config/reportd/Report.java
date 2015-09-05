@@ -58,6 +58,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="report")
@@ -73,41 +75,51 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _reportTemplate.
      */
+    @XmlAttribute(name="report-template", required = true)
     private java.lang.String _reportTemplate;
 
     /**
      * Field _reportName.
      */
+    @XmlAttribute(name="report-name", required = true)
     private java.lang.String _reportName;
 
     /**
      * Field _reportFormat.
      */
-    private java.lang.String _reportFormat = "pdf";
+    @XmlAttribute(name="report-format")
+    private java.lang.String _reportFormat;
+    private static final String DEFAULT_REPORT_FORMAT = "pdf";
 
     /**
      * Field _reportEngine.
      */
-    private java.lang.String _reportEngine = "opennms";
+    @XmlAttribute(name="report-engine")
+    private java.lang.String _reportEngine;
+    private static final String DEFAULT_REPORT_ENGINE = "opennms";
 
     /**
      * Field _cronSchedule.
      */
+    @XmlElement(name="cron-schedule")
     private java.lang.String _cronSchedule;
 
     /**
      * Field _recipientList.
      */
+    @XmlElement(name="recipient")
     private java.util.List<java.lang.String> _recipientList;
 
     /**
      * Field _mailer.
      */
+    @XmlElement(name="mailer")
     private java.lang.String _mailer;
 
     /**
      * Field _parameterList.
      */
+    @XmlElement(name="parameter")
     private java.util.List<org.opennms.netmgt.config.reportd.Parameter> _parameterList;
 
 
@@ -117,8 +129,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Report() {
         super();
-        setReportFormat("pdf");
-        setReportEngine("opennms");
         this._recipientList = new java.util.ArrayList<java.lang.String>();
         this._parameterList = new java.util.ArrayList<org.opennms.netmgt.config.reportd.Parameter>();
     }
@@ -422,7 +432,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getReportEngine(
     ) {
-        return this._reportEngine;
+        return this._reportEngine == null ? DEFAULT_REPORT_ENGINE : this._reportEngine;
     }
 
     /**
@@ -432,7 +442,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getReportFormat(
     ) {
-        return this._reportFormat;
+        return this._reportFormat == null ? DEFAULT_REPORT_FORMAT : this._reportFormat;
     }
 
     /**

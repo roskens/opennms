@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="reportd-configuration")
@@ -64,11 +66,13 @@ import org.opennms.core.xml.ValidateUsing;
      * The base directory rendered reports are saved on the file
      * system.
      */
+    @XmlAttribute(name="storage-location", required = true)
     private java.lang.String _storageLocation;
 
     /**
      * Should reports be kept after delivered?
      */
+    @XmlAttribute(name="persist-reports", required = true)
     private java.lang.String _persistReports;
 
     /**
@@ -85,6 +89,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  Year (Opt) empty, 1970-2099 , - /
      *
      */
+    @XmlElement(name="report")
     private java.util.List<org.opennms.netmgt.config.reportd.Report> _reportList;
 
 
