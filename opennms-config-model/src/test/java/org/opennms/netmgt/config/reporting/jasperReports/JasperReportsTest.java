@@ -29,15 +29,21 @@
 package org.opennms.netmgt.config.reporting.jasperReports;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class JasperReportsTest extends XmlTestNoCastor<JasperReports> {
+
+    private static void addReport(JasperReports jasperReports, String id, String template, String engine) {
+        Report report = new Report();
+        report.setId(id);
+        report.setTemplate(template);
+        report.setEngine(engine);
+        jasperReports.addReport(report);
+    }
 
     public JasperReportsTest(final JasperReports sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
@@ -47,10 +53,19 @@ public class JasperReportsTest extends XmlTestNoCastor<JasperReports> {
     public static Collection<Object[]> data() throws ParseException {
 
         JasperReports jasperReports = new JasperReports();
+        addReport(jasperReports, "Early-Morning-Report", "Early-Morning-Report.jrxml", "jdbc");
+        addReport(jasperReports, "Response-Time-Summary-Report", "ResponseTimeSummary.jrxml", "jdbc");
+        addReport(jasperReports, "Node-Availability-Report", "NodeAvailabilityReport.jrxml", "jdbc");
+        addReport(jasperReports, "Availability-Summary-Report", "AvailabilitySummary.jrxml", "jdbc");
 
-        return Arrays.asList(new Object[][] { {
-                jasperReports,
-                "", /* configuration */
-                "target/classes/xsds/jasper-reports.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            jasperReports,
+            "<jasper-reports>"
+            + " <report id=\"Early-Morning-Report\" template=\"Early-Morning-Report.jrxml\" engine=\"jdbc\" />"
+            + " <report id=\"Response-Time-Summary-Report\" template=\"ResponseTimeSummary.jrxml\" engine=\"jdbc\" />"
+            + " <report id=\"Node-Availability-Report\" template=\"NodeAvailabilityReport.jrxml\" engine=\"jdbc\" />"
+            + " <report id=\"Availability-Summary-Report\" template=\"AvailabilitySummary.jrxml\" engine=\"jdbc\" />"
+            + "</jasper-reports>",
+            "target/classes/xsds/jasper-reports.xsd",},});
     }
 }
