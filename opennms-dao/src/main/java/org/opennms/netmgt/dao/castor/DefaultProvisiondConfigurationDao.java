@@ -129,7 +129,7 @@ public class DefaultProvisiondConfigurationDao extends AbstractCastorConfigDao<P
      */
     @Override
     public Integer getImportThreads() {
-        return Integer.valueOf((int)getConfig().getImportThreads());
+        return getConfig().getImportThreads();
     }
 
     /**
@@ -139,7 +139,7 @@ public class DefaultProvisiondConfigurationDao extends AbstractCastorConfigDao<P
      */
     @Override
     public Integer getScanThreads() {
-        return Integer.valueOf((int)getConfig().getScanThreads());
+        return getConfig().getScanThreads();
     }
 
     /**
@@ -149,7 +149,7 @@ public class DefaultProvisiondConfigurationDao extends AbstractCastorConfigDao<P
      */
     @Override
     public Integer getRescanThreads() {
-        return Integer.valueOf((int)getConfig().getRescanThreads());
+        return getConfig().getRescanThreads();
     }
 
     /**
@@ -159,7 +159,7 @@ public class DefaultProvisiondConfigurationDao extends AbstractCastorConfigDao<P
      */
     @Override
     public Integer getWriteThreads() {
-        return Integer.valueOf((int)getConfig().getWriteThreads());
+        return getConfig().getWriteThreads();
     }
     
 }

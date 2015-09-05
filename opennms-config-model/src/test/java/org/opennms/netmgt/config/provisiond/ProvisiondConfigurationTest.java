@@ -46,10 +46,10 @@ public class ProvisiondConfigurationTest extends XmlTestNoCastor<ProvisiondConfi
         ProvisiondConfiguration config = new ProvisiondConfiguration();
         config.setForeignSourceDir("${install.dir}/etc/foreign-sources");
         config.setRequistionDir("${install.dir}/etc/imports");
-        config.setImportThreads(8L);
-        config.setScanThreads(10L);
-        config.setRescanThreads(10L);
-        config.setWriteThreads(8L);
+        config.setImportThreads(8);
+        config.setScanThreads(10);
+        config.setRescanThreads(10);
+        config.setWriteThreads(8);
         RequisitionDef rDef = new RequisitionDef();
         rDef.setImportName("the-import-name-to-use");
         rDef.setImportUrlResource("vmware://ip-address-or-hostname/foreignSource-Name?parameters");
