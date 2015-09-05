@@ -50,6 +50,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="readmail-config")
@@ -65,41 +67,31 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _debug.
      */
-    private boolean _debug = true;
-
-    /**
-     * keeps track of state for field: _debug
-     */
-    private boolean _has_debug;
+    @XmlAttribute(name="debug")
+    private Boolean _debug;
 
     /**
      * Field _mailFolder.
      */
-    private java.lang.String _mailFolder = "INBOX";
+    @XmlAttribute(name="mail-folder")
+    private java.lang.String _mailFolder;
 
     /**
      * Field _attemptInterval.
      */
-    private long _attemptInterval = 1000;
-
-    /**
-     * keeps track of state for field: _attemptInterval
-     */
-    private boolean _has_attemptInterval;
+    @XmlAttribute(name="attempt-interval")
+    private Long _attemptInterval;
 
     /**
      * Field _deleteAllMail.
      */
-    private boolean _deleteAllMail = false;
-
-    /**
-     * keeps track of state for field: _deleteAllMail
-     */
-    private boolean _has_deleteAllMail;
+    @XmlAttribute(name="delete-all-mail")
+    private Boolean _deleteAllMail;
 
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
@@ -108,6 +100,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
+    @XmlElement(name="javamail-property")
     private java.util.List<org.opennms.netmgt.config.javamail.JavamailProperty> _javamailPropertyList;
 
     /**
@@ -115,6 +108,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
+    @XmlElement(name="readmail-host")
     private org.opennms.netmgt.config.javamail.ReadmailHost _readmailHost;
 
     /**
@@ -122,6 +116,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
+    @XmlElement(name="user-auth")
     private org.opennms.netmgt.config.javamail.UserAuth _userAuth;
 
 
@@ -131,7 +126,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public ReadmailConfig() {
         super();
-        setMailFolder("INBOX");
         this._javamailPropertyList = new java.util.ArrayList<org.opennms.netmgt.config.javamail.JavamailProperty>();
     }
 
@@ -172,21 +166,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteAttemptInterval(
     ) {
-        this._has_attemptInterval= false;
+        this._attemptInterval = null;
     }
 
     /**
      */
     public void deleteDebug(
     ) {
-        this._has_debug= false;
+        this._debug = null;
     }
 
     /**
      */
     public void deleteDeleteAllMail(
     ) {
-        this._has_deleteAllMail= false;
+        this._deleteAllMail = null;
     }
 
     /**
@@ -215,9 +209,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof ReadmailConfig) {
 
             ReadmailConfig temp = (ReadmailConfig)obj;
-            if (this._debug != temp._debug)
-                return false;
-            if (this._has_debug != temp._has_debug)
+            if (this._debug != null) {
+                if (temp._debug == null) return false;
+                else if (!(this._debug.equals(temp._debug)))
+                    return false;
+            }
+            else if (temp._debug != null)
                 return false;
             if (this._mailFolder != null) {
                 if (temp._mailFolder == null) return false;
@@ -226,13 +223,19 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._mailFolder != null)
                 return false;
-            if (this._attemptInterval != temp._attemptInterval)
+            if (this._attemptInterval != null) {
+                if (temp._attemptInterval == null) return false;
+                else if (!(this._attemptInterval.equals(temp._attemptInterval)))
+                    return false;
+            }
+            else if (temp._attemptInterval != null)
                 return false;
-            if (this._has_attemptInterval != temp._has_attemptInterval)
-                return false;
-            if (this._deleteAllMail != temp._deleteAllMail)
-                return false;
-            if (this._has_deleteAllMail != temp._has_deleteAllMail)
+            if (this._deleteAllMail != null) {
+                if (temp._deleteAllMail == null) return false;
+                else if (!(this._deleteAllMail.equals(temp._deleteAllMail)))
+                    return false;
+            }
+            else if (temp._deleteAllMail != null)
                 return false;
             if (this._name != null) {
                 if (temp._name == null) return false;
@@ -272,9 +275,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AttemptInterval'.
      */
-    public long getAttemptInterval(
+    public Long getAttemptInterval(
     ) {
-        return this._attemptInterval;
+        return this._attemptInterval == null ? 1000L : this._attemptInterval;
     }
 
     /**
@@ -282,9 +285,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Debug'.
      */
-    public boolean getDebug(
+    public Boolean getDebug(
     ) {
-        return this._debug;
+        return this._debug == null ? Boolean.TRUE : this._debug;
     }
 
     /**
@@ -292,9 +295,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DeleteAllMail'.
      */
-    public boolean getDeleteAllMail(
+    public Boolean getDeleteAllMail(
     ) {
-        return this._deleteAllMail;
+        return this._deleteAllMail == null ? Boolean.FALSE : this._deleteAllMail;
     }
 
     /**
@@ -363,7 +366,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMailFolder(
     ) {
-        return this._mailFolder;
+        return this._mailFolder == null ? "INBOX" : this._mailFolder;
     }
 
     /**
@@ -411,7 +414,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasAttemptInterval(
     ) {
-        return this._has_attemptInterval;
+        return this._attemptInterval != null;
     }
 
     /**
@@ -421,7 +424,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasDebug(
     ) {
-        return this._has_debug;
+        return this._debug != null;
     }
 
     /**
@@ -431,7 +434,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasDeleteAllMail(
     ) {
-        return this._has_deleteAllMail;
+        return this._deleteAllMail != null;
     }
 
     /**
@@ -448,12 +451,18 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (_debug?0:1);
+        if (_debug != null) {
+           result = 37 * result + _debug.hashCode();
+        }
         if (_mailFolder != null) {
            result = 37 * result + _mailFolder.hashCode();
         }
-        result = 37 * result + (int)(_attemptInterval^(_attemptInterval>>>32));
-        result = 37 * result + (_deleteAllMail?0:1);
+        if (_attemptInterval != null) {
+           result = 37 * result + _attemptInterval.hashCode();
+        }
+        if (_deleteAllMail != null) {
+           result = 37 * result + _deleteAllMail.hashCode();
+        }
         if (_name != null) {
            result = 37 * result + _name.hashCode();
         }
@@ -585,9 +594,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param attemptInterval the value of field 'attemptInterval'.
      */
     public void setAttemptInterval(
-            final long attemptInterval) {
+            final Long attemptInterval) {
         this._attemptInterval = attemptInterval;
-        this._has_attemptInterval = true;
     }
 
     /**
@@ -596,9 +604,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param debug the value of field 'debug'.
      */
     public void setDebug(
-            final boolean debug) {
+            final Boolean debug) {
         this._debug = debug;
-        this._has_debug = true;
     }
 
     /**
@@ -607,9 +614,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param deleteAllMail the value of field 'deleteAllMail'.
      */
     public void setDeleteAllMail(
-            final boolean deleteAllMail) {
+            final Boolean deleteAllMail) {
         this._deleteAllMail = deleteAllMail;
-        this._has_deleteAllMail = true;
     }
 
     /**

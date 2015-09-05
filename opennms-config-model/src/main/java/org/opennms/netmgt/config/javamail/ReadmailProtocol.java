@@ -50,6 +50,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="readmail-protocol")
@@ -65,28 +66,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _transport.
      */
-    private java.lang.String _transport = "pop3";
+    @XmlAttribute(name="transport")
+    private java.lang.String _transport;
 
     /**
      * Field _sslEnable.
      */
-    private boolean _sslEnable = false;
-
-    /**
-     * keeps track of state for field: _sslEnable
-     */
-    private boolean _has_sslEnable;
+    @XmlAttribute(name="ssl-enable")
+    private Boolean _sslEnable;
 
     /**
      * Field _startTls.
      */
-    private boolean _startTls = false;
-
-    /**
-     * keeps track of state for field: _startTls
-     */
-    private boolean _has_startTls;
-
+    @XmlAttribute(name="start-tls")
+    private Boolean _startTls;
 
       //----------------/
      //- Constructors -/
@@ -94,7 +87,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public ReadmailProtocol() {
         super();
-        setTransport("pop3");
     }
 
 
@@ -106,14 +98,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteSslEnable(
     ) {
-        this._has_sslEnable= false;
+        this._sslEnable = null;
     }
 
     /**
      */
     public void deleteStartTls(
     ) {
-        this._has_startTls= false;
+        this._startTls = null;
     }
 
     /**
@@ -138,13 +130,19 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._transport != null)
                 return false;
-            if (this._sslEnable != temp._sslEnable)
+            if (this._sslEnable != null) {
+                if (temp._sslEnable == null) return false;
+                else if (!(this._sslEnable.equals(temp._sslEnable)))
+                    return false;
+            }
+            else if (temp._sslEnable != null)
                 return false;
-            if (this._has_sslEnable != temp._has_sslEnable)
-                return false;
-            if (this._startTls != temp._startTls)
-                return false;
-            if (this._has_startTls != temp._has_startTls)
+            if (this._startTls != null) {
+                if (temp._startTls == null) return false;
+                else if (!(this._startTls.equals(temp._startTls)))
+                    return false;
+            }
+            else if (temp._startTls != null)
                 return false;
             return true;
         }
@@ -188,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSslEnable(
     ) {
-        return this._has_sslEnable;
+        return this._sslEnable != null;
     }
 
     /**
@@ -198,7 +196,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasStartTls(
     ) {
-        return this._has_startTls;
+        return this._startTls != null;
     }
 
     /**
@@ -218,8 +216,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (_transport != null) {
            result = 37 * result + _transport.hashCode();
         }
-        result = 37 * result + (_sslEnable?0:1);
-        result = 37 * result + (_startTls?0:1);
+        if (_sslEnable != null) {
+           result = 37 * result + _sslEnable.hashCode();
+        }
+        if (_startTls != null) {
+           result = 37 * result + _startTls.hashCode();
+        }
 
         return result;
     }
@@ -229,9 +231,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SslEnable'.
      */
-    public boolean isSslEnable(
+    public Boolean isSslEnable(
     ) {
-        return this._sslEnable;
+        return this._sslEnable == null ? Boolean.FALSE : this._sslEnable;
     }
 
     /**
@@ -239,9 +241,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'StartTls'.
      */
-    public boolean isStartTls(
+    public Boolean isStartTls(
     ) {
-        return this._startTls;
+        return this._startTls == null ? Boolean.FALSE : this._startTls;
     }
 
     /**
@@ -297,9 +299,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param sslEnable the value of field 'sslEnable'.
      */
     public void setSslEnable(
-            final boolean sslEnable) {
+            final Boolean sslEnable) {
         this._sslEnable = sslEnable;
-        this._has_sslEnable = true;
     }
 
     /**
@@ -308,9 +309,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param startTls the value of field 'startTls'.
      */
     public void setStartTls(
-            final boolean startTls) {
+            final Boolean startTls) {
         this._startTls = startTls;
-        this._has_startTls = true;
     }
 
     /**

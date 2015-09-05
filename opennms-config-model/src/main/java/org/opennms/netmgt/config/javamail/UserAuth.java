@@ -49,6 +49,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="user-auth")
@@ -64,12 +65,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _userName.
      */
-    private java.lang.String _userName = "opennms";
+    @XmlAttribute(name="user-name")
+    private java.lang.String _userName;
 
     /**
      * Field _password.
      */
-    private java.lang.String _password = "opennms";
+    @XmlAttribute(name="password")
+    private java.lang.String _password;
 
 
       //----------------/
@@ -78,8 +81,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public UserAuth() {
         super();
-        setUserName("opennms");
-        setPassword("opennms");
     }
 
 
@@ -128,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getPassword(
     ) {
-        return this._password;
+        return this._password == null ? "opennms" : this._password;
     }
 
     /**
@@ -138,7 +139,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getUserName(
     ) {
-        return this._userName;
+        return this._userName == null ? "opennms" : this._userName;
     }
 
     /**

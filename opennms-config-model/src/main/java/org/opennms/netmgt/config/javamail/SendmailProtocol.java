@@ -85,12 +85,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _quitWait.
      */
-    private boolean _quitWait = true;
-
-    /**
-     * keeps track of state for field: _quitWait
-     */
-    private boolean _has_quitWait;
+    private Boolean _quitWait = true;
 
     /**
      * Field _transport.
@@ -100,22 +95,12 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _sslEnable.
      */
-    private boolean _sslEnable = false;
-
-    /**
-     * keeps track of state for field: _sslEnable
-     */
-    private boolean _has_sslEnable;
+    private Boolean _sslEnable = false;
 
     /**
      * Field _startTls.
      */
-    private boolean _startTls = false;
-
-    /**
-     * keeps track of state for field: _startTls
-     */
-    private boolean _has_startTls;
+    private Boolean _startTls = false;
 
 
       //----------------/
@@ -124,11 +109,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public SendmailProtocol() {
         super();
-        setCharSet("us-ascii");
-        setMailer("smtpsend");
-        setMessageContentType("text/plain");
-        setMessageEncoding("7-bit");
-        setTransport("smtp");
     }
 
 
@@ -140,21 +120,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteQuitWait(
     ) {
-        this._has_quitWait= false;
+        this._quitWait = null;
     }
 
     /**
      */
     public void deleteSslEnable(
     ) {
-        this._has_sslEnable= false;
+        this._sslEnable = null;
     }
 
     /**
      */
     public void deleteStartTls(
     ) {
-        this._has_startTls= false;
+        this._startTls = null;
     }
 
     /**
@@ -200,9 +180,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._messageEncoding != null)
                 return false;
-            if (this._quitWait != temp._quitWait)
-                return false;
-            if (this._has_quitWait != temp._has_quitWait)
+            if (this._quitWait != null) {
+                if (temp._quitWait == null) return false;
+                else if (!(this._quitWait.equals(temp._quitWait)))
+                    return false;
+            }
+            else if (temp._quitWait != null)
                 return false;
             if (this._transport != null) {
                 if (temp._transport == null) return false;
@@ -211,13 +194,19 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._transport != null)
                 return false;
-            if (this._sslEnable != temp._sslEnable)
+            if (this._sslEnable != null) {
+                if (temp._sslEnable == null) return false;
+                else if (!(this._sslEnable.equals(temp._sslEnable)))
+                    return false;
+            }
+            else if (temp._sslEnable != null)
                 return false;
-            if (this._has_sslEnable != temp._has_sslEnable)
-                return false;
-            if (this._startTls != temp._startTls)
-                return false;
-            if (this._has_startTls != temp._has_startTls)
+            if (this._startTls != null) {
+                if (temp._startTls == null) return false;
+                else if (!(this._startTls.equals(temp._startTls)))
+                    return false;
+            }
+            else if (temp._startTls != null)
                 return false;
             return true;
         }
@@ -231,7 +220,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getCharSet(
     ) {
-        return this._charSet;
+        return this._charSet == null ? "us-ascii" : this._charSet;
     }
 
     /**
@@ -241,7 +230,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMailer(
     ) {
-        return this._mailer;
+        return this._mailer == null ? "smtpsend" : this._mailer;
     }
 
     /**
@@ -251,7 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMessageContentType(
     ) {
-        return this._messageContentType;
+        return this._messageContentType == null ? "text/plain" : this._messageContentType;
     }
 
     /**
@@ -261,7 +250,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMessageEncoding(
     ) {
-        return this._messageEncoding;
+        return this._messageEncoding == null ? "7-bit" : this._messageEncoding;
     }
 
     /**
@@ -269,9 +258,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'QuitWait'.
      */
-    public boolean getQuitWait(
+    public Boolean getQuitWait(
     ) {
-        return this._quitWait;
+        return this._quitWait == null ? Boolean.TRUE : this._quitWait;
     }
 
     /**
@@ -279,9 +268,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SslEnable'.
      */
-    public boolean getSslEnable(
+    public Boolean getSslEnable(
     ) {
-        return this._sslEnable;
+        return this._sslEnable == null ? Boolean.FALSE : this._sslEnable;
     }
 
     /**
@@ -289,9 +278,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'StartTls'.
      */
-    public boolean getStartTls(
+    public Boolean getStartTls(
     ) {
-        return this._startTls;
+        return this._startTls == null ? Boolean.FALSE : this._startTls;
     }
 
     /**
@@ -311,7 +300,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasQuitWait(
     ) {
-        return this._has_quitWait;
+        return this._quitWait != null;
     }
 
     /**
@@ -321,7 +310,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSslEnable(
     ) {
-        return this._has_sslEnable;
+        return this._sslEnable != null;
     }
 
     /**
@@ -331,7 +320,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasStartTls(
     ) {
-        return this._has_startTls;
+        return this._startTls != null;
     }
 
     /**
@@ -360,12 +349,18 @@ import org.opennms.core.xml.ValidateUsing;
         if (_messageEncoding != null) {
            result = 37 * result + _messageEncoding.hashCode();
         }
-        result = 37 * result + (_quitWait?0:1);
+        if (_quitWait != null) {
+           result = 37 * result + _quitWait.hashCode();
+        }
         if (_transport != null) {
            result = 37 * result + _transport.hashCode();
         }
-        result = 37 * result + (_sslEnable?0:1);
-        result = 37 * result + (_startTls?0:1);
+        if (_sslEnable != null) {
+           result = 37 * result + _sslEnable.hashCode();
+        }
+        if (_startTls != null) {
+           result = 37 * result + _startTls.hashCode();
+        }
 
         return result;
     }
@@ -494,9 +489,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param quitWait the value of field 'quitWait'.
      */
     public void setQuitWait(
-            final boolean quitWait) {
+            final Boolean quitWait) {
         this._quitWait = quitWait;
-        this._has_quitWait = true;
     }
 
     /**
@@ -505,9 +499,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param sslEnable the value of field 'sslEnable'.
      */
     public void setSslEnable(
-            final boolean sslEnable) {
+            final Boolean sslEnable) {
         this._sslEnable = sslEnable;
-        this._has_sslEnable = true;
     }
 
     /**
@@ -516,9 +509,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param startTls the value of field 'startTls'.
      */
     public void setStartTls(
-            final boolean startTls) {
+            final Boolean startTls) {
         this._startTls = startTls;
-        this._has_startTls = true;
     }
 
     /**

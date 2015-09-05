@@ -51,6 +51,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="sendmail-message")
@@ -66,22 +67,26 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _to.
      */
-    private java.lang.String _to = "root@localhost";
+    @XmlAttribute(name="to")
+    private java.lang.String _to;
 
     /**
      * Field _from.
      */
-    private java.lang.String _from = "root@[127.0.0.1]";
+    @XmlAttribute(name="from")
+    private java.lang.String _from;
 
     /**
      * Field _subject.
      */
-    private java.lang.String _subject = "OpenNMS Test Message";
+    @XmlAttribute(name="subject")
+    private java.lang.String _subject;
 
     /**
      * Field _body.
      */
-    private java.lang.String _body = "This is an OpenNMS test message.";
+    @XmlAttribute(name="body")
+    private java.lang.String _body;
 
 
       //----------------/
@@ -90,10 +95,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public SendmailMessage() {
         super();
-        setTo("root@localhost");
-        setFrom("root@[127.0.0.1]");
-        setSubject("OpenNMS Test Message");
-        setBody("This is an OpenNMS test message.");
     }
 
 
@@ -156,7 +157,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getBody(
     ) {
-        return this._body;
+        return this._body == null ? "This is an OpenNMS test message." : this._body;
     }
 
     /**
@@ -166,7 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getFrom(
     ) {
-        return this._from;
+        return this._from == null ? "root@[127.0.0.1]" : this._from;
     }
 
     /**
@@ -176,7 +177,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getSubject(
     ) {
-        return this._subject;
+        return this._subject == null ? "OpenNMS Test Message" : this._subject;
     }
 
     /**
@@ -186,7 +187,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getTo(
     ) {
-        return this._to;
+        return this._to == null ? "root@localhost" : this._to;
     }
 
     /**

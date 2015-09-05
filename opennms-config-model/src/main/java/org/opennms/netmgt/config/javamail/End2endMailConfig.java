@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="end2end-mail-config")
@@ -63,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _sendmailConfigName.
      */
+    @XmlAttribute(name="sendmail-config-name")
     private java.lang.String _sendmailConfigName;
 
     /**
      * Field _readmailConfigName.
      */
+    @XmlAttribute(name="readmail-config-name")
     private java.lang.String _readmailConfigName;
 
 

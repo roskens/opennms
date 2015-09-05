@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.javamail;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -45,12 +43,103 @@ public class JavamailConfigurationTest extends XmlTestNoCastor<JavamailConfigura
 
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
-
-        JavamailConfiguration javamailConfiguration = new JavamailConfiguration();
+        JavamailConfiguration jmConfig = new JavamailConfiguration();
+        jmConfig.setDefaultReadConfigName("localhost");
+        jmConfig.setDefaultSendConfigName("localhost");
+        SendmailConfig smConf = new SendmailConfig();
+        smConf.setName("");
+        smConf.setAttemptInterval(3000L);
+        smConf.setUseAuthentication(Boolean.FALSE);
+        smConf.setUseJmta(Boolean.TRUE);
+        smConf.setDebug(Boolean.TRUE);
+        SendmailHost smHost = new SendmailHost();
+        smHost.setHost("127.0.0.1");
+        smHost.setPort(25L);
+        smConf.setSendmailHost(smHost);
+        SendmailProtocol smProtocol = new SendmailProtocol();
+        smProtocol.setCharSet("us-ascii");
+        smProtocol.setMailer("smtpsend");
+        smProtocol.setMessageContentType("text/plain");
+        smProtocol.setMessageEncoding("7-bit");
+        smProtocol.setQuitWait(Boolean.TRUE);
+        smProtocol.setSslEnable(Boolean.FALSE);
+        smProtocol.setStartTls(Boolean.FALSE);
+        smProtocol.setTransport("smtp");
+        smConf.setSendmailProtocol(smProtocol);
+        SendmailMessage smMessage = new SendmailMessage();
+        smMessage.setTo("root@localhost");
+        smMessage.setFrom("root@[127.0.0.1]");
+        smMessage.setSubject("OpenNMS Test Message");
+        smMessage.setBody("This is an OpenNMS test message.");
+        smConf.setSendmailMessage(smMessage);
+        UserAuth ua1 = new UserAuth();
+        ua1.setUserName("opennms");
+        ua1.setPassword("opennms");
+        smConf.setUserAuth(ua1);
+        
+        ReadmailConfig rmConf = new ReadmailConfig();
+        rmConf.setName("localhost");
+        rmConf.setAttemptInterval(1000L);
+        rmConf.setDeleteAllMail(Boolean.FALSE);
+        rmConf.setMailFolder("INBOX");
+        rmConf.setDebug(Boolean.TRUE);
+        JavamailProperty jp1 = new JavamailProperty();
+        jp1.setName("mail.pop3.apop.enable");
+        jp1.setValue("false");
+        rmConf.addJavamailProperty(jp1);
+        JavamailProperty jp2 = new JavamailProperty();
+        jp2.setName("mail.pop3.rsetbeforequit");
+        jp2.setValue("false");
+        rmConf.addJavamailProperty(jp2);
+        ReadmailHost rmHost = new ReadmailHost();
+        rmHost.setHost("127.0.0.1");
+        rmHost.setPort(110L);
+        ReadmailProtocol rmProto = new ReadmailProtocol();
+        rmProto.setSslEnable(Boolean.FALSE);
+        rmProto.setStartTls(Boolean.FALSE);
+        rmProto.setTransport("pop3");
+        rmHost.setReadmailProtocol(rmProto);
+        rmConf.setReadmailHost(rmHost);
+        UserAuth ua2 = new UserAuth();
+        ua2.setUserName("opennms");
+        ua2.setPassword("opennms");
+        rmConf.setUserAuth(ua2);
+        End2endMailConfig endConf = new End2endMailConfig();
+        jmConfig.addReadmailConfig(rmConf);
+        jmConfig.addSendmailConfig(smConf);
+        jmConfig.addEnd2endMailConfig(endConf);
 
         return Arrays.asList(new Object[][] { {
-                javamailConfiguration,
-                "", /* configuration */
+                jmConfig,
+                "<javamail-configuration default-read-config-name=\"localhost\" default-send-config-name=\"localhost\" >\n" +
+"  <sendmail-config name=\"localhost\" \n" +
+"                   attempt-interval=\"3000\" use-authentication=\"false\" use-jmta=\"true\" \n" +
+"                   debug=\"true\" >\n" +
+"    <sendmail-host host=\"127.0.0.1\" port=\"25\"/>\n" +
+"    <sendmail-protocol char-set=\"us-ascii\" mailer=\"smtpsend\" \n" +
+"                       message-content-type=\"text/plain\" message-encoding=\"7-bit\" \n" +
+"                       quit-wait=\"true\" ssl-enable=\"false\" start-tls=\"false\" \n" +
+"                       transport=\"smtp\"/>\n" +
+"    <sendmail-message to=\"root@localhost\"\n" +
+"                      from=\"root@[127.0.0.1]\" \n" +
+"                      subject=\"OpenNMS Test Message\"  \n" +
+"                      body=\"This is an OpenNMS test message.\" />\n" +
+"                      \n" +
+"    <user-auth user-name=\"opennms\" password=\"opennms\" />\n" +
+"  </sendmail-config>\n" +
+"  <readmail-config name=\"localhost\" \n" +
+"                   attempt-interval=\"1000\" delete-all-mail=\"false\" mail-folder=\"INBOX\" \n" +
+"                   debug=\"true\" >\n" +
+"    <javamail-property name=\"mail.pop3.apop.enable\" value=\"false\"/>\n" +
+"    <javamail-property name=\"mail.pop3.rsetbeforequit\" value=\"false\" />\n" +
+"    <readmail-host host=\"127.0.0.1\" port=\"110\">\n" +
+"      <readmail-protocol ssl-enable=\"false\" start-tls=\"false\"\n" +
+"                         transport=\"pop3\"/>\n" +
+"    </readmail-host>\n" +
+"    <user-auth user-name=\"opennms\" password=\"opennms\" />\n" +
+"  </readmail-config>\n" +
+"  <end2end-mail-config name=\"default\" readmail-config-name=\"localhost\" sendmail-config-name=\"localhost\" />\n" +
+"</javamail-configuration>", /* configuration */
                 "target/classes/xsds/javamail-configuration.xsd", }, });
     }
 }

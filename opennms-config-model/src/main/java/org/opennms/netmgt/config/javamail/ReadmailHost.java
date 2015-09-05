@@ -49,6 +49,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="readmail-host")
@@ -64,17 +66,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _host.
      */
-    private java.lang.String _host = "127.0.0.1";
+    @XmlAttribute(name="host")
+    private java.lang.String _host;
 
     /**
      * Field _port.
      */
-    private long _port = 110;
-
-    /**
-     * keeps track of state for field: _port
-     */
-    private boolean _has_port;
+    @XmlAttribute(name="port")
+    private Long _port;
 
     /**
      * Basically any attributes that help setup the javamailer's
@@ -82,6 +81,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
+    @XmlElement(name="readmail-protocol")
     private org.opennms.netmgt.config.javamail.ReadmailProtocol _readmailProtocol;
 
 
@@ -91,7 +91,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public ReadmailHost() {
         super();
-        setHost("127.0.0.1");
     }
 
 
@@ -103,7 +102,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deletePort(
     ) {
-        this._has_port= false;
+        this._port = null;
     }
 
     /**
@@ -128,9 +127,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._host != null)
                 return false;
-            if (this._port != temp._port)
-                return false;
-            if (this._has_port != temp._has_port)
+            if (this._port != null) {
+                if (temp._port == null) return false;
+                else if (!(this._port.equals(temp._port)))
+                    return false;
+            }
+            else if (temp._port != null)
                 return false;
             if (this._readmailProtocol != null) {
                 if (temp._readmailProtocol == null) return false;
@@ -151,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getHost(
     ) {
-        return this._host;
+        return this._host == null ? "127.0.0.1" : this._host;
     }
 
     /**
@@ -159,9 +161,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Port'.
      */
-    public long getPort(
+    public Long getPort(
     ) {
-        return this._port;
+        return this._port == null ? 110 : this._port;
     }
 
     /**
@@ -186,7 +188,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasPort(
     ) {
-        return this._has_port;
+        return this._port != null;
     }
 
     /**
@@ -206,7 +208,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_host != null) {
            result = 37 * result + _host.hashCode();
         }
-        result = 37 * result + (int)(_port^(_port>>>32));
+        if (_port != null) {
+           result = 37 * result + _port.hashCode();
+        }
         if (_readmailProtocol != null) {
            result = 37 * result + _readmailProtocol.hashCode();
         }
@@ -277,9 +281,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param port the value of field 'port'.
      */
     public void setPort(
-            final long port) {
+            final Long port) {
         this._port = port;
-        this._has_port = true;
     }
 
     /**
