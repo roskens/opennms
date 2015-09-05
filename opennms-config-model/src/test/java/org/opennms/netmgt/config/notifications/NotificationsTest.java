@@ -72,8 +72,8 @@ public class NotificationsTest extends XmlTestNoCastor<Notifications> {
         noti2.setRule("IPADDR != '0.0.0.0'");
         noti2.setDestinationPath("Email-Admin");
         noti2.setTextMessage("All services are down on node %nodelabel%.  New Outage records have "
-            + "been created and service level availability calculations will "
-            + "be impacted until this outage is resolved.\n");
+                + "been created and service level availability calculations will "
+                + "be impacted until this outage is resolved.\n");
         noti2.setSubject("Notice #%noticeid%: node %nodelabel% down.");
         noti2.setNumericMessage("111-%noticeid%");
 
@@ -85,7 +85,7 @@ public class NotificationsTest extends XmlTestNoCastor<Notifications> {
         noti3.setRule("IPADDR != '0.0.0.0'");
         noti3.setDestinationPath("Email-Admin");
         noti3.setTextMessage("The %service% service poll on interface %interfaceresolve% (%interface%) "
-            + "on node %nodelabel% failed at %time%.\n");
+                + "on node %nodelabel% failed at %time%.\n");
         noti3.setSubject("Notice #%noticeid%: %service% down on %interfaceresolve% (%interface%) on node %nodelabel%.");
         noti3.setNumericMessage("111-%noticeid%");
 
@@ -102,9 +102,8 @@ public class NotificationsTest extends XmlTestNoCastor<Notifications> {
             + "        <rule>IPADDR != '0.0.0.0'</rule>\n"
             + "        <destinationPath>Email-Admin</destinationPath>\n"
             + "        <text-message>All services are down on interface %interfaceresolve% (%interface%) on node %nodelabel%."
-            + " New Outage records have been created "
-            + "and service level availability calculations will be impacted "
-            + "until this outage is resolved.\n"
+            + "  New Outage records have been created and service level availability calculations will be impacted until this"
+            + " outage is resolved.\n"
             + "</text-message>\n"
             + "        <subject>Notice #%noticeid%: %interfaceresolve% (%interface%) on node %nodelabel% down.</subject>\n"
             + "        <numeric-message>111-%noticeid%</numeric-message>\n"
