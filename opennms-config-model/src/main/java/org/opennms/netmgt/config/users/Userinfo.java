@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="userinfo")
@@ -64,11 +65,13 @@ import org.opennms.core.xml.ValidateUsing;
      * Header containing information about this configuration
      *  file.
      */
+    @XmlElement(name="header")
     private org.opennms.netmgt.config.users.Header _header;
 
     /**
      * Field _users.
      */
+    @XmlElement(name="users")
     private org.opennms.netmgt.config.users.Users _users;
 
 

@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlValue;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="password")
@@ -62,18 +64,15 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * internal content storage
      */
-    private java.lang.String _content = "";
+    @XmlValue
+    private java.lang.String _content;
 
     /**
      * Field _salt.
      */
-    private boolean _salt = false;
-
-    /**
-     * keeps track of state for field: _salt
-     */
-    private boolean _has_salt;
-
+    @XmlAttribute(name="salt")
+    private Boolean _salt;
+    private static final Boolean DEFAULT_SALT = false;
 
       //----------------/
      //- Constructors -/
@@ -81,7 +80,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Password() {
         super();
-        setContent("");
     }
 
 
@@ -93,7 +91,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteSalt(
     ) {
-        this._has_salt= false;
+        this._salt = null;
     }
 
     /**
@@ -118,9 +116,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._content != null)
                 return false;
-            if (this._salt != temp._salt)
-                return false;
-            if (this._has_salt != temp._has_salt)
+            if (this._salt != null) {
+                if (temp._salt == null) return false;
+                else if (!(this._salt.equals(temp._salt)))
+                    return false;
+            }
+            else if (temp._salt != null)
                 return false;
             return true;
         }
@@ -143,9 +144,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Salt'.
      */
-    public boolean getSalt(
+    public Boolean getSalt(
     ) {
-        return this._salt;
+        return this._salt == null ? DEFAULT_SALT : this._salt;
     }
 
     /**
@@ -155,7 +156,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSalt(
     ) {
-        return this._has_salt;
+        return this._salt != null;
     }
 
     /**
@@ -175,7 +176,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_content != null) {
            result = 37 * result + _content.hashCode();
         }
-        result = 37 * result + (_salt?0:1);
+        if (_salt != null) {
+           result = 37 * result + _salt.hashCode();
+        }
 
         return result;
     }
@@ -254,9 +257,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param salt the value of field 'salt'.
      */
     public void setSalt(
-            final boolean salt) {
+            final Boolean salt) {
         this._salt = salt;
-        this._has_salt = true;
     }
 
     /**

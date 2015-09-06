@@ -29,28 +29,55 @@
 package org.opennms.netmgt.config.users;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class UserinfoTest extends XmlTestNoCastor<Userinfo> {
-
+    
     public UserinfoTest(final Userinfo sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
     }
-
+    
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
-
+        
         Userinfo userinfo = new Userinfo();
-
-        return Arrays.asList(new Object[][] { {
-                userinfo,
-                "", /* configuration */
-                "target/classes/xsds/users.xsd", }, });
+        Header hdr = new Header();
+        hdr.setRev(".9");
+        hdr.setCreated("Thursday, November 3, 2011 9:28:08 PM GMT");
+        hdr.setMstation("master.nmanage.com");
+        userinfo.setHeader(hdr);
+        Users users = new Users();
+        userinfo.setUsers(users);
+        User user = new User();
+        user.setUserId("admin");
+        user.setFullName("Administrator");
+        user.setUserComments("Default administrator, do not delete");
+        Password pass = new Password();
+        pass.setContent("21232F297A57A5A743894A0E4A801FC3");
+        user.setPassword(pass);
+        users.addUser(user);
+        
+        return Arrays.asList(new Object[][]{{
+            userinfo,
+            "<userinfo>"
+            + "    <header>"
+            + "        <rev>.9</rev>"
+            + "        <created>Thursday, November 3, 2011 9:28:08 PM GMT</created>"
+            + "        <mstation>master.nmanage.com</mstation>"
+            + "    </header>"
+            + "    <users>"
+            + "        <user>"
+            + "            <user-id>admin</user-id>"
+            + "            <full-name>Administrator</full-name>"
+            + "            <user-comments>Default administrator, do not delete</user-comments>"
+            + "            <password>21232F297A57A5A743894A0E4A801FC3</password>"
+            + "        </user>"
+            + "    </users>"
+            + "</userinfo>",
+            "target/classes/xsds/users.xsd",},});
     }
 }

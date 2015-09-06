@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="user")
@@ -62,46 +64,50 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _readOnly.
      */
-    private boolean _readOnly = false;
-
-    /**
-     * keeps track of state for field: _readOnly
-     */
-    private boolean _has_readOnly;
+    @XmlAttribute(name="read-only")
+    private Boolean _readOnly;
+    private static final Boolean DEFAULT_READ_ONLY = false;
 
     /**
      * Field _userId.
      */
+    @XmlElement(name="user-id")
     private java.lang.String _userId;
 
     /**
      * Field _fullName.
      */
+    @XmlElement(name="full-name")
     private java.lang.String _fullName;
 
     /**
      * Field _userComments.
      */
+    @XmlElement(name="user-comments")
     private java.lang.String _userComments;
 
     /**
      * Field _password.
      */
+    @XmlElement(name="password")
     private org.opennms.netmgt.config.users.Password _password;
 
     /**
      * Field _contactList.
      */
+    @XmlElement(name="contact")
     private java.util.List<org.opennms.netmgt.config.users.Contact> _contactList;
 
     /**
      * Field _dutyScheduleList.
      */
+    @XmlElement(name="duty-schedule")
     private java.util.List<java.lang.String> _dutyScheduleList;
 
     /**
      * Field _tuiPin.
      */
+    @XmlElement(name="tui-pin")
     private java.lang.String _tuiPin;
 
 
@@ -180,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteReadOnly(
     ) {
-        this._has_readOnly= false;
+        this._readOnly = null;
     }
 
     /**
@@ -220,9 +226,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof User) {
 
             User temp = (User)obj;
-            if (this._readOnly != temp._readOnly)
-                return false;
-            if (this._has_readOnly != temp._has_readOnly)
+            if (this._readOnly != null) {
+                if (temp._readOnly == null) return false;
+                else if (!(this._readOnly.equals(temp._readOnly)))
+                    return false;
+            }
+            else if (temp._readOnly != null)
                 return false;
             if (this._userId != null) {
                 if (temp._userId == null) return false;
@@ -417,9 +426,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReadOnly'.
      */
-    public boolean getReadOnly(
+    public Boolean getReadOnly(
     ) {
-        return this._readOnly;
+        return this._readOnly == null ? DEFAULT_READ_ONLY : this._readOnly;
     }
 
     /**
@@ -459,7 +468,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasReadOnly(
     ) {
-        return this._has_readOnly;
+        return this._readOnly != null;
     }
 
     /**
@@ -791,9 +800,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param readOnly the value of field 'readOnly'.
      */
     public void setReadOnly(
-            final boolean readOnly) {
+            final Boolean readOnly) {
         this._readOnly = readOnly;
-        this._has_readOnly = true;
     }
 
     /**

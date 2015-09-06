@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="contact")
@@ -62,16 +63,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _type.
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
     /**
      * Field _info.
      */
+    @XmlAttribute(name="info")
     private java.lang.String _info;
 
     /**
      * Field _serviceProvider.
      */
+    @XmlAttribute(name="serviceProvider")
     private java.lang.String _serviceProvider;
 
 
