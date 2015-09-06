@@ -49,6 +49,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="value")
@@ -64,21 +66,25 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _result.
      */
+    @XmlAttribute(name="result", required = true)
     private java.lang.String _result;
 
     /**
      * Field _matches.
      */
+    @XmlAttribute(name="matches")
     private java.lang.String _matches;
 
     /**
      * Field _type.
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name")
     private java.lang.String _name;
 
     /**
@@ -86,6 +92,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  translation.
      *
      */
+    @XmlElement(name="value")
     private java.util.List<org.opennms.netmgt.config.translator.Value> _valueList;
 
 

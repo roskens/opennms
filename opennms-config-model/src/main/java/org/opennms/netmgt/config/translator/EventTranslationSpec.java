@@ -49,6 +49,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="event-translation-spec")
@@ -64,6 +66,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _uei.
      */
+    @XmlAttribute(name="uei", required = true)
     private java.lang.String _uei;
 
     /**
@@ -72,6 +75,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  event into a new event.
      *
      */
+    @XmlElement(name="mappings")
     private org.opennms.netmgt.config.translator.Mappings _mappings;
 
 
