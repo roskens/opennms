@@ -48,7 +48,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="packageReportStatusType")
+@XmlRootElement(name="PackageReportStatusType")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("statistics-daemon-configuration.xsd")
 @SuppressWarnings("all") public class PackageReportStatusType implements java.io.Serializable {

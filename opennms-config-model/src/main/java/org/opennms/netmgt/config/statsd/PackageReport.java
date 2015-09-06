@@ -50,7 +50,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.opennms.core.xml.ValidateUsing;
+import org.opennms.netmgt.config.statsd.types.PackageReportStatusTypeAdapter;
 
 @XmlRootElement(name="packageReport")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -95,6 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  on
      */
     @XmlAttribute(name="status", required = true)
+    @XmlJavaTypeAdapter(PackageReportStatusTypeAdapter.class)
     private org.opennms.netmgt.config.statsd.types.PackageReportStatusType _status;
 
     /**
