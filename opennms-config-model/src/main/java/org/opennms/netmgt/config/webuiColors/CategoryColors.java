@@ -49,6 +49,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="category-colors")
@@ -64,17 +65,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * The color used for a normal status
      */
+    @XmlElement(name="green")
     private java.lang.String _green;
 
     /**
      * The color used for a warning status
      */
+    @XmlElement(name="yellow")
     private java.lang.String _yellow;
 
     /**
      * The color used for an abnormal
      *  status
      */
+    @XmlElement(name="red")
     private java.lang.String _red;
 
 

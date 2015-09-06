@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.webuiColors;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,13 @@ public class CategoryColorsTest extends XmlTestNoCastor<CategoryColors> {
     public static Collection<Object[]> data() throws ParseException {
 
         CategoryColors categoryColors = new CategoryColors();
+        categoryColors.setGreen("#00FF00");
+        categoryColors.setYellow("#FFFF00");
+        categoryColors.setRed("#FF0000");
 
         return Arrays.asList(new Object[][] { {
                 categoryColors,
-                "", /* configuration */
+                "<category-colors><green>#00FF00</green><yellow>#FFFF00</yellow><red>#FF0000</red></category-colors>",
                 "target/classes/xsds/webui-colors.xsd", }, });
     }
 }
