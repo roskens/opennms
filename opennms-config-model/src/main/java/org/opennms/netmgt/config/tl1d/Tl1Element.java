@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="tl1-element")
@@ -62,48 +63,50 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _host.
      */
+    @XmlAttribute(name="host", required = true)
     private java.lang.String _host;
 
     /**
      * Field _port.
      */
-    private int _port = 502;
-
-    /**
-     * keeps track of state for field: _port
-     */
-    private boolean _has_port;
+    @XmlAttribute(name="port")
+    private Integer _port;
+    private static final Integer DEFAULT_PORT = 502;
 
     /**
      * Field _userid.
      */
-    private java.lang.String _userid = "opennms";
+    @XmlAttribute(name="userid")
+    private java.lang.String _userid;
+    private static final String DEFAULT_USERID = "opennms";
 
     /**
      * Field _password.
      */
-    private java.lang.String _password = "opennms";
+    @XmlAttribute(name="password")
+    private java.lang.String _password;
+    private static final String DEFAULT_PASSWORD = "opennms";
 
     /**
      * Field _tl1ClientApi.
      */
-    private java.lang.String _tl1ClientApi = "org.opennms.netmgt.tl1d.Tl1ClientImpl";
+    @XmlAttribute(name="tl1-client-api")
+    private java.lang.String _tl1ClientApi;
+    private static final String DEFAULT_TL1CLIENTAPI = "org.opennms.netmgt.tl1d.Tl1ClientImpl";
 
     /**
      * Field _tl1MessageParser.
      */
-    private java.lang.String _tl1MessageParser = "org.opennms.netmgt.tl1d.Tl1AutonomousMessageProcessor";
+    @XmlAttribute(name="tl1-message-parser")
+    private java.lang.String _tl1MessageParser;
+    private static final String DEFAULT_TL1MESSAGEPARSER = "org.opennms.netmgt.tl1d.Tl1AutonomousMessageProcessor";
 
     /**
      * Field _reconnectDelay.
      */
-    private long _reconnectDelay = 30000;
-
-    /**
-     * keeps track of state for field: _reconnectDelay
-     */
-    private boolean _has_reconnectDelay;
-
+    @XmlAttribute(name="reconnect-delay")
+    private Long _reconnectDelay;
+    private static final Long DEFAULT_RECONNECT_DELAY = 30000L;
 
       //----------------/
      //- Constructors -/
@@ -111,10 +114,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Tl1Element() {
         super();
-        setUserid("opennms");
-        setPassword("opennms");
-        setTl1ClientApi("org.opennms.netmgt.tl1d.Tl1ClientImpl");
-        setTl1MessageParser("org.opennms.netmgt.tl1d.Tl1AutonomousMessageProcessor");
     }
 
 
@@ -126,14 +125,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deletePort(
     ) {
-        this._has_port= false;
+        this._port = null;
     }
 
     /**
      */
     public void deleteReconnectDelay(
     ) {
-        this._has_reconnectDelay= false;
+        this._reconnectDelay = null;
     }
 
     /**
@@ -158,9 +157,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._host != null)
                 return false;
-            if (this._port != temp._port)
-                return false;
-            if (this._has_port != temp._has_port)
+            if (this._port != null) {
+                if (temp._port == null) return false;
+                else if (!(this._port.equals(temp._port)))
+                    return false;
+            }
+            else if (temp._port != null)
                 return false;
             if (this._userid != null) {
                 if (temp._userid == null) return false;
@@ -190,9 +192,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._tl1MessageParser != null)
                 return false;
-            if (this._reconnectDelay != temp._reconnectDelay)
-                return false;
-            if (this._has_reconnectDelay != temp._has_reconnectDelay)
+            if (this._reconnectDelay != null) {
+                if (temp._reconnectDelay == null) return false;
+                else if (!(this._reconnectDelay.equals(temp._reconnectDelay)))
+                    return false;
+            }
+            else if (temp._reconnectDelay != null)
                 return false;
             return true;
         }
@@ -216,7 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getPassword(
     ) {
-        return this._password;
+        return this._password == null ? DEFAULT_PASSWORD : this._password;
     }
 
     /**
@@ -224,9 +229,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Port'.
      */
-    public int getPort(
+    public Integer getPort(
     ) {
-        return this._port;
+        return this._port == null ? DEFAULT_PORT : this._port;
     }
 
     /**
@@ -234,9 +239,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReconnectDelay'.
      */
-    public long getReconnectDelay(
+    public Long getReconnectDelay(
     ) {
-        return this._reconnectDelay;
+        return this._reconnectDelay == null ? DEFAULT_RECONNECT_DELAY : this._reconnectDelay;
     }
 
     /**
@@ -246,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getTl1ClientApi(
     ) {
-        return this._tl1ClientApi;
+        return this._tl1ClientApi == null ? DEFAULT_TL1CLIENTAPI : this._tl1ClientApi;
     }
 
     /**
@@ -256,7 +261,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getTl1MessageParser(
     ) {
-        return this._tl1MessageParser;
+        return this._tl1MessageParser == null ? DEFAULT_TL1MESSAGEPARSER : this._tl1MessageParser;
     }
 
     /**
@@ -266,7 +271,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getUserid(
     ) {
-        return this._userid;
+        return this._userid == null ? DEFAULT_USERID : this._userid;
     }
 
     /**
@@ -276,7 +281,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasPort(
     ) {
-        return this._has_port;
+        return this._port != null;
     }
 
     /**
@@ -286,7 +291,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasReconnectDelay(
     ) {
-        return this._has_reconnectDelay;
+        return this._reconnectDelay != null;
     }
 
     /**
@@ -306,7 +311,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_host != null) {
            result = 37 * result + _host.hashCode();
         }
-        result = 37 * result + _port;
+        if (_port != null) {
+           result = 37 * result + _port.hashCode();
+        }
         if (_userid != null) {
            result = 37 * result + _userid.hashCode();
         }
@@ -319,7 +326,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_tl1MessageParser != null) {
            result = 37 * result + _tl1MessageParser.hashCode();
         }
-        result = 37 * result + (int)(_reconnectDelay^(_reconnectDelay>>>32));
+        if (_reconnectDelay != null) {
+           result = 37 * result + _reconnectDelay.hashCode();
+        }
 
         return result;
     }
@@ -397,9 +406,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param port the value of field 'port'.
      */
     public void setPort(
-            final int port) {
+            final Integer port) {
         this._port = port;
-        this._has_port = true;
     }
 
     /**
@@ -408,9 +416,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param reconnectDelay the value of field 'reconnectDelay'.
      */
     public void setReconnectDelay(
-            final long reconnectDelay) {
+            final Long reconnectDelay) {
         this._reconnectDelay = reconnectDelay;
-        this._has_reconnectDelay = true;
     }
 
     /**

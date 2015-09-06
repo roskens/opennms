@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.tl1d;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,27 @@ public class Tl1dConfigurationTest extends XmlTestNoCastor<Tl1dConfiguration> {
     public static Collection<Object[]> data() throws ParseException {
 
         Tl1dConfiguration tl1dConfiguration = new Tl1dConfiguration();
+        Tl1Element tl1 = new Tl1Element();
+        tl1.setHost("127.0.0.1");
+        tl1.setPort(15001);
+        tl1.setUserid("opennms");
+        tl1.setPassword("opennms");
+        tl1.setReconnectDelay(30000L);
+        tl1.setTl1ClientApi("org.opennms.netmgt.tl1d.Tl1ClientImpl");
+        tl1.setTl1MessageParser("org.opennms.netmgt.tl1d.Tl1AutonomousMessageProcessor");
+        tl1dConfiguration.addTl1Element(tl1);
 
-        return Arrays.asList(new Object[][] { {
-                tl1dConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/tl1d-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            tl1dConfiguration,
+            "<tl1d-configuration>"
+            + "  <tl1-element host=\"127.0.0.1\""
+            + "    port=\"15001\" "
+            + "    password=\"opennms\""
+            + "    reconnect-delay=\"30000\""
+            + "    tl1-client-api=\"org.opennms.netmgt.tl1d.Tl1ClientImpl\""
+            + "    tl1-message-parser=\"org.opennms.netmgt.tl1d.Tl1AutonomousMessageProcessor\""
+            + "    userid=\"opennms\"/>"
+            + "</tl1d-configuration>", /* configuration */
+            "target/classes/xsds/tl1d-configuration.xsd",},});
     }
 }

@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="tl1d-configuration")
@@ -62,6 +63,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _tl1ElementList.
      */
+    @XmlElement(name="tl1-element")
     private java.util.List<org.opennms.netmgt.config.tl1d.Tl1Element> _tl1ElementList;
 
 
