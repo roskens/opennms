@@ -96,7 +96,7 @@
           </annotation>
         </element>
 
-        <element maxOccurs="1" minOccurs="1" name="nodesvccount" type="long">
+        <element maxOccurs="1" minOccurs="1" name="nodesvccount" type="unsignedInt">
           <annotation>
             <documentation>The number of active services on the
             node</documentation>
@@ -104,7 +104,7 @@
         </element>
 
         <element maxOccurs="1" minOccurs="1" name="nodesvcdowncount"
-                 type="long">
+                 type="unsignedInt">
           <annotation>
             <documentation>The number of active services currently down on the
             node</documentation>

@@ -58,8 +58,8 @@ public class EuiLevelTest extends XmlTestNoCastor<EuiLevel> {
         category.addNode(node1);
         node1.setNodeid(1);
         node1.setNodevalue(99.99D);
-        node1.setNodesvccount(5L);
-        node1.setNodesvcdowncount(0L);
+        node1.setNodesvccount(5);
+        node1.setNodesvcdowncount(0);
 
         return Arrays.asList(new Object[][]{{
             euiLevel,

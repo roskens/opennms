@@ -77,14 +77,14 @@ import org.opennms.core.xml.ValidateUsing;
      *  node
      */
     @XmlElement(name="nodesvccount")
-    private Long _nodesvccount;
+    private Integer _nodesvccount;
 
     /**
      * The number of active services currently down on the
      *  node
      */
     @XmlElement(name="nodesvcdowncount")
-    private Long _nodesvcdowncount;
+    private Integer _nodesvcdowncount;
 
 
       //----------------/
@@ -195,7 +195,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodesvccount'.
      */
-    public Long getNodesvccount(
+    public Integer getNodesvccount(
     ) {
         return this._nodesvccount;
     }
@@ -208,7 +208,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodesvcdowncount'.
      */
-    public Long getNodesvcdowncount(
+    public Integer getNodesvcdowncount(
     ) {
         return this._nodesvcdowncount;
     }
@@ -362,7 +362,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodesvccount the value of field 'nodesvccount'.
      */
     public void setNodesvccount(
-            final Long nodesvccount) {
+            final Integer nodesvccount) {
         this._nodesvccount = nodesvccount;
     }
 
@@ -375,7 +375,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodesvcdowncount the value of field 'nodesvcdowncount'
      */
     public void setNodesvcdowncount(
-            final Long nodesvcdowncount) {
+            final Integer nodesvcdowncount) {
         this._nodesvcdowncount = nodesvcdowncount;
     }
 

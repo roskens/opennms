@@ -113,8 +113,8 @@ public class AvailabilityServiceIT implements TemporaryDatabaseAware<MockDatabas
 
         final Node node = category.getNode(0);
         assertEquals(100.0, node.getNodevalue(), 0.001);
-        assertEquals(0, node.getNodesvccount());
-        assertEquals(0, node.getNodesvcdowncount());
+        assertEquals(Integer.valueOf(0), node.getNodesvccount());
+        assertEquals(Integer.valueOf(0), node.getNodesvcdowncount());
     }
 
     @Test
@@ -138,8 +138,8 @@ public class AvailabilityServiceIT implements TemporaryDatabaseAware<MockDatabas
         assertEquals(2, category.getNodeCount());
 
         // Assumes the nodes are sorted
-        assertEquals(4, category.getNode(0).getNodesvccount());
-        assertEquals(2, category.getNode(1).getNodesvccount());
+        assertEquals(Integer.valueOf(4), category.getNode(0).getNodesvccount());
+        assertEquals(Integer.valueOf(2), category.getNode(1).getNodesvccount());
 
         // Create an outage that is both open and closed within the window
         final Date now = new Date();
