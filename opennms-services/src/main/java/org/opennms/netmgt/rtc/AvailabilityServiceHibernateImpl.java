@@ -151,10 +151,10 @@ public class AvailabilityServiceHibernateImpl implements AvailabilityService {
             final double outageTime = getOutageTimeInWindow(outages, windowStart, windowEnd);
 
             // determine the number of services
-            final Integer numServices = getNumServices(nodeId, serviceNames);
+            final int numServices = getNumServices(nodeId, serviceNames);
 
             // count the number of outstanding outages
-            final Long numServicesDown = outages.stream()
+            final long numServicesDown = outages.stream()
                     .filter(outage -> outage.getIfRegainedService() == null)
                     .count();
 
@@ -168,7 +168,7 @@ public class AvailabilityServiceHibernateImpl implements AvailabilityService {
             levelNode.setNodesvccount(numServices);
 
             // node service down count
-            levelNode.setNodesvcdowncount(numServicesDown.intValue());
+            levelNode.setNodesvcdowncount(numServicesDown);
 
             // add the node
             levelCat.addNode(levelNode);
