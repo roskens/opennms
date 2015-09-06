@@ -29,10 +29,8 @@
 package org.opennms.netmgt.xml.rtc;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,40 @@ public class EuiLevelTest extends XmlTestNoCastor<EuiLevel> {
     public static Collection<Object[]> data() throws ParseException {
 
         EuiLevel euiLevel = new EuiLevel();
+        Header hdr = new Header();
+        hdr.setVer("1.0");
+        hdr.setCreated("Thursday, November 3, 2011 9:28:08 PM GMT");
+        hdr.setMstation("master.nmanage.com");
+        euiLevel.setHeader(hdr);
+        Category category = new Category();
+        euiLevel.addCategory(category);
+        category.setCatlabel("Routers");
+        category.setCatvalue(99.99D);
+        Node node1 = new Node();
+        category.addNode(node1);
+        node1.setNodeid(1L);
+        node1.setNodevalue(99.99D);
+        node1.setNodesvccount(5L);
+        node1.setNodesvcdowncount(0L);
 
-        return Arrays.asList(new Object[][] { {
-                euiLevel,
-                "", /* configuration */
-                "target/classes/xsds/rtceui.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            euiLevel,
+            "<euiLevel>"
+            + "<header>"
+            + "  <ver>1.0</ver>"
+            + "  <created>Thursday, November 3, 2011 9:28:08 PM GMT</created>"
+            + "</header>"
+            + "<category>"
+                    +"<catlabel>Routers</catlabel>"
+                    +"<catvalue>99.99</catvalue>"
+                    +"<node>"
+                    +"<nodeid>1</nodeid>"
+                    +"<nodevalue>99.99</nodevalue>"
+                    +"<nodesvccount>5</nodesvccount>"
+                    +"<nodesvcdowncount>0</nodesvcdowncount>"
+                    +"</node>"
+            + "</category>"
+            + "</euiLevel>", /* configuration */
+            "target/classes/xsds/rtceui.xsd",},});
     }
 }

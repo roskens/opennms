@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="category")
@@ -62,22 +63,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * The category label
      */
+    @XmlElement(name="catlabel")
     private java.lang.String _catlabel;
 
     /**
      * The category availability value
      */
-    private double _catvalue;
-
-    /**
-     * keeps track of state for field: _catvalue
-     */
-    private boolean _has_catvalue;
+    @XmlElement(name="catvalue")
+    private Double _catvalue;
 
     /**
      * A node that belongs to this
      *  category
      */
+    @XmlElement(name="node")
     private java.util.List<org.opennms.netmgt.xml.rtc.Node> _nodeList;
 
 
@@ -127,7 +126,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteCatvalue(
     ) {
-        this._has_catvalue= false;
+        this._catvalue = null;
     }
 
     /**
@@ -163,9 +162,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._catlabel != null)
                 return false;
-            if (this._catvalue != temp._catvalue)
-                return false;
-            if (this._has_catvalue != temp._has_catvalue)
+            if (this._catvalue != null) {
+                if (temp._catvalue == null) return false;
+                else if (!(this._catvalue.equals(temp._catvalue)))
+                    return false;
+            }
+            else if (temp._catvalue != null)
                 return false;
             if (this._nodeList != null) {
                 if (temp._nodeList == null) return false;
@@ -197,7 +199,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Catvalue'.
      */
-    public double getCatvalue(
+    public Double getCatvalue(
     ) {
         return this._catvalue;
     }
@@ -266,7 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasCatvalue(
     ) {
-        return this._has_catvalue;
+        return this._catvalue != null;
     }
 
     /**
@@ -286,8 +288,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_catlabel != null) {
            result = 37 * result + _catlabel.hashCode();
         }
-        tmp = java.lang.Double.doubleToLongBits(_catvalue);
-        result = 37 * result + (int)(tmp^(tmp>>>32));
+        if (_catvalue != null) {
+           result = 37 * result + _catvalue.hashCode();
+        }
         if (_nodeList != null) {
            result = 37 * result + _nodeList.hashCode();
         }
@@ -402,9 +405,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param catvalue the value of field 'catvalue'.
      */
     public void setCatvalue(
-            final double catvalue) {
+            final Double catvalue) {
         this._catvalue = catvalue;
-        this._has_catvalue = true;
     }
 
     /**

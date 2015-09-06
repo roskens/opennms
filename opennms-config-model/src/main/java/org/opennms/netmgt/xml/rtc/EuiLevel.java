@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="euiLevel")
@@ -62,12 +63,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * The header
      */
+    @XmlElement(name="header")
     private org.opennms.netmgt.xml.rtc.Header _header;
 
     /**
      * category value and nodes belonging to
      *  it
      */
+    @XmlElement(name="category")
     private java.util.List<org.opennms.netmgt.xml.rtc.Category> _categoryList;
 
 

@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="node")
@@ -62,44 +63,28 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * The node id
      */
-    private long _nodeid;
-
-    /**
-     * keeps track of state for field: _nodeid
-     */
-    private boolean _has_nodeid;
+    @XmlElement(name="nodeid")
+    private Long _nodeid;
 
     /**
      * The node availability value
      */
-    private double _nodevalue;
-
-    /**
-     * keeps track of state for field: _nodevalue
-     */
-    private boolean _has_nodevalue;
+    @XmlElement(name="nodevalue")
+    private Double _nodevalue;
 
     /**
      * The number of active services on the
      *  node
      */
-    private long _nodesvccount;
-
-    /**
-     * keeps track of state for field: _nodesvccount
-     */
-    private boolean _has_nodesvccount;
+    @XmlElement(name="nodesvccount")
+    private Long _nodesvccount;
 
     /**
      * The number of active services currently down on the
      *  node
      */
-    private long _nodesvcdowncount;
-
-    /**
-     * keeps track of state for field: _nodesvcdowncount
-     */
-    private boolean _has_nodesvcdowncount;
+    @XmlElement(name="nodesvcdowncount")
+    private Long _nodesvcdowncount;
 
 
       //----------------/
@@ -119,28 +104,28 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteNodeid(
     ) {
-        this._has_nodeid= false;
+        this._nodeid = null;
     }
 
     /**
      */
     public void deleteNodesvccount(
     ) {
-        this._has_nodesvccount= false;
+        this._nodesvccount = null;
     }
 
     /**
      */
     public void deleteNodesvcdowncount(
     ) {
-        this._has_nodesvcdowncount= false;
+        this._nodesvcdowncount = null;
     }
 
     /**
      */
     public void deleteNodevalue(
     ) {
-        this._has_nodevalue= false;
+        this._nodevalue = null;
     }
 
     /**
@@ -158,21 +143,33 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof Node) {
 
             Node temp = (Node)obj;
-            if (this._nodeid != temp._nodeid)
+            if (this._nodeid != null) {
+                if (temp._nodeid == null) return false;
+                else if (!(this._nodeid.equals(temp._nodeid)))
+                    return false;
+            }
+            else if (temp._nodeid != null)
                 return false;
-            if (this._has_nodeid != temp._has_nodeid)
+            if (this._nodevalue != null) {
+                if (temp._nodevalue == null) return false;
+                else if (!(this._nodevalue.equals(temp._nodevalue)))
+                    return false;
+            }
+            else if (temp._nodevalue != null)
                 return false;
-            if (this._nodevalue != temp._nodevalue)
+            if (this._nodesvccount != null) {
+                if (temp._nodesvccount == null) return false;
+                else if (!(this._nodesvccount.equals(temp._nodesvccount)))
+                    return false;
+            }
+            else if (temp._nodesvccount != null)
                 return false;
-            if (this._has_nodevalue != temp._has_nodevalue)
-                return false;
-            if (this._nodesvccount != temp._nodesvccount)
-                return false;
-            if (this._has_nodesvccount != temp._has_nodesvccount)
-                return false;
-            if (this._nodesvcdowncount != temp._nodesvcdowncount)
-                return false;
-            if (this._has_nodesvcdowncount != temp._has_nodesvcdowncount)
+            if (this._nodesvcdowncount != null) {
+                if (temp._nodesvcdowncount == null) return false;
+                else if (!(this._nodesvcdowncount.equals(temp._nodesvcdowncount)))
+                    return false;
+            }
+            else if (temp._nodesvcdowncount != null)
                 return false;
             return true;
         }
@@ -185,7 +182,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodeid'.
      */
-    public long getNodeid(
+    public Long getNodeid(
     ) {
         return this._nodeid;
     }
@@ -198,7 +195,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodesvccount'.
      */
-    public long getNodesvccount(
+    public Long getNodesvccount(
     ) {
         return this._nodesvccount;
     }
@@ -211,7 +208,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodesvcdowncount'.
      */
-    public long getNodesvcdowncount(
+    public Long getNodesvcdowncount(
     ) {
         return this._nodesvcdowncount;
     }
@@ -223,7 +220,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodevalue'.
      */
-    public double getNodevalue(
+    public Double getNodevalue(
     ) {
         return this._nodevalue;
     }
@@ -235,7 +232,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNodeid(
     ) {
-        return this._has_nodeid;
+        return this._nodeid != null;
     }
 
     /**
@@ -245,7 +242,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNodesvccount(
     ) {
-        return this._has_nodesvccount;
+        return this._nodesvccount != null;
     }
 
     /**
@@ -255,7 +252,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNodesvcdowncount(
     ) {
-        return this._has_nodesvcdowncount;
+        return this._nodesvcdowncount != null;
     }
 
     /**
@@ -265,7 +262,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNodevalue(
     ) {
-        return this._has_nodevalue;
+        return this._nodevalue != null;
     }
 
     /**
@@ -282,11 +279,18 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (int)(_nodeid^(_nodeid>>>32));
-        tmp = java.lang.Double.doubleToLongBits(_nodevalue);
-        result = 37 * result + (int)(tmp^(tmp>>>32));
-        result = 37 * result + (int)(_nodesvccount^(_nodesvccount>>>32));
-        result = 37 * result + (int)(_nodesvcdowncount^(_nodesvcdowncount>>>32));
+        if (_nodeid != null) {
+           result = 37 * result + _nodeid.hashCode();
+        }
+        if (_nodevalue != null) {
+           result = 37 * result + _nodevalue.hashCode();
+        }
+        if (_nodesvccount != null) {
+           result = 37 * result + _nodesvccount.hashCode();
+        }
+        if (_nodesvcdowncount != null) {
+           result = 37 * result + _nodesvcdowncount.hashCode();
+        }
 
         return result;
     }
@@ -345,9 +349,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodeid the value of field 'nodeid'.
      */
     public void setNodeid(
-            final long nodeid) {
+            final Long nodeid) {
         this._nodeid = nodeid;
-        this._has_nodeid = true;
     }
 
     /**
@@ -359,9 +362,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodesvccount the value of field 'nodesvccount'.
      */
     public void setNodesvccount(
-            final long nodesvccount) {
+            final Long nodesvccount) {
         this._nodesvccount = nodesvccount;
-        this._has_nodesvccount = true;
     }
 
     /**
@@ -373,9 +375,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodesvcdowncount the value of field 'nodesvcdowncount'
      */
     public void setNodesvcdowncount(
-            final long nodesvcdowncount) {
+            final Long nodesvcdowncount) {
         this._nodesvcdowncount = nodesvcdowncount;
-        this._has_nodesvcdowncount = true;
     }
 
     /**
@@ -385,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodevalue the value of field 'nodevalue'.
      */
     public void setNodevalue(
-            final double nodevalue) {
+            final Double nodevalue) {
         this._nodevalue = nodevalue;
-        this._has_nodevalue = true;
     }
 
     /**
