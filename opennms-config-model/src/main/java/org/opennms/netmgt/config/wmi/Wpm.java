@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="wpm")
@@ -63,12 +65,14 @@ import org.opennms.core.xml.ValidateUsing;
      * The name of this group, for user id purposes
      *
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * This is the WMI object class that we'll be checking.
      *
      */
+    @XmlAttribute(name="wmiClass", required = true)
     private java.lang.String _wmiClass;
 
     /**
@@ -76,6 +80,7 @@ import org.opennms.core.xml.ValidateUsing;
      * this group should be collected
      *
      */
+    @XmlAttribute(name="keyvalue", required = true)
     private java.lang.String _keyvalue;
 
     /**
@@ -83,17 +88,14 @@ import org.opennms.core.xml.ValidateUsing;
      *  should be rechecked for existence. In milliseconds
      *
      */
-    private int _recheckInterval;
-
-    /**
-     * keeps track of state for field: _recheckInterval
-     */
-    private boolean _has_recheckInterval;
+    @XmlAttribute(name="recheckInterval", required = true)
+    private Integer _recheckInterval;
 
     /**
      * Specifies the interface collection type.
      *
      */
+    @XmlAttribute(name="ifType", required = true)
     private java.lang.String _ifType;
 
     /**
@@ -107,6 +109,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  resource type declared in datacollection-config.xml.
      *
      */
+    @XmlAttribute(name="resourceType", required = true)
     private java.lang.String _resourceType;
 
     /**
@@ -115,12 +118,15 @@ import org.opennms.core.xml.ValidateUsing;
      *  resides. The default is "root/cimv2".
      *
      */
-    private java.lang.String _wmiNamespace = "root/cimv2";
+    @XmlAttribute(name="wmiNamespace")
+    private java.lang.String _wmiNamespace;
+    private static final String DEFAULT_WMINAMESPACE = "root/cimv2";
 
     /**
      * An WMI Object
      *
      */
+    @XmlElement(name="attrib")
     private java.util.List<org.opennms.netmgt.config.wmi.Attrib> _attribList;
 
 
@@ -130,7 +136,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Wpm() {
         super();
-        setWmiNamespace("root/cimv2");
         this._attribList = new java.util.ArrayList<org.opennms.netmgt.config.wmi.Attrib>();
     }
 
@@ -171,7 +176,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteRecheckInterval(
     ) {
-        this._has_recheckInterval= false;
+        this._recheckInterval = null;
     }
 
     /**
@@ -221,9 +226,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._keyvalue != null)
                 return false;
-            if (this._recheckInterval != temp._recheckInterval)
-                return false;
-            if (this._has_recheckInterval != temp._has_recheckInterval)
+            if (this._recheckInterval != null) {
+                if (temp._recheckInterval == null) return false;
+                else if (!(this._recheckInterval.equals(temp._recheckInterval)))
+                    return false;
+            }
+            else if (temp._recheckInterval != null)
                 return false;
             if (this._ifType != null) {
                 if (temp._ifType == null) return false;
@@ -364,7 +372,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RecheckInterval'.
      */
-    public int getRecheckInterval(
+    public Integer getRecheckInterval(
     ) {
         return this._recheckInterval;
     }
@@ -422,7 +430,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRecheckInterval(
     ) {
-        return this._has_recheckInterval;
+        return this._recheckInterval != null;
     }
 
     /**
@@ -448,7 +456,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_keyvalue != null) {
            result = 37 * result + _keyvalue.hashCode();
         }
-        result = 37 * result + _recheckInterval;
+        if (_recheckInterval != null) {
+           result = 37 * result + _recheckInterval.hashCode();
+        }
         if (_ifType != null) {
            result = 37 * result + _ifType.hashCode();
         }
@@ -664,9 +674,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param recheckInterval the value of field 'recheckInterval'.
      */
     public void setRecheckInterval(
-            final int recheckInterval) {
+            final Integer recheckInterval) {
         this._recheckInterval = recheckInterval;
-        this._has_recheckInterval = true;
     }
 
     /**

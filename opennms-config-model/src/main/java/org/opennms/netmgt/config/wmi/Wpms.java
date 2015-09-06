@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="wpms")
@@ -63,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
      * A WMI Object Group
      *
      */
+    @XmlElement(name="wpm")
     private java.util.List<org.opennms.netmgt.config.wmi.Wpm> _wpmList;
 
 

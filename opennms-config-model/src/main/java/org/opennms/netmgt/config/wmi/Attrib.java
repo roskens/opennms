@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="attrib")
@@ -62,31 +63,37 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _alias.
      */
+    @XmlAttribute(name="alias", required = true)
     private java.lang.String _alias;
 
     /**
      * Field _wmiObject.
      */
+    @XmlAttribute(name="wmiObject", required = true)
     private java.lang.String _wmiObject;
 
     /**
      * Field _type.
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
     /**
      * Field _maxval.
      */
+    @XmlAttribute(name="maxval")
     private java.lang.String _maxval;
 
     /**
      * Field _minval.
      */
+    @XmlAttribute(name="minval")
     private java.lang.String _minval;
 
 

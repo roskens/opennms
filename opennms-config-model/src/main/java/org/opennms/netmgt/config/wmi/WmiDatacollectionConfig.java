@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="wmi-datacollection-config")
@@ -62,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _rrdRepository.
      */
+    @XmlAttribute(name="rrdRepository", required = true)
     private java.lang.String _rrdRepository;
 
     /**
      * A grouping of WMI related RRD parms and WMI object groups
      */
+    @XmlElement(name="wmi-collection")
     private java.util.List<org.opennms.netmgt.config.wmi.WmiCollection> _wmiCollectionList;
 
 
