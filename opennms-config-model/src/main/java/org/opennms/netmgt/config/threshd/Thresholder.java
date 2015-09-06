@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="thresholder")
@@ -62,12 +64,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Service name
      */
+    @XmlAttribute(name="service", required = true)
     private java.lang.String _service;
 
     /**
      * Java class name used to perform thresholding via the
      *  service
      */
+    @XmlAttribute(name="class-name", required = true)
     private java.lang.String _className;
 
     /**
@@ -75,6 +79,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  service. Parameters are specfic to the service
      *  thresholder.
      */
+    @XmlElement(name="parameter")
     private java.util.List<org.opennms.netmgt.config.threshd.Parameter> _parameterList;
 
 

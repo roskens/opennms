@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="package")
@@ -63,6 +65,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Name or identifier for this package
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
@@ -71,22 +74,26 @@ import org.opennms.core.xml.ValidateUsing;
      * pass
      *  this filter
      */
+    @XmlElement(name="filter")
     private org.opennms.netmgt.config.threshd.Filter _filter;
 
     /**
      * Adresses in this package
      */
+    @XmlElement(name="specific")
     private java.util.List<java.lang.String> _specificList;
 
     /**
      * Range of adresses in this package
      */
+    @XmlElement(name="include-range")
     private java.util.List<org.opennms.netmgt.config.threshd.IncludeRange> _includeRangeList;
 
     /**
      * Range of adresses to be excluded from this
      *  package
      */
+    @XmlElement(name="exclude-range")
     private java.util.List<org.opennms.netmgt.config.threshd.ExcludeRange> _excludeRangeList;
 
     /**
@@ -96,18 +103,21 @@ import org.opennms.core.xml.ValidateUsing;
      *  #<comments>. Lines starting with a '#' are ignored and so
      *  are characters after a '<space>#' in a line.
      */
+    @XmlElement(name="include-url")
     private java.util.List<java.lang.String> _includeUrlList;
 
     /**
      * Services for which thresholding is to occur in this
      *  package
      */
+    @XmlElement(name="service")
     private java.util.List<org.opennms.netmgt.config.threshd.Service> _serviceList;
 
     /**
      * Scheduled outages. Thresholding is not performed
      *  during scheduled outages.
      */
+    @XmlElement(name="outage-calendar")
     private java.util.List<java.lang.String> _outageCalendarList;
 
 

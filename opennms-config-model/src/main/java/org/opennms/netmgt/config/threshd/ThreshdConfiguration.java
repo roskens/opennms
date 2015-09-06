@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="threshd-configuration")
@@ -64,22 +66,20 @@ import org.opennms.core.xml.ValidateUsing;
      * Maximum number of threads used for
      *  thresholding.
      */
-    private int _threads;
-
-    /**
-     * keeps track of state for field: _threads
-     */
-    private boolean _has_threads;
+    @XmlAttribute(name="threads", required = true)
+    private Integer _threads;
 
     /**
      * Package encapsulating addresses eligible for
      *  thresholding.
      */
+    @XmlElement(name="package")
     private java.util.List<org.opennms.netmgt.config.threshd.Package> _packageList;
 
     /**
      * Service thresholders
      */
+    @XmlElement(name="thresholders")
     private java.util.List<org.opennms.netmgt.config.threshd.Thresholder> _thresholderList;
 
 
@@ -158,7 +158,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteThreads(
     ) {
-        this._has_threads= false;
+        this._threads = null;
     }
 
     /**
@@ -198,9 +198,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof ThreshdConfiguration) {
 
             ThreshdConfiguration temp = (ThreshdConfiguration)obj;
-            if (this._threads != temp._threads)
-                return false;
-            if (this._has_threads != temp._has_threads)
+            if (this._threads != null) {
+                if (temp._threads == null) return false;
+                else if (!(this._threads.equals(temp._threads)))
+                    return false;
+            }
+            else if (temp._threads != null)
                 return false;
             if (this._packageList != null) {
                 if (temp._packageList == null) return false;
@@ -286,7 +289,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Threads'.
      */
-    public int getThreads(
+    public Integer getThreads(
     ) {
         return this._threads;
     }
@@ -356,7 +359,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasThreads(
     ) {
-        return this._has_threads;
+        return this._threads != null;
     }
 
     /**
@@ -373,7 +376,9 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _threads;
+        if (_threads != null) {
+           result = 37 * result + _threads.hashCode();
+        }
         if (_packageList != null) {
            result = 37 * result + _packageList.hashCode();
         }
@@ -585,9 +590,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param threads the value of field 'threads'.
      */
     public void setThreads(
-            final int threads) {
+            final Integer threads) {
         this._threads = threads;
-        this._has_threads = true;
     }
 
     /**

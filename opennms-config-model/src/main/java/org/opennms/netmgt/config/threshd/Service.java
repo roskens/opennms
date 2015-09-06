@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="service")
@@ -63,29 +65,28 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Service name
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Interval at which the service is to be threshold
      *  checked
      */
-    private long _interval;
-
-    /**
-     * keeps track of state for field: _interval
-     */
-    private boolean _has_interval;
+    @XmlAttribute(name="interval", required = true)
+    private Long _interval;
 
     /**
      * Specifies if this is a user-defined service. Used
      *  specifically for UI purposes.
      */
+    @XmlAttribute(name="user-defined")
     private java.lang.String _userDefined;
 
     /**
      * Thresholding status for this service. Service is
      *  checked against thresholds only if set to 'on'.
      */
+    @XmlAttribute(name="status")
     private java.lang.String _status;
 
     /**
@@ -93,6 +94,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  service. Parameters are specfic to the service
      *  thresholder.
      */
+    @XmlElement(name="parameter")
     private java.util.List<org.opennms.netmgt.config.threshd.Parameter> _parameterList;
 
 
@@ -142,7 +144,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteInterval(
     ) {
-        this._has_interval= false;
+        this._interval = null;
     }
 
     /**
@@ -178,9 +180,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._name != null)
                 return false;
-            if (this._interval != temp._interval)
-                return false;
-            if (this._has_interval != temp._has_interval)
+            if (this._interval != null) {
+                if (temp._interval == null) return false;
+                else if (!(this._interval.equals(temp._interval)))
+                    return false;
+            }
+            else if (temp._interval != null)
                 return false;
             if (this._userDefined != null) {
                 if (temp._userDefined == null) return false;
@@ -216,7 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Interval'.
      */
-    public long getInterval(
+    public Long getInterval(
     ) {
         return this._interval;
     }
@@ -322,7 +327,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasInterval(
     ) {
-        return this._has_interval;
+        return this._interval != null;
     }
 
     /**
@@ -454,9 +459,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param interval the value of field 'interval'.
      */
     public void setInterval(
-            final long interval) {
+            final Long interval) {
         this._interval = interval;
-        this._has_interval = true;
     }
 
     /**

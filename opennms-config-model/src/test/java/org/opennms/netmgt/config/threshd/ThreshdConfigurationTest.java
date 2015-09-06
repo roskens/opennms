@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.threshd;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -45,12 +43,66 @@ public class ThreshdConfigurationTest extends XmlTestNoCastor<ThreshdConfigurati
 
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
+        ThreshdConfiguration config = new ThreshdConfiguration();
+        config.setThreads(5);
+        Package mib2 = new Package();
+        Filter mib2filter = new Filter();
+        mib2filter.setContent("IPADDR != '0.0.0.0'");
+        mib2.setFilter(mib2filter);
+        IncludeRange ipv4Range = new IncludeRange();
+        ipv4Range.setBegin("1.1.1.1");
+        ipv4Range.setEnd("254.254.254.254");
+        mib2.addIncludeRange(ipv4Range);
+        IncludeRange ipv6Range = new IncludeRange();
+        ipv6Range.setBegin("::1");
+        ipv6Range.setEnd("ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff");
+        mib2.addIncludeRange(ipv6Range);
+        Service snmpSvc = new Service();
+        snmpSvc.setName("SNMP");
+        snmpSvc.setInterval(300000L);
+        snmpSvc.setUserDefined("false");
+        snmpSvc.setStatus("on");
+        Parameter p1 = new Parameter();
+        p1.setKey("thresholding-group");
+        p1.setValue("mib2");
+        snmpSvc.addParameter(p1);
+        config.addPackage(mib2);
+        Package hrstorage = new Package();
+        Filter filter2 = new Filter();
+        filter2.setContent("IPADDR != '0.0.0.0' &amp; (nodeSysOID LIKE '.1.3.6.1.4.1.311.%' | nodeSysOID LIKE '.1.3.6.1.4.1.2.3.1.2.1.1.3.%')");
+        mib2.setFilter(filter2);
+        mib2.addIncludeRange(ipv4Range);
+        mib2.addIncludeRange(ipv6Range);
+        Service snmpSvc2 = new Service();
+        snmpSvc2.setName("SNMP");
+        snmpSvc2.setInterval(300000L);
+        snmpSvc2.setUserDefined("false");
+        snmpSvc2.setStatus("on");
+        Parameter p2 = new Parameter();
+        p2.setKey("thresholding-group");
+        p2.setValue("hrstorage");
+        snmpSvc2.addParameter(p2);
+        config.addPackage(hrstorage);
 
-        ThreshdConfiguration threshdConfiguration = new ThreshdConfiguration();
-
-        return Arrays.asList(new Object[][] { {
-                threshdConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/threshd-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<threshd-configuration threads=\"5\">\n"
+            + "<package name=\"mib2\">\n"
+            + "  <filter>IPADDR != '0.0.0.0'</filter>     \n"
+            + "  <include-range begin=\"1.1.1.1\" end=\"254.254.254.254\"/>\n"
+            + "  <include-range begin=\"::1\" end=\"ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff\" />\n"
+            + "  <service name=\"SNMP\" interval=\"300000\" user-defined=\"false\" status=\"on\">\n"
+            + "    <parameter key=\"thresholding-group\" value=\"mib2\"/>\n"
+            + "  </service>\n"
+            + "</package>\n"
+            + "<package name=\"hrstorage\">\n"
+            + "  <filter>IPADDR != '0.0.0.0' &amp; (nodeSysOID LIKE '.1.3.6.1.4.1.311.%' | nodeSysOID LIKE '.1.3.6.1.4.1.2.3.1.2.1.1.3.%')</filter>       \n"
+            + "  <include-range begin=\"1.1.1.1\" end=\"254.254.254.254\"/>\n"
+            + "  <include-range begin=\"::1\" end=\"ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff\" />\n"
+            + "  <service name=\"SNMP\" interval=\"300000\" user-defined=\"false\" status=\"on\">\n"
+            + "    <parameter key=\"thresholding-group\" value=\"hrstorage\"/>\n"
+            + "  </service>\n"
+            + "</package>" + "</threshd-configuration>",
+            "target/classes/xsds/threshd-configuration.xsd",},});
     }
 }
