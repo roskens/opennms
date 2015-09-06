@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="view")
@@ -62,21 +64,26 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _refreshSeconds.
      */
-    private java.lang.String _refreshSeconds = "300";
+    @XmlAttribute(name="refresh-seconds")
+    private java.lang.String _refreshSeconds;
+    private static final String DEFAULT_REFRESH_SECONDS = "300";
 
     /**
      * Field _rows.
      */
+    @XmlElement(name="rows")
     private org.opennms.netmgt.config.surveillanceViews.Rows _rows;
 
     /**
      * Field _columns.
      */
+    @XmlElement(name="columns")
     private org.opennms.netmgt.config.surveillanceViews.Columns _columns;
 
 
@@ -86,7 +93,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public View() {
         super();
-        setRefreshSeconds("300");
     }
 
 
@@ -169,7 +175,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getRefreshSeconds(
     ) {
-        return this._refreshSeconds;
+        return this._refreshSeconds == null ? DEFAULT_REFRESH_SECONDS : this._refreshSeconds;
     }
 
     /**

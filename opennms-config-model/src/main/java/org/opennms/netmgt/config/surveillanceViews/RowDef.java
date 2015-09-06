@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="row-def")
@@ -62,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _label.
      */
+    @XmlAttribute(name="label", required = true)
     private java.lang.String _label;
 
     /**
      * Field _reportCategory.
      */
+    @XmlAttribute(name="report-category")
     private java.lang.String _reportCategory;
 
     /**
@@ -80,6 +84,7 @@ import org.opennms.core.xml.ValidateUsing;
      * changed and the service layer is adapted for this behavior.
      *
      */
+    @XmlElement(name="category")
     private java.util.List<org.opennms.netmgt.config.surveillanceViews.Category> _categoryList;
 
 

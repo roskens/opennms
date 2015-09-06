@@ -29,15 +29,31 @@
 package org.opennms.netmgt.config.surveillanceViews;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class SurveillanceViewConfigurationTest extends XmlTestNoCastor<SurveillanceViewConfiguration> {
+
+    private static void addRowDef(Rows rows, String label, String category) {
+        RowDef rDef = new RowDef();
+        rDef.setLabel(label);
+        Category cat = new Category();
+        cat.setName(category);
+        rDef.addCategory(cat);
+        rows.addRowDef(rDef);
+    }
+
+    private static void addColumnDef(Columns columns, String label, String category) {
+        ColumnDef cDef = new ColumnDef();
+        cDef.setLabel(label);
+        Category cat = new Category();
+        cat.setName(category);
+        cDef.addCategory(cat);
+        columns.addColumnDef(cDef);
+    }
 
     public SurveillanceViewConfigurationTest(final SurveillanceViewConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
@@ -46,11 +62,54 @@ public class SurveillanceViewConfigurationTest extends XmlTestNoCastor<Surveilla
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        SurveillanceViewConfiguration surveillanceViewConfiguration = new SurveillanceViewConfiguration();
+        SurveillanceViewConfiguration config = new SurveillanceViewConfiguration();
+        config.setDefaultView("default");
+        Views views = new Views();
+        config.setViews(views);
+        View view = new View();
+        view.setName("default");
+        view.setRefreshSeconds("300");
+        Rows rows = new Rows();
+        view.setRows(rows);
+        addRowDef(rows, "Routers", "Routers");
+        addRowDef(rows, "Switches", "Switches");
+        addRowDef(rows, "Servers", "Servers");
+        Columns columns = new Columns();
+        view.setColumns(columns);
+        addColumnDef(columns, "PROD", "Production");
+        addColumnDef(columns, "TEST", "Test");
+        addColumnDef(columns, "DEV", "Development");
 
-        return Arrays.asList(new Object[][] { {
-                surveillanceViewConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/surveillance-views.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<surveillance-view-configuration default-view=\"default\">"
+            + "  <views>"
+            + "    <view name=\"default\" refresh-seconds=\"300\">"
+            + "      <rows>"
+            + "        <row-def label=\"Routers\" >"
+            + "          <category name=\"Routers\"/>"
+            + "        </row-def>"
+            + "        <row-def label=\"Switches\" >"
+            + "          <category name=\"Switches\" />"
+            + "        </row-def>"
+            + "        <row-def label=\"Servers\" >"
+            + "          <category name=\"Servers\" />"
+            + "        </row-def>"
+            + "      </rows>"
+            + "      <columns>"
+            + "        <column-def label=\"PROD\" >"
+            + "          <category name=\"Production\" />"
+            + "        </column-def>"
+            + "        <column-def label=\"TEST\" >"
+            + "          <category name=\"Test\" />"
+            + "        </column-def>"
+            + "        <column-def label=\"DEV\" >"
+            + "          <category name=\"Development\" />"
+            + "        </column-def>"
+            + "      </columns>"
+            + "    </view>"
+            + "  </views>"
+            + "</surveillance-view-configuration>", /* configuration */
+            "target/classes/xsds/surveillance-views.xsd",},});
     }
 }

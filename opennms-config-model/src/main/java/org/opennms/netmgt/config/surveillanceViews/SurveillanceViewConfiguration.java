@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="surveillance-view-configuration")
@@ -62,11 +64,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _defaultView.
      */
-    private java.lang.String _defaultView = "default";
+    @XmlAttribute(name="default-view")
+    private java.lang.String _defaultView;
+    private static final String DEFAULT_DEFAULT_VIEW = "default";
 
     /**
      * Field _views.
      */
+    @XmlElement(name="views")
     private org.opennms.netmgt.config.surveillanceViews.Views _views;
 
 
@@ -76,7 +81,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public SurveillanceViewConfiguration() {
         super();
-        setDefaultView("default");
     }
 
 
@@ -125,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDefaultView(
     ) {
-        return this._defaultView;
+        return this._defaultView == null ? DEFAULT_DEFAULT_VIEW : this._defaultView;
     }
 
     /**
