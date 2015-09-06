@@ -49,7 +49,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="jdbc-data-source")
@@ -65,41 +64,50 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _databaseName.
      */
-    private java.lang.String _databaseName = "opennms";
+    @XmlAttribute(name="database-name")
+    private java.lang.String _databaseName;
+    private static final String DEFAULT_DATABASE_NAME = "opennms";
 
     /**
      * Field _schemaName.
      */
+    @XmlAttribute(name="schema-name")
     private java.lang.String _schemaName;
 
     /**
      * Field _url.
      */
+    @XmlAttribute(name="url", required = true)
     private java.lang.String _url;
 
     /**
      * Field _className.
      */
+    @XmlAttribute(name="class-name", required = true)
     private java.lang.String _className;
 
     /**
      * Field _userName.
      */
+    @XmlAttribute(name="user-name")
     private java.lang.String _userName;
 
     /**
      * Field _password.
      */
+    @XmlAttribute(name="password")
     private java.lang.String _password;
 
     /**
      * Field _paramList.
      */
+    @XmlAttribute(name="param")
     private java.util.List<org.opennms.netmgt.config.opennmsDataSources.Param> _paramList;
 
 
@@ -109,7 +117,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public JdbcDataSource() {
         super();
-        setDatabaseName("opennms");
         this._paramList = new java.util.ArrayList<org.opennms.netmgt.config.opennmsDataSources.Param>();
     }
 
@@ -250,7 +257,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDatabaseName(
     ) {
-        return this._databaseName;
+        return this._databaseName == null ? DEFAULT_DATABASE_NAME : this._databaseName;
     }
 
     /**

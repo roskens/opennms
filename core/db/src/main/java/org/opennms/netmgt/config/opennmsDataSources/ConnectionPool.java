@@ -64,59 +64,46 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * The connection pool implementation to use.
      */
-    private java.lang.String _factory = "org.opennms.core.db.C3P0ConnectionFactory";
+    @XmlAttribute(name="factory")
+    private java.lang.String _factory;
+    private static final String DEFAULT_FACTORY = "org.opennms.core.db.C3P0ConnectionFactory";
 
     /**
      * How long, in seconds, an idle connection is kept in the pool
      * before it is removed.
      */
-    private int _idleTimeout = 600;
-
-    /**
-     * keeps track of state for field: _idleTimeout
-     */
-    private boolean _has_idleTimeout;
+    @XmlAttribute(name="idleTimeout")
+    private Integer _idleTimeout;
+    private static final Integer DEFAULT_IDLETIMEOUT = 600;
 
     /**
      * How long, in seconds, to attempt to make a connection to the
      * database.
      */
-    private int _loginTimeout = 3;
-
-    /**
-     * keeps track of state for field: _loginTimeout
-     */
-    private boolean _has_loginTimeout;
+    @XmlAttribute(name="loginTimeout")
+    private Integer _loginTimeout;
+    private static final Integer DEFAULT_LOGINTIMEOUT = 3;
 
     /**
      * The minimum number of pooled connections to retain.
      */
-    private int _minPool = 10;
-
-    /**
-     * keeps track of state for field: _minPool
-     */
-    private boolean _has_minPool;
+    @XmlAttribute(name="minPool")
+    private Integer _minPool;
+    private static final Integer DEFAULT_MINPOOL = 10;
 
     /**
      * The maximum number of pooled connections to retain.
      */
-    private int _maxPool = 50;
-
-    /**
-     * keeps track of state for field: _maxPool
-     */
-    private boolean _has_maxPool;
+    @XmlAttribute(name="maxPool")
+    private Integer _maxPool;
+    private static final Integer DEFAULT_MAXPOOL = 50;
 
     /**
      * The maximum number of connections that can be created.
      */
-    private int _maxSize = 500;
-
-    /**
-     * keeps track of state for field: _maxSize
-     */
-    private boolean _has_maxSize;
+    @XmlAttribute(name="maxSize")
+    private Integer _maxSize;
+    private static final Integer DEFAULT_MAXSIZE = 500;
 
 
       //----------------/
@@ -125,7 +112,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public ConnectionPool() {
         super();
-        setFactory("org.opennms.core.db.C3P0ConnectionFactory");
     }
 
 
@@ -137,35 +123,35 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteIdleTimeout(
     ) {
-        this._has_idleTimeout= false;
+        this._idleTimeout = null;
     }
 
     /**
      */
     public void deleteLoginTimeout(
     ) {
-        this._has_loginTimeout= false;
+        this._loginTimeout = null;
     }
 
     /**
      */
     public void deleteMaxPool(
     ) {
-        this._has_maxPool= false;
+        this._maxPool = null;
     }
 
     /**
      */
     public void deleteMaxSize(
     ) {
-        this._has_maxSize= false;
+        this._maxSize = null;
     }
 
     /**
      */
     public void deleteMinPool(
     ) {
-        this._has_minPool= false;
+        this._minPool = null;
     }
 
     /**
@@ -190,25 +176,40 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._factory != null)
                 return false;
-            if (this._idleTimeout != temp._idleTimeout)
+            if (this._idleTimeout != null) {
+                if (temp._idleTimeout == null) return false;
+                else if (!(this._idleTimeout.equals(temp._idleTimeout)))
+                    return false;
+            }
+            else if (temp._idleTimeout != null)
                 return false;
-            if (this._has_idleTimeout != temp._has_idleTimeout)
+            if (this._loginTimeout != null) {
+                if (temp._loginTimeout == null) return false;
+                else if (!(this._loginTimeout.equals(temp._loginTimeout)))
+                    return false;
+            }
+            else if (temp._loginTimeout != null)
                 return false;
-            if (this._loginTimeout != temp._loginTimeout)
+            if (this._minPool != null) {
+                if (temp._minPool == null) return false;
+                else if (!(this._minPool.equals(temp._minPool)))
+                    return false;
+            }
+            else if (temp._minPool != null)
                 return false;
-            if (this._has_loginTimeout != temp._has_loginTimeout)
+            if (this._maxPool != null) {
+                if (temp._maxPool == null) return false;
+                else if (!(this._maxPool.equals(temp._maxPool)))
+                    return false;
+            }
+            else if (temp._maxPool != null)
                 return false;
-            if (this._minPool != temp._minPool)
-                return false;
-            if (this._has_minPool != temp._has_minPool)
-                return false;
-            if (this._maxPool != temp._maxPool)
-                return false;
-            if (this._has_maxPool != temp._has_maxPool)
-                return false;
-            if (this._maxSize != temp._maxSize)
-                return false;
-            if (this._has_maxSize != temp._has_maxSize)
+            if (this._maxSize != null) {
+                if (temp._maxSize == null) return false;
+                else if (!(this._maxSize.equals(temp._maxSize)))
+                    return false;
+            }
+            else if (temp._maxSize != null)
                 return false;
             return true;
         }
@@ -224,7 +225,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getFactory(
     ) {
-        return this._factory;
+        return this._factory == null ? DEFAULT_FACTORY : this._factory;
     }
 
     /**
@@ -235,9 +236,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'IdleTimeout'.
      */
-    public int getIdleTimeout(
+    public Integer getIdleTimeout(
     ) {
-        return this._idleTimeout;
+        return this._idleTimeout == null ? DEFAULT_IDLETIMEOUT : this._idleTimeout;
     }
 
     /**
@@ -247,9 +248,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'LoginTimeout'.
      */
-    public int getLoginTimeout(
+    public Integer getLoginTimeout(
     ) {
-        return this._loginTimeout;
+        return this._loginTimeout == null ? DEFAULT_LOGINTIMEOUT : this._loginTimeout;
     }
 
     /**
@@ -259,9 +260,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MaxPool'.
      */
-    public int getMaxPool(
+    public Integer getMaxPool(
     ) {
-        return this._maxPool;
+        return this._maxPool == null ? DEFAULT_MAXPOOL : this._maxPool;
     }
 
     /**
@@ -271,9 +272,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MaxSize'.
      */
-    public int getMaxSize(
+    public Integer getMaxSize(
     ) {
-        return this._maxSize;
+        return this._maxSize == null ? DEFAULT_MAXSIZE : this._maxSize;
     }
 
     /**
@@ -283,9 +284,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MinPool'.
      */
-    public int getMinPool(
+    public Integer getMinPool(
     ) {
-        return this._minPool;
+        return this._minPool == null ? DEFAULT_MINPOOL : this._minPool;
     }
 
     /**
@@ -295,7 +296,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasIdleTimeout(
     ) {
-        return this._has_idleTimeout;
+        return this._idleTimeout != null;
     }
 
     /**
@@ -305,7 +306,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasLoginTimeout(
     ) {
-        return this._has_loginTimeout;
+        return this._loginTimeout != null;
     }
 
     /**
@@ -315,7 +316,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMaxPool(
     ) {
-        return this._has_maxPool;
+        return this._maxPool != null;
     }
 
     /**
@@ -325,7 +326,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMaxSize(
     ) {
-        return this._has_maxSize;
+        return this._maxSize != null;
     }
 
     /**
@@ -335,7 +336,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMinPool(
     ) {
-        return this._has_minPool;
+        return this._minPool != null;
     }
 
     /**
@@ -355,11 +356,21 @@ import org.opennms.core.xml.ValidateUsing;
         if (_factory != null) {
            result = 37 * result + _factory.hashCode();
         }
-        result = 37 * result + _idleTimeout;
-        result = 37 * result + _loginTimeout;
-        result = 37 * result + _minPool;
-        result = 37 * result + _maxPool;
-        result = 37 * result + _maxSize;
+        if (_idleTimeout != null) {
+           result = 37 * result + _idleTimeout.hashCode();
+        }
+        if (_loginTimeout != null) {
+           result = 37 * result + _loginTimeout.hashCode();
+        }
+        if (_minPool != null) {
+           result = 37 * result + _minPool.hashCode();
+        }
+        if (_maxPool != null) {
+           result = 37 * result + _maxPool.hashCode();
+        }
+        if (_maxSize != null) {
+           result = 37 * result + _maxSize.hashCode();
+        }
 
         return result;
     }
@@ -432,9 +443,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param idleTimeout the value of field 'idleTimeout'.
      */
     public void setIdleTimeout(
-            final int idleTimeout) {
+            final Integer idleTimeout) {
         this._idleTimeout = idleTimeout;
-        this._has_idleTimeout = true;
     }
 
     /**
@@ -445,9 +455,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param loginTimeout the value of field 'loginTimeout'.
      */
     public void setLoginTimeout(
-            final int loginTimeout) {
+            final Integer loginTimeout) {
         this._loginTimeout = loginTimeout;
-        this._has_loginTimeout = true;
     }
 
     /**
@@ -458,9 +467,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param maxPool the value of field 'maxPool'.
      */
     public void setMaxPool(
-            final int maxPool) {
+            final Integer maxPool) {
         this._maxPool = maxPool;
-        this._has_maxPool = true;
     }
 
     /**
@@ -471,9 +479,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param maxSize the value of field 'maxSize'.
      */
     public void setMaxSize(
-            final int maxSize) {
+            final Integer maxSize) {
         this._maxSize = maxSize;
-        this._has_maxSize = true;
     }
 
     /**
@@ -484,9 +491,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param minPool the value of field 'minPool'.
      */
     public void setMinPool(
-            final int minPool) {
+            final Integer minPool) {
         this._minPool = minPool;
-        this._has_minPool = true;
     }
 
     /**

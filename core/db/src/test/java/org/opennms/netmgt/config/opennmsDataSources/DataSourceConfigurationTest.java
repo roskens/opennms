@@ -44,11 +44,55 @@ public class DataSourceConfigurationTest extends XmlTestNoCastor<DataSourceConfi
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        DataSourceConfiguration dataSourceConfiguration = new DataSourceConfiguration();
+        DataSourceConfiguration config = new DataSourceConfiguration();
+        ConnectionPool cpool = new ConnectionPool();
+        cpool.setFactory("org.opennms.core.db.C3P0ConnectionFactory");
+        cpool.setIdleTimeout(600);
+        cpool.setLoginTimeout(3);
+        cpool.setMinPool(50);
+        cpool.setMaxPool(50);
+        cpool.setMaxSize(50);
+        config.setConnectionPool(cpool);
+        JdbcDataSource ds1 = new JdbcDataSource();
+        config.addJdbcDataSource(ds1);
+        ds1.setName("opennms");
+        ds1.setDatabaseName("opennms");
+        ds1.setClassName("org.postgresql.Driver");
+        ds1.setUrl("jdbc:postgresql://localhost:5432/opennms");
+        ds1.setUserName("opennms");
+        ds1.setPassword("opennms");
 
-        return Arrays.asList(new Object[][] { {
-                dataSourceConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/opennms-datasources.xsd", }, });
+        JdbcDataSource ds2 = new JdbcDataSource();
+        config.addJdbcDataSource(ds2);
+        ds2.setName("opennms-admin");
+        ds2.setDatabaseName("template1");
+        ds2.setClassName("org.postgresql.Driver");
+        ds2.setUrl("jdbc:postgresql://localhost:5432/template1");
+        ds2.setUserName("postgres");
+        ds2.setPassword("postgres");
+
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<datasource-configuration>\n"
+            + "  <connection-pool factory=\"org.opennms.core.db.C3P0ConnectionFactory\"\n"
+            + "    idleTimeout=\"600\"\n"
+            + "    loginTimeout=\"3\"\n"
+            + "    minPool=\"50\"\n"
+            + "    maxPool=\"50\"\n"
+            + "    maxSize=\"50\" />\n"
+            + "  <jdbc-data-source name=\"opennms\" \n"
+            + "                    database-name=\"opennms\" \n"
+            + "                    class-name=\"org.postgresql.Driver\" \n"
+            + "                    url=\"jdbc:postgresql://localhost:5432/opennms\"\n"
+            + "                    user-name=\"opennms\"\n"
+            + "                    password=\"opennms\" />\n"
+            + "  <jdbc-data-source name=\"opennms-admin\" \n"
+            + "                    database-name=\"template1\" \n"
+            + "                    class-name=\"org.postgresql.Driver\" \n"
+            + "                    url=\"jdbc:postgresql://localhost:5432/template1\"\n"
+            + "                    user-name=\"postgres\"\n"
+            + "                    password=\"postgres\" />\n"
+            + "</datasource-configuration>",
+            "target/classes/xsds/opennms-datasources.xsd",},});
     }
 }

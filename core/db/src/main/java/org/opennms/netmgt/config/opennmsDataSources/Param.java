@@ -64,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _value.
      */
+    @XmlAttribute(name="value", required = true)
     private java.lang.String _value;
 
 

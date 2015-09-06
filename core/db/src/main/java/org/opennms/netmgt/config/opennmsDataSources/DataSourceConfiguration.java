@@ -50,7 +50,6 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
@@ -67,12 +66,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Database connection pool configuration.
      */
+    @XmlElement(name="connection-pool")
     private org.opennms.netmgt.config.opennmsDataSources.ConnectionPool _connectionPool;
 
     /**
      * Top-level element for the opennms-database.xml configuration
      *  file.
      */
+    @XmlElement(name="jdbc-data-source")
     private java.util.List<org.opennms.netmgt.config.opennmsDataSources.JdbcDataSource> _jdbcDataSourceList;
 
 
