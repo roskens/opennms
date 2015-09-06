@@ -29,15 +29,33 @@
 package org.opennms.netmgt.config.thresholding;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class ThresholdingConfigTest extends XmlTestNoCastor<ThresholdingConfig> {
+
+    private static Expression addExpression(Group group, String type, String expression, String dsType, String dsLabel, Double value, Double rearm, Integer trigger) {
+        Expression expr = new Expression();
+        expr.setType(type);
+        expr.setExpression(expression);
+        expr.setDsType(dsType);
+        expr.setDsLabel(dsLabel);
+        expr.setValue(value);
+        expr.setRearm(rearm);
+        expr.setTrigger(trigger);
+        group.addExpression(expr);
+        return expr;
+    }
+
+    private static void addResourceFilter(Expression ex3, String field, String filter) {
+        ResourceFilter rFilter = new ResourceFilter();
+        rFilter.setField(field);
+        rFilter.setContent(filter);
+        ex3.addResourceFilter(rFilter);
+    }
 
     public ThresholdingConfigTest(final ThresholdingConfig sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
@@ -46,11 +64,42 @@ public class ThresholdingConfigTest extends XmlTestNoCastor<ThresholdingConfig> 
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        ThresholdingConfig thresholdingConfig = new ThresholdingConfig();
+        ThresholdingConfig config = new ThresholdingConfig();
+        Group mib2 = new Group();
+        config.addGroup(mib2);
+        mib2.setName("mib2");
+        mib2.setRrdRepository("${install.share.dir}/rrd/snmp");
+        Threshold thold = new Threshold();
+        thold.setType("high");
+        thold.setDsName("tcpInErrors");
+        thold.setDsType("node");
+        thold.setDsLabel("");
+        thold.setValue(1D);
+        thold.setRearm(0D);
+        thold.setTrigger(1);
+        mib2.addThreshold(thold);
+        addExpression(mib2, "high", "ifInErrors + ifOutErrors", "if", "ifName", 1D, 0D, 2);
+        addExpression(mib2, "high", "ifInDiscards + ifOutDiscards", "if", "ifName", 1D, 0D, 2);
+        Expression ex3 = addExpression(mib2, "high", "ifInOctets * 8 / 1000000 / ifHighSpeed * 100", "if", "ifName", 90.0D, 75.0D, 3);
+        addResourceFilter(ex3, "ifHighSpeed", "^[1-9]+[0-9]*$");
+        Expression ex4 = addExpression(mib2, "high", "ifOutOctets * 8 / 1000000 / ifHighSpeed * 100", "if", "ifName", 90.0D, 75.0D, 3);
+        addResourceFilter(ex4, "ifHighSpeed", "^[1-9]+[0-9]*$");
 
-        return Arrays.asList(new Object[][] { {
-                thresholdingConfig,
-                "", /* configuration */
-                "target/classes/xsds/thresholding-config.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<thresholding-config>"
+            + "<group name=\"mib2\" rrdRepository=\"${install.share.dir}/rrd/snmp\">"
+            + "  <threshold type=\"high\" ds-name=\"tcpInErrors\" ds-type=\"node\" ds-label=\"\" value=\"1\" rearm=\"0\" trigger=\"1\"/>\n"
+            + "  <expression type=\"high\" expression=\"ifInErrors + ifOutErrors\" ds-type=\"if\" ds-label=\"ifName\" value=\"1\" rearm=\"0\" trigger=\"2\"/>\n"
+            + "  <expression type=\"high\" expression=\"ifInDiscards + ifOutDiscards\" ds-type=\"if\" ds-label=\"ifName\" value=\"1\" rearm=\"0\" trigger=\"2\"/>\n"
+            + "  <expression type=\"high\" expression=\"ifInOctets * 8 / 1000000 / ifHighSpeed * 100\" ds-type=\"if\" ds-label=\"ifName\" value=\"90.0\" rearm=\"75.0\" trigger=\"3\">\n"
+            + "    <resource-filter field=\"ifHighSpeed\">^[1-9]+[0-9]*$</resource-filter>\n"
+            + "  </expression>\n"
+            + "  <expression type=\"high\" expression=\"ifOutOctets * 8 / 1000000 / ifHighSpeed * 100\" ds-type=\"if\" ds-label=\"ifName\" value=\"90.0\" rearm=\"75.0\" trigger=\"3\">"
+            + "    <resource-filter field=\"ifHighSpeed\">^[1-9]+[0-9]*$</resource-filter>"
+            + "  </expression>"
+            + "</group>"
+            + "</thresholding-config>",
+            "target/classes/xsds/thresholding-config.xsd",},});
     }
 }

@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="group")
@@ -63,22 +65,26 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Group name
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Full path to the RRD repository where the data is stored
      *
      */
+    @XmlAttribute(name="rrdRepository", required = true)
     private java.lang.String _rrdRepository;
 
     /**
      * Threshold definition
      */
+    @XmlElement(name="threshold")
     private java.util.List<org.opennms.netmgt.config.thresholding.Threshold> _thresholdList;
 
     /**
      * Expression definition
      */
+    @XmlElement(name="expression")
     private java.util.List<org.opennms.netmgt.config.thresholding.Expression> _expressionList;
 
 

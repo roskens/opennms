@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="expression")
@@ -66,6 +67,7 @@ implements java.io.Serializable
      *  evaluate
      *
      */
+    @XmlAttribute(name="expression", required = true)
     private java.lang.String _expression;
 
 

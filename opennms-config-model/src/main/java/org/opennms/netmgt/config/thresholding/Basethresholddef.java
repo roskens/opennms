@@ -31,6 +31,9 @@
  */
 package org.opennms.netmgt.config.thresholding;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+
 /**
  * Class Basethresholddef.
  *
@@ -51,18 +54,16 @@ package org.opennms.netmgt.config.thresholding;
      * conditionals. Default: false
      *
      */
-    private boolean _relaxed = false;
-
-    /**
-     * keeps track of state for field: _relaxed
-     */
-    private boolean _has_relaxed;
+    @XmlAttribute(name="relaxed")
+    private Boolean _relaxed;
+    private static final Boolean DEFAULT_RELAXED = false;
 
     /**
      * An optional description for the threshold, to help identify
      * what is their purpose.
      *
      */
+    @XmlAttribute(name="description")
     private java.lang.String _description;
 
     /**
@@ -75,6 +76,7 @@ package org.opennms.netmgt.config.thresholding;
      * than the threshold value
      *
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
     /**
@@ -83,6 +85,7 @@ package org.opennms.netmgt.config.thresholding;
      *  "if" indicates an interface level datasource.
      *
      */
+    @XmlAttribute(name="ds-type", required = true)
     private java.lang.String _dsType;
 
     /**
@@ -102,12 +105,8 @@ package org.opennms.netmgt.config.thresholding;
      * generated.
      *
      */
-    private double _value;
-
-    /**
-     * keeps track of state for field: _value
-     */
-    private boolean _has_value;
+    @XmlAttribute(name="value", required = true)
+    private Double _value;
 
     /**
      * Rearm value. Identifies the value that the datasource must
@@ -117,12 +116,8 @@ package org.opennms.netmgt.config.thresholding;
      *  rearm, and once again be eligible to generate an event.
      *
      */
-    private double _rearm;
-
-    /**
-     * keeps track of state for field: _rearm
-     */
-    private boolean _has_rearm;
+    @XmlAttribute(name="rearm", required = true)
+    private Double _rearm;
 
     /**
      * Trigger value. Identifies the number of consecutive polls
@@ -132,18 +127,15 @@ package org.opennms.netmgt.config.thresholding;
      *  before a threshold event is generated.
      *
      */
-    private int _trigger;
-
-    /**
-     * keeps track of state for field: _trigger
-     */
-    private boolean _has_trigger;
+    @XmlAttribute(name="trigger", required = true)
+    private Integer _trigger;
 
     /**
      * Value to retrieve from strings.properties to label this
      *  datasource.
      *
      */
+    @XmlAttribute(name="ds-label")
     private java.lang.String _dsLabel;
 
     /**
@@ -151,6 +143,7 @@ package org.opennms.netmgt.config.thresholding;
      *  specified, defaults to standard threshold UEIs
      *
      */
+    @XmlAttribute(name="triggeredUEI")
     private java.lang.String _triggeredUEI;
 
     /**
@@ -158,6 +151,7 @@ package org.opennms.netmgt.config.thresholding;
      *  specified, defaults to standard threshold UEIs
      *
      */
+    @XmlAttribute(name="rearmedUEI")
     private java.lang.String _rearmedUEI;
 
     /**
@@ -166,11 +160,14 @@ package org.opennms.netmgt.config.thresholding;
      *  you should specify "and";
      *
      */
-    private java.lang.String _filterOperator = "or";
+    @XmlAttribute(name="filterOperator")
+    private java.lang.String _filterOperator;
+    private static final String DEFAULT_FILTEROPERATOR = "or";
 
     /**
      * The filter used to select the ds by a string
      */
+    @XmlElement(name="resource-filter")
     private java.util.List<org.opennms.netmgt.config.thresholding.ResourceFilter> _resourceFilterList;
 
 
@@ -180,7 +177,6 @@ package org.opennms.netmgt.config.thresholding;
 
     public Basethresholddef() {
         super();
-        setFilterOperator("or");
         this._resourceFilterList = new java.util.ArrayList<org.opennms.netmgt.config.thresholding.ResourceFilter>();
     }
 
@@ -221,28 +217,28 @@ package org.opennms.netmgt.config.thresholding;
      */
     public void deleteRearm(
     ) {
-        this._has_rearm= false;
+        this._rearm = null;
     }
 
     /**
      */
     public void deleteRelaxed(
     ) {
-        this._has_relaxed= false;
+        this._relaxed = null;
     }
 
     /**
      */
     public void deleteTrigger(
     ) {
-        this._has_trigger= false;
+        this._trigger = null;
     }
 
     /**
      */
     public void deleteValue(
     ) {
-        this._has_value= false;
+        this._value = null;
     }
 
     /**
@@ -271,9 +267,12 @@ package org.opennms.netmgt.config.thresholding;
         if (obj instanceof Basethresholddef) {
 
             Basethresholddef temp = (Basethresholddef)obj;
-            if (this._relaxed != temp._relaxed)
-                return false;
-            if (this._has_relaxed != temp._has_relaxed)
+            if (this._relaxed != null) {
+                if (temp._relaxed == null) return false;
+                else if (!(this._relaxed.equals(temp._relaxed)))
+                    return false;
+            }
+            else if (temp._relaxed != null)
                 return false;
             if (this._description != null) {
                 if (temp._description == null) return false;
@@ -296,17 +295,26 @@ package org.opennms.netmgt.config.thresholding;
             }
             else if (temp._dsType != null)
                 return false;
-            if (this._value != temp._value)
+            if (this._value != null) {
+                if (temp._value == null) return false;
+                else if (!(this._value.equals(temp._value)))
+                    return false;
+            }
+            else if (temp._value != null)
                 return false;
-            if (this._has_value != temp._has_value)
+            if (this._rearm != null) {
+                if (temp._rearm == null) return false;
+                else if (!(this._rearm.equals(temp._rearm)))
+                    return false;
+            }
+            else if (temp._rearm != null)
                 return false;
-            if (this._rearm != temp._rearm)
-                return false;
-            if (this._has_rearm != temp._has_rearm)
-                return false;
-            if (this._trigger != temp._trigger)
-                return false;
-            if (this._has_trigger != temp._has_trigger)
+            if (this._trigger != null) {
+                if (temp._trigger == null) return false;
+                else if (!(this._trigger.equals(temp._trigger)))
+                    return false;
+            }
+            else if (temp._trigger != null)
                 return false;
             if (this._dsLabel != null) {
                 if (temp._dsLabel == null) return false;
@@ -402,7 +410,7 @@ package org.opennms.netmgt.config.thresholding;
      */
     public java.lang.String getFilterOperator(
     ) {
-        return this._filterOperator;
+        return this._filterOperator == null ? DEFAULT_FILTEROPERATOR : this._filterOperator;
     }
 
     /**
@@ -417,7 +425,7 @@ package org.opennms.netmgt.config.thresholding;
      *
      * @return the value of field 'Rearm'.
      */
-    public double getRearm(
+    public Double getRearm(
     ) {
         return this._rearm;
     }
@@ -447,9 +455,9 @@ package org.opennms.netmgt.config.thresholding;
      *
      * @return the value of field 'Relaxed'.
      */
-    public boolean getRelaxed(
+    public Boolean getRelaxed(
     ) {
-        return this._relaxed;
+        return this._relaxed == null ? DEFAULT_RELAXED : this._relaxed;
     }
 
     /**
@@ -506,7 +514,7 @@ package org.opennms.netmgt.config.thresholding;
      *
      * @return the size of this collection
      */
-    public int getResourceFilterCount(
+    public Integer getResourceFilterCount(
     ) {
         return this._resourceFilterList.size();
     }
@@ -522,7 +530,7 @@ package org.opennms.netmgt.config.thresholding;
      *
      * @return the value of field 'Trigger'.
      */
-    public int getTrigger(
+    public Integer getTrigger(
     ) {
         return this._trigger;
     }
@@ -580,7 +588,7 @@ package org.opennms.netmgt.config.thresholding;
      *
      * @return the value of field 'Value'.
      */
-    public double getValue(
+    public Double getValue(
     ) {
         return this._value;
     }
@@ -592,7 +600,7 @@ package org.opennms.netmgt.config.thresholding;
      */
     public boolean hasRearm(
     ) {
-        return this._has_rearm;
+        return this._rearm != null;
     }
 
     /**
@@ -602,7 +610,7 @@ package org.opennms.netmgt.config.thresholding;
      */
     public boolean hasRelaxed(
     ) {
-        return this._has_relaxed;
+        return this._relaxed != null;
     }
 
     /**
@@ -612,7 +620,7 @@ package org.opennms.netmgt.config.thresholding;
      */
     public boolean hasTrigger(
     ) {
-        return this._has_trigger;
+        return this._trigger != null;
     }
 
     /**
@@ -622,7 +630,7 @@ package org.opennms.netmgt.config.thresholding;
      */
     public boolean hasValue(
     ) {
-        return this._has_value;
+        return this._value != null;
     }
 
     /**
@@ -639,7 +647,9 @@ package org.opennms.netmgt.config.thresholding;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (_relaxed?0:1);
+        if (_relaxed != null) {
+           result = 37 * result + _relaxed.hashCode();
+        }
         if (_description != null) {
            result = 37 * result + _description.hashCode();
         }
@@ -649,11 +659,15 @@ package org.opennms.netmgt.config.thresholding;
         if (_dsType != null) {
            result = 37 * result + _dsType.hashCode();
         }
-        tmp = java.lang.Double.doubleToLongBits(_value);
-        result = 37 * result + (int)(tmp^(tmp>>>32));
-        tmp = java.lang.Double.doubleToLongBits(_rearm);
-        result = 37 * result + (int)(tmp^(tmp>>>32));
-        result = 37 * result + _trigger;
+        if (_value != null) {
+           result = 37 * result + _value.hashCode();
+        }
+        if (_rearm != null) {
+           result = 37 * result + _rearm.hashCode();
+        }
+        if (_trigger != null) {
+           result = 37 * result + _trigger.hashCode();
+        }
         if (_dsLabel != null) {
            result = 37 * result + _dsLabel.hashCode();
         }
@@ -816,9 +830,8 @@ package org.opennms.netmgt.config.thresholding;
      * @param rearm the value of field 'rearm'.
      */
     public void setRearm(
-            final double rearm) {
+            final Double rearm) {
         this._rearm = rearm;
-        this._has_rearm = true;
     }
 
     /**
@@ -847,9 +860,8 @@ package org.opennms.netmgt.config.thresholding;
      * @param relaxed the value of field 'relaxed'.
      */
     public void setRelaxed(
-            final boolean relaxed) {
+            final Boolean relaxed) {
         this._relaxed = relaxed;
-        this._has_relaxed = true;
     }
 
     /**
@@ -925,9 +937,8 @@ package org.opennms.netmgt.config.thresholding;
      * @param trigger the value of field 'trigger'.
      */
     public void setTrigger(
-            final int trigger) {
+            final Integer trigger) {
         this._trigger = trigger;
-        this._has_trigger = true;
     }
 
     /**
@@ -984,9 +995,8 @@ package org.opennms.netmgt.config.thresholding;
      * @param value the value of field 'value'.
      */
     public void setValue(
-            final double value) {
+            final Double value) {
         this._value = value;
-        this._has_value = true;
     }
 
     /**
