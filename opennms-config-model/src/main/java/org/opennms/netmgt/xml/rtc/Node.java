@@ -64,7 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
      * The node id
      */
     @XmlElement(name="nodeid")
-    private Long _nodeid;
+    private Integer _nodeid;
 
     /**
      * The node availability value
@@ -182,7 +182,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodeid'.
      */
-    public Long getNodeid(
+    public Integer getNodeid(
     ) {
         return this._nodeid;
     }
@@ -349,7 +349,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodeid the value of field 'nodeid'.
      */
     public void setNodeid(
-            final Long nodeid) {
+            final Integer nodeid) {
         this._nodeid = nodeid;
     }
 
