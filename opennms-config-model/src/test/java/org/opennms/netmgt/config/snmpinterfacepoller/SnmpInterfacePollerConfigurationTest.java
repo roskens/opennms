@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.snmpinterfacepoller;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -46,11 +44,52 @@ public class SnmpInterfacePollerConfigurationTest extends XmlTestNoCastor<SnmpIn
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        SnmpInterfacePollerConfiguration snmpInterfacePollerConfiguration = new SnmpInterfacePollerConfiguration();
+        SnmpInterfacePollerConfiguration config = new SnmpInterfacePollerConfiguration();
+        config.setThreads(30);
+        config.setService("SNMP");
+        NodeOutage nodeOutage = new NodeOutage();
+        CriticalService critSvcICMP = new CriticalService();
+        critSvcICMP.setName("ICMP");
+        nodeOutage.addCriticalService(critSvcICMP);
+        CriticalService critSvcSNMP = new CriticalService();
+        critSvcSNMP.setName("SNMP");
+        nodeOutage.addCriticalService(critSvcSNMP);
+        config.setNodeOutage(nodeOutage);
+        Package pkg = new Package();
+        pkg.setName("example1");
+        Filter filter = new Filter();
+        filter.setContent("IPADDR != '0.0.0.0'");
+        pkg.setFilter(filter);
+        IncludeRange ipv4Range = new IncludeRange();
+        ipv4Range.setBegin("1.1.1.1");
+        ipv4Range.setEnd("1.1.1.1");
+        pkg.addIncludeRange(ipv4Range);
+        IncludeRange ipv6Range = new IncludeRange();
+        ipv6Range.setBegin("::1");
+        ipv6Range.setEnd("::1");
+        pkg.addIncludeRange(ipv6Range);
+        Interface iface = new Interface();
+        iface.setName("Ethernet");
+        iface.setCriteria("snmpiftype = 6");
+        iface.setInterval(300000L);
+        iface.setUserDefined("false");
+        iface.setStatus("on");
+        pkg.addInterface(iface);
 
-        return Arrays.asList(new Object[][] { {
-                snmpInterfacePollerConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/snmp-interface-poller-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<snmp-interface-poller-configuration threads=\"30\" service=\"SNMP\">"
+            + "  <node-outage>\n"
+            + "    <critical-service name=\"ICMP\" />\n"
+            + "    <critical-service name=\"SNMP\" />\n"
+            + "  </node-outage>\n"
+            + "  <package name=\"example1\">\n"
+            + "    <filter>IPADDR != '0.0.0.0'</filter>\n"
+            + "    <include-range begin=\"1.1.1.1\" end=\"1.1.1.1\" />\n"
+            + "    <include-range begin=\"::1\" end=\"::1\" />\n"
+            + "    <interface name=\"Ethernet\" criteria=\"snmpiftype = 6\" interval=\"300000\" user-defined=\"false\" status=\"on\"/>\n"
+            + "  </package>\n"
+            + "</snmp-interface-poller-configuration>",
+            "target/classes/xsds/snmp-interface-poller-configuration.xsd",},});
     }
 }

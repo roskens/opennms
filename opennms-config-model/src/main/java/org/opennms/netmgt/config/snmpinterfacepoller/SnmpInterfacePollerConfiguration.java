@@ -49,6 +49,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="snmp-interface-poller-configuration")
@@ -65,27 +67,21 @@ import org.opennms.core.xml.ValidateUsing;
      * Default Interval at which the interfaces are to be
      *  polled
      */
-    private long _interval = 300000;
-
-    /**
-     * keeps track of state for field: _interval
-     */
-    private boolean _has_interval;
+    @XmlAttribute(name="interval")
+    private Long _interval;
+    private static final Long DEFAULT_INTERVAL = 300000L;
 
     /**
      * The maximum number of threads used for
      *  snmp polling.
      */
-    private int _threads;
-
-    /**
-     * keeps track of state for field: _threads
-     */
-    private boolean _has_threads;
+    @XmlAttribute(name="threads", required = true)
+    private Integer _threads;
 
     /**
      * The SNMP service string usually 'SNMP'.
      */
+    @XmlAttribute(name="service", required = true)
     private java.lang.String _service;
 
     /**
@@ -93,7 +89,9 @@ import org.opennms.core.xml.ValidateUsing;
      *  This is deprecated and will be ignored in the code!
      *
      */
-    private java.lang.String _suppressAdminDownEvent = "true";
+    @XmlAttribute(name="suppressAdminDownEvent")
+    private java.lang.String _suppressAdminDownEvent;
+    private static final String DEFAULT_SUPPRESSADMINDOWNEVENT = "true";
 
     /**
      * Flag which indicates if the filters defined on packages and
@@ -103,18 +101,22 @@ import org.opennms.core.xml.ValidateUsing;
      *  instead of do this selection through requisition policies.
      *
      */
-    private java.lang.String _useCriteriaFilters = "false";
+    @XmlAttribute(name="useCriteriaFilters")
+    private java.lang.String _useCriteriaFilters;
+    private static final String DEFAULT_USECRITERIAFILTERS = "false";
 
     /**
      * Configuration of node-outage
      *  functionality
      */
+    @XmlElement(name="node-outage")
     private org.opennms.netmgt.config.snmpinterfacepoller.NodeOutage _nodeOutage;
 
     /**
      * Package encapsulating addresses, services to be
      *  polled for these addresses, etc..
      */
+    @XmlElement(name="package")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Package> _packageList;
 
 
@@ -124,8 +126,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public SnmpInterfacePollerConfiguration() {
         super();
-        setSuppressAdminDownEvent("true");
-        setUseCriteriaFilters("false");
         this._packageList = new java.util.ArrayList<org.opennms.netmgt.config.snmpinterfacepoller.Package>();
     }
 
@@ -166,14 +166,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteInterval(
     ) {
-        this._has_interval= false;
+        this._interval = null;
     }
 
     /**
      */
     public void deleteThreads(
     ) {
-        this._has_threads= false;
+        this._threads = null;
     }
 
     /**
@@ -202,13 +202,19 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof SnmpInterfacePollerConfiguration) {
 
             SnmpInterfacePollerConfiguration temp = (SnmpInterfacePollerConfiguration)obj;
-            if (this._interval != temp._interval)
+            if (this._interval != null) {
+                if (temp._interval == null) return false;
+                else if (!(this._interval.equals(temp._interval)))
+                    return false;
+            }
+            else if (temp._interval != null)
                 return false;
-            if (this._has_interval != temp._has_interval)
-                return false;
-            if (this._threads != temp._threads)
-                return false;
-            if (this._has_threads != temp._has_threads)
+            if (this._threads != null) {
+                if (temp._threads == null) return false;
+                else if (!(this._threads.equals(temp._threads)))
+                    return false;
+            }
+            else if (temp._threads != null)
                 return false;
             if (this._service != null) {
                 if (temp._service == null) return false;
@@ -258,9 +264,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Interval'.
      */
-    public long getInterval(
+    public Long getInterval(
     ) {
-        return this._interval;
+        return this._interval == null ? DEFAULT_INTERVAL : this._interval;
     }
 
     /**
@@ -358,7 +364,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getSuppressAdminDownEvent(
     ) {
-        return this._suppressAdminDownEvent;
+        return this._suppressAdminDownEvent == null ? DEFAULT_SUPPRESSADMINDOWNEVENT : this._suppressAdminDownEvent;
     }
 
     /**
@@ -369,7 +375,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Threads'.
      */
-    public int getThreads(
+    public Integer getThreads(
     ) {
         return this._threads;
     }
@@ -388,7 +394,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getUseCriteriaFilters(
     ) {
-        return this._useCriteriaFilters;
+        return this._useCriteriaFilters == null ? DEFAULT_USECRITERIAFILTERS : this._useCriteriaFilters;
     }
 
     /**
@@ -398,7 +404,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasInterval(
     ) {
-        return this._has_interval;
+        return this._interval != null;
     }
 
     /**
@@ -408,7 +414,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasThreads(
     ) {
-        return this._has_threads;
+        return this._threads != null;
     }
 
     /**
@@ -425,8 +431,12 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (int)(_interval^(_interval>>>32));
-        result = 37 * result + _threads;
+        if (_interval != null) {
+           result = 37 * result + _interval.hashCode();
+        }
+        if (_threads != null) {
+           result = 37 * result + _threads.hashCode();
+        }
         if (_service != null) {
            result = 37 * result + _service.hashCode();
         }
@@ -544,9 +554,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param interval the value of field 'interval'.
      */
     public void setInterval(
-            final long interval) {
+            final Long interval) {
         this._interval = interval;
-        this._has_interval = true;
     }
 
     /**
@@ -658,9 +667,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param threads the value of field 'threads'.
      */
     public void setThreads(
-            final int threads) {
+            final Integer threads) {
         this._threads = threads;
-        this._has_threads = true;
     }
 
     /**

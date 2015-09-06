@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="package")
@@ -63,6 +65,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Name or identifier for this package.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
@@ -71,22 +74,26 @@ import org.opennms.core.xml.ValidateUsing;
      * pass
      *  this filter.
      */
+    @XmlElement(name="filter")
     private org.opennms.netmgt.config.snmpinterfacepoller.Filter _filter;
 
     /**
      * Addresses in this package
      */
+    @XmlElement(name="specific")
     private java.util.List<java.lang.String> _specificList;
 
     /**
      * Range of addresses in this package.
      */
+    @XmlElement(name="include-range")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> _includeRangeList;
 
     /**
      * Range of addresses to be excluded from this
      *  package.
      */
+    @XmlElement(name="exclude-range")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> _excludeRangeList;
 
     /**
@@ -96,12 +103,14 @@ import org.opennms.core.xml.ValidateUsing;
      *  #<comments>. Lines starting with a '#' are ignored and so
      *  are characters after a '<space>#' in a line.
      */
+    @XmlElement(name="include-url")
     private java.util.List<java.lang.String> _includeUrlList;
 
     /**
      * Interfaces to be polled for addresses belonging to
      *  this package.
      */
+    @XmlElement(name="interface")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Interface> _interfaceList;
 
 

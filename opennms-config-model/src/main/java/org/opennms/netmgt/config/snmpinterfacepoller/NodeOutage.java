@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="node-outage")
@@ -68,6 +69,7 @@ import org.opennms.core.xml.ValidateUsing;
      * is down on the
      *  SNMP primary node interface.
      */
+    @XmlElement(name="critical-service")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.CriticalService> _criticalServiceList;
 
 
