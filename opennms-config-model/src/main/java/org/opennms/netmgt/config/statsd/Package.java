@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="package")
@@ -64,6 +66,7 @@ import org.opennms.core.xml.ValidateUsing;
      * The name or identifier for this
      *  package
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
@@ -72,12 +75,14 @@ import org.opennms.core.xml.ValidateUsing;
      * pass
      *  this filter.
      */
+    @XmlElement(name="filter")
     private org.opennms.netmgt.config.statsd.Filter _filter;
 
     /**
      * Reports to be run on the nodes in this
      *  package
      */
+    @XmlElement(name="packageReport")
     private java.util.List<org.opennms.netmgt.config.statsd.PackageReport> _packageReportList;
 
 

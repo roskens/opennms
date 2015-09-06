@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="report")
@@ -63,18 +65,21 @@ import org.opennms.core.xml.ValidateUsing;
      * The report name. This is used in packages to refer
      *  to this report class.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * The class used to create and view this
      *  report
      */
+    @XmlAttribute(name="class-name", required = true)
     private java.lang.String _className;
 
     /**
      * The parameters for generating this
      *  report
      */
+    @XmlElement(name="parameter")
     private java.util.List<org.opennms.netmgt.config.statsd.Parameter> _parameterList;
 
 

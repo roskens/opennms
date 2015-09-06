@@ -29,13 +29,12 @@
 package org.opennms.netmgt.config.statsd;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.netmgt.config.statsd.types.PackageReportStatusType;
 
 public class StatisticsDaemonConfigurationTest extends XmlTestNoCastor<StatisticsDaemonConfiguration> {
 
@@ -46,11 +45,52 @@ public class StatisticsDaemonConfigurationTest extends XmlTestNoCastor<Statistic
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        StatisticsDaemonConfiguration statisticsDaemonConfiguration = new StatisticsDaemonConfiguration();
+        StatisticsDaemonConfiguration config = new StatisticsDaemonConfiguration();
+        Package pkg = new Package();
+        config.addPackage(pkg);
+        pkg.setName("ThroughputReports");
+        PackageReport pkgReport = new PackageReport();
+        pkg.addPackageReport(pkgReport);
+        pkgReport.setName("TopN_InOctets");
+        pkgReport.setDescription("Top 20 ifInOctets across all nodes");
+        pkgReport.setSchedule("0 20 1 * * ?");
+        pkgReport.setRetainInterval("2592000000");
+        pkgReport.setStatus(PackageReportStatusType.OFF);
+        Parameter p1 = new Parameter();
+        p1.setKey("count");
+        p1.setValue("20");
+        pkgReport.addParameter(p1);
+        Parameter p2 = new Parameter();
+        p2.setKey("consolidationFunction");
+        p2.setValue("AVERAGE");
+        pkgReport.addParameter(p2);
+        Parameter p3 = new Parameter();
+        p3.setKey("relativeTime");
+        p3.setValue("YESTERDAY");
+        pkgReport.addParameter(p3);
+        Parameter p4 = new Parameter();
+        p4.setKey("resourceTypeMatch");
+        p4.setValue("interfaceSnmp");
+        pkgReport.addParameter(p4);
+        Parameter p5 = new Parameter();
+        p5.setKey("attributeMatch");
+        p5.setValue("ifInOctets");
+        pkgReport.addParameter(p5);
 
-        return Arrays.asList(new Object[][] { {
-                statisticsDaemonConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/statistics-daemon-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<statistics-daemon-configuration>\n"
+            + "  <package name=\"ThroughputReports\">\n"
+            + "    <packageReport name=\"TopN_InOctets\" description=\"Top 20 ifInOctets across all nodes\"\n"
+            + "                   schedule=\"0 20 1 * * ?\" retainInterval=\"2592000000\"\n"
+            + "                   status=\"off\">\n"
+            + "      <parameter key=\"count\" value=\"20\"/>\n"
+            + "      <parameter key=\"consolidationFunction\" value=\"AVERAGE\"/>\n"
+            + "      <parameter key=\"relativeTime\" value=\"YESTERDAY\"/>\n"
+            + "      <parameter key=\"resourceTypeMatch\" value=\"interfaceSnmp\"/>\n"
+            + "      <parameter key=\"attributeMatch\" value=\"ifInOctets\"/>\n"
+            + "    </packageReport>\n"
+            + "  </package>", /* configuration */
+            "target/classes/xsds/statistics-daemon-configuration.xsd",},});
     }
 }

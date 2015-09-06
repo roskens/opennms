@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="packageReport")
@@ -64,36 +66,42 @@ import org.opennms.core.xml.ValidateUsing;
      * The report name. This is used internally to
      *  reference a configured report class.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * The report description. This is shown in the web
      *  UI.
      */
+    @XmlAttribute(name="description", required = true)
     private java.lang.String _description;
 
     /**
      * the schedule at which the report is to be
      *  generated
      */
+    @XmlAttribute(name="schedule", required = true)
     private java.lang.String _schedule;
 
     /**
      * the amount of time after which this report has been
      *  created that it can be purged.
      */
+    @XmlAttribute(name="retainInterval", required = true)
     private java.lang.String _retainInterval;
 
     /**
      * status of the report; report is generated only if
      *  on
      */
+    @XmlAttribute(name="status", required = true)
     private org.opennms.netmgt.config.statsd.types.PackageReportStatusType _status;
 
     /**
      * Package-specific parameters (if any) to be used
      *  for this report
      */
+    @XmlElement(name="parameter")
     private java.util.List<org.opennms.netmgt.config.statsd.Parameter> _parameterList;
 
 
