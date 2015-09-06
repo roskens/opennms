@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="viewinfo")
@@ -63,21 +65,21 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _disconnectTimeout.
      */
-    private int _disconnectTimeout = 130000;
-
-    /**
-     * keeps track of state for field: _disconnectTimeout
-     */
-    private boolean _has_disconnectTimeout;
+    @XmlAttribute(name="disconnect-timeout")
+    private Integer _disconnectTimeout;
+    private static final Integer DEFAULT_DISCONNECT_TIMEOUT = 130000;
 
     /**
      * Field _defaultView.
      */
-    private java.lang.String _defaultView = "WebConsoleView";
+    @XmlAttribute(name="default-view")
+    private java.lang.String _defaultView;
+    private static final String DEFAULT_DEFAULT_VIEW = "WebConsoleView";
 
     /**
      * Field _viewList.
      */
+    @XmlElement(name="view")
     private java.util.List<org.opennms.netmgt.config.viewsdisplay.View> _viewList;
 
 
@@ -87,7 +89,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Viewinfo() {
         super();
-        setDefaultView("WebConsoleView");
         this._viewList = new java.util.ArrayList<org.opennms.netmgt.config.viewsdisplay.View>();
     }
 
@@ -128,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteDisconnectTimeout(
     ) {
-        this._has_disconnectTimeout= false;
+        this._disconnectTimeout = null;
     }
 
     /**
@@ -157,9 +158,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof Viewinfo) {
 
             Viewinfo temp = (Viewinfo)obj;
-            if (this._disconnectTimeout != temp._disconnectTimeout)
-                return false;
-            if (this._has_disconnectTimeout != temp._has_disconnectTimeout)
+            if (this._disconnectTimeout != null) {
+                if (temp._disconnectTimeout == null) return false;
+                else if (!(this._disconnectTimeout.equals(temp._disconnectTimeout)))
+                    return false;
+            }
+            else if (temp._disconnectTimeout != null)
                 return false;
             if (this._defaultView != null) {
                 if (temp._defaultView == null) return false;
@@ -187,7 +191,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDefaultView(
     ) {
-        return this._defaultView;
+        return this._defaultView == null ? DEFAULT_DEFAULT_VIEW : this._defaultView;
     }
 
     /**
@@ -195,9 +199,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DisconnectTimeout'.
      */
-    public int getDisconnectTimeout(
+    public Integer getDisconnectTimeout(
     ) {
-        return this._disconnectTimeout;
+        return this._disconnectTimeout == null ? DEFAULT_DISCONNECT_TIMEOUT : this._disconnectTimeout;
     }
 
     /**
@@ -264,7 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasDisconnectTimeout(
     ) {
-        return this._has_disconnectTimeout;
+        return this._disconnectTimeout != null;
     }
 
     /**
@@ -281,7 +285,9 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _disconnectTimeout;
+        if (_disconnectTimeout != null) {
+           result = 37 * result + _disconnectTimeout.hashCode();
+        }
         if (_defaultView != null) {
            result = 37 * result + _defaultView.hashCode();
         }
@@ -398,9 +404,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'disconnectTimeout'.
      */
     public void setDisconnectTimeout(
-            final int disconnectTimeout) {
+            final Integer disconnectTimeout) {
         this._disconnectTimeout = disconnectTimeout;
-        this._has_disconnectTimeout = true;
     }
 
     /**

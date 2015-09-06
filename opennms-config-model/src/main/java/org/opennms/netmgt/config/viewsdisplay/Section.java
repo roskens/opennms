@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="section")
@@ -62,11 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _sectionName.
      */
+    @XmlElement(name="section-name")
     private java.lang.String _sectionName;
 
     /**
      * Field _categoryList.
      */
+    @XmlElement(name="category")
     private java.util.List<java.lang.String> _categoryList;
 
 

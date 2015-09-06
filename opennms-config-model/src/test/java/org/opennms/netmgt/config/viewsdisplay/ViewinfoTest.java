@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.viewsdisplay;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,40 @@ public class ViewinfoTest extends XmlTestNoCastor<Viewinfo> {
     public static Collection<Object[]> data() throws ParseException {
 
         Viewinfo viewinfo = new Viewinfo();
+        View view = new View();
+        viewinfo.addView(view);
+        view.setViewName("WebConsoleView");
+        Section section1 = new Section();
+        view.addSection(section1);
+        section1.setSectionName("Categories");
+        section1.setCategory(new String[]{"Network Interfaces", "Web Servers", "Email Servers", "DNS and DHCP Servers",
+            "Database Servers", "JMX Servers", "Other Servers"});
+        Section section2 = new Section();
+        view.addSection(section2);
+        section2.setSectionName("Total");
+        section2.addCategory("Overall Service Availability");
 
-        return Arrays.asList(new Object[][] { {
-                viewinfo,
-                "", /* configuration */
-                "target/classes/xsds/viewsdisplay.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            viewinfo,
+            "<viewinfo>"
+            + "  <view>"
+            + "    <view-name>WebConsoleView</view-name>"
+            + "    <section>"
+            + "      <section-name><![CDATA[Categories]]></section-name>"
+            + "      <category><![CDATA[Network Interfaces]]></category>"
+            + "      <category><![CDATA[Web Servers]]></category>"
+            + "      <category><![CDATA[Email Servers]]></category>"
+            + "      <category><![CDATA[DNS and DHCP Servers]]></category>"
+            + "      <category><![CDATA[Database Servers]]></category>"
+            + "      <category><![CDATA[JMX Servers]]></category>"
+            + "      <category><![CDATA[Other Servers]]></category>"
+            + "    </section>"
+            + "    <section>"
+            + "      <section-name><![CDATA[Total]]></section-name>"
+            + "      <category><![CDATA[Overall Service Availability]]></category>"
+            + "    </section>"
+            + "  </view>"
+            + "</viewinfo>", /* configuration */
+            "target/classes/xsds/viewsdisplay.xsd",},});
     }
 }

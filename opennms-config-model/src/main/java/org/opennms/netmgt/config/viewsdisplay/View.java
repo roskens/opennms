@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="view")
@@ -62,11 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _viewName.
      */
+    @XmlElement(name="view-name")
     private java.lang.String _viewName;
 
     /**
      * Field _sectionList.
      */
+    @XmlElement(name="section")
     private java.util.List<org.opennms.netmgt.config.viewsdisplay.Section> _sectionList;
 
 
