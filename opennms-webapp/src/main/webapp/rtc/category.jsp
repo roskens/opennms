@@ -90,7 +90,7 @@
     
     while (nodeEnum.hasMoreElements()) {
         Node node = nodeEnum.nextElement();
-        int nodeId = (int)node.getNodeid();
+        Integer nodeId = node.getNodeid().intValue();
         String nodeLabel =
 		NetworkElementFactory.getInstance(getServletContext()).getNodeLabel(nodeId);
         // nodeMap.put( nodeLabel, node );

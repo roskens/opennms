@@ -141,7 +141,7 @@ public class AvailabilityServiceHibernateImpl implements AvailabilityService {
         final Map<Integer, List<OnmsOutage>> outagesByNode = getOutages(nodeIds, serviceNames, windowStart, windowEnd);
 
         // calculate the node level statistics
-        for (final int nodeId : nodeIds) {
+        for (final Integer nodeId : nodeIds) {
             List<OnmsOutage> outages = outagesByNode.get(nodeId);
             if (outages == null) {
                 outages = Lists.newArrayList();
@@ -151,21 +151,21 @@ public class AvailabilityServiceHibernateImpl implements AvailabilityService {
             final double outageTime = getOutageTimeInWindow(outages, windowStart, windowEnd);
 
             // determine the number of services
-            final int numServices = getNumServices(nodeId, serviceNames);
+            final Integer numServices = getNumServices(nodeId, serviceNames);
 
             // count the number of outstanding outages
-            final long numServicesDown = outages.stream()
+            final Long numServicesDown = outages.stream()
                     .filter(outage -> outage.getIfRegainedService() == null)
                     .count();
 
             final Node levelNode = new Node();
-            levelNode.setNodeid(nodeId);
+            levelNode.setNodeid(nodeId.longValue());
 
             // value for this node for this category
             levelNode.setNodevalue(RTCUtils.getOutagePercentage(outageTime, rWindow, numServices));
 
             // node service count
-            levelNode.setNodesvccount(numServices);
+            levelNode.setNodesvccount(numServices.longValue());
 
             // node service down count
             levelNode.setNodesvcdowncount(numServicesDown);
