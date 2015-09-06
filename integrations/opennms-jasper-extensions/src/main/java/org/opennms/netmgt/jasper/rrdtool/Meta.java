@@ -64,31 +64,37 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _start.
      */
+    @XmlElement(name="start")
     private org.opennms.netmgt.jasper.rrdtool.Start _start;
 
     /**
      * Field _step.
      */
+    @XmlElement(name="step")
     private org.opennms.netmgt.jasper.rrdtool.Step _step;
 
     /**
      * Field _end.
      */
+    @XmlElement(name="end")
     private org.opennms.netmgt.jasper.rrdtool.End _end;
 
     /**
      * Field _rows.
      */
+    @XmlElement(name="rows")
     private org.opennms.netmgt.jasper.rrdtool.Rows _rows;
 
     /**
      * Field _columns.
      */
+    @XmlElement(name="columns")
     private org.opennms.netmgt.jasper.rrdtool.Columns _columns;
 
     /**
      * Field _legend.
      */
+    @XmlElement(name="legend")
     private org.opennms.netmgt.jasper.rrdtool.Legend _legend;
 
 

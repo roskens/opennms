@@ -64,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _t.
      */
+    @XmlElement(name="t")
     private org.opennms.netmgt.jasper.rrdtool.T _t;
 
     /**
      * Field _vList.
      */
+    @XmlElement(name="v")
     private java.util.List<org.opennms.netmgt.jasper.rrdtool.V> _vList;
 
 

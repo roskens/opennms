@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _entryList.
      */
+    @XmlElement(name="entry")
     private java.util.List<org.opennms.netmgt.jasper.rrdtool.Entry> _entryList;
 
 

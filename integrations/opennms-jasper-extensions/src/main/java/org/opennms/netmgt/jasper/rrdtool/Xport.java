@@ -64,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _meta.
      */
+    @XmlElement(name="meta")
     private org.opennms.netmgt.jasper.rrdtool.Meta _meta;
 
     /**
      * Field _data.
      */
+    @XmlElement(name="data")
     private org.opennms.netmgt.jasper.rrdtool.Data _data;
 
 
