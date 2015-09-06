@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.trapd;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,12 @@ public class TrapdConfigurationTest extends XmlTestNoCastor<TrapdConfiguration> 
     public static Collection<Object[]> data() throws ParseException {
 
         TrapdConfiguration trapdConfiguration = new TrapdConfiguration();
+        trapdConfiguration.setSnmpTrapPort(162);
+        trapdConfiguration.setNewSuspectOnTrap(Boolean.TRUE);
 
         return Arrays.asList(new Object[][] { {
                 trapdConfiguration,
-                "", /* configuration */
+                "<trapd-configuration snmp-trap-port=\"162\" new-suspect-on-trap=\"true\"/>", /* configuration */
                 "target/classes/xsds/trapd-configuration.xsd", }, });
     }
 }

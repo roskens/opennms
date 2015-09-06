@@ -48,6 +48,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="trapd-configuration")
@@ -65,33 +67,28 @@ import org.opennms.core.xml.ValidateUsing;
      *  If "" is specified, trapd will bind to all addresses. The
      * default is .
      */
-    private java.lang.String _snmpTrapAddress = "*";
+    @XmlAttribute(name="snmp-trap-address")
+    private java.lang.String _snmpTrapAddress;
+    private static final String DEFAULT_SNMP_TRAP_ADDRESS = "*";
 
     /**
      * The port on which trapd listens for SNMP traps. The
      *  standard port is 162.
      */
-    private int _snmpTrapPort;
-
-    /**
-     * keeps track of state for field: _snmpTrapPort
-     */
-    private boolean _has_snmpTrapPort;
+    @XmlAttribute(name="snmp-trap-port", required = true)
+    private Integer _snmpTrapPort;
 
     /**
      * Whether traps from devices unknown to OpenNMS should
      *  generate newSuspect events.
      */
-    private boolean _newSuspectOnTrap;
-
-    /**
-     * keeps track of state for field: _newSuspectOnTrap
-     */
-    private boolean _has_newSuspectOnTrap;
+    @XmlAttribute(name="new-suspect-on-trap", required = true)
+    private Boolean _newSuspectOnTrap;
 
     /**
      * SNMPv3 configuration.
      */
+    @XmlElement(name="snmpv3-user")
     private java.util.List<org.opennms.netmgt.config.trapd.Snmpv3User> _snmpv3UserList;
 
 
@@ -142,14 +139,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteNewSuspectOnTrap(
     ) {
-        this._has_newSuspectOnTrap= false;
+        this._newSuspectOnTrap = null;
     }
 
     /**
      */
     public void deleteSnmpTrapPort(
     ) {
-        this._has_snmpTrapPort= false;
+        this._snmpTrapPort = null;
     }
 
     /**
@@ -185,13 +182,19 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._snmpTrapAddress != null)
                 return false;
-            if (this._snmpTrapPort != temp._snmpTrapPort)
+            if (this._snmpTrapPort != null) {
+                if (temp._snmpTrapPort == null) return false;
+                else if (!(this._snmpTrapPort.equals(temp._snmpTrapPort)))
+                    return false;
+            }
+            else if (temp._snmpTrapPort != null)
                 return false;
-            if (this._has_snmpTrapPort != temp._has_snmpTrapPort)
-                return false;
-            if (this._newSuspectOnTrap != temp._newSuspectOnTrap)
-                return false;
-            if (this._has_newSuspectOnTrap != temp._has_newSuspectOnTrap)
+            if (this._newSuspectOnTrap != null) {
+                if (temp._newSuspectOnTrap == null) return false;
+                else if (!(this._newSuspectOnTrap.equals(temp._newSuspectOnTrap)))
+                    return false;
+            }
+            else if (temp._newSuspectOnTrap != null)
                 return false;
             if (this._snmpv3UserList != null) {
                 if (temp._snmpv3UserList == null) return false;
@@ -213,7 +216,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NewSuspectOnTrap'.
      */
-    public boolean getNewSuspectOnTrap(
+    public Boolean getNewSuspectOnTrap(
     ) {
         return this._newSuspectOnTrap;
     }
@@ -229,7 +232,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getSnmpTrapAddress(
     ) {
-        return this._snmpTrapAddress;
+        return this._snmpTrapAddress == null ? DEFAULT_SNMP_TRAP_ADDRESS : this._snmpTrapAddress;
     }
 
     /**
@@ -240,7 +243,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SnmpTrapPort'.
      */
-    public int getSnmpTrapPort(
+    public Integer getSnmpTrapPort(
     ) {
         return this._snmpTrapPort;
     }
@@ -309,7 +312,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNewSuspectOnTrap(
     ) {
-        return this._has_newSuspectOnTrap;
+        return this._newSuspectOnTrap != null;
     }
 
     /**
@@ -319,7 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSnmpTrapPort(
     ) {
-        return this._has_snmpTrapPort;
+        return this._snmpTrapPort != null;
     }
 
     /**
@@ -339,8 +342,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (_snmpTrapAddress != null) {
            result = 37 * result + _snmpTrapAddress.hashCode();
         }
-        result = 37 * result + _snmpTrapPort;
-        result = 37 * result + (_newSuspectOnTrap?0:1);
+        if (_snmpTrapPort != null) {
+           result = 37 * result + _snmpTrapPort.hashCode();
+        }
+        if (_newSuspectOnTrap != null) {
+           result = 37 * result + _newSuspectOnTrap.hashCode();
+        }
         if (_snmpv3UserList != null) {
            result = 37 * result + _snmpv3UserList.hashCode();
         }
@@ -459,9 +466,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param newSuspectOnTrap the value of field 'newSuspectOnTrap'
      */
     public void setNewSuspectOnTrap(
-            final boolean newSuspectOnTrap) {
+            final Boolean newSuspectOnTrap) {
         this._newSuspectOnTrap = newSuspectOnTrap;
-        this._has_newSuspectOnTrap = true;
     }
 
     /**
@@ -487,9 +493,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param snmpTrapPort the value of field 'snmpTrapPort'.
      */
     public void setSnmpTrapPort(
-            final int snmpTrapPort) {
+            final Integer snmpTrapPort) {
         this._snmpTrapPort = snmpTrapPort;
-        this._has_snmpTrapPort = true;
     }
 
     /**

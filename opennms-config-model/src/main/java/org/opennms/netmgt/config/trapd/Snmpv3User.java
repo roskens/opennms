@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="snmpv3-user")
@@ -62,41 +63,43 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * SNMPv3 Application Engine ID
      */
+    @XmlAttribute(name="engine-id")
     private java.lang.String _engineId;
 
     /**
      * SNMPv3 Security Name (User Name)
      */
+    @XmlAttribute(name="security-name")
     private java.lang.String _securityName;
 
     /**
      * SNMPv3 Security Level (noAuthNoPriv, authNoPriv, authPriv)
      */
-    private int _securityLevel;
-
-    /**
-     * keeps track of state for field: _securityLevel
-     */
-    private boolean _has_securityLevel;
+    @XmlAttribute(name="security-level")
+    private Integer _securityLevel;
 
     /**
      * SNMPv3 Authentication Protocol
      */
+    @XmlAttribute(name="auth-protocol")
     private java.lang.String _authProtocol;
 
     /**
      * SNMPv3 Authentication Password Phrase
      */
+    @XmlAttribute(name="auth-passphrase")
     private java.lang.String _authPassphrase;
 
     /**
      * SNMPv3 Privacy Protocol
      */
+    @XmlAttribute(name="privacy-protocol")
     private java.lang.String _privacyProtocol;
 
     /**
      * SNMPv3 Privacy Password Phrase
      */
+    @XmlAttribute(name="privacy-passphrase")
     private java.lang.String _privacyPassphrase;
 
 
@@ -117,7 +120,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteSecurityLevel(
     ) {
-        this._has_securityLevel= false;
+        this._securityLevel = null;
     }
 
     /**
@@ -149,9 +152,12 @@ import org.opennms.core.xml.ValidateUsing;
             }
             else if (temp._securityName != null)
                 return false;
-            if (this._securityLevel != temp._securityLevel)
-                return false;
-            if (this._has_securityLevel != temp._has_securityLevel)
+            if (this._securityLevel != null) {
+                if (temp._securityLevel == null) return false;
+                else if (!(this._securityLevel.equals(temp._securityLevel)))
+                    return false;
+            }
+            else if (temp._securityLevel != null)
                 return false;
             if (this._authProtocol != null) {
                 if (temp._authProtocol == null) return false;
@@ -252,7 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SecurityLevel'.
      */
-    public int getSecurityLevel(
+    public Integer getSecurityLevel(
     ) {
         return this._securityLevel;
     }
@@ -276,7 +282,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSecurityLevel(
     ) {
-        return this._has_securityLevel;
+        return this._securityLevel != null;
     }
 
     /**
@@ -299,7 +305,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_securityName != null) {
            result = 37 * result + _securityName.hashCode();
         }
-        result = 37 * result + _securityLevel;
+        if (_securityLevel != null) {
+           result = 37 * result + _securityLevel.hashCode();
+        }
         if (_authProtocol != null) {
            result = 37 * result + _authProtocol.hashCode();
         }
@@ -431,9 +439,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param securityLevel the value of field 'securityLevel'.
      */
     public void setSecurityLevel(
-            final int securityLevel) {
+            final Integer securityLevel) {
         this._securityLevel = securityLevel;
-        this._has_securityLevel = true;
     }
 
     /**
