@@ -56,7 +56,7 @@ public class EuiLevelTest extends XmlTestNoCastor<EuiLevel> {
         category.setCatvalue(99.99D);
         Node node1 = new Node();
         category.addNode(node1);
-        node1.setNodeid(1);
+        node1.setNodeid(1L);
         node1.setNodevalue(99.99D);
         node1.setNodesvccount(5L);
         node1.setNodesvcdowncount(0L);
