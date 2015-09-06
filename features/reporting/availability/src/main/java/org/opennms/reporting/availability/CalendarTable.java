@@ -64,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _month.
      */
+    @XmlAttribute(name="month")
     private java.lang.String _month;
 
     /**
      * Field _daysOfWeek.
      */
+    @XmlElement(name="daysOfWeek")
     private org.opennms.reporting.availability.DaysOfWeek _daysOfWeek;
 
     /**
      * Field _weekList.
      */
+    @XmlElement(name="week")
     private java.util.List<org.opennms.reporting.availability.Week> _weekList;
 
 

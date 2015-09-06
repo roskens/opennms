@@ -1,7 +1,7 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2005-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2005-2015 The OpenNMS Group, Inc.
  * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
@@ -142,7 +142,7 @@ public class CalendarTableBuilder {
 		    for (dayInLastMonth = 0; dayInLastMonth < m_firstDay; dayInLastMonth++) {
 		    	m_days[dayInLastMonth] = new Day();
 		    	m_days[dayInLastMonth].setVisible(false);
-				m_days[dayInLastMonth].setPctValue(0);
+				m_days[dayInLastMonth].setPctValue(0D);
 			}
 			
 	        /**
@@ -161,7 +161,7 @@ public class CalendarTableBuilder {
 	            m_days[dayInThisMonth] = new Day();
 	        	m_days[dayInThisMonth].setDate(date);
 	        	m_days[dayInThisMonth].setVisible(true);
-				m_days[dayInThisMonth].setPctValue(0);
+				m_days[dayInThisMonth].setPctValue(0D);
 				dayInThisMonth++;
 				date++;
 	            m_workingCalendar.add(Calendar.DATE, 1);
@@ -176,7 +176,7 @@ public class CalendarTableBuilder {
 	        for (dayInNextMonth = dayInThisMonth; dayInNextMonth < 42; dayInNextMonth++) {
 	        	m_days[dayInNextMonth] =  new Day();
 	            m_days[dayInNextMonth].setVisible(false);
-				m_days[dayInNextMonth].setPctValue(0);
+				m_days[dayInNextMonth].setPctValue(0D);
 			}
 	        
 	        

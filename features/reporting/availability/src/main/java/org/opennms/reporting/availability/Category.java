@@ -64,78 +64,56 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _catName.
      */
+    @XmlElement(name="catName")
     private java.lang.String _catName;
 
     /**
      * Field _catSectionsList.
      */
+    @XmlElement(name="catSections")
     private java.util.List<org.opennms.reporting.availability.CatSections> _catSectionsList;
 
     /**
      * Field _catComments.
      */
+    @XmlElement(name="catComments")
     private java.lang.String _catComments;
 
     /**
      * Field _warning.
      */
-    private double _warning;
-
-    /**
-     * keeps track of state for field: _warning
-     */
-    private boolean _has_warning;
+    @XmlElement(name="warning")
+    private Double _warning;
 
     /**
      * Field _normal.
      */
-    private double _normal;
-
-    /**
-     * keeps track of state for field: _normal
-     */
-    private boolean _has_normal;
+    @XmlElement(name="normal")
+    private Double _normal;
 
     /**
      * Field _catIndex.
      */
-    private int _catIndex;
-
-    /**
-     * keeps track of state for field: _catIndex
-     */
-    private boolean _has_catIndex;
+    @XmlElement(name="catIndex")
+    private Integer _catIndex;
 
     /**
      * Field _nodeCount.
      */
-    private int _nodeCount;
-
-    /**
-     * keeps track of state for field: _nodeCount
-     */
-    private boolean _has_nodeCount;
+    @XmlElement(name="nodeCount")
+    private Integer _nodeCount;
 
     /**
      * Field _ipaddrCount.
      */
-    private int _ipaddrCount;
-
-    /**
-     * keeps track of state for field: _ipaddrCount
-     */
-    private boolean _has_ipaddrCount;
+    @XmlElement(name="ipaddrCount")
+    private Integer _ipaddrCount;
 
     /**
      * Field _serviceCount.
      */
-    private int _serviceCount;
-
-    /**
-     * keeps track of state for field: _serviceCount
-     */
-    private boolean _has_serviceCount;
-
+    @XmlElement(name="serviceCount")
+    private Integer _serviceCount;
 
       //----------------/
      //- Constructors -/
@@ -183,42 +161,42 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteCatIndex(
     ) {
-        this._has_catIndex= false;
+        this._catIndex = null;
     }
 
     /**
      */
     public void deleteIpaddrCount(
     ) {
-        this._has_ipaddrCount= false;
+        this._ipaddrCount = null;
     }
 
     /**
      */
     public void deleteNodeCount(
     ) {
-        this._has_nodeCount= false;
+        this._nodeCount = null;
     }
 
     /**
      */
     public void deleteNormal(
     ) {
-        this._has_normal= false;
+        this._normal = null;
     }
 
     /**
      */
     public void deleteServiceCount(
     ) {
-        this._has_serviceCount= false;
+        this._serviceCount = null;
     }
 
     /**
      */
     public void deleteWarning(
     ) {
-        this._has_warning= false;
+        this._warning = null;
     }
 
     /**
@@ -325,7 +303,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'IpaddrCount'.
      */
-    public int getIpaddrCount(
+    public Integer getIpaddrCount(
     ) {
         return this._ipaddrCount;
     }
@@ -335,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NodeCount'.
      */
-    public int getNodeCount(
+    public Integer getNodeCount(
     ) {
         return this._nodeCount;
     }
@@ -345,7 +323,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Normal'.
      */
-    public double getNormal(
+    public Double getNormal(
     ) {
         return this._normal;
     }
@@ -355,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ServiceCount'.
      */
-    public int getServiceCount(
+    public Integer getServiceCount(
     ) {
         return this._serviceCount;
     }
@@ -365,7 +343,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Warning'.
      */
-    public double getWarning(
+    public Double getWarning(
     ) {
         return this._warning;
     }
@@ -377,7 +355,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasCatIndex(
     ) {
-        return this._has_catIndex;
+        return this._catIndex != null;
     }
 
     /**
@@ -387,7 +365,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasIpaddrCount(
     ) {
-        return this._has_ipaddrCount;
+        return this._ipaddrCount != null;
     }
 
     /**
@@ -397,7 +375,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNodeCount(
     ) {
-        return this._has_nodeCount;
+        return this._nodeCount != null;
     }
 
     /**
@@ -407,7 +385,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasNormal(
     ) {
-        return this._has_normal;
+        return this._normal != null;
     }
 
     /**
@@ -417,7 +395,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasServiceCount(
     ) {
-        return this._has_serviceCount;
+        return this._serviceCount != null;
     }
 
     /**
@@ -427,7 +405,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasWarning(
     ) {
-        return this._has_warning;
+        return this._warning != null;
     }
 
     /**
@@ -535,9 +513,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param catIndex the value of field 'catIndex'.
      */
     public void setCatIndex(
-            final int catIndex) {
+            final Integer catIndex) {
         this._catIndex = catIndex;
-        this._has_catIndex = true;
     }
 
     /**
@@ -617,9 +594,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param ipaddrCount the value of field 'ipaddrCount'.
      */
     public void setIpaddrCount(
-            final int ipaddrCount) {
+            final Integer ipaddrCount) {
         this._ipaddrCount = ipaddrCount;
-        this._has_ipaddrCount = true;
     }
 
     /**
@@ -628,9 +604,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nodeCount the value of field 'nodeCount'.
      */
     public void setNodeCount(
-            final int nodeCount) {
+            final Integer nodeCount) {
         this._nodeCount = nodeCount;
-        this._has_nodeCount = true;
     }
 
     /**
@@ -639,9 +614,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param normal the value of field 'normal'.
      */
     public void setNormal(
-            final double normal) {
+            final Double normal) {
         this._normal = normal;
-        this._has_normal = true;
     }
 
     /**
@@ -650,9 +624,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param serviceCount the value of field 'serviceCount'.
      */
     public void setServiceCount(
-            final int serviceCount) {
+            final Integer serviceCount) {
         this._serviceCount = serviceCount;
-        this._has_serviceCount = true;
     }
 
     /**
@@ -661,9 +634,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param warning the value of field 'warning'.
      */
     public void setWarning(
-            final double warning) {
+            final Double warning) {
         this._warning = warning;
-        this._has_warning = true;
     }
 
     /**

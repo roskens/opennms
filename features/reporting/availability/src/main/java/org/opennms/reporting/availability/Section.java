@@ -64,42 +64,44 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _sectionName.
      */
+    @XmlElement(name="sectionName")
     private java.lang.String _sectionName;
 
     /**
      * Field _sectionTitle.
      */
+    @XmlElement(name="sectionTitle")
     private java.lang.String _sectionTitle;
 
     /**
      * Field _sectionDescr.
      */
+    @XmlElement(name="sectionDescr")
     private java.lang.String _sectionDescr;
 
     /**
      * Field _period.
      */
+    @XmlElement(name="period")
     private java.lang.String _period;
 
     /**
      * Field _classicTable.
      */
+    @XmlElement(name="classicTable")
     private org.opennms.reporting.availability.ClassicTable _classicTable;
 
     /**
      * Field _calendarTable.
      */
+    @XmlElement(name="calendarTable")
     private org.opennms.reporting.availability.CalendarTable _calendarTable;
 
     /**
      * Field _sectionIndex.
      */
-    private int _sectionIndex;
-
-    /**
-     * keeps track of state for field: _sectionIndex
-     */
-    private boolean _has_sectionIndex;
+    @XmlElement(name="sectionIndex")
+    private Integer _sectionIndex;
 
 
       //----------------/
@@ -119,7 +121,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteSectionIndex(
     ) {
-        this._has_sectionIndex= false;
+        this._sectionIndex = null;
     }
 
     /**
@@ -167,7 +169,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SectionIndex'.
      */
-    public int getSectionIndex(
+    public Integer getSectionIndex(
     ) {
         return this._sectionIndex;
     }
@@ -199,7 +201,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSectionIndex(
     ) {
-        return this._has_sectionIndex;
+        return this._sectionIndex != null;
     }
 
     /**
@@ -295,9 +297,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param sectionIndex the value of field 'sectionIndex'.
      */
     public void setSectionIndex(
-            final int sectionIndex) {
+            final Integer sectionIndex) {
         this._sectionIndex = sectionIndex;
-        this._has_sectionIndex = true;
     }
 
     /**

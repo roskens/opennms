@@ -160,10 +160,10 @@ public class AvailabilityReportFullIT implements InitializingBean {
             Category category = categories.getCategory(0);
 
             // basic test
-            Assert.assertEquals("category node count", 2, category.getNodeCount());
+            Assert.assertEquals("category node count", 2, category.getNodeCount().intValue());
             Assert.assertEquals("category ip address count", 3,
-                         category.getIpaddrCount());
-            Assert.assertEquals("category service count", 3, category.getServiceCount());
+                         category.getIpaddrCount().intValue());
+            Assert.assertEquals("category service count", 3, category.getServiceCount().intValue());
 
             Section section = getSectionByName(category,
                                                "LastMonthsDailyAvailability");
@@ -203,10 +203,10 @@ public class AvailabilityReportFullIT implements InitializingBean {
             Assert.assertEquals("category count", 1, categories.getCategoryCount());
             Category category = categories.getCategory(0);
 
-            Assert.assertEquals("category node count", 2, category.getNodeCount());
+            Assert.assertEquals("category node count", 2, category.getNodeCount().intValue());
             Assert.assertEquals("category ip address count", 3,
-                         category.getIpaddrCount());
-            Assert.assertEquals("category service count", 3, category.getServiceCount());
+                         category.getIpaddrCount().intValue());
+            Assert.assertEquals("category service count", 3, category.getServiceCount().intValue());
 
             // Section calSection = getSectionByName(category, "LastMonthsDailyAvailability");
 

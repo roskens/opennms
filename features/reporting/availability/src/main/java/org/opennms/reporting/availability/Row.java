@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _valueList.
      */
+    @XmlElement(name="value")
     private java.util.List<org.opennms.reporting.availability.Value> _valueList;
 
 

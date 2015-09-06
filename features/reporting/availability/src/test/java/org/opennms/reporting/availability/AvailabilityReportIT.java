@@ -248,9 +248,9 @@ public class AvailabilityReportIT extends TestCase {
         assertEquals("category count", 1,categories.getCategoryCount());
 
         // basic tests
-        assertEquals("category node count", 2,category.getNodeCount());
-        assertEquals("category ip address count", 3, category.getIpaddrCount());
-        assertEquals("category service count", 3, category.getServiceCount());
+        assertEquals("category node count", 2,category.getNodeCount().intValue());
+        assertEquals("category ip address count", 3, category.getIpaddrCount().intValue());
+        assertEquals("category service count", 3, category.getServiceCount().intValue());
 
         Section section = getSectionByName(category,"LastMonthsDailyAvailability");
         assertNull("calendar table", section.getCalendarTable());
@@ -272,9 +272,9 @@ public class AvailabilityReportIT extends TestCase {
         Category category = categories.getCategory(0);
         assertEquals("category count", 1,categories.getCategoryCount());
 
-        assertEquals("category node count", 2,category.getNodeCount());
-        assertEquals("category ip address count", 3,category.getIpaddrCount());
-        assertEquals("category service count", 3,category.getServiceCount());
+        assertEquals("category node count", 2,category.getNodeCount().intValue());
+        assertEquals("category ip address count", 3,category.getIpaddrCount().intValue());
+        assertEquals("category service count", 3,category.getServiceCount().intValue());
 
         // Section calSection = getSectionByName(category,"LastMonthsDailyAvailability");
 

@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _rowList.
      */
+    @XmlElement(name="row")
     private java.util.List<org.opennms.reporting.availability.Row> _rowList;
 
 

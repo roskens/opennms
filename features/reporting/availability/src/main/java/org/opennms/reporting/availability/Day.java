@@ -64,32 +64,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _date.
      */
-    private int _date;
-
-    /**
-     * keeps track of state for field: _date
-     */
-    private boolean _has_date;
+    @XmlAttribute(name="date")
+    private Integer _date;
 
     /**
      * Field _pctValue.
      */
-    private double _pctValue;
-
-    /**
-     * keeps track of state for field: _pctValue
-     */
-    private boolean _has_pctValue;
+    @XmlAttribute(name="pctValue")
+    private Double _pctValue;
 
     /**
      * Field _visible.
      */
-    private boolean _visible;
-
-    /**
-     * keeps track of state for field: _visible
-     */
-    private boolean _has_visible;
+    @XmlAttribute(name="visible")
+    private Boolean _visible;
 
 
       //----------------/
@@ -109,21 +97,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteDate(
     ) {
-        this._has_date= false;
+        this._date = null;
     }
 
     /**
      */
     public void deletePctValue(
     ) {
-        this._has_pctValue= false;
+        this._pctValue = null;
     }
 
     /**
      */
     public void deleteVisible(
     ) {
-        this._has_visible= false;
+        this._visible = null;
     }
 
     /**
@@ -163,7 +151,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasDate(
     ) {
-        return this._has_date;
+        return this._date != null;
     }
 
     /**
@@ -173,7 +161,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasPctValue(
     ) {
-        return this._has_pctValue;
+        return this._pctValue != null;
     }
 
     /**
@@ -183,7 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasVisible(
     ) {
-        return this._has_visible;
+        return this._visible != null;
     }
 
     /**
@@ -249,9 +237,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param date the value of field 'date'.
      */
     public void setDate(
-            final int date) {
+            final Integer date) {
         this._date = date;
-        this._has_date = true;
     }
 
     /**
@@ -260,9 +247,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param pctValue the value of field 'pctValue'.
      */
     public void setPctValue(
-            final double pctValue) {
+            final Double pctValue) {
         this._pctValue = pctValue;
-        this._has_pctValue = true;
     }
 
     /**
@@ -271,9 +257,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param visible the value of field 'visible'.
      */
     public void setVisible(
-            final boolean visible) {
+            final Boolean visible) {
         this._visible = visible;
-        this._has_visible = true;
     }
 
     /**

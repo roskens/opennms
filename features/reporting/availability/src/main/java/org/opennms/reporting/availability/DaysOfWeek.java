@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _dayNameList.
      */
+    @XmlElement(name="dayName")
     private java.util.List<java.lang.String> _dayNameList;
 
 

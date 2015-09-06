@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _colTitleList.
      */
+    @XmlElement(name="colTitle")
     private java.util.List<java.lang.String> _colTitleList;
 
 

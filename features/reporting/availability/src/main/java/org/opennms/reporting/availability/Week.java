@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _dayList.
      */
+    @XmlElement(name="day")
     private java.util.List<org.opennms.reporting.availability.Day> _dayList;
 
 

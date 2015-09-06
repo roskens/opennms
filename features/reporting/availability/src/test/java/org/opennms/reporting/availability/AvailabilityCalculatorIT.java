@@ -1,7 +1,7 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2005-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2005-2015 The OpenNMS Group, Inc.
  * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
@@ -256,10 +256,10 @@ public class AvailabilityCalculatorIT extends TestCase {
         Category category = categories.getCategory(0);
 
         // basic testst
-        assertEquals("category node count", 2, category.getNodeCount());
+        assertEquals("category node count", 2, category.getNodeCount().intValue());
         assertEquals("category ip address count", 3,
-                     category.getIpaddrCount());
-        assertEquals("category service count", 3, category.getServiceCount());
+                     category.getIpaddrCount().intValue());
+        assertEquals("category service count", 3, category.getServiceCount().intValue());
 
         Section section = getSectionByName(category,
                                            "LastMonthsDailyAvailability");
@@ -285,10 +285,10 @@ public class AvailabilityCalculatorIT extends TestCase {
         assertEquals("category count", 1, categories.getCategoryCount());
         Category category = categories.getCategory(0);
 
-        assertEquals("category node count", 2, category.getNodeCount());
+        assertEquals("category node count", 2, category.getNodeCount().intValue());
         assertEquals("category ip address count", 3,
-                     category.getIpaddrCount());
-        assertEquals("category service count", 3, category.getServiceCount());
+                     category.getIpaddrCount().intValue());
+        assertEquals("category service count", 3, category.getServiceCount().intValue());
 
         // Section calSection = getSectionByName(category, "LastMonthsDailyAvailability");
 

@@ -48,7 +48,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="created")
@@ -69,61 +68,43 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _year.
      */
-    private int _year;
-
-    /**
-     * keeps track of state for field: _year
-     */
-    private boolean _has_year;
+    @XmlAttribute(name="year", required = true)
+    private Integer _year;
 
     /**
      * Field _month.
      */
+    @XmlAttribute(name="month", required = true)
     private java.lang.String _month;
 
     /**
      * Field _day.
      */
-    private int _day;
-
-    /**
-     * keeps track of state for field: _day
-     */
-    private boolean _has_day;
+    @XmlAttribute(name="day", required = true)
+    private Integer _day;
 
     /**
      * Field _hour.
      */
-    private int _hour;
-
-    /**
-     * keeps track of state for field: _hour
-     */
-    private boolean _has_hour;
+    @XmlAttribute(name="hour", required = true)
+    private Integer _hour;
 
     /**
      * Field _min.
      */
-    private int _min;
-
-    /**
-     * keeps track of state for field: _min
-     */
-    private boolean _has_min;
+    @XmlAttribute(name="min", required = true)
+    private Integer _min;
 
     /**
      * Field _sec.
      */
-    private int _sec;
-
-    /**
-     * keeps track of state for field: _sec
-     */
-    private boolean _has_sec;
+    @XmlAttribute(name="sec", required = true)
+    private Integer _sec;
 
     /**
      * Field _period.
      */
+    @XmlAttribute(name="period", required = true)
     private java.lang.String _period;
 
 
@@ -144,35 +125,35 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteDay(
     ) {
-        this._has_day= false;
+        this._day = null;
     }
 
     /**
      */
     public void deleteHour(
     ) {
-        this._has_hour= false;
+        this._hour = null;
     }
 
     /**
      */
     public void deleteMin(
     ) {
-        this._has_min= false;
+        this._min = null;
     }
 
     /**
      */
     public void deleteSec(
     ) {
-        this._has_sec= false;
+        this._sec = null;
     }
 
     /**
      */
     public void deleteYear(
     ) {
-        this._has_year= false;
+        this._year = null;
     }
 
     /**
@@ -191,7 +172,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Day'.
      */
-    public int getDay(
+    public Integer getDay(
     ) {
         return this._day;
     }
@@ -201,7 +182,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Hour'.
      */
-    public int getHour(
+    public Integer getHour(
     ) {
         return this._hour;
     }
@@ -211,7 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Min'.
      */
-    public int getMin(
+    public Integer getMin(
     ) {
         return this._min;
     }
@@ -241,7 +222,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Sec'.
      */
-    public int getSec(
+    public Integer getSec(
     ) {
         return this._sec;
     }
@@ -251,7 +232,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Year'.
      */
-    public int getYear(
+    public Integer getYear(
     ) {
         return this._year;
     }
@@ -263,7 +244,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasDay(
     ) {
-        return this._has_day;
+        return this._day != null;
     }
 
     /**
@@ -273,7 +254,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasHour(
     ) {
-        return this._has_hour;
+        return this._hour != null;
     }
 
     /**
@@ -283,7 +264,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMin(
     ) {
-        return this._has_min;
+        return this._min != null;
     }
 
     /**
@@ -293,7 +274,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSec(
     ) {
-        return this._has_sec;
+        return this._sec != null;
     }
 
     /**
@@ -303,7 +284,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasYear(
     ) {
-        return this._has_year;
+        return this._year != null;
     }
 
     /**
@@ -370,9 +351,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param day the value of field 'day'.
      */
     public void setDay(
-            final int day) {
+            final Integer day) {
         this._day = day;
-        this._has_day = true;
     }
 
     /**
@@ -381,9 +361,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param hour the value of field 'hour'.
      */
     public void setHour(
-            final int hour) {
+            final Integer hour) {
         this._hour = hour;
-        this._has_hour = true;
     }
 
     /**
@@ -392,9 +371,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param min the value of field 'min'.
      */
     public void setMin(
-            final int min) {
+            final Integer min) {
         this._min = min;
-        this._has_min = true;
     }
 
     /**
@@ -423,9 +401,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param sec the value of field 'sec'.
      */
     public void setSec(
-            final int sec) {
+            final Integer sec) {
         this._sec = sec;
-        this._has_sec = true;
     }
 
     /**
@@ -434,9 +411,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param year the value of field 'year'.
      */
     public void setYear(
-            final int year) {
+            final Integer year) {
         this._year = year;
-        this._has_year = true;
     }
 
     /**

@@ -64,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _viewName.
      */
+    @XmlElement(name="viewName")
     private java.lang.String _viewName;
 
     /**
      * Field _viewTitle.
      */
+    @XmlElement(name="viewTitle")
     private java.lang.String _viewTitle;
 
     /**
      * Field _viewComments.
      */
+    @XmlElement(name="viewComments")
     private java.lang.String _viewComments;
 
 
