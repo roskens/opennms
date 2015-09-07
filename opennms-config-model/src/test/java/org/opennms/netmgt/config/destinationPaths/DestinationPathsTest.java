@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.destinationPaths;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -47,10 +45,70 @@ public class DestinationPathsTest extends XmlTestNoCastor<DestinationPaths> {
     public static Collection<Object[]> data() throws ParseException {
 
         DestinationPaths destinationPaths = new DestinationPaths();
+        Header hdr = new Header();
+        hdr.setRev("1.2");
+        hdr.setCreated("Wednesday, February 6, 2002 10:10:00 AM EST");
+        hdr.setMstation("localhost");
+        destinationPaths.setHeader(hdr);
+        Path path = new Path();
+        path.setName("Email-Admin");
+        Target target = new Target();
+        target.setName("Admin");
+        target.addCommand("javaEmail");
+        path.addTarget(target);
+        destinationPaths.addPath(path);
 
-        return Arrays.asList(new Object[][] { {
-                destinationPaths,
-                "", /* configuration */
-                "target/classes/xsds/destinationPaths.xsd", }, });
+        Path path2 = new Path();
+        path2.setName("Page-Network/Systems/Management");
+        Target target2 = new Target();
+        target2.setInterval("15m");
+        target2.setName("Network/Systems");
+        target2.addCommand("textPage");
+        target2.addCommand("javaPagerEmail");
+        target2.addCommand("javaEmail");
+        path2.addTarget(target2);
+        Escalate esc = new Escalate();
+        esc.setDelay("15m");
+        Target escTarget = new Target();
+        escTarget.setName("Management");
+        escTarget.addCommand("textPage");
+        escTarget.addCommand("javaPagerEmail");
+        escTarget.addCommand("javaEmail");
+        esc.addTarget(escTarget);
+        path2.addEscalate(esc);
+        destinationPaths.addPath(path2);
+
+        return Arrays.asList(new Object[][]{{
+            destinationPaths,
+            "<destinationPaths>\n"
+            + "    <header>\n"
+            + "        <rev>1.2</rev>\n"
+            + "        <created>Wednesday, February 6, 2002 10:10:00 AM EST</created>\n"
+            + "        <mstation>localhost</mstation>\n"
+            + "    </header>\n"
+            + "    <path name=\"Email-Admin\">\n"
+            + "        <target>\n"
+            + "                <name>Admin</name>\n"
+            + "                <command>javaEmail</command>\n"
+            + "        </target>\n"
+            + "    </path>\n"
+            + "    <path name=\"Page-Network/Systems/Management\">\n"
+            + "        <target interval=\"15m\">\n"
+            + "                <name>Network/Systems</name>\n"
+            + "                <command>textPage</command>\n"
+            + "                <command>javaPagerEmail</command>\n"
+            + "                <command>javaEmail</command>\n"
+            + "        </target>\n"
+            + "        <escalate delay=\"15m\">\n"
+            + "            <target>\n"
+            + "                <name>Management</name>\n"
+            + "                <command>textPage</command>\n"
+            + "                <command>javaPagerEmail</command>\n"
+            + "                <command>javaEmail</command>\n"
+            + "            </target>\n"
+            + "        </escalate>\n"
+            + "    </path>"
+            + "</destinationPaths>", /* configuration */
+            "target/classes/xsds/destinationPaths.xsd",},});
     }
 }

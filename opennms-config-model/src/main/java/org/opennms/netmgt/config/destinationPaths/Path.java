@@ -47,6 +47,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
@@ -63,14 +64,15 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
-    @XmlElement(name="name", required = true)
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _initialDelay.
      */
-    @XmlElement(name="initial-delay", defaultValue = "0s")
+    @XmlAttribute(name="initial-delay")
     private java.lang.String _initialDelay;
+    private static final String DEFAULT_INITIAL_DELAY = "0s";
 
     /**
      * Field _targetList.
@@ -291,7 +293,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getInitialDelay(
     ) {
-        return this._initialDelay == null ? "0s" : this._initialDelay;
+        return this._initialDelay == null ? DEFAULT_INITIAL_DELAY : this._initialDelay;
     }
 
     /**
