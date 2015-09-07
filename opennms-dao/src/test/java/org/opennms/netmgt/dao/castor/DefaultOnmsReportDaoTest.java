@@ -82,16 +82,16 @@ public class DefaultOnmsReportDaoTest {
         assertEquals(DATE_NAME,dates[0].getName());
         assertEquals(DATE_DISPLAY_NAME,dates[0].getDisplayName());
         assertEquals(false,dates[0].getUseAbsoluteDate());
-        assertEquals(1,dates[0].getDefaultCount());
+        assertEquals(1,dates[0].getDefaultCount().intValue());
         assertEquals("day",dates[0].getDefaultInterval());
-        assertEquals(23,dates[0].getDefaultTime().getHours());
-        assertEquals(59,dates[0].getDefaultTime().getMinutes());
+        assertEquals(23,dates[0].getDefaultTime().getHours().intValue());
+        assertEquals(59,dates[0].getDefaultTime().getMinutes().intValue());
         
         IntParm[] integers = m_dao.getIntParms(ID);
         assertEquals(1,integers.length);
         assertEquals(STRING_NAME,integers[0].getName());
         assertEquals(STRING_DISPLAY_NAME,integers[0].getDisplayName());
-        assertEquals(20,integers[0].getDefault());
+        assertEquals(20,integers[0].getDefault().intValue());
         
     }
 
