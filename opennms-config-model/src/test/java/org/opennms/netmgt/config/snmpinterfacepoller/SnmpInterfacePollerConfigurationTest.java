@@ -75,6 +75,7 @@ public class SnmpInterfacePollerConfigurationTest extends XmlTestNoCastor<SnmpIn
         iface.setUserDefined("false");
         iface.setStatus("on");
         pkg.addInterface(iface);
+        config.addPackage(pkg);
 
         return Arrays.asList(new Object[][]{{
             config,
