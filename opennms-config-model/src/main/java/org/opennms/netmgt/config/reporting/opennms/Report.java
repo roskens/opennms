@@ -76,7 +76,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _parameters.
      */
-    @XmlElement(name="parameters")
+    @XmlElement(name="parameters", namespace = "http://xmlns.opennms.org/xsd/config/report-parms")
     private org.opennms.netmgt.config.reporting.Parameters _parameters;
 
     /**
