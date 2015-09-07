@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.groups;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -54,38 +52,38 @@ public class GroupinfoTest extends XmlTestNoCastor<Groupinfo> {
         groupinfo.setHeader(header);
         Groups groups = new Groups();
         Group g1 = new Group();
-        groups.addGroup(g1);
         g1.setName("Admin");
         g1.setComments("The administrators");
-        g1.setUser(new String[] { "admin" });
+        g1.addUser("admin");
+        groups.addGroup(g1);
         Group g2 = new Group();
-        g1.setName("Remoting Users");
-        g1.setComments("Users with access for submitting remote poller management data.");
-        g1.setUser(new String[] { "remoting" });
+        g2.setName("Remoting Users");
+        g2.setComments("Users with access for submitting remote poller management data.");
+        g2.addUser("remoting");
         groups.addGroup(g2);
         groupinfo.setGroups(groups);
 
-        return Arrays.asList(new Object[][] { {
-                groupinfo,
-                "<groupinfo  xmlns=\"http://xmlns.opennms.org/xsd/groups\">\n" +
-"        <header>\n" +
-"                <rev>1.3</rev>\n" +
-"                <created>Wednesday, February 6, 2002 10:10:00 AM EST</created>\n" +
-"                <mstation>dhcp-219.internal.opennms.org</mstation>\n" +
-"        </header>\n" +
-"        <groups>\n" +
-"                <group>\n" +
-"                        <name>Admin</name>\n" +
-"                        <comments>The administrators</comments>\n" +
-"                        <user>admin</user>\n" +
-"                </group>\n" +
-"                <group>\n" +
-"                        <name>Remoting Users</name>\n" +
-"                        <comments>Users with access for submitting remote poller management data.</comments>\n" +
-"                        <user>remoting</user>\n" +
-"                </group>\n" +
-"        </groups>\n" +
-"</groupinfo>", /* configuration */
-                "target/classes/xsds/groups.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            groupinfo,
+            "<groupinfo  xmlns=\"http://xmlns.opennms.org/xsd/groups\">\n"
+            + "        <header>\n"
+            + "                <rev>1.3</rev>\n"
+            + "                <created>Wednesday, February 6, 2002 10:10:00 AM EST</created>\n"
+            + "                <mstation>dhcp-219.internal.opennms.org</mstation>\n"
+            + "        </header>\n"
+            + "        <groups>\n"
+            + "                <group>\n"
+            + "                        <name>Admin</name>\n"
+            + "                        <comments>The administrators</comments>\n"
+            + "                        <user>admin</user>\n"
+            + "                </group>\n"
+            + "                <group>\n"
+            + "                        <name>Remoting Users</name>\n"
+            + "                        <comments>Users with access for submitting remote poller management data.</comments>\n"
+            + "                        <user>remoting</user>\n"
+            + "                </group>\n"
+            + "        </groups>\n"
+            + "</groupinfo>", /* configuration */
+            "target/classes/xsds/groups.xsd",},});
     }
 }
