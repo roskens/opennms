@@ -98,7 +98,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public TrapdConfiguration() {
         super();
-        setSnmpTrapAddress("*");
         this._snmpv3UserList = new java.util.ArrayList<org.opennms.netmgt.config.trapd.Snmpv3User>();
     }
 
