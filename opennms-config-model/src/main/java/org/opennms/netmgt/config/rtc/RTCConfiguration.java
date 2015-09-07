@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="RTCConfiguration")
@@ -64,12 +65,14 @@ import org.opennms.core.xml.ValidateUsing;
      * Maximum number of threads reading the events and
      *  updating the RTC data.
      */
+    @XmlAttribute(name="updaters", required = true)
     private Integer _updaters;
 
     /**
      * Maximum number of threads sending data to the
      *  UI.
      */
+    @XmlAttribute(name="senders", required = true)
     private Integer _senders;
 
     /**
@@ -77,6 +80,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  calculated. It can be specified as a combination of
      *  hours/minutes/seconds. E.g.: 10h20m5s
      */
+    @XmlAttribute(name="rollingWindow", required = true)
     private java.lang.String _rollingWindow;
 
     /**
@@ -86,22 +90,26 @@ import org.opennms.core.xml.ValidateUsing;
      *  immediately instead of waiting for a timer to go
      *  off.
      */
+    @XmlAttribute(name="maxEventsBeforeResend", required = true)
     private Integer _maxEventsBeforeResend;
 
     /**
      * Low threshold timer interval.
      */
+    @XmlAttribute(name="lowThresholdInterval", required = true)
     private java.lang.String _lowThresholdInterval;
 
     /**
      * High threshold timer interval.
      */
+    @XmlAttribute(name="highThresholdInterval", required = true)
     private java.lang.String _highThresholdInterval;
 
     /**
      * User threshold timer interval. Used to send RTC data
      *  to the UI when no events are coming in.
      */
+    @XmlAttribute(name="userRefreshInterval", required = true)
     private java.lang.String _userRefreshInterval;
 
     /**
@@ -111,6 +119,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  the URL is not unsubscribed until an 'unsubscribe' event is
      *  received.
      */
+    @XmlAttribute(name="errorsBeforeUrlUnsubscribe", required = true)
     private Integer _errorsBeforeUrlUnsubscribe;
 
 

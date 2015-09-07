@@ -64,8 +64,7 @@ public class RTCConfigurationTest extends XmlTestNoCastor<RTCConfiguration> {
             + "  lowThresholdInterval=\"20s\""
             + "  highThresholdInterval=\"45s\""
             + "  userRefreshInterval=\"2m\""
-            + "  errorsBeforeUrlUnsubscribe=\"5\">"
-            + "</RTCConfiguration>",
+            + "  errorsBeforeUrlUnsubscribe=\"5\" />",
             "target/classes/xsds/rtc-configuration.xsd",},});
     }
 }
