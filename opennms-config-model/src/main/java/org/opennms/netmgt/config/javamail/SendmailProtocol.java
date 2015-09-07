@@ -50,6 +50,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="sendmail-protocol")
@@ -65,42 +66,58 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _charSet.
      */
-    private java.lang.String _charSet = "us-ascii";
+    @XmlAttribute(name="char-set")
+    private java.lang.String _charSet;
+    private static final String DEFAULT_CHARSET = "us-ascii";
 
     /**
      * Field _mailer.
      */
-    private java.lang.String _mailer = "smtpsend";
+    @XmlAttribute(name="mailer")
+    private java.lang.String _mailer;
+    private static final String DEFAULT_MAILER = "smtpsend";
 
     /**
      * Field _messageContentType.
      */
-    private java.lang.String _messageContentType = "text/plain";
+    @XmlAttribute(name="message-content-type")
+    private java.lang.String _messageContentType;
+    private static final String DEFAULT_MESSAGE_CONTENT_TYPE = "text/plain";
 
     /**
      * Field _messageEncoding.
      */
-    private java.lang.String _messageEncoding = "7-bit";
+    @XmlAttribute(name="message-encoding")
+    private java.lang.String _messageEncoding;
+    private static final String DEFAULT_MESSAGE_ENCODING = "7-bit";
 
     /**
      * Field _quitWait.
      */
-    private Boolean _quitWait = true;
+    @XmlAttribute(name="quit-wait")
+    private Boolean _quitWait;
+    private static final Boolean DEFAULT_QUIT_WAIT = true;
 
     /**
      * Field _transport.
      */
-    private java.lang.String _transport = "smtp";
+    @XmlAttribute(name="transport")
+    private java.lang.String _transport;
+    private static final String DEFAULT_TRANSPORT = "smtp";
 
     /**
      * Field _sslEnable.
      */
-    private Boolean _sslEnable = false;
+    @XmlAttribute(name="ssl-enable")
+    private Boolean _sslEnable;
+    private static final Boolean DEFAULT_SSL_ENABLE = false;
 
     /**
      * Field _startTls.
      */
-    private Boolean _startTls = false;
+    @XmlAttribute(name="start-tls")
+    private Boolean _startTls;
+    private static final Boolean DEFAULT_START_TLS = false;
 
 
       //----------------/
@@ -220,7 +237,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getCharSet(
     ) {
-        return this._charSet == null ? "us-ascii" : this._charSet;
+        return this._charSet == null ? DEFAULT_CHARSET : this._charSet;
     }
 
     /**
@@ -230,7 +247,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMailer(
     ) {
-        return this._mailer == null ? "smtpsend" : this._mailer;
+        return this._mailer == null ? DEFAULT_MAILER : this._mailer;
     }
 
     /**
@@ -240,7 +257,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMessageContentType(
     ) {
-        return this._messageContentType == null ? "text/plain" : this._messageContentType;
+        return this._messageContentType == null ? DEFAULT_MESSAGE_CONTENT_TYPE : this._messageContentType;
     }
 
     /**
@@ -250,7 +267,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getMessageEncoding(
     ) {
-        return this._messageEncoding == null ? "7-bit" : this._messageEncoding;
+        return this._messageEncoding == null ? DEFAULT_MESSAGE_ENCODING : this._messageEncoding;
     }
 
     /**
@@ -260,7 +277,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public Boolean getQuitWait(
     ) {
-        return this._quitWait == null ? Boolean.TRUE : this._quitWait;
+        return this._quitWait == null ? DEFAULT_QUIT_WAIT : this._quitWait;
     }
 
     /**
@@ -270,7 +287,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public Boolean getSslEnable(
     ) {
-        return this._sslEnable == null ? Boolean.FALSE : this._sslEnable;
+        return this._sslEnable == null ? DEFAULT_SSL_ENABLE : this._sslEnable;
     }
 
     /**
@@ -280,7 +297,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public Boolean getStartTls(
     ) {
-        return this._startTls == null ? Boolean.FALSE : this._startTls;
+        return this._startTls == null ? DEFAULT_START_TLS : this._startTls;
     }
 
     /**
@@ -290,7 +307,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getTransport(
     ) {
-        return this._transport;
+        return this._transport == null ? DEFAULT_TRANSPORT : this._transport;
     }
 
     /**
