@@ -48,14 +48,14 @@ public class StatisticsDaemonConfigurationTest extends XmlTestNoCastor<Statistic
         StatisticsDaemonConfiguration config = new StatisticsDaemonConfiguration();
         Package pkg = new Package();
         config.addPackage(pkg);
-        pkg.setName("ThroughputReports");
+        pkg.setName("example1");
         PackageReport pkgReport = new PackageReport();
         pkg.addPackageReport(pkgReport);
-        pkgReport.setName("TopN_InOctets");
+        pkgReport.setName("TopN");
         pkgReport.setDescription("Top 20 ifInOctets across all nodes");
         pkgReport.setSchedule("0 20 1 * * ?");
         pkgReport.setRetainInterval("2592000000");
-        pkgReport.setStatus(PackageReportStatusType.OFF);
+        pkgReport.setStatus(PackageReportStatusType.ON);
         Parameter p1 = new Parameter();
         p1.setKey("count");
         p1.setValue("20");
@@ -76,21 +76,28 @@ public class StatisticsDaemonConfigurationTest extends XmlTestNoCastor<Statistic
         p5.setKey("attributeMatch");
         p5.setValue("ifInOctets");
         pkgReport.addParameter(p5);
+        
+        Report report = new Report();
+        config.addReport(report);
+        report.setName("TopN");
+        report.setClassName("org.opennms.netmgt.dao.support.TopNAttributeStatisticVisitor");
 
         return Arrays.asList(new Object[][]{{
             config,
             "<statistics-daemon-configuration>\n"
-            + "  <package name=\"ThroughputReports\">\n"
-            + "    <packageReport name=\"TopN_InOctets\" description=\"Top 20 ifInOctets across all nodes\"\n"
+            + "  <package name=\"example1\">\n"
+            + "    <packageReport name=\"TopN\" description=\"Top 20 ifInOctets across all nodes\"\n"
             + "                   schedule=\"0 20 1 * * ?\" retainInterval=\"2592000000\"\n"
-            + "                   status=\"off\">\n"
+            + "                   status=\"on\">\n"
             + "      <parameter key=\"count\" value=\"20\"/>\n"
             + "      <parameter key=\"consolidationFunction\" value=\"AVERAGE\"/>\n"
             + "      <parameter key=\"relativeTime\" value=\"YESTERDAY\"/>\n"
             + "      <parameter key=\"resourceTypeMatch\" value=\"interfaceSnmp\"/>\n"
             + "      <parameter key=\"attributeMatch\" value=\"ifInOctets\"/>\n"
             + "    </packageReport>\n"
-            + "  </package>", /* configuration */
+            + "  </package>\n"
+            + "  <report name=\"TopN\" class-name=\"org.opennms.netmgt.dao.support.TopNAttributeStatisticVisitor\"/>"
+            + "</statistics-daemon-configuration>",
             "target/classes/xsds/statistics-daemon-configuration.xsd",},});
     }
 }
