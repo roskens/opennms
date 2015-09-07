@@ -67,6 +67,7 @@ public class SurveillanceViewConfigurationTest extends XmlTestNoCastor<Surveilla
         Views views = new Views();
         config.setViews(views);
         View view = new View();
+        views.addView(view);
         view.setName("default");
         view.setRefreshSeconds("300");
         Rows rows = new Rows();
