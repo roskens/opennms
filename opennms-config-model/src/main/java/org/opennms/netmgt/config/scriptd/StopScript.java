@@ -70,7 +70,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _language.
      */
-    @XmlAttribute(name="language")
+    @XmlAttribute(name="language", required = true)
     private java.lang.String _language;
 
 
