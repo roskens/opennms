@@ -54,18 +54,17 @@ public class EventdConfigurationTest extends XmlTestNoCastor<EventdConfiguration
         eventdConfiguration.setSocketSoTimeoutPeriod(3000);
         eventdConfiguration.setSocketSoTimeoutRequired("yes");
 
-        return Arrays.asList(new Object[][] { {
-                eventdConfiguration,
-                "<EventdConfiguration\n" +
-"        TCPAddress=\"127.0.0.1\"\n" +
-"        TCPPort=\"5817\"\n" +
-"        UDPAddress=\"127.0.0.1\"\n" +
-"        UDPPort=\"5817\"\n" +
-"        receivers=\"5\"\n" +
-"        getNextEventID=\"SELECT nextval('eventsNxtId')\"\n" +
-"        socketSoTimeoutRequired=\"yes\"\n" +
-"        socketSoTimeoutPeriod=\"3000\">\n" +
-"</EventdConfiguration>", /* configuration */
-                "target/classes/xsds/eventd-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            eventdConfiguration,
+            "<EventdConfiguration\n"
+            + "        TCPAddress=\"127.0.0.1\"\n"
+            + "        TCPPort=\"5817\"\n"
+            + "        UDPAddress=\"127.0.0.1\"\n"
+            + "        UDPPort=\"5817\"\n"
+            + "        receivers=\"5\"\n"
+            + "        getNextEventID=\"SELECT nextval('eventsNxtId')\"\n"
+            + "        socketSoTimeoutRequired=\"yes\"\n"
+            + "        socketSoTimeoutPeriod=\"3000\" />\n",
+            "target/classes/xsds/eventd-configuration.xsd",},});
     }
 }

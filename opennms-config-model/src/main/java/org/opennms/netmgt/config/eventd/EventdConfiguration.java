@@ -51,7 +51,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="eventdConfiguration")
+@XmlRootElement(name="EventdConfiguration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventd-configuration.xsd")
 @SuppressWarnings("all") public class EventdConfiguration implements java.io.Serializable {
@@ -74,7 +74,7 @@ import org.opennms.core.xml.ValidateUsing;
      * The port on which eventd listens for TCP connections.
      *  The default port is 5817.
      */
-    @XmlAttribute(name="TCPPort")
+    @XmlAttribute(name="TCPPort", required = true)
     private Integer _TCPPort;
 
     /**
@@ -90,19 +90,21 @@ import org.opennms.core.xml.ValidateUsing;
      * The port on which eventd listens for UDP packets. The
      *  default port is 5817.
      */
-    @XmlAttribute(name="UDPPort")
+    @XmlAttribute(name="UDPPort", required = true)
     private Integer _UDPPort;
 
     /**
      * The maximum number of threads used for reading and
      *  processing of incoming events.
      */
+    @XmlAttribute(name="receivers", required = true)
     private Integer _receivers;
 
     /**
      * The maximum number of incoming events that can be
      *  queued inside eventd for processing.
      */
+    @XmlAttribute(name="queue-length")
     private Integer _queueLength;
 
     /**
@@ -110,6 +112,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  database sequence. This is used to make the access database
      *  independent.
      */
+    @XmlAttribute(name="getNextEventID")
     private java.lang.String _getNextEventID;
 
     /**
@@ -120,6 +123,7 @@ import org.opennms.core.xml.ValidateUsing;
      * sockets to
      *  mimic non-blocking socket I/O.
      */
+    @XmlAttribute(name="socketSoTimeoutRequired", required = true)
     private java.lang.String _socketSoTimeoutRequired;
 
     /**
@@ -127,6 +131,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  eventd's sockets if socketSoTimeoutRequired is set to
      *  'yes'.
      */
+    @XmlAttribute(name="socketSoTimeoutPeriod")
     private Integer _socketSoTimeoutPeriod;
 
     /**
@@ -137,6 +142,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  it will additionally log a simple summary of events
      * received at INFO.
      */
+    @XmlAttribute(name="logEventSummaries")
     private Boolean _logEventSummaries;
 
       //----------------/
