@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _resourceList.
      */
+    @XmlElement(name="resource")
     private java.util.List<org.opennms.netmgt.config.attrsummary.Resource> _resourceList;
 
 

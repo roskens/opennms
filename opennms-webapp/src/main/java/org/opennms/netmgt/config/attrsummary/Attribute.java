@@ -64,38 +64,26 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlElement(name="name")
     private java.lang.String _name;
 
     /**
      * Field _min.
      */
-    private double _min;
-
-    /**
-     * keeps track of state for field: _min
-     */
-    private boolean _has_min;
+    @XmlElement(name="min")
+    private Double _min;
 
     /**
      * Field _average.
      */
-    private double _average;
-
-    /**
-     * keeps track of state for field: _average
-     */
-    private boolean _has_average;
+    @XmlElement(name="average")
+    private Double _average;
 
     /**
      * Field _max.
      */
-    private double _max;
-
-    /**
-     * keeps track of state for field: _max
-     */
-    private boolean _has_max;
-
+    @XmlElement(name="max")
+    private Double _max;
 
       //----------------/
      //- Constructors -/
@@ -114,21 +102,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteAverage(
     ) {
-        this._has_average= false;
+        this._average = null;
     }
 
     /**
      */
     public void deleteMax(
     ) {
-        this._has_max= false;
+        this._max = null;
     }
 
     /**
      */
     public void deleteMin(
     ) {
-        this._has_min= false;
+        this._min = null;
     }
 
     /**
@@ -136,7 +124,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Average'.
      */
-    public double getAverage(
+    public Double getAverage(
     ) {
         return this._average;
     }
@@ -146,7 +134,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Max'.
      */
-    public double getMax(
+    public Double getMax(
     ) {
         return this._max;
     }
@@ -156,7 +144,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Min'.
      */
-    public double getMin(
+    public Double getMin(
     ) {
         return this._min;
     }
@@ -178,7 +166,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasAverage(
     ) {
-        return this._has_average;
+        return this._average != null;
     }
 
     /**
@@ -188,7 +176,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMax(
     ) {
-        return this._has_max;
+        return this._max != null;
     }
 
     /**
@@ -198,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMin(
     ) {
-        return this._has_min;
+        return this._min != null;
     }
 
     /**
@@ -254,9 +242,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param average the value of field 'average'.
      */
     public void setAverage(
-            final double average) {
+            final Double average) {
         this._average = average;
-        this._has_average = true;
     }
 
     /**
@@ -265,9 +252,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param max the value of field 'max'.
      */
     public void setMax(
-            final double max) {
+            final Double max) {
         this._max = max;
-        this._has_max = true;
     }
 
     /**
@@ -276,9 +262,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param min the value of field 'min'.
      */
     public void setMin(
-            final double min) {
+            final Double min) {
         this._min = min;
-        this._has_min = true;
     }
 
     /**

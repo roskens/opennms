@@ -45,10 +45,49 @@ public class SummaryTest extends XmlTestNoCastor<Summary> {
     public static Collection<Object[]> data() throws ParseException {
 
         Summary summary = new Summary();
+        Resource r1 = new Resource();
+        summary.addResource(r1);
+        r1.setName("resource1");
+        Attribute r1a1 = new Attribute();
+        r1.addAttribute(r1a1);
+        r1a1.setName("r1a1");
+        r1a1.setAverage(45.0D);
+        r1a1.setMax(55.0D);
+        r1a1.setMin(40.0D);
+          
+        Resource r2 = new Resource();
+        summary.addResource(r2);
+        r2.setName("resource2");
+        Attribute r2a1 = new Attribute();
+        r2.addAttribute(r2a1);
+        r2a1.setName("r2a1");
+        r2a1.setAverage(75.0D);
+        r2a1.setMax(95.0D);
+        r2a1.setMin(20.0D);
 
         return Arrays.asList(new Object[][] { {
                 summary,
-                "", /* configuration */
+                "<summary>"
+                  + "<resource>"
+                  + "<name>resource1</name>"
+                  + "<attribute>"
+                  + "<name>r1a1</name>"
+                  + "<min>40.0</min>"
+                  + "<average>45.0</average>"
+                  + "<max>55.0</max>"
+                  + "</attribute>"
+                  + "</resource>"
+                  + "<resource>"
+                  + "<name>resource2</name>"
+                  + "<attribute>"
+                  + "<name>r2a1</name>"
+                  + "<min>20.0</min>"
+                  + "<average>75.0</average>"
+                  + "<max>95.0</max>"
+                  + "</attribute>"
+                  + "</resource>"
+                  + "</summary>" ,
+                
                 "target/classes/xsds/attr-summary.xsd", }, });
     }
 }

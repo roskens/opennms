@@ -64,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlElement(name="name")
     private java.lang.String _name;
 
     /**
      * Field _attributeList.
      */
+    @XmlElement(name="attribute")
     private java.util.List<org.opennms.netmgt.config.attrsummary.Attribute> _attributeList;
 
     /**
      * Field _resourceList.
      */
+    @XmlElement(name="resource")
     private java.util.List<org.opennms.netmgt.config.attrsummary.Resource> _resourceList;
 
 
