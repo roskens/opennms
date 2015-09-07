@@ -64,32 +64,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _lower.
      */
-    private double _lower;
-
-    /**
-     * keeps track of state for field: _lower
-     */
-    private boolean _has_lower;
+    @XmlElement(name="lower")
+    private Double _lower;
 
     /**
      * Field _upper.
      */
-    private double _upper;
-
-    /**
-     * keeps track of state for field: _upper
-     */
-    private boolean _has_upper;
+    @XmlElement(name="upper")
+    private Double _upper;
 
     /**
      * Field _rigid.
      */
-    private boolean _rigid;
-
-    /**
-     * keeps track of state for field: _rigid
-     */
-    private boolean _has_rigid;
+    @XmlElement(name="rigid")
+    private Boolean _rigid;
 
 
       //----------------/
@@ -109,21 +97,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteLower(
     ) {
-        this._has_lower= false;
+        this._lower = null;
     }
 
     /**
      */
     public void deleteRigid(
     ) {
-        this._has_rigid= false;
+        this._rigid = null;
     }
 
     /**
      */
     public void deleteUpper(
     ) {
-        this._has_upper= false;
+        this._upper = null;
     }
 
     /**
@@ -131,7 +119,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Lower'.
      */
-    public double getLower(
+    public Double getLower(
     ) {
         return this._lower;
     }
@@ -141,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rigid'.
      */
-    public boolean getRigid(
+    public Boolean getRigid(
     ) {
         return this._rigid;
     }
@@ -151,7 +139,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Upper'.
      */
-    public double getUpper(
+    public Double getUpper(
     ) {
         return this._upper;
     }
@@ -163,7 +151,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasLower(
     ) {
-        return this._has_lower;
+        return this._lower != null;
     }
 
     /**
@@ -173,7 +161,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasRigid(
     ) {
-        return this._has_rigid;
+        return this._rigid != null;
     }
 
     /**
@@ -183,7 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUpper(
     ) {
-        return this._has_upper;
+        return this._upper != null;
     }
 
     /**
@@ -249,9 +237,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param lower the value of field 'lower'.
      */
     public void setLower(
-            final double lower) {
+            final Double lower) {
         this._lower = lower;
-        this._has_lower = true;
     }
 
     /**
@@ -260,9 +247,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param rigid the value of field 'rigid'.
      */
     public void setRigid(
-            final boolean rigid) {
+            final Boolean rigid) {
         this._rigid = rigid;
-        this._has_rigid = true;
     }
 
     /**
@@ -271,9 +257,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param upper the value of field 'upper'.
      */
     public void setUpper(
-            final double upper) {
+            final Double upper) {
         this._upper = upper;
-        this._has_upper = true;
     }
 
     /**

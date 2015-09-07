@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _graph_elementList.
      */
+    @XmlElement(name="graph_element")
     private java.util.List<org.opennms.netmgt.config.rrd.Graph_element> _graph_elementList;
 
 

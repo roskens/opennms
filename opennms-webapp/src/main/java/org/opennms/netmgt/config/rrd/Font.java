@@ -64,22 +64,20 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlElement(name="name")
     private java.lang.String _name;
 
     /**
      * Field _style.
      */
+    @XmlElement(name="style")
     private org.opennms.netmgt.config.rrd.types.FontStyle _style;
 
     /**
      * Field _size.
      */
-    private int _size;
-
-    /**
-     * keeps track of state for field: _size
-     */
-    private boolean _has_size;
+    @XmlElement(name="size")
+    private Integer _size;
 
 
       //----------------/
@@ -99,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteSize(
     ) {
-        this._has_size= false;
+        this._size = null;
     }
 
     /**
@@ -117,7 +115,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Size'.
      */
-    public int getSize(
+    public Integer getSize(
     ) {
         return this._size;
     }
@@ -139,7 +137,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSize(
     ) {
-        return this._has_size;
+        return this._size != null;
     }
 
     /**
@@ -205,9 +203,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param size the value of field 'size'.
      */
     public void setSize(
-            final int size) {
+            final Integer size) {
         this._size = size;
-        this._has_size = true;
     }
 
     /**

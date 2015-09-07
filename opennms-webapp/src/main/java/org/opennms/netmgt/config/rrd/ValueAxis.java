@@ -64,22 +64,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _grid_step.
      */
-    private int _grid_step;
-
-    /**
-     * keeps track of state for field: _grid_step
-     */
-    private boolean _has_grid_step;
+    @XmlElement(name="grid_step")
+    private Integer _grid_step;
 
     /**
      * Field _label_step.
      */
-    private int _label_step;
-
-    /**
-     * keeps track of state for field: _label_step
-     */
-    private boolean _has_label_step;
+    @XmlElement(name="label_step")
+    private Integer _label_step;
 
 
       //----------------/
@@ -99,14 +91,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteGrid_step(
     ) {
-        this._has_grid_step= false;
+        this._grid_step = null;
     }
 
     /**
      */
     public void deleteLabel_step(
     ) {
-        this._has_label_step= false;
+        this._label_step = null;
     }
 
     /**
@@ -114,7 +106,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Grid_step'.
      */
-    public int getGrid_step(
+    public Integer getGrid_step(
     ) {
         return this._grid_step;
     }
@@ -124,7 +116,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Label_step'.
      */
-    public int getLabel_step(
+    public Integer getLabel_step(
     ) {
         return this._label_step;
     }
@@ -136,7 +128,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasGrid_step(
     ) {
-        return this._has_grid_step;
+        return this._grid_step != null;
     }
 
     /**
@@ -146,7 +138,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasLabel_step(
     ) {
-        return this._has_label_step;
+        return this._label_step != null;
     }
 
     /**
@@ -202,9 +194,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param grid_step the value of field 'grid_step'.
      */
     public void setGrid_step(
-            final int grid_step) {
+            final Integer grid_step) {
         this._grid_step = grid_step;
-        this._has_grid_step = true;
     }
 
     /**
@@ -213,9 +204,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param label_step the value of field 'label_step'.
      */
     public void setLabel_step(
-            final int label_step) {
+            final Integer label_step) {
         this._label_step = label_step;
-        this._has_label_step = true;
     }
 
     /**

@@ -64,231 +64,199 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _anti_aliasing.
      */
-    private boolean _anti_aliasing;
-
-    /**
-     * keeps track of state for field: _anti_aliasing
-     */
-    private boolean _has_anti_aliasing;
+    @XmlElement(name="anti_aliasing")
+    private Boolean _anti_aliasing;
 
     /**
      * Field _arrow_color.
      */
+    @XmlElement(name="arrow_color")
     private java.lang.String _arrow_color;
 
     /**
      * Field _axis_color.
      */
+    @XmlElement(name="axis_color")
     private java.lang.String _axis_color;
 
     /**
      * Field _back_color.
      */
+    @XmlElement(name="back_color")
     private java.lang.String _back_color;
 
     /**
      * Field _background.
      */
+    @XmlElement(name="background")
     private java.lang.String _background;
 
     /**
      * Field _base_value.
      */
-    private int _base_value;
-
-    /**
-     * keeps track of state for field: _base_value
-     */
-    private boolean _has_base_value;
+    @XmlElement(name="base_value")
+    private Integer _base_value;
 
     /**
      * Field _canvas.
      */
+    @XmlElement(name="canvas")
     private java.lang.String _canvas;
 
     /**
      * Field _left_padding.
      */
-    private int _left_padding;
-
-    /**
-     * keeps track of state for field: _left_padding
-     */
-    private boolean _has_left_padding;
+    @XmlElement(name="left_padding")
+    private Integer _left_padding;
 
     /**
      * Field _default_font.
      */
+    @XmlElement(name="default_font")
     private org.opennms.netmgt.config.rrd.Default_font _default_font;
 
     /**
      * Field _default_font_color.
      */
+    @XmlElement(name="default_font_color")
     private java.lang.String _default_font_color;
 
     /**
      * Field _frame_color.
      */
+    @XmlElement(name="frame_color")
     private java.lang.String _frame_color;
 
     /**
      * Field _front_grid.
      */
-    private boolean _front_grid;
-
-    /**
-     * keeps track of state for field: _front_grid
-     */
-    private boolean _has_front_grid;
+    @XmlElement(name="front_grid")
+    private Boolean _front_grid;
 
     /**
      * Field _grid_range.
      */
+    @XmlElement(name="grid_range")
     private org.opennms.netmgt.config.rrd.Grid_range _grid_range;
 
     /**
      * Field _grid_x.
      */
-    private boolean _grid_x;
-
-    /**
-     * keeps track of state for field: _grid_x
-     */
-    private boolean _has_grid_x;
+    @XmlElement(name="grid_x")
+    private Boolean _grid_x;
 
     /**
      * Field _grid_y.
      */
-    private boolean _grid_y;
-
-    /**
-     * keeps track of state for field: _grid_y
-     */
-    private boolean _has_grid_y;
+    @XmlElement(name="grid_y")
+    private Boolean _grid_y;
 
     /**
      * Field _border.
      */
+    @XmlElement(name="border")
     private org.opennms.netmgt.config.rrd.Border _border;
 
     /**
      * Field _major_grid_color.
      */
+    @XmlElement(name="major_grid_color")
     private java.lang.String _major_grid_color;
 
     /**
      * Field _major_grid_x.
      */
-    private boolean _major_grid_x;
-
-    /**
-     * keeps track of state for field: _major_grid_x
-     */
-    private boolean _has_major_grid_x;
+    @XmlElement(name="major_grid_x")
+    private Boolean _major_grid_x;
 
     /**
      * Field _major_grid_y.
      */
-    private boolean _major_grid_y;
-
-    /**
-     * keeps track of state for field: _major_grid_y
-     */
-    private boolean _has_major_grid_y;
+    @XmlElement(name="major_grid_y")
+    private Boolean _major_grid_y;
 
     /**
      * Field _minor_grid_color.
      */
+    @XmlElement(name="minor_grid_color")
     private java.lang.String _minor_grid_color;
 
     /**
      * Field _minor_grid_x.
      */
-    private boolean _minor_grid_x;
-
-    /**
-     * keeps track of state for field: _minor_grid_x
-     */
-    private boolean _has_minor_grid_x;
+    @XmlElement(name="minor_grid_x")
+    private Boolean _minor_grid_x;
 
     /**
      * Field _minor_grid_y.
      */
-    private boolean _minor_grid_y;
-
-    /**
-     * keeps track of state for field: _minor_grid_y
-     */
-    private boolean _has_minor_grid_y;
+    @XmlElement(name="minor_grid_y")
+    private Boolean _minor_grid_y;
 
     /**
      * Field _overlay.
      */
+    @XmlElement(name="overlay")
     private java.lang.String _overlay;
 
     /**
      * Field _show_legend.
      */
-    private boolean _show_legend;
-
-    /**
-     * keeps track of state for field: _show_legend
-     */
-    private boolean _has_show_legend;
+    @XmlElement(name="show_legend")
+    private Boolean _show_legend;
 
     /**
      * Field _show_signature.
      */
-    private boolean _show_signature;
-
-    /**
-     * keeps track of state for field: _show_signature
-     */
-    private boolean _has_show_signature;
+    @XmlElement(name="show_signature")
+    private Boolean _show_signature;
 
     /**
      * Field _time_axis.
      */
+    @XmlElement(name="time_axis")
     private org.opennms.netmgt.config.rrd.Time_axis _time_axis;
 
     /**
      * Field _time_axis_label.
      */
+    @XmlElement(name="time_axis_label")
     private java.lang.String _time_axis_label;
 
     /**
      * Field _title.
      */
+    @XmlElement(name="title")
     private java.lang.String _title;
 
     /**
      * Field _title_font.
      */
+    @XmlElement(name="title_font")
     private org.opennms.netmgt.config.rrd.Title_font _title_font;
 
     /**
      * Field _title_font_color.
      */
+    @XmlElement(name="title_font_color")
     private java.lang.String _title_font_color;
 
     /**
      * Field _units_exponent.
      */
-    private int _units_exponent;
-
-    /**
-     * keeps track of state for field: _units_exponent
-     */
-    private boolean _has_units_exponent;
+    @XmlElement(name="units_exponent")
+    private Integer _units_exponent;
 
     /**
      * Field _value_axis.
      */
+    @XmlElement(name="value_axis")
     private org.opennms.netmgt.config.rrd.Value_axis _value_axis;
 
     /**
      * Field _vertical_label.
      */
+    @XmlElement(name="vertical_label")
     private java.lang.String _vertical_label;
 
 
@@ -309,91 +277,91 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteAnti_aliasing(
     ) {
-        this._has_anti_aliasing= false;
+        this._anti_aliasing = null;
     }
 
     /**
      */
     public void deleteBase_value(
     ) {
-        this._has_base_value= false;
+        this._base_value = null;
     }
 
     /**
      */
     public void deleteFront_grid(
     ) {
-        this._has_front_grid= false;
+        this._front_grid = null;
     }
 
     /**
      */
     public void deleteGrid_x(
     ) {
-        this._has_grid_x= false;
+        this._grid_x = null;
     }
 
     /**
      */
     public void deleteGrid_y(
     ) {
-        this._has_grid_y= false;
+        this._grid_y = null;
     }
 
     /**
      */
     public void deleteLeft_padding(
     ) {
-        this._has_left_padding= false;
+        this._left_padding = null;
     }
 
     /**
      */
     public void deleteMajor_grid_x(
     ) {
-        this._has_major_grid_x= false;
+        this._major_grid_x = null;
     }
 
     /**
      */
     public void deleteMajor_grid_y(
     ) {
-        this._has_major_grid_y= false;
+        this._major_grid_y = null;
     }
 
     /**
      */
     public void deleteMinor_grid_x(
     ) {
-        this._has_minor_grid_x= false;
+        this._minor_grid_x = null;
     }
 
     /**
      */
     public void deleteMinor_grid_y(
     ) {
-        this._has_minor_grid_y= false;
+        this._minor_grid_y = null;
     }
 
     /**
      */
     public void deleteShow_legend(
     ) {
-        this._has_show_legend= false;
+        this._show_legend = null;
     }
 
     /**
      */
     public void deleteShow_signature(
     ) {
-        this._has_show_signature= false;
+        this._show_signature = null;
     }
 
     /**
      */
     public void deleteUnits_exponent(
     ) {
-        this._has_units_exponent= false;
+        this._units_exponent = null;
     }
 
     /**
@@ -733,7 +701,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasAnti_aliasing(
     ) {
-        return this._has_anti_aliasing;
+        return this._anti_aliasing != null;
     }
 
     /**
@@ -743,7 +711,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasBase_value(
     ) {
-        return this._has_base_value;
+        return this._base_value != null;
     }
 
     /**
@@ -753,7 +721,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasFront_grid(
     ) {
-        return this._has_front_grid;
+        return this._front_grid != null;
     }
 
     /**
@@ -763,7 +731,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasGrid_x(
     ) {
-        return this._has_grid_x;
+        return this._grid_x != null;
     }
 
     /**
@@ -773,7 +741,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasGrid_y(
     ) {
-        return this._has_grid_y;
+        return this._grid_y != null;
     }
 
     /**
@@ -783,7 +751,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasLeft_padding(
     ) {
-        return this._has_left_padding;
+        return this._left_padding != null;
     }
 
     /**
@@ -793,7 +761,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMajor_grid_x(
     ) {
-        return this._has_major_grid_x;
+        return this._major_grid_x != null;
     }
 
     /**
@@ -803,7 +771,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMajor_grid_y(
     ) {
-        return this._has_major_grid_y;
+        return this._major_grid_y != null;
     }
 
     /**
@@ -813,7 +781,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMinor_grid_x(
     ) {
-        return this._has_minor_grid_x;
+        return this._minor_grid_x != null;
     }
 
     /**
@@ -823,7 +791,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMinor_grid_y(
     ) {
-        return this._has_minor_grid_y;
+        return this._minor_grid_y != null;
     }
 
     /**
@@ -833,7 +801,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasShow_legend(
     ) {
-        return this._has_show_legend;
+        return this._show_legend != null;
     }
 
     /**
@@ -843,7 +811,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasShow_signature(
     ) {
-        return this._has_show_signature;
+        return this._show_signature != null;
     }
 
     /**
@@ -853,7 +821,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasUnits_exponent(
     ) {
-        return this._has_units_exponent;
+        return this._units_exponent != null;
     }
 
     /**
@@ -1009,9 +977,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param anti_aliasing the value of field 'anti_aliasing'.
      */
     public void setAnti_aliasing(
-            final boolean anti_aliasing) {
+            final Boolean anti_aliasing) {
         this._anti_aliasing = anti_aliasing;
-        this._has_anti_aliasing = true;
     }
 
     /**
@@ -1060,9 +1027,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param base_value the value of field 'base_value'.
      */
     public void setBase_value(
-            final int base_value) {
+            final Integer base_value) {
         this._base_value = base_value;
-        this._has_base_value = true;
     }
 
     /**
@@ -1122,9 +1088,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param front_grid the value of field 'front_grid'.
      */
     public void setFront_grid(
-            final boolean front_grid) {
+            final Boolean front_grid) {
         this._front_grid = front_grid;
-        this._has_front_grid = true;
     }
 
     /**
@@ -1143,9 +1108,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param grid_x the value of field 'grid_x'.
      */
     public void setGrid_x(
-            final boolean grid_x) {
+            final Boolean grid_x) {
         this._grid_x = grid_x;
-        this._has_grid_x = true;
     }
 
     /**
@@ -1154,9 +1118,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param grid_y the value of field 'grid_y'.
      */
     public void setGrid_y(
-            final boolean grid_y) {
+            final Boolean grid_y) {
         this._grid_y = grid_y;
-        this._has_grid_y = true;
     }
 
     /**
@@ -1165,9 +1128,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param left_padding the value of field 'left_padding'.
      */
     public void setLeft_padding(
-            final int left_padding) {
+            final Integer left_padding) {
         this._left_padding = left_padding;
-        this._has_left_padding = true;
     }
 
     /**
@@ -1186,9 +1148,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param major_grid_x the value of field 'major_grid_x'.
      */
     public void setMajor_grid_x(
-            final boolean major_grid_x) {
+            final Boolean major_grid_x) {
         this._major_grid_x = major_grid_x;
-        this._has_major_grid_x = true;
     }
 
     /**
@@ -1197,9 +1158,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param major_grid_y the value of field 'major_grid_y'.
      */
     public void setMajor_grid_y(
-            final boolean major_grid_y) {
+            final Boolean major_grid_y) {
         this._major_grid_y = major_grid_y;
-        this._has_major_grid_y = true;
     }
 
     /**
@@ -1218,9 +1178,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param minor_grid_x the value of field 'minor_grid_x'.
      */
     public void setMinor_grid_x(
-            final boolean minor_grid_x) {
+            final Boolean minor_grid_x) {
         this._minor_grid_x = minor_grid_x;
-        this._has_minor_grid_x = true;
     }
 
     /**
@@ -1229,9 +1188,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param minor_grid_y the value of field 'minor_grid_y'.
      */
     public void setMinor_grid_y(
-            final boolean minor_grid_y) {
+            final Boolean minor_grid_y) {
         this._minor_grid_y = minor_grid_y;
-        this._has_minor_grid_y = true;
     }
 
     /**
@@ -1250,9 +1208,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param show_legend the value of field 'show_legend'.
      */
     public void setShow_legend(
-            final boolean show_legend) {
+            final Boolean show_legend) {
         this._show_legend = show_legend;
-        this._has_show_legend = true;
     }
 
     /**
@@ -1261,9 +1218,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param show_signature the value of field 'show_signature'.
      */
     public void setShow_signature(
-            final boolean show_signature) {
+            final Boolean show_signature) {
         this._show_signature = show_signature;
-        this._has_show_signature = true;
     }
 
     /**
@@ -1322,9 +1278,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param units_exponent the value of field 'units_exponent'.
      */
     public void setUnits_exponent(
-            final int units_exponent) {
+            final Integer units_exponent) {
         this._units_exponent = units_exponent;
-        this._has_units_exponent = true;
     }
 
     /**

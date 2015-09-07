@@ -64,21 +64,25 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _span.
      */
+    @XmlElement(name="span")
     private org.opennms.netmgt.config.rrd.Span _span;
 
     /**
      * Field _options.
      */
+    @XmlElement(name="options")
     private org.opennms.netmgt.config.rrd.Options _options;
 
     /**
      * Field _datasources.
      */
+    @XmlElement(name="datasources")
     private org.opennms.netmgt.config.rrd.Datasources _datasources;
 
     /**
      * Field _graph.
      */
+    @XmlElement(name="graph")
     private org.opennms.netmgt.config.rrd.Graph _graph;
 
 

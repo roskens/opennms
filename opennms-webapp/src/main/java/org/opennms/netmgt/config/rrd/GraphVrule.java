@@ -64,27 +64,26 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _time.
      */
+    @XmlElement(name="time")
     private java.lang.String _time;
 
     /**
      * Field _color.
      */
+    @XmlElement(name="color")
     private java.lang.String _color;
 
     /**
      * Field _legend.
      */
+    @XmlElement(name="legend")
     private java.lang.String _legend;
 
     /**
      * Field _width.
      */
-    private int _width;
-
-    /**
-     * keeps track of state for field: _width
-     */
-    private boolean _has_width;
+    @XmlElement(name="width")
+    private Integer _width;
 
 
       //----------------/
@@ -104,7 +103,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteWidth(
     ) {
-        this._has_width= false;
+        this._width = null;
     }
 
     /**
@@ -142,7 +141,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Width'.
      */
-    public int getWidth(
+    public Integer getWidth(
     ) {
         return this._width;
     }
@@ -154,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasWidth(
     ) {
-        return this._has_width;
+        return this._width != null;
     }
 
     /**
@@ -240,9 +239,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param width the value of field 'width'.
      */
     public void setWidth(
-            final int width) {
+            final Integer width) {
         this._width = width;
-        this._has_width = true;
     }
 
     /**

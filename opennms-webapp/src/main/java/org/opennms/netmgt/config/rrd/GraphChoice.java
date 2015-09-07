@@ -69,41 +69,49 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _area.
      */
+    @XmlElement(name="area")
     private org.opennms.netmgt.config.rrd.Area _area;
 
     /**
      * Field _stack.
      */
+    @XmlElement(name="stack")
     private org.opennms.netmgt.config.rrd.Stack _stack;
 
     /**
      * Field _line.
      */
+    @XmlElement(name="line")
     private org.opennms.netmgt.config.rrd.Line _line;
 
     /**
      * Field _gprint.
      */
+    @XmlElement(name="gprint")
     private org.opennms.netmgt.config.rrd.Gprint _gprint;
 
     /**
      * Field _hrule.
      */
+    @XmlElement(name="hrule")
     private org.opennms.netmgt.config.rrd.Hrule _hrule;
 
     /**
      * Field _vrule.
      */
+    @XmlElement(name="vrule")
     private org.opennms.netmgt.config.rrd.Vrule _vrule;
 
     /**
      * Field _time.
      */
+    @XmlElement(name="time")
     private org.opennms.netmgt.config.rrd.Time _time;
 
     /**
      * Field _comment.
      */
+    @XmlElement(name="comment")
     private java.lang.String _comment;
 
 

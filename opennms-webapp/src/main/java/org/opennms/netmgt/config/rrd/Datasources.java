@@ -64,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _defList.
      */
+    @XmlElement(name="def")
     private java.util.List<org.opennms.netmgt.config.rrd.Def> _defList;
 
     /**
      * Field _export_dataList.
      */
+    @XmlElement(name="export_data")
     private java.util.List<org.opennms.netmgt.config.rrd.Export_data> _export_dataList;
 
 

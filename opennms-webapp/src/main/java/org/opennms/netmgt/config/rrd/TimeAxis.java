@@ -64,52 +64,44 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _min_grid_time_unit.
      */
+    @XmlElement(name="min_grid_time_unit")
     private org.opennms.netmgt.config.rrd.types.GridTimeUnit _min_grid_time_unit;
 
     /**
      * Field _min_grid_unit_steps.
      */
-    private int _min_grid_unit_steps;
-
-    /**
-     * keeps track of state for field: _min_grid_unit_steps
-     */
-    private boolean _has_min_grid_unit_steps;
+    @XmlElement(name="min_grid_unit_steps")
+    private Integer _min_grid_unit_steps;
 
     /**
      * Field _maj_grid_time_unit.
      */
+    @XmlElement(name="maj_grid_time_unit")
     private org.opennms.netmgt.config.rrd.types.GridTimeUnit _maj_grid_time_unit;
 
     /**
      * Field _maj_grid_unit_steps.
      */
-    private int _maj_grid_unit_steps;
-
-    /**
-     * keeps track of state for field: _maj_grid_unit_steps
-     */
-    private boolean _has_maj_grid_unit_steps;
+    @XmlElement(name="maj_grid_unit_steps")
+    private Integer _maj_grid_unit_steps;
 
     /**
      * XXX: the type should probably be a simpleType that we
      *  define with a pattern of allowable formats.
      */
+    @XmlElement(name="date_format")
     private java.lang.String _date_format;
 
     /**
      * Field _center_labels.
      */
-    private boolean _center_labels;
-
-    /**
-     * keeps track of state for field: _center_labels
-     */
-    private boolean _has_center_labels;
+    @XmlElement(name="center_labels")
+    private Boolean _center_labels;
 
     /**
      * Field _first_day_of_week.
      */
+    @XmlElement(name="first_day_of_week")
     private org.opennms.netmgt.config.rrd.types.DayOfWeek _first_day_of_week;
 
 
@@ -130,21 +122,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteCenter_labels(
     ) {
-        this._has_center_labels= false;
+        this._center_labels = null;
     }
 
     /**
      */
     public void deleteMaj_grid_unit_steps(
     ) {
-        this._has_maj_grid_unit_steps= false;
+        this._maj_grid_unit_steps = null;
     }
 
     /**
      */
     public void deleteMin_grid_unit_steps(
     ) {
-        this._has_min_grid_unit_steps= false;
+        this._min_grid_unit_steps = null;
     }
 
     /**
@@ -152,7 +144,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Center_labels'.
      */
-    public boolean getCenter_labels(
+    public Boolean getCenter_labels(
     ) {
         return this._center_labels;
     }
@@ -195,7 +187,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Maj_grid_unit_steps'.
      */
-    public int getMaj_grid_unit_steps(
+    public Integer getMaj_grid_unit_steps(
     ) {
         return this._maj_grid_unit_steps;
     }
@@ -215,7 +207,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Min_grid_unit_steps'.
      */
-    public int getMin_grid_unit_steps(
+    public Integer getMin_grid_unit_steps(
     ) {
         return this._min_grid_unit_steps;
     }
@@ -227,7 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasCenter_labels(
     ) {
-        return this._has_center_labels;
+        return this._center_labels != null;
     }
 
     /**
@@ -238,7 +230,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMaj_grid_unit_steps(
     ) {
-        return this._has_maj_grid_unit_steps;
+        return this._maj_grid_unit_steps != null;
     }
 
     /**
@@ -249,7 +241,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasMin_grid_unit_steps(
     ) {
-        return this._has_min_grid_unit_steps;
+        return this._min_grid_unit_steps != null;
     }
 
     /**
@@ -315,9 +307,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param center_labels the value of field 'center_labels'.
      */
     public void setCenter_labels(
-            final boolean center_labels) {
+            final Boolean center_labels) {
         this._center_labels = center_labels;
-        this._has_center_labels = true;
     }
 
     /**
@@ -362,9 +353,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'maj_grid_unit_steps'.
      */
     public void setMaj_grid_unit_steps(
-            final int maj_grid_unit_steps) {
+            final Integer maj_grid_unit_steps) {
         this._maj_grid_unit_steps = maj_grid_unit_steps;
-        this._has_maj_grid_unit_steps = true;
     }
 
     /**
@@ -385,9 +375,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'min_grid_unit_steps'.
      */
     public void setMin_grid_unit_steps(
-            final int min_grid_unit_steps) {
+            final Integer min_grid_unit_steps) {
         this._min_grid_unit_steps = min_grid_unit_steps;
-        this._has_min_grid_unit_steps = true;
     }
 
     /**

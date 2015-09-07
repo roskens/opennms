@@ -64,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _start.
      */
+    @XmlElement(name="start")
     private java.lang.String _start;
 
     /**
      * Field _end.
      */
+    @XmlElement(name="end")
     private java.lang.String _end;
 
 

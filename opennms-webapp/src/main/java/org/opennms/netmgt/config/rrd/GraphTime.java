@@ -64,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _format.
      */
+    @XmlElement(name="format")
     private java.lang.String _format;
 
     /**
      * Field _pattern.
      */
+    @XmlElement(name="pattern")
     private java.lang.String _pattern;
 
     /**
      * Field _value.
      */
+    @XmlElement(name="value")
     private java.lang.String _value;
 
 

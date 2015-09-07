@@ -64,57 +64,50 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _datasource.
      */
+    @XmlElement(name="datasource")
     private java.lang.String _datasource;
 
     /**
      * Field _time1.
      */
+    @XmlElement(name="time1")
     private java.lang.String _time1;
 
     /**
      * Field _time2.
      */
+    @XmlElement(name="time2")
     private java.lang.String _time2;
 
     /**
      * Field _value1.
      */
-    private double _value1;
-
-    /**
-     * keeps track of state for field: _value1
-     */
-    private boolean _has_value1;
+    @XmlElement(name="value1")
+    private Double _value1;
 
     /**
      * Field _value2.
      */
-    private double _value2;
-
-    /**
-     * keeps track of state for field: _value2
-     */
-    private boolean _has_value2;
+    @XmlElement(name="value2")
+    private Double _value2;
 
     /**
      * Field _color.
      */
+    @XmlElement(name="color")
     private java.lang.String _color;
 
     /**
      * Field _legend.
      */
+    @XmlElement(name="legend")
     private java.lang.String _legend;
 
     /**
      * Field _width.
      */
-    private int _width;
-
-    /**
-     * keeps track of state for field: _width
-     */
-    private boolean _has_width;
+    @XmlElement(name="width")
+    private Integer _width;
 
 
       //----------------/
@@ -134,21 +127,21 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteValue1(
     ) {
-        this._has_value1= false;
+        this._value1 = null;
     }
 
     /**
      */
     public void deleteValue2(
     ) {
-        this._has_value2= false;
+        this._value2 = null;
     }
 
     /**
      */
     public void deleteWidth(
     ) {
-        this._has_width= false;
+        this._width = null;
     }
 
     /**
@@ -206,7 +199,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Value1'.
      */
-    public double getValue1(
+    public Double getValue1(
     ) {
         return this._value1;
     }
@@ -216,7 +209,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Value2'.
      */
-    public double getValue2(
+    public Double getValue2(
     ) {
         return this._value2;
     }
@@ -226,7 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Width'.
      */
-    public int getWidth(
+    public Integer getWidth(
     ) {
         return this._width;
     }
@@ -238,7 +231,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasValue1(
     ) {
-        return this._has_value1;
+        return this._value1 != null;
     }
 
     /**
@@ -248,7 +241,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasValue2(
     ) {
-        return this._has_value2;
+        return this._value2 != null;
     }
 
     /**
@@ -258,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasWidth(
     ) {
-        return this._has_width;
+        return this._width != null;
     }
 
     /**
@@ -364,9 +357,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param value1 the value of field 'value1'.
      */
     public void setValue1(
-            final double value1) {
+            final Double value1) {
         this._value1 = value1;
-        this._has_value1 = true;
     }
 
     /**
@@ -375,9 +367,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param value2 the value of field 'value2'.
      */
     public void setValue2(
-            final double value2) {
+            final Double value2) {
         this._value2 = value2;
-        this._has_value2 = true;
     }
 
     /**
@@ -386,9 +377,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param width the value of field 'width'.
      */
     public void setWidth(
-            final int width) {
+            final Integer width) {
         this._width = width;
-        this._has_width = true;
     }
 
     /**

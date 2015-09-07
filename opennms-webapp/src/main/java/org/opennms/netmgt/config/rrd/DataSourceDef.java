@@ -64,31 +64,37 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlElement(name="name")
     private java.lang.String _name;
 
     /**
      * Field _rrd.
      */
+    @XmlElement(name="rrd")
     private java.lang.String _rrd;
 
     /**
      * Field _source.
      */
+    @XmlElement(name="source")
     private java.lang.String _source;
 
     /**
      * Field _cf.
      */
+    @XmlElement(name="cf")
     private org.opennms.netmgt.config.rrd.types.Cf _cf;
 
     /**
      * Field _backend.
      */
+    @XmlElement(name="backend")
     private org.opennms.netmgt.config.rrd.types.Backend _backend;
 
     /**
      * Field _rpn.
      */
+    @XmlElement(name="rpn")
     private java.lang.String _rpn;
 
 

@@ -64,28 +64,26 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _datasource.
      */
+    @XmlElement(name="datasource")
     private java.lang.String _datasource;
 
     /**
      * Field _cf.
      */
+    @XmlElement(name="cf")
     private org.opennms.netmgt.config.rrd.types.Cf _cf;
 
     /**
      * Field _format.
      */
+    @XmlElement(name="format")
     private java.lang.String _format;
 
     /**
      * Field _base.
      */
-    private int _base;
-
-    /**
-     * keeps track of state for field: _base
-     */
-    private boolean _has_base;
-
+    @XmlElement(name="base")
+    private Integer _base;
 
       //----------------/
      //- Constructors -/
@@ -104,7 +102,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteBase(
     ) {
-        this._has_base= false;
+        this._base = null;
     }
 
     /**
@@ -112,7 +110,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Base'.
      */
-    public int getBase(
+    public Integer getBase(
     ) {
         return this._base;
     }
@@ -154,7 +152,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasBase(
     ) {
-        return this._has_base;
+        return this._base != null;
     }
 
     /**
@@ -210,9 +208,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param base the value of field 'base'.
      */
     public void setBase(
-            final int base) {
+            final Integer base) {
         this._base = base;
-        this._has_base = true;
     }
 
     /**
