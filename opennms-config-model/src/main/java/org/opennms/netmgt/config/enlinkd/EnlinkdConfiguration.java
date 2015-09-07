@@ -49,6 +49,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="enlinkd-configuration")
@@ -66,6 +67,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  devices and discovery links.
      *
      */
+    @XmlAttribute(name="threads", required = true)
     private Integer _threads;
 
     /**
@@ -73,12 +75,14 @@ import org.opennms.core.xml.ValidateUsing;
      *  node Link Discovery.
      *
      */
+    @XmlAttribute(name="initial_sleep_time", required = true)
     private Long _initial_sleep_time;
 
     /**
      * Node Link Discovery Rescan Time interval in mill seconds.
      *
      */
+    @XmlAttribute(name="rescan_interval", required = true)
     private Long _rescan_interval;
 
     /**
@@ -86,6 +90,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  cisco discovery protocol cache table.
      *
      */
+    @XmlAttribute(name="use-cdp-discovery")
     private Boolean _useCdpDiscovery;
 
     /**
@@ -93,6 +98,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  Bridge mib data.
      *
      */
+    @XmlAttribute(name="use-bridge-discovery")
     private Boolean _useBridgeDiscovery;
 
     /**
@@ -100,6 +106,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  lldp mib data.
      *
      */
+    @XmlAttribute(name="use-lldp-discovery")
     private Boolean _useLldpDiscovery;
 
     /**
@@ -107,6 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  ospf mib data.
      *
      */
+    @XmlAttribute(name="use-ospf-discovery")
     private Boolean _useOspfDiscovery;
 
     /**
@@ -114,6 +122,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  isis mib data.
      *
      */
+    @XmlAttribute(name="use-isis-discovery")
     private Boolean _useIsisDiscovery;
 
       //----------------/
