@@ -67,6 +67,7 @@ public class EuiLevelTest extends XmlTestNoCastor<EuiLevel> {
             + "<header>"
             + "  <ver>1.0</ver>"
             + "  <created>Thursday, November 3, 2011 9:28:08 PM GMT</created>"
+            + "<mstation>master.nmanage.com</mstation>"
             + "</header>"
             + "<category>"
                     +"<catlabel>Routers</catlabel>"
