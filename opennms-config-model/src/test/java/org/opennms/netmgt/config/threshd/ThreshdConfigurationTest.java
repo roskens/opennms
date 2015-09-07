@@ -46,6 +46,7 @@ public class ThreshdConfigurationTest extends XmlTestNoCastor<ThreshdConfigurati
         ThreshdConfiguration config = new ThreshdConfiguration();
         config.setThreads(5);
         Package mib2 = new Package();
+        mib2.setName("mib2");
         Filter mib2filter = new Filter();
         mib2filter.setContent("IPADDR != '0.0.0.0'");
         mib2.setFilter(mib2filter);
@@ -66,13 +67,16 @@ public class ThreshdConfigurationTest extends XmlTestNoCastor<ThreshdConfigurati
         p1.setKey("thresholding-group");
         p1.setValue("mib2");
         snmpSvc.addParameter(p1);
+        mib2.addService(snmpSvc);
         config.addPackage(mib2);
+        
         Package hrstorage = new Package();
+        hrstorage.setName("hrstorage");
         Filter filter2 = new Filter();
-        filter2.setContent("IPADDR != '0.0.0.0' &amp; (nodeSysOID LIKE '.1.3.6.1.4.1.311.%' | nodeSysOID LIKE '.1.3.6.1.4.1.2.3.1.2.1.1.3.%')");
-        mib2.setFilter(filter2);
-        mib2.addIncludeRange(ipv4Range);
-        mib2.addIncludeRange(ipv6Range);
+        filter2.setContent("IPADDR != '0.0.0.0' & (nodeSysOID LIKE '.1.3.6.1.4.1.311.%' | nodeSysOID LIKE '.1.3.6.1.4.1.2.3.1.2.1.1.3.%')");
+        hrstorage.setFilter(filter2);
+        hrstorage.addIncludeRange(ipv4Range);
+        hrstorage.addIncludeRange(ipv6Range);
         Service snmpSvc2 = new Service();
         snmpSvc2.setName("SNMP");
         snmpSvc2.setInterval(300000L);
@@ -82,6 +86,7 @@ public class ThreshdConfigurationTest extends XmlTestNoCastor<ThreshdConfigurati
         p2.setKey("thresholding-group");
         p2.setValue("hrstorage");
         snmpSvc2.addParameter(p2);
+        hrstorage.addService(snmpSvc2);
         config.addPackage(hrstorage);
 
         return Arrays.asList(new Object[][]{{
