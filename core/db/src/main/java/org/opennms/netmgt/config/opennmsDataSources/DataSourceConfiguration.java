@@ -53,7 +53,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="data-source-configuration")
+@XmlRootElement(name="datasource-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("opennms-datasources.xsd")
 @SuppressWarnings("all") public class DataSourceConfiguration implements java.io.Serializable {
