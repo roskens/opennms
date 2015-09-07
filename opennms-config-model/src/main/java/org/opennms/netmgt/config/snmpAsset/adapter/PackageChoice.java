@@ -39,7 +39,7 @@ import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
 /**
- * a MIB object
+ * Class PackageChoice.
  *
  * @version $Revision$ $Date$
  */
@@ -47,13 +47,12 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlValue;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="sysoidMask")
+@XmlRootElement(name="packageChoice")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("snmp-asset-adapter-configuration.xsd")
-@SuppressWarnings("all") public class SysoidMask implements java.io.Serializable {
+@SuppressWarnings("all") public class PackageChoice implements java.io.Serializable {
 
 
       //--------------------------/
@@ -61,17 +60,23 @@ import org.opennms.core.xml.ValidateUsing;
     //--------------------------/
 
     /**
-     * object identifier
+     * System object identifier (sysoid) which uniquely
+     *  identifies the system.
      */
-    @XmlValue
-    private java.lang.String _content;
+    private java.lang.String _sysoid;
+
+    /**
+     * Sysoid mask which can be used to match multiple
+     *  systems if their sysoid begins with the mask
+     */
+    private java.lang.String _sysoidMask;
 
 
       //----------------/
      //- Constructors -/
     //----------------/
 
-    public SysoidMask() {
+    public PackageChoice() {
         super();
     }
 
@@ -92,15 +97,22 @@ import org.opennms.core.xml.ValidateUsing;
         if ( this == obj )
             return true;
 
-        if (obj instanceof SysoidMask) {
+        if (obj instanceof PackageChoice) {
 
-            SysoidMask temp = (SysoidMask)obj;
-            if (this._content != null) {
-                if (temp._content == null) return false;
-                else if (!(this._content.equals(temp._content)))
+            PackageChoice temp = (PackageChoice)obj;
+            if (this._sysoid != null) {
+                if (temp._sysoid == null) return false;
+                else if (!(this._sysoid.equals(temp._sysoid)))
                     return false;
             }
-            else if (temp._content != null)
+            else if (temp._sysoid != null)
+                return false;
+            if (this._sysoidMask != null) {
+                if (temp._sysoidMask == null) return false;
+                else if (!(this._sysoidMask.equals(temp._sysoidMask)))
+                    return false;
+            }
+            else if (temp._sysoidMask != null)
                 return false;
             return true;
         }
@@ -108,22 +120,29 @@ import org.opennms.core.xml.ValidateUsing;
     }
 
     /**
-     * Returns the value of field 'alias'. The field 'alias' has
-     * the following description: a human readable name for the
-     * object (such as
-     *  "ifOctetsIn"). NOTE: This value is used as the RRD file
-     * name and
-     *  data source name. RRD only supports data source names up to
-     * 19 chars
-     *  in length. If the SNMP data collector encounters an alias
-     * which
-     *  exceeds 19 characters it will be truncated.
+     * Returns the value of field 'sysoid'. The field 'sysoid' has
+     * the following description: System object identifier (sysoid)
+     * which uniquely
+     *  identifies the system.
      *
-     * @return the value of field 'Alias'.
+     * @return the value of field 'Sysoid'.
      */
-    public java.lang.String getContent(
+    public java.lang.String getSysoid(
     ) {
-        return this._content;
+        return this._sysoid;
+    }
+
+    /**
+     * Returns the value of field 'sysoidMask'. The field
+     * 'sysoidMask' has the following description: Sysoid mask
+     * which can be used to match multiple
+     *  systems if their sysoid begins with the mask
+     *
+     * @return the value of field 'SysoidMask'.
+     */
+    public java.lang.String getSysoidMask(
+    ) {
+        return this._sysoidMask;
     }
 
     /**
@@ -140,8 +159,11 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        if (_content != null) {
-           result = 37 * result + _content.hashCode();
+        if (_sysoid != null) {
+           result = 37 * result + _sysoid.hashCode();
+        }
+        if (_sysoidMask != null) {
+           result = 37 * result + _sysoidMask.hashCode();
         }
 
         return result;
@@ -195,22 +217,29 @@ import org.opennms.core.xml.ValidateUsing;
     }
 
     /**
-     * Sets the value of field 'alias'. The field 'alias' has the
-     * following description: a human readable name for the object
-     * (such as
-     *  "ifOctetsIn"). NOTE: This value is used as the RRD file
-     * name and
-     *  data source name. RRD only supports data source names up to
-     * 19 chars
-     *  in length. If the SNMP data collector encounters an alias
-     * which
-     *  exceeds 19 characters it will be truncated.
+     * Sets the value of field 'sysoid'. The field 'sysoid' has the
+     * following description: System object identifier (sysoid)
+     * which uniquely
+     *  identifies the system.
      *
-     * @param content the value of field 'content'.
+     * @param sysoid the value of field 'sysoid'.
      */
-    public void setContent(
-            final java.lang.String content) {
-        this._content = content;
+    public void setSysoid(
+            final java.lang.String sysoid) {
+        this._sysoid = sysoid;
+    }
+
+    /**
+     * Sets the value of field 'sysoidMask'. The field 'sysoidMask'
+     * has the following description: Sysoid mask which can be used
+     * to match multiple
+     *  systems if their sysoid begins with the mask
+     *
+     * @param sysoidMask the value of field 'sysoidMask'.
+     */
+    public void setSysoidMask(
+            final java.lang.String sysoidMask) {
+        this._sysoidMask = sysoidMask;
     }
 
     /**
@@ -222,12 +251,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      * @return the unmarshaled
-     * org.opennms.netmgt.config.snmpAsset.adapter.MibObj
+     * org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice
      */
-    public static org.opennms.netmgt.config.snmpAsset.adapter.MibObj unmarshal(
+    public static org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice unmarshal(
             final java.io.Reader reader)
     throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
-        return (org.opennms.netmgt.config.snmpAsset.adapter.MibObj) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpAsset.adapter.MibObj.class, reader);
+        return (org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice.class, reader);
     }
 
     /**

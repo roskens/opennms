@@ -37,19 +37,19 @@ import java.util.List;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
-public class SnmpAssetAdapterConfigurationTest extends XmlTestNoCastor<SnmpAssetAdapterConfiguration> {
+public class AssetFieldTest extends XmlTestNoCastor<AssetField> {
 
-    public SnmpAssetAdapterConfigurationTest(final SnmpAssetAdapterConfiguration sampleObject, final String sampleXml, final String schemaFile) {
+    public AssetFieldTest(final AssetField sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
     }
 
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        SnmpAssetAdapterConfiguration snmpAssetAdapterConfiguration = new SnmpAssetAdapterConfiguration();
+        AssetField assetField = new AssetField();
 
         return Arrays.asList(new Object[][] { {
-                snmpAssetAdapterConfiguration,
+                assetField,
                 "", /* configuration */
                 "target/classes/xsds/snmp-asset-adapter-configuration.xsd", }, });
     }

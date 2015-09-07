@@ -47,9 +47,6 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="package")
@@ -65,22 +62,16 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _packageChoice.
      */
-    @XmlElements(value = {
-        @XmlElement(name="sysoid", type = Sysoid.class, required = true),
-        @XmlElement(name="sysoidMask", type = SysoidMask.class, required = true)
-    })
-    private Object _packageChoice;
+    private org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice _packageChoice;
 
     /**
      * Field _assetFieldList.
      */
-    @XmlElement(name="assetField")
     private java.util.List<org.opennms.netmgt.config.snmpAsset.adapter.AssetField> _assetFieldList;
 
 
@@ -251,7 +242,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PackageChoice'.
      */
-    public Object getPackageChoice(
+    public org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice getPackageChoice(
     ) {
         return this._packageChoice;
     }
@@ -449,7 +440,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param packageChoice the value of field 'packageChoice'.
      */
     public void setPackageChoice(
-            final Object packageChoice) {
+            final org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice packageChoice) {
         this._packageChoice = packageChoice;
     }
 

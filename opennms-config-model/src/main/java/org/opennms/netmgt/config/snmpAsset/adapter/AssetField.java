@@ -47,8 +47,6 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="assetField")
@@ -64,19 +62,16 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _formatString.
      */
-    @XmlAttribute(name="formatString", required = true)
     private java.lang.String _formatString;
 
     /**
      * Field _mibObjs.
      */
-    @XmlElement(name="mibObjs")
     private org.opennms.netmgt.config.snmpAsset.adapter.MibObjs _mibObjs;
 
 

@@ -47,7 +47,6 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="mibObj")
@@ -63,7 +62,6 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * object identifier
      */
-    @XmlAttribute(name="oid", required = true)
     private java.lang.String _oid;
 
     /**
@@ -76,7 +74,6 @@ import org.opennms.core.xml.ValidateUsing;
      * which
      *  exceeds 19 characters it will be truncated.
      */
-    @XmlAttribute(name="alias", required = true)
     private java.lang.String _alias;
 
 
