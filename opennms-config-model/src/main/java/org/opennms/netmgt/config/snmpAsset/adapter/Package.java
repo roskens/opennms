@@ -47,6 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="package")
@@ -62,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
@@ -72,6 +75,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _assetFieldList.
      */
+    @XmlElement(name="assetField")
     private java.util.List<org.opennms.netmgt.config.snmpAsset.adapter.AssetField> _assetFieldList;
 
 

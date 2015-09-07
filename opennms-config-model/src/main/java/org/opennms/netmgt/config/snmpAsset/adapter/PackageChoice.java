@@ -35,6 +35,7 @@ package org.opennms.netmgt.config.snmpAsset.adapter;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,13 +45,8 @@ import org.exolab.castor.xml.Unmarshaller;
  * @version $Revision$ $Date$
  */
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAccessType;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="packageChoice")
-@XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("snmp-asset-adapter-configuration.xsd")
 @SuppressWarnings("all") public class PackageChoice implements java.io.Serializable {
 
@@ -63,12 +59,14 @@ import org.opennms.core.xml.ValidateUsing;
      * System object identifier (sysoid) which uniquely
      *  identifies the system.
      */
+    @XmlElement(name="sysoid")
     private java.lang.String _sysoid;
 
     /**
      * Sysoid mask which can be used to match multiple
      *  systems if their sysoid begins with the mask
      */
+    @XmlElement(name="sysoidMask")
     private java.lang.String _sysoidMask;
 
 
