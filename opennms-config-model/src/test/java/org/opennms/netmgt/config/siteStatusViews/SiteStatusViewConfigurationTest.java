@@ -42,6 +42,7 @@ public class SiteStatusViewConfigurationTest extends XmlTestNoCastor<SiteStatusV
         rowDef.setLabel(label);
         Category category = new Category();
         category.setName(categoryName);
+        rowDef.addCategory(category);
         rows.addRowDef(rowDef);
     }
 
