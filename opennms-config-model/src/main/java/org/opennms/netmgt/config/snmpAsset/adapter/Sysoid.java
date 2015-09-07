@@ -39,7 +39,7 @@ import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
 /**
- * Class AssetField.
+ * a MIB object
  *
  * @version $Revision$ $Date$
  */
@@ -47,14 +47,13 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlValue;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="assetField")
+@XmlRootElement(name="sysoid")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("snmp-asset-adapter-configuration.xsd")
-@SuppressWarnings("all") public class AssetField implements java.io.Serializable {
+@SuppressWarnings("all") public class Sysoid implements java.io.Serializable {
 
 
       //--------------------------/
@@ -62,29 +61,17 @@ import org.opennms.core.xml.ValidateUsing;
     //--------------------------/
 
     /**
-     * Field _name.
+     * object identifier
      */
-    @XmlAttribute(name="name", required = true)
-    private java.lang.String _name;
-
-    /**
-     * Field _formatString.
-     */
-    @XmlAttribute(name="formatString", required = true)
-    private java.lang.String _formatString;
-
-    /**
-     * Field _mibObjs.
-     */
-    @XmlElement(name="mibObjs")
-    private org.opennms.netmgt.config.snmpAsset.adapter.MibObjs _mibObjs;
+    @XmlValue
+    private java.lang.String _content;
 
 
       //----------------/
      //- Constructors -/
     //----------------/
 
-    public AssetField() {
+    public Sysoid() {
         super();
     }
 
@@ -105,29 +92,15 @@ import org.opennms.core.xml.ValidateUsing;
         if ( this == obj )
             return true;
 
-        if (obj instanceof AssetField) {
+        if (obj instanceof Sysoid) {
 
-            AssetField temp = (AssetField)obj;
-            if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+            Sysoid temp = (Sysoid)obj;
+            if (this._content != null) {
+                if (temp._content == null) return false;
+                else if (!(this._content.equals(temp._content)))
                     return false;
             }
-            else if (temp._name != null)
-                return false;
-            if (this._formatString != null) {
-                if (temp._formatString == null) return false;
-                else if (!(this._formatString.equals(temp._formatString)))
-                    return false;
-            }
-            else if (temp._formatString != null)
-                return false;
-            if (this._mibObjs != null) {
-                if (temp._mibObjs == null) return false;
-                else if (!(this._mibObjs.equals(temp._mibObjs)))
-                    return false;
-            }
-            else if (temp._mibObjs != null)
+            else if (temp._content != null)
                 return false;
             return true;
         }
@@ -135,33 +108,22 @@ import org.opennms.core.xml.ValidateUsing;
     }
 
     /**
-     * Returns the value of field 'formatString'.
+     * Returns the value of field 'alias'. The field 'alias' has
+     * the following description: a human readable name for the
+     * object (such as
+     *  "ifOctetsIn"). NOTE: This value is used as the RRD file
+     * name and
+     *  data source name. RRD only supports data source names up to
+     * 19 chars
+     *  in length. If the SNMP data collector encounters an alias
+     * which
+     *  exceeds 19 characters it will be truncated.
      *
-     * @return the value of field 'FormatString'.
+     * @return the value of field 'Alias'.
      */
-    public java.lang.String getFormatString(
+    public java.lang.String getContent(
     ) {
-        return this._formatString;
-    }
-
-    /**
-     * Returns the value of field 'mibObjs'.
-     *
-     * @return the value of field 'MibObjs'.
-     */
-    public org.opennms.netmgt.config.snmpAsset.adapter.MibObjs getMibObjs(
-    ) {
-        return this._mibObjs;
-    }
-
-    /**
-     * Returns the value of field 'name'.
-     *
-     * @return the value of field 'Name'.
-     */
-    public java.lang.String getName(
-    ) {
-        return this._name;
+        return this._content;
     }
 
     /**
@@ -178,14 +140,8 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        if (_name != null) {
-           result = 37 * result + _name.hashCode();
-        }
-        if (_formatString != null) {
-           result = 37 * result + _formatString.hashCode();
-        }
-        if (_mibObjs != null) {
-           result = 37 * result + _mibObjs.hashCode();
+        if (_content != null) {
+           result = 37 * result + _content.hashCode();
         }
 
         return result;
@@ -239,33 +195,22 @@ import org.opennms.core.xml.ValidateUsing;
     }
 
     /**
-     * Sets the value of field 'formatString'.
+     * Sets the value of field 'alias'. The field 'alias' has the
+     * following description: a human readable name for the object
+     * (such as
+     *  "ifOctetsIn"). NOTE: This value is used as the RRD file
+     * name and
+     *  data source name. RRD only supports data source names up to
+     * 19 chars
+     *  in length. If the SNMP data collector encounters an alias
+     * which
+     *  exceeds 19 characters it will be truncated.
      *
-     * @param formatString the value of field 'formatString'.
+     * @param content the value of field 'content'.
      */
-    public void setFormatString(
-            final java.lang.String formatString) {
-        this._formatString = formatString;
-    }
-
-    /**
-     * Sets the value of field 'mibObjs'.
-     *
-     * @param mibObjs the value of field 'mibObjs'.
-     */
-    public void setMibObjs(
-            final org.opennms.netmgt.config.snmpAsset.adapter.MibObjs mibObjs) {
-        this._mibObjs = mibObjs;
-    }
-
-    /**
-     * Sets the value of field 'name'.
-     *
-     * @param name the value of field 'name'.
-     */
-    public void setName(
-            final java.lang.String name) {
-        this._name = name;
+    public void setContent(
+            final java.lang.String content) {
+        this._content = content;
     }
 
     /**
@@ -277,12 +222,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      * @return the unmarshaled
-     * org.opennms.netmgt.config.snmpAsset.adapter.AssetField
+     * org.opennms.netmgt.config.snmpAsset.adapter.MibObj
      */
-    public static org.opennms.netmgt.config.snmpAsset.adapter.AssetField unmarshal(
+    public static org.opennms.netmgt.config.snmpAsset.adapter.MibObj unmarshal(
             final java.io.Reader reader)
     throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
-        return (org.opennms.netmgt.config.snmpAsset.adapter.AssetField) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpAsset.adapter.AssetField.class, reader);
+        return (org.opennms.netmgt.config.snmpAsset.adapter.MibObj) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpAsset.adapter.MibObj.class, reader);
     }
 
     /**
