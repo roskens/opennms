@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.discovery;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -46,12 +44,37 @@ public class DiscoveryConfigurationTest extends XmlTestNoCastor<DiscoveryConfigu
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        DiscoveryConfiguration discoveryConfiguration = new DiscoveryConfiguration();
+        DiscoveryConfiguration config = new DiscoveryConfiguration();
+        config.setThreads(1);
+        config.setPacketsPerSecond(1);
+        config.setInitialSleepTime(30000L);
+        config.setRestartSleepTime(86400000L);
+        config.setRetries(1);
+        config.setTimeout(2000L);
+        IncludeRange ir = new IncludeRange();
+        config.addIncludeRange(ir);
+        ir.setBegin("192.168.0.1");
+        ir.setEnd("192.168.0.254");
+        IncludeUrl incUrl1 = new IncludeUrl();
+        config.addIncludeUrl(incUrl1);
+        incUrl1.setContent("file:/opt/opennms/etc/include.txt");
+        IncludeUrl incUrl2 = new IncludeUrl();
+        config.addIncludeUrl(incUrl2);
+        incUrl2.setContent("http://example.com/ip-address-list.txt");
 
-        return Arrays.asList(new Object[][] { {
-                discoveryConfiguration,
-                "<discovery-configuration>"
-                + "</discovery-configuration>", /* configuration */
-                "target/classes/xsds/discovery-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            config,
+            "<discovery-configuration"
+            + "    threads=\"1\" packets-per-second=\"1\"\n"
+            + "    initial-sleep-time=\"30000\" restart-sleep-time=\"86400000\"\n"
+            + "    retries=\"1\" timeout=\"2000\">\n"
+            + " <include-range>\n"
+            + "   <begin>192.168.0.1</begin>\n"
+            + "   <end>192.168.0.254</end>\n"
+            + " </include-range>\n"
+            + " <include-url>file:/opt/opennms/etc/include.txt</include-url>\n"
+            + " <include-url>http://example.com/ip-address-list.txt</include-url>\n"
+            + "</discovery-configuration>",
+            "target/classes/xsds/discovery-configuration.xsd",},});
     }
 }

@@ -48,6 +48,7 @@ import org.exolab.castor.xml.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="exclude-range")
@@ -63,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Starting address of the range.
      */
+    @XmlElement(name="begin")
     private java.lang.String _begin;
 
     /**
      * Ending address of the range.
      */
+    @XmlElement(name="end")
     private java.lang.String _end;
 
 
