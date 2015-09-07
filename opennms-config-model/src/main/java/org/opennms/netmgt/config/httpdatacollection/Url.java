@@ -200,12 +200,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Url() {
         super();
-        setMethod("GET");
-        setHttpVersion("1.1");
-        setScheme("http");
-        setHost("${ipaddr}");
-        setMatches("(.*)");
-        setResponseRange("100-399");
     }
 
 
