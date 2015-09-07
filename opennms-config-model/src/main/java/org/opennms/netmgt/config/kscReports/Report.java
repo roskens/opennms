@@ -51,7 +51,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="report")
+@XmlRootElement(name="Report")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("ksc-performance-reports.xsd")
 @SuppressWarnings("all") public class Report implements java.io.Serializable {
@@ -94,7 +94,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _graphList.
      */
-    @XmlElement(name="graph")
+    @XmlElement(name="Graph")
     private java.util.List<org.opennms.netmgt.config.kscReports.Graph> _graphList;
 
 

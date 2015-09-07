@@ -50,7 +50,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="graph")
+@XmlRootElement(name="Graph")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("ksc-performance-reports.xsd")
 @SuppressWarnings("all") public class Graph implements java.io.Serializable {
@@ -105,7 +105,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _graphtype.
      */
-    @XmlAttribute(name="graphttype", required = true)
+    @XmlAttribute(name="graphtype", required = true)
     private java.lang.String _graphtype;
 
     /**
