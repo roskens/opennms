@@ -49,7 +49,7 @@ public class RwsConfigurationTest extends XmlTestNoCastor<RwsConfiguration> {
         baseUrl.setServer_url("http://rws-not-configured");
         rwsConfiguration.setBaseUrl(baseUrl);
         StandbyUrl standbyUrl = new StandbyUrl();
-        standbyUrl.setServer_url("http://rws-not-configured");
+        standbyUrl.setServer_url("http://standby-rws-not-configured");
         rwsConfiguration.addStandbyUrl(standbyUrl);
 
         return Arrays.asList(new Object[][]{{
