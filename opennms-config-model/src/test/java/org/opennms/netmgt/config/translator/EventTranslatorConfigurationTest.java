@@ -29,10 +29,8 @@
 package org.opennms.netmgt.config.translator;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -50,22 +48,24 @@ public class EventTranslatorConfigurationTest extends XmlTestNoCastor<EventTrans
         Translation trans = new Translation();
         eventTranslatorConfiguration.setTranslation(trans);
         EventTranslationSpec snmpLinkDown = new EventTranslationSpec();
+        trans.addEventTranslationSpec(snmpLinkDown);
         snmpLinkDown.setUei("uei.opennms.org/generic/traps/SNMP_Link_Down");
         Mappings mappings = new Mappings();
         snmpLinkDown.setMappings(mappings);
         Mapping mapping = new Mapping();
 
-        Assignment ueiAss = new Assignment();
-        ueiAss.setName("uei");
-        ueiAss.setType("field");
+        Assignment ueiAssignment = new Assignment();
+        ueiAssignment.setName("uei");
+        ueiAssignment.setType("field");
         Value v1 = new Value();
         v1.setType("constant");
         v1.setResult("uei.opennms.org/translator/traps/SNMP_Link_Down");
-        mapping.addAssignment(ueiAss);
+        ueiAssignment.setValue(v1);
+        mapping.addAssignment(ueiAssignment);
 
-        Assignment ifDescrAss = new Assignment();
-        ifDescrAss.setName("ifDescr");
-        ifDescrAss.setType("parameter");
+        Assignment ifDescrAssignment = new Assignment();
+        ifDescrAssignment.setName("ifDescr");
+        ifDescrAssignment.setType("parameter");
         Value v2 = new Value();
         v2.setType("sql");
         v2.setResult("SELECT snmp.snmpIfDescr FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer");
@@ -81,12 +81,12 @@ public class EventTranslatorConfigurationTest extends XmlTestNoCastor<EventTrans
         v2v2.setMatches(".*");
         v2v2.setResult("${0}");
         v2.addValue(v2v2);
-        ifDescrAss.setValue(v2);
-        mapping.addAssignment(ifDescrAss);
+        ifDescrAssignment.setValue(v2);
+        mapping.addAssignment(ifDescrAssignment);
 
-        Assignment ifNameAss = new Assignment();
-        ifNameAss.setName("ifName");
-        ifNameAss.setType("parameter");
+        Assignment ifNameAssignment = new Assignment();
+        ifNameAssignment.setName("ifName");
+        ifNameAssignment.setType("parameter");
         Value v3 = new Value();
         v3.setType("sql");
         v3.setResult("SELECT snmp.snmpIfName FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer");
@@ -102,39 +102,38 @@ public class EventTranslatorConfigurationTest extends XmlTestNoCastor<EventTrans
         v3v2.setMatches(".*");
         v3v2.setResult("${0}");
         v3.addValue(v3v2);
-        ifNameAss.setValue(v3);
-        mapping.addAssignment(ifNameAss);
-
+        ifNameAssignment.setValue(v3);
+        mapping.addAssignment(ifNameAssignment);
 
         mappings.addMapping(mapping);
 
-        return Arrays.asList(new Object[][] { {
-                eventTranslatorConfiguration,
-"<event-translator-configuration>\n" +
-"  <translation>\n" +
-"    <event-translation-spec uei=\"uei.opennms.org/generic/traps/SNMP_Link_Down\">\n" +
-"      <mappings>\n" +
-"        <mapping>\n" +
-"          <assignment name=\"uei\" type=\"field\" >\n" +
-"            <value type=\"constant\" result=\"uei.opennms.org/translator/traps/SNMP_Link_Down\" />\n" +
-"          </assignment>\n" +
-"          <assignment name=\"ifDescr\" type=\"parameter\">\n" +
-"            <value type=\"sql\" result=\"SELECT snmp.snmpIfDescr FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer\" >\n" +
-"              <value type=\"field\" name=\"nodeid\" matches=\".*\" result=\"${0}\" />\n" +
-"              <value type=\"parameter\" name=\"~^\\.1\\.3\\.6\\.1\\.2\\.1\\.2\\.2\\.1\\.1\\.([0-9]*)$\" matches=\".*\" result=\"${0}\" />\n" +
-"            </value>\n" +
-"          </assignment>\n" +
-"          <assignment name=\"ifName\" type=\"parameter\">\n" +
-"            <value type=\"sql\" result=\"SELECT snmp.snmpIfName FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer\" >\n" +
-"              <value type=\"field\" name=\"nodeid\" matches=\".*\" result=\"${0}\" />\n" +
-"              <value type=\"parameter\" name=\"~^\\.1\\.3\\.6\\.1\\.2\\.1\\.2\\.2\\.1\\.1\\.([0-9]*)$\" matches=\".*\" result=\"${0}\" />\n" +
-"            </value>\n" +
-"          </assignment>\n" +
-"        </mapping>\n" +
-"      </mappings>\n" +
-"    </event-translation-spec>\n" +
-"  </translation>\n" +
-"</event-translator-configuration>",
-                "target/classes/xsds/translator-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            eventTranslatorConfiguration,
+            "<event-translator-configuration>\n"
+            + "  <translation>\n"
+            + "    <event-translation-spec uei=\"uei.opennms.org/generic/traps/SNMP_Link_Down\">\n"
+            + "      <mappings>\n"
+            + "        <mapping>\n"
+            + "          <assignment name=\"uei\" type=\"field\" >\n"
+            + "            <value type=\"constant\" result=\"uei.opennms.org/translator/traps/SNMP_Link_Down\" />\n"
+            + "          </assignment>\n"
+            + "          <assignment name=\"ifDescr\" type=\"parameter\">\n"
+            + "            <value type=\"sql\" result=\"SELECT snmp.snmpIfDescr FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer\" >\n"
+            + "              <value type=\"field\" name=\"nodeid\" matches=\".*\" result=\"${0}\" />\n"
+            + "              <value type=\"parameter\" name=\"~^\\.1\\.3\\.6\\.1\\.2\\.1\\.2\\.2\\.1\\.1\\.([0-9]*)$\" matches=\".*\" result=\"${0}\" />\n"
+            + "            </value>\n"
+            + "          </assignment>\n"
+            + "          <assignment name=\"ifName\" type=\"parameter\">\n"
+            + "            <value type=\"sql\" result=\"SELECT snmp.snmpIfName FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer\" >\n"
+            + "              <value type=\"field\" name=\"nodeid\" matches=\".*\" result=\"${0}\" />\n"
+            + "              <value type=\"parameter\" name=\"~^\\.1\\.3\\.6\\.1\\.2\\.1\\.2\\.2\\.1\\.1\\.([0-9]*)$\" matches=\".*\" result=\"${0}\" />\n"
+            + "            </value>\n"
+            + "          </assignment>\n"
+            + "        </mapping>\n"
+            + "      </mappings>\n"
+            + "    </event-translation-spec>\n"
+            + "  </translation>\n"
+            + "</event-translator-configuration>",
+            "target/classes/xsds/translator-configuration.xsd",},});
     }
 }
