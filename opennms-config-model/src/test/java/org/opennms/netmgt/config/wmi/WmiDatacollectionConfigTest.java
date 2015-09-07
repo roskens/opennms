@@ -81,6 +81,7 @@ public class WmiDatacollectionConfigTest extends XmlTestNoCastor<WmiDatacollecti
         addAttrib(wpm, "CacheFaultsPerSec", "wmiOSMemCacheFaults", "CacheFaultsPerSec", "Counter");
         addAttrib(wpm, "CommitLimit", "wmiOSMemCommitLimit", "CommitLimit", "Gauge");
         addAttrib(wpm, "CommittedBytes", "wmiOSMemCommitted", "CommittedBytes", "Gauge");
+        wpms.addWpm(wpm);
 
         return Arrays.asList(new Object[][]{{
             wmiDatacollectionConfig,
@@ -96,11 +97,11 @@ public class WmiDatacollectionConfigTest extends XmlTestNoCastor<WmiDatacollecti
             + "  <wpms>"
             + "    <wpm name=\"wmiOSMemory\" wmiClass=\"Win32_PerfFormattedData_PerfOS_Memory\" wmiNamespace=\"root/cimv2\""
             + "                 keyvalue=\"Name\" recheckInterval=\"3600000\" ifType=\"all\" resourceType=\"node\">"
-            + "                <attrib name=\"AvailableBytes\" alias=\"wmiOSMemAvailBytes\" wmiObject=\"AvailableBytes\" type=\"Gauge\"/>\n"
-            + "                <attrib name=\"CacheBytes\" alias=\"wmiOSMemCacheBytes\" wmiObject=\"CacheBytes\" type=\"Gauge\"/>\n"
-            + "                <attrib name=\"CacheFaultsPerSec\" alias=\"wmiOSMemCacheFaults\" wmiObject=\"CacheFaultsPerSec\" type=\"Counter\"/>\n"
-            + "                <attrib name=\"CommitLimit\" alias=\"wmiOSMemCommitLimit\" wmiObject=\"CommitLimit\" type=\"Gauge\"/>\n"
-            + "                <attrib name=\"CommittedBytes\" alias=\"wmiOSMemCommitted\" wmiObject=\"CommittedBytes\" type=\"Gauge\"/>\n"
+            + "      <attrib name=\"AvailableBytes\" alias=\"wmiOSMemAvailBytes\" wmiObject=\"AvailableBytes\" type=\"Gauge\"/>\n"
+            + "      <attrib name=\"CacheBytes\" alias=\"wmiOSMemCacheBytes\" wmiObject=\"CacheBytes\" type=\"Gauge\"/>\n"
+            + "      <attrib name=\"CacheFaultsPerSec\" alias=\"wmiOSMemCacheFaults\" wmiObject=\"CacheFaultsPerSec\" type=\"Counter\"/>\n"
+            + "      <attrib name=\"CommitLimit\" alias=\"wmiOSMemCommitLimit\" wmiObject=\"CommitLimit\" type=\"Gauge\"/>\n"
+            + "      <attrib name=\"CommittedBytes\" alias=\"wmiOSMemCommitted\" wmiObject=\"CommittedBytes\" type=\"Gauge\"/>\n"
             + "    </wpm>"
             + "  </wpms>"
             + "</wmi-collection>"
