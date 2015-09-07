@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="stringParm")
+@XmlRootElement(name="string-parm")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("report-parms.xsd")
 @SuppressWarnings("all") public class StringParm implements java.io.Serializable {
@@ -66,14 +66,14 @@ import org.opennms.core.xml.ValidateUsing;
      * the name of this parameter as passed to the report
      *  engine
      */
-    @XmlAttribute(name="name")
+    @XmlAttribute(name="name", required = true)
     private String _name;
 
     /**
      * the name of this parameter as displayed in the
      *  webui
      */
-    @XmlAttribute(name="displayName")
+    @XmlAttribute(name="display-name", required = true)
     private String _displayName;
 
     /**
@@ -81,13 +81,13 @@ import org.opennms.core.xml.ValidateUsing;
      * pre-filled
      *  drop-down boxes (reportCategorySelector) or freeText
      */
-    @XmlAttribute(name="inputType")
+    @XmlAttribute(name="input-type", required = true)
     private String _inputType;
 
     /**
      * value
      */
-    @XmlAttribute(name="default")
+    @XmlElement(name="default")
     private String _default;
 
 

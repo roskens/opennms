@@ -53,7 +53,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="dateParm")
+@XmlRootElement(name="date-parm")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("report-parms.xsd")
 @SuppressWarnings("all") public class DateParm implements java.io.Serializable {
@@ -67,47 +67,38 @@ import org.opennms.core.xml.ValidateUsing;
      * the name of this parameter as passed to the report
      *  engine
      */
-    @XmlAttribute(name="name")
+    @XmlAttribute(name="name", required = true)
     private String _name;
 
     /**
      * the name of this parameter as displayed in the
      *  webui
      */
-    @XmlAttribute(name="displayName")
+    @XmlAttribute(name="display-name", required = true)
     private String _displayName;
 
     /**
      * flag to use absolute date if possible
      */
-    @XmlAttribute(name="useAbsoluteDate")
+    @XmlAttribute(name="use-absolute-date")
     private Boolean _useAbsoluteDate;
-
-    /**
-     * keeps track of state for field: _useAbsoluteDate
-     */
-    private boolean _has_useAbsoluteDate;
 
     /**
      * Field _defaultInterval.
      */
-    @XmlAttribute(name="defaultInterval")
+    @XmlElement(name="default-interval")
     private String _defaultInterval;
 
     /**
      * Field _defaultCount.
      */
-    @XmlAttribute(name="defaultCount")
+    @XmlElement(name="default-count")
     private Integer _defaultCount;
-
-    /**
-     * keeps track of state for field: _defaultCount
-     */
-    private boolean _has_defaultCount;
 
     /**
      * Field _defaultTime.
      */
+    @XmlElement(name="default-time")
     private org.opennms.netmgt.config.reporting.DefaultTime _defaultTime;
 
 
@@ -151,7 +142,6 @@ import org.opennms.core.xml.ValidateUsing;
             return true;
 
         if (obj instanceof DateParm) {
-
             DateParm temp = (DateParm)obj;
             if (this._name != null) {
                 if (temp._name == null) return false;
@@ -308,11 +298,15 @@ import org.opennms.core.xml.ValidateUsing;
         if (_displayName != null) {
            result = 37 * result + _displayName.hashCode();
         }
-        result = 37 * result + (_useAbsoluteDate?0:1);
+        if (_useAbsoluteDate != null) {
+           result = 37 * result + _useAbsoluteDate.hashCode();
+        }
         if (_defaultInterval != null) {
            result = 37 * result + _defaultInterval.hashCode();
         }
-        result = 37 * result + _defaultCount;
+        if (_defaultCount != null) {
+           result = 37 * result + _defaultCount.hashCode();
+        }
         if (_defaultTime != null) {
            result = 37 * result + _defaultTime.hashCode();
         }
@@ -384,9 +378,8 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @param defaultCount the value of field 'defaultCount'.
      */
-    public void setDefaultCount(final Integer _defaultCount) {
-        this._defaultCount = _defaultCount;
-        this._has_defaultCount = true;
+    public void setDefaultCount(final Integer defaultCount) {
+        this._defaultCount = defaultCount;
     }
 
     /**
@@ -442,9 +435,8 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @param useAbsoluteDate the value of field 'useAbsoluteDate'.
      */
-    public void setUseAbsoluteDate(final Boolean _useAbsoluteDate) {
-        this._useAbsoluteDate = _useAbsoluteDate;
-        this._has_useAbsoluteDate = true;
+    public void setUseAbsoluteDate(final Boolean useAbsoluteDate) {
+        this._useAbsoluteDate = useAbsoluteDate;
     }
 
     /**

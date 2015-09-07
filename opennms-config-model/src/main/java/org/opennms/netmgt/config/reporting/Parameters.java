@@ -64,16 +64,19 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _stringParmList.
      */
+    @XmlElement(name="string-parm")
     private java.util.List<org.opennms.netmgt.config.reporting.StringParm> _stringParmList;
 
     /**
      * Field _dateParmList.
      */
+    @XmlElement(name="date-parm")
     private java.util.List<org.opennms.netmgt.config.reporting.DateParm> _dateParmList;
 
     /**
      * Field _intParmList.
      */
+    @XmlElement(name="int-parm")
     private java.util.List<org.opennms.netmgt.config.reporting.IntParm> _intParmList;
 
 

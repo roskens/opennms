@@ -26,29 +26,14 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
+@XmlSchema(
+    namespace = "http://xmlns.opennms.org/xsd/config/report-parms",
+    elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+    xmlns={
+        @XmlNs(prefix="", namespaceURI="http://xmlns.opennms.org/xsd/config/report-parms")
+    }
+)
 package org.opennms.netmgt.config.reporting;
 
-import java.text.ParseException;
-import java.util.Arrays;
-import java.util.Collection;
-
-import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
-
-public class DateParmTest extends XmlTestNoCastor<DateParm> {
-
-    public DateParmTest(final DateParm sampleObject, final String sampleXml, final String schemaFile) {
-        super(sampleObject, sampleXml, schemaFile);
-    }
-
-    @Parameters
-    public static Collection<Object[]> data() throws ParseException {
-
-        DateParm dateParm = new DateParm();
-
-        return Arrays.asList(new Object[][] { {
-                dateParm,
-                "", /* configuration */
-                "target/classes/xsds/report-parms.xsd", }, });
-    }
-}
+import javax.xml.bind.annotation.XmlNs;
+import javax.xml.bind.annotation.XmlSchema;

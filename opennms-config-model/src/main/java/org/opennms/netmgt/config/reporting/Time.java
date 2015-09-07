@@ -65,25 +65,14 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * hours
      */
-    @XmlAttribute(name="hours")
+    @XmlElement(name="hours")
     private Integer _hours;
-
-    /**
-     * keeps track of state for field: _hours
-     */
-    private boolean _has_hours;
 
     /**
      * minutes
      */
-    @XmlAttribute(name="minutes")
+    @XmlElement(name="minutes")
     private Integer _minutes;
-
-    /**
-     * keeps track of state for field: _minutes
-     */
-    private boolean _has_minutes;
-
 
       //----------------/
      //- Constructors -/
@@ -202,8 +191,12 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _hours;
-        result = 37 * result + _minutes;
+        if (_hours != null) {
+           result = 37 * result + _hours.hashCode();
+        }
+        if (_minutes != null) {
+           result = 37 * result + _minutes.hashCode();
+        }
 
         return result;
     }
@@ -261,9 +254,8 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @param hours the value of field 'hours'.
      */
-    public void setHours(final Integer _hours) {
-        this._hours = _hours;
-        this._has_hours = true;
+    public void setHours(final Integer hours) {
+        this._hours = hours;
     }
 
     /**
@@ -272,9 +264,8 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @param minutes the value of field 'minutes'.
      */
-    public void setMinutes(final Integer _minutes) {
-        this._minutes = _minutes;
-        this._has_minutes = true;
+    public void setMinutes(final Integer minutes) {
+        this._minutes = minutes;
     }
 
     /**

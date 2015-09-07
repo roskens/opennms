@@ -51,7 +51,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="defaultTime")
+@XmlRootElement(name="default-time")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("report-parms.xsd")
 @SuppressWarnings("all") public class DefaultTime extends Time
@@ -71,46 +71,6 @@ implements java.io.Serializable
       //-----------/
      //- Methods -/
     //-----------/
-
-    /**
-     * Overrides the java.lang.Object.equals method.
-     *
-     * @param obj
-     * @return true if the objects are equal.
-     */
-    @Override()
-    public boolean equals(
-            final java.lang.Object obj) {
-        if ( this == obj )
-            return true;
-
-        if (super.equals(obj)==false)
-            return false;
-
-        if (obj instanceof DefaultTime) {
-
-        return true;
-    }
-    return false;
-    }
-
-    /**
-     * Overrides the java.lang.Object.hashCode method.
-     * <p>
-     * The following steps came from <b>Effective Java Programming
-     * Language Guide</b> by Joshua Bloch, Chapter 3
-     *
-     * @return a hash code value for the object.
-     */
-    @Override
-    public int hashCode(
-    ) {
-        int result = 17;
-
-        long tmp;
-
-        return result;
-    }
 
     /**
      * Method isValid.

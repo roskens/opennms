@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="intParm")
+@XmlRootElement(name="int-parm")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("report-parms.xsd")
 @SuppressWarnings("all") public class IntParm implements java.io.Serializable {
@@ -73,25 +73,20 @@ import org.opennms.core.xml.ValidateUsing;
      * the name of this parameter as displayed in the
      *  webui
      */
-    @XmlAttribute(name="displayName")
+    @XmlAttribute(name="display-name")
     private String _displayName;
 
     /**
-     * the type of input field used. Currently freeText onlly
+     * the type of input field used. Currently freeText only
      */
-    @XmlAttribute(name="inputType")
+    @XmlAttribute(name="input-type")
     private String _inputType;
 
     /**
      * value
      */
-    @XmlAttribute(name="default")
+    @XmlElement(name="default")
     private Integer _default;
-
-    /**
-     * keeps track of state for field: _default
-     */
-    private boolean _has_default;
 
 
       //----------------/
@@ -305,7 +300,6 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void setDefault(final Integer _default) {
         this._default = _default;
-        this._has_default = true;
     }
 
     /**
