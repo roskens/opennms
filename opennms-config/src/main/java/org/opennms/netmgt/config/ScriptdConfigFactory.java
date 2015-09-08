@@ -37,6 +37,7 @@ import org.opennms.core.utils.ConfigFileConstants;
 import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.config.scriptd.Engine;
 import org.opennms.netmgt.config.scriptd.EventScript;
+import org.opennms.netmgt.config.scriptd.Events;
 import org.opennms.netmgt.config.scriptd.ReloadScript;
 import org.opennms.netmgt.config.scriptd.ScriptdConfiguration;
 import org.opennms.netmgt.config.scriptd.StartScript;
@@ -191,5 +192,14 @@ public final class ScriptdConfigFactory {
      */
     public synchronized EventScript[] getEventScripts() {
         return m_config.getEventScript();
+    }
+
+    /**
+     * Return the array of configured events.
+     *
+     * @return the array of configured event scripts
+     */
+    public synchronized Events[] getEvents() {
+        return m_config.getEvents();
     }
 }

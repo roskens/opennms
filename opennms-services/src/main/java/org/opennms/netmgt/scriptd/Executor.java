@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2003-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2003-2015 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2015 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -29,9 +29,13 @@
 package org.opennms.netmgt.scriptd;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.bsf.BSFException;
@@ -44,10 +48,10 @@ import org.slf4j.LoggerFactory;
 import org.opennms.netmgt.config.ScriptdConfigFactory;
 import org.opennms.netmgt.config.scriptd.Engine;
 import org.opennms.netmgt.config.scriptd.EventScript;
+import org.opennms.netmgt.config.scriptd.Events;
 import org.opennms.netmgt.config.scriptd.ReloadScript;
 import org.opennms.netmgt.config.scriptd.StartScript;
 import org.opennms.netmgt.config.scriptd.StopScript;
-import org.opennms.netmgt.config.scriptd.Uei;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.events.api.EventConstants;
 import org.opennms.netmgt.model.OnmsNode;
@@ -143,29 +147,27 @@ final class Executor implements Runnable, PausableFiber {
     private void loadConfig() {
 
         EventScript[] scripts = m_config.getEventScripts();
+        Events[] events = m_config.getEvents();
 
-        m_eventScripts = new ArrayList<EventScript>();
-        m_eventScriptMap = new ConcurrentHashMap<String,List<EventScript>>();
+        m_eventScripts = new ArrayList<>();
+        m_eventScriptMap = new ConcurrentHashMap<>();
+        Map<String,SortedSet<String>> eventMap = new TreeMap<>();
 
-        for (int i = 0; i < scripts.length; i++) {
-            Uei[] ueis = scripts[i].getUei();
+        for (Events event : events) {
+            for (String eventScriptName : event.getEventScriptNameCollection()) {
+                if (!eventMap.containsKey(eventScriptName)) {
+                    eventMap.put(eventScriptName, new TreeSet<>());
+                }
+                eventMap.get(eventScriptName).addAll(Arrays.asList(event.getUei()));
+            }
+        }
 
-            if (ueis.length == 0) {
-                m_eventScripts.add(scripts[i]);
+        for (EventScript script : scripts) {
+            if (script.getName() == null || "global".equals(script.getName())) {
+                m_eventScripts.add(script);
             } else {
-                for (int j = 0; j < ueis.length; j++) {
-
-                    String uei = ueis[j].getName();
-
-                    List<EventScript> list = m_eventScriptMap.get(uei);
-
-                    if (list == null) {
-                        list = new ArrayList<EventScript>();
-                        list.add(scripts[i]);
-                        m_eventScriptMap.put(uei, list);
-                    } else {
-                        list.add(scripts[i]);
-                    }
+                for (String uei : eventMap.get(script.getName())) {
+                    m_eventScriptMap.get(uei).add(script);
                 }
             }
         }
