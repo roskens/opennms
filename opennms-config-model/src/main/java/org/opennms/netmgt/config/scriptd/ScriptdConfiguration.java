@@ -91,6 +91,12 @@ import org.opennms.core.xml.ValidateUsing;
     @XmlElement(name="event-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.EventScript> _eventScriptList;
 
+    /**
+     * Field _eventsList.
+     */
+    @XmlElement(name="events")
+    private java.util.List<org.opennms.netmgt.config.scriptd.Events> _eventsList;
+
 
       //----------------/
      //- Constructors -/
@@ -103,6 +109,7 @@ import org.opennms.core.xml.ValidateUsing;
         this._stopScriptList = new java.util.ArrayList<org.opennms.netmgt.config.scriptd.StopScript>();
         this._reloadScriptList = new java.util.ArrayList<org.opennms.netmgt.config.scriptd.ReloadScript>();
         this._eventScriptList = new java.util.ArrayList<org.opennms.netmgt.config.scriptd.EventScript>();
+        this._eventsList = new java.util.ArrayList<org.opennms.netmgt.config.scriptd.Events>();
     }
 
 
@@ -164,6 +171,34 @@ import org.opennms.core.xml.ValidateUsing;
             final org.opennms.netmgt.config.scriptd.EventScript vEventScript)
     throws java.lang.IndexOutOfBoundsException {
         this._eventScriptList.add(index, vEventScript);
+    }
+
+    /**
+     *
+     *
+     * @param vEvents
+     * @throws java.lang.IndexOutOfBoundsException if the index
+     * given is outside the bounds of the collection
+     */
+    public void addEvents(
+            final org.opennms.netmgt.config.scriptd.Events vEvents)
+    throws java.lang.IndexOutOfBoundsException {
+        this._eventsList.add(vEvents);
+    }
+
+    /**
+     *
+     *
+     * @param index
+     * @param vEvents
+     * @throws java.lang.IndexOutOfBoundsException if the index
+     * given is outside the bounds of the collection
+     */
+    public void addEvents(
+            final int index,
+            final org.opennms.netmgt.config.scriptd.Events vEvents)
+    throws java.lang.IndexOutOfBoundsException {
+        this._eventsList.add(index, vEvents);
     }
 
     /**
@@ -273,6 +308,17 @@ import org.opennms.core.xml.ValidateUsing;
     }
 
     /**
+     * Method enumerateEvents.
+     *
+     * @return an Enumeration over all possible elements of this
+     * collection
+     */
+    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.Events> enumerateEvents(
+    ) {
+        return java.util.Collections.enumeration(this._eventsList);
+    }
+
+    /**
      * Method enumerateReloadScript.
      *
      * @return an Enumeration over all possible elements of this
@@ -354,6 +400,13 @@ import org.opennms.core.xml.ValidateUsing;
                     return false;
             }
             else if (temp._eventScriptList != null)
+                return false;
+            if (this._eventsList != null) {
+                if (temp._eventsList == null) return false;
+                else if (!(this._eventsList.equals(temp._eventsList)))
+                    return false;
+            }
+            else if (temp._eventsList != null)
                 return false;
             return true;
         }
@@ -473,6 +526,63 @@ import org.opennms.core.xml.ValidateUsing;
     public int getEventScriptCount(
     ) {
         return this._eventScriptList.size();
+    }
+
+    /**
+     * Method getEvents.
+     *
+     * @param index
+     * @throws java.lang.IndexOutOfBoundsException if the index
+     * given is outside the bounds of the collection
+     * @return the value of the
+     * org.opennms.netmgt.config.scriptd.Events at the given index
+     */
+    public org.opennms.netmgt.config.scriptd.Events getEvents(
+            final int index)
+    throws java.lang.IndexOutOfBoundsException {
+        // check bounds for index
+        if (index < 0 || index >= this._eventsList.size()) {
+            throw new IndexOutOfBoundsException("getEvents: Index value '" + index + "' not in range [0.." + (this._eventsList.size() - 1) + "]");
+        }
+
+        return (org.opennms.netmgt.config.scriptd.Events) _eventsList.get(index);
+    }
+
+    /**
+     * Method getEvents.Returns the contents of the collection in
+     * an Array.  <p>Note:  Just in case the collection contents
+     * are changing in another thread, we pass a 0-length Array of
+     * the correct type into the API call.  This way we <i>know</i>
+     * that the Array returned is of exactly the correct length.
+     *
+     * @return this collection as an Array
+     */
+    public org.opennms.netmgt.config.scriptd.Events[] getEvents(
+    ) {
+        org.opennms.netmgt.config.scriptd.Events[] array = new org.opennms.netmgt.config.scriptd.Events[0];
+        return (org.opennms.netmgt.config.scriptd.Events[]) this._eventsList.toArray(array);
+    }
+
+    /**
+     * Method getEventsCollection.Returns a reference to
+     * '_eventsList'. No type checking is performed on any
+     * modifications to the Vector.
+     *
+     * @return a reference to the Vector backing this class
+     */
+    public java.util.List<org.opennms.netmgt.config.scriptd.Events> getEventsCollection(
+    ) {
+        return this._eventsList;
+    }
+
+    /**
+     * Method getEventsCount.
+     *
+     * @return the size of this collection
+     */
+    public int getEventsCount(
+    ) {
+        return this._eventsList.size();
     }
 
     /**
@@ -679,6 +789,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_eventScriptList != null) {
            result = 37 * result + _eventScriptList.hashCode();
         }
+        if (_eventsList != null) {
+           result = 37 * result + _eventsList.hashCode();
+        }
 
         return result;
     }
@@ -718,6 +831,17 @@ import org.opennms.core.xml.ValidateUsing;
     public java.util.Iterator<org.opennms.netmgt.config.scriptd.EventScript> iterateEventScript(
     ) {
         return this._eventScriptList.iterator();
+    }
+
+    /**
+     * Method iterateEvents.
+     *
+     * @return an Iterator over all possible elements in this
+     * collection
+     */
+    public java.util.Iterator<org.opennms.netmgt.config.scriptd.Events> iterateEvents(
+    ) {
+        return this._eventsList.iterator();
     }
 
     /**
@@ -801,6 +925,13 @@ import org.opennms.core.xml.ValidateUsing;
 
     /**
      */
+    public void removeAllEvents(
+    ) {
+        this._eventsList.clear();
+    }
+
+    /**
+     */
     public void removeAllReloadScript(
     ) {
         this._reloadScriptList.clear();
@@ -866,6 +997,30 @@ import org.opennms.core.xml.ValidateUsing;
             final int index) {
         java.lang.Object obj = this._eventScriptList.remove(index);
         return (org.opennms.netmgt.config.scriptd.EventScript) obj;
+    }
+
+    /**
+     * Method removeEvents.
+     *
+     * @param vEvents
+     * @return true if the object was removed from the collection.
+     */
+    public boolean removeEvents(
+            final org.opennms.netmgt.config.scriptd.Events vEvents) {
+        boolean removed = _eventsList.remove(vEvents);
+        return removed;
+    }
+
+    /**
+     * Method removeEventsAt.
+     *
+     * @param index
+     * @return the element removed from the collection
+     */
+    public org.opennms.netmgt.config.scriptd.Events removeEventsAt(
+            final int index) {
+        java.lang.Object obj = this._eventsList.remove(index);
+        return (org.opennms.netmgt.config.scriptd.Events) obj;
     }
 
     /**
@@ -1060,6 +1215,67 @@ import org.opennms.core.xml.ValidateUsing;
     public void setEventScriptCollection(
             final java.util.List<org.opennms.netmgt.config.scriptd.EventScript> eventScriptList) {
         this._eventScriptList = eventScriptList;
+    }
+
+    /**
+     *
+     *
+     * @param index
+     * @param vEvents
+     * @throws java.lang.IndexOutOfBoundsException if the index
+     * given is outside the bounds of the collection
+     */
+    public void setEvents(
+            final int index,
+            final org.opennms.netmgt.config.scriptd.Events vEvents)
+    throws java.lang.IndexOutOfBoundsException {
+        // check bounds for index
+        if (index < 0 || index >= this._eventsList.size()) {
+            throw new IndexOutOfBoundsException("setEvents: Index value '" + index + "' not in range [0.." + (this._eventsList.size() - 1) + "]");
+        }
+
+        this._eventsList.set(index, vEvents);
+    }
+
+    /**
+     *
+     *
+     * @param vEventsArray
+     */
+    public void setEvents(
+            final org.opennms.netmgt.config.scriptd.Events[] vEventsArray) {
+        //-- copy array
+        _eventsList.clear();
+
+        for (int i = 0; i < vEventsArray.length; i++) {
+                this._eventsList.add(vEventsArray[i]);
+        }
+    }
+
+    /**
+     * Sets the value of '_eventsList' by copying the given Vector.
+     * All elements will be checked for type safety.
+     *
+     * @param vEventsList the Vector to copy.
+     */
+    public void setEvents(
+            final java.util.List<org.opennms.netmgt.config.scriptd.Events> vEventsList) {
+        // copy vector
+        this._eventsList.clear();
+
+        this._eventsList.addAll(vEventsList);
+    }
+
+    /**
+     * Sets the value of '_eventsList' by setting it to the given
+     * Vector. No type checking is performed.
+     * @deprecated
+     *
+     * @param eventsList the Vector to set.
+     */
+    public void setEventsCollection(
+            final java.util.List<org.opennms.netmgt.config.scriptd.Events> eventsList) {
+        this._eventsList = eventsList;
     }
 
     /**

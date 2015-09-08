@@ -36,25 +36,73 @@ import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class ScriptdConfigurationTest extends XmlTestNoCastor<ScriptdConfiguration> {
-    
+
     public ScriptdConfigurationTest(final ScriptdConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
     }
-    
+
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
-        
+
         ScriptdConfiguration scriptdConfiguration = new ScriptdConfiguration();
         Engine engine = new Engine();
         engine.setLanguage("beanshell");
         engine.setClassName("bsh.util.BeanShellBSFEngine");
         engine.setExtensions("bsh");
         scriptdConfiguration.addEngine(engine);
-        
+        StartScript start = new StartScript();
+        scriptdConfiguration.addStartScript(start);
+        StopScript stop = new StopScript();
+        scriptdConfiguration.addStopScript(stop);
+        EventScript event = new EventScript();
+        scriptdConfiguration.addEventScript(event);
+        start.setLanguage("beanshell");
+        start.setContent("\nimport org.opennms.netmgt.scriptd.ins.events.InsServerListener;\n"
+            + "import org.opennms.netmgt.config.DataSourceFactory;\n"
+            + "log = bsf.lookupBean(\"log\");\n"
+            + "log.debug(\"Starting Script\");\n"
+            + "log.debug(\"Start TCP PROXY for INS Event \");\n"
+            + "InsServerListener isl = new InsServerListener();\n"
+            + "isl.setCriteriaRestriction(\"eventuei = 'uei.opennms.org/internal/alarms/AlarmRaised' and EXISTS (select 1 from alarms where alarmtype = 1 and severity > 3 and eventoperinstruct = alarmid and eventtime > lasteventtime)\");\n"
+            + "isl.start();\n");
+        stop.setLanguage("beanshell");
+        stop.setContent("\nisl.interrupt();\n"
+            + "log.debug(\"executing a stop script\");\n");
+        event.setLanguage("beanshell");
+        event.setContent("\n"
+            + "event = bsf.lookupBean(\"event\");\n"
+            + "if ((event.uei.equals(\"uei.opennms.org/internal/alarms/NotificationAlarm\"))\n"
+            + "    || (event.uei.equals(\"uei.opennms.org/internal/alarms/AlarmCleared\"))\n"
+            + "    || (event.uei.equals(\"uei.opennms.org/internal/alarms/AlarmRaised\"))) {\n"
+            + "  isl.flushEvent(event);\n"
+            + "}\n");
+
         return Arrays.asList(new Object[][]{{
             scriptdConfiguration,
-            "<scriptd-configuration>"
-            + "<engine language=\"beanshell\" className=\"bsh.util.BeanShellBSFEngine\" extensions=\"bsh\"/>"
+            "<scriptd-configuration>\n"
+            + "<engine language=\"beanshell\" className=\"bsh.util.BeanShellBSFEngine\" extensions=\"bsh\"/>\n"
+            + "<start-script language=\"beanshell\">\n"
+            + "import org.opennms.netmgt.scriptd.ins.events.InsServerListener;\n"
+            + "import org.opennms.netmgt.config.DataSourceFactory;\n"
+            + "log = bsf.lookupBean(\"log\");\n"
+            + "log.debug(\"Starting Script\");\n"
+            + "log.debug(\"Start TCP PROXY for INS Event \");\n"
+            + "InsServerListener isl = new InsServerListener();\n"
+            + "isl.setCriteriaRestriction(\"eventuei = 'uei.opennms.org/internal/alarms/AlarmRaised' and EXISTS (select 1 from alarms where alarmtype = 1 and severity > 3 and eventoperinstruct = alarmid and eventtime > lasteventtime)\");\n"
+            + "isl.start();\n"
+            + "</start-script>\n"
+            + "<stop-script language=\"beanshell\">\n"
+            + "isl.interrupt();\n"
+            + "log.debug(\"executing a stop script\");\n"
+            + "</stop-script>\n"
+            + "<event-script language=\"beanshell\">\n"
+            + "event = bsf.lookupBean(\"event\");\n"
+            + "if ((event.uei.equals(\"uei.opennms.org/internal/alarms/NotificationAlarm\"))\n"
+            + "    || (event.uei.equals(\"uei.opennms.org/internal/alarms/AlarmCleared\"))\n"
+            + "    || (event.uei.equals(\"uei.opennms.org/internal/alarms/AlarmRaised\"))) {\n"
+            + "  isl.flushEvent(event);\n"
+            + "}\n"
+            + "</event-script>\n"
             + "</scriptd-configuration>",
             "target/classes/xsds/scriptd-configuration.xsd",},});
     }

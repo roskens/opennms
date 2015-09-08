@@ -29,6 +29,8 @@
         <element maxOccurs="unbounded" minOccurs="0" ref="this:reload-script"/>
 
         <element maxOccurs="unbounded" minOccurs="0" ref="this:event-script"/>
+
+        <element maxOccurs="unbounded" minOccurs="0" ref="this:events"/>
       </sequence>
     </complexType>
   </element>
@@ -87,8 +89,8 @@
   <element name="events">
     <complexType>
       <sequence>
-        <element maxOccurs="unbounded" minOccurs="0" name="uei">
-        <element maxOccurs="unbounded" minOccurs="0" name="event-script-name">
+        <element maxOccurs="unbounded" minOccurs="0" name="uei"/>
+        <element maxOccurs="unbounded" minOccurs="0" name="event-script-name"/>
       </sequence>
     </complexType>
   </element>
