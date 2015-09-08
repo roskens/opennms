@@ -105,41 +105,32 @@ public class JavamailConfigurationTest extends XmlTestNoCastor<JavamailConfigura
         ua2.setPassword("opennms");
         rmConf.setUserAuth(ua2);
         End2endMailConfig endConf = new End2endMailConfig();
+        endConf.setName("default");
+        endConf.setSendmailConfigName("localhost");
+        endConf.setReadmailConfigName("localhost");
         jmConfig.addReadmailConfig(rmConf);
         jmConfig.addSendmailConfig(smConf);
         jmConfig.addEnd2endMailConfig(endConf);
 
         return Arrays.asList(new Object[][]{{
             jmConfig,
-            "<javamail-configuration default-read-config-name=\"localhost\" default-send-config-name=\"localhost\" >\n"
-            + "  <sendmail-config name=\"localhost\" \n"
-            + "                   attempt-interval=\"3000\" use-authentication=\"false\" use-jmta=\"true\" \n"
-            + "                   debug=\"true\" >\n"
-            + "    <sendmail-host host=\"127.0.0.1\" port=\"25\"/>\n"
-            + "    <sendmail-protocol char-set=\"us-ascii\" mailer=\"smtpsend\" \n"
-            + "                       message-content-type=\"text/plain\" message-encoding=\"7-bit\" \n"
-            + "                       quit-wait=\"true\" ssl-enable=\"false\" start-tls=\"false\" \n"
-            + "                       transport=\"smtp\"/>\n"
-            + "    <sendmail-message to=\"root@localhost\"\n"
-            + "                      from=\"root@[127.0.0.1]\" \n"
-            + "                      subject=\"OpenNMS Test Message\"  \n"
-            + "                      body=\"This is an OpenNMS test message.\" />\n"
-            + "                      \n"
-            + "    <user-auth user-name=\"opennms\" password=\"opennms\" />\n"
-            + "  </sendmail-config>\n"
-            + "  <readmail-config name=\"localhost\" \n"
-            + "                   attempt-interval=\"1000\" delete-all-mail=\"false\" mail-folder=\"INBOX\" \n"
-            + "                   debug=\"true\" >\n"
-            + "    <javamail-property name=\"mail.pop3.apop.enable\" value=\"false\"/>\n"
-            + "    <javamail-property name=\"mail.pop3.rsetbeforequit\" value=\"false\" />\n"
-            + "    <readmail-host host=\"127.0.0.1\" port=\"110\">\n"
-            + "      <readmail-protocol ssl-enable=\"false\" start-tls=\"false\"\n"
-            + "                         transport=\"pop3\"/>\n"
-            + "    </readmail-host>\n"
-            + "    <user-auth user-name=\"opennms\" password=\"opennms\" />\n"
-            + "  </readmail-config>\n"
-            + "  <end2end-mail-config name=\"default\" readmail-config-name=\"localhost\" sendmail-config-name=\"localhost\" />\n"
-            + "</javamail-configuration>", /* configuration */
+            "<javamail-configuration default-send-config-name=\"localhost\" default-read-config-name=\"localhost\">\n"
+            + "   <sendmail-config debug=\"true\" use-authentication=\"false\" use-jmta=\"true\" attempt-interval=\"3000\" name=\"\">\n"
+            + "      <sendmail-host host=\"127.0.0.1\" port=\"25\"/>\n"
+            + "      <sendmail-protocol char-set=\"us-ascii\" mailer=\"smtpsend\" message-content-type=\"text/plain\" message-encoding=\"7-bit\" quit-wait=\"true\" transport=\"smtp\" ssl-enable=\"false\" start-tls=\"false\"/>\n"
+            + "      <sendmail-message to=\"root@localhost\" from=\"root@[127.0.0.1]\" subject=\"OpenNMS Test Message\" body=\"This is an OpenNMS test message.\"/>\n"
+            + "      <user-auth user-name=\"opennms\" password=\"opennms\"/>\n"
+            + "   </sendmail-config>\n"
+            + "   <readmail-config debug=\"true\" mail-folder=\"INBOX\" attempt-interval=\"1000\" delete-all-mail=\"false\" name=\"localhost\">\n"
+            + "      <javamail-property name=\"mail.pop3.apop.enable\" value=\"false\"/>\n"
+            + "      <javamail-property name=\"mail.pop3.rsetbeforequit\" value=\"false\"/>\n"
+            + "      <readmail-host host=\"127.0.0.1\" port=\"110\">\n"
+            + "         <readmail-protocol transport=\"pop3\" ssl-enable=\"false\" start-tls=\"false\"/>\n"
+            + "      </readmail-host>\n"
+            + "      <user-auth user-name=\"opennms\" password=\"opennms\"/>\n"
+            + "   </readmail-config>\n"
+            + "   <end2end-mail-config name=\"default\" sendmail-config-name=\"localhost\" readmail-config-name=\"localhost\"/>\n"
+            + "</javamail-configuration>",
             "target/classes/xsds/javamail-configuration.xsd",},});
     }
 }
