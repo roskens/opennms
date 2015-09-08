@@ -89,8 +89,8 @@
   <element name="events">
     <complexType>
       <sequence>
-        <element maxOccurs="unbounded" minOccurs="0" name="uei"/>
-        <element maxOccurs="unbounded" minOccurs="0" name="event-script-name"/>
+        <element maxOccurs="unbounded" minOccurs="0" name="uei" type="string" />
+        <element maxOccurs="unbounded" minOccurs="0" name="event-script-name" type="string" />
       </sequence>
     </complexType>
   </element>

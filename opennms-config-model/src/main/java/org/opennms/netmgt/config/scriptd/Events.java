@@ -11,6 +11,7 @@ package org.opennms.netmgt.config.scriptd;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -30,12 +31,14 @@ import org.exolab.castor.xml.Unmarshaller;
     /**
      * Field _ueiList.
      */
-    private java.util.List<java.lang.Object> _ueiList;
+    @XmlElement(name="uei")
+    private java.util.List<java.lang.String> _ueiList;
 
     /**
      * Field _eventScriptNameList.
      */
-    private java.util.List<java.lang.Object> _eventScriptNameList;
+    @XmlElement(name="event-script-name")
+    private java.util.List<java.lang.String> _eventScriptNameList;
 
 
       //----------------/
@@ -44,8 +47,8 @@ import org.exolab.castor.xml.Unmarshaller;
 
     public Events() {
         super();
-        this._ueiList = new java.util.ArrayList<java.lang.Object>();
-        this._eventScriptNameList = new java.util.ArrayList<java.lang.Object>();
+        this._ueiList = new java.util.ArrayList<java.lang.String>();
+        this._eventScriptNameList = new java.util.ArrayList<java.lang.String>();
     }
 
 
@@ -61,7 +64,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * given is outside the bounds of the collection
      */
     public void addEventScriptName(
-            final java.lang.Object vEventScriptName)
+            final java.lang.String vEventScriptName)
     throws java.lang.IndexOutOfBoundsException {
         this._eventScriptNameList.add(vEventScriptName);
     }
@@ -76,7 +79,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void addEventScriptName(
             final int index,
-            final java.lang.Object vEventScriptName)
+            final java.lang.String vEventScriptName)
     throws java.lang.IndexOutOfBoundsException {
         this._eventScriptNameList.add(index, vEventScriptName);
     }
@@ -89,7 +92,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * given is outside the bounds of the collection
      */
     public void addUei(
-            final java.lang.Object vUei)
+            final java.lang.String vUei)
     throws java.lang.IndexOutOfBoundsException {
         this._ueiList.add(vUei);
     }
@@ -104,7 +107,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void addUei(
             final int index,
-            final java.lang.Object vUei)
+            final java.lang.String vUei)
     throws java.lang.IndexOutOfBoundsException {
         this._ueiList.add(index, vUei);
     }
@@ -115,7 +118,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.Object> enumerateEventScriptName(
+    public java.util.Enumeration<java.lang.String> enumerateEventScriptName(
     ) {
         return java.util.Collections.enumeration(this._eventScriptNameList);
     }
@@ -126,7 +129,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.Object> enumerateUei(
+    public java.util.Enumeration<java.lang.String> enumerateUei(
     ) {
         return java.util.Collections.enumeration(this._ueiList);
     }
@@ -171,9 +174,9 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param index
      * @throws java.lang.IndexOutOfBoundsException if the index
      * given is outside the bounds of the collection
-     * @return the value of the java.lang.Object at the given index
+     * @return the value of the java.lang.String at the given index
      */
-    public java.lang.Object getEventScriptName(
+    public java.lang.String getEventScriptName(
             final int index)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
@@ -181,7 +184,7 @@ import org.exolab.castor.xml.Unmarshaller;
             throw new IndexOutOfBoundsException("getEventScriptName: Index value '" + index + "' not in range [0.." + (this._eventScriptNameList.size() - 1) + "]");
         }
         
-        return (java.lang.Object) _eventScriptNameList.get(index);
+        return (java.lang.String) _eventScriptNameList.get(index);
     }
 
     /**
@@ -194,10 +197,10 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return this collection as an Array
      */
-    public java.lang.Object[] getEventScriptName(
+    public java.lang.String[] getEventScriptName(
     ) {
-        java.lang.Object[] array = new java.lang.Object[0];
-        return (java.lang.Object[]) this._eventScriptNameList.toArray(array);
+        java.lang.String[] array = new java.lang.String[0];
+        return (java.lang.String[]) this._eventScriptNameList.toArray(array);
     }
 
     /**
@@ -207,7 +210,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.Object> getEventScriptNameCollection(
+    public java.util.List<java.lang.String> getEventScriptNameCollection(
     ) {
         return this._eventScriptNameList;
     }
@@ -228,9 +231,9 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param index
      * @throws java.lang.IndexOutOfBoundsException if the index
      * given is outside the bounds of the collection
-     * @return the value of the java.lang.Object at the given index
+     * @return the value of the java.lang.String at the given index
      */
-    public java.lang.Object getUei(
+    public java.lang.String getUei(
             final int index)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
@@ -238,7 +241,7 @@ import org.exolab.castor.xml.Unmarshaller;
             throw new IndexOutOfBoundsException("getUei: Index value '" + index + "' not in range [0.." + (this._ueiList.size() - 1) + "]");
         }
         
-        return (java.lang.Object) _ueiList.get(index);
+        return (java.lang.String) _ueiList.get(index);
     }
 
     /**
@@ -250,10 +253,10 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return this collection as an Array
      */
-    public java.lang.Object[] getUei(
+    public java.lang.String[] getUei(
     ) {
-        java.lang.Object[] array = new java.lang.Object[0];
-        return (java.lang.Object[]) this._ueiList.toArray(array);
+        java.lang.String[] array = new java.lang.String[0];
+        return (java.lang.String[]) this._ueiList.toArray(array);
     }
 
     /**
@@ -263,7 +266,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.Object> getUeiCollection(
+    public java.util.List<java.lang.String> getUeiCollection(
     ) {
         return this._ueiList;
     }
@@ -322,7 +325,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.Object> iterateEventScriptName(
+    public java.util.Iterator<java.lang.String> iterateEventScriptName(
     ) {
         return this._eventScriptNameList.iterator();
     }
@@ -333,7 +336,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.Object> iterateUei(
+    public java.util.Iterator<java.lang.String> iterateUei(
     ) {
         return this._ueiList.iterator();
     }
@@ -391,7 +394,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return true if the object was removed from the collection.
      */
     public boolean removeEventScriptName(
-            final java.lang.Object vEventScriptName) {
+            final java.lang.String vEventScriptName) {
         boolean removed = _eventScriptNameList.remove(vEventScriptName);
         return removed;
     }
@@ -402,10 +405,10 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param index
      * @return the element removed from the collection
      */
-    public java.lang.Object removeEventScriptNameAt(
+    public java.lang.String removeEventScriptNameAt(
             final int index) {
         java.lang.Object obj = this._eventScriptNameList.remove(index);
-        return (java.lang.Object) obj;
+        return (java.lang.String) obj;
     }
 
     /**
@@ -415,7 +418,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return true if the object was removed from the collection.
      */
     public boolean removeUei(
-            final java.lang.Object vUei) {
+            final java.lang.String vUei) {
         boolean removed = _ueiList.remove(vUei);
         return removed;
     }
@@ -426,10 +429,10 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param index
      * @return the element removed from the collection
      */
-    public java.lang.Object removeUeiAt(
+    public java.lang.String removeUeiAt(
             final int index) {
         java.lang.Object obj = this._ueiList.remove(index);
-        return (java.lang.Object) obj;
+        return (java.lang.String) obj;
     }
 
     /**
@@ -442,7 +445,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void setEventScriptName(
             final int index,
-            final java.lang.Object vEventScriptName)
+            final java.lang.String vEventScriptName)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._eventScriptNameList.size()) {
@@ -458,7 +461,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param vEventScriptNameArray
      */
     public void setEventScriptName(
-            final java.lang.Object[] vEventScriptNameArray) {
+            final java.lang.String[] vEventScriptNameArray) {
         //-- copy array
         _eventScriptNameList.clear();
         
@@ -474,7 +477,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param vEventScriptNameList the Vector to copy.
      */
     public void setEventScriptName(
-            final java.util.List<java.lang.Object> vEventScriptNameList) {
+            final java.util.List<java.lang.String> vEventScriptNameList) {
         // copy vector
         this._eventScriptNameList.clear();
         
@@ -489,7 +492,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param eventScriptNameList the Vector to set.
      */
     public void setEventScriptNameCollection(
-            final java.util.List<java.lang.Object> eventScriptNameList) {
+            final java.util.List<java.lang.String> eventScriptNameList) {
         this._eventScriptNameList = eventScriptNameList;
     }
 
@@ -503,7 +506,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void setUei(
             final int index,
-            final java.lang.Object vUei)
+            final java.lang.String vUei)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._ueiList.size()) {
@@ -519,7 +522,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param vUeiArray
      */
     public void setUei(
-            final java.lang.Object[] vUeiArray) {
+            final java.lang.String[] vUeiArray) {
         //-- copy array
         _ueiList.clear();
         
@@ -535,7 +538,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param vUeiList the Vector to copy.
      */
     public void setUei(
-            final java.util.List<java.lang.Object> vUeiList) {
+            final java.util.List<java.lang.String> vUeiList) {
         // copy vector
         this._ueiList.clear();
         
@@ -550,7 +553,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param ueiList the Vector to set.
      */
     public void setUeiCollection(
-            final java.util.List<java.lang.Object> ueiList) {
+            final java.util.List<java.lang.String> ueiList) {
         this._ueiList = ueiList;
     }
 
