@@ -73,7 +73,6 @@ public class ThresholdingConfigTest extends XmlTestNoCastor<ThresholdingConfig> 
         thold.setType("high");
         thold.setDsName("tcpInErrors");
         thold.setDsType("node");
-        thold.setDsLabel("");
         thold.setValue(1D);
         thold.setRearm(0D);
         thold.setTrigger(1);
@@ -87,18 +86,18 @@ public class ThresholdingConfigTest extends XmlTestNoCastor<ThresholdingConfig> 
 
         return Arrays.asList(new Object[][]{{
             config,
-            "<thresholding-config>"
-            + "<group name=\"mib2\" rrdRepository=\"${install.share.dir}/rrd/snmp\">"
-            + "  <threshold type=\"high\" ds-name=\"tcpInErrors\" ds-type=\"node\" ds-label=\"\" value=\"1\" rearm=\"0\" trigger=\"1\"/>\n"
-            + "  <expression type=\"high\" expression=\"ifInErrors + ifOutErrors\" ds-type=\"if\" ds-label=\"ifName\" value=\"1\" rearm=\"0\" trigger=\"2\"/>\n"
-            + "  <expression type=\"high\" expression=\"ifInDiscards + ifOutDiscards\" ds-type=\"if\" ds-label=\"ifName\" value=\"1\" rearm=\"0\" trigger=\"2\"/>\n"
-            + "  <expression type=\"high\" expression=\"ifInOctets * 8 / 1000000 / ifHighSpeed * 100\" ds-type=\"if\" ds-label=\"ifName\" value=\"90.0\" rearm=\"75.0\" trigger=\"3\">\n"
-            + "    <resource-filter field=\"ifHighSpeed\">^[1-9]+[0-9]*$</resource-filter>\n"
-            + "  </expression>\n"
-            + "  <expression type=\"high\" expression=\"ifOutOctets * 8 / 1000000 / ifHighSpeed * 100\" ds-type=\"if\" ds-label=\"ifName\" value=\"90.0\" rearm=\"75.0\" trigger=\"3\">"
-            + "    <resource-filter field=\"ifHighSpeed\">^[1-9]+[0-9]*$</resource-filter>"
-            + "  </expression>"
-            + "</group>"
+            "<thresholding-config>\n"
+            + "   <group name=\"mib2\" rrdRepository=\"${install.share.dir}/rrd/snmp\">\n"
+            + "      <threshold type=\"high\" ds-type=\"node\" value=\"1.0\" rearm=\"0.0\" trigger=\"1\" ds-name=\"tcpInErrors\"/>\n"
+            + "      <expression type=\"high\" ds-type=\"if\" value=\"1.0\" rearm=\"0.0\" trigger=\"2\" ds-label=\"ifName\" expression=\"ifInErrors + ifOutErrors\"/>\n"
+            + "      <expression type=\"high\" ds-type=\"if\" value=\"1.0\" rearm=\"0.0\" trigger=\"2\" ds-label=\"ifName\" expression=\"ifInDiscards + ifOutDiscards\"/>\n"
+            + "      <expression type=\"high\" ds-type=\"if\" value=\"90.0\" rearm=\"75.0\" trigger=\"3\" ds-label=\"ifName\" expression=\"ifInOctets * 8 / 1000000 / ifHighSpeed * 100\">\n"
+            + "         <resource-filter field=\"ifHighSpeed\">^[1-9]+[0-9]*$</resource-filter>\n"
+            + "      </expression>\n"
+            + "      <expression type=\"high\" ds-type=\"if\" value=\"90.0\" rearm=\"75.0\" trigger=\"3\" ds-label=\"ifName\" expression=\"ifOutOctets * 8 / 1000000 / ifHighSpeed * 100\">\n"
+            + "         <resource-filter field=\"ifHighSpeed\">^[1-9]+[0-9]*$</resource-filter>\n"
+            + "      </expression>\n"
+            + "   </group>\n"
             + "</thresholding-config>",
             "target/classes/xsds/thresholding-config.xsd",},});
     }

@@ -31,8 +31,14 @@
  */
 package org.opennms.netmgt.config.thresholding;
 
+import javax.xml.bind.annotation.XmlAccessOrder;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorOrder;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import org.opennms.core.xml.ValidateUsing;
 
 /**
  * Class Basethresholddef.
@@ -40,6 +46,9 @@ import javax.xml.bind.annotation.XmlElement;
  * @version $Revision$ $Date$
  */
 
+@XmlRootElement(name="basethresholddef")
+@XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("thresholding-config.xsd")
 @SuppressWarnings("all") public abstract class Basethresholddef implements java.io.Serializable {
 
 
@@ -169,7 +178,6 @@ import javax.xml.bind.annotation.XmlElement;
      */
     @XmlElement(name="resource-filter")
     private java.util.List<org.opennms.netmgt.config.thresholding.ResourceFilter> _resourceFilterList;
-
 
       //----------------/
      //- Constructors -/

@@ -129,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getContent(
     ) {
-        return this._content == null ? "" : this._content;
+        return this._content;
     }
 
     /**
