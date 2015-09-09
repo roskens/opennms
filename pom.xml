@@ -223,56 +223,6 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.opennms.maven.plugins</groupId>
-        <artifactId>castor-maven-plugin</artifactId>
-        <version>1.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <staleMillis>1000</staleMillis>
-              <descriptors>false</descriptors>
-              <verbose>true</verbose>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.opennms.dependencies</groupId>
-            <artifactId>castor-dependencies</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-            <type>pom</type>
-            <exclusions>
-              <exclusion>
-                <groupId>javax.jms</groupId>
-                <artifactId>jms</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>com.sun.jdmk</groupId>
-                <artifactId>jmxtools</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>com.sun.jmx</groupId>
-                <artifactId>jmxri</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-              </exclusion>
-            </exclusions>
-          </dependency>
-          <dependency>
-            <groupId>oro</groupId>
-            <artifactId>oro</artifactId>
-            <version>${oroVersion}</version>
-            <scope>runtime</scope>
-          </dependency>
-        </dependencies>
-      </plugin>
-      <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
         <version>${gwtPluginVersion}</version>
@@ -631,28 +581,6 @@
                   <versionRange>[1.0,)</versionRange>
                   <goals>
                     <goal>add-source</goal>
-                  </goals>
-                </pluginExecutionFilter>
-                <action>
-                  <execute>
-                    <runOnConfiguration>true</runOnConfiguration>
-                    <runOnIncremental>true</runOnIncremental>
-                  </execute>
-                </action>
-              </pluginExecution>
-              <pluginExecution>
-                <pluginExecutionFilter>
-                  <groupId>org.opennms.maven.plugins</groupId>
-                  <artifactId>castor-maven-plugin</artifactId>
-                  <versionRange>[1.0,)</versionRange>
-                  <goals>
-                    <!--
-                    <goal>add-test-source</goal>
-                    <goal>add-resource</goal>
-                    <goal>add-test-resource</goal>
-                    -->
-                    <goal>add-source</goal>
-                    <goal>generate</goal>
                   </goals>
                 </pluginExecutionFilter>
                 <action>
