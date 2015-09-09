@@ -67,6 +67,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  therefore be hidden
      *
      */
+    @XmlElement(name="hideMatch")
     private java.util.List<org.opennms.netmgt.config.syslogd.HideMatch> _hideMatchList;
 
 

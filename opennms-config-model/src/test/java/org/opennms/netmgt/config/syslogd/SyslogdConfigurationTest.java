@@ -44,11 +44,42 @@ public class SyslogdConfigurationTest extends XmlTestNoCastor<SyslogdConfigurati
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        SyslogdConfiguration syslogdConfiguration = new SyslogdConfiguration();
+        SyslogdConfiguration syslogdConf = new SyslogdConfiguration();
+        Configuration conf = new Configuration();
+        syslogdConf.setConfiguration(conf);
+        conf.setSyslogPort(10514);
+        conf.setNewSuspectOnMessage(Boolean.FALSE);
+        conf.setParser("org.opennms.netmgt.syslogd.CustomSyslogParser");
+        conf.setForwardingRegexp("^.*\\s(19|20)\\d\\d([-/.])(0[1-9]|1[012])\\2(0[1-9]|[12][0-9]|3[01])(\\s+)(\\S+)(\\s)(\\S.+)");
+        conf.setMatchingGroupHost(6);
+        conf.setMatchingGroupMessage(8);
+        conf.setDiscardUei("DISCARD-MATCHING-MESSAGES");
+        syslogdConf.addImportFile("syslog/ApacheHTTPD.syslog.xml");
+        syslogdConf.addImportFile("syslog/LinuxKernel.syslog.xml");
+        syslogdConf.addImportFile("syslog/OpenSSH.syslog.xml");
+        syslogdConf.addImportFile("syslog/Procmail.syslog.xml");
+        syslogdConf.addImportFile("syslog/Postfix.syslog.xml");
+        syslogdConf.addImportFile("syslog/Sudo.syslog.xml");
 
-        return Arrays.asList(new Object[][] { {
-                syslogdConfiguration,
-                "", /* configuration */
-                "target/classes/xsds/syslogd-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            syslogdConf,
+            "<syslogd-configuration>\n"
+            + "    <configuration\n"
+            + "            syslog-port=\"10514\"\n"
+            + "            new-suspect-on-message=\"false\"\n"
+            + "            parser=\"org.opennms.netmgt.syslogd.CustomSyslogParser\"\n"
+            + "            forwarding-regexp=\"^.*\\s(19|20)\\d\\d([-/.])(0[1-9]|1[012])\\2(0[1-9]|[12][0-9]|3[01])(\\s+)(\\S+)(\\s)(\\S.+)\"\n"
+            + "            matching-group-host=\"6\"\n"
+            + "            matching-group-message=\"8\"\n"
+            + "            discard-uei=\"DISCARD-MATCHING-MESSAGES\"\n"
+            + "            />\n"
+            + "    <import-file>syslog/ApacheHTTPD.syslog.xml</import-file>\n"
+            + "    <import-file>syslog/LinuxKernel.syslog.xml</import-file>\n"
+            + "    <import-file>syslog/OpenSSH.syslog.xml</import-file>\n"
+            + "    <import-file>syslog/Procmail.syslog.xml</import-file>\n"
+            + "    <import-file>syslog/Postfix.syslog.xml</import-file>\n"
+            + "    <import-file>syslog/Sudo.syslog.xml</import-file>\n"
+            + "</syslogd-configuration>",
+            "target/classes/xsds/syslogd-configuration.xsd",},});
     }
 }

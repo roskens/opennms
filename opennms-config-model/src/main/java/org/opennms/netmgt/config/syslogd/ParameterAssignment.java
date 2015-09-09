@@ -71,20 +71,15 @@ import org.opennms.core.xml.ValidateUsing;
      *  will be assigned.
      *
      */
-    @XmlAttribute(name="matchingGroup")
+    @XmlAttribute(name="matching-group")
     private Integer _matchingGroup;
-
-    /**
-     * keeps track of state for field: _matchingGroup
-     */
-    private boolean _has_matchingGroup;
 
     /**
      * The name of the event parameter to which the named
      *  matching group's value will be assigned
      *
      */
-    @XmlAttribute(name="parameterName")
+    @XmlAttribute(name="parameter-name")
     private String _parameterName;
 
 
@@ -197,7 +192,9 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + _matchingGroup;
+        if (_matchingGroup != null) {
+           result = 37 * result + _matchingGroup.hashCode();
+        }
         if (_parameterName != null) {
            result = 37 * result + _parameterName.hashCode();
         }
@@ -266,7 +263,6 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void setMatchingGroup(final Integer matchingGroup) {
         this._matchingGroup = matchingGroup;
-        this._has_matchingGroup = true;
     }
 
     /**

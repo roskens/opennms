@@ -69,7 +69,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  default is to listen on all addresses.
      *
      */
-    @XmlAttribute(name="listenAddress")
+    @XmlAttribute(name="listen-address")
     private String _listenAddress;
 
     /**
@@ -77,54 +77,36 @@ import org.opennms.core.xml.ValidateUsing;
      *  standard port is 514.
      *
      */
-    @XmlAttribute(name="syslogPort")
+    @XmlAttribute(name="syslog-port", required = true)
     private Integer _syslogPort;
-
-    /**
-     * keeps track of state for field: _syslogPort
-     */
-    private boolean _has_syslogPort;
 
     /**
      * Whether messages from devices unknown to OpenNMS should
      *  generate newSuspect events.
      *
      */
-    private boolean _newSuspectOnMessage = false;
-
-    /**
-     * keeps track of state for field: _newSuspectOnMessage
-     */
-    private boolean _has_newSuspectOnMessage;
+    @XmlAttribute(name="new-suspect-on-message")
+    private Boolean _newSuspectOnMessage;
+    private static final Boolean DEFAULT_NEW_SUSPECT_ON_MESSAGE = false;
 
     /**
      * The regular expression used to separate message and host.
      *
      */
-    @XmlAttribute(name="forwardingRegexp")
+    @XmlAttribute(name="forwarding-regexp")
     private String _forwardingRegexp;
 
     /**
      * The matching group for the host
      */
-    @XmlAttribute(name="matchingGroupHost")
+    @XmlAttribute(name="matching-group-host")
     private Integer _matchingGroupHost;
-
-    /**
-     * keeps track of state for field: _matchingGroupHost
-     */
-    private boolean _has_matchingGroupHost;
 
     /**
      * The matching group for the message
      */
-    @XmlAttribute(name="matchingGroupMessage")
+    @XmlAttribute(name="matching-group-message")
     private Integer _matchingGroupMessage;
-
-    /**
-     * keeps track of state for field: _matchingGroupMessage
-     */
-    private boolean _has_matchingGroupMessage;
 
     /**
      * A string which defines the class to use when parsing syslog
@@ -143,7 +125,9 @@ import org.opennms.core.xml.ValidateUsing;
      *  (2009) RFC for syslog messages.
      *
      */
-    private java.lang.String _parser = "org.opennms.netmgt.syslogd.CustomSyslogParser";
+    @XmlAttribute(name="parser")
+    private java.lang.String _parser;
+    private static final String DEFAULT_PARSER = "org.opennms.netmgt.syslogd.CustomSyslogParser";
 
     /**
      * A string which, when used as the value of a "uei"
@@ -152,7 +136,9 @@ import org.opennms.core.xml.ValidateUsing;
      *  ever being created
      *
      */
-    private java.lang.String _discardUei = "DISCARD-MATCHING-MESSAGES";
+    @XmlAttribute(name="discard-uei")
+    private java.lang.String _discardUei;
+    private static final String DEFAULT_DISCARD_UEI = "DISCARD-MATCHING-MESSAGES";
 
 
       //----------------/
@@ -161,8 +147,6 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Configuration() {
         super();
-        setParser("org.opennms.netmgt.syslogd.CustomSyslogParser");
-        setDiscardUei("DISCARD-MATCHING-MESSAGES");
     }
 
 
@@ -287,7 +271,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDiscardUei(
     ) {
-        return this._discardUei;
+        return this._discardUei == null ? DEFAULT_DISCARD_UEI : this._discardUei;
     }
 
     /**
@@ -350,9 +334,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NewSuspectOnMessage'.
      */
-    public boolean getNewSuspectOnMessage(
+    public Boolean getNewSuspectOnMessage(
     ) {
-        return this._newSuspectOnMessage;
+        return this._newSuspectOnMessage == null ? DEFAULT_NEW_SUSPECT_ON_MESSAGE : this._newSuspectOnMessage;
     }
 
     /**
@@ -377,7 +361,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getParser(
     ) {
-        return this._parser;
+        return this._parser == null ? DEFAULT_PARSER : this._parser;
     }
 
     /**
@@ -453,13 +437,21 @@ import org.opennms.core.xml.ValidateUsing;
         if (_listenAddress != null) {
            result = 37 * result + _listenAddress.hashCode();
         }
-        result = 37 * result + _syslogPort;
-        result = 37 * result + (_newSuspectOnMessage?0:1);
+        if (_syslogPort != null) {
+           result = 37 * result + _syslogPort.hashCode();
+        }
+        if (_newSuspectOnMessage != null) {
+           result = 37 * result + _newSuspectOnMessage.hashCode();
+        }
         if (_forwardingRegexp != null) {
            result = 37 * result + _forwardingRegexp.hashCode();
         }
-        result = 37 * result + _matchingGroupHost;
-        result = 37 * result + _matchingGroupMessage;
+        if (_matchingGroupHost != null) {
+           result = 37 * result + _matchingGroupHost.hashCode();
+        }
+        if (_matchingGroupMessage != null) {
+           result = 37 * result + _matchingGroupMessage.hashCode();
+        }
         if (_parser != null) {
            result = 37 * result + _parser.hashCode();
         }
@@ -584,7 +576,6 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void setMatchingGroupHost(final Integer matchingGroupHost) {
         this._matchingGroupHost = matchingGroupHost;
-        this._has_matchingGroupHost = true;
     }
 
     /**
@@ -597,7 +588,6 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void setMatchingGroupMessage(final Integer matchingGroupMessage) {
         this._matchingGroupMessage = matchingGroupMessage;
-        this._has_matchingGroupMessage = true;
     }
 
     /**
@@ -611,9 +601,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'newSuspectOnMessage'.
      */
     public void setNewSuspectOnMessage(
-            final boolean newSuspectOnMessage) {
+            final Boolean newSuspectOnMessage) {
         this._newSuspectOnMessage = newSuspectOnMessage;
-        this._has_newSuspectOnMessage = true;
     }
 
     /**
@@ -652,7 +641,6 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void setSyslogPort(final Integer syslogPort) {
         this._syslogPort = syslogPort;
-        this._has_syslogPort = true;
     }
 
     /**

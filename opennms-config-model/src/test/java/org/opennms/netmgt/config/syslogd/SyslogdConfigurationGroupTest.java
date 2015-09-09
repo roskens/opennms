@@ -44,11 +44,36 @@ public class SyslogdConfigurationGroupTest extends XmlTestNoCastor<SyslogdConfig
     @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
-        SyslogdConfigurationGroup syslogdConfigurationGroup = new SyslogdConfigurationGroup();
+        SyslogdConfigurationGroup group = new SyslogdConfigurationGroup();
+        UeiList ueiList = new UeiList();
+        group.setUeiList(ueiList);
+        UeiMatch ueiMatch = new UeiMatch();
+        ueiList.addUeiMatch(ueiMatch);
+        ProcessMatch processMatch = new ProcessMatch();
+        ueiMatch.setProcessMatch(processMatch);
+        processMatch.setExpression("^procmail$");
+        Match match = new Match();
+        ueiMatch.setMatch(match);
+        match.setType("regex");
+        match.setExpression("^.*?Suspicious rcfile \"(.*?)\"$");
+        ueiMatch.setUei("uei.opennms.org/vendor/procmail/syslog/procmail/suspiciousRcfile");
+        ParameterAssignment paramAssignment = new ParameterAssignment();
+        ueiMatch.addParameterAssignment(paramAssignment);
+        paramAssignment.setMatchingGroup(1);
+        paramAssignment.setParameterName("rcfile");
 
-        return Arrays.asList(new Object[][] { {
-                syslogdConfigurationGroup,
-                "", /* configuration */
-                "target/classes/xsds/syslogd-configuration.xsd", }, });
+        return Arrays.asList(new Object[][]{{
+            group,
+            "<syslogd-configuration-group>\n"
+            + "    <ueiList>\n"
+            + "        <ueiMatch>\n"
+            + "            <process-match expression=\"^procmail$\"/>\n"
+            + "            <match type=\"regex\" expression=\"^.*?Suspicious rcfile &quot;(.*?)&quot;$\"/>\n"
+            + "            <uei>uei.opennms.org/vendor/procmail/syslog/procmail/suspiciousRcfile</uei>\n"
+            + "            <parameter-assignment matching-group=\"1\" parameter-name=\"rcfile\"/>\n"
+            + "        </ueiMatch>\n"
+            + "    </ueiList>\n"
+            + "</syslogd-configuration-group>",
+            "target/classes/xsds/syslogd-configuration.xsd",},});
     }
 }

@@ -66,21 +66,25 @@ import org.opennms.core.xml.ValidateUsing;
      *  configuration file.
      *
      */
+    @XmlElement(name="configuration")
     private org.opennms.netmgt.config.syslogd.Configuration _configuration;
 
     /**
      * Field _ueiList.
      */
+    @XmlElement(name="ueiList")
     private org.opennms.netmgt.config.syslogd.UeiList _ueiList;
 
     /**
      * Field _hideMessage.
      */
+    @XmlElement(name="hideMessage")
     private org.opennms.netmgt.config.syslogd.HideMessage _hideMessage;
 
     /**
      * Field _importFileList.
      */
+    @XmlElement(name="import-file")
     private java.util.List<java.lang.String> _importFileList;
 
 

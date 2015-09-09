@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * List of Strings to UEI matches
      */
+    @XmlElement(name="ueiMatch")
     private java.util.List<org.opennms.netmgt.config.syslogd.UeiMatch> _ueiMatchList;
 
 

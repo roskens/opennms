@@ -67,6 +67,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  by an instance of this tag within the ueiMatch.
      *
      */
+    @XmlElement(name="facility")
     private java.util.List<java.lang.String> _facilityList;
 
     /**
@@ -75,6 +76,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  by an instance of this tag within the ueiMatch.
      *
      */
+    @XmlElement(name="severity")
     private java.util.List<java.lang.String> _severityList;
 
     /**
@@ -84,6 +86,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  considered non-matches.
      *
      */
+    @XmlElement(name="process-match")
     private org.opennms.netmgt.config.syslogd.ProcessMatch _processMatch;
 
     /**
@@ -91,6 +94,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  as a regular expression.
      *
      */
+    @XmlElement(name="hostname-match")
     private org.opennms.netmgt.config.syslogd.HostnameMatch _hostnameMatch;
 
     /**
@@ -99,6 +103,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  as a regular expression.
      *
      */
+    @XmlElement(name="hostaddr-match")
     private org.opennms.netmgt.config.syslogd.HostaddrMatch _hostaddrMatch;
 
     /**
@@ -107,12 +112,13 @@ import org.opennms.core.xml.ValidateUsing;
      *  value of the "type" attribute
      *
      */
+    @XmlElement(name="match")
     private org.opennms.netmgt.config.syslogd.Match _match;
 
     /**
      * UEI
      */
-    @XmlAttribute(name="uei")
+    @XmlElement(name="uei")
     private String _uei;
 
     /**
@@ -120,6 +126,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  to a named event parameter
      *
      */
+    @XmlElement(name="parameter-assignment")
     private java.util.List<org.opennms.netmgt.config.syslogd.ParameterAssignment> _parameterAssignmentList;
 
 

@@ -64,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _ueiList.
      */
+    @XmlElement(name="ueiList")
     private org.opennms.netmgt.config.syslogd.UeiList _ueiList;
 
     /**
      * Field _hideMessage.
      */
+    @XmlElement(name="hideMessage")
     private org.opennms.netmgt.config.syslogd.HideMessage _hideMessage;
 
 

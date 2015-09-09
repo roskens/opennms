@@ -53,7 +53,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="hostaddrMatch")
+@XmlRootElement(name="hostaddr-match")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("syslogd-configuration.xsd")
 @SuppressWarnings("all") public class HostaddrMatch implements java.io.Serializable {

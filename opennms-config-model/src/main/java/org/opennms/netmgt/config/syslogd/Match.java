@@ -84,12 +84,9 @@ import org.opennms.core.xml.ValidateUsing;
      *  regex match.
      *
      */
-    private boolean _defaultParameterMapping = true;
-
-    /**
-     * keeps track of state for field: _defaultParameterMapping
-     */
-    private boolean _has_defaultParameterMapping;
+    @XmlAttribute(name="default-parameter-mapping")
+    private Boolean _defaultParameterMapping;
+    private static final Boolean DEFAULT_PARAMETER_MAPPING = true;
 
 
       //----------------/
@@ -125,7 +122,6 @@ import org.opennms.core.xml.ValidateUsing;
             return true;
 
         if (obj instanceof Match) {
-
             Match temp = (Match)obj;
             if (this._type != null) {
                 if (temp._type == null) return false;
@@ -164,9 +160,9 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DefaultParameterMapping'.
      */
-    public boolean getDefaultParameterMapping(
+    public Boolean getDefaultParameterMapping(
     ) {
-        return this._defaultParameterMapping;
+        return this._defaultParameterMapping == null ? DEFAULT_PARAMETER_MAPPING : this._defaultParameterMapping;
     }
 
     /**
@@ -226,7 +222,9 @@ import org.opennms.core.xml.ValidateUsing;
         if (_expression != null) {
            result = 37 * result + _expression.hashCode();
         }
-        result = 37 * result + (_defaultParameterMapping?0:1);
+        if (_defaultParameterMapping != null) {
+           result = 37 * result + _defaultParameterMapping.hashCode();
+        }
 
         return result;
     }
@@ -306,9 +304,8 @@ import org.opennms.core.xml.ValidateUsing;
      * 'defaultParameterMapping'.
      */
     public void setDefaultParameterMapping(
-            final boolean defaultParameterMapping) {
+            final Boolean defaultParameterMapping) {
         this._defaultParameterMapping = defaultParameterMapping;
-        this._has_defaultParameterMapping = true;
     }
 
     /**
