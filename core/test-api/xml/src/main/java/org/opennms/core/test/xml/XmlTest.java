@@ -36,7 +36,6 @@ import static org.junit.Assert.fail;
 import java.beans.PropertyDescriptor;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -105,19 +104,23 @@ abstract public class XmlTest<T> {
 
     private T m_sampleObject;
     private Object m_sampleXml;
-    private List<String> m_schemaFiles;
+    private String m_schemaFile;
+    private List<String> m_extraSchemaFiles;
 
     @Rule
     public TestName m_testName = new TestName();
 
     public XmlTest(final T sampleObject, final Object sampleXml, final String schemaFile) {
-        this(sampleObject, sampleXml, Collections.singletonList(schemaFile));
+        this(sampleObject, sampleXml, schemaFile, null);
     }
 
-    public XmlTest(final T sampleObject, final Object sampleXml, final List<String> schemaFiles) {
+    public XmlTest(final T sampleObject, final Object sampleXml, final String schemaFile, final List<String> extraSchemaFiles) {
         m_sampleObject = sampleObject;
         m_sampleXml = sampleXml;
-        m_schemaFiles = schemaFiles;
+        m_schemaFile = schemaFile;
+        m_extraSchemaFiles = new ArrayList<>();
+        if(extraSchemaFiles != null && !extraSchemaFiles.isEmpty())
+            m_extraSchemaFiles.addAll(extraSchemaFiles);
     }
 
     @Before
@@ -154,8 +157,12 @@ abstract public class XmlTest<T> {
         return new ByteArrayInputStream(getSampleXml().getBytes());
     }
 
-    protected List<String> getSchemaFile() {
-        return m_schemaFiles;
+    protected String getSchemaFile() {
+        return m_schemaFile;
+    }
+
+    protected List<String> getExtraSchemaFiles() {
+        return m_extraSchemaFiles;
     }
 
     @SuppressWarnings("unchecked")
@@ -189,12 +196,15 @@ abstract public class XmlTest<T> {
         }
 
         final SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+        final File schemaFile = new File(getSchemaFile());
+        LOG.debug("Validating using schema file: {}", schemaFile);
         List<StreamSource> schemaDocuments = new ArrayList<>();
-        for(String schema : getSchemaFile()) {
+        schemaDocuments.add(new StreamSource(schemaFile));
+        for(String schema : getExtraSchemaFiles()) {
             LOG.debug("Validating using schema file: {}", schema);
             schemaDocuments.add(new StreamSource(new File(schema)));
         }
-        LOG.debug("Validating using schema file: {}", schemaDocuments);
+        LOG.debug("Validating using schema documents: {}", schemaDocuments);
         final Schema schema = schemaFactory.newSchema(schemaDocuments.toArray(new StreamSource[0]));
 
         final SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
@@ -309,13 +319,15 @@ abstract public class XmlTest<T> {
 
     @Test
     public void validateJaxbXmlAgainstSchema() throws Exception {
-        final List<String> schemaFile = getSchemaFile();
-        if (schemaFile == null || schemaFile.isEmpty()) {
+        final String schemaFile = getSchemaFile();
+        if (schemaFile == null) {
             LOG.warn("Skipping validation.");
             return;
         }
+        LOG.debug("Validating against XSD: {}", schemaFile);
         List<StreamSource> schemaDocuments = new ArrayList<>();
-        for(String schema : getSchemaFile()) {
+        schemaDocuments.add(new StreamSource(new File(schemaFile)));
+        for(String schema : getExtraSchemaFiles()) {
             LOG.debug("Validating against XSD: {}", schema);
             schemaDocuments.add(new StreamSource(new File(schema)));
         }
