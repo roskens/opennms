@@ -113,8 +113,8 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         report.setParameters(params);
     }
 
-    public OpennmsReportsTest(final OpennmsReports sampleObject, final String sampleXml, final List<String> schemaFiles) {
-        super(sampleObject, sampleXml, schemaFiles);
+    public OpennmsReportsTest(final OpennmsReports sampleObject, final String sampleXml, final String schemaFile) {
+        super(sampleObject, sampleXml, schemaFile);
     }
 
     @org.junit.runners.Parameterized.Parameters
@@ -167,6 +167,6 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
             + "      <logo>logo.gif</logo>\n"
             + "   </report>\n"
             + "</opennms-reports>",
-            Arrays.asList("target/classes/xsds/opennms-reports.xsd"),},});
+            "target/classes/xsds/opennms-reports.xsd",},});
     }
 }
