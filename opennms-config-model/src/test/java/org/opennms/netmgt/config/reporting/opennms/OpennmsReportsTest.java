@@ -30,13 +30,9 @@ package org.opennms.netmgt.config.reporting.opennms;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
-import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
-import org.opennms.netmgt.config.reporting.DateParm;
-import org.opennms.netmgt.config.reporting.DefaultTime;
-import org.opennms.netmgt.config.reporting.IntParm;
-import org.opennms.netmgt.config.reporting.StringParm;
 
 public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
 
@@ -49,7 +45,7 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         report.setSvgTemplate("SVGAvailReport.xsl");
         report.setPdfTemplate("PDFAvailReport.xsl");
         report.setHtmlTemplate("HTMLAvailReport.xsl");
-        org.opennms.netmgt.config.reporting.Parameters params = new org.opennms.netmgt.config.reporting.Parameters();
+        Parameters params = new Parameters();
 
         StringParm sParm = new StringParm();
         sParm.setName("reportCategory");
@@ -77,7 +73,6 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         params.addIntParm(intParm);
         
         report.setParameters(params);
-        opennmsReports.addReport(report);
     }
 
     private static void addClassicReport(OpennmsReports opennmsReports) {
@@ -88,7 +83,7 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         report.setLogo("logo.gif");
         report.setPdfTemplate("PDFAvailReport.xsl");
         report.setHtmlTemplate("HTMLAvailReport.xsl");
-        org.opennms.netmgt.config.reporting.Parameters params = new org.opennms.netmgt.config.reporting.Parameters();
+        Parameters params = new Parameters();
 
         StringParm sParm = new StringParm();
         sParm.setName("reportCategory");
@@ -116,14 +111,13 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         params.addIntParm(intParm);
         
         report.setParameters(params);
-        opennmsReports.addReport(report);
     }
 
-    public OpennmsReportsTest(final OpennmsReports sampleObject, final String sampleXml, final String schemaFile) {
-        super(sampleObject, sampleXml, schemaFile);
+    public OpennmsReportsTest(final OpennmsReports sampleObject, final String sampleXml, final List<String> schemaFiles) {
+        super(sampleObject, sampleXml, schemaFiles);
     }
 
-    @Parameters
+    @org.junit.runners.Parameterized.Parameters
     public static Collection<Object[]> data() throws ParseException {
 
         OpennmsReports opennmsReports = new OpennmsReports();
@@ -132,49 +126,47 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
 
         return Arrays.asList(new Object[][]{{
             opennmsReports,
-            "<opennms-reports>\n"
-            + "  <report id=\"defaultCalendarReport\" "
-            + "    type=\"calendar\">\n"
-            + "    <logo>logo.gif</logo>\n"
-            + "    <svg-template>SVGAvailReport.xsl</svg-template>\n"
-            + "    <pdf-template>PDFAvailReport.xsl</pdf-template>\n"
-            + "    <html-template>HTMLAvailReport.xsl</html-template>\n"
-            + "    <parameters>\n"
-            + "      <string-parm name=\"reportCategory\" display-name=\"report category\" input-type=\"reportCategorySelector\" />\n"
-            + "      <date-parm name=\"endDate\" display-name=\"end date\" use-absolute-date=\"false\">\n"
-            + "        <default-interval>day</default-interval>\n"
-            + "        <default-count>1</default-count>\n"
-            + "        <default-time>\n"
-            + "          <hours>23</hours>\n"
-            + "          <minutes>59</minutes>\n"
-            + "        </default-time>\n"
-            + "      </date-parm>\n"
-            + "      <int-parm name=\"offenderCount\" display-name=\"top offender count\" input-type=\"freeText\">\n"
-            + "        <default>20</default>\n"
-            + "      </int-parm>\n"
-            + "    </parameters>\n"
-            + "  </report>\n"
-            + "  <report id=\"defaultClassicReport\" "
-            + "    type=\"calendar\">\n"
-            + "    <logo>logo.gif</logo>\n"
-            + "    <pdf-template>PDFAvailReport.xsl</pdf-template>\n"
-            + "    <html-template>HTMLAvailReport.xsl</html-template>\n"
-            + "    <parameters>\n"
-            + "      <string-parm name=\"reportCategory\" display-name=\"report category\" input-type=\"reportCategorySelector\" />\n"
-            + "      <date-parm name=\"endDate\" display-name=\"end date\" use-absolute-date=\"false\">\n"
-            + "        <default-interval>day</default-interval>\n"
-            + "        <default-count>1</default-count>\n"
-            + "        <default-time>\n"
-            + "          <hours>23</hours>\n"
-            + "          <minutes>59</minutes>\n"
-            + "        </default-time>\n"
-            + "      </date-parm>\n"
-            + "      <int-parm name=\"offenderCount\" display-name=\"top offender count\" input-type=\"freeText\">\n"
-            + "        <default>20</default>\n"
-            + "      </int-parm>\n"
-            + "    </parameters>\n"
-            + "  </report>\n"
-            + "</opennms-reports>", /* configuration */
-            "target/classes/xsds/opennms-reports.xsd",},});
+            "<opennms-reports xmlns=\"http://xmlns.opennms.org/xsd/config/opennms-reports\">\n"
+            + "   <report id=\"defaultCalendarReport\" type=\"calendar\">\n"
+            + "      <parameters>\n"
+            + "         <string-parm name=\"reportCategory\" display-name=\"report category\" input-type=\"reportCategorySelector\"/>\n"
+            + "         <date-parm name=\"endDate\" display-name=\"end date\" use-absolute-date=\"false\">\n"
+            + "            <default-interval>day</default-interval>\n"
+            + "            <default-count>1</default-count>\n"
+            + "            <default-time>\n"
+            + "               <hours>23</hours>\n"
+            + "               <minutes>59</minutes>\n"
+            + "            </default-time>\n"
+            + "         </date-parm>\n"
+            + "         <int-parm name=\"offenderCount\" display-name=\"top offender count\" input-type=\"freeText\">\n"
+            + "            <default>20</default>\n"
+            + "         </int-parm>\n"
+            + "      </parameters>\n"
+            + "      <pdf-template>PDFAvailReport.xsl</pdf-template>\n"
+            + "      <svg-template>SVGAvailReport.xsl</svg-template>\n"
+            + "      <html-template>HTMLAvailReport.xsl</html-template>\n"
+            + "      <logo>logo.gif</logo>\n"
+            + "   </report>\n"
+            + "   <report id=\"defaultClassicReport\" type=\"classic\">\n"
+            + "      <parameters>\n"
+            + "         <string-parm name=\"reportCategory\" display-name=\"report category\" input-type=\"reportCategorySelector\"/>\n"
+            + "         <date-parm name=\"endDate\" display-name=\"end date\" use-absolute-date=\"false\">\n"
+            + "            <default-interval>day</default-interval>\n"
+            + "            <default-count>1</default-count>\n"
+            + "            <default-time>\n"
+            + "               <hours>23</hours>\n"
+            + "               <minutes>59</minutes>\n"
+            + "            </default-time>\n"
+            + "         </date-parm>\n"
+            + "         <int-parm name=\"offenderCount\" display-name=\"top offender count\" input-type=\"freeText\">\n"
+            + "            <default>20</default>\n"
+            + "         </int-parm>\n"
+            + "      </parameters>\n"
+            + "      <pdf-template>PDFAvailReport.xsl</pdf-template>\n"
+            + "      <html-template>HTMLAvailReport.xsl</html-template>\n"
+            + "      <logo>logo.gif</logo>\n"
+            + "   </report>\n"
+            + "</opennms-reports>",
+            Arrays.asList("target/classes/xsds/opennms-reports.xsd"),},});
     }
 }
