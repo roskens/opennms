@@ -34,10 +34,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Repeatable(ValidateUsings.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-public @interface ValidateUsing {
+public @interface ValidateUsings {
 
     /**
      * The name of the XSD file associated with this JAXB-compatible object.
@@ -47,5 +46,5 @@ public @interface ValidateUsing {
      * @return The name of the XSD file, without paths.  This file is expected
      * to be in the classpath, in /xsds/.
      */
-    String value();
+    ValidateUsing[] value();
 }
