@@ -36,6 +36,7 @@ import static org.junit.Assert.fail;
 import java.beans.PropertyDescriptor;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -44,6 +45,7 @@ import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -67,8 +69,11 @@ import org.custommonkey.xmlunit.DetailedDiff;
 import org.custommonkey.xmlunit.Difference;
 import org.custommonkey.xmlunit.NodeDetail;
 import org.custommonkey.xmlunit.XMLUnit;
+import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.opennms.core.test.MockLogAppender;
@@ -100,18 +105,31 @@ abstract public class XmlTest<T> {
 
     private T m_sampleObject;
     private Object m_sampleXml;
-    private String m_schemaFile;
+    private List<String> m_schemaFiles;
+
+    @Rule
+    public TestName m_testName = new TestName();
 
     public XmlTest(final T sampleObject, final Object sampleXml, final String schemaFile) {
+        this(sampleObject, sampleXml, Collections.singletonList(schemaFile));
+    }
+
+    public XmlTest(final T sampleObject, final Object sampleXml, final List<String> schemaFiles) {
         m_sampleObject = sampleObject;
         m_sampleXml = sampleXml;
-        m_schemaFile = schemaFile;
+        m_schemaFiles = schemaFiles;
     }
 
     @Before
     public void setUp() {
+        System.err.println("------------ Begin Test " + m_testName.getMethodName() + " --------------------------");
         MockLogAppender.setupLogging(true);
         initXmlUnit();
+    }
+
+    @After
+    public void cleanup() {
+        System.err.println("------------ End Test " + m_testName.getMethodName() + " --------------------------");
     }
 
     protected T getSampleObject() {
@@ -136,8 +154,8 @@ abstract public class XmlTest<T> {
         return new ByteArrayInputStream(getSampleXml().getBytes());
     }
 
-    protected String getSchemaFile() {
-        return m_schemaFile;
+    protected List<String> getSchemaFile() {
+        return m_schemaFiles;
     }
 
     @SuppressWarnings("unchecked")
@@ -171,9 +189,13 @@ abstract public class XmlTest<T> {
         }
 
         final SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-        final File schemaFile = new File(getSchemaFile());
-        LOG.debug("Validating using schema file: {}", schemaFile);
-        final Schema schema = schemaFactory.newSchema(schemaFile);
+        List<StreamSource> schemaDocuments = new ArrayList<>();
+        for(String schema : getSchemaFile()) {
+            LOG.debug("Validating using schema file: {}", schema);
+            schemaDocuments.add(new StreamSource(new File(schema)));
+        }
+        LOG.debug("Validating using schema file: {}", schemaDocuments);
+        final Schema schema = schemaFactory.newSchema(schemaDocuments.toArray(new StreamSource[0]));
 
         final SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         saxParserFactory.setValidating(true);
@@ -287,15 +309,19 @@ abstract public class XmlTest<T> {
 
     @Test
     public void validateJaxbXmlAgainstSchema() throws Exception {
-        final String schemaFile = getSchemaFile();
-        if (schemaFile == null) {
+        final List<String> schemaFile = getSchemaFile();
+        if (schemaFile == null || schemaFile.isEmpty()) {
             LOG.warn("Skipping validation.");
             return;
         }
-        LOG.debug("Validating against XSD: {}", schemaFile);
+        List<StreamSource> schemaDocuments = new ArrayList<>();
+        for(String schema : getSchemaFile()) {
+            LOG.debug("Validating against XSD: {}", schema);
+            schemaDocuments.add(new StreamSource(new File(schema)));
+        }
         javax.xml.bind.Unmarshaller unmarshaller = JaxbUtils.getUnmarshallerFor(getSampleClass(), null, true);
         final SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-        final Schema schema = factory.newSchema(new StreamSource(schemaFile));
+        final Schema schema = factory.newSchema(schemaDocuments.toArray(new StreamSource[0]));
         unmarshaller.setSchema(schema);
         unmarshaller.setEventHandler(new ValidationEventHandler() {
             @Override
@@ -328,7 +354,7 @@ abstract public class XmlTest<T> {
 
     public static void assertXmlEquals(final String expectedXml, final String actualXml) {
         // ugly hack alert!
-        final XmlTest<Object> test = new XmlTest<Object>(null, null, null) {
+        final XmlTest<Object> test = new XmlTest<Object>(null, null, (String)null) {
         };
         test._assertXmlEquals(expectedXml, actualXml);
     }
@@ -475,7 +501,7 @@ abstract public class XmlTest<T> {
         for (final String property : properties) {
             final PropertyDescriptor expectedDescriptor = expectedWrapper.getPropertyDescriptor(property);
             final PropertyDescriptor actualDescriptor = actualWrapper.getPropertyDescriptor(property);
-            
+
             if (expectedDescriptor != null && actualDescriptor != null) {
                 // both have descriptors, so walk the sub-objects
                 Object expectedValue = null;
