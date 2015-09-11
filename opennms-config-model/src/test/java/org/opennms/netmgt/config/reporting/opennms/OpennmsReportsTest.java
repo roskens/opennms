@@ -30,6 +30,7 @@ package org.opennms.netmgt.config.reporting.opennms;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
@@ -77,7 +78,6 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         params.addIntParm(intParm);
         
         report.setParameters(params);
-        opennmsReports.addReport(report);
     }
 
     private static void addClassicReport(OpennmsReports opennmsReports) {
@@ -116,7 +116,6 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         params.addIntParm(intParm);
         
         report.setParameters(params);
-        opennmsReports.addReport(report);
     }
 
     public OpennmsReportsTest(final OpennmsReports sampleObject, final String sampleXml, final String schemaFile) {
@@ -132,7 +131,7 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
 
         return Arrays.asList(new Object[][]{{
             opennmsReports,
-            "<opennms-reports xmlns=\"http://xmlns.opennms.org/xsd/config/opennms-reports\">\n"
+            "<opennms-reports xmlns=\"http://xmlns.opennms.org/xsd/config/opennms-reports\" xmlns:reportParms=\"http://xmlns.opennms.org/xsd/config/report-parms\">\n"
             + "   <report id=\"defaultCalendarReport\" type=\"calendar\">\n"
             + "      <parameters>\n"
             + "         <string-parm name=\"reportCategory\" display-name=\"report category\" input-type=\"reportCategorySelector\"/>\n"
@@ -173,6 +172,7 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
             + "      <logo>logo.gif</logo>\n"
             + "   </report>\n"
             + "</opennms-reports>",
-            "target/classes/xsds/opennms-reports.xsd",},});
+            "target/classes/xsds/opennms-reports.xsd",
+            },});
     }
 }

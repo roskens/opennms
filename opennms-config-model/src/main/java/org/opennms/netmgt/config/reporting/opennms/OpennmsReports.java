@@ -49,11 +49,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="opennms-reports")
 @XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("report-parms.xsd")
 @ValidateUsing("opennms-reports.xsd")
+@XmlSeeAlso(value = { Report.class, org.opennms.netmgt.config.reporting.Parameters.class })
 @SuppressWarnings("all") public class OpennmsReports implements java.io.Serializable {
 
 
