@@ -41,13 +41,13 @@ import org.exolab.castor.xml.Unmarshaller;
 /**
  * Report Configuration for OpenNMS reports including availability
  *
+ *
  * @version $Revision$ $Date$
  */
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 

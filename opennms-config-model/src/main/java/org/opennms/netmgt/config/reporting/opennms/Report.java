@@ -64,45 +64,47 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * the name of this report
      */
-    @XmlAttribute(name="id")
-    private String _id;
+    @XmlAttribute(name="id", required = true)
+    private java.lang.String _id;
 
     /**
      * type of this report (calendar/classic)
      */
-    @XmlAttribute(name="type")
-    private String _type;
+    @XmlAttribute(name="type", required = true)
+    private java.lang.String _type;
 
     /**
      * Field _parameters.
      */
-    @XmlElement(name="parameters")
-    private org.opennms.netmgt.config.reporting.opennms.Parameters _parameters;
+    @XmlElement(name="parameters", namespace = "http://xmlns.opennms.org/xsd/config/report-parms")
+    private org.opennms.netmgt.config.reporting.Parameters _parameters;
 
     /**
-     * template to convert to display the report in PDF format
+     * template to convert to display the report
+     *  in PDF format
      */
     @XmlElement(name="pdf-template")
-    private String _pdfTemplate;
+    private java.lang.String _pdfTemplate;
 
     /**
-     * template to convert to display the report in PDF format with
-     * embedded SVG
+     * template to convert to display the report
+     *  in PDF format with embedded SVG
      */
     @XmlElement(name="svg-template")
-    private String _svgTemplate;
+    private java.lang.String _svgTemplate;
 
     /**
-     * template to convert to display the report in HTML format
+     * template to convert to display the report
+     *  in HTML format
      */
     @XmlElement(name="html-template")
-    private String _htmlTemplate;
+    private java.lang.String _htmlTemplate;
 
     /**
      * path to the logo file
      */
     @XmlElement(name="logo")
-    private String _logo;
+    private java.lang.String _logo;
 
 
       //----------------/
@@ -190,7 +192,8 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Returns the value of field 'htmlTemplate'. The field
      * 'htmlTemplate' has the following description: template to
-     * convert to display the report in HTML format
+     * convert to display the report
+     *  in HTML format
      *
      * @return the value of field 'HtmlTemplate'.
      */
@@ -226,7 +229,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Parameters'.
      */
-    public org.opennms.netmgt.config.reporting.opennms.Parameters getParameters(
+    public org.opennms.netmgt.config.reporting.Parameters getParameters(
     ) {
         return this._parameters;
     }
@@ -234,7 +237,8 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Returns the value of field 'pdfTemplate'. The field
      * 'pdfTemplate' has the following description: template to
-     * convert to display the report in PDF format
+     * convert to display the report
+     *  in PDF format
      *
      * @return the value of field 'PdfTemplate'.
      */
@@ -246,8 +250,8 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Returns the value of field 'svgTemplate'. The field
      * 'svgTemplate' has the following description: template to
-     * convert to display the report in PDF format with embedded
-     * SVG
+     * convert to display the report
+     *  in PDF format with embedded SVG
      *
      * @return the value of field 'SvgTemplate'.
      */
@@ -357,7 +361,8 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Sets the value of field 'htmlTemplate'. The field
      * 'htmlTemplate' has the following description: template to
-     * convert to display the report in HTML format
+     * convert to display the report
+     *  in HTML format
      *
      * @param htmlTemplate the value of field 'htmlTemplate'.
      */
@@ -394,14 +399,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @param parameters the value of field 'parameters'.
      */
     public void setParameters(
-            final org.opennms.netmgt.config.reporting.opennms.Parameters parameters) {
+            final org.opennms.netmgt.config.reporting.Parameters parameters) {
         this._parameters = parameters;
     }
 
     /**
      * Sets the value of field 'pdfTemplate'. The field
      * 'pdfTemplate' has the following description: template to
-     * convert to display the report in PDF format
+     * convert to display the report
+     *  in PDF format
      *
      * @param pdfTemplate the value of field 'pdfTemplate'.
      */
@@ -413,8 +419,8 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Sets the value of field 'svgTemplate'. The field
      * 'svgTemplate' has the following description: template to
-     * convert to display the report in PDF format with embedded
-     * SVG
+     * convert to display the report
+     *  in PDF format with embedded SVG
      *
      * @param svgTemplate the value of field 'svgTemplate'.
      */
