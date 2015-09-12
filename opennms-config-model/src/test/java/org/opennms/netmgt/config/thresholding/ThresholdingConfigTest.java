@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class ThresholdingConfigTest extends XmlTestNoCastor<ThresholdingConfig> {
+public class ThresholdingConfigTest extends XmlTest<ThresholdingConfig> {
 
     private static Expression addExpression(Group group, String type, String expression, String dsType, String dsLabel, Double value, Double rearm, Integer trigger) {
         Expression expr = new Expression();

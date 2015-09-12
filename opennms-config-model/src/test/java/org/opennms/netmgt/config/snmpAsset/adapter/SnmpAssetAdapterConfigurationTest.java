@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class SnmpAssetAdapterConfigurationTest extends XmlTestNoCastor<SnmpAssetAdapterConfiguration> {
+public class SnmpAssetAdapterConfigurationTest extends XmlTest<SnmpAssetAdapterConfiguration> {
 
     private static void addMibObj(MibObjs mibObjs, String oid, String alias) {
         MibObj mibObj = new MibObj();

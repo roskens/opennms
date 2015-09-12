@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class SnmpInterfacePollerConfigurationTest extends XmlTestNoCastor<SnmpInterfacePollerConfiguration> {
+public class SnmpInterfacePollerConfigurationTest extends XmlTest<SnmpInterfacePollerConfiguration> {
 
     public SnmpInterfacePollerConfigurationTest(final SnmpInterfacePollerConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

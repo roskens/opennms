@@ -32,9 +32,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class RancidConfigurationTest extends XmlTestNoCastor<RancidConfiguration> {
+public class RancidConfigurationTest extends XmlTest<RancidConfiguration> {
 
     private static void addMapping(RancidConfiguration config, String mask, String type) {
         Mapping mapping = new Mapping();

@@ -32,9 +32,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
+public class OpennmsReportsTest extends XmlTest<OpennmsReports> {
 
     private static void addCalendarReport(OpennmsReports opennmsReports) {
         Report report = new Report();

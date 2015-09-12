@@ -35,9 +35,9 @@ import java.util.Collection;
 import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class MicroblogConfigurationTest extends XmlTestNoCastor<MicroblogConfiguration> {
+public class MicroblogConfigurationTest extends XmlTest<MicroblogConfiguration> {
 
     public MicroblogConfigurationTest(final MicroblogConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

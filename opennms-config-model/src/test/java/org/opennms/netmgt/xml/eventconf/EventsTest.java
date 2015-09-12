@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class EventsTest extends XmlTestNoCastor<Events> {
+public class EventsTest extends XmlTest<Events> {
 
 	public EventsTest(final Events sampleObject, final String sampleXml, final String schemaFile) {
 		super(sampleObject, sampleXml, schemaFile);

@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class SiteStatusViewConfigurationTest extends XmlTestNoCastor<SiteStatusViewConfiguration> {
+public class SiteStatusViewConfigurationTest extends XmlTest<SiteStatusViewConfiguration> {
 
     private static void addRow(Rows rows, String label, String categoryName) {
         RowDef rowDef = new RowDef();

@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class ValueTest extends XmlTestNoCastor<Value> {
+public class ValueTest extends XmlTest<Value> {
 
     public ValueTest(final Value sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

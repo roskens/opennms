@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2011-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2011-2015 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2015 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -166,7 +166,7 @@ abstract public class XmlTest<T> {
     }
 
     @SuppressWarnings("unchecked")
-    private Class<T> getSampleClass() {
+    protected Class<T> getSampleClass() {
         return (Class<T>) getSampleObject().getClass();
     }
 
@@ -236,22 +236,9 @@ abstract public class XmlTest<T> {
     }
 
     @Test
-    public void marshalCastorAndCompareToXml() throws Exception {
-        final String xml = marshalToXmlWithCastor();
-        _assertXmlEquals(getSampleXml(), xml);
-    }
-
-    @Test
     public void marshalJaxbAndCompareToXml() throws Exception {
         final String xml = marshalToXmlWithJaxb();
         _assertXmlEquals(getSampleXml(), xml);
-    }
-
-    @Test
-    public void unmarshalXmlAndCompareToCastor() throws Exception {
-        final T obj = CastorUtils.unmarshal(getSampleClass(), getSampleXmlInputStream());
-        LOG.debug("Sample object: {}\n\nCastor object: {}", getSampleObject(), obj);
-        assertDepthEquals(getSampleObject(), obj);
     }
 
     @Test
@@ -269,52 +256,11 @@ abstract public class XmlTest<T> {
     }
 
     @Test
-    public void unmarshalCastorMarshalCastor() throws Exception {
-        final T obj = CastorUtils.unmarshal(getSampleClass(), getSampleXmlInputStream());
-        final StringWriter writer = new StringWriter();
-        CastorUtils.marshalWithTranslatedExceptions(obj, writer);
-        _assertXmlEquals(getSampleXml(), writer.toString());
-    }
-
-    @Test
-    public void marshalCastorUnmarshalCastor() throws Exception {
-        final String xml = marshalToXmlWithCastor();
-        final ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes());
-        final T obj = CastorUtils.unmarshal(getSampleClass(), is, false);
-        assertDepthEquals(getSampleObject(), obj);
-    }
-
-    @Test
     public void unmarshalXmlAndCompareToJaxb() throws Exception {
         LOG.debug("xml: {}", getSampleXml());
         final T obj = JaxbUtils.unmarshal(getSampleClass(), new InputSource(getSampleXmlInputStream()), null);
         LOG.debug("Sample object: {}\n\nJAXB object: {}", getSampleObject(), obj);
         assertDepthEquals(getSampleObject(), obj);
-    }
-
-    @Test
-    public void marshalCastorUnmarshalJaxb() throws Exception {
-        final String xml = marshalToXmlWithCastor();
-        final T obj = JaxbUtils.unmarshal(getSampleClass(), xml);
-        LOG.debug("Generated Object: {}", obj);
-        assertDepthEquals(getSampleObject(), obj);
-    }
-
-    @Test
-    public void marshalJaxbUnmarshalCastor() throws Exception {
-        final String xml = marshalToXmlWithJaxb();
-        final T obj = CastorUtils.unmarshal(getSampleClass(), new ByteArrayInputStream(xml.getBytes()));
-        LOG.debug("Generated Object: {}", obj);
-        assertDepthEquals(getSampleObject(), obj);
-    }
-
-    @Test
-    public void validateCastorObjectAgainstSchema() throws Exception {
-        org.exolab.castor.xml.Unmarshaller unmarshaller = CastorUtils.getUnmarshaller(getSampleClass());
-        unmarshaller.setValidation(true);
-        @SuppressWarnings("unchecked")
-        T obj = (T) unmarshaller.unmarshal(new InputSource(getSampleXmlInputStream()));
-        assertNotNull(obj);
     }
 
     @Test

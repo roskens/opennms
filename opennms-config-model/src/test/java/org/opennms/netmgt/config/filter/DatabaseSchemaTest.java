@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class DatabaseSchemaTest extends XmlTestNoCastor<DatabaseSchema> {
+public class DatabaseSchemaTest extends XmlTest<DatabaseSchema> {
 
     private static void addTable(DatabaseSchema databaseSchema, String tableName, String[] columns, String visible) {
         Table t = new Table();

@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class Tl1dConfigurationTest extends XmlTestNoCastor<Tl1dConfiguration> {
+public class Tl1dConfigurationTest extends XmlTest<Tl1dConfiguration> {
 
     public Tl1dConfigurationTest(final Tl1dConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

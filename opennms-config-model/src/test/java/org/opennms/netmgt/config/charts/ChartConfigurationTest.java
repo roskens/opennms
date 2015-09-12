@@ -35,9 +35,9 @@ import java.util.Collection;
 import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class ChartConfigurationTest extends XmlTestNoCastor<ChartConfiguration> {
+public class ChartConfigurationTest extends XmlTest<ChartConfiguration> {
 
     public ChartConfigurationTest(final ChartConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

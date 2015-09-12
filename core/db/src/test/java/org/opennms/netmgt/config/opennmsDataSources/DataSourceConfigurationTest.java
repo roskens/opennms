@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class DataSourceConfigurationTest extends XmlTestNoCastor<DataSourceConfiguration> {
+public class DataSourceConfigurationTest extends XmlTest<DataSourceConfiguration> {
 
     public DataSourceConfigurationTest(final DataSourceConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class InventoryElement2RPTest extends XmlTestNoCastor<InventoryElement2RP> {
+public class InventoryElement2RPTest extends XmlTest<InventoryElement2RP> {
 
     public InventoryElement2RPTest(final InventoryElement2RP sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class TrapdConfigurationTest extends XmlTestNoCastor<TrapdConfiguration> {
+public class TrapdConfigurationTest extends XmlTest<TrapdConfiguration> {
 
     public TrapdConfigurationTest(final TrapdConfiguration sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

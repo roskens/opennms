@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class SurveillanceViewConfigurationTest extends XmlTestNoCastor<SurveillanceViewConfiguration> {
+public class SurveillanceViewConfigurationTest extends XmlTest<SurveillanceViewConfiguration> {
 
     private static void addRowDef(Rows rows, String label, String category) {
         RowDef rDef = new RowDef();

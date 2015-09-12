@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class JasperReportsTest extends XmlTestNoCastor<JasperReports> {
+public class JasperReportsTest extends XmlTest<JasperReports> {
 
     private static void addReport(JasperReports jasperReports, String id, String template, String engine) {
         Report report = new Report();

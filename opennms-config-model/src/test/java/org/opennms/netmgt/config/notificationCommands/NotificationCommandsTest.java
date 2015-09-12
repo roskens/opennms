@@ -33,9 +33,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized.Parameters;
-import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.core.test.xml.XmlTest;
 
-public class NotificationCommandsTest extends XmlTestNoCastor<NotificationCommands> {
+public class NotificationCommandsTest extends XmlTest<NotificationCommands> {
 
     public NotificationCommandsTest(final NotificationCommands sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);
