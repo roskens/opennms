@@ -177,6 +177,14 @@ public abstract class JaxbUtils {
         return unmarshal(clazz, new InputSource(reader), null, validate);
     }
 
+    public static <T> T unmarshal(final Class<T> clazz, final InputStream stream) {
+        return unmarshal(clazz, stream, VALIDATE_IF_POSSIBLE);
+    }
+
+    public static <T> T unmarshal(final Class<T> clazz, final InputStream stream, final boolean validate) {
+        return unmarshal(clazz, new InputSource(stream), null, validate);
+    }
+
     public static <T> T unmarshal(final Class<T> clazz, final String xml) {
         return unmarshal(clazz, xml, VALIDATE_IF_POSSIBLE);
     }
