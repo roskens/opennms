@@ -49,11 +49,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
 
 @XmlRootElement(name="report")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlSeeAlso(value = { org.opennms.netmgt.config.reporting.Parameters.class })
 @SuppressWarnings("all") public class Report implements java.io.Serializable {
 
 

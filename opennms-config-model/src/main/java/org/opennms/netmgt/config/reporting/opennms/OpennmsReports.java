@@ -54,9 +54,7 @@ import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name="opennms-reports")
 @XmlAccessorType(XmlAccessType.FIELD)
-@ValidateUsing("report-parms.xsd")
 @ValidateUsing("opennms-reports.xsd")
-@XmlSeeAlso(value = { Report.class, org.opennms.netmgt.config.reporting.Parameters.class })
 @SuppressWarnings("all") public class OpennmsReports implements java.io.Serializable {
 
 
