@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2005-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2005-2015 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2015 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -29,10 +29,10 @@
 package org.opennms.netmgt.dao.api;
 
 
-import org.opennms.netmgt.config.reporting.DateParm;
-import org.opennms.netmgt.config.reporting.IntParm;
-import org.opennms.netmgt.config.reporting.Parameters;
-import org.opennms.netmgt.config.reporting.StringParm;
+import org.opennms.netmgt.config.reporting.opennms.DateParm;
+import org.opennms.netmgt.config.reporting.opennms.IntParm;
+import org.opennms.netmgt.config.reporting.opennms.Parameters;
+import org.opennms.netmgt.config.reporting.opennms.StringParm;
 
 /**
  * <p>OnmsReportConfigDao interface.</p>
