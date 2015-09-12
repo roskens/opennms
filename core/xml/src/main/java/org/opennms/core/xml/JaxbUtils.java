@@ -507,10 +507,12 @@ public abstract class JaxbUtils {
         StringWriter stringWriter = new StringWriter();
 
         marshal(config, stringWriter);
-
-        Writer fileWriter = new OutputStreamWriter(new FileOutputStream(cfgFile), "UTF-8");
-        fileWriter.write(stringWriter.toString());
-        fileWriter.flush();
-        fileWriter.close();
+        String xmlString = stringWriter.toString();
+        if (xmlString != null) {
+            Writer fileWriter = new OutputStreamWriter(new FileOutputStream(cfgFile), "UTF-8");
+            fileWriter.write(stringWriter.toString());
+            fileWriter.flush();
+            fileWriter.close();
+        }
     }
 }
