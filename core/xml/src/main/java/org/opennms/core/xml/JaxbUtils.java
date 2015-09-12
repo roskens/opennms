@@ -255,8 +255,15 @@ public abstract class JaxbUtils {
     }
 
     public static <T> XMLFilter getXMLFilterForClass(final Class<T> clazz) throws SAXException {
-        final String namespace = getNamespaceForClass(clazz);
-        XMLFilter filter = namespace == null? new SimpleNamespaceFilter("", false) : new SimpleNamespaceFilter(namespace, true);
+        final List<String> namespaces = getNamespacesForClass(clazz);
+        XMLFilter filter;
+        if (namespaces == null || namespaces.isEmpty()) {
+            filter = new SimpleNamespaceFilter("", false);
+        } else if (namespaces.size() == 1) {
+            filter = new SimpleNamespaceFilter(namespaces.get(0), true);
+        } else {
+            filter = new SimpleNamespacesFilter(namespaces, true);
+        }
 
         LOG.trace("namespace filter for class {}: {}", clazz, filter);
         final XMLReader xmlReader = XMLReaderFactory.createXMLReader();
