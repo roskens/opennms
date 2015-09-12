@@ -29,12 +29,10 @@
 package org.opennms.core.xml;
 
 import java.lang.annotation.ElementType;
-import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Repeatable(ValidateUsings.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 public @interface ValidateUsing {
@@ -48,4 +46,5 @@ public @interface ValidateUsing {
      * to be in the classpath, in /xsds/.
      */
     String value();
+
 }
