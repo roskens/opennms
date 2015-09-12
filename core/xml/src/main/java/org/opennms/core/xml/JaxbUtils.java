@@ -400,12 +400,14 @@ public abstract class JaxbUtils {
     private static List<String> getSchemaFilesFor(final Class<?> clazz) {
         final List<String> schemaFiles = new ArrayList<String>();
         for (final Class<?> c : getAllRelatedClasses(clazz)) {
-            final ValidateUsing annotation = c.getAnnotation(ValidateUsing.class);
-            if (annotation == null || annotation.value() == null) {
+            final ValidateUsing[] annotations = c.getAnnotationsByType(ValidateUsing.class);
+            if (annotations == null || annotations.length == 0) {
                 LOG.debug("@ValidateUsing is missing from class {}", c);
                 continue;
             } else {
-                schemaFiles.add(annotation.value());
+                for(ValidateUsing annotation : annotations) {
+                    schemaFiles.add(annotation.value());
+                }
             }
         }
         return schemaFiles;
@@ -448,7 +450,7 @@ public abstract class JaxbUtils {
                     }
                 }
                 if (schemaInputStream == null) {
-                    LOG.trace("Did not find a suitable XSD.  Skipping.");
+                    LOG.trace("Did not find a suitable XSD for {}.  Skipping.", schemaFileName);
                     continue;
                 } else {
                     sources.add(new StreamSource(schemaInputStream));
