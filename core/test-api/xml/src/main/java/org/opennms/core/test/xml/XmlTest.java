@@ -76,7 +76,6 @@ import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.opennms.core.test.MockLogAppender;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.core.xml.JaxbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -219,16 +218,6 @@ abstract public class XmlTest<T> {
         final Source source = new StreamSource(inputStream);
 
         validator.validate(source);
-    }
-
-    protected String marshalToXmlWithCastor() {
-        LOG.debug("Reference Object: {}", getSampleObject());
-
-        final StringWriter writer = new StringWriter();
-        CastorUtils.marshalWithTranslatedExceptions(getSampleObject(), writer);
-        final String xml = writer.toString();
-        LOG.debug("Castor XML: {}", xml);
-        return xml;
     }
 
     protected String marshalToXmlWithJaxb() {

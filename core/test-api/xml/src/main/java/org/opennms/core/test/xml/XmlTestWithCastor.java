@@ -47,6 +47,16 @@ public abstract class XmlTestWithCastor<T> extends XmlTest<T> {
         super(sampleObject, sampleXml, schemaFile);
     }
 
+    protected String marshalToXmlWithCastor() {
+        LOG.debug("Reference Object: {}", getSampleObject());
+
+        final StringWriter writer = new StringWriter();
+        CastorUtils.marshalWithTranslatedExceptions(getSampleObject(), writer);
+        final String xml = writer.toString();
+        LOG.debug("Castor XML: {}", xml);
+        return xml;
+    }
+
     @Test
     public void marshalCastorAndCompareToXml() throws Exception {
         final String xml = marshalToXmlWithCastor();
