@@ -43,6 +43,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.WeakHashMap;
 
 import javax.xml.bind.JAXBContext;
@@ -138,17 +140,6 @@ public abstract class JaxbUtils {
             }
         }
         return null;
-    }
-
-    public static <T> List<String> getNamespacesForClass(final Class<T> clazz) {
-        final List<String> namespaces = new ArrayList<String>();
-        final XmlSeeAlso seeAlso = clazz.getAnnotation(XmlSeeAlso.class);
-        if (seeAlso != null) {
-            for (final Class<?> c : seeAlso.value()) {
-                namespaces.addAll(getNamespacesForClass(c));
-            }
-        }
-        return namespaces;
     }
 
     public static void marshal(final Object obj, final Writer writer) {
@@ -255,14 +246,25 @@ public abstract class JaxbUtils {
     }
 
     public static <T> XMLFilter getXMLFilterForClass(final Class<T> clazz) throws SAXException {
-        final List<String> namespaces = getNamespacesForClass(clazz);
+        final String namespace = getNamespaceForClass(clazz);
+        List<Class<?>> related = getAllRelatedClasses(clazz);
         XMLFilter filter;
-        if (namespaces == null || namespaces.isEmpty()) {
+        if (namespace == null) {
+            LOG.trace("getXMLFilterForClass: class {} has no namespace", clazz.getName());
             filter = new SimpleNamespaceFilter("", false);
-        } else if (namespaces.size() == 1) {
-            filter = new SimpleNamespaceFilter(namespaces.get(0), true);
-        } else {
-            filter = new SimpleNamespacesFilter(namespaces, true);
+        } else if (related.size() == 1) {
+            LOG.trace("getXMLFilterForClass: class {} has namespace {}, no related classes", clazz.getName(), namespace);
+            filter = new SimpleNamespaceFilter(namespace, true);
+        }else {
+            Set<String> extraNS = new TreeSet<>();
+            for(final Class<?> c : related) {
+                final String cns = getNamespaceForClass(c);
+                if (cns != null)
+                    extraNS.add(cns);
+            }
+
+            LOG.trace("getXMLFilterForClass: class {} has namespace {}, and related classes {}", clazz.getName(), namespace, extraNS);
+            filter = new MultipleNamespacesFilter(namespace, extraNS);
         }
 
         LOG.trace("namespace filter for class {}: {}", clazz, filter);
