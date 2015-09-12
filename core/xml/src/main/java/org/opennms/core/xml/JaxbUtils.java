@@ -31,9 +31,11 @@ package org.opennms.core.xml;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -66,6 +68,8 @@ import javax.xml.validation.SchemaFactory;
 
 import org.apache.commons.io.IOUtils;
 import org.eclipse.persistence.jaxb.MarshallerProperties;
+import org.exolab.castor.xml.MarshalException;
+import org.exolab.castor.xml.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -486,5 +490,27 @@ public abstract class JaxbUtils {
             LOG.warn("an error occurred while attempting to load schema validation files for class {}", clazz, e);
             return null;
         }
+    }
+
+    /**
+     * Marshall to a string first, then write the string to the file. This
+     * way the original config isn't lost if the xml from the marshall is hosed.
+     *
+     * FIXME: This could still stand to write to a temporary file and/or make a
+     * temporary backup of the production configuration file.
+     *
+     * @param config a {@link java.lang.Object} object.
+     * @param cfgFile a {@link java.io.File} object.
+     * @throws java.io.IOException if any.
+     */
+    public static void marshalViaString(Object config, File cfgFile) throws IOException {
+        StringWriter stringWriter = new StringWriter();
+
+        marshal(config, stringWriter);
+
+        Writer fileWriter = new OutputStreamWriter(new FileOutputStream(cfgFile), "UTF-8");
+        fileWriter.write(stringWriter.toString());
+        fileWriter.flush();
+        fileWriter.close();
     }
 }
