@@ -32,7 +32,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
+import org.opennms.netmgt.config.reporting.DateParm;
+import org.opennms.netmgt.config.reporting.DefaultTime;
+import org.opennms.netmgt.config.reporting.IntParm;
+import org.opennms.netmgt.config.reporting.StringParm;
 
 public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
 
@@ -45,7 +50,7 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         report.setSvgTemplate("SVGAvailReport.xsl");
         report.setPdfTemplate("PDFAvailReport.xsl");
         report.setHtmlTemplate("HTMLAvailReport.xsl");
-        Parameters params = new Parameters();
+        org.opennms.netmgt.config.reporting.Parameters params = new org.opennms.netmgt.config.reporting.Parameters();
 
         StringParm sParm = new StringParm();
         sParm.setName("reportCategory");
@@ -83,7 +88,7 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         report.setLogo("logo.gif");
         report.setPdfTemplate("PDFAvailReport.xsl");
         report.setHtmlTemplate("HTMLAvailReport.xsl");
-        Parameters params = new Parameters();
+        org.opennms.netmgt.config.reporting.Parameters params = new org.opennms.netmgt.config.reporting.Parameters();
 
         StringParm sParm = new StringParm();
         sParm.setName("reportCategory");
@@ -117,7 +122,7 @@ public class OpennmsReportsTest extends XmlTestNoCastor<OpennmsReports> {
         super(sampleObject, sampleXml, schemaFile);
     }
 
-    @org.junit.runners.Parameterized.Parameters
+    @Parameters
     public static Collection<Object[]> data() throws ParseException {
 
         OpennmsReports opennmsReports = new OpennmsReports();
