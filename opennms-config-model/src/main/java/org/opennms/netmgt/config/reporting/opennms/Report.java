@@ -64,47 +64,45 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     /**
      * the name of this report
      */
-    @XmlAttribute(name="id", required = true)
-    private java.lang.String _id;
+    @XmlAttribute(name="id")
+    private String _id;
 
     /**
      * type of this report (calendar/classic)
      */
-    @XmlAttribute(name="type", required = true)
-    private java.lang.String _type;
+    @XmlAttribute(name="type")
+    private String _type;
 
     /**
      * Field _parameters.
      */
-    @XmlElement(name="parameters", namespace = "http://xmlns.opennms.org/xsd/config/report-parms")
-    private org.opennms.netmgt.config.reporting.Parameters _parameters;
+    @XmlElement(name="parameters")
+    private org.opennms.netmgt.config.reporting.opennms.Parameters _parameters;
 
     /**
-     * template to convert to display the report
-     *  in PDF format
+     * template to convert to display the report in PDF format
      */
     @XmlElement(name="pdf-template")
-    private java.lang.String _pdfTemplate;
+    private String _pdfTemplate;
 
     /**
-     * template to convert to display the report
-     *  in PDF format with embedded SVG
+     * template to convert to display the report in PDF format with
+     * embedded SVG
      */
     @XmlElement(name="svg-template")
-    private java.lang.String _svgTemplate;
+    private String _svgTemplate;
 
     /**
-     * template to convert to display the report
-     *  in HTML format
+     * template to convert to display the report in HTML format
      */
     @XmlElement(name="html-template")
-    private java.lang.String _htmlTemplate;
+    private String _htmlTemplate;
 
     /**
      * path to the logo file
      */
     @XmlElement(name="logo")
-    private java.lang.String _logo;
+    private String _logo;
 
 
       //----------------/
@@ -192,8 +190,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     /**
      * Returns the value of field 'htmlTemplate'. The field
      * 'htmlTemplate' has the following description: template to
-     * convert to display the report
-     *  in HTML format
+     * convert to display the report in HTML format
      *
      * @return the value of field 'HtmlTemplate'.
      */
@@ -229,7 +226,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
      *
      * @return the value of field 'Parameters'.
      */
-    public org.opennms.netmgt.config.reporting.Parameters getParameters(
+    public org.opennms.netmgt.config.reporting.opennms.Parameters getParameters(
     ) {
         return this._parameters;
     }
@@ -237,8 +234,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     /**
      * Returns the value of field 'pdfTemplate'. The field
      * 'pdfTemplate' has the following description: template to
-     * convert to display the report
-     *  in PDF format
+     * convert to display the report in PDF format
      *
      * @return the value of field 'PdfTemplate'.
      */
@@ -250,8 +246,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     /**
      * Returns the value of field 'svgTemplate'. The field
      * 'svgTemplate' has the following description: template to
-     * convert to display the report
-     *  in PDF format with embedded SVG
+     * convert to display the report in PDF format with embedded
+     * SVG
      *
      * @return the value of field 'SvgTemplate'.
      */
@@ -361,8 +357,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     /**
      * Sets the value of field 'htmlTemplate'. The field
      * 'htmlTemplate' has the following description: template to
-     * convert to display the report
-     *  in HTML format
+     * convert to display the report in HTML format
      *
      * @param htmlTemplate the value of field 'htmlTemplate'.
      */
@@ -399,15 +394,14 @@ import javax.xml.bind.annotation.XmlSeeAlso;
      * @param parameters the value of field 'parameters'.
      */
     public void setParameters(
-            final org.opennms.netmgt.config.reporting.Parameters parameters) {
+            final org.opennms.netmgt.config.reporting.opennms.Parameters parameters) {
         this._parameters = parameters;
     }
 
     /**
      * Sets the value of field 'pdfTemplate'. The field
      * 'pdfTemplate' has the following description: template to
-     * convert to display the report
-     *  in PDF format
+     * convert to display the report in PDF format
      *
      * @param pdfTemplate the value of field 'pdfTemplate'.
      */
@@ -419,8 +413,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     /**
      * Sets the value of field 'svgTemplate'. The field
      * 'svgTemplate' has the following description: template to
-     * convert to display the report
-     *  in PDF format with embedded SVG
+     * convert to display the report in PDF format with embedded
+     * SVG
      *
      * @param svgTemplate the value of field 'svgTemplate'.
      */
