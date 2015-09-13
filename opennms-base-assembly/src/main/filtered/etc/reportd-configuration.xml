@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <reportd-configuration 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:schemaLocation="http://xmlns.opennms.org/xsd/config/reportd-configuration"
+  xsi:schemaLocation="http://xmlns.opennms.org/xsd/config/reportd-configuration http://xmlns.opennms.org/xsd/config/reportd-configuration.xsd"
   storage-location="${install.share.dir}/reports/"
   persist-reports="yes"
 > 

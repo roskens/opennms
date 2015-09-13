@@ -2,7 +2,7 @@
 <opennms-reports
 	xmlns:this="http://xmlns.opennms.org/xsd/config/opennms-database-reports"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.opennms.org/xsd/config/opennms-database-reports">
+	xsi:schemaLocation="http://xmlns.opennms.org/xsd/config/opennms-database-reports http://xmlns.opennms.org/xsd/config/database-reports.xsd">
 	<report id="defaultCalendarReport" 
 		type="calendar">
 		<logo>logo.gif</logo>

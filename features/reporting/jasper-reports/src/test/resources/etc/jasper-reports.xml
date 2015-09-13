@@ -2,7 +2,7 @@
 <jasper-reports
         xmlns:this="http://xmlns.opennms.org/xsd/config/jasper-reports"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://xmlns.opennms.org/xsd/config/jasper-reports">
+        xsi:schemaLocation="http://xmlns.opennms.org/xsd/config/jasper-reports http://xmlns.opennms.org/xsd/config/jasper-reports.xsd">
         <report id="trivial-report" template="trivial-report.jrxml" engine="null" />
         <report id="parameter-test" template="parameter-test.jrxml" engine="null" />
         <report id="main-subreport-test" template="resource-sub-uri-test.jrxml" engine="null" />
