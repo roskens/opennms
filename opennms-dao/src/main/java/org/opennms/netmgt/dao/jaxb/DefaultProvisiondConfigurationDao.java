@@ -26,10 +26,10 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.castor;
+package org.opennms.netmgt.dao.jaxb;
 
 import java.util.List;
-
+import org.opennms.core.xml.AbstractJaxbConfigDao;
 import org.opennms.netmgt.config.provisiond.ProvisiondConfiguration;
 import org.opennms.netmgt.config.provisiond.RequisitionDef;
 import org.opennms.netmgt.dao.api.ProvisiondConfigurationDao;
@@ -42,7 +42,7 @@ import org.springframework.dao.DataAccessResourceFailureException;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  * @version $Id: $
  */
-public class DefaultProvisiondConfigurationDao extends AbstractCastorConfigDao<ProvisiondConfiguration, ProvisiondConfiguration> implements ProvisiondConfigurationDao {
+public class DefaultProvisiondConfigurationDao extends AbstractJaxbConfigDao<ProvisiondConfiguration, ProvisiondConfiguration> implements ProvisiondConfigurationDao {
 
     /**
      * <p>Constructor for DefaultProvisiondConfigurationDao.</p>

@@ -34,11 +34,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.notificationCommands.Command;
 import org.opennms.netmgt.config.notificationCommands.NotificationCommands;
 
@@ -59,11 +59,10 @@ public abstract class NotificationCommandManager {
      * Populate the internal list of notification commands from an XML file.
      *
      * @param reader contains the XML file to be parsed
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    protected void parseXML(InputStream reader) throws MarshalException, ValidationException {
-        NotificationCommands config = CastorUtils.unmarshal(NotificationCommands.class, reader);
+    protected void parseXML(InputStream reader) throws DataAccessException {
+        NotificationCommands config = JaxbUtils.unmarshal(NotificationCommands.class, reader);
 
         Map<String, Command> commands = new HashMap<String, Command>();
         for (Command curCommand : getCommandsFromConfig(config)) {

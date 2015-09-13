@@ -35,8 +35,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.CategoryFactory;
 import org.opennms.netmgt.config.categories.Categories;
 import org.opennms.netmgt.config.categories.Category;
@@ -59,10 +59,8 @@ public class DefaultCategoryConfigDao implements CategoryConfigDao {
 	public DefaultCategoryConfigDao() {
 		try {
 			CategoryFactory.init();
-		} catch (MarshalException e) {
+		} catch (DataAccessException e) {
 			throw new DataRetrievalFailureException("Syntax error in categories file", e);
-		} catch (ValidationException e) {
-			throw new DataRetrievalFailureException("Validation error in categories file", e);
 		} catch (FileNotFoundException e) {
 			throw new DataRetrievalFailureException("Unable to locate categories file", e);
 		} catch (IOException e) {

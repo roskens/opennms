@@ -28,24 +28,19 @@
 
 package org.opennms.netmgt.dao.jaxb;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Locale;
-
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.junit.After;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -57,6 +52,8 @@ import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.Event;
 import org.opennms.netmgt.xml.event.Events;
 import org.opennms.netmgt.xml.event.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JaxbUtilsTest {
     private static final Logger LOG = LoggerFactory.getLogger(JaxbUtilsTest.class);

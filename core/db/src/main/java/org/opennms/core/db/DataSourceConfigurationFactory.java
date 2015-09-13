@@ -34,9 +34,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
-import org.opennms.core.xml.CastorUtils;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.opennmsDataSources.ConnectionPool;
 import org.opennms.netmgt.config.opennmsDataSources.DataSourceConfiguration;
 import org.opennms.netmgt.config.opennmsDataSources.JdbcDataSource;
@@ -60,10 +59,8 @@ public final class DataSourceConfigurationFactory {
 		InputStream is = null;
 		try {
 			is = new FileInputStream(fileName);
-			m_dsc = CastorUtils.unmarshal(DataSourceConfiguration.class, is);
-		} catch (MarshalException e) {
-			throw new IllegalArgumentException("Could not unmarshal " + DataSourceConfiguration.class.getName(), e);
-		} catch (ValidationException e) {
+			m_dsc = JaxbUtils.unmarshal(DataSourceConfiguration.class, is);
+		} catch (DataAccessException e) {
 			throw new IllegalArgumentException("Could not unmarshal " + DataSourceConfiguration.class.getName(), e);
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException("Could not unmarshal " + DataSourceConfiguration.class.getName(), e);
@@ -78,10 +75,8 @@ public final class DataSourceConfigurationFactory {
 
 	public DataSourceConfigurationFactory(InputStream fileInputStream) {
 		try {
-			m_dsc = CastorUtils.unmarshal(DataSourceConfiguration.class, fileInputStream);
-		} catch (MarshalException e) {
-			throw new IllegalArgumentException("Could not unmarshal " + DataSourceConfiguration.class.getName(), e);
-		} catch (ValidationException e) {
+			m_dsc = JaxbUtils.unmarshal(DataSourceConfiguration.class, fileInputStream);
+		} catch (DataAccessException e) {
 			throw new IllegalArgumentException("Could not unmarshal " + DataSourceConfiguration.class.getName(), e);
 		}
 	}

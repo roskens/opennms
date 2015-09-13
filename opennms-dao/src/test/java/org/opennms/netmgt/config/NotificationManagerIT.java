@@ -35,8 +35,8 @@ import java.io.IOException;
 
 import javax.sql.DataSource;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -436,7 +436,7 @@ public class NotificationManagerIT implements InitializingBean {
         }
 
         @Override
-        public void update() throws IOException, MarshalException, ValidationException {
+        public void update() throws DataAccessException, IOException {
             return;
         }
     }

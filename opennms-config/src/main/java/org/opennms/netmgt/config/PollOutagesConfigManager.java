@@ -69,7 +69,7 @@ abstract public class PollOutagesConfigManager extends AbstractJaxbConfigDao<Out
     @Override
     public void afterPropertiesSet() throws DataAccessException {
         /**
-         * It sucks to duplicate this first test from AbstractCastorConfigDao,
+         * It sucks to duplicate this first test from AbstractJaxbConfigDao,
          * but we need to do so to ensure we don't get an NPE while initializing
          * programmaticStoreConfigResource (if needed).
          */

@@ -42,8 +42,7 @@ import java.util.TreeMap;
 
 import javax.servlet.ServletException;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.ViewsDisplayFactory;
 import org.opennms.netmgt.config.viewsdisplay.Section;
 import org.opennms.netmgt.config.viewsdisplay.View;
@@ -156,10 +155,9 @@ public class CategoryList {
      *
      * @return a {@link java.util.Map} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public Map<String, List<Category>> getCategoryData() throws IOException, MarshalException, ValidationException {
+    public Map<String, List<Category>> getCategoryData() throws DataAccessException, IOException {
 
         Map<String, Category> categoryMap = m_model.getCategoryMap();
         List<Section> sectionList = getSections(categoryMap);
@@ -221,10 +219,9 @@ public class CategoryList {
      *
      * @return a boolean.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public boolean isDisconnected() throws IOException, MarshalException, ValidationException {
+    public boolean isDisconnected() throws DataAccessException, IOException {
         return isDisconnected(getEarliestUpdate(getCategoryData()));
     }
 

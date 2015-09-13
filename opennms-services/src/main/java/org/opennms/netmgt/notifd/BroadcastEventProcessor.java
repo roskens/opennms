@@ -41,8 +41,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.RowProcessor;
 import org.opennms.core.utils.TimeConverter;
 import org.opennms.netmgt.config.DestinationPathManager;
@@ -241,10 +241,8 @@ public final class BroadcastEventProcessor implements EventListener {
         
         try {
             notificationStatus = getNotifdConfigManager().getNotificationStatus();
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             LOG.error("onEvent: problem marshalling configuration", e);
-        } catch (ValidationException e) {
-            LOG.error("onEvent: problem validating marsharled configuraion", e);
         } catch (IOException e) {
             LOG.error("onEvent: IO problem marshalling configuration", e);
         }
@@ -283,10 +281,8 @@ public final class BroadcastEventProcessor implements EventListener {
                     createPathOutageEvent(nodeid.intValue(), EventUtils.getParm(event, EventConstants.PARM_NODE_LABEL), cip, csvc, noticeSupressed);
                 }
             }
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             LOG.error("onEvent: problem marshalling configuration", e);
-        } catch (ValidationException e) {
-            LOG.error("onEvent: problem validating marshalled configuration", e);
         } catch (IOException e) {
             LOG.error("onEvent: IO problem marshalling configuration", e);
         }
@@ -646,7 +642,7 @@ public final class BroadcastEventProcessor implements EventListener {
      * @return the total # of users assigned in each Target and Escalate
      *         objecst.
      */
-    private int getUserCount(Target[] targets, Escalate[] escalations) throws IOException, MarshalException, ValidationException {
+    private int getUserCount(Target[] targets, Escalate[] escalations) throws DataAccessException, IOException {
         int totalUsers = 0;
 
         for (int i = 0; i < targets.length; i++) {
@@ -666,7 +662,7 @@ public final class BroadcastEventProcessor implements EventListener {
     /**
      * 
      */
-    private int getUsersInTarget(Target target) throws IOException, MarshalException, ValidationException {
+    private int getUsersInTarget(Target target) throws DataAccessException, IOException {
         int count = 0;
         String targetName = target.getName();
 
@@ -781,7 +777,7 @@ public final class BroadcastEventProcessor implements EventListener {
     /**
      * 
      */
-    private void processTargets(Target[] targets, List<NotificationTask> targetSiblings, NoticeQueue noticeQueue, long startTime, Map<String, String> params, int noticeId) throws IOException, MarshalException, ValidationException {
+    private void processTargets(Target[] targets, List<NotificationTask> targetSiblings, NoticeQueue noticeQueue, long startTime, Map<String, String> params, int noticeId) throws DataAccessException, IOException {
         for (int i = 0; i < targets.length; i++) {
             String interval = (targets[i].getInterval() == null ? "0s" : targets[i].getInterval());
 
@@ -833,7 +829,7 @@ public final class BroadcastEventProcessor implements EventListener {
         }
     }
 
-    NotificationTask[] makeGroupTasks(long startTime, Map<String, String> params, int noticeId, String targetName, String[] command, List<NotificationTask> targetSiblings, String autoNotify, long interval) throws IOException, MarshalException, ValidationException {
+    NotificationTask[] makeGroupTasks(long startTime, Map<String, String> params, int noticeId, String targetName, String[] command, List<NotificationTask> targetSiblings, String autoNotify, long interval) throws DataAccessException, IOException {
         Group group = getGroupManager().getGroup(targetName);
 
         Calendar startCal = Calendar.getInstance();
@@ -858,7 +854,7 @@ public final class BroadcastEventProcessor implements EventListener {
         return constructTasksFromUserList(users, startTime, next, params, noticeId, command, targetSiblings, autoNotify, interval);
     }
 
-    private NotificationTask[] constructTasksFromUserList(String[] users, long startTime, long offset, Map<String, String> params, int noticeId, String[] command, List<NotificationTask> targetSiblings, String autoNotify, long interval) throws IOException, MarshalException, ValidationException {
+    private NotificationTask[] constructTasksFromUserList(String[] users, long startTime, long offset, Map<String, String> params, int noticeId, String[] command, List<NotificationTask> targetSiblings, String autoNotify, long interval) throws DataAccessException, IOException {
         List<NotificationTask> taskList = new ArrayList<NotificationTask>(users.length);
         long curSendTime = 0;
         for (int j = 0; j < users.length; j++) {
@@ -873,7 +869,7 @@ public final class BroadcastEventProcessor implements EventListener {
     }
     
     
-    NotificationTask[] makeRoleTasks(long startTime, Map<String, String> params, int noticeId, String targetName, String[] command, List<NotificationTask> targetSiblings, String autoNotify, long interval) throws MarshalException, ValidationException, IOException {
+    NotificationTask[] makeRoleTasks(long startTime, Map<String, String> params, int noticeId, String targetName, String[] command, List<NotificationTask> targetSiblings, String autoNotify, long interval) throws DataAccessException, IOException {
         String[] users = getUserManager().getUsersScheduledForRole(targetName, new Date(startTime));
         
         // There are no users in the group
@@ -891,7 +887,7 @@ public final class BroadcastEventProcessor implements EventListener {
     /**
      * 
      */
-    private void processEscalations(Escalate[] escalations, List<NotificationTask> targetSiblings, NoticeQueue noticeQueue, long startTime, Map<String, String> params, int noticeId) throws IOException, MarshalException, ValidationException {
+    private void processEscalations(Escalate[] escalations, List<NotificationTask> targetSiblings, NoticeQueue noticeQueue, long startTime, Map<String, String> params, int noticeId) throws DataAccessException, IOException {
         for (int i = 0; i < escalations.length; i++) {
             Target[] targets = escalations[i].getTarget();
             startTime += TimeConverter.convertToMillis(escalations[i].getDelay());
@@ -902,7 +898,7 @@ public final class BroadcastEventProcessor implements EventListener {
     /**
      * 
      */
-    NotificationTask makeUserTask(long sendTime, Map<String, String> parameters, int noticeId, String targetName, String[] commandList, List<NotificationTask> siblings, String autoNotify) throws IOException, MarshalException, ValidationException {
+    NotificationTask makeUserTask(long sendTime, Map<String, String> parameters, int noticeId, String targetName, String[] commandList, List<NotificationTask> siblings, String autoNotify) throws DataAccessException, IOException {
         NotificationTask task = null;
 
         task = new NotificationTask(getNotificationManager(), getUserManager(), sendTime, parameters, siblings, autoNotify);
@@ -937,7 +933,7 @@ public final class BroadcastEventProcessor implements EventListener {
     /**
      * 
      */
-    NotificationTask makeEmailTask(long sendTime, Map<String, String> parameters, int noticeId, String address, String[] commandList, List<NotificationTask> siblings, String autoNotify) throws IOException, MarshalException, ValidationException {
+    NotificationTask makeEmailTask(long sendTime, Map<String, String> parameters, int noticeId, String address, String[] commandList, List<NotificationTask> siblings, String autoNotify) throws DataAccessException, IOException {
         NotificationTask task = null;
 
         task = new NotificationTask(getNotificationManager(), getUserManager(), sendTime, parameters, siblings, autoNotify);

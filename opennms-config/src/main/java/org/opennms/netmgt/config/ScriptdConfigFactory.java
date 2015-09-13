@@ -31,10 +31,10 @@ package org.opennms.netmgt.config;
 import java.io.File;
 import java.io.IOException;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.scriptd.Engine;
 import org.opennms.netmgt.config.scriptd.EventScript;
 import org.opennms.netmgt.config.scriptd.Events;
@@ -84,8 +84,8 @@ public final class ScriptdConfigFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      */
-    private ScriptdConfigFactory(String configFile) throws IOException, MarshalException, ValidationException {
-        m_config = CastorUtils.unmarshal(ScriptdConfiguration.class, new FileSystemResource(configFile));
+    private ScriptdConfigFactory(String configFile) throws DataAccessException, IOException {
+        m_config = JaxbUtils.unmarshal(ScriptdConfiguration.class, new FileSystemResource(configFile));
     }
 
     /**
@@ -99,10 +99,9 @@ public final class ScriptdConfigFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, IOException {
         if (m_loaded) {
             // init already called - return
             // to reload, reload() will need to be called
@@ -125,10 +124,9 @@ public final class ScriptdConfigFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void reload() throws IOException, MarshalException, ValidationException {
+    public static synchronized void reload() throws DataAccessException, IOException {
         m_singleton = null;
         m_loaded = false;
 

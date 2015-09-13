@@ -34,10 +34,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.rtc.RTCConfiguration;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -139,15 +139,14 @@ public final class RTCConfigFactory implements InitializingBean {
      *
      * @param stream a {@link java.io.InputStream} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public RTCConfigFactory(InputStream stream) throws IOException, MarshalException, ValidationException {
+    public RTCConfigFactory(InputStream stream) throws DataAccessException, IOException {
         m_config = marshal(stream);
     }
 
-    private RTCConfiguration marshal(InputStream stream) throws MarshalException, ValidationException {
-        return CastorUtils.unmarshal(RTCConfiguration.class, stream);
+    private RTCConfiguration marshal(InputStream stream) throws DataAccessException {
+        return JaxbUtils.unmarshal(RTCConfiguration.class, stream);
     }
 
     /**
@@ -161,11 +160,10 @@ public final class RTCConfigFactory implements InitializingBean {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
     @Override
-    public void afterPropertiesSet() throws IOException, MarshalException, ValidationException {
+    public void afterPropertiesSet() throws DataAccessException, IOException {
         File configFile = ConfigFileConstants.getFile(ConfigFileConstants.RTC_CONFIG_FILE_NAME);
 
         InputStream stream = null;

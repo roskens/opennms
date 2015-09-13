@@ -42,7 +42,7 @@ import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.service.Invoke;
 import org.opennms.netmgt.config.service.Service;
 import org.opennms.netmgt.config.service.types.InvokeAtType;
@@ -89,10 +89,10 @@ public final class Main {
         MBeanServer server = ManagementFactory.getPlatformMBeanServer();
 
         List<Invoke> invokes = new ArrayList<Invoke>();
-        invokes.add((Invoke)CastorUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"start\" pass=\"0\" method=\"init\"/>")));
-        invokes.add((Invoke)CastorUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"start\" pass=\"1\" method=\"start\"/>")));
-        invokes.add((Invoke)CastorUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"status\" pass=\"0\" method=\"status\"/>")));
-        invokes.add((Invoke)CastorUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"stop\" pass=\"0\" method=\"stop\"/>")));
+        invokes.add((Invoke)JaxbUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"start\" pass=\"0\" method=\"init\"/>")));
+        invokes.add((Invoke)JaxbUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"start\" pass=\"1\" method=\"start\"/>")));
+        invokes.add((Invoke)JaxbUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"status\" pass=\"0\" method=\"status\"/>")));
+        invokes.add((Invoke)JaxbUtils.unmarshal(Invoke.class, new StringReader("<invoke at=\"stop\" pass=\"0\" method=\"stop\"/>")));
 
         List<Service> services = new ArrayList<Service>();
 

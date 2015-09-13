@@ -31,18 +31,17 @@ package org.opennms.netmgt.threshd.mock;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.ThreshdConfigManager;
 
 public class MockThreshdConfigManager extends ThreshdConfigManager {
 
-    public MockThreshdConfigManager(InputStream stream, String localServer, boolean verifyServer) throws MarshalException, ValidationException {
+    public MockThreshdConfigManager(InputStream stream, String localServer, boolean verifyServer) throws DataAccessException {
         super(stream, localServer, verifyServer);
     }
 
     @Override
-    public void reloadXML() throws IOException, MarshalException, ValidationException {
+    public void reloadXML() throws DataAccessException, IOException {
         // TODO Auto-generated method stub
 
     }

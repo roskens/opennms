@@ -38,7 +38,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
-import org.opennms.netmgt.dao.castor.DefaultMicroblogConfigurationDao;
+import org.opennms.netmgt.dao.jaxb.DefaultMicroblogConfigurationDao;
 import org.opennms.netmgt.model.notifd.Argument;
 import org.opennms.netmgt.model.notifd.NotificationStrategy;
 import org.opennms.test.DaoTestConfigBean;
@@ -47,8 +47,8 @@ import org.springframework.core.io.Resource;
 /**
  * TODO: Make this unit test work
  * 
- * @author <a href="mailto:jeffg@opennms.org>Jeff Gehlbach</a>
- * @author <a href="http://www.opennms.org/>OpenNMS</a>
+ * @author <a href="mailto:jeffg@opennms.org">Jeff Gehlbach</a>
+ * @author <a href="http://www.opennms.org"/>OpenNMS</a>
  *
  */
 @JUnitTemporaryDatabase

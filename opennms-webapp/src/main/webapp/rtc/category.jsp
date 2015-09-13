@@ -57,10 +57,7 @@
         catch( java.io.IOException e ) {
             throw new ServletException("Could not instantiate the CategoryModel", e);
         }
-        catch( org.exolab.castor.xml.MarshalException e ) {
-            throw new ServletException("Could not instantiate the CategoryModel", e);
-        }
-        catch( org.exolab.castor.xml.ValidationException e ) {
+        catch( org.springframework.dao.DataAccessException e ) {
             throw new ServletException("Could not instantiate the CategoryModel", e);
         }        
 

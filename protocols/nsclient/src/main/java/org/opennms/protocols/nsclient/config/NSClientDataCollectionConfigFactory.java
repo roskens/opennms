@@ -39,10 +39,10 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.nsclient.NsclientCollection;
 import org.opennms.netmgt.config.nsclient.NsclientDatacollectionConfig;
 import org.opennms.netmgt.rrd.RrdRepository;
@@ -76,11 +76,10 @@ public class NSClientDataCollectionConfigFactory {
       * <p>Constructor for NSClientDataCollectionConfigFactory.</p>
       *
       * @param configFile a {@link java.lang.String} object.
-      * @throws org.exolab.castor.xml.MarshalException if any.
-      * @throws org.exolab.castor.xml.ValidationException if any.
+      * @throws org.springframework.dao.DataAccessException if any.
       * @throws java.io.IOException if any.
       */
-     public NSClientDataCollectionConfigFactory(final String configFile) throws MarshalException, ValidationException, IOException {
+     public NSClientDataCollectionConfigFactory(final String configFile) throws DataAccessException, IOException {
          InputStream is = null;
          
          try {
@@ -99,9 +98,9 @@ public class NSClientDataCollectionConfigFactory {
          return m_writeLock;
      }
 
-     private void initialize(final InputStream stream) throws MarshalException, ValidationException {
+     private void initialize(final InputStream stream) throws DataAccessException {
          LOG.debug("initialize: initializing NSCLient collection config factory.");
-         m_config = CastorUtils.unmarshal(NsclientDatacollectionConfig.class, stream);
+         m_config = JaxbUtils.unmarshal(NsclientDatacollectionConfig.class, stream);
      }
 
      /**
@@ -109,10 +108,9 @@ public class NSClientDataCollectionConfigFactory {
       *
       * @throws java.io.IOException if any.
       * @throws java.io.FileNotFoundException if any.
-      * @throws org.exolab.castor.xml.MarshalException if any.
-      * @throws org.exolab.castor.xml.ValidationException if any.
+      * @throws org.springframework.dao.DataAccessException if any.
       */
-     public static synchronized void init() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+     public static synchronized void init() throws DataAccessException, FileNotFoundException, IOException {
          if (m_instance == null) {
              final File cfgFile = ConfigFileConstants.getFile(ConfigFileConstants.NSCLIENT_COLLECTION_CONFIG_FILE_NAME);
              m_instance = new NSClientDataCollectionConfigFactory(cfgFile.getPath());
@@ -150,10 +148,9 @@ public class NSClientDataCollectionConfigFactory {
       *
       * @throws java.io.IOException if any.
       * @throws java.io.FileNotFoundException if any.
-      * @throws org.exolab.castor.xml.MarshalException if any.
-      * @throws org.exolab.castor.xml.ValidationException if any.
+      * @throws org.springframework.dao.DataAccessException if any.
       */
-     public synchronized void reload() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+     public synchronized void reload() throws DataAccessException, FileNotFoundException, IOException {
          m_instance = null;
          init();
      }
@@ -277,10 +274,9 @@ public class NSClientDataCollectionConfigFactory {
       * read it.
       *
       * @throws java.io.IOException if any.
-      * @throws org.exolab.castor.xml.MarshalException if any.
-      * @throws org.exolab.castor.xml.ValidationException if any.
+      * @throws org.springframework.dao.DataAccessException if any.
       */
-     protected void updateFromFile() throws IOException, MarshalException, ValidationException {
+     protected void updateFromFile() throws DataAccessException, IOException {
          if (m_loadedFromFile) {
              try {
                  getWriteLock().lock();

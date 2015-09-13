@@ -57,7 +57,6 @@ import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.opennms.core.utils.InetAddressUtils;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.PollerConfig;
 import org.opennms.netmgt.config.PollerConfigFactory;
@@ -215,7 +214,7 @@ public abstract class MonitorTester {
             FileInputStream fileInputStream = null;
             try {
                 fileInputStream = new FileInputStream(cfgFile);
-                dsc = CastorUtils.unmarshal(DataSourceConfiguration.class, fileInputStream);
+                dsc = JaxbUtils.unmarshal(DataSourceConfiguration.class, fileInputStream);
             } finally {
                 IOUtils.closeQuietly(fileInputStream);
             } 

@@ -52,8 +52,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonRootName;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.config.api.JaxbListWrapper;
 import org.opennms.netmgt.dao.api.IpInterfaceDao;
 import org.opennms.netmgt.dao.api.MonitoredServiceDao;
@@ -115,7 +114,7 @@ public class AvailabilityRestService extends OnmsRestService {
     public AvailabilityData getNodeAvailability() {
         try {
             return new AvailabilityData(m_categoryList.getCategoryData());
-        } catch (final MarshalException | ValidationException | IOException e) {
+        } catch (final DataAccessException | IOException e) {
             LOG.warn("Failed to get availability data: {}", e.getMessage(), e);
             throw getException(Status.BAD_REQUEST, "Failed to get availability data.");
         }
@@ -127,7 +126,7 @@ public class AvailabilityRestService extends OnmsRestService {
         try {
             final String category = URLDecoder.decode(categoryName, "UTF-8");
             return CategoryModel.getInstance().getCategory(category);
-        } catch (final MarshalException | ValidationException | IOException e) {
+        } catch (final DataAccessException | IOException e) {
             LOG.warn("Failed to get availability data for category {}: {}", categoryName, e.getMessage(), e);
             throw getException(Status.BAD_REQUEST, "Failed to get availability data for category " + categoryName);
         }
@@ -143,7 +142,7 @@ public class AvailabilityRestService extends OnmsRestService {
                 return cat.getNodes();
             }
             return null;
-        } catch (final MarshalException | ValidationException | IOException e) {
+        } catch (final DataAccessException | IOException e) {
             LOG.warn("Failed to get availability data for category {}: {}", categoryName, e.getMessage(), e);
             throw getException(Status.BAD_REQUEST, "Failed to get availability data for category " + categoryName);
         }

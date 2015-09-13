@@ -1,7 +1,7 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2009-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2006-2014 The OpenNMS Group, Inc.
  * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
@@ -26,35 +26,37 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.castor;
+package org.opennms.netmgt.dao.jaxb;
 
-import static org.junit.Assert.assertEquals;
+import java.io.IOException;
+import junit.framework.TestCase;
+import org.exolab.castor.xml.MarshalException;
+import org.exolab.castor.xml.ValidationException;
+import org.opennms.netmgt.config.siteStatusViews.View;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+public class SiteStatusViewsFactoryTest extends TestCase {
+	
+	private SiteStatusViewsFactory m_factory;
 
-public class DefaultJaspertReportConfigDaoTest {
+        @Override
+	protected void setUp() throws Exception {
+		super.setUp();
 
-    private static final String ID = "sample-report";
-    private static final String TEMPLATE = "sample-report.jxrml";
-    private static final String ENGINE = "jdbc";
+		m_factory = new SiteStatusViewsFactory(getClass().getResourceAsStream("/org/opennms/netmgt/config/site-status-views.testdata.xml"));
+	}
 
-    private static DefaultJasperReportConfigDao m_dao;
-
-    @BeforeClass
-    public static void setUp() throws Exception {
-        Resource resource = new ClassPathResource("/jasper-reports-testdata.xml");
-        m_dao = new DefaultJasperReportConfigDao();
-        m_dao.setConfigResource(resource);
-        m_dao.afterPropertiesSet();
-    }
-
-    @Test
-    public void testConfig() throws Exception {
-        assertEquals(TEMPLATE, m_dao.getTemplateLocation(ID));
-        assertEquals(ENGINE, m_dao.getEngine(ID));
-    }
+        @Override
+	protected void tearDown() throws Exception {
+		super.tearDown();
+	}
+	
+	public void testGetName() throws MarshalException, ValidationException, IOException {
+		String viewName = "default";
+		View view = m_factory.getView(viewName);
+		assertNotNull(view);
+		assertEquals(viewName, view.getName());
+        
+        assertEquals(5, view.getRows().getRowDefCount());
+	}
 
 }

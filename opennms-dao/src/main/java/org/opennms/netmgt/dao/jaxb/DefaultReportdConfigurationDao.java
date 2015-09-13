@@ -26,10 +26,10 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.castor;
+package org.opennms.netmgt.dao.jaxb;
 
 import java.util.List;
-
+import org.opennms.core.xml.AbstractJaxbConfigDao;
 import org.opennms.netmgt.config.reportd.Report;
 import org.opennms.netmgt.config.reportd.ReportdConfiguration;
 import org.opennms.netmgt.dao.api.ReportdConfigurationDao;
@@ -41,7 +41,7 @@ import org.springframework.dao.DataAccessResourceFailureException;
  * @author ranger
  * @version $Id: $
  */
-public class DefaultReportdConfigurationDao extends AbstractCastorConfigDao<ReportdConfiguration, ReportdConfiguration> implements ReportdConfigurationDao {
+public class DefaultReportdConfigurationDao extends AbstractJaxbConfigDao<ReportdConfiguration, ReportdConfiguration> implements ReportdConfigurationDao {
 
     /**
      * <p>Constructor for DefaultReportdConfigurationDao.</p>

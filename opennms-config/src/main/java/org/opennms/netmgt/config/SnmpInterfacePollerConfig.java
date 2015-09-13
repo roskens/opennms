@@ -33,8 +33,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 
 /**
  * <p>SnmpInterfacePollerConfig interface.</p>
@@ -190,8 +189,7 @@ public interface SnmpInterfacePollerConfig {
      * <p>update</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    void update() throws IOException, MarshalException, ValidationException;
+    void update() throws IOException, DataAccessException;
 }

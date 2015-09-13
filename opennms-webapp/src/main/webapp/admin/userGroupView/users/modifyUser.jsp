@@ -255,9 +255,7 @@
             comments = user.getUserComments();
             tuiPin = user.getTuiPin();
             isReadOnly = user.isReadOnly();
-        } catch (org.exolab.castor.xml.MarshalException e) {
-            throw new ServletException("An Error occurred reading the users file", e);
-        } catch (org.exolab.castor.xml.ValidationException e) {
+        } catch (org.springframework.dao.DataAccessException e) {
             throw new ServletException("An Error occurred reading the users file", e);
         }
 

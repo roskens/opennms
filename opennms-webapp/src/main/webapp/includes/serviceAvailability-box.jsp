@@ -42,8 +42,7 @@
 	session="true"
 	import="
 		java.io.IOException,
-		org.exolab.castor.xml.MarshalException,
-		org.exolab.castor.xml.ValidationException,
+		org.springframework.dao.DataAccessException,
 		org.opennms.web.category.*,
 		org.opennms.web.element.*,
 		java.util.Date
@@ -71,9 +70,7 @@
             m_warningThreshold = m_model.getCategoryWarningThreshold(CategoryModel.OVERALL_AVAILABILITY_CATEGORY);            
         } catch (IOException e) {
             throw new ServletException("Could not instantiate the CategoryModel", e);
-        } catch (MarshalException e) {
-            throw new ServletException("Could not instantiate the CategoryModel", e);
-        } catch (ValidationException e) {
+        } catch (DataAccessException e) {
             throw new ServletException("Could not instantiate the CategoryModel", e);
         }
     }

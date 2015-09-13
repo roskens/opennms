@@ -35,8 +35,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.netmgt.config.GroupDao;
 import org.opennms.netmgt.config.GroupManager;
@@ -181,9 +181,7 @@ public class DefaultGroupService implements InitializingBean, GroupService {
                     onmsUser = m_userDao.getOnmsUser(eachUser);
                     if (onmsUser == null) continue;
                     userCollection.add(onmsUser);
-                } catch (MarshalException e) {
-                    Log.error("could not load user", e); //ignore
-                } catch (ValidationException e) {
+                } catch (DataAccessException e) {
                     Log.error("could not load user", e); //ignore
                 } catch (IOException e) {
                     Log.error("could not load user", e); //ignore
@@ -199,9 +197,7 @@ public class DefaultGroupService implements InitializingBean, GroupService {
         if (group != null && group.getUserCollection().contains(userName)) {
             try {
                 return m_userDao.getOnmsUser(userName);
-            } catch (MarshalException e) {
-                Log.error("could not load user", e); //ignore
-            } catch (ValidationException e) {
+            } catch (DataAccessException e) {
                 Log.error("could not load user", e); //ignore
             } catch (IOException e) {
                 Log.error("could not load user", e); //ignore
@@ -234,9 +230,7 @@ public class DefaultGroupService implements InitializingBean, GroupService {
         if (userName != null) {
             try {
                 return m_userDao.hasUser(userName);
-            } catch (MarshalException e) {
-                Log.error("could not load user", e); //ignore
-            } catch (ValidationException e) {
+            } catch (DataAccessException e) {
                 Log.error("could not load user", e); //ignore
             } catch (IOException e) {
                 Log.error("could not load user", e); //ignore

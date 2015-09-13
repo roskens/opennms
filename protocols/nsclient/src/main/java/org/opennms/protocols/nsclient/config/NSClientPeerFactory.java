@@ -45,14 +45,13 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.opennms.core.utils.IPLike;
 import org.opennms.core.utils.InetAddressComparator;
 import org.opennms.core.utils.InetAddressUtils;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.config.nsclient.Definition;
 import org.opennms.netmgt.config.nsclient.NsclientConfig;
 import org.opennms.netmgt.config.nsclient.Range;
@@ -111,8 +110,8 @@ public final class NSClientPeerFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      */
-    private NSClientPeerFactory(final String configFile) throws IOException, MarshalException, ValidationException {
-        m_config = CastorUtils.unmarshal(NsclientConfig.class, new FileSystemResource(configFile));
+    private NSClientPeerFactory(final String configFile) throws DataAccessException, IOException {
+        m_config = JaxbUtils.unmarshal(NsclientConfig.class, new FileSystemResource(configFile));
     }
 
     /**
@@ -120,11 +119,10 @@ public final class NSClientPeerFactory {
      *
      * @param stream a {@link java.io.InputStream} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public NSClientPeerFactory(final InputStream stream) throws IOException, MarshalException, ValidationException {
-        m_config = CastorUtils.unmarshal(NsclientConfig.class, stream);
+    public NSClientPeerFactory(final InputStream stream) throws DataAccessException, IOException {
+        m_config = JaxbUtils.unmarshal(NsclientConfig.class, stream);
     }
 
     public Lock getReadLock() {
@@ -146,10 +144,9 @@ public final class NSClientPeerFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, IOException {
         if (m_loaded) {
             // init already called - return
             // to reload, reload() will need to be called
@@ -173,10 +170,9 @@ public final class NSClientPeerFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void reload() throws IOException, MarshalException, ValidationException {
+    public static synchronized void reload() throws DataAccessException, IOException {
         m_singleton = null;
         m_loaded = false;
         init();
@@ -200,17 +196,7 @@ public final class NSClientPeerFactory {
         try {
             optimize();
 
-            // Marshall to a string first, then write the string to the file. This
-            // way the original config
-            // isn't lost if the XML from the marshall is hosed.
-            final StringWriter stringWriter = new StringWriter();
-            Marshaller.marshal(m_config, stringWriter);
-            if (stringWriter.toString() != null) {
-                final Writer fileWriter = new OutputStreamWriter(new FileOutputStream(ConfigFileConstants.getFile(ConfigFileConstants.NSCLIENT_CONFIG_FILE_NAME)), "UTF-8");
-                fileWriter.write(stringWriter.toString());
-                fileWriter.flush();
-                fileWriter.close();
-            }
+            JaxbUtils.marshalViaString(m_config, ConfigFileConstants.getFile(ConfigFileConstants.NSCLIENT_CONFIG_FILE_NAME));
 
             reload();
         } finally {

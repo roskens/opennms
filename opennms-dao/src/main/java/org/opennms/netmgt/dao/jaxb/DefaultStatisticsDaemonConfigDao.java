@@ -26,10 +26,10 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.castor;
+package org.opennms.netmgt.dao.jaxb;
 
 import java.util.List;
-
+import org.opennms.core.xml.AbstractJaxbConfigDao;
 import org.opennms.netmgt.config.statsd.StatisticsDaemonConfiguration;
 import org.opennms.netmgt.config.statsd.model.Report;
 import org.opennms.netmgt.config.statsd.model.StatsdConfig;
@@ -47,7 +47,7 @@ import org.springframework.dao.DataAccessResourceFailureException;
  * @see StatsdConfig
  * @version $Id: $
  */
-public class DefaultStatisticsDaemonConfigDao extends AbstractCastorConfigDao<StatisticsDaemonConfiguration, StatsdConfig> implements StatisticsDaemonConfigDao {
+public class DefaultStatisticsDaemonConfigDao extends AbstractJaxbConfigDao<StatisticsDaemonConfiguration, StatsdConfig> implements StatisticsDaemonConfigDao {
     /**
      * <p>Constructor for DefaultStatisticsDaemonConfigDao.</p>
      */

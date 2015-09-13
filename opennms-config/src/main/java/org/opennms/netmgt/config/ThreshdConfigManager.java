@@ -44,14 +44,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.network.IpListFromUrl;
 import org.opennms.core.utils.ByteArrayComparator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.config.threshd.ExcludeRange;
 import org.opennms.netmgt.config.threshd.IncludeRange;
 import org.opennms.netmgt.config.threshd.Package;
@@ -98,11 +97,10 @@ public abstract class ThreshdConfigManager {
      * @param stream a {@link java.io.InputStream} object.
      * @param localServer a {@link java.lang.String} object.
      * @param verifyServer a boolean.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public ThreshdConfigManager(InputStream stream, String localServer, boolean verifyServer) throws MarshalException, ValidationException {
-        m_config = CastorUtils.unmarshal(ThreshdConfiguration.class, stream);
+    public ThreshdConfigManager(InputStream stream, String localServer, boolean verifyServer) throws DataAccessException {
+        m_config = JaxbUtils.unmarshal(ThreshdConfiguration.class, stream);
 
         createUrlIpMap();
 
@@ -188,16 +186,15 @@ public abstract class ThreshdConfigManager {
     /**
      * Saves the current in-memory configuration to disk and reloads
      *
-     * @throws org.exolab.castor.xml.MarshalException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
      */
-    public synchronized void saveCurrent() throws MarshalException, IOException, ValidationException {
+    public synchronized void saveCurrent() throws DataAccessException, IOException {
     
              //marshall to a string first, then write the string to the file. This way the original config
              //isn't lost if the xml from the marshall is hosed.
              StringWriter stringWriter = new StringWriter();
-             Marshaller.marshal(m_config, stringWriter);
+             JaxbUtils.marshal(m_config, stringWriter);
              
              String xmlString = stringWriter.toString();
             if (xmlString!=null)
@@ -212,10 +209,9 @@ public abstract class ThreshdConfigManager {
      * <p>reloadXML</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public abstract void reloadXML() throws IOException, MarshalException, ValidationException;
+    public abstract void reloadXML() throws DataAccessException, IOException;
 
     /**
      * <p>saveXML</p>

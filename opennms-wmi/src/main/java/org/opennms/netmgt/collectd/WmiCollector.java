@@ -36,8 +36,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ParameterMap;
 import org.opennms.netmgt.collectd.wmi.WmiAgentState;
 import org.opennms.netmgt.collectd.wmi.WmiCollectionAttributeType;
@@ -167,7 +166,7 @@ public class WmiCollector implements ServiceCollector {
                             for (final Attrib attrib : wpm.getAttrib()) {
                                 final OnmsWbemProperty prop = obj.getWmiProperties().getByName(attrib.getWmiObject());                                
                                 final WmiCollectionAttributeType attribType = m_attribTypeList.get(attrib.getName());
-                                resource.setAttributeValue(attribType, prop.getWmiValue());
+                                resource.setAttributeValue(attribType, prop.getWmiValue().toString());
                             }
                             collectionSet.getCollectionResources().add(resource);
                         }
@@ -278,11 +277,8 @@ public class WmiCollector implements ServiceCollector {
         LOG.debug("initialize: Initializing WmiPeerFactory");
         try {
             WmiPeerFactory.init();
-        } catch (final MarshalException e) {
+        } catch (final DataAccessException e) {
             LOG.error("initialize: Error marshalling configuration.", e);
-            throw new UndeclaredThrowableException(e);
-        } catch (final ValidationException e) {
-            LOG.error("initialize: Error validating configuration.", e);
             throw new UndeclaredThrowableException(e);
         } catch (final IOException e) {
             LOG.error("initialize: Error reading configuration.", e);
@@ -294,11 +290,8 @@ public class WmiCollector implements ServiceCollector {
         LOG.debug("initialize: Initializing collector: {}", getClass());
         try {
             WmiDataCollectionConfigFactory.init();
-        } catch (final MarshalException e) {
+        } catch (final DataAccessException e) {
             LOG.error("initialize: Error marshalling configuration.", e);
-            throw new UndeclaredThrowableException(e);
-        } catch (ValidationException e) {
-            LOG.error("initialize: Error validating configuration.", e);
             throw new UndeclaredThrowableException(e);
         } catch (FileNotFoundException e) {
             LOG.error("initialize: Error locating configuration.", e);

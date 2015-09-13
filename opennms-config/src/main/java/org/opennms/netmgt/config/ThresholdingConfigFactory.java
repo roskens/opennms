@@ -43,13 +43,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
+import org.opennms.core.xml.JaxbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.config.thresholding.Basethresholddef;
 import org.opennms.netmgt.config.thresholding.Group;
 import org.opennms.netmgt.config.thresholding.ThresholdingConfig;
@@ -102,7 +101,7 @@ public final class ThresholdingConfigFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      */
-    private ThresholdingConfigFactory(String configFile) throws IOException, MarshalException, ValidationException {
+    private ThresholdingConfigFactory(String configFile) throws DataAccessException, IOException {
         InputStream stream = null;
 
         try {
@@ -120,15 +119,14 @@ public final class ThresholdingConfigFactory {
      * <p>Constructor for ThresholdingConfigFactory.</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public ThresholdingConfigFactory(InputStream stream) throws MarshalException, ValidationException {
+    public ThresholdingConfigFactory(InputStream stream) throws DataAccessException {
         parseXML(stream);
     }
 
-    private void parseXML(InputStream stream) throws MarshalException, ValidationException {
-        m_config = CastorUtils.unmarshal(ThresholdingConfig.class, stream);
+    private void parseXML(InputStream stream) throws DataAccessException {
+        m_config = JaxbUtils.unmarshal(ThresholdingConfig.class, stream);
         initGroupMap();
     }
     
@@ -160,10 +158,9 @@ public final class ThresholdingConfigFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, IOException {
         if (m_loaded) {
             // init already called - return
             // to reload, reload() will need to be called
@@ -180,7 +177,7 @@ public final class ThresholdingConfigFactory {
             Group g = tcf.getGroup(groupName);
             for (org.opennms.netmgt.config.thresholding.Threshold threshold :  g.getThresholdCollection()) {
                 if (threshold.getDsName().length() > ConfigFileConstants.RRD_DS_MAX_SIZE) {
-                    throw new ValidationException(
+                    throw new IllegalArgumentException(
                         String.format("ds-name '%s' in group '%s' is greater than %d characters",
                             threshold.getDsName(), groupName, ConfigFileConstants.RRD_DS_MAX_SIZE)
                     );
@@ -202,10 +199,9 @@ public final class ThresholdingConfigFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void reload() throws IOException, MarshalException, ValidationException {
+    public static synchronized void reload() throws DataAccessException, IOException {
         m_singleton = null;
         m_loaded = false;
 
@@ -296,26 +292,14 @@ public final class ThresholdingConfigFactory {
     /**
      * Saves the current in-memory configuration to disk and reloads
      *
-     * @throws org.exolab.castor.xml.MarshalException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
      */
-    public synchronized void saveCurrent() throws MarshalException, IOException, ValidationException {
+    public synchronized void saveCurrent() throws DataAccessException, IOException {
         // Marshal to a string first, then write the string to the file. This
         // way the original config
         // isn't lost if the XML from the marshal is hosed.
-        StringWriter stringWriter = new StringWriter();
-        Marshaller.marshal(m_config, stringWriter);
-
-        String xmlString = stringWriter.toString();
-        if (xmlString != null) {
-            File cfgFile = ConfigFileConstants.getFile(ConfigFileConstants.THRESHOLDING_CONF_FILE_NAME);
-
-            Writer fileWriter = new OutputStreamWriter(new FileOutputStream(cfgFile), "UTF-8");
-            fileWriter.write(xmlString);
-            fileWriter.flush();
-            fileWriter.close();
-        }
+        JaxbUtils.marshalViaString(m_config, ConfigFileConstants.getFile(ConfigFileConstants.THRESHOLDING_CONF_FILE_NAME));
         
         update();
 
@@ -324,10 +308,9 @@ public final class ThresholdingConfigFactory {
      * <p>update</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public void update() throws IOException, MarshalException, ValidationException {
+    public void update() throws DataAccessException, IOException {
         File cfgFile = ConfigFileConstants.getFile(ConfigFileConstants.THRESHOLDING_CONF_FILE_NAME);
 
         InputStream stream = null;

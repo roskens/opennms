@@ -31,8 +31,8 @@ package org.opennms.netmgt.scriptd;
 import java.io.IOException;
 import java.lang.reflect.UndeclaredThrowableException;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.queue.FifoQueue;
 import org.opennms.core.queue.FifoQueueImpl;
@@ -98,10 +98,7 @@ public final class Scriptd extends AbstractServiceDaemon {
         try {
             ScriptdConfigFactory.reload();
             aFactory = ScriptdConfigFactory.getInstance();
-        } catch (MarshalException ex) {
-            LOG.error("Failed to load scriptd configuration", ex);
-            throw new UndeclaredThrowableException(ex);
-        } catch (ValidationException ex) {
+        } catch (DataAccessException ex) {
             LOG.error("Failed to load scriptd configuration", ex);
             throw new UndeclaredThrowableException(ex);
         } catch (IOException ex) {

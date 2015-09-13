@@ -38,8 +38,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.junit.Test;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.config.discovery.DiscoveryConfiguration;
@@ -89,7 +89,7 @@ public class DiscoveryConfigFactoryTest {
     public void testMultipleExcludes() throws Exception {
         final DiscoveryConfigFactory factory = new DiscoveryConfigFactory() {
             @Override
-            public void saveConfiguration(final DiscoveryConfiguration configuration) throws MarshalException, ValidationException, IOException {}
+            public void saveConfiguration(final DiscoveryConfiguration configuration) throws DataAccessException, IOException {}
             @Override
             public synchronized DiscoveryConfiguration getConfiguration() {
                 final DiscoveryConfiguration conf = new DiscoveryConfiguration();
@@ -146,7 +146,7 @@ public class DiscoveryConfigFactoryTest {
     public void testSingleIPExclude() throws Exception {
         final DiscoveryConfigFactory factory = new DiscoveryConfigFactory() {
             @Override
-            public void saveConfiguration(final DiscoveryConfiguration configuration) throws MarshalException, ValidationException, IOException {}
+            public void saveConfiguration(final DiscoveryConfiguration configuration) throws DataAccessException, IOException {}
             @Override
             public synchronized DiscoveryConfiguration getConfiguration() {
                 final DiscoveryConfiguration conf = new DiscoveryConfiguration();

@@ -39,10 +39,10 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.kscReports.Report;
 import org.opennms.netmgt.config.kscReports.ReportsList;
 import org.springframework.core.io.FileSystemResource;
@@ -115,10 +115,9 @@ public class KSC_PerformanceReportFactory {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, FileNotFoundException, IOException {
         if (isInitialized()) {
             return;
         }
@@ -147,13 +146,12 @@ public class KSC_PerformanceReportFactory {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public synchronized void reload() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public synchronized void reload() throws DataAccessException, FileNotFoundException, IOException {
         if (s_configFile == null) s_configFile = ConfigFileConstants.getFile(ConfigFileConstants.KSC_REPORT_FILE_NAME);
 
-        m_config = CastorUtils.unmarshal(ReportsList.class, new FileSystemResource(s_configFile));
+        m_config = JaxbUtils.unmarshal(ReportsList.class, new FileSystemResource(s_configFile));
 
         setIdsOnAllReports();
 
@@ -188,15 +186,14 @@ public class KSC_PerformanceReportFactory {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public synchronized void saveCurrent() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public synchronized void saveCurrent() throws DataAccessException, FileNotFoundException, IOException {
         assertInitialized();
 
         sortByTitle();
 
-        CastorUtils.marshalViaString(m_config, s_configFile);
+        JaxbUtils.marshalViaString(m_config, s_configFile);
 
         reload();
     }
@@ -289,10 +286,9 @@ public class KSC_PerformanceReportFactory {
      * @throws java.lang.ArrayIndexOutOfBoundsException if any.
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public void deleteReportAndSave(int index) throws ArrayIndexOutOfBoundsException, IOException, FileNotFoundException, MarshalException, ValidationException {
+    public void deleteReportAndSave(int index) throws ArrayIndexOutOfBoundsException, IOException, FileNotFoundException, DataAccessException {
         Report report = getReportByIndex(index);
         if (report == null) {
             throw new ArrayIndexOutOfBoundsException("Reports List index to be deleted is out of bounds: " + index);

@@ -30,9 +30,9 @@ package org.openoss.opennms.spring.qosd;
 
 import java.io.IOException;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
-import org.opennms.core.xml.CastorUtils;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
 import org.springframework.core.io.FileSystemResource;
 
 /**
@@ -53,8 +53,7 @@ public class QoSDConfigFactory {
      * <p>reload</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
     public static void reload() throws IOException,MarshalException,ValidationException{
     	
@@ -64,7 +63,7 @@ public class QoSDConfigFactory {
     	}
     	configFile += "/etc/QoSD-configuration.xml";
 
-		config = CastorUtils.unmarshal(QoSDConfiguration.class, new FileSystemResource(configFile));
+		config = JaxbUtils.unmarshal(QoSDConfiguration.class, new FileSystemResource(configFile));
 		
 		is_loaded = true;
     }
@@ -74,8 +73,7 @@ public class QoSDConfigFactory {
      *
      * @return a {@link org.openoss.opennms.spring.qosd.QoSDConfiguration} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
     public static QoSDConfiguration getConfig() throws IOException,MarshalException,ValidationException{
         if (!is_loaded) {

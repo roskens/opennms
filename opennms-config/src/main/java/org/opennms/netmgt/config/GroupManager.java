@@ -45,13 +45,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.OwnedInterval;
 import org.opennms.core.utils.OwnedIntervalSequence;
 import org.opennms.core.utils.Owner;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.config.api.GroupConfig;
 import org.opennms.netmgt.config.groups.Group;
 import org.opennms.netmgt.config.groups.Groupinfo;
@@ -136,11 +135,10 @@ public abstract class GroupManager implements GroupConfig {
      * <p>parseXml</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    protected synchronized void parseXml(InputStream stream) throws MarshalException, ValidationException {
-        Groupinfo groupinfo = CastorUtils.unmarshal(Groupinfo.class, stream);
+    protected synchronized void parseXml(InputStream stream) throws DataAccessException {
+        Groupinfo groupinfo = JaxbUtils.unmarshal(Groupinfo.class, stream);
         initializeGroupsAndRoles(groupinfo);
     }
 
@@ -176,10 +174,9 @@ public abstract class GroupManager implements GroupConfig {
      *
      * @return a {@link java.util.Map} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public Map<String, Group> getGroups() throws IOException, MarshalException, ValidationException {
+    public Map<String, Group> getGroups() throws DataAccessException, IOException {
     
         update();
     
@@ -187,12 +184,12 @@ public abstract class GroupManager implements GroupConfig {
     
     }
 
-    public OnmsGroupList getOnmsGroupList() throws MarshalException, ValidationException, IOException {
+    public OnmsGroupList getOnmsGroupList() throws DataAccessException, IOException {
         return new OnmsGroupListMapper().map(
                 new OnmsGroupMapper().map(getGroups().values()));
     }
 
-    public OnmsGroup getOnmsGroup(final String groupName) throws MarshalException, ValidationException, IOException {
+    public OnmsGroup getOnmsGroup(final String groupName) throws DataAccessException, IOException {
         final Group castorGroup = getGroup(groupName);
         if (castorGroup == null) return null;
         return new OnmsGroupMapper().map(castorGroup);
@@ -213,11 +210,10 @@ public abstract class GroupManager implements GroupConfig {
     /**
      * <p>update</p>
      *
-     * @throws org.exolab.castor.xml.ValidationException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public abstract void update() throws IOException, MarshalException, ValidationException;
+    public abstract void update() throws DataAccessException, IOException;
 
     /**
      * Returns a boolean indicating if the group name appears in the xml file
@@ -225,10 +221,9 @@ public abstract class GroupManager implements GroupConfig {
      * @return true if the group exists in the xml file, false otherwise
      * @param groupName a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public boolean hasGroup(String groupName) throws IOException, MarshalException, ValidationException {
+    public boolean hasGroup(String groupName) throws DataAccessException, IOException {
         update();
     
         return m_groups.containsKey(groupName);
@@ -239,10 +234,9 @@ public abstract class GroupManager implements GroupConfig {
      *
      * @return a {@link java.util.List} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public List<String> getGroupNames() throws IOException, MarshalException, ValidationException {
+    public List<String> getGroupNames() throws DataAccessException, IOException {
         update();
     
         return new ArrayList<String>(m_groups.keySet());
@@ -255,10 +249,9 @@ public abstract class GroupManager implements GroupConfig {
      *            the name of the group to return
      * @return Group, the group specified by name
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public Group getGroup(String name) throws IOException, MarshalException, ValidationException {
+    public Group getGroup(String name) throws DataAccessException, IOException {
         update();
     
         return m_groups.get(name);
@@ -297,7 +290,7 @@ public abstract class GroupManager implements GroupConfig {
         // way the original configuration
         // isn't lost if the XML from the marshal is hosed.
         StringWriter stringWriter = new StringWriter();
-        Marshaller.marshal(groupinfo, stringWriter);
+        JaxbUtils.marshal(groupinfo, stringWriter);
         String data = stringWriter.toString();
         saveXml(data);
     }
@@ -330,10 +323,9 @@ public abstract class GroupManager implements GroupConfig {
      * @param time the time to check for a duty schedule
      * @return boolean, true if the group is on duty, false otherwise.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public boolean isGroupOnDuty(String group, Calendar time) throws IOException, MarshalException, ValidationException {
+    public boolean isGroupOnDuty(String group, Calendar time) throws DataAccessException, IOException {
         update();
         //if the group has no duty schedules then it is on duty
         if (!m_dutySchedules.containsKey(group)) {
@@ -356,10 +348,9 @@ public abstract class GroupManager implements GroupConfig {
      * @param time the time to check for a duty schedule
      * @return long, the time in milliseconds until the group is next on duty
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public long groupNextOnDuty(String group, Calendar time) throws IOException, MarshalException, ValidationException {
+    public long groupNextOnDuty(String group, Calendar time) throws DataAccessException, IOException {
         long next = -1;
         update();
         //if the group has no duty schedules then it is on duty
@@ -589,11 +580,10 @@ public abstract class GroupManager implements GroupConfig {
      * @param userId a {@link java.lang.String} object.
      * @param roleid a {@link java.lang.String} object.
      * @return a boolean.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public boolean userHasRole(String userId, String roleid) throws MarshalException, ValidationException, IOException {
+    public boolean userHasRole(String userId, String roleid) throws DataAccessException, IOException {
         update();
 
         for (Schedule sched : getRole(roleid).getScheduleCollection()) {
@@ -610,11 +600,10 @@ public abstract class GroupManager implements GroupConfig {
      * @param roleId a {@link java.lang.String} object.
      * @param time a {@link java.util.Date} object.
      * @return a {@link java.util.List} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public List<Schedule> getSchedulesForRoleAt(String roleId, Date time) throws MarshalException, ValidationException, IOException {
+    public List<Schedule> getSchedulesForRoleAt(String roleId, Date time) throws DataAccessException, IOException {
         update();
 
         List<Schedule> schedules = new ArrayList<Schedule>();
@@ -632,11 +621,10 @@ public abstract class GroupManager implements GroupConfig {
      * @param userId a {@link java.lang.String} object.
      * @param roleId a {@link java.lang.String} object.
      * @return a {@link java.util.List} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public List<Schedule> getUserSchedulesForRole(String userId, String roleId) throws MarshalException, ValidationException, IOException {
+    public List<Schedule> getUserSchedulesForRole(String userId, String roleId) throws DataAccessException, IOException {
         update();
 
         List<Schedule> scheds = new ArrayList<Schedule>();
@@ -656,11 +644,10 @@ public abstract class GroupManager implements GroupConfig {
      * @param roleId a {@link java.lang.String} object.
      * @param time a {@link java.util.Date} object.
      * @return a boolean.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public boolean isUserScheduledForRole(String userId, String roleId, Date time) throws MarshalException, ValidationException, IOException {
+    public boolean isUserScheduledForRole(String userId, String roleId, Date time) throws DataAccessException, IOException {
         update();
 
         for (Schedule sched : getUserSchedulesForRole(userId, roleId)) {
@@ -690,11 +677,10 @@ public abstract class GroupManager implements GroupConfig {
      * @param start a {@link java.util.Date} object.
      * @param end a {@link java.util.Date} object.
      * @return a {@link org.opennms.core.utils.OwnedIntervalSequence} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public OwnedIntervalSequence getRoleScheduleEntries(String roleid, Date start, Date end) throws MarshalException, ValidationException, IOException {
+    public OwnedIntervalSequence getRoleScheduleEntries(String roleid, Date start, Date end) throws DataAccessException, IOException {
         update();
 
         OwnedIntervalSequence schedEntries = new OwnedIntervalSequence();

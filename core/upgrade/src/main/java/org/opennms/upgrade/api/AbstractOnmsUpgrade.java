@@ -52,7 +52,7 @@ import org.apache.commons.io.IOUtils;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.db.install.SimpleDataSource;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.opennmsDataSources.DataSourceConfiguration;
 import org.opennms.netmgt.config.opennmsDataSources.JdbcDataSource;
 import org.slf4j.Logger;
@@ -312,7 +312,7 @@ public abstract class AbstractOnmsUpgrade implements OnmsUpgrade {
             FileInputStream fileInputStream = null;
             try {
                 fileInputStream = new FileInputStream(cfgFile);
-                dsc = CastorUtils.unmarshal(DataSourceConfiguration.class, fileInputStream);
+                dsc = JaxbUtils.unmarshal(DataSourceConfiguration.class, fileInputStream);
             } finally {
                 IOUtils.closeQuietly(fileInputStream);
             }

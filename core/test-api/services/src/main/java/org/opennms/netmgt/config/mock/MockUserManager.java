@@ -33,8 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.GroupManager;
 import org.opennms.netmgt.config.UserManager;
 
@@ -45,13 +44,13 @@ public class MockUserManager extends UserManager {
     private long m_lastModified;
     private long m_fileSize;
     
-    public MockUserManager(GroupManager groupManager, String xmlString) throws MarshalException, ValidationException {
+    public MockUserManager(GroupManager groupManager, String xmlString) throws DataAccessException {
         super(groupManager);
         m_xmlString = xmlString;
         parseXML();
     }
 
-    private void parseXML() throws MarshalException, ValidationException {
+    private void parseXML() throws DataAccessException {
         InputStream in = new ByteArrayInputStream(m_xmlString.getBytes());
         parseXML(in);
         updateNeeded = false;
@@ -66,7 +65,7 @@ public class MockUserManager extends UserManager {
     }
 
     @Override
-    protected void doUpdate() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    protected void doUpdate() throws DataAccessException, FileNotFoundException, IOException {
         if (updateNeeded) {
             parseXML();
         }
@@ -88,7 +87,7 @@ public class MockUserManager extends UserManager {
     }
 
     @Override
-    public void reload() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public void reload() throws DataAccessException, FileNotFoundException, IOException {
         parseXML();
     }
 

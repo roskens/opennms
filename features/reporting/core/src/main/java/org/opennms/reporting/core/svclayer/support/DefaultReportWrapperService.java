@@ -39,7 +39,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.Callable;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.ValidationException;
 import org.opennms.api.reporting.ReportException;
 import org.opennms.api.reporting.ReportFormat;
 import org.opennms.api.reporting.ReportMode;
@@ -57,6 +56,7 @@ import org.opennms.reporting.core.svclayer.ReportStoreService;
 import org.opennms.reporting.core.svclayer.ReportWrapperService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 
 /**
  * <p>DefaultReportWrapperService class.</p>
@@ -97,7 +97,7 @@ public class DefaultReportWrapperService implements ReportWrapperService {
                     if (emailAddress != null && !emailAddress.isEmpty()) {
                         options.setMailTo(emailAddress);
                     }
-                } catch (final ValidationException e) {
+                } catch (final DataAccessException e) {
                     LOG.error("validation exception trying to set destination email address", e);
                 } catch (final NullPointerException e) { // See NMS-5111 for more details.
                     LOG.warn("the user {} does not have any email configured.", userId);

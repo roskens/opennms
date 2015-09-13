@@ -41,8 +41,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.WebSecurityUtils;
 import org.opennms.netmgt.config.DestinationPathFactory;
 import org.opennms.netmgt.config.destinationPaths.Escalate;
@@ -90,9 +90,7 @@ public class DestinationWizardServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             DestinationPathFactory.init();
-        } catch (MarshalException e1) {
-            throw new ServletException("Exception initializing DestinationPatchFactory "+e1.getMessage(), e1);
-        } catch (ValidationException e1) {
+        } catch (DataAccessException e1) {
             throw new ServletException("Exception initializing DestinationPatchFactory "+e1.getMessage(), e1);
         } catch (FileNotFoundException e1) {
             throw new ServletException("Exception initializing DestinationPatchFactory "+e1.getMessage(), e1);

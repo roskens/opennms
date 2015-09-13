@@ -38,13 +38,12 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.config.enlinkd.EnlinkdConfiguration;
 
 /**
@@ -62,7 +61,7 @@ import org.opennms.netmgt.config.enlinkd.EnlinkdConfiguration;
 public final class EnhancedLinkdConfigFactory extends EnhancedLinkdConfigManager {
     private static final Logger LOG = LoggerFactory.getLogger(EnhancedLinkdConfigFactory.class);
     
-    public EnhancedLinkdConfigFactory() throws MarshalException, ValidationException, IOException {
+    public EnhancedLinkdConfigFactory() throws DataAccessException, IOException {
         reload();
     }
     /**
@@ -70,11 +69,10 @@ public final class EnhancedLinkdConfigFactory extends EnhancedLinkdConfigManager
      *
      * @param currentVersion a long.
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public EnhancedLinkdConfigFactory(final InputStream stream) throws MarshalException, ValidationException, IOException {
+    public EnhancedLinkdConfigFactory(final InputStream stream) throws DataAccessException, IOException {
         reloadXML(stream);
     }
 
@@ -96,10 +94,9 @@ public final class EnhancedLinkdConfigFactory extends EnhancedLinkdConfigManager
      * <p>reload</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public void reload() throws IOException, MarshalException, ValidationException {
+    public void reload() throws DataAccessException, IOException {
         getWriteLock().lock();
         try {
             final File cfgFile = ConfigFileConstants.getFile(ConfigFileConstants.ENLINKD_CONFIG_FILE_NAME);
@@ -123,14 +120,13 @@ public final class EnhancedLinkdConfigFactory extends EnhancedLinkdConfigManager
      * <p>reloadXML</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    protected void reloadXML(final InputStream stream) throws MarshalException, ValidationException, IOException {
+    protected void reloadXML(final InputStream stream) throws DataAccessException, IOException {
         getWriteLock().lock();
         try {
-            m_config = CastorUtils.unmarshal(EnlinkdConfiguration.class, stream);
+            m_config = JaxbUtils.unmarshal(EnlinkdConfiguration.class, stream);
         } finally {
             getWriteLock().unlock();
         }
@@ -138,18 +134,17 @@ public final class EnhancedLinkdConfigFactory extends EnhancedLinkdConfigManager
     /**
      * Saves the current in-memory configuration to disk
      *
-     * @throws org.exolab.castor.xml.MarshalException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
      */
-    public void save() throws MarshalException, IOException, ValidationException {
+    public void save() throws DataAccessException, IOException {
         getWriteLock().lock();
         
         try {
             // marshall to a string first, then write the string to the file. This
             // way the original config isn't lost if the xml from the marshall is hosed.
             final StringWriter stringWriter = new StringWriter();
-            Marshaller.marshal(m_config, stringWriter);
+            JaxbUtils.marshal(m_config, stringWriter);
             saveXml(stringWriter.toString());        
         } finally {
             getWriteLock().unlock();

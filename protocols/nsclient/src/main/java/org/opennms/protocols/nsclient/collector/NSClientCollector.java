@@ -37,8 +37,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.collection.api.AttributeGroupType;
 import org.opennms.netmgt.collection.api.CollectionAgent;
@@ -261,11 +261,8 @@ public class NSClientCollector implements ServiceCollector {
         LOG.debug("initialize: Initializing NSClientPeerFactory");
         try {
             NSClientPeerFactory.init();
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             LOG.error("initialize: Error marshalling configuration.", e);
-            throw new UndeclaredThrowableException(e);
-        } catch (ValidationException e) {
-            LOG.error("initialize: Error validating configuration.", e);
             throw new UndeclaredThrowableException(e);
         } catch (IOException e) {
             LOG.error("initialize: Error reading configuration", e);
@@ -277,11 +274,8 @@ public class NSClientCollector implements ServiceCollector {
         LOG.debug("initialize: Initializing collector: {}", NSClientCollector.class);
         try {
             NSClientDataCollectionConfigFactory.init();
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             LOG.error("initialize: Error marshalling configuration.", e);
-            throw new UndeclaredThrowableException(e);
-        } catch (ValidationException e) {
-            LOG.error("initialize: Error validating configuration.", e);
             throw new UndeclaredThrowableException(e);
         } catch (FileNotFoundException e) {
             LOG.error("initialize: Error locating configuration.", e);

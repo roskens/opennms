@@ -26,18 +26,16 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.castor;
+package org.opennms.netmgt.dao.jaxb;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
-
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
 import org.opennms.netmgt.config.siteStatusViews.View;
 import org.opennms.netmgt.config.siteStatusViews.Views;
 import org.opennms.netmgt.dao.api.SiteStatusViewConfigDao;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataRetrievalFailureException;
 
 /**
@@ -51,9 +49,7 @@ public class DefaultSiteStatusViewConfigDao implements SiteStatusViewConfigDao {
     static {
         try {
             SiteStatusViewsFactory.init();
-        } catch (MarshalException e) {
-            throw new DataRetrievalFailureException("Syntax error in site status view config file", e);
-        } catch (ValidationException e) {
+        } catch (DataAccessException e) {
             throw new DataRetrievalFailureException("Syntax error in site status view config file", e);
         } catch (FileNotFoundException e) {
             throw new DataRetrievalFailureException("Unable to locate site status view config file", e);
@@ -73,9 +69,7 @@ public class DefaultSiteStatusViewConfigDao implements SiteStatusViewConfigDao {
     public View getView(String viewName) {
         try {
             return SiteStatusViewsFactory.getInstance().getView(viewName);
-        } catch (MarshalException e) {
-            throw new DataRetrievalFailureException("Syntax error in site status view config file", e);
-        } catch (ValidationException e) {
+        } catch (DataAccessException e) {
             throw new DataRetrievalFailureException("Syntax error in site status view config file", e);
         } catch (IOException e) {
             throw new DataRetrievalFailureException("Error load site status view config file", e);

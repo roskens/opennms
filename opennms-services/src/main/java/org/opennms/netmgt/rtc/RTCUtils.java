@@ -35,8 +35,8 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.CategoryFactory;
 import org.opennms.netmgt.config.api.CatFactory;
 import org.opennms.netmgt.config.categories.Categorygroup;
@@ -79,10 +79,7 @@ public abstract class RTCUtils {
 		} catch (IOException ex) {
 			LOG.error("Failed to load categories information", ex);
 			throw new UndeclaredThrowableException(ex);
-		} catch (MarshalException ex) {
-			LOG.error("Failed to load categories information", ex);
-			throw new UndeclaredThrowableException(ex);
-		} catch (ValidationException ex) {
+		} catch (DataAccessException ex) {
 			LOG.error("Failed to load categories information", ex);
 			throw new UndeclaredThrowableException(ex);
 		}

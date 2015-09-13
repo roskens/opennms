@@ -36,8 +36,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.opennms.core.xml.JaxbUtils;
 
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.provision.persist.requisition.Requisition;
 import org.opennms.web.svclayer.dao.ManualProvisioningDao;
 import org.slf4j.Logger;
@@ -91,7 +91,7 @@ public class DefaultManualProvisioningDao implements ManualProvisioningDao {
             throw new PermissionDeniedDataAccessException("Unable to read file "+importFile, null);
         }
         
-        return CastorUtils.unmarshalWithTranslatedExceptions(Requisition.class, new FileSystemResource(importFile));
+        return JaxbUtils.unmarshal(Requisition.class, new FileSystemResource(importFile));
     }
 
     private void checkGroupName(final String name) {
@@ -136,7 +136,7 @@ public class DefaultManualProvisioningDao implements ManualProvisioningDao {
         } catch (final IOException e) {
             throw new PermissionDeniedDataAccessException("Unable to write file "+importFile, e);
         }
-        CastorUtils.marshalWithTranslatedExceptions(group, writer);
+        JaxbUtils.marshal(group, writer);
     }
 
     private File getImportFile(final String groupName) {

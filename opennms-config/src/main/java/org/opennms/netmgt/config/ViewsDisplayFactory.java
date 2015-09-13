@@ -37,10 +37,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.viewsdisplay.View;
 import org.opennms.netmgt.config.viewsdisplay.Viewinfo;
 
@@ -76,7 +76,7 @@ public class ViewsDisplayFactory {
      * @throws ValidationException 
      * @throws MarshalException 
      */
-    private ViewsDisplayFactory() throws MarshalException, ValidationException, FileNotFoundException, IOException {
+    private ViewsDisplayFactory() throws DataAccessException, FileNotFoundException, IOException {
         reload();
     }
 
@@ -84,12 +84,11 @@ public class ViewsDisplayFactory {
      * <p>Constructor for ViewsDisplayFactory.</p>
      *
      * @param file a {@link java.lang.String} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.FileNotFoundException if any.
      * @throws java.io.IOException if any.
      */
-    public ViewsDisplayFactory(String file) throws MarshalException, ValidationException, FileNotFoundException, IOException {
+    public ViewsDisplayFactory(String file) throws DataAccessException, FileNotFoundException, IOException {
         setViewsDisplayFile(new File(file));
         reload();
     }
@@ -99,10 +98,9 @@ public class ViewsDisplayFactory {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, FileNotFoundException, IOException {
         if (m_instance == null) {
             setInstance(new ViewsDisplayFactory());
         }
@@ -129,10 +127,9 @@ public class ViewsDisplayFactory {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public synchronized void reload() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public synchronized void reload() throws DataAccessException, FileNotFoundException, IOException {
         InputStream stream = null;
         try {
             stream = getStream();
@@ -144,8 +141,8 @@ public class ViewsDisplayFactory {
         }
     }
     
-    private void unmarshal(InputStream stream) throws MarshalException, ValidationException {
-        m_viewInfo = CastorUtils.unmarshal(Viewinfo.class, stream);
+    private void unmarshal(InputStream stream) throws DataAccessException {
+        m_viewInfo = JaxbUtils.unmarshal(Viewinfo.class, stream);
         updateViewsMap();
     }
     
@@ -193,10 +190,9 @@ public class ViewsDisplayFactory {
      * @param viewName a {@link java.lang.String} object.
      * @return a {@link org.opennms.netmgt.config.viewsdisplay.View} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public View getView(String viewName) throws IOException, MarshalException, ValidationException {
+    public View getView(String viewName) throws DataAccessException, IOException {
         if (viewName == null) {
             throw new IllegalArgumentException("Cannot take null parameters.");
         }
@@ -222,10 +218,9 @@ public class ViewsDisplayFactory {
      * read it.
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    protected void updateFromFile() throws IOException, MarshalException, ValidationException {
+    protected void updateFromFile() throws DataAccessException, IOException {
         if (m_lastModified != m_viewsDisplayFile.lastModified()) {
             reload();
         }

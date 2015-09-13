@@ -41,8 +41,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -88,10 +87,8 @@ public abstract class ChartUtils {
     static {
         try {
             ChartConfigFactory.init();
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             LOG.error("static initializer: Error marshalling chart configuration", e);
-        } catch (ValidationException e) {
-            LOG.error("static initializer: Error validating chart configuration.", e);
         } catch (FileNotFoundException e) {
             LOG.error("static initializer: Error finding chart configuration.", e);
         } catch (IOException e) {
@@ -105,12 +102,11 @@ public abstract class ChartUtils {
      *
      * @param chartName Name specified in chart-configuration.xml
      * @return <code>JFreeChart</code> constructed from the chartName
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      * @throws java.sql.SQLException if any.
      */
-    public static JFreeChart getBarChart(String chartName) throws MarshalException, ValidationException, IOException, SQLException {
+    public static JFreeChart getBarChart(String chartName) throws DataAccessException, IOException, SQLException {
 
         //ChartConfigFactory.reload();
         
@@ -294,12 +290,11 @@ public abstract class ChartUtils {
      *
      * @param chartName a {@link java.lang.String} object.
      * @param out a {@link java.io.OutputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      * @throws java.sql.SQLException if any.
      */
-    public static void getBarChart(String chartName, OutputStream out) throws MarshalException, ValidationException, IOException, SQLException {
+    public static void getBarChart(String chartName, OutputStream out) throws DataAccessException, IOException, SQLException {
         BarChart chartConfig = getBarChartConfigByName(chartName);
         JFreeChart chart = getBarChart(chartName);
         ImageSize imageSize = chartConfig.getImageSize();
@@ -323,12 +318,11 @@ public abstract class ChartUtils {
      *
      * @param chartName a {@link java.lang.String} object.
      * @param out a {@link java.io.OutputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      * @throws java.sql.SQLException if any.
      */
-    public static void getBarChartPNG(String chartName, OutputStream out) throws MarshalException, ValidationException, IOException, SQLException {
+    public static void getBarChartPNG(String chartName, OutputStream out) throws DataAccessException, IOException, SQLException {
         ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
         BarChart chartConfig = getBarChartConfigByName(chartName);
         JFreeChart chart = getBarChart(chartName);
@@ -377,12 +371,11 @@ public abstract class ChartUtils {
      *
      * @param chartName a {@link java.lang.String} object.
      * @return a byte array
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      * @throws java.sql.SQLException if any.
      */
-    public static byte[] getBarChartAsPNGByteArray(String chartName) throws MarshalException, ValidationException, IOException, SQLException {
+    public static byte[] getBarChartAsPNGByteArray(String chartName) throws DataAccessException, IOException, SQLException {
         BarChart chartConfig = getBarChartConfigByName(chartName);
         JFreeChart chart = getBarChart(chartName);
         ImageSize imageSize = chartConfig.getImageSize();
@@ -404,12 +397,11 @@ public abstract class ChartUtils {
      *
      * @param chartName a {@link java.lang.String} object.
      * @return a <code>BufferedImage</code>
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      * @throws java.sql.SQLException if any.
      */
-    public static BufferedImage getChartAsBufferedImage(String chartName) throws MarshalException, ValidationException, IOException, SQLException {
+    public static BufferedImage getChartAsBufferedImage(String chartName) throws DataAccessException, IOException, SQLException {
         BarChart chartConfig = getBarChartConfigByName(chartName);
         JFreeChart chart = getBarChart(chartName);
         ImageSize imageSize = chartConfig.getImageSize();
@@ -433,11 +425,10 @@ public abstract class ChartUtils {
      *
      * @param chartName a {@link java.lang.String} object.
      * @return a derived Castor class: BarChart
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public static BarChart getBarChartConfigByName(String chartName) throws MarshalException, ValidationException, IOException {
+    public static BarChart getBarChartConfigByName(String chartName) throws DataAccessException, IOException {
         Iterator<BarChart> it = getChartCollectionIterator();
         BarChart chart = null;
         while (it.hasNext()) {
@@ -453,10 +444,9 @@ public abstract class ChartUtils {
      *
      * @return <code>BarChart</code> Iterator
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static Collection<BarChart> getChartCollection() throws IOException, MarshalException, ValidationException {
+    public static Collection<BarChart> getChartCollection() throws DataAccessException, IOException {
         return ChartConfigFactory.getInstance().getConfiguration().getBarChartCollection();
     }
 
@@ -465,10 +455,9 @@ public abstract class ChartUtils {
      *
      * @return <code>BarChart</code> Iterator
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static Iterator<BarChart> getChartCollectionIterator() throws IOException, MarshalException, ValidationException {
+    public static Iterator<BarChart> getChartCollectionIterator() throws DataAccessException, IOException {
         return ChartConfigFactory.getInstance().getConfiguration().getBarChartCollection().iterator();
     }
     

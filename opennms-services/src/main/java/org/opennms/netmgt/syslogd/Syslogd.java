@@ -32,8 +32,8 @@ import java.io.IOException;
 import java.lang.reflect.UndeclaredThrowableException;
 import java.sql.SQLException;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.SyslogdConfigFactory;
 import org.opennms.netmgt.daemon.AbstractServiceDaemon;
 import org.opennms.netmgt.dao.api.EventDao;
@@ -101,10 +101,7 @@ import org.slf4j.LoggerFactory;
         try {
             LOG.debug("start: Initializing the syslogd config factory");
             SyslogdConfigFactory.init();
-        } catch (MarshalException e) {
-            LOG.error("Failed to load configuration", e);
-            throw new UndeclaredThrowableException(e);
-        } catch (ValidationException e) {
+        } catch (DataAccessException e) {
             LOG.error("Failed to load configuration", e);
             throw new UndeclaredThrowableException(e);
         } catch (IOException e) {

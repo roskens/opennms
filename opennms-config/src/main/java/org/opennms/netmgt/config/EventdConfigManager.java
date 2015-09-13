@@ -35,10 +35,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.api.EventdConfig;
 import org.opennms.netmgt.config.eventd.EventdConfiguration;
 
@@ -61,21 +61,20 @@ public class EventdConfigManager implements EventdConfig {
      * <p>Constructor for EventdConfigManager.</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public EventdConfigManager() throws MarshalException, ValidationException, IOException {
+    public EventdConfigManager() throws DataAccessException, IOException {
         reload();
     }
     
-    EventdConfigManager(final InputStream stream) throws MarshalException, ValidationException, IOException {
-            m_config = CastorUtils.unmarshal(EventdConfiguration.class, stream);
+    EventdConfigManager(final InputStream stream) throws DataAccessException, IOException {
+            m_config = JaxbUtils.unmarshal(EventdConfiguration.class, stream);
         }
     
-    private void reload() throws MarshalException, ValidationException, IOException {
+    private void reload() throws DataAccessException, IOException {
     	InputStream stream = new FileInputStream(ConfigFileConstants.getFile(ConfigFileConstants.EVENTD_CONFIG_FILE_NAME));
-    	m_config = CastorUtils.unmarshal(EventdConfiguration.class, stream);		
+    	m_config = JaxbUtils.unmarshal(EventdConfiguration.class, stream);		
     }
 
     public Lock getReadLock() {

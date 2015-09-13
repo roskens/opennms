@@ -196,17 +196,7 @@ public class AmiPeerFactory {
         try {
             optimize();
     
-            // Marshal to a string first, then write the string to the file. This
-            // way the original config
-            // isn't lost if the XML from the marshal is hosed.
-            final StringWriter stringWriter = new StringWriter();
-            JaxbUtils.marshal(m_config, stringWriter);
-            if (stringWriter.toString() != null) {
-                final Writer fileWriter = new OutputStreamWriter(new FileOutputStream(ConfigFileConstants.getFile(ConfigFileConstants.AMI_CONFIG_FILE_NAME)), "UTF-8");
-                fileWriter.write(stringWriter.toString());
-                fileWriter.flush();
-                fileWriter.close();
-            }
+            JaxbUtils.marshalViaString(m_config, ConfigFileConstants.getFile(ConfigFileConstants.AMI_CONFIG_FILE_NAME));
     
             reload();
         } finally {

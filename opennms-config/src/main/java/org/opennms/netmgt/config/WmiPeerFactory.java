@@ -44,16 +44,15 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.apache.commons.codec.binary.Base64;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.opennms.core.utils.IPLike;
 import org.opennms.core.utils.InetAddressComparator;
 import org.opennms.core.utils.InetAddressUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.protocols.wmi.config.Definition;
 import org.opennms.protocols.wmi.config.Range;
 import org.opennms.netmgt.config.wmi.WmiAgentConfig;
@@ -106,19 +105,18 @@ public class WmiPeerFactory {
      *
      * @param configFile the path to the config file to load in.
      */
-    private WmiPeerFactory(String configFile) throws IOException, MarshalException, ValidationException {
-        m_config = CastorUtils.unmarshal(WmiConfig.class, new FileSystemResource(configFile));
+    private WmiPeerFactory(String configFile) throws DataAccessException, IOException {
+        m_config = JaxbUtils.unmarshal(WmiConfig.class, new FileSystemResource(configFile));
     }
 
     /**
      * <p>Constructor for WmiPeerFactory.</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public WmiPeerFactory(InputStream stream) throws MarshalException, ValidationException {
-        m_config = CastorUtils.unmarshal(WmiConfig.class, stream);
+    public WmiPeerFactory(InputStream stream) throws DataAccessException {
+        m_config = JaxbUtils.unmarshal(WmiConfig.class, stream);
     }
 
     /**
@@ -132,10 +130,9 @@ public class WmiPeerFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, IOException {
         if (m_loaded) {
             // init already called - return
             // to reload, reload() will need to be called
@@ -161,10 +158,9 @@ public class WmiPeerFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void reload() throws IOException, MarshalException, ValidationException {
+    public static synchronized void reload() throws DataAccessException, IOException {
         m_singleton = null;
         m_loaded = false;
 
@@ -186,17 +182,7 @@ public class WmiPeerFactory {
     public static synchronized void saveCurrent() throws Exception {
         optimize();
 
-        // Marshal to a string first, then write the string to the file. This
-        // way the original config
-        // isn't lost if the XML from the marshal is hosed.
-        StringWriter stringWriter = new StringWriter();
-        Marshaller.marshal(m_config, stringWriter);
-        if (stringWriter.toString() != null) {
-            Writer fileWriter = new OutputStreamWriter(new FileOutputStream(ConfigFileConstants.getFile(ConfigFileConstants.WMI_CONFIG_FILE_NAME)), "UTF-8");
-            fileWriter.write(stringWriter.toString());
-            fileWriter.flush();
-            fileWriter.close();
-        }
+        JaxbUtils.marshalViaString(m_config, ConfigFileConstants.getFile(ConfigFileConstants.WMI_CONFIG_FILE_NAME));
 
         reload();
     }

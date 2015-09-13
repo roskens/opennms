@@ -35,10 +35,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.opennms.core.xml.JaxbUtils;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 
 /**
  * <p>RTCDebugServlet class.</p>
@@ -65,9 +65,7 @@ public class RTCDebugServlet extends HttpServlet {
             this.model = CategoryModel.getInstance();
         } catch (IOException e) {
             throw new ServletException("Could not instantiate the CategoryModel", e);
-        } catch (MarshalException e) {
-            throw new ServletException("Could not instantiate the CategoryModel", e);
-        } catch (ValidationException e) {
+        } catch (DataAccessException e) {
             throw new ServletException("Could not instantiate the CategoryModel", e);
         }
     }
@@ -90,10 +88,8 @@ public class RTCDebugServlet extends HttpServlet {
             out.write("No data exists for this category.  Please check your spelling of the category name.");
         } else {
             try {
-                Marshaller.marshal(category.getRtcCategory(), out);
-            } catch (MarshalException e) {
-                throw new ServletException("Could not marshal the RTC info", e);
-            } catch (ValidationException e) {
+                JaxbUtils.marshal(category.getRtcCategory(), out);
+            } catch (DataAccessException e) {
                 throw new ServletException("Could not marshal the RTC info", e);
             }
         }

@@ -35,13 +35,12 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
 import org.opennms.netmgt.config.groups.Group;
 import org.opennms.netmgt.config.groups.Role;
 import org.opennms.netmgt.config.groups.Schedule;
 import org.opennms.netmgt.config.groups.Time;
 import org.opennms.netmgt.config.users.User;
+import org.springframework.dao.DataAccessException;
 
 /**
  * <p>Manager class.</p>
@@ -86,10 +85,8 @@ public class WebRoleManagerImpl implements WebRoleManager, WebUserManager, WebGr
     private User getBackingUser(String name) {
         try {
             return m_userManager.getUser(name);
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             throw new WebRolesException("Error marshalling users.xml config file", e);
-        } catch (ValidationException e) {
-            throw new WebRolesException("Error validating users.xml config file", e);
         } catch (IOException e) {
             throw new WebRolesException("Error reading users.xml config file", e);
         }
@@ -98,10 +95,8 @@ public class WebRoleManagerImpl implements WebRoleManager, WebUserManager, WebGr
     private Collection<User> getBackingUsers() {
         try {
             return m_userManager.getUsers().values();
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             throw new WebRolesException("Error marshalling users.xml config file", e);
-        } catch (ValidationException e) {
-            throw new WebRolesException("Error validating users.xml config file", e);
         } catch (IOException e) {
             throw new WebRolesException("Error reading users.xml config file", e);
         }
@@ -114,10 +109,8 @@ public class WebRoleManagerImpl implements WebRoleManager, WebUserManager, WebGr
     private Group getBackingGroup(String groupName) {
         try {
             return m_groupManager.getGroup(groupName);
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             throw new WebRolesException("Error marshalling groups.xml config file", e);
-        } catch (ValidationException e) {
-            throw new WebRolesException("Error validating groups.xml config file", e);
         } catch (IOException e) {
             throw new WebRolesException("Error reading groups.xml config file", e);
         }
@@ -126,10 +119,8 @@ public class WebRoleManagerImpl implements WebRoleManager, WebUserManager, WebGr
     private Collection<Group> getBackingGroups() {
         try {
             return m_groupManager.getGroups().values();
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             throw new WebRolesException("Error marshalling groups.xml config file", e);
-        } catch (ValidationException e) {
-            throw new WebRolesException("Error validating groups.xml config file", e);
         } catch (IOException e) {
             throw new WebRolesException("Error reading groups.xml config file", e);
         }
@@ -145,10 +136,8 @@ public class WebRoleManagerImpl implements WebRoleManager, WebUserManager, WebGr
             }
             return webUsers;
             
-        } catch (MarshalException e) {
+        } catch (DataAccessException e) {
             throw new WebRolesException("Error marshalling users.xml config file", e);
-        } catch (ValidationException e) {
-            throw new WebRolesException("Error validating users.xml config file", e);
         } catch (IOException e) {
             throw new WebRolesException("Error reading users.xml config file", e);
         }

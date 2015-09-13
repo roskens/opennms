@@ -32,10 +32,10 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.webuiColors.CategoryColors;
 import org.springframework.core.io.FileSystemResource;
 
@@ -87,10 +87,9 @@ public class CategoryUtil extends Object {
      * @param category a {@link org.opennms.web.category.Category} object.
      * @return a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static String getCategoryColor(Category category) throws IOException, MarshalException, ValidationException {
+    public static String getCategoryColor(Category category) throws DataAccessException, IOException {
         if (category == null) {
             throw new IllegalArgumentException("Cannot take null parameters.");
         }
@@ -104,10 +103,9 @@ public class CategoryUtil extends Object {
      * @param category a {@link org.opennms.web.category.Category} object.
      * @return a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static String getCategoryClass(Category category) throws IOException, MarshalException, ValidationException {
+    public static String getCategoryClass(Category category) throws DataAccessException, IOException {
         if (category == null) {
             throw new IllegalArgumentException("Cannot take null parameters.");
         }
@@ -123,10 +121,9 @@ public class CategoryUtil extends Object {
      * @param value a double.
      * @return a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static String getCategoryColor(Category category, double value) throws IOException, MarshalException, ValidationException {
+    public static String getCategoryColor(Category category, double value) throws DataAccessException, IOException {
         if (category == null) {
             throw new IllegalArgumentException("Cannot take null parameters.");
         }
@@ -142,10 +139,9 @@ public class CategoryUtil extends Object {
      * @param value a double.
      * @return a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static String getCategoryClass(Category category, double value) throws IOException, MarshalException, ValidationException {
+    public static String getCategoryClass(Category category, double value) throws DataAccessException, IOException {
         if (category == null) {
             throw new IllegalArgumentException("Cannot take null parameters.");
         }
@@ -161,17 +157,16 @@ public class CategoryUtil extends Object {
      * @param value a double.
      * @return a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static String getCategoryColor(double normal, double warning, double value) throws IOException, MarshalException, ValidationException {
+    public static String getCategoryColor(double normal, double warning, double value) throws DataAccessException, IOException {
         String m_green = null;
         String m_yellow = null;
         String m_red = null;
         CategoryColors m_colorsconfig = new CategoryColors();
 
         File cfgFile = ConfigFileConstants.getFile(ConfigFileConstants.WEBUI_COLORS_FILE_NAME);
-        m_colorsconfig = CastorUtils.unmarshal(CategoryColors.class, new FileSystemResource(cfgFile));
+        m_colorsconfig = JaxbUtils.unmarshal(CategoryColors.class, new FileSystemResource(cfgFile));
 
         m_green = m_colorsconfig.getGreen();
         m_yellow = m_colorsconfig.getYellow();

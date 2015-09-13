@@ -33,8 +33,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.GroupManager;
 
 public class MockGroupManager extends GroupManager {
@@ -42,12 +41,12 @@ public class MockGroupManager extends GroupManager {
     String m_xmlString;
     boolean updateNeeded = false;
     
-    public MockGroupManager(String xmlString) throws MarshalException, ValidationException {
+    public MockGroupManager(String xmlString) throws DataAccessException {
         m_xmlString = xmlString;
         parseXML();
     }
 
-    private void parseXML() throws MarshalException, ValidationException {
+    private void parseXML() throws DataAccessException {
         try {
             InputStream reader = new ByteArrayInputStream(m_xmlString.getBytes("UTF-8"));
             parseXml(reader);
@@ -58,7 +57,7 @@ public class MockGroupManager extends GroupManager {
     }
 
     @Override
-    public void update() throws IOException, MarshalException, ValidationException {
+    public void update() throws DataAccessException, IOException {
         if (updateNeeded) {
             parseXML();
         }

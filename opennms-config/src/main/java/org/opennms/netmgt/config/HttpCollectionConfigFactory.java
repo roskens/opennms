@@ -36,12 +36,12 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.httpdatacollection.HttpCollection;
 import org.opennms.netmgt.config.httpdatacollection.HttpDatacollectionConfig;
 import org.opennms.netmgt.rrd.RrdRepository;
@@ -71,11 +71,10 @@ public class HttpCollectionConfigFactory {
      * <p>Constructor for HttpCollectionConfigFactory.</p>
      *
      * @param configFile a {@link java.lang.String} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public HttpCollectionConfigFactory(String configFile) throws MarshalException, ValidationException, IOException {
+    public HttpCollectionConfigFactory(String configFile) throws DataAccessException, IOException {
         InputStream is = null;
         try {
             is = new FileInputStream(configFile);
@@ -91,16 +90,15 @@ public class HttpCollectionConfigFactory {
      * <p>Constructor for HttpCollectionConfigFactory.</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public HttpCollectionConfigFactory(InputStream stream) throws MarshalException, ValidationException {
+    public HttpCollectionConfigFactory(InputStream stream) throws DataAccessException {
         initialize(stream);
     }
 
-    private void initialize(InputStream stream) throws MarshalException, ValidationException {
+    private void initialize(InputStream stream) throws DataAccessException {
         LOG.debug("initialize: initializing http collection config factory.");
-        m_config = CastorUtils.unmarshal(HttpDatacollectionConfig.class, stream);
+        m_config = JaxbUtils.unmarshal(HttpDatacollectionConfig.class, stream);
     }
 
     /**
@@ -108,10 +106,9 @@ public class HttpCollectionConfigFactory {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, FileNotFoundException, IOException {
         
         if (m_instance == null) {
             File cfgFile = ConfigFileConstants.getFile(ConfigFileConstants.HTTP_COLLECTION_CONFIG_FILE_NAME);
@@ -151,10 +148,9 @@ public class HttpCollectionConfigFactory {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public synchronized void reload() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public synchronized void reload() throws DataAccessException, FileNotFoundException, IOException {
         m_instance = null;
         init();
     }
@@ -165,10 +161,9 @@ public class HttpCollectionConfigFactory {
      * read it.
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    protected void updateFromFile() throws IOException, MarshalException, ValidationException {
+    protected void updateFromFile() throws DataAccessException, IOException {
         if (m_loadedFromFile) {
             File surveillanceViewsFile = ConfigFileConstants.getFile(ConfigFileConstants.HTTP_COLLECTION_CONFIG_FILE_NAME);
             if (m_lastModified != surveillanceViewsFile.lastModified()) {

@@ -38,10 +38,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
-import org.opennms.core.xml.CastorUtils;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
+import org.springframework.dao.DataAccessException;
 import org.opennms.netmgt.config.destinationPaths.DestinationPaths;
 import org.opennms.netmgt.config.destinationPaths.Header;
 import org.opennms.netmgt.config.destinationPaths.Path;
@@ -75,11 +74,10 @@ public abstract class DestinationPathManager {
      * <p>parseXML</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    protected void parseXML(InputStream stream) throws MarshalException, ValidationException {
-        allPaths = CastorUtils.unmarshal(DestinationPaths.class, stream);
+    protected void parseXML(InputStream stream) throws DataAccessException {
+        allPaths = JaxbUtils.unmarshal(DestinationPaths.class, stream);
         oldHeader = allPaths.getHeader();
         initializeDestinationPaths();
     }
@@ -97,10 +95,9 @@ public abstract class DestinationPathManager {
      * @param pathName a {@link java.lang.String} object.
      * @return a {@link org.opennms.netmgt.config.destinationPaths.Path} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public Path getPath(String pathName) throws IOException, MarshalException, ValidationException {
+    public Path getPath(String pathName) throws DataAccessException, IOException {
         update();
     
         return m_destinationPaths.get(pathName);
@@ -111,10 +108,9 @@ public abstract class DestinationPathManager {
      *
      * @return a {@link java.util.Map} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public Map<String, Path> getPaths() throws IOException, MarshalException, ValidationException {
+    public Map<String, Path> getPaths() throws DataAccessException, IOException {
         update();
     
         return Collections.unmodifiableMap(m_destinationPaths);
@@ -128,10 +124,9 @@ public abstract class DestinationPathManager {
      * @param target a {@link java.lang.String} object.
      * @return a {@link java.util.Collection} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public Collection<String> getTargetCommands(Path path, int index, String target) throws IOException, MarshalException, ValidationException {
+    public Collection<String> getTargetCommands(Path path, int index, String target) throws DataAccessException, IOException {
         update();
     
         Target[] targets = getTargetList(index, path);
@@ -152,10 +147,9 @@ public abstract class DestinationPathManager {
      * @param path a {@link org.opennms.netmgt.config.destinationPaths.Path} object.
      * @return an array of {@link org.opennms.netmgt.config.destinationPaths.Target} objects.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public Target[] getTargetList(int index, Path path) throws IOException, MarshalException, ValidationException {
+    public Target[] getTargetList(int index, Path path) throws DataAccessException, IOException {
         update();
     
         Target[] targets = null;
@@ -178,10 +172,9 @@ public abstract class DestinationPathManager {
      * @param target a {@link java.lang.String} object.
      * @return a boolean.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public boolean pathHasTarget(Path path, String target) throws IOException, MarshalException, ValidationException {
+    public boolean pathHasTarget(Path path, String target) throws DataAccessException, IOException {
         update();
 
         for (Target curTarget : path.getTargetCollection()) {
@@ -197,11 +190,10 @@ public abstract class DestinationPathManager {
      * <p>addPath</p>
      *
      * @param newPath a {@link org.opennms.netmgt.config.destinationPaths.Path} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public synchronized void addPath(Path newPath) throws MarshalException, ValidationException, IOException {
+    public synchronized void addPath(Path newPath) throws DataAccessException, IOException {
         m_destinationPaths.put(newPath.getName(), newPath);
     
         saveCurrent();
@@ -212,11 +204,10 @@ public abstract class DestinationPathManager {
      *
      * @param oldName a {@link java.lang.String} object.
      * @param newPath a {@link org.opennms.netmgt.config.destinationPaths.Path} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public synchronized void replacePath(String oldName, Path newPath) throws MarshalException, ValidationException, IOException {
+    public synchronized void replacePath(String oldName, Path newPath) throws DataAccessException, IOException {
         if (m_destinationPaths.containsKey(oldName)) {
             m_destinationPaths.remove(oldName);
         }
@@ -232,11 +223,10 @@ public abstract class DestinationPathManager {
      * @exception MarshalException
      * @exception ValidationException
      * @exception IOException
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public synchronized void removePath(Path path) throws MarshalException, ValidationException, IOException {
+    public synchronized void removePath(Path path) throws DataAccessException, IOException {
         m_destinationPaths.remove(path.getName());
         saveCurrent();
     }
@@ -249,11 +239,10 @@ public abstract class DestinationPathManager {
      * @exception MarshalException
      * @exception ValidationException
      * @exception IOException
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public synchronized void removePath(String name) throws MarshalException, ValidationException, IOException {
+    public synchronized void removePath(String name) throws DataAccessException, IOException {
         m_destinationPaths.remove(name);
         saveCurrent();
     }
@@ -261,11 +250,10 @@ public abstract class DestinationPathManager {
     /**
      * <p>saveCurrent</p>
      *
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public synchronized void saveCurrent() throws MarshalException, ValidationException, IOException {
+    public synchronized void saveCurrent() throws DataAccessException, IOException {
         allPaths.removeAllPath();
         for (Path path : m_destinationPaths.values()) {
             allPaths.addPath(path);
@@ -277,7 +265,7 @@ public abstract class DestinationPathManager {
         // way the original config
         // isn't lost if the XML from the marshal is hosed.
         StringWriter stringWriter = new StringWriter();
-        Marshaller.marshal(allPaths, stringWriter);
+        JaxbUtils.marshal(allPaths, stringWriter);
         String writerString = stringWriter.toString();
         saveXML(writerString);
     
@@ -314,10 +302,9 @@ public abstract class DestinationPathManager {
      * <p>update</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.FileNotFoundException if any.
      */
-    public abstract void update() throws IOException, MarshalException, ValidationException, FileNotFoundException;
+    public abstract void update() throws DataAccessException, IOException, FileNotFoundException;
 
 }

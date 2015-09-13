@@ -33,12 +33,11 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.Collection;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.opennms.core.xml.JaxbUtils;
+import org.springframework.dao.DataAccessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.opennms.core.xml.CastorUtils;
 import org.opennms.netmgt.config.notifd.AutoAcknowledge;
 import org.opennms.netmgt.config.notifd.NotifdConfiguration;
 import org.opennms.netmgt.config.notifications.Notification;
@@ -67,23 +66,21 @@ public abstract class NotifdConfigManager {
      * <p>parseXml</p>
      *
      * @param stream a {@link java.io.InputStream} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public synchronized void parseXml(InputStream stream) throws MarshalException, ValidationException, IOException {
-        configuration = CastorUtils.unmarshal(NotifdConfiguration.class, stream);
+    public synchronized void parseXml(InputStream stream) throws DataAccessException, IOException {
+        configuration = JaxbUtils.unmarshal(NotifdConfiguration.class, stream);
     }
 
     /**
      * <p>Getter for the field <code>configuration</code>.</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @return a {@link org.opennms.netmgt.config.notifd.NotifdConfiguration} object.
      */
-    public NotifdConfiguration getConfiguration() throws IOException, MarshalException, ValidationException {
+    public NotifdConfiguration getConfiguration() throws DataAccessException, IOException {
         update();
     
         return configuration;
@@ -92,21 +89,19 @@ public abstract class NotifdConfigManager {
     /**
      * <p>update</p>
      *
-     * @throws org.exolab.castor.xml.ValidationException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    protected abstract void update() throws IOException, MarshalException, ValidationException;
+    protected abstract void update() throws DataAccessException, IOException;
 
     /**
      * <p>getNotificationStatus</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @return a {@link java.lang.String} object.
      */
-    public String getNotificationStatus() throws IOException, MarshalException, ValidationException {
+    public String getNotificationStatus() throws DataAccessException, IOException {
         update();
         return configuration.getStatus();
     }
@@ -114,11 +109,10 @@ public abstract class NotifdConfigManager {
     /**
      * Turns the notifd service on
      *
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public final void turnNotifdOn() throws MarshalException, ValidationException, IOException {
+    public final void turnNotifdOn() throws DataAccessException, IOException {
         configuration.setStatus("on");
         saveCurrent();
     }
@@ -126,11 +120,10 @@ public abstract class NotifdConfigManager {
     /**
      * Turns the notifd service off
      *
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public final void turnNotifdOff() throws MarshalException, ValidationException, IOException {
+    public final void turnNotifdOff() throws DataAccessException, IOException {
         configuration.setStatus("off");
         saveCurrent();
     }
@@ -139,11 +132,10 @@ public abstract class NotifdConfigManager {
      * <p>getNotificationMatch</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @return a boolean.
      */
-    public boolean getNotificationMatch() throws IOException, MarshalException, ValidationException {
+    public boolean getNotificationMatch() throws DataAccessException, IOException {
         update();
         return configuration.getMatchAll();
     }
@@ -151,16 +143,15 @@ public abstract class NotifdConfigManager {
     /**
      * <p>saveCurrent</p>
      *
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public synchronized void saveCurrent() throws MarshalException, ValidationException, IOException {
+    public synchronized void saveCurrent() throws DataAccessException, IOException {
         // marshall to a string first, then write the string to the file. This
         // way the original config
         // isn't lost if the xml from the marshall is hosed.
         StringWriter stringWriter = new StringWriter();
-        Marshaller.marshal(configuration, stringWriter);
+        JaxbUtils.marshal(configuration, stringWriter);
         String xml = stringWriter.toString();
         saveXml(xml);
         update();
@@ -178,11 +169,10 @@ public abstract class NotifdConfigManager {
      * <p>getNextNotifIdSql</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @return a {@link java.lang.String} object.
      */
-    public String getNextNotifIdSql() throws IOException, MarshalException, ValidationException {
+    public String getNextNotifIdSql() throws DataAccessException, IOException {
         return getConfiguration().getNextNotifId();
     }
     
@@ -243,10 +233,9 @@ public abstract class NotifdConfigManager {
      *
      * @return a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public String getNextUserNotifIdSql() throws IOException, MarshalException, ValidationException {
+    public String getNextUserNotifIdSql() throws DataAccessException, IOException {
         return getConfiguration().getNextUserNotifId();
     }
 
@@ -254,11 +243,10 @@ public abstract class NotifdConfigManager {
      * <p>getAutoAcknowledges</p>
      *
      * @return a {@link java.util.Collection} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public Collection<AutoAcknowledge> getAutoAcknowledges() throws MarshalException, ValidationException, IOException {
+    public Collection<AutoAcknowledge> getAutoAcknowledges() throws DataAccessException, IOException {
         return getConfiguration().getAutoAcknowledgeCollection();
     }
 
@@ -266,11 +254,10 @@ public abstract class NotifdConfigManager {
      * <p>getOutageCalendarNames</p>
      *
      * @return a {@link java.util.Collection} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public Collection<String> getOutageCalendarNames() throws MarshalException, ValidationException, IOException {
+    public Collection<String> getOutageCalendarNames() throws DataAccessException, IOException {
         return getConfiguration().getOutageCalendarCollection();
     }
 }

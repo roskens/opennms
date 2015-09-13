@@ -38,8 +38,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
 
 /**
@@ -74,10 +73,9 @@ public class GroupFactory extends GroupManager {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public GroupFactory() throws MarshalException, ValidationException, FileNotFoundException, IOException {
+    public GroupFactory() throws DataAccessException, FileNotFoundException, IOException {
         super();
         reload();
     }
@@ -87,10 +85,9 @@ public class GroupFactory extends GroupManager {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public static synchronized void init() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public static synchronized void init() throws DataAccessException, FileNotFoundException, IOException {
 
         if (s_instance == null || !s_initialized) {
             s_instance = new GroupFactory();
@@ -124,10 +121,9 @@ public class GroupFactory extends GroupManager {
      *
      * @throws java.io.IOException if any.
      * @throws java.io.FileNotFoundException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
-    public synchronized void reload() throws IOException, FileNotFoundException, MarshalException, ValidationException {
+    public synchronized void reload() throws DataAccessException, FileNotFoundException, IOException {
         File confFile = ConfigFileConstants.getFile(ConfigFileConstants.GROUPS_CONF_FILE_NAME);
 
         reloadFromFile(confFile);
@@ -139,7 +135,7 @@ public class GroupFactory extends GroupManager {
      * @throws MarshalException
      * @throws ValidationException
      */
-    private void reloadFromFile(File confFile) throws FileNotFoundException, MarshalException, ValidationException {
+    private void reloadFromFile(File confFile) throws FileNotFoundException, DataAccessException {
         m_groupsConfFile = confFile;
         InputStream configIn = null;
         try {
@@ -168,11 +164,10 @@ public class GroupFactory extends GroupManager {
      * <p>update</p>
      *
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
     @Override
-    public void update() throws IOException, MarshalException, ValidationException {
+    public void update() throws DataAccessException, IOException {
         if (m_lastModified != m_groupsConfFile.lastModified()) {
             reload();
         }

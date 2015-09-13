@@ -37,10 +37,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.opennmsDataSources.DataSourceConfiguration;
 import org.opennms.netmgt.config.opennmsDataSources.JdbcDataSource;
 import org.slf4j.Logger;
@@ -86,12 +86,11 @@ public class DatabaseChecker {
      *                Thrown if the contents do not match the required schema.
      * @param configFile a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.lang.ClassNotFoundException if any.
      */
-    protected DatabaseChecker(final String configFile) throws IOException, MarshalException, ValidationException, ClassNotFoundException {
-        final DataSourceConfiguration database = CastorUtils.unmarshal(DataSourceConfiguration.class, new FileSystemResource(configFile), false);
+    protected DatabaseChecker(final String configFile) throws DataAccessException, IOException, ClassNotFoundException {
+        final DataSourceConfiguration database = JaxbUtils.unmarshal(DataSourceConfiguration.class, new FileSystemResource(configFile), false);
 
         for (final JdbcDataSource dataSource : database.getJdbcDataSourceCollection()) {
             m_dataSources.put(dataSource.getName(), dataSource);
@@ -109,11 +108,10 @@ public class DatabaseChecker {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.lang.ClassNotFoundException if any.
      */
-    protected DatabaseChecker() throws IOException, MarshalException, ValidationException, ClassNotFoundException {
+    protected DatabaseChecker() throws DataAccessException, IOException, ClassNotFoundException {
     	this(ConfigFileConstants.getFile(ConfigFileConstants.OPENNMS_DATASOURCE_CONFIG_FILE_NAME).getPath());
     }
 

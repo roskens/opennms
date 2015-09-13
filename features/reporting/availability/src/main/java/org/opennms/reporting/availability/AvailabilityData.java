@@ -40,8 +40,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.Callable;
 
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.opennms.core.logging.Logging;
@@ -119,14 +118,13 @@ public class AvailabilityData {
      * @param startDate a {@link java.lang.String} object.
      * @param startYear a {@link java.lang.String} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.lang.Exception if any.
      */
     public void fillReport(String categoryName, Report report,
             String format, String monthFormat,
             String startMonth, String startDate, String startYear)
-            throws IOException, MarshalException, ValidationException,
+            throws DataAccessException, IOException,
             Exception {
       
         Calendar cal = new GregorianCalendar();
@@ -151,13 +149,12 @@ public class AvailabilityData {
      * @param monthFormat a {@link java.lang.String} object.
      * @param periodEndDate a {@link java.util.Date} object.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.lang.Exception if any.
      */
     public void fillReport(String categoryName, Report report,
             String format, String monthFormat, Date periodEndDate)
-            throws IOException, MarshalException, ValidationException,
+            throws DataAccessException, IOException,
             Exception {
        generateData(categoryName, report, format, monthFormat, periodEndDate);
     }
@@ -166,7 +163,7 @@ public class AvailabilityData {
     private void generateData(final String categoryName, final Report report,
             final String format, final String monthFormat,
             final Date periodEndDate)
-            throws IOException, MarshalException, ValidationException,
+            throws DataAccessException, IOException,
             Exception {
         
         Logging.withPrefix(LOG4J_CATEGORY, new Callable<Void>() {
@@ -187,10 +184,7 @@ public class AvailabilityData {
                 } catch (IOException e) {
                     LOG.error("Initializing CategoryFactory", e);
                     throw e;
-                } catch (MarshalException e) {
-                    LOG.error("Initializing CategoryFactory", e);
-                    throw e;
-                } catch (ValidationException e) {
+                } catch (DataAccessException e) {
                     LOG.error("Initializing CategoryFactory", e);
                     throw e;
                 }

@@ -50,15 +50,14 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.apache.commons.io.IOUtils;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.Marshaller;
-import org.exolab.castor.xml.ValidationException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.opennms.core.utils.FilteringIterator;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.core.utils.IteratorIterator;
-import org.opennms.core.xml.CastorUtils;
+import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.api.DiscoveryConfigurationFactory;
 import org.opennms.netmgt.config.discovery.DiscoveryConfiguration;
 import org.opennms.netmgt.config.discovery.ExcludeRange;
@@ -117,15 +116,14 @@ public class DiscoveryConfigFactory implements DiscoveryConfigurationFactory {
      * @exception org.exolab.castor.xml.ValidationException
      *                Thrown if the contents do not match the required schema.
      * @throws java.io.IOException if any.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      */
     public synchronized void reload() {
         try {
             File cfgFile = ConfigFileConstants.getFile(ConfigFileConstants.DISCOVERY_CONFIG_FILE_NAME);
             LOG.debug("reload: config file path {}", cfgFile.getPath());
             final FileSystemResource resource = new FileSystemResource(cfgFile);
-            m_config = CastorUtils.unmarshal(DiscoveryConfiguration.class, resource);
+            m_config = JaxbUtils.unmarshal(DiscoveryConfiguration.class, resource);
 
             try {
                 getInitialSleepTime();
@@ -133,11 +131,9 @@ public class DiscoveryConfigFactory implements DiscoveryConfigurationFactory {
                 getIntraPacketDelay();
                 getConfiguredAddresses();
             } catch (final Throwable e) {
-                throw new ValidationException("An error occurred while validating the configuration: " + e.getMessage(), e);
+                throw new IllegalArgumentException("An error occurred while validating the configuration: " + e.getMessage(), e);
             }
-        } catch (MarshalException e) {
-            LOG.error("Could unmarshal configuration file: " + ConfigFileConstants.DISCOVERY_CONFIG_FILE_NAME, e);
-        } catch (ValidationException e) {
+        } catch (DataAccessException e) {
             LOG.error("Could unmarshal configuration file: " + ConfigFileConstants.DISCOVERY_CONFIG_FILE_NAME, e);
         } catch (IOException e) {
             LOG.error("Could unmarshal configuration file: " + ConfigFileConstants.DISCOVERY_CONFIG_FILE_NAME, e);
@@ -177,18 +173,17 @@ public class DiscoveryConfigFactory implements DiscoveryConfigurationFactory {
      * <p>saveConfiguration</p>
      *
      * @param configuration a {@link org.opennms.netmgt.config.discovery.DiscoveryConfiguration} object.
-     * @throws org.exolab.castor.xml.MarshalException if any.
-     * @throws org.exolab.castor.xml.ValidationException if any.
+     * @throws org.springframework.dao.DataAccessException if any.
      * @throws java.io.IOException if any.
      */
-    public void saveConfiguration(final DiscoveryConfiguration configuration) throws MarshalException, ValidationException, IOException {
+    public void saveConfiguration(final DiscoveryConfiguration configuration) throws DataAccessException, IOException {
         getWriteLock().lock();
         try {
             // marshal to a string first, then write the string to the file. This
             // way the original config
             // isn't lost if the XML from the marshal is hosed.
             final StringWriter stringWriter = new StringWriter();
-            Marshaller.marshal(configuration, stringWriter);
+            JaxbUtils.marshal(configuration, stringWriter);
             final String xml = stringWriter.toString();
             LOG.debug("saving configuration...");
             saveXml(xml);
