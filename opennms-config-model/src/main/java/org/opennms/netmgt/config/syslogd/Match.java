@@ -242,7 +242,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean isDefaultParameterMapping(
     ) {
-        return this._defaultParameterMapping;
+        return this._defaultParameterMapping == null ? DEFAULT_PARAMETER_MAPPING : this._defaultParameterMapping;
     }
 
     /**
