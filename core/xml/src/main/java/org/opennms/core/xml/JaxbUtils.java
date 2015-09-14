@@ -41,6 +41,9 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -154,6 +157,16 @@ public abstract class JaxbUtils {
             throw EXCEPTION_TRANSLATOR.translate("marshalling " + obj.getClass().getSimpleName(), e);
         } catch (final FactoryConfigurationError e) {
             throw EXCEPTION_TRANSLATOR.translate("marshalling " + obj.getClass().getSimpleName(), e);
+        }
+    }
+
+    public static void marshal(Object config, File file) throws IOException {
+        marshal(config, file.toPath());
+    }
+
+    public static void marshal(Object config, Path path) throws IOException {
+        try (Writer writer = Files.newBufferedWriter(path, Charset.forName("UTF-8"))) {
+            marshal(config, writer);
         }
     }
 
