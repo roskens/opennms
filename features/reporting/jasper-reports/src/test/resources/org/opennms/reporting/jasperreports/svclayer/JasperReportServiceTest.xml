@@ -9,7 +9,7 @@
 
 
 	<bean id="jasperReportConfigDao"
-		class="org.opennms.netmgt.dao.castor.DefaultJasperReportConfigDao">
+		class="org.opennms.netmgt.dao.jaxb.DefaultJasperReportConfigDao">
 		<property name="configResource" ref="jasperReportConfigResourceLocation" />
 	</bean>
 
