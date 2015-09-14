@@ -63,13 +63,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * The varbind element number
      */
-    @XmlElement(name="varbind")
+    @XmlElement(name="vbname", required = true)
     private java.lang.String _vbname;
 
     /**
      * The varbind element value
      */
-    @XmlElement(name="vbvalue")
+    @XmlElement(name="vbvalue", required = true)
     private java.lang.String _vbvalue;
 
 
