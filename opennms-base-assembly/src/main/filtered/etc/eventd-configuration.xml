@@ -6,5 +6,4 @@
 	receivers="5"
 	getNextEventID="SELECT nextval('eventsNxtId')"
 	socketSoTimeoutRequired="yes"
-	socketSoTimeoutPeriod="3000">
-</EventdConfiguration>
+	socketSoTimeoutPeriod="3000" />

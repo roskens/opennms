@@ -7,5 +7,4 @@
 	getNextEventID="SELECT nextval('eventsNxtId')"
 	getNextAlarmID="SELECT nextval('alarmsNxtId')"
 	socketSoTimeoutRequired="yes"
-	socketSoTimeoutPeriod="3000">
-</EventdConfiguration>
+	socketSoTimeoutPeriod="3000" />
