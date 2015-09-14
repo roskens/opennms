@@ -29,6 +29,9 @@
 package org.opennms.netmgt.dao.jaxb;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -37,27 +40,34 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
+import junit.framework.AssertionFailedError;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.xml.CastorUtils;
 import org.opennms.core.xml.JaxbUtils;
+import org.opennms.netmgt.config.users.Userinfo;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.Event;
 import org.opennms.netmgt.xml.event.Events;
 import org.opennms.netmgt.xml.event.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.dao.DataAccessException;
 
 public class JaxbUtilsTest {
     private static final Logger LOG = LoggerFactory.getLogger(JaxbUtilsTest.class);
-    
+
     private static final String m_xmlWithNamespace = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><event uuid=\"1234\" xmlns=\"http://xmlns.opennms.org/xsd/event\"><dbid>37</dbid><dist-poller>localhost</dist-poller><creation-time>Friday, March 18, 2011 1:34:13 PM GMT</creation-time><master-station>chief</master-station><mask><maskelement><mename>generic</mename><mevalue>6</mevalue></maskelement></mask><uei>uei.opennms.org/test</uei><source>JaxbCastorEquivalenceTest</source><nodeid>1</nodeid><time>Friday, March 18, 2011 1:34:13 PM GMT</time><host>funkytown</host><interface>192.168.0.1</interface><snmphost>192.168.0.1</snmphost><service>ICMP</service><snmp><id>.1.3.6.15</id><idtext>I am a banana!</idtext><version>v2c</version><specific>0</specific><generic>6</generic><community>public</community><time-stamp>1300455253196</time-stamp></snmp><parms><parm><parmName>foo</parmName><value encoding=\"text\" type=\"string\">bar</value></parm></parms><descr>This is a test thingy.</descr><logmsg dest=\"logndisplay\" notify=\"true\">this is a log message</logmsg><severity>Indeterminate</severity><pathoutage>monkeys</pathoutage><correlation path=\"pathOutage\" state=\"on\"><cuei>uei.opennms.org/funky-stuff</cuei><cmin>1</cmin><cmax>17</cmax><ctime>yesterday</ctime></correlation><operinstruct>run away</operinstruct><autoaction state=\"off\">content</autoaction><operaction menutext=\"this is in the menu!\" state=\"on\">totally actiony</operaction><autoacknowledge state=\"off\">content</autoacknowledge><loggroup>foo</loggroup><loggroup>bar</loggroup><tticket state=\"on\">tticket stuff</tticket><forward mechanism=\"snmptcp\" state=\"on\">I like shoes.</forward><script language=\"zombo\">the unattainable is within reach, at zombo.com</script><ifIndex>53</ifIndex><ifAlias>giggetE</ifAlias><mouseovertext>click here to buy now!!!!1!1!</mouseovertext><alarm-data x733-probable-cause=\"27\" x733-alarm-type=\"TimeDomainViolation\" auto-clean=\"true\" clear-key=\"car\" alarm-type=\"19\" reduction-key=\"bus\"/></event>";
     private static final String m_logXml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><log xmlns=\"http://xmlns.opennms.org/xsd/event\"><events><event><creation-time>Monday, March 21, 2011 8:34:21 PM GMT</creation-time><uei>uei.opennms.org/test</uei><source>JaxbUtilsTest</source><time>Monday, March 21, 2011 8:34:21 PM GMT</time><descr>test</descr></event><event><creation-time>Monday, March 21, 2011 8:34:21 PM GMT</creation-time><uei>uei.opennms.org/test</uei><source>JaxbUtilsTest</source><time>Monday, March 21, 2011 8:34:21 PM GMT</time><descr>test 2</descr></event></events></log>";
     private static final String m_logXmlWithoutNamespace = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><log><events><event><creation-time>Monday, March 21, 2011 8:34:21 PM GMT</creation-time><uei>uei.opennms.org/test</uei><source>JaxbUtilsTest</source><time>Monday, March 21, 2011 8:34:21 PM GMT</time><descr>test</descr></event><event><creation-time>Monday, March 21, 2011 8:34:21 PM GMT</creation-time><uei>uei.opennms.org/test</uei><source>JaxbUtilsTest</source><time>Monday, March 21, 2011 8:34:21 PM GMT</time><descr>test 2</descr></event></events></log>";
@@ -67,7 +77,7 @@ public class JaxbUtilsTest {
 		Locale.setDefault(Locale.US);
 		MockLogAppender.setupLogging();
 	}
-	
+
 	@After
 	public void tearDown() {
         MockLogAppender.assertNoWarningsOrGreater();
@@ -91,7 +101,7 @@ public class JaxbUtilsTest {
         // if this is null, it's because Eclipse can be confused by "classifier" test dependencies like opennms-model-*-xsds
         // it only works if opennms-model is *not* pulled into eclipse (go figure)
         Assume.assumeNotNull(is);
-        
+
         LOG.debug("Hooray!  We have an XSD!");
         final Schema schema = factory.newSchema(new StreamSource(is));
         final Validator v = schema.newValidator();
@@ -111,14 +121,14 @@ public class JaxbUtilsTest {
 		final Event e1 = getEvent();
 		final Event e2 = getEvent();
 		e2.setDescr("test 2");
-		
+
 		final Events events = new Events();
 		events.addEvent(e1);
 		events.addEvent(e2);
-		
+
 		final Log log = new Log();
 		log.setEvents(events);
-		
+
 		final String xml = JaxbUtils.marshal(log);
 
 		LOG.debug("xml = {}", xml);
@@ -155,10 +165,10 @@ public class JaxbUtilsTest {
             CastorUtils.unmarshal(Log.class, new ByteArrayInputStream(logBytes));
         }
         long castorTime = System.currentTimeMillis() - startTime;
-        
+
         System.out.printf("JAXB unmarshal: %dms, Castor unmarshal: %dms\n", jaxbTime, castorTime);
     }
-    
+
     /**
      * This test can be used to compare the performance of JAXB vs. Castor in XML marshalling speed.
      * After running this test on my system when preparing for the OpenNMS 1.10 release, JAXB was
@@ -184,7 +194,7 @@ public class JaxbUtilsTest {
             //CastorUtils.marshalWithTranslatedExceptions(log, new OutputStreamWriter(System.out));
         }
         long castorTime = System.currentTimeMillis() - startTime;
-        
+
         System.out.printf("JAXB marshal: %dms, Castor marshal: %dms\n", jaxbTime, castorTime);
     }
 
@@ -205,31 +215,31 @@ public class JaxbUtilsTest {
 			.getEvent();
 		return e;
 	}
-	
+
 	@Test
 	public void testSendEventXml() throws Exception {
-		final String text = "<log>\n" + 
-				" <events>\n" + 
-				"  <event >\n" + 
-				"   <uei>uei.opennms.org/internal/capsd/addNode</uei>\n" + 
-				"   <source>perl_send_event</source>\n" + 
-				"   <time>Tuesday, 12 April 2011 18:05:00 o'clock GMT</time>\n" + 
-				"   <host></host>\n" + 
-				"   <interface>10.0.0.1</interface>\n" + 
-				"   <parms>\n" + 
-				"    <parm>\n" + 
-				"     <parmName><![CDATA[txno]]></parmName>\n" + 
-				"     <value type=\"string\" encoding=\"text\"><![CDATA[1]]></value>\n" + 
-				"    </parm>\n" + 
-				"    <parm>\n" + 
-				"     <parmName><![CDATA[nodelabel]]></parmName>\n" + 
-				"     <value type=\"string\" encoding=\"text\"><![CDATA[test10]]></value>\n" + 
-				"    </parm>\n" + 
-				"   </parms>\n" + 
-				"  </event>\n" + 
-				" </events>\n" + 
+		final String text = "<log>\n" +
+				" <events>\n" +
+				"  <event >\n" +
+				"   <uei>uei.opennms.org/internal/capsd/addNode</uei>\n" +
+				"   <source>perl_send_event</source>\n" +
+				"   <time>Tuesday, 12 April 2011 18:05:00 o'clock GMT</time>\n" +
+				"   <host></host>\n" +
+				"   <interface>10.0.0.1</interface>\n" +
+				"   <parms>\n" +
+				"    <parm>\n" +
+				"     <parmName><![CDATA[txno]]></parmName>\n" +
+				"     <value type=\"string\" encoding=\"text\"><![CDATA[1]]></value>\n" +
+				"    </parm>\n" +
+				"    <parm>\n" +
+				"     <parmName><![CDATA[nodelabel]]></parmName>\n" +
+				"     <value type=\"string\" encoding=\"text\"><![CDATA[test10]]></value>\n" +
+				"    </parm>\n" +
+				"   </parms>\n" +
+				"  </event>\n" +
+				" </events>\n" +
 				"</log>\n";
-		
+
 		final Log log = JaxbUtils.unmarshal(Log.class, text);
 		assertNotNull(log);
 		assertNotNull(log.getEvents());
@@ -237,35 +247,35 @@ public class JaxbUtilsTest {
 		// Make sure that the time was parsed properly to a specific epoch time
 		assertEquals(1302631500000L, log.getEvents().getEvent(0).getTime().getTime());
 	}
-	
+
 	@Test
 	@Ignore
 	public void testValidationMemoryLeak() throws Exception {
-        final String text = "<log>\n" + 
-            " <events>\n" + 
-            "  <event >\n" + 
-            "   <uei>uei.opennms.org/internal/capsd/addNode</uei>\n" + 
-            "   <source>perl_send_event</source>\n" + 
-            "   <time>Tuesday, 12 April 2011 18:05:00 o'clock GMT</time>\n" + 
-            "   <host></host>\n" + 
-            "   <interface>10.0.0.1</interface>\n" + 
-            "   <parms>\n" + 
-            "    <parm>\n" + 
-            "     <parmName><![CDATA[txno]]></parmName>\n" + 
-            "     <value type=\"string\" encoding=\"text\"><![CDATA[1]]></value>\n" + 
-            "    </parm>\n" + 
-            "    <parm>\n" + 
-            "     <parmName><![CDATA[nodelabel]]></parmName>\n" + 
-            "     <value type=\"string\" encoding=\"text\"><![CDATA[test10]]></value>\n" + 
-            "    </parm>\n" + 
-            "   </parms>\n" + 
-            "  </event>\n" + 
-            " </events>\n" + 
+        final String text = "<log>\n" +
+            " <events>\n" +
+            "  <event >\n" +
+            "   <uei>uei.opennms.org/internal/capsd/addNode</uei>\n" +
+            "   <source>perl_send_event</source>\n" +
+            "   <time>Tuesday, 12 April 2011 18:05:00 o'clock GMT</time>\n" +
+            "   <host></host>\n" +
+            "   <interface>10.0.0.1</interface>\n" +
+            "   <parms>\n" +
+            "    <parm>\n" +
+            "     <parmName><![CDATA[txno]]></parmName>\n" +
+            "     <value type=\"string\" encoding=\"text\"><![CDATA[1]]></value>\n" +
+            "    </parm>\n" +
+            "    <parm>\n" +
+            "     <parmName><![CDATA[nodelabel]]></parmName>\n" +
+            "     <value type=\"string\" encoding=\"text\"><![CDATA[test10]]></value>\n" +
+            "    </parm>\n" +
+            "   </parms>\n" +
+            "  </event>\n" +
+            " </events>\n" +
             "</log>\n";
-        
+
         final int eventCount = 1000000;
         final int logEvery = (eventCount / 1000);
-        
+
         MockLogAppender.setupLogging(true, "INFO");
 
         LOG.info("starting");
@@ -283,5 +293,90 @@ public class JaxbUtilsTest {
         }
         LOG.info("finished");
         Thread.sleep(30000);
-	}
+    }
+
+    @Test
+    public void testUnmarshalReader() throws DataAccessException, FileNotFoundException, IOException {
+        JaxbUtils.unmarshal(Userinfo.class, ConfigurationTestUtils.getInputStreamForConfigFile("users.xml"));
+    }
+
+    @Test
+    public void testUnmarshalResource() throws DataAccessException, FileNotFoundException, IOException {
+        JaxbUtils.unmarshal(Userinfo.class, new InputStreamResource(ConfigurationTestUtils.getInputStreamForConfigFile("users.xml")));
+    }
+
+    @Test
+    public void testExceptionContainsFileNameUnmarshalResourceWithBadResource() throws DataAccessException, FileNotFoundException, IOException {
+        /*
+         * We are going to attempt to unmarshal groups.xml with the wrong
+         * class so we get a MarshalException and we can then test to see if the
+         * file name is embedded in the exception.
+         */
+        boolean gotException = false;
+        File file = ConfigurationTestUtils.getFileForConfigFile("groups.xml");
+        try {
+            JaxbUtils.unmarshal(Userinfo.class, new FileSystemResource(file));
+        } catch (DataAccessException e) {
+            String matchString = "Failed to marshal/unmarshal XML file while unmarshalling an object ("+Userinfo.class.getSimpleName()+")";
+            if (e.toString().contains(matchString)) {
+                gotException = true;
+            } else {
+                AssertionFailedError ae = new AssertionFailedError("Got an exception, but not one containing the message we were expecting ('" + matchString + "'): " + e);
+                ae.initCause(e);
+                throw ae;
+            }
+        }
+
+        if (!gotException) {
+            fail("Did not get a MarshalException, but we were expecting one.");
+        }
+    }
+
+    @Test
+    public void testUnmarshalInputStreamQuietly() throws DataAccessException, FileNotFoundException, IOException {
+        JaxbUtils.unmarshal(Userinfo.class, ConfigurationTestUtils.getInputStreamForConfigFile("users.xml"));
+
+        /*
+         * Ensure that nothing was logged.
+         * In particular, we want to make sure that we don't see this message:
+         * 2008-07-28 16:04:53,260 DEBUG [main]
+         * org.exolab.castor.xml.Unmarshaller: *static* unmarshal method called,
+         * this will ignore any mapping files or changes made to an Unmarshaller
+         * instance.
+         */
+        MockLogAppender.assertNoLogging();
+    }
+
+    @Test
+    public void testUnmarshalReaderQuietly() throws DataAccessException, FileNotFoundException, IOException {
+        JaxbUtils.unmarshal(Userinfo.class, ConfigurationTestUtils.getInputStreamForConfigFile("users.xml"));
+
+        /*
+         * Ensure that nothing was logged.
+         * In particular, we want to make sure that we don't see this message:
+         * 2008-07-28 16:04:53,260 DEBUG [main]
+         * org.exolab.castor.xml.Unmarshaller: *static* unmarshal method called,
+         * this will ignore any mapping files or changes made to an Unmarshaller
+         * instance.
+         */
+        MockLogAppender.assertNoLogging();
+    }
+
+    @Test
+    public void testUnmarshallInputStreamWithUtf8() throws DataAccessException, IOException {
+        Userinfo users = JaxbUtils.unmarshal(Userinfo.class, ConfigurationTestUtils.getInputStreamForResource(this, "/users-utf8.xml"));
+
+        assertEquals("user count", 1, users.getUsers().getUserCount());
+        // \u00f1 is unicode for n~
+        assertEquals("user name", "Admi\u00f1istrator", users.getUsers().getUser(0).getFullName());
+    }
+
+    @Test
+    public void testUnmarshallResourceWithUtf8() throws DataAccessException, IOException {
+        Userinfo users = JaxbUtils.unmarshal(Userinfo.class, new InputStreamResource(ConfigurationTestUtils.getInputStreamForResource(this, "/users-utf8.xml")));
+
+        assertEquals("user count", 1, users.getUsers().getUserCount());
+        // \u00f1 is unicode for n~
+        assertEquals("user name", "Admi\u00f1istrator", users.getUsers().getUser(0).getFullName());
+    }
 }
