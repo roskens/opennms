@@ -83,7 +83,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _uei.
      */
-    @XmlElement(name="uei")
+    @XmlElement(name="uei", required = true)
     private java.lang.String _uei;
 
     /**
@@ -95,7 +95,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _rule.
      */
-    @XmlElement(name="rule")
+    @XmlElement(name="rule", required = true)
     private java.lang.String _rule;
 
     /**
@@ -107,13 +107,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _destinationPath.
      */
-    @XmlElement(name="destinationPath")
+    @XmlElement(name="destinationPath", required = true)
     private java.lang.String _destinationPath;
 
     /**
      * Field _textMessage.
      */
-    @XmlElement(name="text-message")
+    @XmlElement(name="text-message", required = true)
     private java.lang.String _textMessage;
 
     /**
