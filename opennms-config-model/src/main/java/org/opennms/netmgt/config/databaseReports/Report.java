@@ -292,7 +292,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public Boolean isOnline(
     ) {
-        return this._online;
+        return this._online == null ? false : this._online;
     }
 
     /**
