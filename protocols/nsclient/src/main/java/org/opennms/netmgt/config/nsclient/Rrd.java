@@ -39,8 +39,12 @@ package org.opennms.netmgt.config.nsclient;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
+import org.opennms.core.xml.ValidateUsing;
 
 /**
  * RRD parms
@@ -48,6 +52,9 @@ import org.exolab.castor.xml.Unmarshaller;
  * @version $Revision$ $Date$
  */
 
+@XmlRootElement(name="rrd")
+@XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("nsclient-datacollection.xsd")
 @SuppressWarnings("all") public class Rrd implements java.io.Serializable {
 
 

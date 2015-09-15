@@ -39,8 +39,14 @@ package org.opennms.netmgt.config.nsclient;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
+import org.opennms.core.xml.ValidateUsing;
 
 /**
  * A grouping of Nsclient related RRD parms and Nsclient
@@ -50,6 +56,9 @@ import org.exolab.castor.xml.Unmarshaller;
  * @version $Revision$ $Date$
  */
 
+@XmlRootElement(name="nsclient-collection")
+@XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("nsclient-datacollection.xsd")
 @SuppressWarnings("all") public class NsclientCollection implements java.io.Serializable {
 
 
@@ -60,16 +69,19 @@ import org.exolab.castor.xml.Unmarshaller;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * RRD parms
      */
+    @XmlElement(name="rrd", required = true)
     private org.opennms.netmgt.config.nsclient.Rrd _rrd;
 
     /**
      * Nsclient object groups
      */
+    @XmlElement(name="wpms", required = true)
     private org.opennms.netmgt.config.nsclient.Wpms _wpms;
 
 

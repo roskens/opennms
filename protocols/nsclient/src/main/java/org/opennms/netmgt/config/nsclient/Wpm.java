@@ -39,8 +39,14 @@ package org.opennms.netmgt.config.nsclient;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
+import org.opennms.core.xml.ValidateUsing;
 
 /**
  * An NSClient Object Group
@@ -48,6 +54,9 @@ import org.exolab.castor.xml.Unmarshaller;
  * @version $Revision$ $Date$
  */
 
+@XmlRootElement(name="wpm")
+@XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("nsclient-datacollection.xsd")
 @SuppressWarnings("all") public class Wpm implements java.io.Serializable {
 
 
@@ -59,6 +68,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * The name of this group, for user id purposes
      *  
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
@@ -66,6 +76,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * this group should be collected
      *  
      */
+    @XmlAttribute(name="keyvalue", required = true)
     private java.lang.String _keyvalue;
 
     /**
@@ -73,17 +84,14 @@ import org.exolab.castor.xml.Unmarshaller;
      *  should be rechecked for existence. In milliseconds
      *  
      */
-    private int _recheckInterval;
-
-    /**
-     * keeps track of state for field: _recheckInterval
-     */
-    private boolean _has_recheckInterval;
+    @XmlAttribute(name="recheckInterval", required = true)
+    private Integer _recheckInterval;
 
     /**
      * An NSClient Object
      *  
      */
+    @XmlElement(name="attrib")
     private java.util.List<org.opennms.netmgt.config.nsclient.Attrib> _attribList;
 
 
@@ -133,7 +141,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void deleteRecheckInterval(
     ) {
-        this._has_recheckInterval= false;
+        this._recheckInterval = null;
     }
 
     /**
@@ -176,9 +184,12 @@ import org.exolab.castor.xml.Unmarshaller;
             }
             else if (temp._keyvalue != null)
                 return false;
-            if (this._recheckInterval != temp._recheckInterval)
-                return false;
-            if (this._has_recheckInterval != temp._has_recheckInterval)
+            if (this._recheckInterval != null) {
+                if (temp._recheckInterval == null) return false;
+                else if (!(this._recheckInterval.equals(temp._recheckInterval))) 
+                    return false;
+            }
+            else if (temp._recheckInterval != null)
                 return false;
             if (this._attribList != null) {
                 if (temp._attribList == null) return false;
@@ -285,7 +296,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return the value of field 'RecheckInterval'.
      */
-    public int getRecheckInterval(
+    public Integer getRecheckInterval(
     ) {
         return this._recheckInterval;
     }
@@ -297,7 +308,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public boolean hasRecheckInterval(
     ) {
-        return this._has_recheckInterval;
+        return this._recheckInterval != null;
     }
 
     /**
@@ -514,9 +525,8 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param recheckInterval the value of field 'recheckInterval'.
      */
     public void setRecheckInterval(
-            final int recheckInterval) {
+            final Integer recheckInterval) {
         this._recheckInterval = recheckInterval;
-        this._has_recheckInterval = true;
     }
 
     /**

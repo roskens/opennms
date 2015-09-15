@@ -39,8 +39,13 @@ package org.opennms.netmgt.config.nsclient;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
+import org.opennms.core.xml.ValidateUsing;
 
 /**
  * An Attribute Object
@@ -48,6 +53,9 @@ import org.exolab.castor.xml.Unmarshaller;
  * @version $Revision$ $Date$
  */
 
+@XmlRootElement(name="attrib")
+@XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("nsclient-datacollection.xsd")
 @SuppressWarnings("all") public class Attrib implements java.io.Serializable {
 
 
@@ -58,26 +66,31 @@ import org.exolab.castor.xml.Unmarshaller;
     /**
      * Field _name.
      */
+    @XmlAttribute(name="name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _alias.
      */
+    @XmlAttribute(name="alias", required = true)
     private java.lang.String _alias;
 
     /**
      * Field _type.
      */
+    @XmlAttribute(name="type", required = true)
     private java.lang.String _type;
 
     /**
      * Field _maxval.
      */
+    @XmlAttribute(name="maxval")
     private java.lang.String _maxval;
 
     /**
      * Field _minval.
      */
+    @XmlAttribute(name="minval")
     private java.lang.String _minval;
 
 

@@ -39,8 +39,13 @@ package org.opennms.netmgt.config.nsclient;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
+import org.opennms.core.xml.ValidateUsing;
 
 /**
  * Nsclient object groups
@@ -48,6 +53,9 @@ import org.exolab.castor.xml.Unmarshaller;
  * @version $Revision$ $Date$
  */
 
+@XmlRootElement(name="wpms")
+@XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("nsclient-datacollection.xsd")
 @SuppressWarnings("all") public class Wpms implements java.io.Serializable {
 
 
@@ -59,6 +67,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * An NSClient Object Group
      *  
      */
+    @XmlElement(name="wpm", required = true)
     private java.util.List<org.opennms.netmgt.config.nsclient.Wpm> _wpmList;
 
 
