@@ -6,5 +6,4 @@
 	lowThresholdInterval="20s"
 	highThresholdInterval="45s"
 	userRefreshInterval="2m"
-	errorsBeforeUrlUnsubscribe="5">
-</RTCConfiguration>
+	errorsBeforeUrlUnsubscribe="5" />
