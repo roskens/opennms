@@ -39,8 +39,14 @@ package org.opennms.netmgt.config.nsclient;
  //- Imported classes and packages -/
 //---------------------------------/
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
+import org.opennms.core.xml.ValidateUsing;
 
 /**
  * Top-level element for the nsclient-config.xml configuration
@@ -49,6 +55,9 @@ import org.exolab.castor.xml.Unmarshaller;
  * @version $Revision$ $Date$
  */
 
+@XmlRootElement(name="nsclient-config")
+@XmlAccessorType(XmlAccessType.FIELD)
+@ValidateUsing("nsclient-config.xsd")
 @SuppressWarnings("all") public class NsclientConfig implements java.io.Serializable {
 
 
@@ -60,42 +69,32 @@ import org.exolab.castor.xml.Unmarshaller;
      * If set, overrides TCP port 1248 as the port where NSClient
      *  requests are sent.
      */
-    private int _port;
-
-    /**
-     * keeps track of state for field: _port
-     */
-    private boolean _has_port;
+    @XmlAttribute(name="port")
+    private Integer _port;
 
     /**
      * Default number of retries
      */
-    private int _retry;
-
-    /**
-     * keeps track of state for field: _retry
-     */
-    private boolean _has_retry;
+    @XmlAttribute(name="retry")
+    private Integer _retry;
 
     /**
      * Default timeout (in milliseconds)
      */
-    private int _timeout;
-
-    /**
-     * keeps track of state for field: _timeout
-     */
-    private boolean _has_timeout;
+    @XmlAttribute(name="timeout")
+    private Integer _timeout;
 
     /**
      * Default password
      */
+    @XmlAttribute(name="password")
     private java.lang.String _password;
 
     /**
      * Maps IP addresses to specific NSClient parmeters
      *  (retries, timeouts...)
      */
+    @XmlElement(name="definition")
     private java.util.List<org.opennms.netmgt.config.nsclient.Definition> _definitionList;
 
 
@@ -145,21 +144,21 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void deletePort(
     ) {
-        this._has_port= false;
+        this._port = null;
     }
 
     /**
      */
     public void deleteRetry(
     ) {
-        this._has_retry= false;
+        this._retry = null;
     }
 
     /**
      */
     public void deleteTimeout(
     ) {
-        this._has_timeout= false;
+        this._timeout = null;
     }
 
     /**
@@ -188,17 +187,26 @@ import org.exolab.castor.xml.Unmarshaller;
         if (obj instanceof NsclientConfig) {
         
             NsclientConfig temp = (NsclientConfig)obj;
-            if (this._port != temp._port)
+            if (this._port != null) {
+                if (temp._port == null) return false;
+                else if (!(this._port.equals(temp._port))) 
+                    return false;
+            }
+            else if (temp._port != null)
                 return false;
-            if (this._has_port != temp._has_port)
+            if (this._retry != null) {
+                if (temp._retry == null) return false;
+                else if (!(this._retry.equals(temp._retry))) 
+                    return false;
+            }
+            else if (temp._retry != null)
                 return false;
-            if (this._retry != temp._retry)
-                return false;
-            if (this._has_retry != temp._has_retry)
-                return false;
-            if (this._timeout != temp._timeout)
-                return false;
-            if (this._has_timeout != temp._has_timeout)
+            if (this._timeout != null) {
+                if (temp._timeout == null) return false;
+                else if (!(this._timeout.equals(temp._timeout))) 
+                    return false;
+            }
+            else if (temp._timeout != null)
                 return false;
             if (this._password != null) {
                 if (temp._password == null) return false;
@@ -296,7 +304,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return the value of field 'Port'.
      */
-    public int getPort(
+    public Integer getPort(
     ) {
         return this._port;
     }
@@ -307,7 +315,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return the value of field 'Retry'.
      */
-    public int getRetry(
+    public Integer getRetry(
     ) {
         return this._retry;
     }
@@ -319,7 +327,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return the value of field 'Timeout'.
      */
-    public int getTimeout(
+    public Integer getTimeout(
     ) {
         return this._timeout;
     }
@@ -331,7 +339,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public boolean hasPort(
     ) {
-        return this._has_port;
+        return this._port != null;
     }
 
     /**
@@ -341,7 +349,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public boolean hasRetry(
     ) {
-        return this._has_retry;
+        return this._retry != null;
     }
 
     /**
@@ -351,7 +359,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public boolean hasTimeout(
     ) {
-        return this._has_timeout;
+        return this._timeout != null;
     }
 
     /**
@@ -368,9 +376,15 @@ import org.exolab.castor.xml.Unmarshaller;
         int result = 17;
         
         long tmp;
-        result = 37 * result + _port;
-        result = 37 * result + _retry;
-        result = 37 * result + _timeout;
+        if (_port != null) {
+           result = 37 * result + _port.hashCode();
+        }
+        if (_retry != null) {
+           result = 37 * result + _retry.hashCode();
+        }
+        if (_timeout != null) {
+           result = 37 * result + _timeout.hashCode();
+        }
         if (_password != null) {
            result = 37 * result + _password.hashCode();
         }
@@ -551,9 +565,8 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param port the value of field 'port'.
      */
     public void setPort(
-            final int port) {
+            final Integer port) {
         this._port = port;
-        this._has_port = true;
     }
 
     /**
@@ -563,9 +576,8 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param retry the value of field 'retry'.
      */
     public void setRetry(
-            final int retry) {
+            final Integer retry) {
         this._retry = retry;
-        this._has_retry = true;
     }
 
     /**
@@ -575,9 +587,8 @@ import org.exolab.castor.xml.Unmarshaller;
      * @param timeout the value of field 'timeout'.
      */
     public void setTimeout(
-            final int timeout) {
+            final Integer timeout) {
         this._timeout = timeout;
-        this._has_timeout = true;
     }
 
     /**
