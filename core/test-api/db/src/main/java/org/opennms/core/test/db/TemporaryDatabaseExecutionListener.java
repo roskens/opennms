@@ -42,8 +42,10 @@ import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.opennms.core.db.C3P0ConnectionFactory;
+import org.opennms.core.db.DataSourceConfigurationFactory;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.db.XADataSourceFactory;
+import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
 import org.opennms.netmgt.config.opennmsDataSources.JdbcDataSource;
 import org.slf4j.Logger;
@@ -184,6 +186,11 @@ public class TemporaryDatabaseExecutionListener extends AbstractTestExecutionLis
         } else {
             classDs = null;
         }
+
+        DataSourceConfigurationFactory factory = new DataSourceConfigurationFactory(
+            ConfigurationTestUtils.getFileForConfigFile("opennms-datasources.xml")
+        );
+        DataSourceFactory.setDataSourceConfigurationFactory(factory);
 
         List<Future<TemporaryDatabase>> futures = new ArrayList<Future<TemporaryDatabase>>();
         for (Method method : testContext.getTestClass().getMethods()) {
