@@ -485,7 +485,9 @@ import org.opennms.core.xml.ValidateUsing;
         int result = 17;
 
         long tmp;
-        result = 37 * result + (_readOnly?0:1);
+        if (_readOnly != null) {
+           result = 37 * result + _readOnly.hashCode();
+        }
         if (_userId != null) {
            result = 37 * result + _userId.hashCode();
         }
