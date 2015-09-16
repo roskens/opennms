@@ -42,7 +42,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.RowProcessor;
 import org.opennms.core.utils.TimeConverter;
 import org.opennms.netmgt.config.DestinationPathManager;
@@ -305,7 +304,7 @@ public final class BroadcastEventProcessor implements EventListener {
                         try {
                             // only send resolution notifications if notifications are globally turned on
                             if (curAck.getNotify() && notifsOn) {
-                                sendResolvedNotifications(notifIDs, event, curAck.getResolutionPrefix(), getNotifdConfigManager().getConfiguration().isNumericSkipResolutionPrefix());
+                                sendResolvedNotifications(notifIDs, event, curAck.getResolutionPrefix(), getNotifdConfigManager().getConfiguration().getNumericSkipResolutionPrefix());
                             }
                         } catch (Throwable e) {
                             LOG.error("Failed to send resolution notifications.", e);
@@ -331,7 +330,7 @@ public final class BroadcastEventProcessor implements EventListener {
             try {
                 // only send resolution notifications if notifications are globally turned on
                 if (autoAck.getNotify() && !notifIDs.isEmpty() && notifsOn) {
-                    sendResolvedNotifications(notifIDs, event, autoAck.getResolutionPrefix(), getNotifdConfigManager().getConfiguration().isNumericSkipResolutionPrefix());
+                    sendResolvedNotifications(notifIDs, event, autoAck.getResolutionPrefix(), getNotifdConfigManager().getConfiguration().getNumericSkipResolutionPrefix());
                 }
             } catch (Throwable e) {
                 LOG.error("Failed to send resolution notifications.", e);
