@@ -64,11 +64,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _col.
      */
+    @XmlElement(name="col")
     private org.opennms.report.availability.Col _col;
 
     /**
      * Field _rows.
      */
+    @XmlElement(name="rows")
     private org.opennms.report.availability.Rows _rows;
 
 

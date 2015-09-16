@@ -65,48 +65,44 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _logo.
      */
+    @XmlElement(name="logo")
     private java.lang.String _logo;
 
     /**
      * Field _created.
      */
+    @XmlElement(name="created")
     private org.opennms.report.availability.Created _created;
 
     /**
      * Field _author.
      */
+    @XmlElement(name="author")
     private java.lang.String _author;
 
     /**
      * element name="viewInfo"
      */
+    @XmlElement(name="viewInfo")
     private org.opennms.report.availability.ViewInfo _viewInfo;
 
     /**
      * Field _categories.
      */
+    @XmlElement(name="categories")
     private org.opennms.report.availability.Categories _categories;
 
     /**
      * Field _catCount.
      */
-    private int _catCount;
-
-    /**
-     * keeps track of state for field: _catCount
-     */
-    private boolean _has_catCount;
+    @XmlElement(name="catCount")
+    private Integer _catCount;
 
     /**
      * Field _sectionCount.
      */
-    private int _sectionCount;
-
-    /**
-     * keeps track of state for field: _sectionCount
-     */
-    private boolean _has_sectionCount;
-
+    @XmlElement(name="sectionCount")
+    private Integer _sectionCount;
 
       //----------------/
      //- Constructors -/
@@ -125,14 +121,14 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteCatCount(
     ) {
-        this._has_catCount= false;
+        this._catCount = null;
     }
 
     /**
      */
     public void deleteSectionCount(
     ) {
-        this._has_sectionCount= false;
+        this._sectionCount = null;
     }
 
     /**
@@ -150,7 +146,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'CatCount'.
      */
-    public int getCatCount(
+    public Integer getCatCount(
     ) {
         return this._catCount;
     }
@@ -190,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SectionCount'.
      */
-    public int getSectionCount(
+    public Integer getSectionCount(
     ) {
         return this._sectionCount;
     }
@@ -213,7 +209,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasCatCount(
     ) {
-        return this._has_catCount;
+        return this._catCount != null;
     }
 
     /**
@@ -223,7 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasSectionCount(
     ) {
-        return this._has_sectionCount;
+        return this._sectionCount != null;
     }
 
     /**
@@ -289,9 +285,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param catCount the value of field 'catCount'.
      */
     public void setCatCount(
-            final int catCount) {
+            final Integer catCount) {
         this._catCount = catCount;
-        this._has_catCount = true;
     }
 
     /**
@@ -330,9 +325,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param sectionCount the value of field 'sectionCount'.
      */
     public void setSectionCount(
-            final int sectionCount) {
+            final Integer sectionCount) {
         this._sectionCount = sectionCount;
-        this._has_sectionCount = true;
     }
 
     /**

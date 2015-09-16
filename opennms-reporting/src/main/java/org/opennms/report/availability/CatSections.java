@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _sectionList.
      */
+    @XmlElement(name="section")
     private java.util.List<org.opennms.report.availability.Section> _sectionList;
 
 

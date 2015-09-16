@@ -64,6 +64,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _categoryList.
      */
+    @XmlElement(name="category")
     private java.util.List<org.opennms.report.availability.Category> _categoryList;
 
 
