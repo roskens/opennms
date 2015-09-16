@@ -280,7 +280,7 @@ public class ThresholdingSet {
                                 Collection<String> requiredDatasources = thresholdEntity.getThresholdConfig().getRequiredDatasources();
                                 final Map<String, Double> values = new HashMap<String,Double>();
                                 boolean valueMissing = false;
-                                boolean relaxed = thresholdEntity.getThresholdConfig().getBasethresholddef().isRelaxed();
+                                boolean relaxed = thresholdEntity.getThresholdConfig().getBasethresholddef().getRelaxed();
                                 for(final String ds : requiredDatasources) {
                                     final Double dsValue = resourceWrapper.getAttributeValue(ds);
                                     if(dsValue == null) {
