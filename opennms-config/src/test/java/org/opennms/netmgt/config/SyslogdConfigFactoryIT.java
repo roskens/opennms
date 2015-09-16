@@ -68,22 +68,25 @@ public class SyslogdConfigFactoryIT {
 
     @Test
     public void testMyHostNameGrouping() {
+        Assert.assertNotNull(m_factory.getMatchingGroupHost());
         Assert.assertEquals(
                 6,
-                m_factory.getMatchingGroupHost());
+                m_factory.getMatchingGroupHost().intValue());
 
     }
 
     @Test
     public void testMyMessageGroup() {
+        Assert.assertNotNull(m_factory.getMatchingGroupMessage());
         Assert.assertEquals(
                 8,
-                m_factory.getMatchingGroupMessage());
+                m_factory.getMatchingGroupMessage().intValue());
 
     }
 
     @Test
     public void testPattern() {
+        Assert.assertNotNull(m_factory.getForwardingRegexp());
         Assert.assertEquals(
                 "^.*\\s(19|20)\\d\\d([-/.])(0[1-9]|1[012])\\2(0[1-9]|[12][0-9]|3[01])(\\s+)(\\S+)(\\s)(\\S.+)",
                 m_factory.getForwardingRegexp());

@@ -46,6 +46,7 @@ import java.util.concurrent.Executors;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -121,7 +122,8 @@ public class SyslogdIT implements InitializingBean {
         // Verify that the test syslogd-configuration.xml file was loaded
         boolean foundBeer = false;
         boolean foundMalt = false;
-        assertEquals(10514, SyslogdConfigFactory.getInstance().getSyslogPort());
+        Assert.assertNotNull(SyslogdConfigFactory.getInstance().getSyslogPort());
+        assertEquals(10514, SyslogdConfigFactory.getInstance().getSyslogPort().intValue());
         for (final UeiMatch match : SyslogdConfigFactory.getInstance().getUeiList().getUeiMatch()) {
             if (match.getProcessMatch() != null) {
                 if (!foundBeer && "beerd".equals(match.getProcessMatch().getExpression())) {

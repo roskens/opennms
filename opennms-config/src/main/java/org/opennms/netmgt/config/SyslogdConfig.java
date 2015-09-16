@@ -43,7 +43,7 @@ public interface SyslogdConfig {
      *
      * @return a int.
      */
-    public abstract int getSyslogPort();
+    public abstract Integer getSyslogPort();
 
     /**
      * <p>getListenAddress</p>
@@ -58,7 +58,7 @@ public interface SyslogdConfig {
      *
      * @return a boolean.
      */
-    public abstract boolean getNewSuspectOnMessage();
+    public abstract Boolean getNewSuspectOnMessage();
 
     /**
      * <p>getForwardingRegexp</p>
@@ -72,14 +72,14 @@ public interface SyslogdConfig {
      *
      * @return a int.
      */
-    public abstract int getMatchingGroupHost();
+    public abstract Integer getMatchingGroupHost();
 
     /**
      * <p>getMatchingGroupMessage</p>
      *
      * @return a int.
      */
-    public abstract int getMatchingGroupMessage();
+    public abstract Integer getMatchingGroupMessage();
 
     /**
      * <p>getParser</p>

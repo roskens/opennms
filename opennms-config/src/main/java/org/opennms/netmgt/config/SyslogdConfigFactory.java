@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -167,7 +166,10 @@ public final class SyslogdConfigFactory implements SyslogdConfig {
      * @return the port on which SNMP traps should be received
      */
     @Override
-    public synchronized int getSyslogPort() {
+    public synchronized Integer getSyslogPort() {
+        if (m_config.getConfiguration() == null) {
+            LOG.error("syslogd-configuration missing configuration");
+        }
         return m_config.getConfiguration().getSyslogPort();
     }
 
@@ -179,6 +181,9 @@ public final class SyslogdConfigFactory implements SyslogdConfig {
      */
     @Override
     public synchronized String getListenAddress() {
+        if (m_config.getConfiguration() == null) {
+            LOG.error("syslogd-configuration missing configuration");
+        }
         return m_config.getConfiguration().getListenAddress();
     }
     
@@ -189,7 +194,10 @@ public final class SyslogdConfigFactory implements SyslogdConfig {
      * @return whether to generate newSuspect events on traps.
      */
     @Override
-    public synchronized boolean getNewSuspectOnMessage() {
+    public synchronized Boolean getNewSuspectOnMessage() {
+        if (m_config.getConfiguration() == null) {
+            LOG.error("syslogd-configuration missing configuration");
+        }
         return m_config.getConfiguration().getNewSuspectOnMessage();
     }
 
@@ -200,6 +208,9 @@ public final class SyslogdConfigFactory implements SyslogdConfig {
      */
     @Override
     public synchronized String getForwardingRegexp() {
+        if (m_config.getConfiguration() == null) {
+            LOG.error("syslogd-configuration missing configuration");
+        }
         return m_config.getConfiguration().getForwardingRegexp();
     }
 
@@ -209,7 +220,10 @@ public final class SyslogdConfigFactory implements SyslogdConfig {
      * @return a int.
      */
     @Override
-    public synchronized int getMatchingGroupHost() {
+    public synchronized Integer getMatchingGroupHost() {
+        if (m_config.getConfiguration() == null) {
+            LOG.error("syslogd-configuration missing configuration");
+        }
         return m_config.getConfiguration().getMatchingGroupHost();
 
     }
@@ -220,7 +234,10 @@ public final class SyslogdConfigFactory implements SyslogdConfig {
      * @return a int.
      */
     @Override
-    public synchronized int getMatchingGroupMessage() {
+    public synchronized Integer getMatchingGroupMessage() {
+        if (m_config.getConfiguration() == null) {
+            LOG.error("syslogd-configuration missing configuration");
+        }
         return m_config.getConfiguration().getMatchingGroupMessage();
 
     }
@@ -232,6 +249,9 @@ public final class SyslogdConfigFactory implements SyslogdConfig {
      */
     @Override
     public synchronized String getParser() {
+        if (m_config.getConfiguration() == null) {
+            LOG.error("syslogd-configuration missing configuration");
+        }
         return m_config.getConfiguration().getParser();
     }
 

@@ -76,9 +76,9 @@ public final class SyslogHandler implements Fiber {
 
     private final String m_ForwardingRegexp;
 
-    private final int m_MatchingGroupHost;
+    private final Integer m_MatchingGroupHost;
 
-    private final int m_MatchingGroupMessage;
+    private final Integer m_MatchingGroupMessage;
 
     /**
      * A collection of Strings->UEI's
@@ -93,7 +93,7 @@ public final class SyslogHandler implements Fiber {
     /**
      * The UDP socket port binding.
      */
-    private int m_dgPort;
+    private Integer m_dgPort;
 
     /**
      * The IP address to bind to.
@@ -252,10 +252,12 @@ public final class SyslogHandler implements Fiber {
 
         m_status = STOP_PENDING;
 
-        try {
-            m_receiver.stop();
-        } catch (InterruptedException e) {
-            LOG.warn("The thread was interrupted while attempting to join sub-threads", e);
+        if (m_receiver != null) {
+            try {
+                m_receiver.stop();
+            } catch (InterruptedException e) {
+                LOG.warn("The thread was interrupted while attempting to join sub-threads", e);
+            }
         }
 
         if (m_dgSock != null) {
