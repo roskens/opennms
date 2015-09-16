@@ -112,13 +112,13 @@ import org.opennms.core.xml.ValidateUsing;
      *  value of the "type" attribute
      *
      */
-    @XmlElement(name="match")
+    @XmlElement(name="match", required = true)
     private org.opennms.netmgt.config.syslogd.Match _match;
 
     /**
      * UEI
      */
-    @XmlElement(name="uei")
+    @XmlElement(name="uei", required = true)
     private String _uei;
 
     /**

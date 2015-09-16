@@ -69,13 +69,13 @@ import org.opennms.core.xml.ValidateUsing;
      *  substring or as a regular expression
      *
      */
-    @XmlAttribute(name="type")
+    @XmlAttribute(name="type", required = true)
     private String _type;
 
     /**
      * The match expression
      */
-    @XmlAttribute(name="expression")
+    @XmlAttribute(name="expression", required = true)
     private String _expression;
 
     /**

@@ -67,7 +67,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * The match expression
      */
-    @XmlElement(name="match")
+    @XmlElement(name="match", required = true)
     private org.opennms.netmgt.config.syslogd.Match _match;
 
 

@@ -66,7 +66,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  configuration file.
      *
      */
-    @XmlElement(name="configuration")
+    @XmlElement(name="configuration", required = true)
     private org.opennms.netmgt.config.syslogd.Configuration _configuration;
 
     /**
