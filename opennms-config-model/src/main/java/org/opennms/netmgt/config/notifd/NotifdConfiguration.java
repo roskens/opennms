@@ -737,7 +737,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getServiceIdSql(
     ) {
-        return this._serviceIdSql;
+        return this._serviceIdSql == null ? DEFAULT_SERVICE_ID_SQL : this._serviceIdSql;
     }
 
     /**
@@ -812,11 +812,15 @@ import org.opennms.core.xml.ValidateUsing;
         if (_acknowledgeUpdateSql != null) {
            result = 37 * result + _acknowledgeUpdateSql.hashCode();
         }
-        result = 37 * result + (_matchAll?0:1);
+        if (_matchAll != null) {
+           result = 37 * result + _matchAll.hashCode();
+        }
         if (_emailAddressCommand != null) {
            result = 37 * result + _emailAddressCommand.hashCode();
         }
-        result = 37 * result + (_numericSkipResolutionPrefix?0:1);
+        if (_numericSkipResolutionPrefix != null) {
+           result = 37 * result + _numericSkipResolutionPrefix.hashCode();
+        }
         if (_autoAcknowledgeAlarm != null) {
            result = 37 * result + _autoAcknowledgeAlarm.hashCode();
         }
