@@ -33,7 +33,7 @@
  * $Id$
  */
 
-package org.opennms.netmgt.config.nsclient;
+package org.opennms.netmgt.config.nsclientdatacollection;
 
   //---------------------------------/
  //- Imported classes and packages -/
@@ -41,6 +41,8 @@ package org.opennms.netmgt.config.nsclient;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
@@ -65,16 +67,13 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * step size for the RRD
      */
-    private int _step;
-
-    /**
-     * keeps track of state for field: _step
-     */
-    private boolean _has_step;
+    @XmlAttribute(name="step", required = true)
+    private Integer _step;
 
     /**
      * Round Robin Archive definitions
      */
+    @XmlElement(name="rra")
     private java.util.List<java.lang.String> _rraList;
 
 
@@ -124,7 +123,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void deleteStep(
     ) {
-        this._has_step= false;
+        this._step = null;
     }
 
     /**
@@ -153,9 +152,12 @@ import org.opennms.core.xml.ValidateUsing;
         if (obj instanceof Rrd) {
         
             Rrd temp = (Rrd)obj;
-            if (this._step != temp._step)
-                return false;
-            if (this._has_step != temp._has_step)
+            if (this._step != null) {
+                if (temp._step == null) return false;
+                else if (!(this._step.equals(temp._step))) 
+                    return false;
+            }
+            else if (temp._step != null)
                 return false;
             if (this._rraList != null) {
                 if (temp._rraList == null) return false;
@@ -231,7 +233,7 @@ import org.opennms.core.xml.ValidateUsing;
      * 
      * @return the value of field 'Step'.
      */
-    public int getStep(
+    public Integer getStep(
     ) {
         return this._step;
     }
@@ -243,7 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public boolean hasStep(
     ) {
-        return this._has_step;
+        return this._step != null;
     }
 
     /**
@@ -425,9 +427,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @param step the value of field 'step'.
      */
     public void setStep(
-            final int step) {
+            final Integer step) {
         this._step = step;
-        this._has_step = true;
     }
 
     /**
@@ -440,10 +441,10 @@ import org.opennms.core.xml.ValidateUsing;
      * object is an invalid instance according to the schema
      * @return the unmarshaled org.opennms.netmgt.config.nsclient.Rr
      */
-    public static org.opennms.netmgt.config.nsclient.Rrd unmarshal(
+    public static org.opennms.netmgt.config.nsclientdatacollection.Rrd unmarshal(
             final java.io.Reader reader)
     throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
-        return (org.opennms.netmgt.config.nsclient.Rrd) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclient.Rrd.class, reader);
+        return (org.opennms.netmgt.config.nsclientdatacollection.Rrd) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclientdatacollection.Rrd.class, reader);
     }
 
     /**

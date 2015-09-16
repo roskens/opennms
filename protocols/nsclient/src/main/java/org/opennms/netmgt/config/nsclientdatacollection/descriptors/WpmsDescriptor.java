@@ -33,20 +33,20 @@
  * $Id$
  */
 
-package org.opennms.netmgt.config.nsclient.descriptors;
+package org.opennms.netmgt.config.nsclientdatacollection.descriptors;
 
   //---------------------------------/
  //- Imported classes and packages -/
 //---------------------------------/
 
-import org.opennms.netmgt.config.nsclient.NsclientCollection;
+import org.opennms.netmgt.config.nsclientdatacollection.Wpms;
 
 /**
- * Class NsclientCollectionDescriptor.
+ * Class WpmsDescriptor.
  * 
  * @version $Revision$ $Date$
  */
-@SuppressWarnings("all") public class NsclientCollectionDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
+@SuppressWarnings("all") public class WpmsDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
 
       //--------------------------/
@@ -83,10 +83,10 @@ import org.opennms.netmgt.config.nsclient.NsclientCollection;
      //- Constructors -/
     //----------------/
 
-    public NsclientCollectionDescriptor() {
+    public WpmsDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/config/nsclient-datacollection";
-        _xmlName = "nsclient-collection";
+        _xmlName = "wpms";
         _elementDefinition = true;
         
         //-- set grouping compositor
@@ -96,69 +96,34 @@ import org.opennms.netmgt.config.nsclient.NsclientCollection;
         org.exolab.castor.xml.FieldValidator               fieldValidator = null;
         //-- initialize attribute descriptors
         
-        //-- _name
-        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_name", "name", org.exolab.castor.xml.NodeType.Attribute);
-        desc.setImmutable(true);
-        handler = new org.exolab.castor.xml.XMLFieldHandler() {
-            @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
-                NsclientCollection target = (NsclientCollection) object;
-                return target.getName();
-            }
-            @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
-                try {
-                    NsclientCollection target = (NsclientCollection) object;
-                    target.setName( (java.lang.String) value);
-                } catch (java.lang.Exception ex) {
-                    throw new IllegalStateException(ex.toString());
-                }
-            }
-            @Override
-            @SuppressWarnings("unused")
-            public java.lang.Object newInstance(java.lang.Object parent) {
-                return null;
-            }
-        };
-        desc.setSchemaType("string");
-        desc.setHandler(handler);
-        desc.setRequired(true);
-        desc.setMultivalued(false);
-        addFieldDescriptor(desc);
-        
-        //-- validation code for: _name
-        fieldValidator = new org.exolab.castor.xml.FieldValidator();
-        fieldValidator.setMinOccurs(1);
-        { //-- local scope
-            org.exolab.castor.xml.validators.StringValidator typeValidator;
-            typeValidator = new org.exolab.castor.xml.validators.StringValidator();
-            fieldValidator.setValidator(typeValidator);
-            typeValidator.setWhiteSpace("preserve");
-        }
-        desc.setValidator(fieldValidator);
         //-- initialize element descriptors
         
-        //-- _rrd
-        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.nsclient.Rrd.class, "_rrd", "rrd", org.exolab.castor.xml.NodeType.Element);
+        //-- _wpmList
+        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.nsclientdatacollection.Wpm.class, "_wpmList", "wpm", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
             public java.lang.Object getValue( java.lang.Object object ) 
                 throws IllegalStateException
             {
-                NsclientCollection target = (NsclientCollection) object;
-                return target.getRrd();
+                Wpms target = (Wpms) object;
+                return target.getWpm();
             }
             @Override
             public void setValue( java.lang.Object object, java.lang.Object value) 
                 throws IllegalStateException, IllegalArgumentException
             {
                 try {
-                    NsclientCollection target = (NsclientCollection) object;
-                    target.setRrd( (org.opennms.netmgt.config.nsclient.Rrd) value);
+                    Wpms target = (Wpms) object;
+                    target.addWpm((org.opennms.netmgt.config.nsclientdatacollection.Wpm) value);
+                } catch (java.lang.Exception ex) {
+                    throw new IllegalStateException(ex.toString());
+                }
+            }
+            @Override
+            public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
+                try {
+                    Wpms target = (Wpms) object;
+                    target.removeAllWpm();
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
@@ -166,59 +131,18 @@ import org.opennms.netmgt.config.nsclient.NsclientCollection;
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
-                return new org.opennms.netmgt.config.nsclient.Rrd();
+                return new org.opennms.netmgt.config.nsclientdatacollection.Wpm();
             }
         };
-        desc.setSchemaType("org.opennms.netmgt.config.nsclient.Rrd");
+        desc.setSchemaType("org.opennms.netmgt.config.nsclient.Wpm");
         desc.setHandler(handler);
         desc.setNameSpaceURI("http://xmlns.opennms.org/xsd/config/nsclient-datacollection");
         desc.setRequired(true);
-        desc.setMultivalued(false);
+        desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
         
-        //-- validation code for: _rrd
-        fieldValidator = new org.exolab.castor.xml.FieldValidator();
-        fieldValidator.setMinOccurs(1);
-        { //-- local scope
-        }
-        desc.setValidator(fieldValidator);
-        //-- _wpms
-        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.nsclient.Wpms.class, "_wpms", "wpms", org.exolab.castor.xml.NodeType.Element);
-        handler = new org.exolab.castor.xml.XMLFieldHandler() {
-            @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
-                NsclientCollection target = (NsclientCollection) object;
-                return target.getWpms();
-            }
-            @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
-                try {
-                    NsclientCollection target = (NsclientCollection) object;
-                    target.setWpms( (org.opennms.netmgt.config.nsclient.Wpms) value);
-                } catch (java.lang.Exception ex) {
-                    throw new IllegalStateException(ex.toString());
-                }
-            }
-            @Override
-            @SuppressWarnings("unused")
-            public java.lang.Object newInstance(java.lang.Object parent) {
-                return new org.opennms.netmgt.config.nsclient.Wpms();
-            }
-        };
-        desc.setSchemaType("org.opennms.netmgt.config.nsclient.Wpms");
-        desc.setHandler(handler);
-        desc.setNameSpaceURI("http://xmlns.opennms.org/xsd/config/nsclient-datacollection");
-        desc.setRequired(true);
-        desc.setMultivalued(false);
-        addFieldDescriptor(desc);
-        addSequenceElement(desc);
-        
-        //-- validation code for: _wpms
+        //-- validation code for: _wpmList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
         { //-- local scope
@@ -262,7 +186,7 @@ import org.opennms.netmgt.config.nsclient.NsclientCollection;
     @Override()
     public java.lang.Class<?> getJavaClass(
     ) {
-        return org.opennms.netmgt.config.nsclient.NsclientCollection.class;
+        return org.opennms.netmgt.config.nsclientdatacollection.Wpms.class;
     }
 
     /**

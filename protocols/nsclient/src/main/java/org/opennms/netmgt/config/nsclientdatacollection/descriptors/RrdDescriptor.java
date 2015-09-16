@@ -33,20 +33,20 @@
  * $Id$
  */
 
-package org.opennms.netmgt.config.nsclient.descriptors;
+package org.opennms.netmgt.config.nsclientdatacollection.descriptors;
 
   //---------------------------------/
  //- Imported classes and packages -/
 //---------------------------------/
 
-import org.opennms.netmgt.config.nsclient.Wpm;
+import org.opennms.netmgt.config.nsclientdatacollection.Rrd;
 
 /**
- * Class WpmDescriptor.
+ * Class RrdDescriptor.
  * 
  * @version $Revision$ $Date$
  */
-@SuppressWarnings("all") public class WpmDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
+@SuppressWarnings("all") public class RrdDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
 
       //--------------------------/
@@ -83,10 +83,10 @@ import org.opennms.netmgt.config.nsclient.Wpm;
      //- Constructors -/
     //----------------/
 
-    public WpmDescriptor() {
+    public RrdDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/config/nsclient-datacollection";
-        _xmlName = "wpm";
+        _xmlName = "rrd";
         _elementDefinition = true;
         
         //-- set grouping compositor
@@ -96,115 +96,27 @@ import org.opennms.netmgt.config.nsclient.Wpm;
         org.exolab.castor.xml.FieldValidator               fieldValidator = null;
         //-- initialize attribute descriptors
         
-        //-- _name
-        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_name", "name", org.exolab.castor.xml.NodeType.Attribute);
-        desc.setImmutable(true);
+        //-- _step
+        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Integer.TYPE, "_step", "step", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
             public java.lang.Object getValue( java.lang.Object object ) 
                 throws IllegalStateException
             {
-                Wpm target = (Wpm) object;
-                return target.getName();
+                Rrd target = (Rrd) object;
+                if (!target.hasStep()) { return null; }
+                return new java.lang.Integer(target.getStep());
             }
             @Override
             public void setValue( java.lang.Object object, java.lang.Object value) 
                 throws IllegalStateException, IllegalArgumentException
             {
                 try {
-                    Wpm target = (Wpm) object;
-                    target.setName( (java.lang.String) value);
-                } catch (java.lang.Exception ex) {
-                    throw new IllegalStateException(ex.toString());
-                }
-            }
-            @Override
-            @SuppressWarnings("unused")
-            public java.lang.Object newInstance(java.lang.Object parent) {
-                return null;
-            }
-        };
-        desc.setSchemaType("string");
-        desc.setHandler(handler);
-        desc.setRequired(true);
-        desc.setMultivalued(false);
-        addFieldDescriptor(desc);
-        
-        //-- validation code for: _name
-        fieldValidator = new org.exolab.castor.xml.FieldValidator();
-        fieldValidator.setMinOccurs(1);
-        { //-- local scope
-            org.exolab.castor.xml.validators.StringValidator typeValidator;
-            typeValidator = new org.exolab.castor.xml.validators.StringValidator();
-            fieldValidator.setValidator(typeValidator);
-            typeValidator.setWhiteSpace("preserve");
-        }
-        desc.setValidator(fieldValidator);
-        //-- _keyvalue
-        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_keyvalue", "keyvalue", org.exolab.castor.xml.NodeType.Attribute);
-        desc.setImmutable(true);
-        handler = new org.exolab.castor.xml.XMLFieldHandler() {
-            @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
-                Wpm target = (Wpm) object;
-                return target.getKeyvalue();
-            }
-            @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
-                try {
-                    Wpm target = (Wpm) object;
-                    target.setKeyvalue( (java.lang.String) value);
-                } catch (java.lang.Exception ex) {
-                    throw new IllegalStateException(ex.toString());
-                }
-            }
-            @Override
-            @SuppressWarnings("unused")
-            public java.lang.Object newInstance(java.lang.Object parent) {
-                return null;
-            }
-        };
-        desc.setSchemaType("string");
-        desc.setHandler(handler);
-        desc.setRequired(true);
-        desc.setMultivalued(false);
-        addFieldDescriptor(desc);
-        
-        //-- validation code for: _keyvalue
-        fieldValidator = new org.exolab.castor.xml.FieldValidator();
-        fieldValidator.setMinOccurs(1);
-        { //-- local scope
-            org.exolab.castor.xml.validators.StringValidator typeValidator;
-            typeValidator = new org.exolab.castor.xml.validators.StringValidator();
-            fieldValidator.setValidator(typeValidator);
-            typeValidator.setWhiteSpace("preserve");
-        }
-        desc.setValidator(fieldValidator);
-        //-- _recheckInterval
-        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Integer.TYPE, "_recheckInterval", "recheckInterval", org.exolab.castor.xml.NodeType.Attribute);
-        handler = new org.exolab.castor.xml.XMLFieldHandler() {
-            @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
-                Wpm target = (Wpm) object;
-                if (!target.hasRecheckInterval()) { return null; }
-                return new java.lang.Integer(target.getRecheckInterval());
-            }
-            @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
-                try {
-                    Wpm target = (Wpm) object;
+                    Rrd target = (Rrd) object;
                     // ignore null values for non optional primitives
                     if (value == null) { return; }
                     
-                    target.setRecheckInterval( ((java.lang.Integer) value).intValue());
+                    target.setStep( ((java.lang.Integer) value).intValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
@@ -221,7 +133,7 @@ import org.opennms.netmgt.config.nsclient.Wpm;
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         
-        //-- validation code for: _recheckInterval
+        //-- validation code for: _step
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
         { //-- local scope
@@ -234,23 +146,24 @@ import org.opennms.netmgt.config.nsclient.Wpm;
         desc.setValidator(fieldValidator);
         //-- initialize element descriptors
         
-        //-- _attribList
-        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.nsclient.Attrib.class, "_attribList", "attrib", org.exolab.castor.xml.NodeType.Element);
+        //-- _rraList
+        desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_rraList", "rra", org.exolab.castor.xml.NodeType.Element);
+        desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
             public java.lang.Object getValue( java.lang.Object object ) 
                 throws IllegalStateException
             {
-                Wpm target = (Wpm) object;
-                return target.getAttrib();
+                Rrd target = (Rrd) object;
+                return target.getRra();
             }
             @Override
             public void setValue( java.lang.Object object, java.lang.Object value) 
                 throws IllegalStateException, IllegalArgumentException
             {
                 try {
-                    Wpm target = (Wpm) object;
-                    target.addAttrib( (org.opennms.netmgt.config.nsclient.Attrib) value);
+                    Rrd target = (Rrd) object;
+                    target.addRra( (java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
@@ -258,8 +171,8 @@ import org.opennms.netmgt.config.nsclient.Wpm;
             @Override
             public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
                 try {
-                    Wpm target = (Wpm) object;
-                    target.removeAllAttrib();
+                    Rrd target = (Rrd) object;
+                    target.removeAllRra();
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
@@ -267,20 +180,26 @@ import org.opennms.netmgt.config.nsclient.Wpm;
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
-                return new org.opennms.netmgt.config.nsclient.Attrib();
+                return null;
             }
         };
-        desc.setSchemaType("org.opennms.netmgt.config.nsclient.Attrib");
+        desc.setSchemaType("string");
         desc.setHandler(handler);
         desc.setNameSpaceURI("http://xmlns.opennms.org/xsd/config/nsclient-datacollection");
+        desc.setRequired(true);
         desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
         
-        //-- validation code for: _attribList
+        //-- validation code for: _rraList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
-        fieldValidator.setMinOccurs(0);
+        fieldValidator.setMinOccurs(1);
         { //-- local scope
+            org.exolab.castor.xml.validators.StringValidator typeValidator;
+            typeValidator = new org.exolab.castor.xml.validators.StringValidator();
+            fieldValidator.setValidator(typeValidator);
+            typeValidator.addPattern("RRA:(AVERAGE|MIN|MAX|LAST):.*");
+            typeValidator.setWhiteSpace("preserve");
         }
         desc.setValidator(fieldValidator);
     }
@@ -321,7 +240,7 @@ import org.opennms.netmgt.config.nsclient.Wpm;
     @Override()
     public java.lang.Class<?> getJavaClass(
     ) {
-        return org.opennms.netmgt.config.nsclient.Wpm.class;
+        return org.opennms.netmgt.config.nsclientdatacollection.Rrd.class;
     }
 
     /**

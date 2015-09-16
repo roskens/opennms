@@ -27,14 +27,13 @@
  *******************************************************************************/
 
 @XmlSchema(
-    namespace = "http://xmlns.opennms.org/xsd/config/nsclient",
+    namespace = "http://xmlns.opennms.org/xsd/config/nsclient-datacollection",
     elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
     xmlns={
-        @XmlNs(prefix="", namespaceURI="http://xmlns.opennms.org/xsd/config/nsclient"),
-        @XmlNs(prefix="ns", namespaceURI="http://xmlns.opennms.org/xsd/config/nsclient-datacollection"),
+        @XmlNs(prefix="", namespaceURI="http://xmlns.opennms.org/xsd/config/nsclient-datacollection"),
     }
 )
-package org.opennms.netmgt.config.nsclient;
+package org.opennms.netmgt.config.nsclientdatacollection;
 
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlSchema;

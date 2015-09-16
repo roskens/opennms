@@ -33,7 +33,7 @@
  * $Id$
  */
 
-package org.opennms.netmgt.config.nsclient;
+package org.opennms.netmgt.config.nsclientdatacollection;
 
   //---------------------------------/
  //- Imported classes and packages -/
@@ -76,7 +76,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  
      */
     @XmlElement(name="nsclient-collection")
-    private java.util.List<org.opennms.netmgt.config.nsclient.NsclientCollection> _nsclientCollectionList;
+    private java.util.List<org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection> _nsclientCollectionList;
 
 
       //----------------/
@@ -85,7 +85,7 @@ import org.opennms.core.xml.ValidateUsing;
 
     public NsclientDatacollectionConfig() {
         super();
-        this._nsclientCollectionList = new java.util.ArrayList<org.opennms.netmgt.config.nsclient.NsclientCollection>();
+        this._nsclientCollectionList = new java.util.ArrayList<org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection>();
     }
 
 
@@ -101,7 +101,7 @@ import org.opennms.core.xml.ValidateUsing;
      * given is outside the bounds of the collection
      */
     public void addNsclientCollection(
-            final org.opennms.netmgt.config.nsclient.NsclientCollection vNsclientCollection)
+            final org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection vNsclientCollection)
     throws java.lang.IndexOutOfBoundsException {
         this._nsclientCollectionList.add(vNsclientCollection);
     }
@@ -116,7 +116,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addNsclientCollection(
             final int index,
-            final org.opennms.netmgt.config.nsclient.NsclientCollection vNsclientCollection)
+            final org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection vNsclientCollection)
     throws java.lang.IndexOutOfBoundsException {
         this._nsclientCollectionList.add(index, vNsclientCollection);
     }
@@ -127,7 +127,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.nsclient.NsclientCollection> enumerateNsclientCollection(
+    public java.util.Enumeration<org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection> enumerateNsclientCollection(
     ) {
         return java.util.Collections.enumeration(this._nsclientCollectionList);
     }
@@ -176,7 +176,7 @@ import org.opennms.core.xml.ValidateUsing;
      * org.opennms.netmgt.config.nsclient.NsclientCollection at the
      * given index
      */
-    public org.opennms.netmgt.config.nsclient.NsclientCollection getNsclientCollection(
+    public org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection getNsclientCollection(
             final int index)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
@@ -184,7 +184,7 @@ import org.opennms.core.xml.ValidateUsing;
             throw new IndexOutOfBoundsException("getNsclientCollection: Index value '" + index + "' not in range [0.." + (this._nsclientCollectionList.size() - 1) + "]");
         }
         
-        return (org.opennms.netmgt.config.nsclient.NsclientCollection) _nsclientCollectionList.get(index);
+        return (org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection) _nsclientCollectionList.get(index);
     }
 
     /**
@@ -197,10 +197,10 @@ import org.opennms.core.xml.ValidateUsing;
      * 
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.nsclient.NsclientCollection[] getNsclientCollection(
+    public org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection[] getNsclientCollection(
     ) {
-        org.opennms.netmgt.config.nsclient.NsclientCollection[] array = new org.opennms.netmgt.config.nsclient.NsclientCollection[0];
-        return (org.opennms.netmgt.config.nsclient.NsclientCollection[]) this._nsclientCollectionList.toArray(array);
+        org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection[] array = new org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection[0];
+        return (org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection[]) this._nsclientCollectionList.toArray(array);
     }
 
     /**
@@ -210,7 +210,7 @@ import org.opennms.core.xml.ValidateUsing;
      * 
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.nsclient.NsclientCollection> getNsclientCollectionCollection(
+    public java.util.List<org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection> getNsclientCollectionCollection(
     ) {
         return this._nsclientCollectionList;
     }
@@ -280,7 +280,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.nsclient.NsclientCollection> iterateNsclientCollection(
+    public java.util.Iterator<org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection> iterateNsclientCollection(
     ) {
         return this._nsclientCollectionList.iterator();
     }
@@ -331,7 +331,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if the object was removed from the collection.
      */
     public boolean removeNsclientCollection(
-            final org.opennms.netmgt.config.nsclient.NsclientCollection vNsclientCollection) {
+            final org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection vNsclientCollection) {
         boolean removed = _nsclientCollectionList.remove(vNsclientCollection);
         return removed;
     }
@@ -342,10 +342,10 @@ import org.opennms.core.xml.ValidateUsing;
      * @param index
      * @return the element removed from the collection
      */
-    public org.opennms.netmgt.config.nsclient.NsclientCollection removeNsclientCollectionAt(
+    public org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection removeNsclientCollectionAt(
             final int index) {
         java.lang.Object obj = this._nsclientCollectionList.remove(index);
-        return (org.opennms.netmgt.config.nsclient.NsclientCollection) obj;
+        return (org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection) obj;
     }
 
     /**
@@ -358,7 +358,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void setNsclientCollection(
             final int index,
-            final org.opennms.netmgt.config.nsclient.NsclientCollection vNsclientCollection)
+            final org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection vNsclientCollection)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._nsclientCollectionList.size()) {
@@ -374,7 +374,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param vNsclientCollectionArray
      */
     public void setNsclientCollection(
-            final org.opennms.netmgt.config.nsclient.NsclientCollection[] vNsclientCollectionArray) {
+            final org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection[] vNsclientCollectionArray) {
         //-- copy array
         _nsclientCollectionList.clear();
         
@@ -390,7 +390,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param vNsclientCollectionList the Vector to copy.
      */
     public void setNsclientCollection(
-            final java.util.List<org.opennms.netmgt.config.nsclient.NsclientCollection> vNsclientCollectionList) {
+            final java.util.List<org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection> vNsclientCollectionList) {
         // copy vector
         this._nsclientCollectionList.clear();
         
@@ -405,7 +405,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param nsclientCollectionList the Vector to set.
      */
     public void setNsclientCollectionCollection(
-            final java.util.List<org.opennms.netmgt.config.nsclient.NsclientCollection> nsclientCollectionList) {
+            final java.util.List<org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection> nsclientCollectionList) {
         this._nsclientCollectionList = nsclientCollectionList;
     }
 
@@ -430,10 +430,10 @@ import org.opennms.core.xml.ValidateUsing;
      * @return the unmarshaled
      * org.opennms.netmgt.config.nsclient.NsclientDatacollectionConfig
      */
-    public static org.opennms.netmgt.config.nsclient.NsclientDatacollectionConfig unmarshal(
+    public static org.opennms.netmgt.config.nsclientdatacollection.NsclientDatacollectionConfig unmarshal(
             final java.io.Reader reader)
     throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
-        return (org.opennms.netmgt.config.nsclient.NsclientDatacollectionConfig) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclient.NsclientDatacollectionConfig.class, reader);
+        return (org.opennms.netmgt.config.nsclientdatacollection.NsclientDatacollectionConfig) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclientdatacollection.NsclientDatacollectionConfig.class, reader);
     }
 
     /**

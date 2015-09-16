@@ -33,7 +33,7 @@
  * $Id$
  */
 
-package org.opennms.netmgt.config.nsclient;
+package org.opennms.netmgt.config.nsclientdatacollection;
 
   //---------------------------------/
  //- Imported classes and packages -/
@@ -539,10 +539,10 @@ import org.opennms.core.xml.ValidateUsing;
      * object is an invalid instance according to the schema
      * @return the unmarshaled org.opennms.netmgt.config.nsclient.Wp
      */
-    public static org.opennms.netmgt.config.nsclient.Wpm unmarshal(
+    public static org.opennms.netmgt.config.nsclientdatacollection.Wpm unmarshal(
             final java.io.Reader reader)
     throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
-        return (org.opennms.netmgt.config.nsclient.Wpm) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclient.Wpm.class, reader);
+        return (org.opennms.netmgt.config.nsclientdatacollection.Wpm) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclientdatacollection.Wpm.class, reader);
     }
 
     /**

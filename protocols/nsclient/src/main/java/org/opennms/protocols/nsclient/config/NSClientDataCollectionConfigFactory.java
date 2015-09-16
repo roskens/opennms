@@ -43,8 +43,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataAccessException;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.opennms.core.xml.JaxbUtils;
-import org.opennms.netmgt.config.nsclient.NsclientCollection;
-import org.opennms.netmgt.config.nsclient.NsclientDatacollectionConfig;
+import org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection;
+import org.opennms.netmgt.config.nsclientdatacollection.NsclientDatacollectionConfig;
 import org.opennms.netmgt.rrd.RrdRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -160,7 +160,7 @@ public class NSClientDataCollectionConfigFactory {
       * <p>getNSClientCollection</p>
       *
       * @param collectionName a {@link java.lang.String} object.
-      * @return a {@link org.opennms.netmgt.config.nsclient.NsclientCollection} object.
+      * @return a {@link org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection} object.
       */
      public NsclientCollection getNSClientCollection(final String collectionName) {
          try {

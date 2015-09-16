@@ -33,7 +33,7 @@
  * $Id$
  */
 
-package org.opennms.netmgt.config.nsclient;
+package org.opennms.netmgt.config.nsclientdatacollection;
 
   //---------------------------------/
  //- Imported classes and packages -/
@@ -68,7 +68,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  
      */
     @XmlElement(name="wpm", required = true)
-    private java.util.List<org.opennms.netmgt.config.nsclient.Wpm> _wpmList;
+    private java.util.List<org.opennms.netmgt.config.nsclientdatacollection.Wpm> _wpmList;
 
 
       //----------------/
@@ -77,7 +77,7 @@ import org.opennms.core.xml.ValidateUsing;
 
     public Wpms() {
         super();
-        this._wpmList = new java.util.ArrayList<org.opennms.netmgt.config.nsclient.Wpm>();
+        this._wpmList = new java.util.ArrayList<org.opennms.netmgt.config.nsclientdatacollection.Wpm>();
     }
 
 
@@ -93,7 +93,7 @@ import org.opennms.core.xml.ValidateUsing;
      * given is outside the bounds of the collection
      */
     public void addWpm(
-            final org.opennms.netmgt.config.nsclient.Wpm vWpm)
+            final org.opennms.netmgt.config.nsclientdatacollection.Wpm vWpm)
     throws java.lang.IndexOutOfBoundsException {
         this._wpmList.add(vWpm);
     }
@@ -108,7 +108,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addWpm(
             final int index,
-            final org.opennms.netmgt.config.nsclient.Wpm vWpm)
+            final org.opennms.netmgt.config.nsclientdatacollection.Wpm vWpm)
     throws java.lang.IndexOutOfBoundsException {
         this._wpmList.add(index, vWpm);
     }
@@ -119,7 +119,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.nsclient.Wpm> enumerateWpm(
+    public java.util.Enumeration<org.opennms.netmgt.config.nsclientdatacollection.Wpm> enumerateWpm(
     ) {
         return java.util.Collections.enumeration(this._wpmList);
     }
@@ -160,7 +160,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return the value of the
      * org.opennms.netmgt.config.nsclient.Wpm at the given index
      */
-    public org.opennms.netmgt.config.nsclient.Wpm getWpm(
+    public org.opennms.netmgt.config.nsclientdatacollection.Wpm getWpm(
             final int index)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
@@ -168,7 +168,7 @@ import org.opennms.core.xml.ValidateUsing;
             throw new IndexOutOfBoundsException("getWpm: Index value '" + index + "' not in range [0.." + (this._wpmList.size() - 1) + "]");
         }
         
-        return (org.opennms.netmgt.config.nsclient.Wpm) _wpmList.get(index);
+        return (org.opennms.netmgt.config.nsclientdatacollection.Wpm) _wpmList.get(index);
     }
 
     /**
@@ -180,10 +180,10 @@ import org.opennms.core.xml.ValidateUsing;
      * 
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.nsclient.Wpm[] getWpm(
+    public org.opennms.netmgt.config.nsclientdatacollection.Wpm[] getWpm(
     ) {
-        org.opennms.netmgt.config.nsclient.Wpm[] array = new org.opennms.netmgt.config.nsclient.Wpm[0];
-        return (org.opennms.netmgt.config.nsclient.Wpm[]) this._wpmList.toArray(array);
+        org.opennms.netmgt.config.nsclientdatacollection.Wpm[] array = new org.opennms.netmgt.config.nsclientdatacollection.Wpm[0];
+        return (org.opennms.netmgt.config.nsclientdatacollection.Wpm[]) this._wpmList.toArray(array);
     }
 
     /**
@@ -193,7 +193,7 @@ import org.opennms.core.xml.ValidateUsing;
      * 
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.nsclient.Wpm> getWpmCollection(
+    public java.util.List<org.opennms.netmgt.config.nsclientdatacollection.Wpm> getWpmCollection(
     ) {
         return this._wpmList;
     }
@@ -250,7 +250,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.nsclient.Wpm> iterateWpm(
+    public java.util.Iterator<org.opennms.netmgt.config.nsclientdatacollection.Wpm> iterateWpm(
     ) {
         return this._wpmList.iterator();
     }
@@ -301,7 +301,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if the object was removed from the collection.
      */
     public boolean removeWpm(
-            final org.opennms.netmgt.config.nsclient.Wpm vWpm) {
+            final org.opennms.netmgt.config.nsclientdatacollection.Wpm vWpm) {
         boolean removed = _wpmList.remove(vWpm);
         return removed;
     }
@@ -312,10 +312,10 @@ import org.opennms.core.xml.ValidateUsing;
      * @param index
      * @return the element removed from the collection
      */
-    public org.opennms.netmgt.config.nsclient.Wpm removeWpmAt(
+    public org.opennms.netmgt.config.nsclientdatacollection.Wpm removeWpmAt(
             final int index) {
         java.lang.Object obj = this._wpmList.remove(index);
-        return (org.opennms.netmgt.config.nsclient.Wpm) obj;
+        return (org.opennms.netmgt.config.nsclientdatacollection.Wpm) obj;
     }
 
     /**
@@ -328,7 +328,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void setWpm(
             final int index,
-            final org.opennms.netmgt.config.nsclient.Wpm vWpm)
+            final org.opennms.netmgt.config.nsclientdatacollection.Wpm vWpm)
     throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._wpmList.size()) {
@@ -344,7 +344,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param vWpmArray
      */
     public void setWpm(
-            final org.opennms.netmgt.config.nsclient.Wpm[] vWpmArray) {
+            final org.opennms.netmgt.config.nsclientdatacollection.Wpm[] vWpmArray) {
         //-- copy array
         _wpmList.clear();
         
@@ -360,7 +360,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param vWpmList the Vector to copy.
      */
     public void setWpm(
-            final java.util.List<org.opennms.netmgt.config.nsclient.Wpm> vWpmList) {
+            final java.util.List<org.opennms.netmgt.config.nsclientdatacollection.Wpm> vWpmList) {
         // copy vector
         this._wpmList.clear();
         
@@ -375,7 +375,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param wpmList the Vector to set.
      */
     public void setWpmCollection(
-            final java.util.List<org.opennms.netmgt.config.nsclient.Wpm> wpmList) {
+            final java.util.List<org.opennms.netmgt.config.nsclientdatacollection.Wpm> wpmList) {
         this._wpmList = wpmList;
     }
 
@@ -390,10 +390,10 @@ import org.opennms.core.xml.ValidateUsing;
      * @return the unmarshaled
      * org.opennms.netmgt.config.nsclient.Wpms
      */
-    public static org.opennms.netmgt.config.nsclient.Wpms unmarshal(
+    public static org.opennms.netmgt.config.nsclientdatacollection.Wpms unmarshal(
             final java.io.Reader reader)
     throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
-        return (org.opennms.netmgt.config.nsclient.Wpms) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclient.Wpms.class, reader);
+        return (org.opennms.netmgt.config.nsclientdatacollection.Wpms) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclientdatacollection.Wpms.class, reader);
     }
 
     /**

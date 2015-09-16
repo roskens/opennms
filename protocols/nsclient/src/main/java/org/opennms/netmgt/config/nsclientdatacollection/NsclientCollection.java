@@ -33,7 +33,7 @@
  * $Id$
  */
 
-package org.opennms.netmgt.config.nsclient;
+package org.opennms.netmgt.config.nsclientdatacollection;
 
   //---------------------------------/
  //- Imported classes and packages -/
@@ -76,13 +76,13 @@ import org.opennms.core.xml.ValidateUsing;
      * RRD parms
      */
     @XmlElement(name="rrd", required = true)
-    private org.opennms.netmgt.config.nsclient.Rrd _rrd;
+    private org.opennms.netmgt.config.nsclientdatacollection.Rrd _rrd;
 
     /**
      * Nsclient object groups
      */
     @XmlElement(name="wpms", required = true)
-    private org.opennms.netmgt.config.nsclient.Wpms _wpms;
+    private org.opennms.netmgt.config.nsclientdatacollection.Wpms _wpms;
 
 
       //----------------/
@@ -155,7 +155,7 @@ import org.opennms.core.xml.ValidateUsing;
      * 
      * @return the value of field 'Rrd'.
      */
-    public org.opennms.netmgt.config.nsclient.Rrd getRrd(
+    public org.opennms.netmgt.config.nsclientdatacollection.Rrd getRrd(
     ) {
         return this._rrd;
     }
@@ -166,7 +166,7 @@ import org.opennms.core.xml.ValidateUsing;
      * 
      * @return the value of field 'Wpms'.
      */
-    public org.opennms.netmgt.config.nsclient.Wpms getWpms(
+    public org.opennms.netmgt.config.nsclientdatacollection.Wpms getWpms(
     ) {
         return this._wpms;
     }
@@ -262,7 +262,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param rrd the value of field 'rrd'.
      */
     public void setRrd(
-            final org.opennms.netmgt.config.nsclient.Rrd rrd) {
+            final org.opennms.netmgt.config.nsclientdatacollection.Rrd rrd) {
         this._rrd = rrd;
     }
 
@@ -273,7 +273,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @param wpms the value of field 'wpms'.
      */
     public void setWpms(
-            final org.opennms.netmgt.config.nsclient.Wpms wpms) {
+            final org.opennms.netmgt.config.nsclientdatacollection.Wpms wpms) {
         this._wpms = wpms;
     }
 
@@ -288,10 +288,10 @@ import org.opennms.core.xml.ValidateUsing;
      * @return the unmarshaled
      * org.opennms.netmgt.config.nsclient.NsclientCollection
      */
-    public static org.opennms.netmgt.config.nsclient.NsclientCollection unmarshal(
+    public static org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection unmarshal(
             final java.io.Reader reader)
     throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
-        return (org.opennms.netmgt.config.nsclient.NsclientCollection) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclient.NsclientCollection.class, reader);
+        return (org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection) Unmarshaller.unmarshal(org.opennms.netmgt.config.nsclientdatacollection.NsclientCollection.class, reader);
     }
 
     /**
