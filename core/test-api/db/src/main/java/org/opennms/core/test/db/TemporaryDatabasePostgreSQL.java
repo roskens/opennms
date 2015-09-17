@@ -340,6 +340,7 @@ public class TemporaryDatabasePostgreSQL implements TemporaryDatabase {
         }
 
         setupShutdown();
+        s_toDestroy.add(this);
     }
 
     private static void setupShutdown() {
