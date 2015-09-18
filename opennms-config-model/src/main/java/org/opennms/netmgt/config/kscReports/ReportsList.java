@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.kscReports;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,44 +42,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="ReportsList")
+@XmlRootElement(name = "ReportsList")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("ksc-performance-reports.xsd")
-@SuppressWarnings("all") public class ReportsList implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ReportsList implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _reportList.
      */
-    @XmlElement(name="Report")
+    @XmlElement(name = "Report")
     private java.util.List<org.opennms.netmgt.config.kscReports.Report> _reportList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ReportsList() {
         super();
         this._reportList = new java.util.ArrayList<org.opennms.netmgt.config.kscReports.Report>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -91,7 +83,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addReport(
             final org.opennms.netmgt.config.kscReports.Report vReport)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._reportList.add(vReport);
     }
 
@@ -106,7 +98,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addReport(
             final int index,
             final org.opennms.netmgt.config.kscReports.Report vReport)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._reportList.add(index, vReport);
     }
 
@@ -116,8 +108,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.kscReports.Report> enumerateReport(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.kscReports.Report> enumerateReport() {
         return java.util.Collections.enumeration(this._reportList);
     }
 
@@ -130,19 +121,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ReportsList) {
 
-            ReportsList temp = (ReportsList)obj;
+            ReportsList temp = (ReportsList) obj;
             if (this._reportList != null) {
-                if (temp._reportList == null) return false;
-                else if (!(this._reportList.equals(temp._reportList)))
+                if (temp._reportList == null) {
                     return false;
-            }
-            else if (temp._reportList != null)
+                } else if (!(this._reportList.equals(temp._reportList))) {
+                    return false;
+                }
+            } else if (temp._reportList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -159,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.kscReports.Report getReport(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._reportList.size()) {
             throw new IndexOutOfBoundsException("getReport: Index value '" + index + "' not in range [0.." + (this._reportList.size() - 1) + "]");
@@ -177,8 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.kscReports.Report[] getReport(
-    ) {
+    public org.opennms.netmgt.config.kscReports.Report[] getReport() {
         org.opennms.netmgt.config.kscReports.Report[] array = new org.opennms.netmgt.config.kscReports.Report[0];
         return (org.opennms.netmgt.config.kscReports.Report[]) this._reportList.toArray(array);
     }
@@ -190,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.kscReports.Report> getReportCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.kscReports.Report> getReportCollection() {
         return this._reportList;
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getReportCount(
-    ) {
+    public int getReportCount() {
         return this._reportList.size();
     }
 
@@ -214,13 +205,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_reportList != null) {
-           result = 37 * result + _reportList.hashCode();
+            result = 37 * result + _reportList.hashCode();
         }
 
         return result;
@@ -231,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -247,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.kscReports.Report> iterateReport(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.kscReports.Report> iterateReport() {
         return this._reportList.iterator();
     }
 
@@ -263,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -280,14 +268,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllReport(
-    ) {
+    public void removeAllReport() {
         this._reportList.clear();
     }
 
@@ -326,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setReport(
             final int index,
             final org.opennms.netmgt.config.kscReports.Report vReport)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._reportList.size()) {
             throw new IndexOutOfBoundsException("setReport: Index value '" + index + "' not in range [0.." + (this._reportList.size() - 1) + "]");
@@ -346,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
         _reportList.clear();
 
         for (int i = 0; i < vReportArray.length; i++) {
-                this._reportList.add(vReportArray[i]);
+            this._reportList.add(vReportArray[i]);
         }
     }
 
@@ -389,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.kscReports.ReportsList unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.kscReports.ReportsList) Unmarshaller.unmarshal(org.opennms.netmgt.config.kscReports.ReportsList.class, reader);
     }
 
@@ -399,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.surveillanceViews;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,44 +41,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="rows")
+@XmlRootElement(name = "rows")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("surveillance-views.xsd")
-@SuppressWarnings("all") public class Rows implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Rows implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _rowDefList.
      */
-    @XmlElement(name="row-def")
+    @XmlElement(name = "row-def")
     private java.util.List<org.opennms.netmgt.config.surveillanceViews.RowDef> _rowDefList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Rows() {
         super();
         this._rowDefList = new java.util.ArrayList<org.opennms.netmgt.config.surveillanceViews.RowDef>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -90,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addRowDef(
             final org.opennms.netmgt.config.surveillanceViews.RowDef vRowDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._rowDefList.add(vRowDef);
     }
 
@@ -105,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addRowDef(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.RowDef vRowDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._rowDefList.add(index, vRowDef);
     }
 
@@ -115,8 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.RowDef> enumerateRowDef(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.RowDef> enumerateRowDef() {
         return java.util.Collections.enumeration(this._rowDefList);
     }
 
@@ -129,19 +120,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Rows) {
 
-            Rows temp = (Rows)obj;
+            Rows temp = (Rows) obj;
             if (this._rowDefList != null) {
-                if (temp._rowDefList == null) return false;
-                else if (!(this._rowDefList.equals(temp._rowDefList)))
+                if (temp._rowDefList == null) {
                     return false;
-            }
-            else if (temp._rowDefList != null)
+                } else if (!(this._rowDefList.equals(temp._rowDefList))) {
+                    return false;
+                }
+            } else if (temp._rowDefList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -159,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.surveillanceViews.RowDef getRowDef(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._rowDefList.size()) {
             throw new IndexOutOfBoundsException("getRowDef: Index value '" + index + "' not in range [0.." + (this._rowDefList.size() - 1) + "]");
@@ -177,8 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.surveillanceViews.RowDef[] getRowDef(
-    ) {
+    public org.opennms.netmgt.config.surveillanceViews.RowDef[] getRowDef() {
         org.opennms.netmgt.config.surveillanceViews.RowDef[] array = new org.opennms.netmgt.config.surveillanceViews.RowDef[0];
         return (org.opennms.netmgt.config.surveillanceViews.RowDef[]) this._rowDefList.toArray(array);
     }
@@ -190,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.surveillanceViews.RowDef> getRowDefCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.surveillanceViews.RowDef> getRowDefCollection() {
         return this._rowDefList;
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getRowDefCount(
-    ) {
+    public int getRowDefCount() {
         return this._rowDefList.size();
     }
 
@@ -214,13 +205,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_rowDefList != null) {
-           result = 37 * result + _rowDefList.hashCode();
+            result = 37 * result + _rowDefList.hashCode();
         }
 
         return result;
@@ -231,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -247,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.RowDef> iterateRowDef(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.RowDef> iterateRowDef() {
         return this._rowDefList.iterator();
     }
 
@@ -263,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -280,14 +268,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllRowDef(
-    ) {
+    public void removeAllRowDef() {
         this._rowDefList.clear();
     }
 
@@ -326,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setRowDef(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.RowDef vRowDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._rowDefList.size()) {
             throw new IndexOutOfBoundsException("setRowDef: Index value '" + index + "' not in range [0.." + (this._rowDefList.size() - 1) + "]");
@@ -346,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
         _rowDefList.clear();
 
         for (int i = 0; i < vRowDefArray.length; i++) {
-                this._rowDefList.add(vRowDefArray[i]);
+            this._rowDefList.add(vRowDefArray[i]);
         }
     }
 
@@ -389,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.surveillanceViews.Rows unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.surveillanceViews.Rows) Unmarshaller.unmarshal(org.opennms.netmgt.config.surveillanceViews.Rows.class, reader);
     }
 
@@ -399,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.xml.rtc;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,88 +41,78 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="node")
+@XmlRootElement(name = "node")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("rtceui.xsd")
-@SuppressWarnings("all") public class Node implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Node implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The node id
      */
-    @XmlElement(name="nodeid")
+    @XmlElement(name = "nodeid")
     private Long _nodeid;
 
     /**
      * The node availability value
      */
-    @XmlElement(name="nodevalue")
+    @XmlElement(name = "nodevalue")
     private Double _nodevalue;
 
     /**
      * The number of active services on the
      *  node
      */
-    @XmlElement(name="nodesvccount")
+    @XmlElement(name = "nodesvccount")
     private Long _nodesvccount;
 
     /**
      * The number of active services currently down on the
      *  node
      */
-    @XmlElement(name="nodesvcdowncount")
+    @XmlElement(name = "nodesvcdowncount")
     private Long _nodesvcdowncount;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Node() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteNodeid(
-    ) {
+    public void deleteNodeid() {
         this._nodeid = null;
     }
 
     /**
      */
-    public void deleteNodesvccount(
-    ) {
+    public void deleteNodesvccount() {
         this._nodesvccount = null;
     }
 
     /**
      */
-    public void deleteNodesvcdowncount(
-    ) {
+    public void deleteNodesvcdowncount() {
         this._nodesvcdowncount = null;
     }
 
     /**
      */
-    public void deleteNodevalue(
-    ) {
+    public void deleteNodevalue() {
         this._nodevalue = null;
     }
 
@@ -137,40 +125,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Node) {
 
-            Node temp = (Node)obj;
+            Node temp = (Node) obj;
             if (this._nodeid != null) {
-                if (temp._nodeid == null) return false;
-                else if (!(this._nodeid.equals(temp._nodeid)))
+                if (temp._nodeid == null) {
                     return false;
-            }
-            else if (temp._nodeid != null)
+                } else if (!(this._nodeid.equals(temp._nodeid))) {
+                    return false;
+                }
+            } else if (temp._nodeid != null) {
                 return false;
+            }
             if (this._nodevalue != null) {
-                if (temp._nodevalue == null) return false;
-                else if (!(this._nodevalue.equals(temp._nodevalue)))
+                if (temp._nodevalue == null) {
                     return false;
-            }
-            else if (temp._nodevalue != null)
+                } else if (!(this._nodevalue.equals(temp._nodevalue))) {
+                    return false;
+                }
+            } else if (temp._nodevalue != null) {
                 return false;
+            }
             if (this._nodesvccount != null) {
-                if (temp._nodesvccount == null) return false;
-                else if (!(this._nodesvccount.equals(temp._nodesvccount)))
+                if (temp._nodesvccount == null) {
                     return false;
-            }
-            else if (temp._nodesvccount != null)
+                } else if (!(this._nodesvccount.equals(temp._nodesvccount))) {
+                    return false;
+                }
+            } else if (temp._nodesvccount != null) {
                 return false;
+            }
             if (this._nodesvcdowncount != null) {
-                if (temp._nodesvcdowncount == null) return false;
-                else if (!(this._nodesvcdowncount.equals(temp._nodesvcdowncount)))
+                if (temp._nodesvcdowncount == null) {
                     return false;
-            }
-            else if (temp._nodesvcdowncount != null)
+                } else if (!(this._nodesvcdowncount.equals(temp._nodesvcdowncount))) {
+                    return false;
+                }
+            } else if (temp._nodesvcdowncount != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -182,8 +179,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodeid'.
      */
-    public Long getNodeid(
-    ) {
+    public Long getNodeid() {
         return this._nodeid;
     }
 
@@ -195,8 +191,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodesvccount'.
      */
-    public Long getNodesvccount(
-    ) {
+    public Long getNodesvccount() {
         return this._nodesvccount;
     }
 
@@ -208,8 +203,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodesvcdowncount'.
      */
-    public Long getNodesvcdowncount(
-    ) {
+    public Long getNodesvcdowncount() {
         return this._nodesvcdowncount;
     }
 
@@ -220,8 +214,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Nodevalue'.
      */
-    public Double getNodevalue(
-    ) {
+    public Double getNodevalue() {
         return this._nodevalue;
     }
 
@@ -230,8 +223,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Nodeid has been added
      */
-    public boolean hasNodeid(
-    ) {
+    public boolean hasNodeid() {
         return this._nodeid != null;
     }
 
@@ -240,8 +232,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Nodesvccount has been added
      */
-    public boolean hasNodesvccount(
-    ) {
+    public boolean hasNodesvccount() {
         return this._nodesvccount != null;
     }
 
@@ -250,8 +241,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Nodesvcdowncount has been added
      */
-    public boolean hasNodesvcdowncount(
-    ) {
+    public boolean hasNodesvcdowncount() {
         return this._nodesvcdowncount != null;
     }
 
@@ -260,8 +250,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Nodevalue has been added
      */
-    public boolean hasNodevalue(
-    ) {
+    public boolean hasNodevalue() {
         return this._nodevalue != null;
     }
 
@@ -274,22 +263,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_nodeid != null) {
-           result = 37 * result + _nodeid.hashCode();
+            result = 37 * result + _nodeid.hashCode();
         }
         if (_nodevalue != null) {
-           result = 37 * result + _nodevalue.hashCode();
+            result = 37 * result + _nodevalue.hashCode();
         }
         if (_nodesvccount != null) {
-           result = 37 * result + _nodesvccount.hashCode();
+            result = 37 * result + _nodesvccount.hashCode();
         }
         if (_nodesvcdowncount != null) {
-           result = 37 * result + _nodesvcdowncount.hashCode();
+            result = 37 * result + _nodesvcdowncount.hashCode();
         }
 
         return result;
@@ -300,8 +288,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -321,7 +308,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -338,7 +325,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -402,7 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.xml.rtc.Node unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.xml.rtc.Node) Unmarshaller.unmarshal(org.opennms.netmgt.xml.rtc.Node.class, reader);
     }
 
@@ -412,9 +399,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

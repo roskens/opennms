@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import java.io.IOException;
@@ -53,21 +52,22 @@ import org.xml.sax.ContentHandler;
  * with state controlling if action takes place. The menutext gets
  * displayed in the UI.
  */
-@XmlRootElement(name="operaction")
+@XmlRootElement(name = "operaction")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventconf.xsd")
-@XmlType(propOrder={"m_state", "m_menutext", "m_content"})
+@XmlType(propOrder = {"m_state", "m_menutext", "m_content"})
 public class Operaction implements Serializable {
+
     private static final long serialVersionUID = -576703485771037486L;
 
     @XmlValue
     private String m_content = "";
 
-    @XmlAttribute(name="state")
+    @XmlAttribute(name = "state")
     private String m_state;
 
     // @NotNull
-    @XmlAttribute(name="menutext", required=true)
+    @XmlAttribute(name = "menutext", required = true)
     private String m_menutext;
 
     public String getContent() {
@@ -79,7 +79,7 @@ public class Operaction implements Serializable {
     }
 
     public String getState() {
-        return m_state == null? "on" : m_state; // Default state is "on" according to the XSD
+        return m_state == null ? "on" : m_state; // Default state is "on" according to the XSD
     }
 
     /**
@@ -134,22 +134,34 @@ public class Operaction implements Serializable {
 
     @Override
     public boolean equals(final Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (!(obj instanceof Operaction)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Operaction)) {
+            return false;
+        }
         final Operaction other = (Operaction) obj;
         if (m_content == null) {
-            if (other.m_content != null) return false;
+            if (other.m_content != null) {
+                return false;
+            }
         } else if (!m_content.equals(other.m_content)) {
             return false;
         }
         if (m_menutext == null) {
-            if (other.m_menutext != null) return false;
+            if (other.m_menutext != null) {
+                return false;
+            }
         } else if (!m_menutext.equals(other.m_menutext)) {
             return false;
         }
         if (m_state == null) {
-            if (other.m_state != null) return false;
+            if (other.m_state != null) {
+                return false;
+            }
         } else if (!m_state.equals(other.m_state)) {
             return false;
         }

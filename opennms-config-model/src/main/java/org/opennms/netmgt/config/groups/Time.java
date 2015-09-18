@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.groups;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,23 +41,21 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="time")
+@XmlRootElement(name = "time")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("groups.xsd")
-@SuppressWarnings("all") public class Time implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Time implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * an identifier for this event used for reference in the web
      * gui. If this
@@ -67,41 +63,37 @@ import org.opennms.core.xml.ValidateUsing;
      * by web gui.
      *
      */
-    @XmlAttribute(name="id")
+    @XmlAttribute(name = "id")
     private java.lang.String _id;
 
     /**
      * Field _day.
      */
-    @XmlAttribute(name="day")
+    @XmlAttribute(name = "day")
     private java.lang.String _day;
 
     /**
      * when the outage starts
      */
-    @XmlAttribute(name="begins")
+    @XmlAttribute(name = "begins")
     private java.lang.String _begins;
 
     /**
      * when the outage ends
      */
-    @XmlAttribute(name="ends")
+    @XmlAttribute(name = "ends")
     private java.lang.String _ends;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Time() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -111,40 +103,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Time) {
 
-            Time temp = (Time)obj;
+            Time temp = (Time) obj;
             if (this._id != null) {
-                if (temp._id == null) return false;
-                else if (!(this._id.equals(temp._id)))
+                if (temp._id == null) {
                     return false;
-            }
-            else if (temp._id != null)
+                } else if (!(this._id.equals(temp._id))) {
+                    return false;
+                }
+            } else if (temp._id != null) {
                 return false;
+            }
             if (this._day != null) {
-                if (temp._day == null) return false;
-                else if (!(this._day.equals(temp._day)))
+                if (temp._day == null) {
                     return false;
-            }
-            else if (temp._day != null)
+                } else if (!(this._day.equals(temp._day))) {
+                    return false;
+                }
+            } else if (temp._day != null) {
                 return false;
+            }
             if (this._begins != null) {
-                if (temp._begins == null) return false;
-                else if (!(this._begins.equals(temp._begins)))
+                if (temp._begins == null) {
                     return false;
-            }
-            else if (temp._begins != null)
+                } else if (!(this._begins.equals(temp._begins))) {
+                    return false;
+                }
+            } else if (temp._begins != null) {
                 return false;
+            }
             if (this._ends != null) {
-                if (temp._ends == null) return false;
-                else if (!(this._ends.equals(temp._ends)))
+                if (temp._ends == null) {
                     return false;
-            }
-            else if (temp._ends != null)
+                } else if (!(this._ends.equals(temp._ends))) {
+                    return false;
+                }
+            } else if (temp._ends != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -156,8 +157,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Begins'.
      */
-    public java.lang.String getBegins(
-    ) {
+    public java.lang.String getBegins() {
         return this._begins;
     }
 
@@ -166,8 +166,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Day'.
      */
-    public java.lang.String getDay(
-    ) {
+    public java.lang.String getDay() {
         return this._day;
     }
 
@@ -177,8 +176,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Ends'.
      */
-    public java.lang.String getEnds(
-    ) {
+    public java.lang.String getEnds() {
         return this._ends;
     }
 
@@ -192,8 +190,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Id'.
      */
-    public java.lang.String getId(
-    ) {
+    public java.lang.String getId() {
         return this._id;
     }
 
@@ -206,22 +203,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_id != null) {
-           result = 37 * result + _id.hashCode();
+            result = 37 * result + _id.hashCode();
         }
         if (_day != null) {
-           result = 37 * result + _day.hashCode();
+            result = 37 * result + _day.hashCode();
         }
         if (_begins != null) {
-           result = 37 * result + _begins.hashCode();
+            result = 37 * result + _begins.hashCode();
         }
         if (_ends != null) {
-           result = 37 * result + _ends.hashCode();
+            result = 37 * result + _ends.hashCode();
         }
 
         return result;
@@ -232,8 +228,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -253,7 +248,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -270,7 +265,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -333,7 +328,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.groups.Time unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.groups.Time) Unmarshaller.unmarshal(org.opennms.netmgt.config.groups.Time.class, reader);
     }
 
@@ -343,9 +338,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

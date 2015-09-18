@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -48,12 +46,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "assignment")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Assignment implements java.io.Serializable {
+
     private static final long serialVersionUID = 3776658176226615168L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _type.
      */
@@ -75,7 +73,6 @@ public class Assignment implements java.io.Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Assignment() {
         super();
     }
@@ -90,7 +87,6 @@ public class Assignment implements java.io.Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -99,33 +95,40 @@ public class Assignment implements java.io.Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Assignment) {
 
             Assignment temp = (Assignment) obj;
             if (this._type != null) {
-                if (temp._type == null)
+                if (temp._type == null) {
                     return false;
-                else if (!(this._type.equals(temp._type)))
+                } else if (!(this._type.equals(temp._type))) {
                     return false;
-            } else if (temp._type != null)
+                }
+            } else if (temp._type != null) {
                 return false;
+            }
             if (this._name != null) {
-                if (temp._name == null)
+                if (temp._name == null) {
                     return false;
-                else if (!(this._name.equals(temp._name)))
+                } else if (!(this._name.equals(temp._name))) {
                     return false;
-            } else if (temp._name != null)
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._value != null) {
-                if (temp._value == null)
+                if (temp._value == null) {
                     return false;
-                else if (!(this._value.equals(temp._value)))
+                } else if (!(this._value.equals(temp._value))) {
                     return false;
-            } else if (temp._value != null)
+                }
+            } else if (temp._value != null) {
                 return false;
+            }
             return true;
         }
         return false;

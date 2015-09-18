@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import java.io.IOException;
@@ -50,18 +49,19 @@ import org.xml.sax.ContentHandler;
  * This element is used for converting event 
  *  varbind value in static decoded string.
  */
-@XmlRootElement(name="decode")
+@XmlRootElement(name = "decode")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventconf.xsd")
 public class Decode implements Serializable {
-	private static final long serialVersionUID = 3617401172106159899L;
 
-	// @NotNull
-	@XmlAttribute(name="varbindvalue", required=true)
+    private static final long serialVersionUID = 3617401172106159899L;
+
+    // @NotNull
+    @XmlAttribute(name = "varbindvalue", required = true)
     private String m_varbindvalue;
 
-	// @NotNull
-	@XmlAttribute(name="varbinddecodedstring",required=true)
+    // @NotNull
+    @XmlAttribute(name = "varbinddecodedstring", required = true)
     private String m_varbinddecodedstring;
 
     public String getVarbinddecodedstring() {
@@ -108,33 +108,43 @@ public class Decode implements Serializable {
         new Validator().validate(this);
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((m_varbinddecodedstring == null) ? 0 : m_varbinddecodedstring.hashCode());
-		result = prime * result + ((m_varbindvalue == null) ? 0 : m_varbindvalue.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((m_varbinddecodedstring == null) ? 0 : m_varbinddecodedstring.hashCode());
+        result = prime * result + ((m_varbindvalue == null) ? 0 : m_varbindvalue.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (!(obj instanceof Decode)) return false;
-		final Decode other = (Decode) obj;
-		if (m_varbinddecodedstring == null) {
-			if (other.m_varbinddecodedstring != null) return false;
-		} else if (!m_varbinddecodedstring.equals(other.m_varbinddecodedstring)) {
-			return false;
-		}
-		if (m_varbindvalue == null) {
-			if (other.m_varbindvalue != null) return false;
-		} else if (!m_varbindvalue.equals(other.m_varbindvalue)) {
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Decode)) {
+            return false;
+        }
+        final Decode other = (Decode) obj;
+        if (m_varbinddecodedstring == null) {
+            if (other.m_varbinddecodedstring != null) {
+                return false;
+            }
+        } else if (!m_varbinddecodedstring.equals(other.m_varbinddecodedstring)) {
+            return false;
+        }
+        if (m_varbindvalue == null) {
+            if (other.m_varbindvalue != null) {
+                return false;
+            }
+        } else if (!m_varbindvalue.equals(other.m_varbindvalue)) {
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public String toString() {

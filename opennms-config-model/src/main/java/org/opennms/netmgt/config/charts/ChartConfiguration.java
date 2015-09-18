@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.charts;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,44 +41,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="chart-configuration")
+@XmlRootElement(name = "chart-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("chart-configuration.xsd")
-@SuppressWarnings("all") public class ChartConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ChartConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _barChartList.
      */
-    @XmlElement(name="bar-chart")
+    @XmlElement(name = "bar-chart")
     private java.util.List<org.opennms.netmgt.config.charts.BarChart> _barChartList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ChartConfiguration() {
         super();
         this._barChartList = new java.util.ArrayList<org.opennms.netmgt.config.charts.BarChart>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -90,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addBarChart(
             final org.opennms.netmgt.config.charts.BarChart vBarChart)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._barChartList.add(vBarChart);
     }
 
@@ -105,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addBarChart(
             final int index,
             final org.opennms.netmgt.config.charts.BarChart vBarChart)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._barChartList.add(index, vBarChart);
     }
 
@@ -115,8 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.charts.BarChart> enumerateBarChart(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.charts.BarChart> enumerateBarChart() {
         return java.util.Collections.enumeration(this._barChartList);
     }
 
@@ -129,19 +120,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ChartConfiguration) {
 
-            ChartConfiguration temp = (ChartConfiguration)obj;
+            ChartConfiguration temp = (ChartConfiguration) obj;
             if (this._barChartList != null) {
-                if (temp._barChartList == null) return false;
-                else if (!(this._barChartList.equals(temp._barChartList)))
+                if (temp._barChartList == null) {
                     return false;
-            }
-            else if (temp._barChartList != null)
+                } else if (!(this._barChartList.equals(temp._barChartList))) {
+                    return false;
+                }
+            } else if (temp._barChartList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -158,7 +152,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.charts.BarChart getBarChart(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._barChartList.size()) {
             throw new IndexOutOfBoundsException("getBarChart: Index value '" + index + "' not in range [0.." + (this._barChartList.size() - 1) + "]");
@@ -176,8 +170,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.charts.BarChart[] getBarChart(
-    ) {
+    public org.opennms.netmgt.config.charts.BarChart[] getBarChart() {
         org.opennms.netmgt.config.charts.BarChart[] array = new org.opennms.netmgt.config.charts.BarChart[0];
         return (org.opennms.netmgt.config.charts.BarChart[]) this._barChartList.toArray(array);
     }
@@ -189,8 +182,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.charts.BarChart> getBarChartCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.charts.BarChart> getBarChartCollection() {
         return this._barChartList;
     }
 
@@ -199,8 +191,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getBarChartCount(
-    ) {
+    public int getBarChartCount() {
         return this._barChartList.size();
     }
 
@@ -213,13 +204,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_barChartList != null) {
-           result = 37 * result + _barChartList.hashCode();
+            result = 37 * result + _barChartList.hashCode();
         }
 
         return result;
@@ -230,8 +220,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -246,8 +235,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.charts.BarChart> iterateBarChart(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.charts.BarChart> iterateBarChart() {
         return this._barChartList.iterator();
     }
 
@@ -262,7 +250,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -279,14 +267,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllBarChart(
-    ) {
+    public void removeAllBarChart() {
         this._barChartList.clear();
     }
 
@@ -325,7 +312,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setBarChart(
             final int index,
             final org.opennms.netmgt.config.charts.BarChart vBarChart)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._barChartList.size()) {
             throw new IndexOutOfBoundsException("setBarChart: Index value '" + index + "' not in range [0.." + (this._barChartList.size() - 1) + "]");
@@ -345,7 +332,7 @@ import org.opennms.core.xml.ValidateUsing;
         _barChartList.clear();
 
         for (int i = 0; i < vBarChartArray.length; i++) {
-                this._barChartList.add(vBarChartArray[i]);
+            this._barChartList.add(vBarChartArray[i]);
         }
     }
 
@@ -388,7 +375,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.charts.ChartConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.charts.ChartConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.charts.ChartConfiguration.class, reader);
     }
 
@@ -398,9 +385,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

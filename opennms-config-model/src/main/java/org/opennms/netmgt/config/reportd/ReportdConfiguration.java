@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.reportd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,27 +49,26 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="reportd-configuration")
+@XmlRootElement(name = "reportd-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("reportd-configuration.xsd")
-@SuppressWarnings("all") public class ReportdConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ReportdConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The base directory rendered reports are saved on the file
      * system.
      */
-    @XmlAttribute(name="storage-location", required = true)
+    @XmlAttribute(name = "storage-location", required = true)
     private java.lang.String _storageLocation;
 
     /**
      * Should reports be kept after delivered?
      */
-    @XmlAttribute(name="persist-reports", required = true)
+    @XmlAttribute(name = "persist-reports", required = true)
     private java.lang.String _persistReports;
 
     /**
@@ -89,24 +85,20 @@ import org.opennms.core.xml.ValidateUsing;
      *  Year (Opt) empty, 1970-2099 , - /
      *
      */
-    @XmlElement(name="report")
+    @XmlElement(name = "report")
     private java.util.List<org.opennms.netmgt.config.reportd.Report> _reportList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ReportdConfiguration() {
         super();
         this._reportList = new java.util.ArrayList<org.opennms.netmgt.config.reportd.Report>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -116,7 +108,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addReport(
             final org.opennms.netmgt.config.reportd.Report vReport)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._reportList.add(vReport);
     }
 
@@ -131,7 +123,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addReport(
             final int index,
             final org.opennms.netmgt.config.reportd.Report vReport)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._reportList.add(index, vReport);
     }
 
@@ -141,8 +133,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.reportd.Report> enumerateReport(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.reportd.Report> enumerateReport() {
         return java.util.Collections.enumeration(this._reportList);
     }
 
@@ -155,33 +146,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ReportdConfiguration) {
 
-            ReportdConfiguration temp = (ReportdConfiguration)obj;
+            ReportdConfiguration temp = (ReportdConfiguration) obj;
             if (this._storageLocation != null) {
-                if (temp._storageLocation == null) return false;
-                else if (!(this._storageLocation.equals(temp._storageLocation)))
+                if (temp._storageLocation == null) {
                     return false;
-            }
-            else if (temp._storageLocation != null)
+                } else if (!(this._storageLocation.equals(temp._storageLocation))) {
+                    return false;
+                }
+            } else if (temp._storageLocation != null) {
                 return false;
+            }
             if (this._persistReports != null) {
-                if (temp._persistReports == null) return false;
-                else if (!(this._persistReports.equals(temp._persistReports)))
+                if (temp._persistReports == null) {
                     return false;
-            }
-            else if (temp._persistReports != null)
+                } else if (!(this._persistReports.equals(temp._persistReports))) {
+                    return false;
+                }
+            } else if (temp._persistReports != null) {
                 return false;
+            }
             if (this._reportList != null) {
-                if (temp._reportList == null) return false;
-                else if (!(this._reportList.equals(temp._reportList)))
+                if (temp._reportList == null) {
                     return false;
-            }
-            else if (temp._reportList != null)
+                } else if (!(this._reportList.equals(temp._reportList))) {
+                    return false;
+                }
+            } else if (temp._reportList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -194,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PersistReports'.
      */
-    public java.lang.String getPersistReports(
-    ) {
+    public java.lang.String getPersistReports() {
         return this._persistReports;
     }
 
@@ -210,7 +207,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.reportd.Report getReport(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._reportList.size()) {
             throw new IndexOutOfBoundsException("getReport: Index value '" + index + "' not in range [0.." + (this._reportList.size() - 1) + "]");
@@ -228,8 +225,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.reportd.Report[] getReport(
-    ) {
+    public org.opennms.netmgt.config.reportd.Report[] getReport() {
         org.opennms.netmgt.config.reportd.Report[] array = new org.opennms.netmgt.config.reportd.Report[0];
         return (org.opennms.netmgt.config.reportd.Report[]) this._reportList.toArray(array);
     }
@@ -241,8 +237,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.reportd.Report> getReportCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.reportd.Report> getReportCollection() {
         return this._reportList;
     }
 
@@ -251,8 +246,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getReportCount(
-    ) {
+    public int getReportCount() {
         return this._reportList.size();
     }
 
@@ -263,8 +257,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'StorageLocation'.
      */
-    public java.lang.String getStorageLocation(
-    ) {
+    public java.lang.String getStorageLocation() {
         return this._storageLocation;
     }
 
@@ -277,19 +270,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_storageLocation != null) {
-           result = 37 * result + _storageLocation.hashCode();
+            result = 37 * result + _storageLocation.hashCode();
         }
         if (_persistReports != null) {
-           result = 37 * result + _persistReports.hashCode();
+            result = 37 * result + _persistReports.hashCode();
         }
         if (_reportList != null) {
-           result = 37 * result + _reportList.hashCode();
+            result = 37 * result + _reportList.hashCode();
         }
 
         return result;
@@ -300,8 +292,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -316,8 +307,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.reportd.Report> iterateReport(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.reportd.Report> iterateReport() {
         return this._reportList.iterator();
     }
 
@@ -332,7 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -349,14 +339,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllReport(
-    ) {
+    public void removeAllReport() {
         this._reportList.clear();
     }
 
@@ -407,7 +396,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setReport(
             final int index,
             final org.opennms.netmgt.config.reportd.Report vReport)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._reportList.size()) {
             throw new IndexOutOfBoundsException("setReport: Index value '" + index + "' not in range [0.." + (this._reportList.size() - 1) + "]");
@@ -427,7 +416,7 @@ import org.opennms.core.xml.ValidateUsing;
         _reportList.clear();
 
         for (int i = 0; i < vReportArray.length; i++) {
-                this._reportList.add(vReportArray[i]);
+            this._reportList.add(vReportArray[i]);
         }
     }
 
@@ -482,7 +471,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.reportd.ReportdConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.reportd.ReportdConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.reportd.ReportdConfiguration.class, reader);
     }
 
@@ -492,9 +481,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

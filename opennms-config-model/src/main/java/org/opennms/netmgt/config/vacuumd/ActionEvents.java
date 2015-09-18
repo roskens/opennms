@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,22 +53,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "action-events")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ActionEvents implements Serializable {
+
     private static final long serialVersionUID = 7842412566621127116L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _actionEventList.
      */
-    @XmlElement(name="action-event")
+    @XmlElement(name = "action-event")
     private List<ActionEvent> _actionEventList = new ArrayList<ActionEvent>(0);
 
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public ActionEvents() {
         super();
     }
@@ -83,7 +80,6 @@ public class ActionEvents implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -126,19 +122,22 @@ public class ActionEvents implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ActionEvents) {
 
             ActionEvents temp = (ActionEvents) obj;
             if (this._actionEventList != null) {
-                if (temp._actionEventList == null)
+                if (temp._actionEventList == null) {
                     return false;
-                else if (!(this._actionEventList.equals(temp._actionEventList)))
+                } else if (!(this._actionEventList.equals(temp._actionEventList))) {
                     return false;
-            } else if (temp._actionEventList != null)
+                }
+            } else if (temp._actionEventList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -157,11 +156,11 @@ public class ActionEvents implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._actionEventList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "getActionEvent: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._actionEventList.size() - 1)
-                                                        + "]");
+                    "getActionEvent: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._actionEventList.size() - 1)
+                    + "]");
         }
 
         return (ActionEvent) _actionEventList.get(index);
@@ -237,7 +236,7 @@ public class ActionEvents implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeActionEvent(final ActionEvent vActionEvent) {
-    	return _actionEventList.remove(vActionEvent);
+        return _actionEventList.remove(vActionEvent);
     }
 
     /**
@@ -247,7 +246,7 @@ public class ActionEvents implements Serializable {
      * @return the element removed from the collection
      */
     public ActionEvent removeActionEventAt(final int index) {
-    	return (ActionEvent) this._actionEventList.remove(index);
+        return (ActionEvent) this._actionEventList.remove(index);
     }
 
     /**
@@ -269,11 +268,11 @@ public class ActionEvents implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._actionEventList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "setActionEvent: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._actionEventList.size() - 1)
-                                                        + "]");
+                    "setActionEvent: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._actionEventList.size() - 1)
+                    + "]");
         }
 
         this._actionEventList.set(index, vActionEvent);

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.microblog;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,85 +42,79 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="microblog-profile")
+@XmlRootElement(name = "microblog-profile")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("microblog-configuration.xsd")
-@SuppressWarnings("all") public class MicroblogProfile implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class MicroblogProfile implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _serviceUrl.
      */
-    @XmlAttribute(name="service-url", required = true)
+    @XmlAttribute(name = "service-url", required = true)
     private java.lang.String _serviceUrl;
 
     /**
      * Field _authenUsername.
      */
-    @XmlAttribute(name="authen-username")
+    @XmlAttribute(name = "authen-username")
     private java.lang.String _authenUsername;
 
     /**
      * Field _authenPassword.
      */
-    @XmlAttribute(name="authen-password")
+    @XmlAttribute(name = "authen-password")
     private java.lang.String _authenPassword;
 
     /**
      * Field _oauthConsumerKey.
      */
-    @XmlAttribute(name="oauth-consumer-key")
+    @XmlAttribute(name = "oauth-consumer-key")
     private java.lang.String _oauthConsumerKey;
 
     /**
      * Field _oauthConsumerSecret.
      */
-    @XmlAttribute(name="oauth-consumer-secret")
+    @XmlAttribute(name = "oauth-consumer-secret")
     private java.lang.String _oauthConsumerSecret;
 
     /**
      * Field _oauthAccessToken.
      */
-    @XmlAttribute(name="oauth-access-token")
+    @XmlAttribute(name = "oauth-access-token")
     private java.lang.String _oauthAccessToken;
 
     /**
      * Field _oauthAccessTokenSecret.
      */
-    @XmlAttribute(name="oauth-access-token-secret")
+    @XmlAttribute(name = "oauth-access-token-secret")
     private java.lang.String _oauthAccessTokenSecret;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public MicroblogProfile() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -132,68 +124,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof MicroblogProfile) {
 
-            MicroblogProfile temp = (MicroblogProfile)obj;
+            MicroblogProfile temp = (MicroblogProfile) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._serviceUrl != null) {
-                if (temp._serviceUrl == null) return false;
-                else if (!(this._serviceUrl.equals(temp._serviceUrl)))
+                if (temp._serviceUrl == null) {
                     return false;
-            }
-            else if (temp._serviceUrl != null)
+                } else if (!(this._serviceUrl.equals(temp._serviceUrl))) {
+                    return false;
+                }
+            } else if (temp._serviceUrl != null) {
                 return false;
+            }
             if (this._authenUsername != null) {
-                if (temp._authenUsername == null) return false;
-                else if (!(this._authenUsername.equals(temp._authenUsername)))
+                if (temp._authenUsername == null) {
                     return false;
-            }
-            else if (temp._authenUsername != null)
+                } else if (!(this._authenUsername.equals(temp._authenUsername))) {
+                    return false;
+                }
+            } else if (temp._authenUsername != null) {
                 return false;
+            }
             if (this._authenPassword != null) {
-                if (temp._authenPassword == null) return false;
-                else if (!(this._authenPassword.equals(temp._authenPassword)))
+                if (temp._authenPassword == null) {
                     return false;
-            }
-            else if (temp._authenPassword != null)
+                } else if (!(this._authenPassword.equals(temp._authenPassword))) {
+                    return false;
+                }
+            } else if (temp._authenPassword != null) {
                 return false;
+            }
             if (this._oauthConsumerKey != null) {
-                if (temp._oauthConsumerKey == null) return false;
-                else if (!(this._oauthConsumerKey.equals(temp._oauthConsumerKey)))
+                if (temp._oauthConsumerKey == null) {
                     return false;
-            }
-            else if (temp._oauthConsumerKey != null)
+                } else if (!(this._oauthConsumerKey.equals(temp._oauthConsumerKey))) {
+                    return false;
+                }
+            } else if (temp._oauthConsumerKey != null) {
                 return false;
+            }
             if (this._oauthConsumerSecret != null) {
-                if (temp._oauthConsumerSecret == null) return false;
-                else if (!(this._oauthConsumerSecret.equals(temp._oauthConsumerSecret)))
+                if (temp._oauthConsumerSecret == null) {
                     return false;
-            }
-            else if (temp._oauthConsumerSecret != null)
+                } else if (!(this._oauthConsumerSecret.equals(temp._oauthConsumerSecret))) {
+                    return false;
+                }
+            } else if (temp._oauthConsumerSecret != null) {
                 return false;
+            }
             if (this._oauthAccessToken != null) {
-                if (temp._oauthAccessToken == null) return false;
-                else if (!(this._oauthAccessToken.equals(temp._oauthAccessToken)))
+                if (temp._oauthAccessToken == null) {
                     return false;
-            }
-            else if (temp._oauthAccessToken != null)
+                } else if (!(this._oauthAccessToken.equals(temp._oauthAccessToken))) {
+                    return false;
+                }
+            } else if (temp._oauthAccessToken != null) {
                 return false;
+            }
             if (this._oauthAccessTokenSecret != null) {
-                if (temp._oauthAccessTokenSecret == null) return false;
-                else if (!(this._oauthAccessTokenSecret.equals(temp._oauthAccessTokenSecret)))
+                if (temp._oauthAccessTokenSecret == null) {
                     return false;
-            }
-            else if (temp._oauthAccessTokenSecret != null)
+                } else if (!(this._oauthAccessTokenSecret.equals(temp._oauthAccessTokenSecret))) {
+                    return false;
+                }
+            } else if (temp._oauthAccessTokenSecret != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -204,8 +213,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AuthenPassword'.
      */
-    public java.lang.String getAuthenPassword(
-    ) {
+    public java.lang.String getAuthenPassword() {
         return this._authenPassword;
     }
 
@@ -214,8 +222,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AuthenUsername'.
      */
-    public java.lang.String getAuthenUsername(
-    ) {
+    public java.lang.String getAuthenUsername() {
         return this._authenUsername;
     }
 
@@ -224,8 +231,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -234,8 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'OauthAccessToken'.
      */
-    public java.lang.String getOauthAccessToken(
-    ) {
+    public java.lang.String getOauthAccessToken() {
         return this._oauthAccessToken;
     }
 
@@ -244,8 +249,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'OauthAccessTokenSecret'.
      */
-    public java.lang.String getOauthAccessTokenSecret(
-    ) {
+    public java.lang.String getOauthAccessTokenSecret() {
         return this._oauthAccessTokenSecret;
     }
 
@@ -254,8 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'OauthConsumerKey'.
      */
-    public java.lang.String getOauthConsumerKey(
-    ) {
+    public java.lang.String getOauthConsumerKey() {
         return this._oauthConsumerKey;
     }
 
@@ -264,8 +267,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'OauthConsumerSecret'.
      */
-    public java.lang.String getOauthConsumerSecret(
-    ) {
+    public java.lang.String getOauthConsumerSecret() {
         return this._oauthConsumerSecret;
     }
 
@@ -274,8 +276,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ServiceUrl'.
      */
-    public java.lang.String getServiceUrl(
-    ) {
+    public java.lang.String getServiceUrl() {
         return this._serviceUrl;
     }
 
@@ -288,34 +289,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_serviceUrl != null) {
-           result = 37 * result + _serviceUrl.hashCode();
+            result = 37 * result + _serviceUrl.hashCode();
         }
         if (_authenUsername != null) {
-           result = 37 * result + _authenUsername.hashCode();
+            result = 37 * result + _authenUsername.hashCode();
         }
         if (_authenPassword != null) {
-           result = 37 * result + _authenPassword.hashCode();
+            result = 37 * result + _authenPassword.hashCode();
         }
         if (_oauthConsumerKey != null) {
-           result = 37 * result + _oauthConsumerKey.hashCode();
+            result = 37 * result + _oauthConsumerKey.hashCode();
         }
         if (_oauthConsumerSecret != null) {
-           result = 37 * result + _oauthConsumerSecret.hashCode();
+            result = 37 * result + _oauthConsumerSecret.hashCode();
         }
         if (_oauthAccessToken != null) {
-           result = 37 * result + _oauthAccessToken.hashCode();
+            result = 37 * result + _oauthAccessToken.hashCode();
         }
         if (_oauthAccessTokenSecret != null) {
-           result = 37 * result + _oauthAccessTokenSecret.hashCode();
+            result = 37 * result + _oauthAccessTokenSecret.hashCode();
         }
 
         return result;
@@ -326,8 +326,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -347,7 +346,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -364,7 +363,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -463,7 +462,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.microblog.MicroblogProfile unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.microblog.MicroblogProfile) Unmarshaller.unmarshal(org.opennms.netmgt.config.microblog.MicroblogProfile.class, reader);
     }
 
@@ -473,9 +472,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,12 +53,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "triggers")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Triggers implements Serializable {
+
     private static final long serialVersionUID = 2867131390371677435L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * A query to the database with a result set used for actions
      */
@@ -70,7 +68,6 @@ public class Triggers implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Triggers() {
         super();
     }
@@ -83,7 +80,6 @@ public class Triggers implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -126,19 +122,22 @@ public class Triggers implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Triggers) {
 
             Triggers temp = (Triggers) obj;
             if (this._triggerList != null) {
-                if (temp._triggerList == null)
+                if (temp._triggerList == null) {
                     return false;
-                else if (!(this._triggerList.equals(temp._triggerList)))
+                } else if (!(this._triggerList.equals(temp._triggerList))) {
                     return false;
-            } else if (temp._triggerList != null)
+                }
+            } else if (temp._triggerList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -238,7 +237,7 @@ public class Triggers implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeTrigger(final Trigger vTrigger) {
-    	return _triggerList.remove(vTrigger);
+        return _triggerList.remove(vTrigger);
     }
 
     /**
@@ -248,7 +247,7 @@ public class Triggers implements Serializable {
      * @return the element removed from the collection
      */
     public Trigger removeTriggerAt(final int index) {
-    	return (Trigger) this._triggerList.remove(index);
+        return (Trigger) this._triggerList.remove(index);
     }
 
     /**

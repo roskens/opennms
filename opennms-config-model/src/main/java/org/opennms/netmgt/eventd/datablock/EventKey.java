@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.eventd.datablock;
 
 import java.io.Serializable;
@@ -54,6 +53,7 @@ import org.opennms.netmgt.events.api.EventConstants;
  * @author <A HREF="http://www.opennms.org">OpenNMS.org </A>
  */
 public class EventKey extends LinkedHashMap<String, Object> implements Serializable, Comparable<EventKey> {
+
     /**
      * 
      */
@@ -241,7 +241,6 @@ public class EventKey extends LinkedHashMap<String, Object> implements Serializa
     /*
      * Following methods are to ensure hashcode is not out of sync with elements
      */
-
     /**
      * Override to re-evaluate hashcode
      *
@@ -294,7 +293,6 @@ public class EventKey extends LinkedHashMap<String, Object> implements Serializa
     /*
      * End methods to ensure hashcode is not out of sync with elements
      */
-
     /**
      * <pre>
      * Evaluate the hash code for this object
@@ -312,7 +310,7 @@ public class EventKey extends LinkedHashMap<String, Object> implements Serializa
             return;
         }
 
-        for (final Map.Entry<String,Object> entry : entrySet()) {
+        for (final Map.Entry<String, Object> entry : entrySet()) {
             final String key = entry.getKey();
             // m_hashCode = 31 * m_hashCode;
 

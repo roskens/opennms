@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.javamail;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -45,7 +43,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -53,26 +50,25 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="readmail-host")
+@XmlRootElement(name = "readmail-host")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("javamail-configuration.xsd")
-@SuppressWarnings("all") public class ReadmailHost implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ReadmailHost implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _host.
      */
-    @XmlAttribute(name="host")
+    @XmlAttribute(name = "host")
     private java.lang.String _host;
 
     /**
      * Field _port.
      */
-    @XmlAttribute(name="port")
+    @XmlAttribute(name = "port")
     private Integer _port;
 
     /**
@@ -81,27 +77,22 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
-    @XmlElement(name="readmail-protocol")
+    @XmlElement(name = "readmail-protocol")
     private org.opennms.netmgt.config.javamail.ReadmailProtocol _readmailProtocol;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ReadmailHost() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deletePort(
-    ) {
+    public void deletePort() {
         this._port = null;
     }
 
@@ -114,33 +105,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ReadmailHost) {
 
-            ReadmailHost temp = (ReadmailHost)obj;
+            ReadmailHost temp = (ReadmailHost) obj;
             if (this._host != null) {
-                if (temp._host == null) return false;
-                else if (!(this._host.equals(temp._host)))
+                if (temp._host == null) {
                     return false;
-            }
-            else if (temp._host != null)
+                } else if (!(this._host.equals(temp._host))) {
+                    return false;
+                }
+            } else if (temp._host != null) {
                 return false;
+            }
             if (this._port != null) {
-                if (temp._port == null) return false;
-                else if (!(this._port.equals(temp._port)))
+                if (temp._port == null) {
                     return false;
-            }
-            else if (temp._port != null)
+                } else if (!(this._port.equals(temp._port))) {
+                    return false;
+                }
+            } else if (temp._port != null) {
                 return false;
+            }
             if (this._readmailProtocol != null) {
-                if (temp._readmailProtocol == null) return false;
-                else if (!(this._readmailProtocol.equals(temp._readmailProtocol)))
+                if (temp._readmailProtocol == null) {
                     return false;
-            }
-            else if (temp._readmailProtocol != null)
+                } else if (!(this._readmailProtocol.equals(temp._readmailProtocol))) {
+                    return false;
+                }
+            } else if (temp._readmailProtocol != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -151,8 +149,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Host'.
      */
-    public java.lang.String getHost(
-    ) {
+    public java.lang.String getHost() {
         return this._host == null ? "127.0.0.1" : this._host;
     }
 
@@ -161,8 +158,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Port'.
      */
-    public Integer getPort(
-    ) {
+    public Integer getPort() {
         return this._port == null ? 110 : this._port;
     }
 
@@ -176,8 +172,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReadmailProtocol'.
      */
-    public org.opennms.netmgt.config.javamail.ReadmailProtocol getReadmailProtocol(
-    ) {
+    public org.opennms.netmgt.config.javamail.ReadmailProtocol getReadmailProtocol() {
         return this._readmailProtocol;
     }
 
@@ -186,8 +181,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Port has been added
      */
-    public boolean hasPort(
-    ) {
+    public boolean hasPort() {
         return this._port != null;
     }
 
@@ -200,19 +194,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_host != null) {
-           result = 37 * result + _host.hashCode();
+            result = 37 * result + _host.hashCode();
         }
         if (_port != null) {
-           result = 37 * result + _port.hashCode();
+            result = 37 * result + _port.hashCode();
         }
         if (_readmailProtocol != null) {
-           result = 37 * result + _readmailProtocol.hashCode();
+            result = 37 * result + _readmailProtocol.hashCode();
         }
 
         return result;
@@ -223,8 +216,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -244,7 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -261,7 +253,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -313,7 +305,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.javamail.ReadmailHost unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.javamail.ReadmailHost) Unmarshaller.unmarshal(org.opennms.netmgt.config.javamail.ReadmailHost.class, reader);
     }
 
@@ -323,9 +315,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.poller.outages;
 
 import java.io.IOException;
@@ -50,17 +49,17 @@ import org.xml.sax.ContentHandler;
  * Interface to which the outage applies.
  * 
  */
-
-@XmlRootElement(name="interface", namespace="http://xmlns.opennms.org/xsd/config/poller/outages")
+@XmlRootElement(name = "interface", namespace = "http://xmlns.opennms.org/xsd/config/poller/outages")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("poll-outages.xsd")
 public class Interface implements Serializable {
+
     private static final long serialVersionUID = -90255076329128075L;
 
     /**
      * IP address
      */
-    @XmlAttribute(name="address")
+    @XmlAttribute(name = "address")
     private String _address;
 
     public Interface() {
@@ -75,19 +74,22 @@ public class Interface implements Serializable {
      */
     @Override
     public boolean equals(final Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Interface) {
 
-            Interface temp = (Interface)obj;
+            Interface temp = (Interface) obj;
             if (this._address != null) {
-                if (temp._address == null) return false;
-                else if (!(this._address.equals(temp._address))) 
+                if (temp._address == null) {
                     return false;
-            }
-            else if (temp._address != null)
+                } else if (!(this._address.equals(temp._address))) {
+                    return false;
+                }
+            } else if (temp._address != null) {
                 return false;
+            }
             return true;
         }
         return false;

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.syslogd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,40 +48,35 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="hideMessage")
+@XmlRootElement(name = "hideMessage")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("syslogd-configuration.xsd")
-@SuppressWarnings("all") public class HideMessage implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class HideMessage implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * List of substrings or regexes that, when matched, signal
      *  that the message has sensitive contents and should
      *  therefore be hidden
      *
      */
-    @XmlElement(name="hideMatch")
+    @XmlElement(name = "hideMatch")
     private java.util.List<org.opennms.netmgt.config.syslogd.HideMatch> _hideMatchList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public HideMessage() {
         super();
         this._hideMatchList = new java.util.ArrayList<org.opennms.netmgt.config.syslogd.HideMatch>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -94,7 +86,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addHideMatch(
             final org.opennms.netmgt.config.syslogd.HideMatch vHideMatch)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._hideMatchList.add(vHideMatch);
     }
 
@@ -109,7 +101,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addHideMatch(
             final int index,
             final org.opennms.netmgt.config.syslogd.HideMatch vHideMatch)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._hideMatchList.add(index, vHideMatch);
     }
 
@@ -119,8 +111,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.syslogd.HideMatch> enumerateHideMatch(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.syslogd.HideMatch> enumerateHideMatch() {
         return java.util.Collections.enumeration(this._hideMatchList);
     }
 
@@ -133,19 +124,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof HideMessage) {
 
-            HideMessage temp = (HideMessage)obj;
+            HideMessage temp = (HideMessage) obj;
             if (this._hideMatchList != null) {
-                if (temp._hideMatchList == null) return false;
-                else if (!(this._hideMatchList.equals(temp._hideMatchList)))
+                if (temp._hideMatchList == null) {
                     return false;
-            }
-            else if (temp._hideMatchList != null)
+                } else if (!(this._hideMatchList.equals(temp._hideMatchList))) {
+                    return false;
+                }
+            } else if (temp._hideMatchList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -162,7 +156,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.syslogd.HideMatch getHideMatch(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._hideMatchList.size()) {
             throw new IndexOutOfBoundsException("getHideMatch: Index value '" + index + "' not in range [0.." + (this._hideMatchList.size() - 1) + "]");
@@ -180,8 +174,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.syslogd.HideMatch[] getHideMatch(
-    ) {
+    public org.opennms.netmgt.config.syslogd.HideMatch[] getHideMatch() {
         org.opennms.netmgt.config.syslogd.HideMatch[] array = new org.opennms.netmgt.config.syslogd.HideMatch[0];
         return (org.opennms.netmgt.config.syslogd.HideMatch[]) this._hideMatchList.toArray(array);
     }
@@ -193,8 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.syslogd.HideMatch> getHideMatchCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.syslogd.HideMatch> getHideMatchCollection() {
         return this._hideMatchList;
     }
 
@@ -203,8 +195,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getHideMatchCount(
-    ) {
+    public int getHideMatchCount() {
         return this._hideMatchList.size();
     }
 
@@ -217,13 +208,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_hideMatchList != null) {
-           result = 37 * result + _hideMatchList.hashCode();
+            result = 37 * result + _hideMatchList.hashCode();
         }
 
         return result;
@@ -234,8 +224,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -250,8 +239,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.syslogd.HideMatch> iterateHideMatch(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.syslogd.HideMatch> iterateHideMatch() {
         return this._hideMatchList.iterator();
     }
 
@@ -266,7 +254,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -283,14 +271,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllHideMatch(
-    ) {
+    public void removeAllHideMatch() {
         this._hideMatchList.clear();
     }
 
@@ -329,7 +316,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setHideMatch(
             final int index,
             final org.opennms.netmgt.config.syslogd.HideMatch vHideMatch)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._hideMatchList.size()) {
             throw new IndexOutOfBoundsException("setHideMatch: Index value '" + index + "' not in range [0.." + (this._hideMatchList.size() - 1) + "]");
@@ -349,7 +336,7 @@ import org.opennms.core.xml.ValidateUsing;
         _hideMatchList.clear();
 
         for (int i = 0; i < vHideMatchArray.length; i++) {
-                this._hideMatchList.add(vHideMatchArray[i]);
+            this._hideMatchList.add(vHideMatchArray[i]);
         }
     }
 
@@ -392,7 +379,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.syslogd.HideMessage unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.syslogd.HideMessage) Unmarshaller.unmarshal(org.opennms.netmgt.config.syslogd.HideMessage.class, reader);
     }
 
@@ -402,9 +389,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

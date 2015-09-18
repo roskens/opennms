@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.poller.outages;
 
 import java.io.IOException;
@@ -53,16 +52,15 @@ import org.exolab.castor.xml.Validator;
 import org.opennms.core.xml.ValidateUsing;
 import org.xml.sax.ContentHandler;
 
-
 /**
  * Top-level element for the poll-outages.xml configuration file.
  * 
  */
-
-@XmlRootElement(name="outages", namespace="http://xmlns.opennms.org/xsd/config/poller/outages")
+@XmlRootElement(name = "outages", namespace = "http://xmlns.opennms.org/xsd/config/poller/outages")
 @XmlAccessorType(XmlAccessType.NONE)
 @ValidateUsing("poll-outages.xsd")
 public class Outages implements Serializable {
+
     private static final Outage[] EMPTY_OUTAGE_LIST = new Outage[0];
 
     private static final long serialVersionUID = 2135204624761990598L;
@@ -71,7 +69,7 @@ public class Outages implements Serializable {
      * A scheduled outage
      */
     private Map<String, Outage> _outageMap;
-    
+
     public Outages() {
         super();
         this._outageMap = new LinkedHashMap<String, Outage>();
@@ -96,11 +94,11 @@ public class Outages implements Serializable {
      * @throws java.lang.IndexOutOfBoundsException if the index
      * given is outside the bounds of the collection
      */
-    public void addOutage( final int index, final Outage vOutage) throws IndexOutOfBoundsException {
+    public void addOutage(final int index, final Outage vOutage) throws IndexOutOfBoundsException {
         List<Outage> outageList = new ArrayList<Outage>(this._outageMap.values());
         outageList.add(index, vOutage);
         setOutage(outageList);
-        
+
     }
 
     /**
@@ -121,19 +119,22 @@ public class Outages implements Serializable {
      */
     @Override
     public boolean equals(final Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Outages) {
 
-            Outages temp = (Outages)obj;
+            Outages temp = (Outages) obj;
             if (this._outageMap != null) {
-                if (temp._outageMap == null) return false;
-                else if (!(this._outageMap.equals(temp._outageMap))) 
+                if (temp._outageMap == null) {
                     return false;
-            }
-            else if (temp._outageMap != null)
+                } else if (!(this._outageMap.equals(temp._outageMap))) {
+                    return false;
+                }
+            } else if (temp._outageMap != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -149,19 +150,19 @@ public class Outages implements Serializable {
      * org.opennms.netmgt.config.poller.Outage at the given index
      */
     public Outage getOutage(final int index) throws IndexOutOfBoundsException {
-        
+
         if (index < 0 || index >= this._outageMap.size()) {
             throw new IndexOutOfBoundsException("getOutage: Index value '" + index + "' not in range [0.." + (this._outageMap.size() - 1) + "]");
         }
-        
+
         int count = 0;
-        for(Outage o : this._outageMap.values()) {
+        for (Outage o : this._outageMap.values()) {
             if (count == index) {
                 return o;
             }
             count++;
         }
-        
+
         return null;
     }
 
@@ -174,7 +175,7 @@ public class Outages implements Serializable {
      * 
      * @return this collection as an Array
      */
-    @XmlElement(name="outage")
+    @XmlElement(name = "outage")
     public Outage[] getOutage() {
         return this._outageMap.values().toArray(EMPTY_OUTAGE_LIST);
     }
@@ -338,7 +339,7 @@ public class Outages implements Serializable {
      */
     public void setOutage(final List<Outage> vOutageList) {
         Map<String, Outage> m = new LinkedHashMap<String, Outage>();
-        for(Outage o : vOutageList) {
+        for (Outage o : vOutageList) {
             m.put(o.getName(), o);
         }
         this._outageMap = m;

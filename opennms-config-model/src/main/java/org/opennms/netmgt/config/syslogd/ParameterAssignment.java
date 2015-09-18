@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.syslogd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -45,7 +43,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -53,16 +50,15 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="parameter-assignment")
+@XmlRootElement(name = "parameter-assignment")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("syslogd-configuration.xsd")
-@SuppressWarnings("all") public class ParameterAssignment implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ParameterAssignment implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The number of the matching group from the regex
      *  whose value will be assigned. Group 0 always refers
@@ -71,7 +67,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  will be assigned.
      *
      */
-    @XmlAttribute(name="matching-group")
+    @XmlAttribute(name = "matching-group")
     private Integer _matchingGroup;
 
     /**
@@ -79,27 +75,22 @@ import org.opennms.core.xml.ValidateUsing;
      *  matching group's value will be assigned
      *
      */
-    @XmlAttribute(name="parameter-name")
+    @XmlAttribute(name = "parameter-name")
     private String _parameterName;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ParameterAssignment() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteMatchingGroup(
-    ) {
+    public void deleteMatchingGroup() {
         this._matchingGroup = null;
     }
 
@@ -112,26 +103,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ParameterAssignment) {
 
-            ParameterAssignment temp = (ParameterAssignment)obj;
+            ParameterAssignment temp = (ParameterAssignment) obj;
             if (this._matchingGroup != null) {
-                if (temp._matchingGroup == null) return false;
-                else if (!(this._matchingGroup.equals(temp._matchingGroup)))
+                if (temp._matchingGroup == null) {
                     return false;
-            }
-            else if (temp._matchingGroup != null)
+                } else if (!(this._matchingGroup.equals(temp._matchingGroup))) {
+                    return false;
+                }
+            } else if (temp._matchingGroup != null) {
                 return false;
+            }
             if (this._parameterName != null) {
-                if (temp._parameterName == null) return false;
-                else if (!(this._parameterName.equals(temp._parameterName)))
+                if (temp._parameterName == null) {
                     return false;
-            }
-            else if (temp._parameterName != null)
+                } else if (!(this._parameterName.equals(temp._parameterName))) {
+                    return false;
+                }
+            } else if (temp._parameterName != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -149,8 +145,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchingGroup'.
      */
-    public Integer getMatchingGroup(
-    ) {
+    public Integer getMatchingGroup() {
         return this._matchingGroup;
     }
 
@@ -163,8 +158,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ParameterName'.
      */
-    public java.lang.String getParameterName(
-    ) {
+    public java.lang.String getParameterName() {
         return this._parameterName;
     }
 
@@ -173,8 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one MatchingGroup has been added
      */
-    public boolean hasMatchingGroup(
-    ) {
+    public boolean hasMatchingGroup() {
         return this._matchingGroup != null;
     }
 
@@ -187,16 +180,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_matchingGroup != null) {
-           result = 37 * result + _matchingGroup.hashCode();
+            result = 37 * result + _matchingGroup.hashCode();
         }
         if (_parameterName != null) {
-           result = 37 * result + _parameterName.hashCode();
+            result = 37 * result + _parameterName.hashCode();
         }
 
         return result;
@@ -207,8 +199,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -228,7 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -245,7 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -292,7 +283,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.syslogd.ParameterAssignment unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.syslogd.ParameterAssignment) Unmarshaller.unmarshal(org.opennms.netmgt.config.syslogd.ParameterAssignment.class, reader);
     }
 
@@ -302,9 +293,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

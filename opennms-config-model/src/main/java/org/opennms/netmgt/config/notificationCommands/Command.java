@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.notificationCommands;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,68 +48,63 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="command")
+@XmlRootElement(name = "command")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("notificationCommands.xsd")
-@SuppressWarnings("all") public class Command implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Command implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _binary.
      */
-    @XmlAttribute(name="binary")
+    @XmlAttribute(name = "binary")
     private java.lang.String _binary;
     private static final String DEFAULT_BINARY = "true";
 
     /**
      * Field _name.
      */
-    @XmlElement(name="name")
+    @XmlElement(name = "name")
     private java.lang.String _name;
 
     /**
      * Field _execute.
      */
-    @XmlElement(name="execute")
+    @XmlElement(name = "execute")
     private java.lang.String _execute;
 
     /**
      * Field _comment.
      */
-    @XmlElement(name="comment")
+    @XmlElement(name = "comment")
     private java.lang.String _comment;
 
     /**
      * Field _contactType.
      */
-    @XmlElement(name="contact-type")
+    @XmlElement(name = "contact-type")
     private java.lang.String _contactType;
 
     /**
      * Field _argumentList.
      */
-    @XmlElement(name="argument")
+    @XmlElement(name = "argument")
     private java.util.List<org.opennms.netmgt.config.notificationCommands.Argument> _argumentList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Command() {
         super();
         this._argumentList = new java.util.ArrayList<org.opennms.netmgt.config.notificationCommands.Argument>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -122,7 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addArgument(
             final org.opennms.netmgt.config.notificationCommands.Argument vArgument)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._argumentList.add(vArgument);
     }
 
@@ -137,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addArgument(
             final int index,
             final org.opennms.netmgt.config.notificationCommands.Argument vArgument)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._argumentList.add(index, vArgument);
     }
 
@@ -147,8 +139,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.notificationCommands.Argument> enumerateArgument(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.notificationCommands.Argument> enumerateArgument() {
         return java.util.Collections.enumeration(this._argumentList);
     }
 
@@ -161,54 +152,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Command) {
 
-            Command temp = (Command)obj;
+            Command temp = (Command) obj;
             if (this._binary != null) {
-                if (temp._binary == null) return false;
-                else if (!(this._binary.equals(temp._binary)))
+                if (temp._binary == null) {
                     return false;
-            }
-            else if (temp._binary != null)
+                } else if (!(this._binary.equals(temp._binary))) {
+                    return false;
+                }
+            } else if (temp._binary != null) {
                 return false;
+            }
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._execute != null) {
-                if (temp._execute == null) return false;
-                else if (!(this._execute.equals(temp._execute)))
+                if (temp._execute == null) {
                     return false;
-            }
-            else if (temp._execute != null)
+                } else if (!(this._execute.equals(temp._execute))) {
+                    return false;
+                }
+            } else if (temp._execute != null) {
                 return false;
+            }
             if (this._comment != null) {
-                if (temp._comment == null) return false;
-                else if (!(this._comment.equals(temp._comment)))
+                if (temp._comment == null) {
                     return false;
-            }
-            else if (temp._comment != null)
+                } else if (!(this._comment.equals(temp._comment))) {
+                    return false;
+                }
+            } else if (temp._comment != null) {
                 return false;
+            }
             if (this._contactType != null) {
-                if (temp._contactType == null) return false;
-                else if (!(this._contactType.equals(temp._contactType)))
+                if (temp._contactType == null) {
                     return false;
-            }
-            else if (temp._contactType != null)
+                } else if (!(this._contactType.equals(temp._contactType))) {
+                    return false;
+                }
+            } else if (temp._contactType != null) {
                 return false;
+            }
             if (this._argumentList != null) {
-                if (temp._argumentList == null) return false;
-                else if (!(this._argumentList.equals(temp._argumentList)))
+                if (temp._argumentList == null) {
                     return false;
-            }
-            else if (temp._argumentList != null)
+                } else if (!(this._argumentList.equals(temp._argumentList))) {
+                    return false;
+                }
+            } else if (temp._argumentList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -226,7 +230,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.notificationCommands.Argument getArgument(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._argumentList.size()) {
             throw new IndexOutOfBoundsException("getArgument: Index value '" + index + "' not in range [0.." + (this._argumentList.size() - 1) + "]");
@@ -244,8 +248,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.notificationCommands.Argument[] getArgument(
-    ) {
+    public org.opennms.netmgt.config.notificationCommands.Argument[] getArgument() {
         org.opennms.netmgt.config.notificationCommands.Argument[] array = new org.opennms.netmgt.config.notificationCommands.Argument[0];
         return (org.opennms.netmgt.config.notificationCommands.Argument[]) this._argumentList.toArray(array);
     }
@@ -257,8 +260,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.notificationCommands.Argument> getArgumentCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.notificationCommands.Argument> getArgumentCollection() {
         return this._argumentList;
     }
 
@@ -267,8 +269,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getArgumentCount(
-    ) {
+    public int getArgumentCount() {
         return this._argumentList.size();
     }
 
@@ -277,8 +278,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Binary'.
      */
-    public java.lang.String getBinary(
-    ) {
+    public java.lang.String getBinary() {
         return this._binary == null ? DEFAULT_BINARY : this._binary;
     }
 
@@ -287,8 +287,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Comment'.
      */
-    public java.lang.String getComment(
-    ) {
+    public java.lang.String getComment() {
         return this._comment;
     }
 
@@ -297,8 +296,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ContactType'.
      */
-    public java.lang.String getContactType(
-    ) {
+    public java.lang.String getContactType() {
         return this._contactType;
     }
 
@@ -307,8 +305,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Execute'.
      */
-    public java.lang.String getExecute(
-    ) {
+    public java.lang.String getExecute() {
         return this._execute;
     }
 
@@ -317,8 +314,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -331,28 +327,27 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_binary != null) {
-           result = 37 * result + _binary.hashCode();
+            result = 37 * result + _binary.hashCode();
         }
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_execute != null) {
-           result = 37 * result + _execute.hashCode();
+            result = 37 * result + _execute.hashCode();
         }
         if (_comment != null) {
-           result = 37 * result + _comment.hashCode();
+            result = 37 * result + _comment.hashCode();
         }
         if (_contactType != null) {
-           result = 37 * result + _contactType.hashCode();
+            result = 37 * result + _contactType.hashCode();
         }
         if (_argumentList != null) {
-           result = 37 * result + _argumentList.hashCode();
+            result = 37 * result + _argumentList.hashCode();
         }
 
         return result;
@@ -363,8 +358,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -379,8 +373,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.notificationCommands.Argument> iterateArgument(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.notificationCommands.Argument> iterateArgument() {
         return this._argumentList.iterator();
     }
 
@@ -395,7 +388,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -412,14 +405,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllArgument(
-    ) {
+    public void removeAllArgument() {
         this._argumentList.clear();
     }
 
@@ -458,7 +450,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setArgument(
             final int index,
             final org.opennms.netmgt.config.notificationCommands.Argument vArgument)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._argumentList.size()) {
             throw new IndexOutOfBoundsException("setArgument: Index value '" + index + "' not in range [0.." + (this._argumentList.size() - 1) + "]");
@@ -478,7 +470,7 @@ import org.opennms.core.xml.ValidateUsing;
         _argumentList.clear();
 
         for (int i = 0; i < vArgumentArray.length; i++) {
-                this._argumentList.add(vArgumentArray[i]);
+            this._argumentList.add(vArgumentArray[i]);
         }
     }
 
@@ -571,7 +563,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.notificationCommands.Command unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.notificationCommands.Command) Unmarshaller.unmarshal(org.opennms.netmgt.config.notificationCommands.Command.class, reader);
     }
 
@@ -581,9 +573,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.users;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,16 +48,15 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlValue;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="password")
+@XmlRootElement(name = "password")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("users.xsd")
-@SuppressWarnings("all") public class Password implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Password implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * internal content storage
      */
@@ -70,27 +66,23 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _salt.
      */
-    @XmlAttribute(name="salt")
+    @XmlAttribute(name = "salt")
     private Boolean _salt;
     private static final Boolean DEFAULT_SALT = false;
 
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Password() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteSalt(
-    ) {
+    public void deleteSalt() {
         this._salt = null;
     }
 
@@ -103,26 +95,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Password) {
 
-            Password temp = (Password)obj;
+            Password temp = (Password) obj;
             if (this._content != null) {
-                if (temp._content == null) return false;
-                else if (!(this._content.equals(temp._content)))
+                if (temp._content == null) {
                     return false;
-            }
-            else if (temp._content != null)
+                } else if (!(this._content.equals(temp._content))) {
+                    return false;
+                }
+            } else if (temp._content != null) {
                 return false;
+            }
             if (this._salt != null) {
-                if (temp._salt == null) return false;
-                else if (!(this._salt.equals(temp._salt)))
+                if (temp._salt == null) {
                     return false;
-            }
-            else if (temp._salt != null)
+                } else if (!(this._salt.equals(temp._salt))) {
+                    return false;
+                }
+            } else if (temp._salt != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -134,8 +131,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Content'.
      */
-    public java.lang.String getContent(
-    ) {
+    public java.lang.String getContent() {
         return this._content;
     }
 
@@ -144,8 +140,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Salt'.
      */
-    public Boolean getSalt(
-    ) {
+    public Boolean getSalt() {
         return this._salt == null ? DEFAULT_SALT : this._salt;
     }
 
@@ -154,8 +149,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Salt has been added
      */
-    public boolean hasSalt(
-    ) {
+    public boolean hasSalt() {
         return this._salt != null;
     }
 
@@ -168,16 +162,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_content != null) {
-           result = 37 * result + _content.hashCode();
+            result = 37 * result + _content.hashCode();
         }
         if (_salt != null) {
-           result = 37 * result + _salt.hashCode();
+            result = 37 * result + _salt.hashCode();
         }
 
         return result;
@@ -188,8 +181,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Salt'.
      */
-    public boolean isSalt(
-    ) {
+    public boolean isSalt() {
         return this._salt;
     }
 
@@ -198,8 +190,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -219,7 +210,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -236,7 +227,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -274,7 +265,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.users.Password unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.users.Password) Unmarshaller.unmarshal(org.opennms.netmgt.config.users.Password.class, reader);
     }
 
@@ -284,9 +275,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

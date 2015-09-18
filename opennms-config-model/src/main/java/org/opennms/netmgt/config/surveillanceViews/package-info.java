@@ -25,13 +25,12 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 @XmlSchema(
-    namespace = "http://xmlns.opennms.org/xsd/config/surveillance-views",
-    elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
-    xmlns={
-        @XmlNs(prefix="", namespaceURI="http://xmlns.opennms.org/xsd/config/surveillance-views")
-    }
+        namespace = "http://xmlns.opennms.org/xsd/config/surveillance-views",
+        elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+        xmlns = {
+            @XmlNs(prefix = "", namespaceURI = "http://xmlns.opennms.org/xsd/config/surveillance-views")
+        }
 )
 package org.opennms.netmgt.config.surveillanceViews;
 

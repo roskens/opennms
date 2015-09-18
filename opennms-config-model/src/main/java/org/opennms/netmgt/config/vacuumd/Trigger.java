@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -42,7 +41,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 /**
  * A query to the database with a result set used for actions
  *
@@ -51,6 +49,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "trigger")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Trigger implements Serializable {
+
     private static final long serialVersionUID = -2490841506653475960L;
 
     public static final String DEFAULT_DATA_SOURCE = "opennms";
@@ -60,7 +59,6 @@ public class Trigger implements Serializable {
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _name.
      */
@@ -95,7 +93,6 @@ public class Trigger implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Trigger() {
         super();
     }
@@ -114,7 +111,6 @@ public class Trigger implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -123,38 +119,51 @@ public class Trigger implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Trigger other = (Trigger) obj;
         if (_dataSource == null) {
-            if (other._dataSource != null)
+            if (other._dataSource != null) {
                 return false;
-        } else if (!_dataSource.equals(other._dataSource))
+            }
+        } else if (!_dataSource.equals(other._dataSource)) {
             return false;
+        }
         if (_name == null) {
-            if (other._name != null)
+            if (other._name != null) {
                 return false;
-        } else if (!_name.equals(other._name))
+            }
+        } else if (!_name.equals(other._name)) {
             return false;
+        }
         if (_operator == null) {
-            if (other._operator != null)
+            if (other._operator != null) {
                 return false;
-        } else if (!_operator.equals(other._operator))
+            }
+        } else if (!_operator.equals(other._operator)) {
             return false;
+        }
         if (_rowCount == null) {
-            if (other._rowCount != null)
+            if (other._rowCount != null) {
                 return false;
-        } else if (!_rowCount.equals(other._rowCount))
+            }
+        } else if (!_rowCount.equals(other._rowCount)) {
             return false;
+        }
         if (_statement == null) {
-            if (other._statement != null)
+            if (other._statement != null) {
                 return false;
-        } else if (!_statement.equals(other._statement))
+            }
+        } else if (!_statement.equals(other._statement)) {
             return false;
+        }
         return true;
     }
 

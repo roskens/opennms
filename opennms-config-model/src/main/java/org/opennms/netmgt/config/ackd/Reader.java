@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.ackd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,6 +54,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "reader")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Reader implements Serializable {
+
     private static final long serialVersionUID = -7392047026243024472L;
 
     public static final boolean DEFAULT_ENABLED_FLAG = true;
@@ -63,7 +62,6 @@ public class Reader implements Serializable {
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * The reader name is the value returned by the getName() method required
      * by the AckReader interface. Readers are currently wired in using
@@ -97,7 +95,6 @@ public class Reader implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Reader() {
         super();
     }
@@ -114,7 +111,6 @@ public class Reader implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * 
      * 
@@ -157,33 +153,44 @@ public class Reader implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Reader other = (Reader) obj;
         if (_enabled == null) {
-            if (other._enabled != null)
+            if (other._enabled != null) {
                 return false;
-        } else if (!_enabled.equals(other._enabled))
+            }
+        } else if (!_enabled.equals(other._enabled)) {
             return false;
+        }
         if (_parameterList == null) {
-            if (other._parameterList != null)
+            if (other._parameterList != null) {
                 return false;
-        } else if (!_parameterList.equals(other._parameterList))
+            }
+        } else if (!_parameterList.equals(other._parameterList)) {
             return false;
+        }
         if (_readerName == null) {
-            if (other._readerName != null)
+            if (other._readerName != null) {
                 return false;
-        } else if (!_readerName.equals(other._readerName))
+            }
+        } else if (!_readerName.equals(other._readerName)) {
             return false;
+        }
         if (_readerSchedule == null) {
-            if (other._readerSchedule != null)
+            if (other._readerSchedule != null) {
                 return false;
-        } else if (!_readerSchedule.equals(other._readerSchedule))
+            }
+        } else if (!_readerSchedule.equals(other._readerSchedule)) {
             return false;
+        }
         return true;
     }
 

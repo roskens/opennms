@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.wmi;
 
 import java.net.InetAddress;
@@ -37,6 +36,7 @@ import java.net.InetAddress;
  * @version $Id: $
  */
 public class WmiAgentConfig {
+
     /** Constant <code>DEFAULT_TIMEOUT=3000</code> */
     public static final int DEFAULT_TIMEOUT = 3000;
     /** Constant <code>DEFAULT_RETRIES=1</code> */
@@ -44,33 +44,33 @@ public class WmiAgentConfig {
     /** Constant <code>DEFAULT_PASSWORD=""</code> */
     public static final String DEFAULT_PASSWORD = "";
     /** Constant <code>DEFAULT_USERNAME="Administrator"</code> */
-    public static final String DEFAULT_USERNAME="Administrator";
+    public static final String DEFAULT_USERNAME = "Administrator";
     /** Constant <code>DEFAULT_DOMAIN="WORKGROUP"</code> */
-    public static final String DEFAULT_DOMAIN="WORKGROUP";
-    
+    public static final String DEFAULT_DOMAIN = "WORKGROUP";
+
     private InetAddress m_Address;
     private int m_Timeout;
     private int m_Retries;
     private String m_Username;
     private String m_Domain;
     private String m_Password;
-    
-    
-	String user = "";
-	String pass = "";
-	String domain = "";
-	String matchType = "all";
-	String compVal = "";
-	String compOp = "NOOP";
-	String wmiClass = "";
-	String wmiObject = "";
+
+    String user = "";
+    String pass = "";
+    String domain = "";
+    String matchType = "all";
+    String compVal = "";
+    String compOp = "NOOP";
+    String wmiClass = "";
+    String wmiObject = "";
+
     /**
      * <p>Constructor for WmiAgentConfig.</p>
      */
     public WmiAgentConfig() {
         setDefaults();
     }
-    
+
     /**
      * <p>Constructor for WmiAgentConfig.</p>
      *
@@ -85,7 +85,7 @@ public class WmiAgentConfig {
         m_Timeout = DEFAULT_TIMEOUT;
         m_Retries = DEFAULT_RETRIES;
     }
-    
+
     /**
      * <p>toString</p>
      *
@@ -94,14 +94,13 @@ public class WmiAgentConfig {
     @Override
     public String toString() {
         StringBuffer buff = new StringBuffer("AgentConfig[");
-        buff.append("Address: "+m_Address);
-        buff.append(", Password: "+String.valueOf(m_Password)); //use valueOf to handle null values of m_password
-        buff.append(", Timeout: "+m_Timeout);
-        buff.append(", Retries: "+m_Retries);
+        buff.append("Address: " + m_Address);
+        buff.append(", Password: " + String.valueOf(m_Password)); //use valueOf to handle null values of m_password
+        buff.append(", Timeout: " + m_Timeout);
+        buff.append(", Retries: " + m_Retries);
         buff.append("]");
         return buff.toString();
     }
-
 
     /**
      * <p>getAddress</p>
@@ -175,7 +174,6 @@ public class WmiAgentConfig {
         return m_Password;
     }
 
-
     /**
      * <p>getUsername</p>
      *
@@ -184,14 +182,14 @@ public class WmiAgentConfig {
     public String getUsername() {
         return m_Username;
     }
-    
+
     /**
      * <p>setUsername</p>
      *
      * @param username a {@link java.lang.String} object.
      */
     public void setUsername(String username) {
-    	m_Username = username;
+        m_Username = username;
     }
 
     /**
@@ -202,14 +200,14 @@ public class WmiAgentConfig {
     public String getDomain() {
         return m_Domain;
     }
-    
+
     /**
      * <p>Setter for the field <code>domain</code>.</p>
      *
      * @param domain a {@link java.lang.String} object.
      */
     public void setDomain(String domain) {
-    	m_Domain = domain;
+        m_Domain = domain;
     }
-    
+
 }

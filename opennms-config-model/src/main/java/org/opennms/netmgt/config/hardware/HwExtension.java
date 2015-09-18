@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.hardware;
 
 import java.io.Serializable;
@@ -43,7 +42,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * 
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
-@XmlRootElement(name="hw-extension")
+@XmlRootElement(name = "hw-extension")
 @XmlAccessorType(XmlAccessType.NONE)
 public class HwExtension implements Serializable {
 
@@ -62,7 +61,8 @@ public class HwExtension implements Serializable {
     /**
      * The Constructor.
      */
-    public HwExtension() {}
+    public HwExtension() {
+    }
 
     /**
      * The Constructor.
@@ -80,7 +80,7 @@ public class HwExtension implements Serializable {
      *
      * @return the name
      */
-    @XmlAttribute(name="name", required=true)
+    @XmlAttribute(name = "name", required = true)
     public String getName() {
         return name;
     }
@@ -99,7 +99,7 @@ public class HwExtension implements Serializable {
      *
      * @return the system OID mask
      */
-    @XmlAttribute(name="sysOidMask", required=true)
+    @XmlAttribute(name = "sysOidMask", required = true)
     public String getSysOidMask() {
         return sysOidMask;
     }
@@ -118,7 +118,7 @@ public class HwExtension implements Serializable {
      *
      * @return the MIB objects
      */
-    @XmlElement(name="mibObj", required=true)
+    @XmlElement(name = "mibObj", required = true)
     public List<MibObj> getMibObjects() {
         return mibObjects;
     }
@@ -160,7 +160,7 @@ public class HwExtension implements Serializable {
      */
     public void setMibObjects(List<MibObj> mibObjects) {
         if (mibObjects == null) {
-            this.mibObjects.clear(); 
+            this.mibObjects.clear();
         } else {
             this.mibObjects = mibObjects;
         }

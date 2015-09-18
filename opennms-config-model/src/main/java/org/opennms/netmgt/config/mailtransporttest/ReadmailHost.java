@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -62,29 +60,29 @@ import org.xml.sax.ContentHandler;
  * defaults will be used and
  *  ${ipaddr} is replaced with the IP address of the service.
  */
-
-@XmlRootElement(name="readmail-host")
+@XmlRootElement(name = "readmail-host")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ReadmailHost implements Serializable {
+
     private static final long serialVersionUID = 1723200582958011828L;
 
     /**
      * Field m_host.
      */
-    @XmlAttribute(name="host")
+    @XmlAttribute(name = "host")
     private String m_host;
 
     /**
      * Field m_port.
      */
-    @XmlAttribute(name="port")
+    @XmlAttribute(name = "port")
     private Long m_port;
 
     /**
      * Basically attributes that help setup the javamailer's
      * confusion set of properties.
      */
-    @XmlElement(name="readmail-protocol")
+    @XmlElement(name = "readmail-protocol")
     private ReadmailProtocol m_readmailProtocol;
 
     public ReadmailHost() {
@@ -109,10 +107,12 @@ public class ReadmailHost implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof ReadmailHost) {
-            final ReadmailHost temp = (ReadmailHost)obj;
+            final ReadmailHost temp = (ReadmailHost) obj;
             if (m_host != null) {
                 if (temp.m_host == null) {
                     return false;
@@ -151,7 +151,7 @@ public class ReadmailHost implements Serializable {
      * @return the value of field 'Host'.
      */
     public String getHost() {
-        return m_host == null? "${ipaddr}" : m_host;
+        return m_host == null ? "${ipaddr}" : m_host;
     }
 
     /**
@@ -160,7 +160,7 @@ public class ReadmailHost implements Serializable {
      * @return the value of field 'Port'.
      */
     public Long getPort() {
-        return m_port == null? 110 : m_port;
+        return m_port == null ? 110 : m_port;
     }
 
     /**
@@ -194,20 +194,19 @@ public class ReadmailHost implements Serializable {
      * 
      * @return a hash code value for the object.
      */
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
-        
+
         if (m_host != null) {
-           result = 37 * result + m_host.hashCode();
+            result = 37 * result + m_host.hashCode();
         }
         if (m_port != null) {
             result = 37 * result + m_port.hashCode();
         }
         if (m_readmailProtocol != null) {
-           result = 37 * result + m_readmailProtocol.hashCode();
+            result = 37 * result + m_readmailProtocol.hashCode();
         }
-        
+
         return result;
     }
 

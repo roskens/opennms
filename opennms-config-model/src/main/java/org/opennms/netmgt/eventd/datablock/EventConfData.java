@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.eventd.datablock;
 
 import java.util.ArrayList;
@@ -63,6 +62,7 @@ import org.slf4j.LoggerFactory;
  * @version $Id: $
  */
 public class EventConfData extends Object {
+
     private static final Logger LOG = LoggerFactory.getLogger(EventConfData.class);
     /**
      * The map keyed with 'EventKey's
@@ -123,7 +123,7 @@ public class EventConfData extends Object {
                 int len = keyvalue.length();
                 if (keyvalue.equals(eventvalue)) {
                     maskMatch = true;
-                } else if (keyvalue.charAt(0) == '~'){
+                } else if (keyvalue.charAt(0) == '~') {
                     if (eventvalue.matches(keyvalue.substring(1))) {
                         maskMatch = true;
                     }
@@ -240,15 +240,14 @@ public class EventConfData extends Object {
         // use the eventkey and see if there is a match
         //
 	/*
-        EventKey key = new EventKey(event);
-        matchedEvent = m_eventMap.get(key);
-        if (matchedEvent != null) {
-            LOG.debug("Match found using key: {}", key);
+         EventKey key = new EventKey(event);
+         matchedEvent = m_eventMap.get(key);
+         if (matchedEvent != null) {
+         LOG.debug("Match found using key: {}", key);
 
-            return matchedEvent;
-        }
-        */
-
+         return matchedEvent;
+         }
+         */
         //
         // get the UEI and see if the UEI keys get a match - this step is here
         // to make the matching process faster in case of usual internal events
@@ -257,17 +256,16 @@ public class EventConfData extends Object {
         // the entire eventconf for each event
         //
 	/*
-        String uei = event.getUei();
-        if (uei != null) {
-            // Go through the uei to keylist map
-            List<EventKey> keylist = m_ueiToKeyListMap.get(uei);
-            if (keylist != null) {
-                // check the event keys known for this uei
-                matchedEvent = getMatchInKeyList(keylist, event);
-            }
-        }
-        */
-
+         String uei = event.getUei();
+         if (uei != null) {
+         // Go through the uei to keylist map
+         List<EventKey> keylist = m_ueiToKeyListMap.get(uei);
+         if (keylist != null) {
+         // check the event keys known for this uei
+         matchedEvent = getMatchInKeyList(keylist, event);
+         }
+         }
+         */
         //
         // if still no match, no option but to go through all known keys
         //

@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.xml.eventconf.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.xml.eventconf.Correlation;
 
 /**
@@ -48,11 +46,9 @@ import org.opennms.netmgt.xml.eventconf.Correlation;
  */
 public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
-
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,46 +74,44 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public CorrelationDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/eventconf";
         _xmlName = "correlation";
         _elementDefinition = true;
-        
+
         //-- set grouping compositor
         setCompositorAsSequence();
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- _state
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_state", "state", org.exolab.castor.xml.NodeType.Attribute);
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Correlation target = (Correlation) object;
                 return target.getState();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Correlation target = (Correlation) object;
-                    target.setState( (java.lang.String) value);
+                    target.setState((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -127,7 +121,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _state
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -143,23 +137,23 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Correlation target = (Correlation) object;
                 return target.getPath();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Correlation target = (Correlation) object;
-                    target.setPath( (java.lang.String) value);
+                    target.setPath((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -169,7 +163,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _path
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -181,29 +175,29 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         }
         desc.setValidator(fieldValidator);
         //-- initialize element descriptors
-        
+
         //-- _cueiList
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_cueiList", "cuei", org.exolab.castor.xml.NodeType.Element);
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Correlation target = (Correlation) object;
                 return target.getCuei();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Correlation target = (Correlation) object;
-                    target.addCuei( (java.lang.String) value);
+                    target.addCuei((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
                 try {
@@ -213,6 +207,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -223,7 +218,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _cueiList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(0);
@@ -239,23 +234,23 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Correlation target = (Correlation) object;
                 return target.getCmin();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Correlation target = (Correlation) object;
-                    target.setCmin( (java.lang.String) value);
+                    target.setCmin((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -266,7 +261,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _cmin
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -281,23 +276,23 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Correlation target = (Correlation) object;
                 return target.getCmax();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Correlation target = (Correlation) object;
-                    target.setCmax( (java.lang.String) value);
+                    target.setCmax((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -308,7 +303,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _cmax
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -323,23 +318,23 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Correlation target = (Correlation) object;
                 return target.getCtime();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Correlation target = (Correlation) object;
-                    target.setCtime( (java.lang.String) value);
+                    target.setCtime((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -350,7 +345,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _ctime
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -362,19 +357,16 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
         desc.setValidator(fieldValidator);
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -385,8 +377,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -396,8 +387,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.xml.eventconf.Correlation.class;
     }
 
@@ -407,8 +397,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -419,8 +408,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -431,8 +419,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -442,8 +429,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -455,8 +441,7 @@ public class CorrelationDescriptor extends org.exolab.castor.xml.util.XMLClassDe
      * element or element with anonymous type definition.
      */
     @Override
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

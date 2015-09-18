@@ -25,13 +25,12 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 @XmlSchema(
-    namespace = "http://xmlns.opennms.org/xsd/config/threshd",
-    elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
-    xmlns={
-        @XmlNs(prefix="", namespaceURI="http://xmlns.opennms.org/xsd/config/threshd")
-    }
+        namespace = "http://xmlns.opennms.org/xsd/config/threshd",
+        elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+        xmlns = {
+            @XmlNs(prefix = "", namespaceURI = "http://xmlns.opennms.org/xsd/config/threshd")
+        }
 )
 package org.opennms.netmgt.config.threshd;
 

@@ -25,13 +25,12 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 @XmlSchema(
-    namespace = "http://xmlns.opennms.org/xsd/config/snmpasset/adapter",
-    elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
-    xmlns={
-        @XmlNs(prefix="", namespaceURI="http://xmlns.opennms.org/xsd/config/snmpasset/adapter")
-    }
+        namespace = "http://xmlns.opennms.org/xsd/config/snmpasset/adapter",
+        elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+        xmlns = {
+            @XmlNs(prefix = "", namespaceURI = "http://xmlns.opennms.org/xsd/config/snmpasset/adapter")
+        }
 )
 package org.opennms.netmgt.config.snmpAsset.adapter;
 

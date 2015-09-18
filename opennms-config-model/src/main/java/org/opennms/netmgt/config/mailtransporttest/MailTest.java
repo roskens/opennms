@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -61,10 +59,10 @@ import org.xml.sax.ContentHandler;
  * test are
  *  configured, then the use case (d) will be executed.
  */
-
-@XmlRootElement(name="mail-test")
+@XmlRootElement(name = "mail-test")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class MailTest implements Serializable {
+
     private static final long serialVersionUID = -1481837134706190322L;
 
     /**
@@ -79,29 +77,25 @@ public class MailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="sendmail-test")
+    @XmlElement(name = "sendmail-test")
     private SendmailTest m_sendmailTest;
 
     /**
      * Field m_readmailTest.
      */
-    @XmlElement(name="readmail-test")
+    @XmlElement(name = "readmail-test")
     private ReadmailTest m_readmailTest;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public MailTest() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the Object.equals method.
      * 
@@ -110,10 +104,12 @@ public class MailTest implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof MailTest) {
-            final MailTest temp = (MailTest)obj;
+            final MailTest temp = (MailTest) obj;
             if (m_sendmailTest != null) {
                 if (temp.m_sendmailTest == null) {
                     return false;
@@ -175,14 +171,14 @@ public class MailTest implements Serializable {
      */
     public int hashCode() {
         int result = 17;
-        
+
         if (m_sendmailTest != null) {
-           result = 37 * result + m_sendmailTest.hashCode();
+            result = 37 * result + m_sendmailTest.hashCode();
         }
         if (m_readmailTest != null) {
-           result = 37 * result + m_readmailTest.hashCode();
+            result = 37 * result + m_readmailTest.hashCode();
         }
-        
+
         return result;
     }
 

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.notifd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,50 +48,45 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="auto-acknowledge-alarm")
+@XmlRootElement(name = "auto-acknowledge-alarm")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("notifd-configuration.xsd")
-@SuppressWarnings("all") public class AutoAcknowledgeAlarm implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class AutoAcknowledgeAlarm implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _resolutionPrefix.
      */
-    @XmlAttribute(name="resolution-prefix")
+    @XmlAttribute(name = "resolution-prefix")
     private java.lang.String _resolutionPrefix;
     private static final String DEFAULT_RESOLUTION_PREFIX = "RESOLVED: ";
 
     /**
      * Field _notify.
      */
-    @XmlAttribute(name="notify")
+    @XmlAttribute(name = "notify")
     private Boolean _notify = true;
 
     /**
      * Field _ueiList.
      */
-    @XmlElement(name="uei")
+    @XmlElement(name = "uei")
     private java.util.List<java.lang.String> _ueiList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public AutoAcknowledgeAlarm() {
         super();
         this._ueiList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -104,7 +96,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addUei(
             final java.lang.String vUei)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._ueiList.add(vUei);
     }
 
@@ -119,14 +111,13 @@ import org.opennms.core.xml.ValidateUsing;
     public void addUei(
             final int index,
             final java.lang.String vUei)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._ueiList.add(index, vUei);
     }
 
     /**
      */
-    public void deleteNotify(
-    ) {
+    public void deleteNotify() {
         this._notify = null;
     }
 
@@ -136,8 +127,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateUei(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateUei() {
         return java.util.Collections.enumeration(this._ueiList);
     }
 
@@ -150,33 +140,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof AutoAcknowledgeAlarm) {
 
-            AutoAcknowledgeAlarm temp = (AutoAcknowledgeAlarm)obj;
+            AutoAcknowledgeAlarm temp = (AutoAcknowledgeAlarm) obj;
             if (this._resolutionPrefix != null) {
-                if (temp._resolutionPrefix == null) return false;
-                else if (!(this._resolutionPrefix.equals(temp._resolutionPrefix)))
+                if (temp._resolutionPrefix == null) {
                     return false;
-            }
-            else if (temp._resolutionPrefix != null)
+                } else if (!(this._resolutionPrefix.equals(temp._resolutionPrefix))) {
+                    return false;
+                }
+            } else if (temp._resolutionPrefix != null) {
                 return false;
+            }
             if (this._notify != null) {
-                if (temp._notify == null) return false;
-                else if (!(this._notify.equals(temp._notify)))
+                if (temp._notify == null) {
                     return false;
-            }
-            else if (temp._notify != null)
+                } else if (!(this._notify.equals(temp._notify))) {
+                    return false;
+                }
+            } else if (temp._notify != null) {
                 return false;
+            }
             if (this._ueiList != null) {
-                if (temp._ueiList == null) return false;
-                else if (!(this._ueiList.equals(temp._ueiList)))
+                if (temp._ueiList == null) {
                     return false;
-            }
-            else if (temp._ueiList != null)
+                } else if (!(this._ueiList.equals(temp._ueiList))) {
+                    return false;
+                }
+            } else if (temp._ueiList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -187,8 +184,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Notify'.
      */
-    public Boolean getNotify(
-    ) {
+    public Boolean getNotify() {
         return this._notify == null ? true : this._notify;
     }
 
@@ -197,8 +193,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ResolutionPrefix'.
      */
-    public java.lang.String getResolutionPrefix(
-    ) {
+    public java.lang.String getResolutionPrefix() {
         return this._resolutionPrefix == null ? DEFAULT_RESOLUTION_PREFIX : this._resolutionPrefix;
     }
 
@@ -212,7 +207,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getUei(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._ueiList.size()) {
             throw new IndexOutOfBoundsException("getUei: Index value '" + index + "' not in range [0.." + (this._ueiList.size() - 1) + "]");
@@ -230,8 +225,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getUei(
-    ) {
+    public java.lang.String[] getUei() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._ueiList.toArray(array);
     }
@@ -243,8 +237,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getUeiCollection(
-    ) {
+    public java.util.List<java.lang.String> getUeiCollection() {
         return this._ueiList;
     }
 
@@ -253,8 +246,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getUeiCount(
-    ) {
+    public int getUeiCount() {
         return this._ueiList.size();
     }
 
@@ -263,8 +255,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Notify has been added
      */
-    public boolean hasNotify(
-    ) {
+    public boolean hasNotify() {
         return this._notify != null;
     }
 
@@ -277,17 +268,16 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_resolutionPrefix != null) {
-           result = 37 * result + _resolutionPrefix.hashCode();
+            result = 37 * result + _resolutionPrefix.hashCode();
         }
-        result = 37 * result + (_notify?0:1);
+        result = 37 * result + (_notify ? 0 : 1);
         if (_ueiList != null) {
-           result = 37 * result + _ueiList.hashCode();
+            result = 37 * result + _ueiList.hashCode();
         }
 
         return result;
@@ -298,8 +288,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Notify'.
      */
-    public boolean isNotify(
-    ) {
+    public boolean isNotify() {
         return this._notify;
     }
 
@@ -308,8 +297,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -324,8 +312,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateUei(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateUei() {
         return this._ueiList.iterator();
     }
 
@@ -340,7 +327,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -357,14 +344,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllUei(
-    ) {
+    public void removeAllUei() {
         this._ueiList.clear();
     }
 
@@ -423,7 +409,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setUei(
             final int index,
             final java.lang.String vUei)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._ueiList.size()) {
             throw new IndexOutOfBoundsException("setUei: Index value '" + index + "' not in range [0.." + (this._ueiList.size() - 1) + "]");
@@ -443,7 +429,7 @@ import org.opennms.core.xml.ValidateUsing;
         _ueiList.clear();
 
         for (int i = 0; i < vUeiArray.length; i++) {
-                this._ueiList.add(vUeiArray[i]);
+            this._ueiList.add(vUeiArray[i]);
         }
     }
 
@@ -486,7 +472,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.notifd.AutoAcknowledgeAlarm unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.notifd.AutoAcknowledgeAlarm) Unmarshaller.unmarshal(org.opennms.netmgt.config.notifd.AutoAcknowledgeAlarm.class, reader);
     }
 
@@ -496,9 +482,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

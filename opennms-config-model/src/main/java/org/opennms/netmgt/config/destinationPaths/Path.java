@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.destinationPaths;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,57 +48,52 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="path")
+@XmlRootElement(name = "path")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("destinationPaths.xsd")
-@SuppressWarnings("all") public class Path implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Path implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _initialDelay.
      */
-    @XmlAttribute(name="initial-delay")
+    @XmlAttribute(name = "initial-delay")
     private java.lang.String _initialDelay;
     private static final String DEFAULT_INITIAL_DELAY = "0s";
 
     /**
      * Field _targetList.
      */
-    @XmlElement(name="target")
+    @XmlElement(name = "target")
     private java.util.List<org.opennms.netmgt.config.destinationPaths.Target> _targetList;
 
     /**
      * Field _escalateList.
      */
-    @XmlElement(name="escalate")
+    @XmlElement(name = "escalate")
     private java.util.List<org.opennms.netmgt.config.destinationPaths.Escalate> _escalateList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Path() {
         super();
         this._targetList = new java.util.ArrayList<org.opennms.netmgt.config.destinationPaths.Target>();
         this._escalateList = new java.util.ArrayList<org.opennms.netmgt.config.destinationPaths.Escalate>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -111,7 +103,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addEscalate(
             final org.opennms.netmgt.config.destinationPaths.Escalate vEscalate)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._escalateList.add(vEscalate);
     }
 
@@ -126,7 +118,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addEscalate(
             final int index,
             final org.opennms.netmgt.config.destinationPaths.Escalate vEscalate)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._escalateList.add(index, vEscalate);
     }
 
@@ -139,7 +131,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addTarget(
             final org.opennms.netmgt.config.destinationPaths.Target vTarget)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._targetList.add(vTarget);
     }
 
@@ -154,7 +146,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addTarget(
             final int index,
             final org.opennms.netmgt.config.destinationPaths.Target vTarget)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._targetList.add(index, vTarget);
     }
 
@@ -164,8 +156,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.destinationPaths.Escalate> enumerateEscalate(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.destinationPaths.Escalate> enumerateEscalate() {
         return java.util.Collections.enumeration(this._escalateList);
     }
 
@@ -175,8 +166,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.destinationPaths.Target> enumerateTarget(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.destinationPaths.Target> enumerateTarget() {
         return java.util.Collections.enumeration(this._targetList);
     }
 
@@ -189,40 +179,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Path) {
 
-            Path temp = (Path)obj;
+            Path temp = (Path) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._initialDelay != null) {
-                if (temp._initialDelay == null) return false;
-                else if (!(this._initialDelay.equals(temp._initialDelay)))
+                if (temp._initialDelay == null) {
                     return false;
-            }
-            else if (temp._initialDelay != null)
+                } else if (!(this._initialDelay.equals(temp._initialDelay))) {
+                    return false;
+                }
+            } else if (temp._initialDelay != null) {
                 return false;
+            }
             if (this._targetList != null) {
-                if (temp._targetList == null) return false;
-                else if (!(this._targetList.equals(temp._targetList)))
+                if (temp._targetList == null) {
                     return false;
-            }
-            else if (temp._targetList != null)
+                } else if (!(this._targetList.equals(temp._targetList))) {
+                    return false;
+                }
+            } else if (temp._targetList != null) {
                 return false;
+            }
             if (this._escalateList != null) {
-                if (temp._escalateList == null) return false;
-                else if (!(this._escalateList.equals(temp._escalateList)))
+                if (temp._escalateList == null) {
                     return false;
-            }
-            else if (temp._escalateList != null)
+                } else if (!(this._escalateList.equals(temp._escalateList))) {
+                    return false;
+                }
+            } else if (temp._escalateList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -240,7 +239,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.destinationPaths.Escalate getEscalate(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._escalateList.size()) {
             throw new IndexOutOfBoundsException("getEscalate: Index value '" + index + "' not in range [0.." + (this._escalateList.size() - 1) + "]");
@@ -258,8 +257,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.destinationPaths.Escalate[] getEscalate(
-    ) {
+    public org.opennms.netmgt.config.destinationPaths.Escalate[] getEscalate() {
         org.opennms.netmgt.config.destinationPaths.Escalate[] array = new org.opennms.netmgt.config.destinationPaths.Escalate[0];
         return (org.opennms.netmgt.config.destinationPaths.Escalate[]) this._escalateList.toArray(array);
     }
@@ -271,8 +269,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.destinationPaths.Escalate> getEscalateCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.destinationPaths.Escalate> getEscalateCollection() {
         return this._escalateList;
     }
 
@@ -281,8 +278,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getEscalateCount(
-    ) {
+    public int getEscalateCount() {
         return this._escalateList.size();
     }
 
@@ -291,8 +287,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'InitialDelay'.
      */
-    public java.lang.String getInitialDelay(
-    ) {
+    public java.lang.String getInitialDelay() {
         return this._initialDelay == null ? DEFAULT_INITIAL_DELAY : this._initialDelay;
     }
 
@@ -301,8 +296,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -318,7 +312,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.destinationPaths.Target getTarget(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._targetList.size()) {
             throw new IndexOutOfBoundsException("getTarget: Index value '" + index + "' not in range [0.." + (this._targetList.size() - 1) + "]");
@@ -336,8 +330,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.destinationPaths.Target[] getTarget(
-    ) {
+    public org.opennms.netmgt.config.destinationPaths.Target[] getTarget() {
         org.opennms.netmgt.config.destinationPaths.Target[] array = new org.opennms.netmgt.config.destinationPaths.Target[0];
         return (org.opennms.netmgt.config.destinationPaths.Target[]) this._targetList.toArray(array);
     }
@@ -349,8 +342,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.destinationPaths.Target> getTargetCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.destinationPaths.Target> getTargetCollection() {
         return this._targetList;
     }
 
@@ -359,8 +351,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getTargetCount(
-    ) {
+    public int getTargetCount() {
         return this._targetList.size();
     }
 
@@ -373,22 +364,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_initialDelay != null) {
-           result = 37 * result + _initialDelay.hashCode();
+            result = 37 * result + _initialDelay.hashCode();
         }
         if (_targetList != null) {
-           result = 37 * result + _targetList.hashCode();
+            result = 37 * result + _targetList.hashCode();
         }
         if (_escalateList != null) {
-           result = 37 * result + _escalateList.hashCode();
+            result = 37 * result + _escalateList.hashCode();
         }
 
         return result;
@@ -399,8 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -415,8 +404,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.destinationPaths.Escalate> iterateEscalate(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.destinationPaths.Escalate> iterateEscalate() {
         return this._escalateList.iterator();
     }
 
@@ -426,8 +414,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.destinationPaths.Target> iterateTarget(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.destinationPaths.Target> iterateTarget() {
         return this._targetList.iterator();
     }
 
@@ -442,7 +429,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -459,21 +446,19 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllEscalate(
-    ) {
+    public void removeAllEscalate() {
         this._escalateList.clear();
     }
 
     /**
      */
-    public void removeAllTarget(
-    ) {
+    public void removeAllTarget() {
         this._targetList.clear();
     }
 
@@ -536,7 +521,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setEscalate(
             final int index,
             final org.opennms.netmgt.config.destinationPaths.Escalate vEscalate)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._escalateList.size()) {
             throw new IndexOutOfBoundsException("setEscalate: Index value '" + index + "' not in range [0.." + (this._escalateList.size() - 1) + "]");
@@ -556,7 +541,7 @@ import org.opennms.core.xml.ValidateUsing;
         _escalateList.clear();
 
         for (int i = 0; i < vEscalateArray.length; i++) {
-                this._escalateList.add(vEscalateArray[i]);
+            this._escalateList.add(vEscalateArray[i]);
         }
     }
 
@@ -617,7 +602,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setTarget(
             final int index,
             final org.opennms.netmgt.config.destinationPaths.Target vTarget)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._targetList.size()) {
             throw new IndexOutOfBoundsException("setTarget: Index value '" + index + "' not in range [0.." + (this._targetList.size() - 1) + "]");
@@ -637,7 +622,7 @@ import org.opennms.core.xml.ValidateUsing;
         _targetList.clear();
 
         for (int i = 0; i < vTargetArray.length; i++) {
-                this._targetList.add(vTargetArray[i]);
+            this._targetList.add(vTargetArray[i]);
         }
     }
 
@@ -680,7 +665,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.destinationPaths.Path unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.destinationPaths.Path) Unmarshaller.unmarshal(org.opennms.netmgt.config.destinationPaths.Path.class, reader);
     }
 
@@ -690,9 +675,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

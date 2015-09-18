@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.tl1d;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,95 +41,88 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="tl1-element")
+@XmlRootElement(name = "tl1-element")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("tl1d-configuration.xsd")
-@SuppressWarnings("all") public class Tl1Element implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Tl1Element implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _host.
      */
-    @XmlAttribute(name="host", required = true)
+    @XmlAttribute(name = "host", required = true)
     private java.lang.String _host;
 
     /**
      * Field _port.
      */
-    @XmlAttribute(name="port")
+    @XmlAttribute(name = "port")
     private Integer _port;
     private static final Integer DEFAULT_PORT = 502;
 
     /**
      * Field _userid.
      */
-    @XmlAttribute(name="userid")
+    @XmlAttribute(name = "userid")
     private java.lang.String _userid;
     private static final String DEFAULT_USERID = "opennms";
 
     /**
      * Field _password.
      */
-    @XmlAttribute(name="password")
+    @XmlAttribute(name = "password")
     private java.lang.String _password;
     private static final String DEFAULT_PASSWORD = "opennms";
 
     /**
      * Field _tl1ClientApi.
      */
-    @XmlAttribute(name="tl1-client-api")
+    @XmlAttribute(name = "tl1-client-api")
     private java.lang.String _tl1ClientApi;
     private static final String DEFAULT_TL1CLIENTAPI = "org.opennms.netmgt.tl1d.Tl1ClientImpl";
 
     /**
      * Field _tl1MessageParser.
      */
-    @XmlAttribute(name="tl1-message-parser")
+    @XmlAttribute(name = "tl1-message-parser")
     private java.lang.String _tl1MessageParser;
     private static final String DEFAULT_TL1MESSAGEPARSER = "org.opennms.netmgt.tl1d.Tl1AutonomousMessageProcessor";
 
     /**
      * Field _reconnectDelay.
      */
-    @XmlAttribute(name="reconnect-delay")
+    @XmlAttribute(name = "reconnect-delay")
     private Long _reconnectDelay;
     private static final Long DEFAULT_RECONNECT_DELAY = 30000L;
 
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Tl1Element() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deletePort(
-    ) {
+    public void deletePort() {
         this._port = null;
     }
 
     /**
      */
-    public void deleteReconnectDelay(
-    ) {
+    public void deleteReconnectDelay() {
         this._reconnectDelay = null;
     }
 
@@ -144,61 +135,76 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Tl1Element) {
 
-            Tl1Element temp = (Tl1Element)obj;
+            Tl1Element temp = (Tl1Element) obj;
             if (this._host != null) {
-                if (temp._host == null) return false;
-                else if (!(this._host.equals(temp._host)))
+                if (temp._host == null) {
                     return false;
-            }
-            else if (temp._host != null)
+                } else if (!(this._host.equals(temp._host))) {
+                    return false;
+                }
+            } else if (temp._host != null) {
                 return false;
+            }
             if (this._port != null) {
-                if (temp._port == null) return false;
-                else if (!(this._port.equals(temp._port)))
+                if (temp._port == null) {
                     return false;
-            }
-            else if (temp._port != null)
+                } else if (!(this._port.equals(temp._port))) {
+                    return false;
+                }
+            } else if (temp._port != null) {
                 return false;
+            }
             if (this._userid != null) {
-                if (temp._userid == null) return false;
-                else if (!(this._userid.equals(temp._userid)))
+                if (temp._userid == null) {
                     return false;
-            }
-            else if (temp._userid != null)
+                } else if (!(this._userid.equals(temp._userid))) {
+                    return false;
+                }
+            } else if (temp._userid != null) {
                 return false;
+            }
             if (this._password != null) {
-                if (temp._password == null) return false;
-                else if (!(this._password.equals(temp._password)))
+                if (temp._password == null) {
                     return false;
-            }
-            else if (temp._password != null)
+                } else if (!(this._password.equals(temp._password))) {
+                    return false;
+                }
+            } else if (temp._password != null) {
                 return false;
+            }
             if (this._tl1ClientApi != null) {
-                if (temp._tl1ClientApi == null) return false;
-                else if (!(this._tl1ClientApi.equals(temp._tl1ClientApi)))
+                if (temp._tl1ClientApi == null) {
                     return false;
-            }
-            else if (temp._tl1ClientApi != null)
+                } else if (!(this._tl1ClientApi.equals(temp._tl1ClientApi))) {
+                    return false;
+                }
+            } else if (temp._tl1ClientApi != null) {
                 return false;
+            }
             if (this._tl1MessageParser != null) {
-                if (temp._tl1MessageParser == null) return false;
-                else if (!(this._tl1MessageParser.equals(temp._tl1MessageParser)))
+                if (temp._tl1MessageParser == null) {
                     return false;
-            }
-            else if (temp._tl1MessageParser != null)
+                } else if (!(this._tl1MessageParser.equals(temp._tl1MessageParser))) {
+                    return false;
+                }
+            } else if (temp._tl1MessageParser != null) {
                 return false;
+            }
             if (this._reconnectDelay != null) {
-                if (temp._reconnectDelay == null) return false;
-                else if (!(this._reconnectDelay.equals(temp._reconnectDelay)))
+                if (temp._reconnectDelay == null) {
                     return false;
-            }
-            else if (temp._reconnectDelay != null)
+                } else if (!(this._reconnectDelay.equals(temp._reconnectDelay))) {
+                    return false;
+                }
+            } else if (temp._reconnectDelay != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -209,8 +215,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Host'.
      */
-    public java.lang.String getHost(
-    ) {
+    public java.lang.String getHost() {
         return this._host;
     }
 
@@ -219,8 +224,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Password'.
      */
-    public java.lang.String getPassword(
-    ) {
+    public java.lang.String getPassword() {
         return this._password == null ? DEFAULT_PASSWORD : this._password;
     }
 
@@ -229,8 +233,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Port'.
      */
-    public Integer getPort(
-    ) {
+    public Integer getPort() {
         return this._port == null ? DEFAULT_PORT : this._port;
     }
 
@@ -239,8 +242,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReconnectDelay'.
      */
-    public Long getReconnectDelay(
-    ) {
+    public Long getReconnectDelay() {
         return this._reconnectDelay == null ? DEFAULT_RECONNECT_DELAY : this._reconnectDelay;
     }
 
@@ -249,8 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Tl1ClientApi'.
      */
-    public java.lang.String getTl1ClientApi(
-    ) {
+    public java.lang.String getTl1ClientApi() {
         return this._tl1ClientApi == null ? DEFAULT_TL1CLIENTAPI : this._tl1ClientApi;
     }
 
@@ -259,8 +260,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Tl1MessageParser'.
      */
-    public java.lang.String getTl1MessageParser(
-    ) {
+    public java.lang.String getTl1MessageParser() {
         return this._tl1MessageParser == null ? DEFAULT_TL1MESSAGEPARSER : this._tl1MessageParser;
     }
 
@@ -269,8 +269,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Userid'.
      */
-    public java.lang.String getUserid(
-    ) {
+    public java.lang.String getUserid() {
         return this._userid == null ? DEFAULT_USERID : this._userid;
     }
 
@@ -279,8 +278,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Port has been added
      */
-    public boolean hasPort(
-    ) {
+    public boolean hasPort() {
         return this._port != null;
     }
 
@@ -289,8 +287,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one ReconnectDelay has been added
      */
-    public boolean hasReconnectDelay(
-    ) {
+    public boolean hasReconnectDelay() {
         return this._reconnectDelay != null;
     }
 
@@ -303,31 +300,30 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_host != null) {
-           result = 37 * result + _host.hashCode();
+            result = 37 * result + _host.hashCode();
         }
         if (_port != null) {
-           result = 37 * result + _port.hashCode();
+            result = 37 * result + _port.hashCode();
         }
         if (_userid != null) {
-           result = 37 * result + _userid.hashCode();
+            result = 37 * result + _userid.hashCode();
         }
         if (_password != null) {
-           result = 37 * result + _password.hashCode();
+            result = 37 * result + _password.hashCode();
         }
         if (_tl1ClientApi != null) {
-           result = 37 * result + _tl1ClientApi.hashCode();
+            result = 37 * result + _tl1ClientApi.hashCode();
         }
         if (_tl1MessageParser != null) {
-           result = 37 * result + _tl1MessageParser.hashCode();
+            result = 37 * result + _tl1MessageParser.hashCode();
         }
         if (_reconnectDelay != null) {
-           result = 37 * result + _reconnectDelay.hashCode();
+            result = 37 * result + _reconnectDelay.hashCode();
         }
 
         return result;
@@ -338,8 +334,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -359,7 +354,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -376,7 +371,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -463,7 +458,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.tl1d.Tl1Element unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.tl1d.Tl1Element) Unmarshaller.unmarshal(org.opennms.netmgt.config.tl1d.Tl1Element.class, reader);
     }
 
@@ -473,9 +468,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

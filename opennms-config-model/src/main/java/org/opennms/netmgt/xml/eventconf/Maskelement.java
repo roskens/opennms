@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import static org.opennms.netmgt.xml.eventconf.EventMatchers.*;
@@ -57,13 +56,14 @@ import org.xml.sax.ContentHandler;
 /**
  * The mask element
  */
-@XmlRootElement(name="maskelement")
+@XmlRootElement(name = "maskelement")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventconf.xsd")
-@XmlType(propOrder={"m_name", "m_values"})
+@XmlType(propOrder = {"m_name", "m_values"})
 public class Maskelement implements Serializable {
-	private static final long serialVersionUID = -3932312038903008806L;
-	private static final String[] EMPTY_STRING_ARRAY = new String[0];
+
+    private static final long serialVersionUID = -3932312038903008806L;
+    private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
     /**
      * The UEI xml tag
@@ -121,12 +121,12 @@ public class Maskelement implements Serializable {
     public static final String TAG_SNMP_COMMUNITY = "community";
 
     // @NotNull
-	@XmlElement(name="mename", required=true)
+    @XmlElement(name = "mename", required = true)
     private String m_name;
 
 	// @NotNull
-	// @Size(min=1)
-	@XmlElement(name="mevalue", required=true)
+    // @Size(min=1)
+    @XmlElement(name = "mevalue", required = true)
     private List<String> m_values = new ArrayList<String>();
 
     public void addMevalue(final String value) throws IndexOutOfBoundsException {
@@ -243,7 +243,7 @@ public class Maskelement implements Serializable {
     public void setMevalue(final String[] values) {
         m_values.clear();
         for (final String value : values) {
-        	m_values.add(value.intern());
+            m_values.add(value.intern());
         }
     }
 
@@ -269,56 +269,66 @@ public class Maskelement implements Serializable {
         new Validator().validate(this);
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((m_name == null) ? 0 : m_name.hashCode());
-		result = prime * result + ((m_values == null) ? 0 : m_values.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((m_name == null) ? 0 : m_name.hashCode());
+        result = prime * result + ((m_values == null) ? 0 : m_values.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (!(obj instanceof Maskelement)) return false;
-		final Maskelement other = (Maskelement) obj;
-		if (m_name == null) {
-			if (other.m_name != null) return false;
-		} else if (!m_name.equals(other.m_name)) {
-			return false;
-		}
-		if (m_values == null) {
-			if (other.m_values != null) return false;
-		} else if (!m_values.equals(other.m_values)) {
-			return false;
-		}
-		return true;
-	}
-	
-	
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Maskelement)) {
+            return false;
+        }
+        final Maskelement other = (Maskelement) obj;
+        if (m_name == null) {
+            if (other.m_name != null) {
+                return false;
+            }
+        } else if (!m_name.equals(other.m_name)) {
+            return false;
+        }
+        if (m_values == null) {
+            if (other.m_values != null) {
+                return false;
+            }
+        } else if (!m_values.equals(other.m_values)) {
+            return false;
+        }
+        return true;
+    }
 
-	public EventMatcher constructMatcher() {
-		List<EventMatcher> valueMatchers = new ArrayList<EventMatcher>(m_values.size());
-		for(String value : m_values) {
-			if (value == null) continue;
-			if (value.startsWith("~")) {
-				valueMatchers.add(valueMatchesRegexMatcher(field(m_name), value));
-			} else if (value.endsWith("%")) {
-				valueMatchers.add(valueStartsWithMatcher(field(m_name), value));
-			} else {
-				valueMatchers.add(valueEqualsMatcher(field(m_name), value));
-			}
-		}
-		
-		if (valueMatchers.size() == 1) {
-			return valueMatchers.get(0);
-		} else {
-			EventMatcher[] matchers = valueMatchers.toArray(new EventMatcher[valueMatchers.size()]);
-			return EventMatchers.or(matchers);
-		}
+    public EventMatcher constructMatcher() {
+        List<EventMatcher> valueMatchers = new ArrayList<EventMatcher>(m_values.size());
+        for (String value : m_values) {
+            if (value == null) {
+                continue;
+            }
+            if (value.startsWith("~")) {
+                valueMatchers.add(valueMatchesRegexMatcher(field(m_name), value));
+            } else if (value.endsWith("%")) {
+                valueMatchers.add(valueStartsWithMatcher(field(m_name), value));
+            } else {
+                valueMatchers.add(valueEqualsMatcher(field(m_name), value));
+            }
+        }
 
-	}	
+        if (valueMatchers.size() == 1) {
+            return valueMatchers.get(0);
+        } else {
+            EventMatcher[] matchers = valueMatchers.toArray(new EventMatcher[valueMatchers.size()]);
+            return EventMatchers.or(matchers);
+        }
+
+    }
 
 }

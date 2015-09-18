@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.statsd.types;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.util.Hashtable;
 
 /**
@@ -42,22 +40,20 @@ import java.util.Hashtable;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="PackageReportStatusType")
+@XmlRootElement(name = "PackageReportStatusType")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("statistics-daemon-configuration.xsd")
-@SuppressWarnings("all") public class PackageReportStatusType implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class PackageReportStatusType implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The on type
      */
@@ -81,7 +77,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Field _memberTable.
      */
-    private static java.util.Hashtable<Object,Object> _memberTable = init();
+    private static java.util.Hashtable<Object, Object> _memberTable = init();
 
     /**
      * Field type.
@@ -93,22 +89,18 @@ import org.opennms.core.xml.ValidateUsing;
      */
     private java.lang.String stringValue = null;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     private PackageReportStatusType(final int type, final java.lang.String value) {
         super();
         this.type = type;
         this.stringValue = value;
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method enumerate.Returns an enumeration of all possible
      * instances of PackageReportStatusType
@@ -116,8 +108,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible instances of
      * PackageReportStatusType
      */
-    public static java.util.Enumeration<java.lang.Object> enumerate(
-    ) {
+    public static java.util.Enumeration<java.lang.Object> enumerate() {
         return _memberTable.elements();
     }
 
@@ -127,8 +118,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the type of this PackageReportStatusType
      */
-    public int getType(
-    ) {
+    public int getType() {
         return this.type;
     }
 
@@ -137,8 +127,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the initialized Hashtable for the member table
      */
-    private static java.util.Hashtable<Object,Object> init(
-    ) {
+    private static java.util.Hashtable<Object, Object> init() {
         Hashtable<Object, Object> members = new Hashtable<Object, Object>();
         members.put("on", ON);
         members.put("off", OFF);
@@ -152,8 +141,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this deserialized object
      */
-    private java.lang.Object readResolve(
-    ) {
+    private java.lang.Object readResolve() {
         return valueOf(this.stringValue);
     }
 
@@ -164,8 +152,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return the String representation of this
      * PackageReportStatusType
      */
-    public java.lang.String toString(
-    ) {
+    public java.lang.String toString() {
         return this.stringValue;
     }
 

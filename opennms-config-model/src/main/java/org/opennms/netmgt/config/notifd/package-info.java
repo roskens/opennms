@@ -25,13 +25,12 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 @XmlSchema(
-    namespace = "http://xmlns.opennms.org/xsd/config/notifd",
-    elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
-    xmlns={
-        @XmlNs(prefix="", namespaceURI="http://xmlns.opennms.org/xsd/config/notifd")
-    }
+        namespace = "http://xmlns.opennms.org/xsd/config/notifd",
+        elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+        xmlns = {
+            @XmlNs(prefix = "", namespaceURI = "http://xmlns.opennms.org/xsd/config/notifd")
+        }
 )
 package org.opennms.netmgt.config.notifd;
 

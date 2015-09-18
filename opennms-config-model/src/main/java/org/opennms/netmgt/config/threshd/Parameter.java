@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.threshd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -45,49 +43,43 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="parameter")
+@XmlRootElement(name = "parameter")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("threshd-configuration.xsd")
-@SuppressWarnings("all") public class Parameter implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Parameter implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _key.
      */
-    @XmlAttribute(name="key", required = true)
+    @XmlAttribute(name = "key", required = true)
     private java.lang.String _key;
 
     /**
      * Field _value.
      */
-    @XmlAttribute(name="value", required = true)
+    @XmlAttribute(name = "value", required = true)
     private java.lang.String _value;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Parameter() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -97,26 +89,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Parameter) {
 
-            Parameter temp = (Parameter)obj;
+            Parameter temp = (Parameter) obj;
             if (this._key != null) {
-                if (temp._key == null) return false;
-                else if (!(this._key.equals(temp._key)))
+                if (temp._key == null) {
                     return false;
-            }
-            else if (temp._key != null)
+                } else if (!(this._key.equals(temp._key))) {
+                    return false;
+                }
+            } else if (temp._key != null) {
                 return false;
+            }
             if (this._value != null) {
-                if (temp._value == null) return false;
-                else if (!(this._value.equals(temp._value)))
+                if (temp._value == null) {
                     return false;
-            }
-            else if (temp._value != null)
+                } else if (!(this._value.equals(temp._value))) {
+                    return false;
+                }
+            } else if (temp._value != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -127,8 +124,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Key'.
      */
-    public java.lang.String getKey(
-    ) {
+    public java.lang.String getKey() {
         return this._key;
     }
 
@@ -137,8 +133,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Value'.
      */
-    public java.lang.String getValue(
-    ) {
+    public java.lang.String getValue() {
         return this._value;
     }
 
@@ -151,16 +146,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_key != null) {
-           result = 37 * result + _key.hashCode();
+            result = 37 * result + _key.hashCode();
         }
         if (_value != null) {
-           result = 37 * result + _value.hashCode();
+            result = 37 * result + _value.hashCode();
         }
 
         return result;
@@ -171,8 +165,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -192,7 +185,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -209,7 +202,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -246,7 +239,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.threshd.Parameter unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.threshd.Parameter) Unmarshaller.unmarshal(org.opennms.netmgt.config.threshd.Parameter.class, reader);
     }
 
@@ -256,9 +249,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

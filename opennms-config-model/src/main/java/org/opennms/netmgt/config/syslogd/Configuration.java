@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.syslogd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -45,7 +43,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -53,23 +50,22 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="configuration")
+@XmlRootElement(name = "configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("syslogd-configuration.xsd")
-@SuppressWarnings("all") public class Configuration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Configuration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The address on which Syslogd listens for SYSLOG Messages.
      * The
      *  default is to listen on all addresses.
      *
      */
-    @XmlAttribute(name="listen-address")
+    @XmlAttribute(name = "listen-address")
     private String _listenAddress;
 
     /**
@@ -77,7 +73,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  standard port is 514.
      *
      */
-    @XmlAttribute(name="syslog-port", required = true)
+    @XmlAttribute(name = "syslog-port", required = true)
     private Integer _syslogPort;
 
     /**
@@ -85,7 +81,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  generate newSuspect events.
      *
      */
-    @XmlAttribute(name="new-suspect-on-message")
+    @XmlAttribute(name = "new-suspect-on-message")
     private Boolean _newSuspectOnMessage;
     private static final Boolean DEFAULT_NEW_SUSPECT_ON_MESSAGE = false;
 
@@ -93,19 +89,19 @@ import org.opennms.core.xml.ValidateUsing;
      * The regular expression used to separate message and host.
      *
      */
-    @XmlAttribute(name="forwarding-regexp")
+    @XmlAttribute(name = "forwarding-regexp")
     private String _forwardingRegexp;
 
     /**
      * The matching group for the host
      */
-    @XmlAttribute(name="matching-group-host")
+    @XmlAttribute(name = "matching-group-host")
     private Integer _matchingGroupHost;
 
     /**
      * The matching group for the message
      */
-    @XmlAttribute(name="matching-group-message")
+    @XmlAttribute(name = "matching-group-message")
     private Integer _matchingGroupMessage;
 
     /**
@@ -125,7 +121,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  (2009) RFC for syslog messages.
      *
      */
-    @XmlAttribute(name="parser")
+    @XmlAttribute(name = "parser")
     private java.lang.String _parser;
     private static final String DEFAULT_PARSER = "org.opennms.netmgt.syslogd.CustomSyslogParser";
 
@@ -136,49 +132,41 @@ import org.opennms.core.xml.ValidateUsing;
      *  ever being created
      *
      */
-    @XmlAttribute(name="discard-uei")
+    @XmlAttribute(name = "discard-uei")
     private java.lang.String _discardUei;
     private static final String DEFAULT_DISCARD_UEI = "DISCARD-MATCHING-MESSAGES";
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Configuration() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteMatchingGroupHost(
-    ) {
+    public void deleteMatchingGroupHost() {
         this._matchingGroupHost = null;
     }
 
     /**
      */
-    public void deleteMatchingGroupMessage(
-    ) {
+    public void deleteMatchingGroupMessage() {
         this._matchingGroupMessage = null;
     }
 
     /**
      */
-    public void deleteNewSuspectOnMessage(
-    ) {
+    public void deleteNewSuspectOnMessage() {
         this._newSuspectOnMessage = null;
     }
 
     /**
      */
-    public void deleteSyslogPort(
-    ) {
+    public void deleteSyslogPort() {
         this._syslogPort = null;
     }
 
@@ -191,68 +179,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Configuration) {
 
-            Configuration temp = (Configuration)obj;
+            Configuration temp = (Configuration) obj;
             if (this._listenAddress != null) {
-                if (temp._listenAddress == null) return false;
-                else if (!(this._listenAddress.equals(temp._listenAddress)))
+                if (temp._listenAddress == null) {
                     return false;
-            }
-            else if (temp._listenAddress != null)
+                } else if (!(this._listenAddress.equals(temp._listenAddress))) {
+                    return false;
+                }
+            } else if (temp._listenAddress != null) {
                 return false;
+            }
             if (this._syslogPort != null) {
-                if (temp._syslogPort == null) return false;
-                else if (!(this._syslogPort.equals(temp._syslogPort)))
+                if (temp._syslogPort == null) {
                     return false;
-            }
-            else if (temp._syslogPort != null)
+                } else if (!(this._syslogPort.equals(temp._syslogPort))) {
+                    return false;
+                }
+            } else if (temp._syslogPort != null) {
                 return false;
+            }
             if (this._newSuspectOnMessage != null) {
-                if (temp._newSuspectOnMessage == null) return false;
-                else if (!(this._newSuspectOnMessage.equals(temp._newSuspectOnMessage)))
+                if (temp._newSuspectOnMessage == null) {
                     return false;
-            }
-            else if (temp._newSuspectOnMessage != null)
+                } else if (!(this._newSuspectOnMessage.equals(temp._newSuspectOnMessage))) {
+                    return false;
+                }
+            } else if (temp._newSuspectOnMessage != null) {
                 return false;
+            }
             if (this._forwardingRegexp != null) {
-                if (temp._forwardingRegexp == null) return false;
-                else if (!(this._forwardingRegexp.equals(temp._forwardingRegexp)))
+                if (temp._forwardingRegexp == null) {
                     return false;
-            }
-            else if (temp._forwardingRegexp != null)
+                } else if (!(this._forwardingRegexp.equals(temp._forwardingRegexp))) {
+                    return false;
+                }
+            } else if (temp._forwardingRegexp != null) {
                 return false;
+            }
             if (this._matchingGroupHost != null) {
-                if (temp._matchingGroupHost == null) return false;
-                else if (!(this._matchingGroupHost.equals(temp._matchingGroupHost)))
+                if (temp._matchingGroupHost == null) {
                     return false;
-            }
-            else if (temp._matchingGroupHost != null)
+                } else if (!(this._matchingGroupHost.equals(temp._matchingGroupHost))) {
+                    return false;
+                }
+            } else if (temp._matchingGroupHost != null) {
                 return false;
+            }
             if (this._matchingGroupMessage != null) {
-                if (temp._matchingGroupMessage == null) return false;
-                else if (!(this._matchingGroupMessage.equals(temp._matchingGroupMessage)))
+                if (temp._matchingGroupMessage == null) {
                     return false;
-            }
-            else if (temp._matchingGroupMessage != null)
+                } else if (!(this._matchingGroupMessage.equals(temp._matchingGroupMessage))) {
+                    return false;
+                }
+            } else if (temp._matchingGroupMessage != null) {
                 return false;
+            }
             if (this._parser != null) {
-                if (temp._parser == null) return false;
-                else if (!(this._parser.equals(temp._parser)))
+                if (temp._parser == null) {
                     return false;
-            }
-            else if (temp._parser != null)
+                } else if (!(this._parser.equals(temp._parser))) {
+                    return false;
+                }
+            } else if (temp._parser != null) {
                 return false;
+            }
             if (this._discardUei != null) {
-                if (temp._discardUei == null) return false;
-                else if (!(this._discardUei.equals(temp._discardUei)))
+                if (temp._discardUei == null) {
                     return false;
-            }
-            else if (temp._discardUei != null)
+                } else if (!(this._discardUei.equals(temp._discardUei))) {
+                    return false;
+                }
+            } else if (temp._discardUei != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -269,8 +274,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DiscardUei'.
      */
-    public java.lang.String getDiscardUei(
-    ) {
+    public java.lang.String getDiscardUei() {
         return this._discardUei == null ? DEFAULT_DISCARD_UEI : this._discardUei;
     }
 
@@ -282,8 +286,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ForwardingRegexp'.
      */
-    public java.lang.String getForwardingRegexp(
-    ) {
+    public java.lang.String getForwardingRegexp() {
         return this._forwardingRegexp;
     }
 
@@ -296,8 +299,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ListenAddress'.
      */
-    public java.lang.String getListenAddress(
-    ) {
+    public java.lang.String getListenAddress() {
         return this._listenAddress;
     }
 
@@ -308,8 +310,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchingGroupHost'.
      */
-    public Integer getMatchingGroupHost(
-    ) {
+    public Integer getMatchingGroupHost() {
         return this._matchingGroupHost;
     }
 
@@ -320,8 +321,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchingGroupMessage'.
      */
-    public Integer getMatchingGroupMessage(
-    ) {
+    public Integer getMatchingGroupMessage() {
         return this._matchingGroupMessage;
     }
 
@@ -334,8 +334,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NewSuspectOnMessage'.
      */
-    public Boolean getNewSuspectOnMessage(
-    ) {
+    public Boolean getNewSuspectOnMessage() {
         return this._newSuspectOnMessage == null ? DEFAULT_NEW_SUSPECT_ON_MESSAGE : this._newSuspectOnMessage;
     }
 
@@ -359,8 +358,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Parser'.
      */
-    public java.lang.String getParser(
-    ) {
+    public java.lang.String getParser() {
         return this._parser == null ? DEFAULT_PARSER : this._parser;
     }
 
@@ -373,8 +371,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SyslogPort'.
      */
-    public Integer getSyslogPort(
-    ) {
+    public Integer getSyslogPort() {
         return this._syslogPort;
     }
 
@@ -383,8 +380,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one MatchingGroupHost has been added
      */
-    public boolean hasMatchingGroupHost(
-    ) {
+    public boolean hasMatchingGroupHost() {
         return this._matchingGroupHost != null;
     }
 
@@ -394,8 +390,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if at least one MatchingGroupMessage has been
      * added
      */
-    public boolean hasMatchingGroupMessage(
-    ) {
+    public boolean hasMatchingGroupMessage() {
         return this._matchingGroupMessage != null;
     }
 
@@ -405,8 +400,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if at least one NewSuspectOnMessage has been
      * added
      */
-    public boolean hasNewSuspectOnMessage(
-    ) {
+    public boolean hasNewSuspectOnMessage() {
         return this._newSuspectOnMessage != null;
     }
 
@@ -415,8 +409,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one SyslogPort has been added
      */
-    public boolean hasSyslogPort(
-    ) {
+    public boolean hasSyslogPort() {
         return this._syslogPort != null;
     }
 
@@ -429,34 +422,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_listenAddress != null) {
-           result = 37 * result + _listenAddress.hashCode();
+            result = 37 * result + _listenAddress.hashCode();
         }
         if (_syslogPort != null) {
-           result = 37 * result + _syslogPort.hashCode();
+            result = 37 * result + _syslogPort.hashCode();
         }
         if (_newSuspectOnMessage != null) {
-           result = 37 * result + _newSuspectOnMessage.hashCode();
+            result = 37 * result + _newSuspectOnMessage.hashCode();
         }
         if (_forwardingRegexp != null) {
-           result = 37 * result + _forwardingRegexp.hashCode();
+            result = 37 * result + _forwardingRegexp.hashCode();
         }
         if (_matchingGroupHost != null) {
-           result = 37 * result + _matchingGroupHost.hashCode();
+            result = 37 * result + _matchingGroupHost.hashCode();
         }
         if (_matchingGroupMessage != null) {
-           result = 37 * result + _matchingGroupMessage.hashCode();
+            result = 37 * result + _matchingGroupMessage.hashCode();
         }
         if (_parser != null) {
-           result = 37 * result + _parser.hashCode();
+            result = 37 * result + _parser.hashCode();
         }
         if (_discardUei != null) {
-           result = 37 * result + _discardUei.hashCode();
+            result = 37 * result + _discardUei.hashCode();
         }
 
         return result;
@@ -471,8 +463,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NewSuspectOnMessage'.
      */
-    public boolean isNewSuspectOnMessage(
-    ) {
+    public boolean isNewSuspectOnMessage() {
         return this._newSuspectOnMessage;
     }
 
@@ -481,8 +472,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -502,7 +492,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -519,7 +509,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -656,7 +646,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.syslogd.Configuration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.syslogd.Configuration) Unmarshaller.unmarshal(org.opennms.netmgt.config.syslogd.Configuration.class, reader);
     }
 
@@ -666,9 +656,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

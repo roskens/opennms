@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.surveillanceViews;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,44 +41,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="views")
+@XmlRootElement(name = "views")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("surveillance-views.xsd")
-@SuppressWarnings("all") public class Views implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Views implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _viewList.
      */
-    @XmlElement(name="view")
+    @XmlElement(name = "view")
     private java.util.List<org.opennms.netmgt.config.surveillanceViews.View> _viewList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Views() {
         super();
         this._viewList = new java.util.ArrayList<org.opennms.netmgt.config.surveillanceViews.View>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -90,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addView(
             final org.opennms.netmgt.config.surveillanceViews.View vView)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._viewList.add(vView);
     }
 
@@ -105,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addView(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.View vView)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._viewList.add(index, vView);
     }
 
@@ -115,8 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.View> enumerateView(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.View> enumerateView() {
         return java.util.Collections.enumeration(this._viewList);
     }
 
@@ -129,19 +120,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Views) {
 
-            Views temp = (Views)obj;
+            Views temp = (Views) obj;
             if (this._viewList != null) {
-                if (temp._viewList == null) return false;
-                else if (!(this._viewList.equals(temp._viewList)))
+                if (temp._viewList == null) {
                     return false;
-            }
-            else if (temp._viewList != null)
+                } else if (!(this._viewList.equals(temp._viewList))) {
+                    return false;
+                }
+            } else if (temp._viewList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -159,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.surveillanceViews.View getView(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._viewList.size()) {
             throw new IndexOutOfBoundsException("getView: Index value '" + index + "' not in range [0.." + (this._viewList.size() - 1) + "]");
@@ -177,8 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.surveillanceViews.View[] getView(
-    ) {
+    public org.opennms.netmgt.config.surveillanceViews.View[] getView() {
         org.opennms.netmgt.config.surveillanceViews.View[] array = new org.opennms.netmgt.config.surveillanceViews.View[0];
         return (org.opennms.netmgt.config.surveillanceViews.View[]) this._viewList.toArray(array);
     }
@@ -190,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.surveillanceViews.View> getViewCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.surveillanceViews.View> getViewCollection() {
         return this._viewList;
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getViewCount(
-    ) {
+    public int getViewCount() {
         return this._viewList.size();
     }
 
@@ -214,13 +205,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_viewList != null) {
-           result = 37 * result + _viewList.hashCode();
+            result = 37 * result + _viewList.hashCode();
         }
 
         return result;
@@ -231,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -247,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.View> iterateView(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.View> iterateView() {
         return this._viewList.iterator();
     }
 
@@ -263,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -280,14 +268,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllView(
-    ) {
+    public void removeAllView() {
         this._viewList.clear();
     }
 
@@ -326,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setView(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.View vView)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._viewList.size()) {
             throw new IndexOutOfBoundsException("setView: Index value '" + index + "' not in range [0.." + (this._viewList.size() - 1) + "]");
@@ -346,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
         _viewList.clear();
 
         for (int i = 0; i < vViewArray.length; i++) {
-                this._viewList.add(vViewArray[i]);
+            this._viewList.add(vViewArray[i]);
         }
     }
 
@@ -389,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.surveillanceViews.Views unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.surveillanceViews.Views) Unmarshaller.unmarshal(org.opennms.netmgt.config.surveillanceViews.Views.class, reader);
     }
 
@@ -399,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

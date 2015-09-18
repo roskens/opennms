@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -61,22 +59,22 @@ import org.xml.sax.ContentHandler;
  * defaults will be used and
  *  ${ipaddr} is replaced with the IP address of the service.
  */
-
-@XmlRootElement(name="sendmail-host")
+@XmlRootElement(name = "sendmail-host")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SendmailHost implements Serializable {
+
     private static final long serialVersionUID = -871055181275069836L;
 
     /**
      * Field m_host.
      */
-    @XmlAttribute(name="host")
+    @XmlAttribute(name = "host")
     private String m_host;
 
     /**
      * Field m_port.
      */
-    @XmlAttribute(name="port")
+    @XmlAttribute(name = "port")
     private Long m_port;
 
     public SendmailHost() {
@@ -98,7 +96,7 @@ public class SendmailHost implements Serializable {
      * @return the value of field 'Host'.
      */
     public String getHost() {
-        return m_host == null? "${ipaddr}" : m_host;
+        return m_host == null ? "${ipaddr}" : m_host;
     }
 
     /**
@@ -107,7 +105,7 @@ public class SendmailHost implements Serializable {
      * @return the value of field 'Port'.
      */
     public Long getPort() {
-        return m_port == null? 25L : m_port;
+        return m_port == null ? 25L : m_port;
     }
 
     /**

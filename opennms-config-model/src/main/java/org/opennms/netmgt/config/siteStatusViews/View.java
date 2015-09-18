@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.siteStatusViews;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,69 +48,64 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="view")
+@XmlRootElement(name = "view")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("site-status-views.xsd")
-@SuppressWarnings("all") public class View implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class View implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _tableName.
      */
-    @XmlAttribute(name="table-name")
+    @XmlAttribute(name = "table-name")
     private java.lang.String _tableName;
     private static final String DEFAULT_TABLE_NAME = "assets";
 
     /**
      * Field _columnName.
      */
-    @XmlAttribute(name="column-name")
+    @XmlAttribute(name = "column-name")
     private java.lang.String _columnName;
     private static final String DEFAULT_COLUMN_NAME = "building";
 
     /**
      * Field _columnType.
      */
-    @XmlAttribute(name="column-type")
+    @XmlAttribute(name = "column-type")
     private java.lang.String _columnType;
     private static final String DEFAULT_COLUMN_TYPE = "varchar";
 
     /**
      * Field _columnValue.
      */
-    @XmlAttribute(name="column-value")
+    @XmlAttribute(name = "column-value")
     private java.lang.String _columnValue;
 
     /**
      * Field _rows.
      */
-    @XmlElement(name="rows")
+    @XmlElement(name = "rows")
     private org.opennms.netmgt.config.siteStatusViews.Rows _rows;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public View() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -123,54 +115,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof View) {
 
-            View temp = (View)obj;
+            View temp = (View) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._tableName != null) {
-                if (temp._tableName == null) return false;
-                else if (!(this._tableName.equals(temp._tableName)))
+                if (temp._tableName == null) {
                     return false;
-            }
-            else if (temp._tableName != null)
+                } else if (!(this._tableName.equals(temp._tableName))) {
+                    return false;
+                }
+            } else if (temp._tableName != null) {
                 return false;
+            }
             if (this._columnName != null) {
-                if (temp._columnName == null) return false;
-                else if (!(this._columnName.equals(temp._columnName)))
+                if (temp._columnName == null) {
                     return false;
-            }
-            else if (temp._columnName != null)
+                } else if (!(this._columnName.equals(temp._columnName))) {
+                    return false;
+                }
+            } else if (temp._columnName != null) {
                 return false;
+            }
             if (this._columnType != null) {
-                if (temp._columnType == null) return false;
-                else if (!(this._columnType.equals(temp._columnType)))
+                if (temp._columnType == null) {
                     return false;
-            }
-            else if (temp._columnType != null)
+                } else if (!(this._columnType.equals(temp._columnType))) {
+                    return false;
+                }
+            } else if (temp._columnType != null) {
                 return false;
+            }
             if (this._columnValue != null) {
-                if (temp._columnValue == null) return false;
-                else if (!(this._columnValue.equals(temp._columnValue)))
+                if (temp._columnValue == null) {
                     return false;
-            }
-            else if (temp._columnValue != null)
+                } else if (!(this._columnValue.equals(temp._columnValue))) {
+                    return false;
+                }
+            } else if (temp._columnValue != null) {
                 return false;
+            }
             if (this._rows != null) {
-                if (temp._rows == null) return false;
-                else if (!(this._rows.equals(temp._rows)))
+                if (temp._rows == null) {
                     return false;
-            }
-            else if (temp._rows != null)
+                } else if (!(this._rows.equals(temp._rows))) {
+                    return false;
+                }
+            } else if (temp._rows != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -181,8 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ColumnName'.
      */
-    public java.lang.String getColumnName(
-    ) {
+    public java.lang.String getColumnName() {
         return this._columnName == null ? DEFAULT_COLUMN_NAME : this._columnName;
     }
 
@@ -191,8 +195,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ColumnType'.
      */
-    public java.lang.String getColumnType(
-    ) {
+    public java.lang.String getColumnType() {
         return this._columnType == null ? DEFAULT_COLUMN_TYPE : this._columnType;
     }
 
@@ -201,8 +204,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ColumnValue'.
      */
-    public java.lang.String getColumnValue(
-    ) {
+    public java.lang.String getColumnValue() {
         return this._columnValue;
     }
 
@@ -211,8 +213,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -221,8 +222,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rows'.
      */
-    public org.opennms.netmgt.config.siteStatusViews.Rows getRows(
-    ) {
+    public org.opennms.netmgt.config.siteStatusViews.Rows getRows() {
         return this._rows;
     }
 
@@ -231,8 +231,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'TableName'.
      */
-    public java.lang.String getTableName(
-    ) {
+    public java.lang.String getTableName() {
         return this._tableName == null ? DEFAULT_TABLE_NAME : this._tableName;
     }
 
@@ -245,28 +244,27 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_tableName != null) {
-           result = 37 * result + _tableName.hashCode();
+            result = 37 * result + _tableName.hashCode();
         }
         if (_columnName != null) {
-           result = 37 * result + _columnName.hashCode();
+            result = 37 * result + _columnName.hashCode();
         }
         if (_columnType != null) {
-           result = 37 * result + _columnType.hashCode();
+            result = 37 * result + _columnType.hashCode();
         }
         if (_columnValue != null) {
-           result = 37 * result + _columnValue.hashCode();
+            result = 37 * result + _columnValue.hashCode();
         }
         if (_rows != null) {
-           result = 37 * result + _rows.hashCode();
+            result = 37 * result + _rows.hashCode();
         }
 
         return result;
@@ -277,8 +275,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -298,7 +295,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -315,7 +312,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -392,7 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.siteStatusViews.View unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.siteStatusViews.View) Unmarshaller.unmarshal(org.opennms.netmgt.config.siteStatusViews.View.class, reader);
     }
 
@@ -402,9 +399,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

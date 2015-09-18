@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.service.types;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;

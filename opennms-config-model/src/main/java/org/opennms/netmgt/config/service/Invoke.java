@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.service;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -60,12 +58,12 @@ import org.opennms.netmgt.config.service.types.InvokeAtTypeAdapter;
 @XmlRootElement(name = "invoke")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Invoke implements Serializable {
+
     private static final long serialVersionUID = 1295387509696778585L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _method.
      */
@@ -89,7 +87,9 @@ public class Invoke implements Serializable {
      * Field _argumentList.
      */
     @XmlElement(name = "argument")
-    private List<Argument> _argumentList = new ArrayList<Argument>(0);;
+    private List<Argument> _argumentList = new ArrayList<Argument>(0);
+
+    ;
 
     // ----------------/
     // - Constructors -/
@@ -111,7 +111,6 @@ public class Invoke implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * 
      * 
@@ -160,35 +159,43 @@ public class Invoke implements Serializable {
      */
     @Override()
     public boolean equals(final java.lang.Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Invoke) {
 
             Invoke temp = (Invoke) obj;
             if (this._method != null) {
-                if (temp._method == null)
+                if (temp._method == null) {
                     return false;
-                else if (!(this._method.equals(temp._method)))
+                } else if (!(this._method.equals(temp._method))) {
                     return false;
-            } else if (temp._method != null)
+                }
+            } else if (temp._method != null) {
                 return false;
-            if (this._pass != temp._pass)
+            }
+            if (this._pass != temp._pass) {
                 return false;
+            }
             if (this._at != null) {
-                if (temp._at == null)
+                if (temp._at == null) {
                     return false;
-                else if (!(this._at.equals(temp._at)))
+                } else if (!(this._at.equals(temp._at))) {
                     return false;
-            } else if (temp._at != null)
+                }
+            } else if (temp._at != null) {
                 return false;
+            }
             if (this._argumentList != null) {
-                if (temp._argumentList == null)
+                if (temp._argumentList == null) {
                     return false;
-                else if (!(this._argumentList.equals(temp._argumentList)))
+                } else if (!(this._argumentList.equals(temp._argumentList))) {
                     return false;
-            } else if (temp._argumentList != null)
+                }
+            } else if (temp._argumentList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -332,7 +339,7 @@ public class Invoke implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeArgument(final Argument vArgument) {
-    	return _argumentList.remove(vArgument);
+        return _argumentList.remove(vArgument);
     }
 
     /**
@@ -342,7 +349,7 @@ public class Invoke implements Serializable {
      * @return the element removed from the collection
      */
     public Argument removeArgumentAt(final int index) {
-    	return (Argument)this._argumentList.remove(index);
+        return (Argument) this._argumentList.remove(index);
     }
 
     /**

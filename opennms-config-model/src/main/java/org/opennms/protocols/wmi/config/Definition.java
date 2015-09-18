@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.protocols.wmi.config;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -47,7 +45,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -55,44 +52,43 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="definition")
+@XmlRootElement(name = "definition")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("wmi-config.xsd")
-@SuppressWarnings("all") public class Definition implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Definition implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _retry.
      */
-    @XmlAttribute(name="retry")
+    @XmlAttribute(name = "retry")
     private Integer _retry;
 
     /**
      * Field _timeout.
      */
-    @XmlAttribute(name="timeout")
+    @XmlAttribute(name = "timeout")
     private Integer _timeout;
 
     /**
      * Field _username.
      */
-    @XmlAttribute(name="username")
+    @XmlAttribute(name = "username")
     private java.lang.String _username;
 
     /**
      * Field _domain.
      */
-    @XmlAttribute(name="domain")
+    @XmlAttribute(name = "domain")
     private java.lang.String _domain;
 
     /**
      * Field _password.
      */
-    @XmlAttribute(name="password")
+    @XmlAttribute(name = "password")
     private java.lang.String _password;
 
     /**
@@ -100,7 +96,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  applies.
      *
      */
-    @XmlElement(name="range")
+    @XmlElement(name = "range")
     private java.util.List<org.opennms.protocols.wmi.config.Range> _rangeList;
 
     /**
@@ -108,21 +104,19 @@ import org.opennms.core.xml.ValidateUsing;
      *  applies.
      *
      */
-    @XmlElement(name="specific")
+    @XmlElement(name = "specific")
     private java.util.List<java.lang.String> _specificList;
 
     /**
      * Match Octets (as in IPLIKE)
      *
      */
-    @XmlElement(name="ip-match")
+    @XmlElement(name = "ip-match")
     private java.util.List<java.lang.String> _ipMatchList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Definition() {
         super();
         this._rangeList = new java.util.ArrayList<org.opennms.protocols.wmi.config.Range>();
@@ -130,11 +124,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._ipMatchList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -144,7 +136,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIpMatch(
             final java.lang.String vIpMatch)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._ipMatchList.add(vIpMatch);
     }
 
@@ -159,7 +151,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIpMatch(
             final int index,
             final java.lang.String vIpMatch)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._ipMatchList.add(index, vIpMatch);
     }
 
@@ -172,7 +164,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addRange(
             final org.opennms.protocols.wmi.config.Range vRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._rangeList.add(vRange);
     }
 
@@ -187,7 +179,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addRange(
             final int index,
             final org.opennms.protocols.wmi.config.Range vRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._rangeList.add(index, vRange);
     }
 
@@ -200,7 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSpecific(
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(vSpecific);
     }
 
@@ -215,22 +207,20 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSpecific(
             final int index,
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(index, vSpecific);
     }
 
     /**
      */
-    public void deleteRetry(
-    ) {
-        this._retry= null;
+    public void deleteRetry() {
+        this._retry = null;
     }
 
     /**
      */
-    public void deleteTimeout(
-    ) {
-        this._timeout= null;
+    public void deleteTimeout() {
+        this._timeout = null;
     }
 
     /**
@@ -239,8 +229,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateIpMatch(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateIpMatch() {
         return java.util.Collections.enumeration(this._ipMatchList);
     }
 
@@ -250,8 +239,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.protocols.wmi.config.Range> enumerateRange(
-    ) {
+    public java.util.Enumeration<org.opennms.protocols.wmi.config.Range> enumerateRange() {
         return java.util.Collections.enumeration(this._rangeList);
     }
 
@@ -261,8 +249,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateSpecific(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateSpecific() {
         return java.util.Collections.enumeration(this._specificList);
     }
 
@@ -275,70 +262,88 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Definition) {
 
-            Definition temp = (Definition)obj;
-            if (this._retry != temp._retry)
+            Definition temp = (Definition) obj;
+            if (this._retry != temp._retry) {
                 return false;
+            }
             if (this._retry != null) {
-                if (temp._retry == null) return false;
-                else if (!(this._retry.equals(temp._retry)))
+                if (temp._retry == null) {
                     return false;
-            }
-            else if (temp._retry != null)
+                } else if (!(this._retry.equals(temp._retry))) {
+                    return false;
+                }
+            } else if (temp._retry != null) {
                 return false;
+            }
             if (this._timeout != null) {
-                if (temp._timeout == null) return false;
-                else if (!(this._timeout.equals(temp._timeout)))
+                if (temp._timeout == null) {
                     return false;
-            }
-            else if (temp._timeout != null)
+                } else if (!(this._timeout.equals(temp._timeout))) {
+                    return false;
+                }
+            } else if (temp._timeout != null) {
                 return false;
+            }
             if (this._username != null) {
-                if (temp._username == null) return false;
-                else if (!(this._username.equals(temp._username)))
+                if (temp._username == null) {
                     return false;
-            }
-            else if (temp._username != null)
+                } else if (!(this._username.equals(temp._username))) {
+                    return false;
+                }
+            } else if (temp._username != null) {
                 return false;
+            }
             if (this._domain != null) {
-                if (temp._domain == null) return false;
-                else if (!(this._domain.equals(temp._domain)))
+                if (temp._domain == null) {
                     return false;
-            }
-            else if (temp._domain != null)
+                } else if (!(this._domain.equals(temp._domain))) {
+                    return false;
+                }
+            } else if (temp._domain != null) {
                 return false;
+            }
             if (this._password != null) {
-                if (temp._password == null) return false;
-                else if (!(this._password.equals(temp._password)))
+                if (temp._password == null) {
                     return false;
-            }
-            else if (temp._password != null)
+                } else if (!(this._password.equals(temp._password))) {
+                    return false;
+                }
+            } else if (temp._password != null) {
                 return false;
+            }
             if (this._rangeList != null) {
-                if (temp._rangeList == null) return false;
-                else if (!(this._rangeList.equals(temp._rangeList)))
+                if (temp._rangeList == null) {
                     return false;
-            }
-            else if (temp._rangeList != null)
+                } else if (!(this._rangeList.equals(temp._rangeList))) {
+                    return false;
+                }
+            } else if (temp._rangeList != null) {
                 return false;
+            }
             if (this._specificList != null) {
-                if (temp._specificList == null) return false;
-                else if (!(this._specificList.equals(temp._specificList)))
+                if (temp._specificList == null) {
                     return false;
-            }
-            else if (temp._specificList != null)
+                } else if (!(this._specificList.equals(temp._specificList))) {
+                    return false;
+                }
+            } else if (temp._specificList != null) {
                 return false;
+            }
             if (this._ipMatchList != null) {
-                if (temp._ipMatchList == null) return false;
-                else if (!(this._ipMatchList.equals(temp._ipMatchList)))
+                if (temp._ipMatchList == null) {
                     return false;
-            }
-            else if (temp._ipMatchList != null)
+                } else if (!(this._ipMatchList.equals(temp._ipMatchList))) {
+                    return false;
+                }
+            } else if (temp._ipMatchList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -349,8 +354,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Domain'.
      */
-    public java.lang.String getDomain(
-    ) {
+    public java.lang.String getDomain() {
         return this._domain;
     }
 
@@ -364,7 +368,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getIpMatch(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._ipMatchList.size()) {
             throw new IndexOutOfBoundsException("getIpMatch: Index value '" + index + "' not in range [0.." + (this._ipMatchList.size() - 1) + "]");
@@ -382,8 +386,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getIpMatch(
-    ) {
+    public java.lang.String[] getIpMatch() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._ipMatchList.toArray(array);
     }
@@ -395,8 +398,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getIpMatchCollection(
-    ) {
+    public java.util.List<java.lang.String> getIpMatchCollection() {
         return this._ipMatchList;
     }
 
@@ -405,8 +407,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIpMatchCount(
-    ) {
+    public int getIpMatchCount() {
         return this._ipMatchList.size();
     }
 
@@ -415,8 +416,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Password'.
      */
-    public java.lang.String getPassword(
-    ) {
+    public java.lang.String getPassword() {
         return this._password;
     }
 
@@ -431,7 +431,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.protocols.wmi.config.Range getRange(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._rangeList.size()) {
             throw new IndexOutOfBoundsException("getRange: Index value '" + index + "' not in range [0.." + (this._rangeList.size() - 1) + "]");
@@ -449,8 +449,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.protocols.wmi.config.Range[] getRange(
-    ) {
+    public org.opennms.protocols.wmi.config.Range[] getRange() {
         org.opennms.protocols.wmi.config.Range[] array = new org.opennms.protocols.wmi.config.Range[0];
         return (org.opennms.protocols.wmi.config.Range[]) this._rangeList.toArray(array);
     }
@@ -462,8 +461,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.protocols.wmi.config.Range> getRangeCollection(
-    ) {
+    public java.util.List<org.opennms.protocols.wmi.config.Range> getRangeCollection() {
         return this._rangeList;
     }
 
@@ -472,8 +470,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getRangeCount(
-    ) {
+    public int getRangeCount() {
         return this._rangeList.size();
     }
 
@@ -482,8 +479,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retry'.
      */
-    public Integer getRetry(
-    ) {
+    public Integer getRetry() {
         return this._retry == null ? 0 : this._retry;
     }
 
@@ -497,7 +493,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getSpecific(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("getSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -515,8 +511,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getSpecific(
-    ) {
+    public java.lang.String[] getSpecific() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._specificList.toArray(array);
     }
@@ -528,8 +523,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getSpecificCollection(
-    ) {
+    public java.util.List<java.lang.String> getSpecificCollection() {
         return this._specificList;
     }
 
@@ -538,8 +532,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSpecificCount(
-    ) {
+    public int getSpecificCount() {
         return this._specificList.size();
     }
 
@@ -548,8 +541,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timeout'.
      */
-    public Integer getTimeout(
-    ) {
+    public Integer getTimeout() {
         return this._timeout == null ? 0 : this._timeout;
     }
 
@@ -558,8 +550,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Username'.
      */
-    public java.lang.String getUsername(
-    ) {
+    public java.lang.String getUsername() {
         return this._username;
     }
 
@@ -568,8 +559,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Retry has been added
      */
-    public boolean hasRetry(
-    ) {
+    public boolean hasRetry() {
         return this._retry != null;
     }
 
@@ -578,8 +568,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Timeout has been added
      */
-    public boolean hasTimeout(
-    ) {
+    public boolean hasTimeout() {
         return this._timeout != null;
     }
 
@@ -592,30 +581,29 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         result = 37 * result + _retry;
         result = 37 * result + _timeout;
         if (_username != null) {
-           result = 37 * result + _username.hashCode();
+            result = 37 * result + _username.hashCode();
         }
         if (_domain != null) {
-           result = 37 * result + _domain.hashCode();
+            result = 37 * result + _domain.hashCode();
         }
         if (_password != null) {
-           result = 37 * result + _password.hashCode();
+            result = 37 * result + _password.hashCode();
         }
         if (_rangeList != null) {
-           result = 37 * result + _rangeList.hashCode();
+            result = 37 * result + _rangeList.hashCode();
         }
         if (_specificList != null) {
-           result = 37 * result + _specificList.hashCode();
+            result = 37 * result + _specificList.hashCode();
         }
         if (_ipMatchList != null) {
-           result = 37 * result + _ipMatchList.hashCode();
+            result = 37 * result + _ipMatchList.hashCode();
         }
 
         return result;
@@ -626,8 +614,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -642,8 +629,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateIpMatch(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateIpMatch() {
         return this._ipMatchList.iterator();
     }
 
@@ -653,8 +639,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.protocols.wmi.config.Range> iterateRange(
-    ) {
+    public java.util.Iterator<org.opennms.protocols.wmi.config.Range> iterateRange() {
         return this._rangeList.iterator();
     }
 
@@ -664,8 +649,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateSpecific(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateSpecific() {
         return this._specificList.iterator();
     }
 
@@ -680,7 +664,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -697,28 +681,25 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllIpMatch(
-    ) {
+    public void removeAllIpMatch() {
         this._ipMatchList.clear();
     }
 
     /**
      */
-    public void removeAllRange(
-    ) {
+    public void removeAllRange() {
         this._rangeList.clear();
     }
 
     /**
      */
-    public void removeAllSpecific(
-    ) {
+    public void removeAllSpecific() {
         this._specificList.clear();
     }
 
@@ -815,7 +796,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIpMatch(
             final int index,
             final java.lang.String vIpMatch)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._ipMatchList.size()) {
             throw new IndexOutOfBoundsException("setIpMatch: Index value '" + index + "' not in range [0.." + (this._ipMatchList.size() - 1) + "]");
@@ -835,7 +816,7 @@ import org.opennms.core.xml.ValidateUsing;
         _ipMatchList.clear();
 
         for (int i = 0; i < vIpMatchArray.length; i++) {
-                this._ipMatchList.add(vIpMatchArray[i]);
+            this._ipMatchList.add(vIpMatchArray[i]);
         }
     }
 
@@ -886,7 +867,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setRange(
             final int index,
             final org.opennms.protocols.wmi.config.Range vRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._rangeList.size()) {
             throw new IndexOutOfBoundsException("setRange: Index value '" + index + "' not in range [0.." + (this._rangeList.size() - 1) + "]");
@@ -906,7 +887,7 @@ import org.opennms.core.xml.ValidateUsing;
         _rangeList.clear();
 
         for (int i = 0; i < vRangeArray.length; i++) {
-                this._rangeList.add(vRangeArray[i]);
+            this._rangeList.add(vRangeArray[i]);
         }
     }
 
@@ -957,7 +938,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSpecific(
             final int index,
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("setSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -977,7 +958,7 @@ import org.opennms.core.xml.ValidateUsing;
         _specificList.clear();
 
         for (int i = 0; i < vSpecificArray.length; i++) {
-                this._specificList.add(vSpecificArray[i]);
+            this._specificList.add(vSpecificArray[i]);
         }
     }
 
@@ -1040,7 +1021,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.protocols.wmi.config.Definition unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.protocols.wmi.config.Definition) Unmarshaller.unmarshal(org.opennms.protocols.wmi.config.Definition.class, reader);
     }
 
@@ -1050,9 +1031,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.ami;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,12 +54,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "definition")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Definition implements Serializable {
+
     private static final long serialVersionUID = -5866885462906545340L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _port.
      */
@@ -122,7 +120,6 @@ public class Definition implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Definition() {
         super();
     }
@@ -146,7 +143,6 @@ public class Definition implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -256,58 +252,79 @@ public class Definition implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Definition other = (Definition) obj;
         if (_ipMatchList == null) {
-            if (other._ipMatchList != null)
+            if (other._ipMatchList != null) {
                 return false;
-        } else if (!_ipMatchList.equals(other._ipMatchList))
+            }
+        } else if (!_ipMatchList.equals(other._ipMatchList)) {
             return false;
+        }
         if (_password == null) {
-            if (other._password != null)
+            if (other._password != null) {
                 return false;
-        } else if (!_password.equals(other._password))
+            }
+        } else if (!_password.equals(other._password)) {
             return false;
+        }
         if (_port == null) {
-            if (other._port != null)
+            if (other._port != null) {
                 return false;
-        } else if (!_port.equals(other._port))
+            }
+        } else if (!_port.equals(other._port)) {
             return false;
+        }
         if (_rangeList == null) {
-            if (other._rangeList != null)
+            if (other._rangeList != null) {
                 return false;
-        } else if (!_rangeList.equals(other._rangeList))
+            }
+        } else if (!_rangeList.equals(other._rangeList)) {
             return false;
+        }
         if (_retry == null) {
-            if (other._retry != null)
+            if (other._retry != null) {
                 return false;
-        } else if (!_retry.equals(other._retry))
+            }
+        } else if (!_retry.equals(other._retry)) {
             return false;
+        }
         if (_specificList == null) {
-            if (other._specificList != null)
+            if (other._specificList != null) {
                 return false;
-        } else if (!_specificList.equals(other._specificList))
+            }
+        } else if (!_specificList.equals(other._specificList)) {
             return false;
+        }
         if (_timeout == null) {
-            if (other._timeout != null)
+            if (other._timeout != null) {
                 return false;
-        } else if (!_timeout.equals(other._timeout))
+            }
+        } else if (!_timeout.equals(other._timeout)) {
             return false;
+        }
         if (_useSsl == null) {
-            if (other._useSsl != null)
+            if (other._useSsl != null) {
                 return false;
-        } else if (!_useSsl.equals(other._useSsl))
+            }
+        } else if (!_useSsl.equals(other._useSsl)) {
             return false;
+        }
         if (_username == null) {
-            if (other._username != null)
+            if (other._username != null) {
                 return false;
-        } else if (!_username.equals(other._username))
+            }
+        } else if (!_username.equals(other._username)) {
             return false;
+        }
         return true;
     }
 
@@ -513,7 +530,7 @@ public class Definition implements Serializable {
      * @return the value of field 'UseSsl'.
      */
     public boolean getUseSsl() {
-        return this._useSsl == null? false : this._useSsl;
+        return this._useSsl == null ? false : this._useSsl;
     }
 
     /**
@@ -598,7 +615,7 @@ public class Definition implements Serializable {
      * @return the value of field 'UseSsl'.
      */
     public boolean isUseSsl() {
-        return this._useSsl == null? false : this._useSsl;
+        return this._useSsl == null ? false : this._useSsl;
     }
 
     /**

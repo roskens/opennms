@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -45,17 +44,15 @@ import org.opennms.core.xml.ValidateUsing;
  *
  * @version $Revision$ $Date$
  */
-
-@XmlRootElement(name="basethresholddef")
+@XmlRootElement(name = "basethresholddef")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("thresholding-config.xsd")
-@SuppressWarnings("all") public abstract class Basethresholddef implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public abstract class Basethresholddef implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * An optional flag to tell the threshold processor to evaluate
      * the expression even if there are unknown values.
@@ -63,7 +60,7 @@ import org.opennms.core.xml.ValidateUsing;
      * conditionals. Default: false
      *
      */
-    @XmlAttribute(name="relaxed")
+    @XmlAttribute(name = "relaxed")
     private Boolean _relaxed;
     private static final Boolean DEFAULT_RELAXED = false;
 
@@ -72,7 +69,7 @@ import org.opennms.core.xml.ValidateUsing;
      * what is their purpose.
      *
      */
-    @XmlAttribute(name="description")
+    @XmlAttribute(name = "description")
     private java.lang.String _description;
 
     /**
@@ -85,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      * than the threshold value
      *
      */
-    @XmlAttribute(name="type", required = true)
+    @XmlAttribute(name = "type", required = true)
     private java.lang.String _type;
 
     /**
@@ -94,7 +91,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  "if" indicates an interface level datasource.
      *
      */
-    @XmlAttribute(name="ds-type", required = true)
+    @XmlAttribute(name = "ds-type", required = true)
     private java.lang.String _dsType;
 
     /**
@@ -114,7 +111,7 @@ import org.opennms.core.xml.ValidateUsing;
      * generated.
      *
      */
-    @XmlAttribute(name="value", required = true)
+    @XmlAttribute(name = "value", required = true)
     private Double _value;
 
     /**
@@ -125,7 +122,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  rearm, and once again be eligible to generate an event.
      *
      */
-    @XmlAttribute(name="rearm", required = true)
+    @XmlAttribute(name = "rearm", required = true)
     private Double _rearm;
 
     /**
@@ -136,7 +133,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  before a threshold event is generated.
      *
      */
-    @XmlAttribute(name="trigger", required = true)
+    @XmlAttribute(name = "trigger", required = true)
     private Integer _trigger;
 
     /**
@@ -144,7 +141,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  datasource.
      *
      */
-    @XmlAttribute(name="ds-label")
+    @XmlAttribute(name = "ds-label")
     private java.lang.String _dsLabel;
 
     /**
@@ -152,7 +149,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  specified, defaults to standard threshold UEIs
      *
      */
-    @XmlAttribute(name="triggeredUEI")
+    @XmlAttribute(name = "triggeredUEI")
     private java.lang.String _triggeredUEI;
 
     /**
@@ -160,7 +157,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  specified, defaults to standard threshold UEIs
      *
      */
-    @XmlAttribute(name="rearmedUEI")
+    @XmlAttribute(name = "rearmedUEI")
     private java.lang.String _rearmedUEI;
 
     /**
@@ -169,30 +166,27 @@ import org.opennms.core.xml.ValidateUsing;
      *  you should specify "and";
      *
      */
-    @XmlAttribute(name="filterOperator")
+    @XmlAttribute(name = "filterOperator")
     private java.lang.String _filterOperator;
     private static final String DEFAULT_FILTEROPERATOR = "or";
 
     /**
      * The filter used to select the ds by a string
      */
-    @XmlElement(name="resource-filter")
+    @XmlElement(name = "resource-filter")
     private java.util.List<org.opennms.netmgt.config.thresholding.ResourceFilter> _resourceFilterList;
 
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Basethresholddef() {
         super();
         this._resourceFilterList = new java.util.ArrayList<org.opennms.netmgt.config.thresholding.ResourceFilter>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -202,7 +196,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addResourceFilter(
             final org.opennms.netmgt.config.thresholding.ResourceFilter vResourceFilter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._resourceFilterList.add(vResourceFilter);
     }
 
@@ -217,35 +211,31 @@ import org.opennms.core.xml.ValidateUsing;
     public void addResourceFilter(
             final int index,
             final org.opennms.netmgt.config.thresholding.ResourceFilter vResourceFilter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._resourceFilterList.add(index, vResourceFilter);
     }
 
     /**
      */
-    public void deleteRearm(
-    ) {
+    public void deleteRearm() {
         this._rearm = null;
     }
 
     /**
      */
-    public void deleteRelaxed(
-    ) {
+    public void deleteRelaxed() {
         this._relaxed = null;
     }
 
     /**
      */
-    public void deleteTrigger(
-    ) {
+    public void deleteTrigger() {
         this._trigger = null;
     }
 
     /**
      */
-    public void deleteValue(
-    ) {
+    public void deleteValue() {
         this._value = null;
     }
 
@@ -255,8 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.ResourceFilter> enumerateResourceFilter(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.ResourceFilter> enumerateResourceFilter() {
         return java.util.Collections.enumeration(this._resourceFilterList);
     }
 
@@ -269,96 +258,121 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Basethresholddef) {
 
-            Basethresholddef temp = (Basethresholddef)obj;
+            Basethresholddef temp = (Basethresholddef) obj;
             if (this._relaxed != null) {
-                if (temp._relaxed == null) return false;
-                else if (!(this._relaxed.equals(temp._relaxed)))
+                if (temp._relaxed == null) {
                     return false;
-            }
-            else if (temp._relaxed != null)
+                } else if (!(this._relaxed.equals(temp._relaxed))) {
+                    return false;
+                }
+            } else if (temp._relaxed != null) {
                 return false;
+            }
             if (this._description != null) {
-                if (temp._description == null) return false;
-                else if (!(this._description.equals(temp._description)))
+                if (temp._description == null) {
                     return false;
-            }
-            else if (temp._description != null)
+                } else if (!(this._description.equals(temp._description))) {
+                    return false;
+                }
+            } else if (temp._description != null) {
                 return false;
+            }
             if (this._type != null) {
-                if (temp._type == null) return false;
-                else if (!(this._type.equals(temp._type)))
+                if (temp._type == null) {
                     return false;
-            }
-            else if (temp._type != null)
+                } else if (!(this._type.equals(temp._type))) {
+                    return false;
+                }
+            } else if (temp._type != null) {
                 return false;
+            }
             if (this._dsType != null) {
-                if (temp._dsType == null) return false;
-                else if (!(this._dsType.equals(temp._dsType)))
+                if (temp._dsType == null) {
                     return false;
-            }
-            else if (temp._dsType != null)
+                } else if (!(this._dsType.equals(temp._dsType))) {
+                    return false;
+                }
+            } else if (temp._dsType != null) {
                 return false;
+            }
             if (this._value != null) {
-                if (temp._value == null) return false;
-                else if (!(this._value.equals(temp._value)))
+                if (temp._value == null) {
                     return false;
-            }
-            else if (temp._value != null)
+                } else if (!(this._value.equals(temp._value))) {
+                    return false;
+                }
+            } else if (temp._value != null) {
                 return false;
+            }
             if (this._rearm != null) {
-                if (temp._rearm == null) return false;
-                else if (!(this._rearm.equals(temp._rearm)))
+                if (temp._rearm == null) {
                     return false;
-            }
-            else if (temp._rearm != null)
+                } else if (!(this._rearm.equals(temp._rearm))) {
+                    return false;
+                }
+            } else if (temp._rearm != null) {
                 return false;
+            }
             if (this._trigger != null) {
-                if (temp._trigger == null) return false;
-                else if (!(this._trigger.equals(temp._trigger)))
+                if (temp._trigger == null) {
                     return false;
-            }
-            else if (temp._trigger != null)
+                } else if (!(this._trigger.equals(temp._trigger))) {
+                    return false;
+                }
+            } else if (temp._trigger != null) {
                 return false;
+            }
             if (this._dsLabel != null) {
-                if (temp._dsLabel == null) return false;
-                else if (!(this._dsLabel.equals(temp._dsLabel)))
+                if (temp._dsLabel == null) {
                     return false;
-            }
-            else if (temp._dsLabel != null)
+                } else if (!(this._dsLabel.equals(temp._dsLabel))) {
+                    return false;
+                }
+            } else if (temp._dsLabel != null) {
                 return false;
+            }
             if (this._triggeredUEI != null) {
-                if (temp._triggeredUEI == null) return false;
-                else if (!(this._triggeredUEI.equals(temp._triggeredUEI)))
+                if (temp._triggeredUEI == null) {
                     return false;
-            }
-            else if (temp._triggeredUEI != null)
+                } else if (!(this._triggeredUEI.equals(temp._triggeredUEI))) {
+                    return false;
+                }
+            } else if (temp._triggeredUEI != null) {
                 return false;
+            }
             if (this._rearmedUEI != null) {
-                if (temp._rearmedUEI == null) return false;
-                else if (!(this._rearmedUEI.equals(temp._rearmedUEI)))
+                if (temp._rearmedUEI == null) {
                     return false;
-            }
-            else if (temp._rearmedUEI != null)
+                } else if (!(this._rearmedUEI.equals(temp._rearmedUEI))) {
+                    return false;
+                }
+            } else if (temp._rearmedUEI != null) {
                 return false;
+            }
             if (this._filterOperator != null) {
-                if (temp._filterOperator == null) return false;
-                else if (!(this._filterOperator.equals(temp._filterOperator)))
+                if (temp._filterOperator == null) {
                     return false;
-            }
-            else if (temp._filterOperator != null)
+                } else if (!(this._filterOperator.equals(temp._filterOperator))) {
+                    return false;
+                }
+            } else if (temp._filterOperator != null) {
                 return false;
+            }
             if (this._resourceFilterList != null) {
-                if (temp._resourceFilterList == null) return false;
-                else if (!(this._resourceFilterList.equals(temp._resourceFilterList)))
+                if (temp._resourceFilterList == null) {
                     return false;
-            }
-            else if (temp._resourceFilterList != null)
+                } else if (!(this._resourceFilterList.equals(temp._resourceFilterList))) {
+                    return false;
+                }
+            } else if (temp._resourceFilterList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -373,8 +387,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Description'.
      */
-    public java.lang.String getDescription(
-    ) {
+    public java.lang.String getDescription() {
         return this._description;
     }
 
@@ -387,8 +400,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DsLabel'.
      */
-    public java.lang.String getDsLabel(
-    ) {
+    public java.lang.String getDsLabel() {
         return this._dsLabel;
     }
 
@@ -401,8 +413,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DsType'.
      */
-    public java.lang.String getDsType(
-    ) {
+    public java.lang.String getDsType() {
         return this._dsType;
     }
 
@@ -416,8 +427,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'FilterOperator'.
      */
-    public java.lang.String getFilterOperator(
-    ) {
+    public java.lang.String getFilterOperator() {
         return this._filterOperator == null ? DEFAULT_FILTEROPERATOR : this._filterOperator;
     }
 
@@ -433,8 +443,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rearm'.
      */
-    public Double getRearm(
-    ) {
+    public Double getRearm() {
         return this._rearm;
     }
 
@@ -447,8 +456,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RearmedUEI'.
      */
-    public java.lang.String getRearmedUEI(
-    ) {
+    public java.lang.String getRearmedUEI() {
         return this._rearmedUEI;
     }
 
@@ -463,8 +471,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Relaxed'.
      */
-    public Boolean getRelaxed(
-    ) {
+    public Boolean getRelaxed() {
         return this._relaxed == null ? DEFAULT_RELAXED : this._relaxed;
     }
 
@@ -480,7 +487,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.thresholding.ResourceFilter getResourceFilter(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._resourceFilterList.size()) {
             throw new IndexOutOfBoundsException("getResourceFilter: Index value '" + index + "' not in range [0.." + (this._resourceFilterList.size() - 1) + "]");
@@ -499,8 +506,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.thresholding.ResourceFilter[] getResourceFilter(
-    ) {
+    public org.opennms.netmgt.config.thresholding.ResourceFilter[] getResourceFilter() {
         org.opennms.netmgt.config.thresholding.ResourceFilter[] array = new org.opennms.netmgt.config.thresholding.ResourceFilter[0];
         return (org.opennms.netmgt.config.thresholding.ResourceFilter[]) this._resourceFilterList.toArray(array);
     }
@@ -512,8 +518,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.thresholding.ResourceFilter> getResourceFilterCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.thresholding.ResourceFilter> getResourceFilterCollection() {
         return this._resourceFilterList;
     }
 
@@ -522,8 +527,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public Integer getResourceFilterCount(
-    ) {
+    public Integer getResourceFilterCount() {
         return this._resourceFilterList.size();
     }
 
@@ -538,8 +542,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Trigger'.
      */
-    public Integer getTrigger(
-    ) {
+    public Integer getTrigger() {
         return this._trigger;
     }
 
@@ -552,8 +555,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'TriggeredUEI'.
      */
-    public java.lang.String getTriggeredUEI(
-    ) {
+    public java.lang.String getTriggeredUEI() {
         return this._triggeredUEI;
     }
 
@@ -570,8 +572,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Type'.
      */
-    public java.lang.String getType(
-    ) {
+    public java.lang.String getType() {
         return this._type;
     }
 
@@ -596,8 +597,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Value'.
      */
-    public Double getValue(
-    ) {
+    public Double getValue() {
         return this._value;
     }
 
@@ -606,8 +606,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Rearm has been added
      */
-    public boolean hasRearm(
-    ) {
+    public boolean hasRearm() {
         return this._rearm != null;
     }
 
@@ -616,8 +615,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Relaxed has been added
      */
-    public boolean hasRelaxed(
-    ) {
+    public boolean hasRelaxed() {
         return this._relaxed != null;
     }
 
@@ -626,8 +624,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Trigger has been added
      */
-    public boolean hasTrigger(
-    ) {
+    public boolean hasTrigger() {
         return this._trigger != null;
     }
 
@@ -636,8 +633,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Value has been added
      */
-    public boolean hasValue(
-    ) {
+    public boolean hasValue() {
         return this._value != null;
     }
 
@@ -650,46 +646,45 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_relaxed != null) {
-           result = 37 * result + _relaxed.hashCode();
+            result = 37 * result + _relaxed.hashCode();
         }
         if (_description != null) {
-           result = 37 * result + _description.hashCode();
+            result = 37 * result + _description.hashCode();
         }
         if (_type != null) {
-           result = 37 * result + _type.hashCode();
+            result = 37 * result + _type.hashCode();
         }
         if (_dsType != null) {
-           result = 37 * result + _dsType.hashCode();
+            result = 37 * result + _dsType.hashCode();
         }
         if (_value != null) {
-           result = 37 * result + _value.hashCode();
+            result = 37 * result + _value.hashCode();
         }
         if (_rearm != null) {
-           result = 37 * result + _rearm.hashCode();
+            result = 37 * result + _rearm.hashCode();
         }
         if (_trigger != null) {
-           result = 37 * result + _trigger.hashCode();
+            result = 37 * result + _trigger.hashCode();
         }
         if (_dsLabel != null) {
-           result = 37 * result + _dsLabel.hashCode();
+            result = 37 * result + _dsLabel.hashCode();
         }
         if (_triggeredUEI != null) {
-           result = 37 * result + _triggeredUEI.hashCode();
+            result = 37 * result + _triggeredUEI.hashCode();
         }
         if (_rearmedUEI != null) {
-           result = 37 * result + _rearmedUEI.hashCode();
+            result = 37 * result + _rearmedUEI.hashCode();
         }
         if (_filterOperator != null) {
-           result = 37 * result + _filterOperator.hashCode();
+            result = 37 * result + _filterOperator.hashCode();
         }
         if (_resourceFilterList != null) {
-           result = 37 * result + _resourceFilterList.hashCode();
+            result = 37 * result + _resourceFilterList.hashCode();
         }
 
         return result;
@@ -706,8 +701,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Relaxed'.
      */
-    public boolean isRelaxed(
-    ) {
+    public boolean isRelaxed() {
         return this._relaxed;
     }
 
@@ -716,8 +710,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -732,15 +725,13 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.thresholding.ResourceFilter> iterateResourceFilter(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.thresholding.ResourceFilter> iterateResourceFilter() {
         return this._resourceFilterList.iterator();
     }
 
     /**
      */
-    public void removeAllResourceFilter(
-    ) {
+    public void removeAllResourceFilter() {
         this._resourceFilterList.clear();
     }
 
@@ -883,7 +874,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setResourceFilter(
             final int index,
             final org.opennms.netmgt.config.thresholding.ResourceFilter vResourceFilter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._resourceFilterList.size()) {
             throw new IndexOutOfBoundsException("setResourceFilter: Index value '" + index + "' not in range [0.." + (this._resourceFilterList.size() - 1) + "]");
@@ -903,7 +894,7 @@ import org.opennms.core.xml.ValidateUsing;
         _resourceFilterList.clear();
 
         for (int i = 0; i < vResourceFilterArray.length; i++) {
-                this._resourceFilterList.add(vResourceFilterArray[i]);
+            this._resourceFilterList.add(vResourceFilterArray[i]);
         }
     }
 
@@ -1013,9 +1004,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

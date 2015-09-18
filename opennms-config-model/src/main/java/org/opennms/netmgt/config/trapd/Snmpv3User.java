@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.trapd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,83 +41,76 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="snmpv3-user")
+@XmlRootElement(name = "snmpv3-user")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("trapd-configuration.xsd")
-@SuppressWarnings("all") public class Snmpv3User implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Snmpv3User implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * SNMPv3 Application Engine ID
      */
-    @XmlAttribute(name="engine-id")
+    @XmlAttribute(name = "engine-id")
     private java.lang.String _engineId;
 
     /**
      * SNMPv3 Security Name (User Name)
      */
-    @XmlAttribute(name="security-name")
+    @XmlAttribute(name = "security-name")
     private java.lang.String _securityName;
 
     /**
      * SNMPv3 Security Level (noAuthNoPriv, authNoPriv, authPriv)
      */
-    @XmlAttribute(name="security-level")
+    @XmlAttribute(name = "security-level")
     private Integer _securityLevel;
 
     /**
      * SNMPv3 Authentication Protocol
      */
-    @XmlAttribute(name="auth-protocol")
+    @XmlAttribute(name = "auth-protocol")
     private java.lang.String _authProtocol;
 
     /**
      * SNMPv3 Authentication Password Phrase
      */
-    @XmlAttribute(name="auth-passphrase")
+    @XmlAttribute(name = "auth-passphrase")
     private java.lang.String _authPassphrase;
 
     /**
      * SNMPv3 Privacy Protocol
      */
-    @XmlAttribute(name="privacy-protocol")
+    @XmlAttribute(name = "privacy-protocol")
     private java.lang.String _privacyProtocol;
 
     /**
      * SNMPv3 Privacy Password Phrase
      */
-    @XmlAttribute(name="privacy-passphrase")
+    @XmlAttribute(name = "privacy-passphrase")
     private java.lang.String _privacyPassphrase;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Snmpv3User() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteSecurityLevel(
-    ) {
+    public void deleteSecurityLevel() {
         this._securityLevel = null;
     }
 
@@ -132,61 +123,76 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Snmpv3User) {
 
-            Snmpv3User temp = (Snmpv3User)obj;
+            Snmpv3User temp = (Snmpv3User) obj;
             if (this._engineId != null) {
-                if (temp._engineId == null) return false;
-                else if (!(this._engineId.equals(temp._engineId)))
+                if (temp._engineId == null) {
                     return false;
-            }
-            else if (temp._engineId != null)
+                } else if (!(this._engineId.equals(temp._engineId))) {
+                    return false;
+                }
+            } else if (temp._engineId != null) {
                 return false;
+            }
             if (this._securityName != null) {
-                if (temp._securityName == null) return false;
-                else if (!(this._securityName.equals(temp._securityName)))
+                if (temp._securityName == null) {
                     return false;
-            }
-            else if (temp._securityName != null)
+                } else if (!(this._securityName.equals(temp._securityName))) {
+                    return false;
+                }
+            } else if (temp._securityName != null) {
                 return false;
+            }
             if (this._securityLevel != null) {
-                if (temp._securityLevel == null) return false;
-                else if (!(this._securityLevel.equals(temp._securityLevel)))
+                if (temp._securityLevel == null) {
                     return false;
-            }
-            else if (temp._securityLevel != null)
+                } else if (!(this._securityLevel.equals(temp._securityLevel))) {
+                    return false;
+                }
+            } else if (temp._securityLevel != null) {
                 return false;
+            }
             if (this._authProtocol != null) {
-                if (temp._authProtocol == null) return false;
-                else if (!(this._authProtocol.equals(temp._authProtocol)))
+                if (temp._authProtocol == null) {
                     return false;
-            }
-            else if (temp._authProtocol != null)
+                } else if (!(this._authProtocol.equals(temp._authProtocol))) {
+                    return false;
+                }
+            } else if (temp._authProtocol != null) {
                 return false;
+            }
             if (this._authPassphrase != null) {
-                if (temp._authPassphrase == null) return false;
-                else if (!(this._authPassphrase.equals(temp._authPassphrase)))
+                if (temp._authPassphrase == null) {
                     return false;
-            }
-            else if (temp._authPassphrase != null)
+                } else if (!(this._authPassphrase.equals(temp._authPassphrase))) {
+                    return false;
+                }
+            } else if (temp._authPassphrase != null) {
                 return false;
+            }
             if (this._privacyProtocol != null) {
-                if (temp._privacyProtocol == null) return false;
-                else if (!(this._privacyProtocol.equals(temp._privacyProtocol)))
+                if (temp._privacyProtocol == null) {
                     return false;
-            }
-            else if (temp._privacyProtocol != null)
+                } else if (!(this._privacyProtocol.equals(temp._privacyProtocol))) {
+                    return false;
+                }
+            } else if (temp._privacyProtocol != null) {
                 return false;
+            }
             if (this._privacyPassphrase != null) {
-                if (temp._privacyPassphrase == null) return false;
-                else if (!(this._privacyPassphrase.equals(temp._privacyPassphrase)))
+                if (temp._privacyPassphrase == null) {
                     return false;
-            }
-            else if (temp._privacyPassphrase != null)
+                } else if (!(this._privacyPassphrase.equals(temp._privacyPassphrase))) {
+                    return false;
+                }
+            } else if (temp._privacyPassphrase != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -199,8 +205,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AuthPassphrase'.
      */
-    public java.lang.String getAuthPassphrase(
-    ) {
+    public java.lang.String getAuthPassphrase() {
         return this._authPassphrase;
     }
 
@@ -211,8 +216,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AuthProtocol'.
      */
-    public java.lang.String getAuthProtocol(
-    ) {
+    public java.lang.String getAuthProtocol() {
         return this._authProtocol;
     }
 
@@ -222,8 +226,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'EngineId'.
      */
-    public java.lang.String getEngineId(
-    ) {
+    public java.lang.String getEngineId() {
         return this._engineId;
     }
 
@@ -234,8 +237,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PrivacyPassphrase'.
      */
-    public java.lang.String getPrivacyPassphrase(
-    ) {
+    public java.lang.String getPrivacyPassphrase() {
         return this._privacyPassphrase;
     }
 
@@ -246,8 +248,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PrivacyProtocol'.
      */
-    public java.lang.String getPrivacyProtocol(
-    ) {
+    public java.lang.String getPrivacyProtocol() {
         return this._privacyProtocol;
     }
 
@@ -258,8 +259,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SecurityLevel'.
      */
-    public Integer getSecurityLevel(
-    ) {
+    public Integer getSecurityLevel() {
         return this._securityLevel;
     }
 
@@ -270,8 +270,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SecurityName'.
      */
-    public java.lang.String getSecurityName(
-    ) {
+    public java.lang.String getSecurityName() {
         return this._securityName;
     }
 
@@ -280,8 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one SecurityLevel has been added
      */
-    public boolean hasSecurityLevel(
-    ) {
+    public boolean hasSecurityLevel() {
         return this._securityLevel != null;
     }
 
@@ -294,31 +292,30 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_engineId != null) {
-           result = 37 * result + _engineId.hashCode();
+            result = 37 * result + _engineId.hashCode();
         }
         if (_securityName != null) {
-           result = 37 * result + _securityName.hashCode();
+            result = 37 * result + _securityName.hashCode();
         }
         if (_securityLevel != null) {
-           result = 37 * result + _securityLevel.hashCode();
+            result = 37 * result + _securityLevel.hashCode();
         }
         if (_authProtocol != null) {
-           result = 37 * result + _authProtocol.hashCode();
+            result = 37 * result + _authProtocol.hashCode();
         }
         if (_authPassphrase != null) {
-           result = 37 * result + _authPassphrase.hashCode();
+            result = 37 * result + _authPassphrase.hashCode();
         }
         if (_privacyProtocol != null) {
-           result = 37 * result + _privacyProtocol.hashCode();
+            result = 37 * result + _privacyProtocol.hashCode();
         }
         if (_privacyPassphrase != null) {
-           result = 37 * result + _privacyPassphrase.hashCode();
+            result = 37 * result + _privacyPassphrase.hashCode();
         }
 
         return result;
@@ -329,8 +326,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -350,7 +346,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -367,7 +363,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -468,7 +464,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.trapd.Snmpv3User unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.trapd.Snmpv3User) Unmarshaller.unmarshal(org.opennms.netmgt.config.trapd.Snmpv3User.class, reader);
     }
 
@@ -478,9 +474,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

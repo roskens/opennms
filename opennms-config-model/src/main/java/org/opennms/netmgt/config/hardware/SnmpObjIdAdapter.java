@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.hardware;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.httpdatacollection;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,43 +49,38 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="http-datacollection-config")
+@XmlRootElement(name = "http-datacollection-config")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("http-datacollection-config.xsd")
-@SuppressWarnings("all") public class HttpDatacollectionConfig implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class HttpDatacollectionConfig implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * full path to the RRD repository for collected SNMP data
      */
-    @XmlAttribute(name="rrdRepository", required = true)
+    @XmlAttribute(name = "rrdRepository", required = true)
     private java.lang.String _rrdRepository;
 
     /**
      * Field _httpCollectionList.
      */
-    @XmlElement(name="http-collection")
+    @XmlElement(name = "http-collection")
     private java.util.List<org.opennms.netmgt.config.httpdatacollection.HttpCollection> _httpCollectionList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public HttpDatacollectionConfig() {
         super();
         this._httpCollectionList = new java.util.ArrayList<org.opennms.netmgt.config.httpdatacollection.HttpCollection>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -98,7 +90,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addHttpCollection(
             final org.opennms.netmgt.config.httpdatacollection.HttpCollection vHttpCollection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._httpCollectionList.add(vHttpCollection);
     }
 
@@ -113,7 +105,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addHttpCollection(
             final int index,
             final org.opennms.netmgt.config.httpdatacollection.HttpCollection vHttpCollection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._httpCollectionList.add(index, vHttpCollection);
     }
 
@@ -123,8 +115,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.httpdatacollection.HttpCollection> enumerateHttpCollection(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.httpdatacollection.HttpCollection> enumerateHttpCollection() {
         return java.util.Collections.enumeration(this._httpCollectionList);
     }
 
@@ -137,26 +128,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof HttpDatacollectionConfig) {
 
-            HttpDatacollectionConfig temp = (HttpDatacollectionConfig)obj;
+            HttpDatacollectionConfig temp = (HttpDatacollectionConfig) obj;
             if (this._rrdRepository != null) {
-                if (temp._rrdRepository == null) return false;
-                else if (!(this._rrdRepository.equals(temp._rrdRepository)))
+                if (temp._rrdRepository == null) {
                     return false;
-            }
-            else if (temp._rrdRepository != null)
+                } else if (!(this._rrdRepository.equals(temp._rrdRepository))) {
+                    return false;
+                }
+            } else if (temp._rrdRepository != null) {
                 return false;
+            }
             if (this._httpCollectionList != null) {
-                if (temp._httpCollectionList == null) return false;
-                else if (!(this._httpCollectionList.equals(temp._httpCollectionList)))
+                if (temp._httpCollectionList == null) {
                     return false;
-            }
-            else if (temp._httpCollectionList != null)
+                } else if (!(this._httpCollectionList.equals(temp._httpCollectionList))) {
+                    return false;
+                }
+            } else if (temp._httpCollectionList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -174,7 +170,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.httpdatacollection.HttpCollection getHttpCollection(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._httpCollectionList.size()) {
             throw new IndexOutOfBoundsException("getHttpCollection: Index value '" + index + "' not in range [0.." + (this._httpCollectionList.size() - 1) + "]");
@@ -193,8 +189,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.httpdatacollection.HttpCollection[] getHttpCollection(
-    ) {
+    public org.opennms.netmgt.config.httpdatacollection.HttpCollection[] getHttpCollection() {
         org.opennms.netmgt.config.httpdatacollection.HttpCollection[] array = new org.opennms.netmgt.config.httpdatacollection.HttpCollection[0];
         return (org.opennms.netmgt.config.httpdatacollection.HttpCollection[]) this._httpCollectionList.toArray(array);
     }
@@ -206,8 +201,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.httpdatacollection.HttpCollection> getHttpCollectionCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.httpdatacollection.HttpCollection> getHttpCollectionCollection() {
         return this._httpCollectionList;
     }
 
@@ -216,8 +210,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getHttpCollectionCount(
-    ) {
+    public int getHttpCollectionCount() {
         return this._httpCollectionList.size();
     }
 
@@ -228,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RrdRepository'.
      */
-    public java.lang.String getRrdRepository(
-    ) {
+    public java.lang.String getRrdRepository() {
         return this._rrdRepository;
     }
 
@@ -242,16 +234,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_rrdRepository != null) {
-           result = 37 * result + _rrdRepository.hashCode();
+            result = 37 * result + _rrdRepository.hashCode();
         }
         if (_httpCollectionList != null) {
-           result = 37 * result + _httpCollectionList.hashCode();
+            result = 37 * result + _httpCollectionList.hashCode();
         }
 
         return result;
@@ -262,8 +253,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -278,8 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.httpdatacollection.HttpCollection> iterateHttpCollection(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.httpdatacollection.HttpCollection> iterateHttpCollection() {
         return this._httpCollectionList.iterator();
     }
 
@@ -294,7 +283,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -311,14 +300,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllHttpCollection(
-    ) {
+    public void removeAllHttpCollection() {
         this._httpCollectionList.clear();
     }
 
@@ -357,7 +345,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setHttpCollection(
             final int index,
             final org.opennms.netmgt.config.httpdatacollection.HttpCollection vHttpCollection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._httpCollectionList.size()) {
             throw new IndexOutOfBoundsException("setHttpCollection: Index value '" + index + "' not in range [0.." + (this._httpCollectionList.size() - 1) + "]");
@@ -377,7 +365,7 @@ import org.opennms.core.xml.ValidateUsing;
         _httpCollectionList.clear();
 
         for (int i = 0; i < vHttpCollectionArray.length; i++) {
-                this._httpCollectionList.add(vHttpCollectionArray[i]);
+            this._httpCollectionList.add(vHttpCollectionArray[i]);
         }
     }
 
@@ -432,7 +420,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.httpdatacollection.HttpDatacollectionConfig unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.httpdatacollection.HttpDatacollectionConfig) Unmarshaller.unmarshal(org.opennms.netmgt.config.httpdatacollection.HttpDatacollectionConfig.class, reader);
     }
 
@@ -442,9 +430,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

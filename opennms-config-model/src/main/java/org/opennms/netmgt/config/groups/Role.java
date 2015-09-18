@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.groups;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,61 +48,56 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="role")
+@XmlRootElement(name = "role")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("groups.xsd")
-@SuppressWarnings("all") public class Role implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Role implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _membershipGroup.
      */
-    @XmlAttribute(name="membership-group", required = true)
+    @XmlAttribute(name = "membership-group", required = true)
     private java.lang.String _membershipGroup;
 
     /**
      * Field _supervisor.
      */
-    @XmlAttribute(name="supervisor", required = true)
+    @XmlAttribute(name = "supervisor", required = true)
     private java.lang.String _supervisor;
 
     /**
      * Field _description.
      */
-    @XmlAttribute(name="description")
+    @XmlAttribute(name = "description")
     private java.lang.String _description;
 
     /**
      * Field _scheduleList.
      */
-    @XmlElement(name="schedule")
+    @XmlElement(name = "schedule")
     private java.util.List<org.opennms.netmgt.config.groups.Schedule> _scheduleList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Role() {
         super();
         this._scheduleList = new java.util.ArrayList<org.opennms.netmgt.config.groups.Schedule>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -115,7 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSchedule(
             final org.opennms.netmgt.config.groups.Schedule vSchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._scheduleList.add(vSchedule);
     }
 
@@ -130,7 +122,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSchedule(
             final int index,
             final org.opennms.netmgt.config.groups.Schedule vSchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._scheduleList.add(index, vSchedule);
     }
 
@@ -140,8 +132,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.groups.Schedule> enumerateSchedule(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.groups.Schedule> enumerateSchedule() {
         return java.util.Collections.enumeration(this._scheduleList);
     }
 
@@ -154,47 +145,58 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Role) {
 
-            Role temp = (Role)obj;
+            Role temp = (Role) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._membershipGroup != null) {
-                if (temp._membershipGroup == null) return false;
-                else if (!(this._membershipGroup.equals(temp._membershipGroup)))
+                if (temp._membershipGroup == null) {
                     return false;
-            }
-            else if (temp._membershipGroup != null)
+                } else if (!(this._membershipGroup.equals(temp._membershipGroup))) {
+                    return false;
+                }
+            } else if (temp._membershipGroup != null) {
                 return false;
+            }
             if (this._supervisor != null) {
-                if (temp._supervisor == null) return false;
-                else if (!(this._supervisor.equals(temp._supervisor)))
+                if (temp._supervisor == null) {
                     return false;
-            }
-            else if (temp._supervisor != null)
+                } else if (!(this._supervisor.equals(temp._supervisor))) {
+                    return false;
+                }
+            } else if (temp._supervisor != null) {
                 return false;
+            }
             if (this._description != null) {
-                if (temp._description == null) return false;
-                else if (!(this._description.equals(temp._description)))
+                if (temp._description == null) {
                     return false;
-            }
-            else if (temp._description != null)
+                } else if (!(this._description.equals(temp._description))) {
+                    return false;
+                }
+            } else if (temp._description != null) {
                 return false;
+            }
             if (this._scheduleList != null) {
-                if (temp._scheduleList == null) return false;
-                else if (!(this._scheduleList.equals(temp._scheduleList)))
+                if (temp._scheduleList == null) {
                     return false;
-            }
-            else if (temp._scheduleList != null)
+                } else if (!(this._scheduleList.equals(temp._scheduleList))) {
+                    return false;
+                }
+            } else if (temp._scheduleList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -205,8 +207,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Description'.
      */
-    public java.lang.String getDescription(
-    ) {
+    public java.lang.String getDescription() {
         return this._description;
     }
 
@@ -215,8 +216,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MembershipGroup'.
      */
-    public java.lang.String getMembershipGroup(
-    ) {
+    public java.lang.String getMembershipGroup() {
         return this._membershipGroup;
     }
 
@@ -225,8 +225,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -241,7 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.groups.Schedule getSchedule(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._scheduleList.size()) {
             throw new IndexOutOfBoundsException("getSchedule: Index value '" + index + "' not in range [0.." + (this._scheduleList.size() - 1) + "]");
@@ -259,8 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.groups.Schedule[] getSchedule(
-    ) {
+    public org.opennms.netmgt.config.groups.Schedule[] getSchedule() {
         org.opennms.netmgt.config.groups.Schedule[] array = new org.opennms.netmgt.config.groups.Schedule[0];
         return (org.opennms.netmgt.config.groups.Schedule[]) this._scheduleList.toArray(array);
     }
@@ -272,8 +270,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.groups.Schedule> getScheduleCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.groups.Schedule> getScheduleCollection() {
         return this._scheduleList;
     }
 
@@ -282,8 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getScheduleCount(
-    ) {
+    public int getScheduleCount() {
         return this._scheduleList.size();
     }
 
@@ -292,8 +288,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Supervisor'.
      */
-    public java.lang.String getSupervisor(
-    ) {
+    public java.lang.String getSupervisor() {
         return this._supervisor;
     }
 
@@ -306,25 +301,24 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_membershipGroup != null) {
-           result = 37 * result + _membershipGroup.hashCode();
+            result = 37 * result + _membershipGroup.hashCode();
         }
         if (_supervisor != null) {
-           result = 37 * result + _supervisor.hashCode();
+            result = 37 * result + _supervisor.hashCode();
         }
         if (_description != null) {
-           result = 37 * result + _description.hashCode();
+            result = 37 * result + _description.hashCode();
         }
         if (_scheduleList != null) {
-           result = 37 * result + _scheduleList.hashCode();
+            result = 37 * result + _scheduleList.hashCode();
         }
 
         return result;
@@ -335,8 +329,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -351,8 +344,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.groups.Schedule> iterateSchedule(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.groups.Schedule> iterateSchedule() {
         return this._scheduleList.iterator();
     }
 
@@ -367,7 +359,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -384,14 +376,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllSchedule(
-    ) {
+    public void removeAllSchedule() {
         this._scheduleList.clear();
     }
 
@@ -460,7 +451,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSchedule(
             final int index,
             final org.opennms.netmgt.config.groups.Schedule vSchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._scheduleList.size()) {
             throw new IndexOutOfBoundsException("setSchedule: Index value '" + index + "' not in range [0.." + (this._scheduleList.size() - 1) + "]");
@@ -480,7 +471,7 @@ import org.opennms.core.xml.ValidateUsing;
         _scheduleList.clear();
 
         for (int i = 0; i < vScheduleArray.length; i++) {
-                this._scheduleList.add(vScheduleArray[i]);
+            this._scheduleList.add(vScheduleArray[i]);
         }
     }
 
@@ -532,7 +523,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.groups.Role unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.groups.Role) Unmarshaller.unmarshal(org.opennms.netmgt.config.groups.Role.class, reader);
     }
 
@@ -542,9 +533,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

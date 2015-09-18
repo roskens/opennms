@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.httpdatacollection;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,44 +41,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="uris")
+@XmlRootElement(name = "uris")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("http-datacollection-config.xsd")
-@SuppressWarnings("all") public class Uris implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Uris implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _uriList.
      */
-    @XmlElement(name="uri")
+    @XmlElement(name = "uri")
     private java.util.List<org.opennms.netmgt.config.httpdatacollection.Uri> _uriList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Uris() {
         super();
         this._uriList = new java.util.ArrayList<org.opennms.netmgt.config.httpdatacollection.Uri>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -90,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addUri(
             final org.opennms.netmgt.config.httpdatacollection.Uri vUri)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._uriList.add(vUri);
     }
 
@@ -105,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addUri(
             final int index,
             final org.opennms.netmgt.config.httpdatacollection.Uri vUri)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._uriList.add(index, vUri);
     }
 
@@ -115,8 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.httpdatacollection.Uri> enumerateUri(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.httpdatacollection.Uri> enumerateUri() {
         return java.util.Collections.enumeration(this._uriList);
     }
 
@@ -129,19 +120,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Uris) {
 
-            Uris temp = (Uris)obj;
+            Uris temp = (Uris) obj;
             if (this._uriList != null) {
-                if (temp._uriList == null) return false;
-                else if (!(this._uriList.equals(temp._uriList)))
+                if (temp._uriList == null) {
                     return false;
-            }
-            else if (temp._uriList != null)
+                } else if (!(this._uriList.equals(temp._uriList))) {
+                    return false;
+                }
+            } else if (temp._uriList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -159,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.httpdatacollection.Uri getUri(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._uriList.size()) {
             throw new IndexOutOfBoundsException("getUri: Index value '" + index + "' not in range [0.." + (this._uriList.size() - 1) + "]");
@@ -177,8 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.httpdatacollection.Uri[] getUri(
-    ) {
+    public org.opennms.netmgt.config.httpdatacollection.Uri[] getUri() {
         org.opennms.netmgt.config.httpdatacollection.Uri[] array = new org.opennms.netmgt.config.httpdatacollection.Uri[0];
         return (org.opennms.netmgt.config.httpdatacollection.Uri[]) this._uriList.toArray(array);
     }
@@ -190,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.httpdatacollection.Uri> getUriCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.httpdatacollection.Uri> getUriCollection() {
         return this._uriList;
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getUriCount(
-    ) {
+    public int getUriCount() {
         return this._uriList.size();
     }
 
@@ -214,13 +205,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_uriList != null) {
-           result = 37 * result + _uriList.hashCode();
+            result = 37 * result + _uriList.hashCode();
         }
 
         return result;
@@ -231,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -247,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.httpdatacollection.Uri> iterateUri(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.httpdatacollection.Uri> iterateUri() {
         return this._uriList.iterator();
     }
 
@@ -263,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -280,14 +268,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllUri(
-    ) {
+    public void removeAllUri() {
         this._uriList.clear();
     }
 
@@ -326,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setUri(
             final int index,
             final org.opennms.netmgt.config.httpdatacollection.Uri vUri)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._uriList.size()) {
             throw new IndexOutOfBoundsException("setUri: Index value '" + index + "' not in range [0.." + (this._uriList.size() - 1) + "]");
@@ -346,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
         _uriList.clear();
 
         for (int i = 0; i < vUriArray.length; i++) {
-                this._uriList.add(vUriArray[i]);
+            this._uriList.add(vUriArray[i]);
         }
     }
 
@@ -389,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.httpdatacollection.Uris unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.httpdatacollection.Uris) Unmarshaller.unmarshal(org.opennms.netmgt.config.httpdatacollection.Uris.class, reader);
     }
 
@@ -399,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

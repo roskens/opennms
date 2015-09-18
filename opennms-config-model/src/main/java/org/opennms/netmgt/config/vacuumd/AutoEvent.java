@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,12 +50,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "auto-event")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AutoEvent implements Serializable {
+
     private static final long serialVersionUID = 3309476961723377055L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _name.
      */
@@ -79,7 +77,6 @@ public class AutoEvent implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public AutoEvent() {
         super();
     }
@@ -94,7 +91,6 @@ public class AutoEvent implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -103,33 +99,40 @@ public class AutoEvent implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof AutoEvent) {
 
             AutoEvent temp = (AutoEvent) obj;
             if (this._name != null) {
-                if (temp._name == null)
+                if (temp._name == null) {
                     return false;
-                else if (!(this._name.equals(temp._name)))
+                } else if (!(this._name.equals(temp._name))) {
                     return false;
-            } else if (temp._name != null)
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._fields != null) {
-                if (temp._fields == null)
+                if (temp._fields == null) {
                     return false;
-                else if (!(this._fields.equals(temp._fields)))
+                } else if (!(this._fields.equals(temp._fields))) {
                     return false;
-            } else if (temp._fields != null)
+                }
+            } else if (temp._fields != null) {
                 return false;
+            }
             if (this._uei != null) {
-                if (temp._uei == null)
+                if (temp._uei == null) {
                     return false;
-                else if (!(this._uei.equals(temp._uei)))
+                } else if (!(this._uei.equals(temp._uei))) {
                     return false;
-            } else if (temp._uei != null)
+                }
+            } else if (temp._uei != null) {
                 return false;
+            }
             return true;
         }
         return false;

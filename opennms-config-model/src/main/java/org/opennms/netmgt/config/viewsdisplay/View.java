@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.viewsdisplay;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,50 +41,44 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="view")
+@XmlRootElement(name = "view")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("viewsdisplay.xsd")
-@SuppressWarnings("all") public class View implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class View implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _viewName.
      */
-    @XmlElement(name="view-name")
+    @XmlElement(name = "view-name")
     private java.lang.String _viewName;
 
     /**
      * Field _sectionList.
      */
-    @XmlElement(name="section")
+    @XmlElement(name = "section")
     private java.util.List<org.opennms.netmgt.config.viewsdisplay.Section> _sectionList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public View() {
         super();
         this._sectionList = new java.util.ArrayList<org.opennms.netmgt.config.viewsdisplay.Section>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -96,7 +88,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSection(
             final org.opennms.netmgt.config.viewsdisplay.Section vSection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._sectionList.add(vSection);
     }
 
@@ -111,7 +103,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSection(
             final int index,
             final org.opennms.netmgt.config.viewsdisplay.Section vSection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._sectionList.add(index, vSection);
     }
 
@@ -121,8 +113,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.viewsdisplay.Section> enumerateSection(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.viewsdisplay.Section> enumerateSection() {
         return java.util.Collections.enumeration(this._sectionList);
     }
 
@@ -135,26 +126,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof View) {
 
-            View temp = (View)obj;
+            View temp = (View) obj;
             if (this._viewName != null) {
-                if (temp._viewName == null) return false;
-                else if (!(this._viewName.equals(temp._viewName)))
+                if (temp._viewName == null) {
                     return false;
-            }
-            else if (temp._viewName != null)
+                } else if (!(this._viewName.equals(temp._viewName))) {
+                    return false;
+                }
+            } else if (temp._viewName != null) {
                 return false;
+            }
             if (this._sectionList != null) {
-                if (temp._sectionList == null) return false;
-                else if (!(this._sectionList.equals(temp._sectionList)))
+                if (temp._sectionList == null) {
                     return false;
-            }
-            else if (temp._sectionList != null)
+                } else if (!(this._sectionList.equals(temp._sectionList))) {
+                    return false;
+                }
+            } else if (temp._sectionList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -172,7 +168,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.viewsdisplay.Section getSection(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._sectionList.size()) {
             throw new IndexOutOfBoundsException("getSection: Index value '" + index + "' not in range [0.." + (this._sectionList.size() - 1) + "]");
@@ -190,8 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.viewsdisplay.Section[] getSection(
-    ) {
+    public org.opennms.netmgt.config.viewsdisplay.Section[] getSection() {
         org.opennms.netmgt.config.viewsdisplay.Section[] array = new org.opennms.netmgt.config.viewsdisplay.Section[0];
         return (org.opennms.netmgt.config.viewsdisplay.Section[]) this._sectionList.toArray(array);
     }
@@ -203,8 +198,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.viewsdisplay.Section> getSectionCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.viewsdisplay.Section> getSectionCollection() {
         return this._sectionList;
     }
 
@@ -213,8 +207,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSectionCount(
-    ) {
+    public int getSectionCount() {
         return this._sectionList.size();
     }
 
@@ -223,8 +216,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ViewName'.
      */
-    public java.lang.String getViewName(
-    ) {
+    public java.lang.String getViewName() {
         return this._viewName;
     }
 
@@ -237,16 +229,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_viewName != null) {
-           result = 37 * result + _viewName.hashCode();
+            result = 37 * result + _viewName.hashCode();
         }
         if (_sectionList != null) {
-           result = 37 * result + _sectionList.hashCode();
+            result = 37 * result + _sectionList.hashCode();
         }
 
         return result;
@@ -257,8 +248,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -273,8 +263,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.viewsdisplay.Section> iterateSection(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.viewsdisplay.Section> iterateSection() {
         return this._sectionList.iterator();
     }
 
@@ -289,7 +278,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -306,14 +295,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllSection(
-    ) {
+    public void removeAllSection() {
         this._sectionList.clear();
     }
 
@@ -352,7 +340,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSection(
             final int index,
             final org.opennms.netmgt.config.viewsdisplay.Section vSection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._sectionList.size()) {
             throw new IndexOutOfBoundsException("setSection: Index value '" + index + "' not in range [0.." + (this._sectionList.size() - 1) + "]");
@@ -372,7 +360,7 @@ import org.opennms.core.xml.ValidateUsing;
         _sectionList.clear();
 
         for (int i = 0; i < vSectionArray.length; i++) {
-                this._sectionList.add(vSectionArray[i]);
+            this._sectionList.add(vSectionArray[i]);
         }
     }
 
@@ -425,7 +413,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.viewsdisplay.View unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.viewsdisplay.View) Unmarshaller.unmarshal(org.opennms.netmgt.config.viewsdisplay.View.class, reader);
     }
 
@@ -435,9 +423,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

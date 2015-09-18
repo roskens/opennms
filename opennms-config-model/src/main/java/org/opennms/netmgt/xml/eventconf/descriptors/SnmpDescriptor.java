@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.xml.eventconf.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.xml.eventconf.Snmp;
 
 /**
@@ -48,11 +46,9 @@ import org.opennms.netmgt.xml.eventconf.Snmp;
  */
 public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
-
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,48 +74,45 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public SnmpDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/eventconf";
         _xmlName = "snmp";
         _elementDefinition = true;
-        
+
         //-- set grouping compositor
         setCompositorAsSequence();
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- initialize element descriptors
-        
         //-- _id
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_id", "id", org.exolab.castor.xml.NodeType.Element);
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Snmp target = (Snmp) object;
                 return target.getId();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Snmp target = (Snmp) object;
-                    target.setId( (java.lang.String) value);
+                    target.setId((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -131,7 +124,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _id
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -147,23 +140,23 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Snmp target = (Snmp) object;
                 return target.getIdtext();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Snmp target = (Snmp) object;
-                    target.setIdtext( (java.lang.String) value);
+                    target.setIdtext((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -174,7 +167,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _idtext
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -189,23 +182,23 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Snmp target = (Snmp) object;
                 return target.getVersion();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Snmp target = (Snmp) object;
-                    target.setVersion( (java.lang.String) value);
+                    target.setVersion((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -217,7 +210,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _version
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -232,17 +225,18 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Integer.TYPE, "_specific", "specific", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Snmp target = (Snmp) object;
-                if (!target.hasSpecific()) { return null; }
+                if (!target.hasSpecific()) {
+                    return null;
+                }
                 return java.lang.Integer.valueOf(target.getSpecific());
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Snmp target = (Snmp) object;
                     // if null, use delete method for optional primitives 
@@ -250,11 +244,12 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
                         target.deleteSpecific();
                         return;
                     }
-                    target.setSpecific( ((java.lang.Integer) value).intValue());
+                    target.setSpecific(((java.lang.Integer) value).intValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -265,7 +260,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _specific
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -280,17 +275,18 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Integer.TYPE, "_generic", "generic", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Snmp target = (Snmp) object;
-                if (!target.hasGeneric()) { return null; }
+                if (!target.hasGeneric()) {
+                    return null;
+                }
                 return java.lang.Integer.valueOf(target.getGeneric());
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Snmp target = (Snmp) object;
                     // if null, use delete method for optional primitives 
@@ -298,11 +294,12 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
                         target.deleteGeneric();
                         return;
                     }
-                    target.setGeneric( ((java.lang.Integer) value).intValue());
+                    target.setGeneric(((java.lang.Integer) value).intValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -313,7 +310,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _generic
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -329,23 +326,23 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Snmp target = (Snmp) object;
                 return target.getCommunity();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Snmp target = (Snmp) object;
-                    target.setCommunity( (java.lang.String) value);
+                    target.setCommunity((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -356,7 +353,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _community
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -368,19 +365,16 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setValidator(fieldValidator);
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -391,8 +385,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -402,8 +395,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.xml.eventconf.Snmp.class;
     }
 
@@ -413,8 +405,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -425,8 +416,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -437,8 +427,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -448,8 +437,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -461,8 +449,7 @@ public class SnmpDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * element or element with anonymous type definition.
      */
     @Override
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

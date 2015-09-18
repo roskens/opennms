@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.provisiond;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -54,7 +52,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -62,55 +59,50 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="requisition-def")
+@XmlRootElement(name = "requisition-def")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("provisiond-configuration.xsd")
-@SuppressWarnings("all") public class RequisitionDef implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class RequisitionDef implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _importUrlResource.
      */
-    @XmlAttribute(name="import-url-resource", required = true)
+    @XmlAttribute(name = "import-url-resource", required = true)
     private java.lang.String _importUrlResource;
 
     /**
      * Field _importName.
      */
-    @XmlAttribute(name="import-name", required = true)
+    @XmlAttribute(name = "import-name", required = true)
     private java.lang.String _importName;
 
     /**
      * Field _rescanExisting.
      */
-    @XmlAttribute(name="rescan-existing")
+    @XmlAttribute(name = "rescan-existing")
     private java.lang.String _rescanExisting;
     private static final String DEFAULT_RESCAN_EXISTING = "true";
 
     /**
      * Field _cronSchedule.
      */
-    @XmlElement(name="cron-schedule")
+    @XmlElement(name = "cron-schedule")
     private java.lang.String _cronSchedule;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public RequisitionDef() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -120,40 +112,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof RequisitionDef) {
 
-            RequisitionDef temp = (RequisitionDef)obj;
+            RequisitionDef temp = (RequisitionDef) obj;
             if (this._importUrlResource != null) {
-                if (temp._importUrlResource == null) return false;
-                else if (!(this._importUrlResource.equals(temp._importUrlResource)))
+                if (temp._importUrlResource == null) {
                     return false;
-            }
-            else if (temp._importUrlResource != null)
+                } else if (!(this._importUrlResource.equals(temp._importUrlResource))) {
+                    return false;
+                }
+            } else if (temp._importUrlResource != null) {
                 return false;
+            }
             if (this._importName != null) {
-                if (temp._importName == null) return false;
-                else if (!(this._importName.equals(temp._importName)))
+                if (temp._importName == null) {
                     return false;
-            }
-            else if (temp._importName != null)
+                } else if (!(this._importName.equals(temp._importName))) {
+                    return false;
+                }
+            } else if (temp._importName != null) {
                 return false;
+            }
             if (this._rescanExisting != null) {
-                if (temp._rescanExisting == null) return false;
-                else if (!(this._rescanExisting.equals(temp._rescanExisting)))
+                if (temp._rescanExisting == null) {
                     return false;
-            }
-            else if (temp._rescanExisting != null)
+                } else if (!(this._rescanExisting.equals(temp._rescanExisting))) {
+                    return false;
+                }
+            } else if (temp._rescanExisting != null) {
                 return false;
+            }
             if (this._cronSchedule != null) {
-                if (temp._cronSchedule == null) return false;
-                else if (!(this._cronSchedule.equals(temp._cronSchedule)))
+                if (temp._cronSchedule == null) {
                     return false;
-            }
-            else if (temp._cronSchedule != null)
+                } else if (!(this._cronSchedule.equals(temp._cronSchedule))) {
+                    return false;
+                }
+            } else if (temp._cronSchedule != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -164,8 +165,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'CronSchedule'.
      */
-    public java.lang.String getCronSchedule(
-    ) {
+    public java.lang.String getCronSchedule() {
         return this._cronSchedule;
     }
 
@@ -174,8 +174,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ImportName'.
      */
-    public java.lang.String getImportName(
-    ) {
+    public java.lang.String getImportName() {
         return this._importName;
     }
 
@@ -184,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ImportUrlResource'.
      */
-    public java.lang.String getImportUrlResource(
-    ) {
+    public java.lang.String getImportUrlResource() {
         return this._importUrlResource;
     }
 
@@ -194,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RescanExisting'.
      */
-    public java.lang.String getRescanExisting(
-    ) {
+    public java.lang.String getRescanExisting() {
         return this._rescanExisting == null ? DEFAULT_RESCAN_EXISTING : this._rescanExisting;
     }
 
@@ -208,22 +205,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_importUrlResource != null) {
-           result = 37 * result + _importUrlResource.hashCode();
+            result = 37 * result + _importUrlResource.hashCode();
         }
         if (_importName != null) {
-           result = 37 * result + _importName.hashCode();
+            result = 37 * result + _importName.hashCode();
         }
         if (_rescanExisting != null) {
-           result = 37 * result + _rescanExisting.hashCode();
+            result = 37 * result + _rescanExisting.hashCode();
         }
         if (_cronSchedule != null) {
-           result = 37 * result + _cronSchedule.hashCode();
+            result = 37 * result + _cronSchedule.hashCode();
         }
 
         return result;
@@ -234,8 +230,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -255,7 +250,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -272,7 +267,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -330,7 +325,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.provisiond.RequisitionDef unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.provisiond.RequisitionDef) Unmarshaller.unmarshal(org.opennms.netmgt.config.provisiond.RequisitionDef.class, reader);
     }
 
@@ -340,9 +335,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

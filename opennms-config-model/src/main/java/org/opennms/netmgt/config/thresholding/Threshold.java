@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.thresholding;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,47 +41,40 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="threshold")
+@XmlRootElement(name = "threshold")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("thresholding-config.xsd")
-@SuppressWarnings("all") public class Threshold extends org.opennms.netmgt.config.thresholding.Basethresholddef
-implements java.io.Serializable
-{
-
+@SuppressWarnings("all")
+public class Threshold extends org.opennms.netmgt.config.thresholding.Basethresholddef
+        implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * RRD datasource name. Mutually exclusive with expression,
      *  but one of them must be specified
      *
      */
-    @XmlAttribute(name="ds-name", required = true)
+    @XmlAttribute(name = "ds-name", required = true)
     private java.lang.String _dsName;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Threshold() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -93,22 +84,26 @@ implements java.io.Serializable
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
-        if (super.equals(obj)==false)
+        if (super.equals(obj) == false) {
             return false;
+        }
 
         if (obj instanceof Threshold) {
 
-            Threshold temp = (Threshold)obj;
+            Threshold temp = (Threshold) obj;
             if (this._dsName != null) {
-                if (temp._dsName == null) return false;
-                else if (!(this._dsName.equals(temp._dsName)))
+                if (temp._dsName == null) {
                     return false;
-            }
-            else if (temp._dsName != null)
+                } else if (!(this._dsName.equals(temp._dsName))) {
+                    return false;
+                }
+            } else if (temp._dsName != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -123,8 +118,7 @@ implements java.io.Serializable
      *
      * @return the value of field 'DsName'.
      */
-    public java.lang.String getDsName(
-    ) {
+    public java.lang.String getDsName() {
         return this._dsName;
     }
 
@@ -137,13 +131,12 @@ implements java.io.Serializable
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_dsName != null) {
-           result = 37 * result + _dsName.hashCode();
+            result = 37 * result + _dsName.hashCode();
         }
 
         return result;
@@ -154,8 +147,7 @@ implements java.io.Serializable
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -175,7 +167,7 @@ implements java.io.Serializable
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -192,7 +184,7 @@ implements java.io.Serializable
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -223,7 +215,7 @@ implements java.io.Serializable
      */
     public static org.opennms.netmgt.config.thresholding.Basethresholddef unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.thresholding.Basethresholddef) Unmarshaller.unmarshal(org.opennms.netmgt.config.thresholding.Threshold.class, reader);
     }
 
@@ -233,9 +225,8 @@ implements java.io.Serializable
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

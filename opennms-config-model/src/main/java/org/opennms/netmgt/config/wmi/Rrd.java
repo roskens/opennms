@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.wmi;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,43 +48,38 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="rrd")
+@XmlRootElement(name = "rrd")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("wmi-datacollection.xsd")
-@SuppressWarnings("all") public class Rrd implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Rrd implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * step size for the RRD
      */
-    @XmlAttribute(name="step", required = true)
+    @XmlAttribute(name = "step", required = true)
     private Integer _step;
 
     /**
      * Round Robin Archive definitions
      */
-    @XmlElement(name="rra")
+    @XmlElement(name = "rra")
     private java.util.List<java.lang.String> _rraList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Rrd() {
         super();
         this._rraList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -97,7 +89,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addRra(
             final java.lang.String vRra)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._rraList.add(vRra);
     }
 
@@ -112,14 +104,13 @@ import org.opennms.core.xml.ValidateUsing;
     public void addRra(
             final int index,
             final java.lang.String vRra)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._rraList.add(index, vRra);
     }
 
     /**
      */
-    public void deleteStep(
-    ) {
+    public void deleteStep() {
         this._step = null;
     }
 
@@ -129,8 +120,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateRra(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateRra() {
         return java.util.Collections.enumeration(this._rraList);
     }
 
@@ -143,26 +133,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Rrd) {
 
-            Rrd temp = (Rrd)obj;
+            Rrd temp = (Rrd) obj;
             if (this._step != null) {
-                if (temp._step == null) return false;
-                else if (!(this._step.equals(temp._step)))
+                if (temp._step == null) {
                     return false;
-            }
-            else if (temp._step != null)
+                } else if (!(this._step.equals(temp._step))) {
+                    return false;
+                }
+            } else if (temp._step != null) {
                 return false;
+            }
             if (this._rraList != null) {
-                if (temp._rraList == null) return false;
-                else if (!(this._rraList.equals(temp._rraList)))
+                if (temp._rraList == null) {
                     return false;
-            }
-            else if (temp._rraList != null)
+                } else if (!(this._rraList.equals(temp._rraList))) {
+                    return false;
+                }
+            } else if (temp._rraList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -178,7 +173,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getRra(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._rraList.size()) {
             throw new IndexOutOfBoundsException("getRra: Index value '" + index + "' not in range [0.." + (this._rraList.size() - 1) + "]");
@@ -196,8 +191,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getRra(
-    ) {
+    public java.lang.String[] getRra() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._rraList.toArray(array);
     }
@@ -209,8 +203,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getRraCollection(
-    ) {
+    public java.util.List<java.lang.String> getRraCollection() {
         return this._rraList;
     }
 
@@ -219,8 +212,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getRraCount(
-    ) {
+    public int getRraCount() {
         return this._rraList.size();
     }
 
@@ -230,8 +222,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Step'.
      */
-    public Integer getStep(
-    ) {
+    public Integer getStep() {
         return this._step;
     }
 
@@ -240,8 +231,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Step has been added
      */
-    public boolean hasStep(
-    ) {
+    public boolean hasStep() {
         return this._step != null;
     }
 
@@ -254,16 +244,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_step != null) {
-           result = 37 * result + _step.hashCode();
+            result = 37 * result + _step.hashCode();
         }
         if (_rraList != null) {
-           result = 37 * result + _rraList.hashCode();
+            result = 37 * result + _rraList.hashCode();
         }
 
         return result;
@@ -274,8 +263,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -290,8 +278,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateRra(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateRra() {
         return this._rraList.iterator();
     }
 
@@ -306,7 +293,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -323,14 +310,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllRra(
-    ) {
+    public void removeAllRra() {
         this._rraList.clear();
     }
 
@@ -369,7 +355,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setRra(
             final int index,
             final java.lang.String vRra)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._rraList.size()) {
             throw new IndexOutOfBoundsException("setRra: Index value '" + index + "' not in range [0.." + (this._rraList.size() - 1) + "]");
@@ -389,7 +375,7 @@ import org.opennms.core.xml.ValidateUsing;
         _rraList.clear();
 
         for (int i = 0; i < vRraArray.length; i++) {
-                this._rraList.add(vRraArray[i]);
+            this._rraList.add(vRraArray[i]);
         }
     }
 
@@ -442,7 +428,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.wmi.Rrd unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.wmi.Rrd) Unmarshaller.unmarshal(org.opennms.netmgt.config.wmi.Rrd.class, reader);
     }
 
@@ -452,9 +438,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

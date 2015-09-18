@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.agents;
 
 import java.util.Collection;
@@ -38,17 +37,21 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonRootName;
 import org.opennms.core.config.api.JaxbListWrapper;
 
-@XmlRootElement(name="agents")
+@XmlRootElement(name = "agents")
 @JsonRootName("agents")
 public class AgentResponseCollection extends JaxbListWrapper<AgentResponse> {
+
     private static final long serialVersionUID = 1L;
 
-    public AgentResponseCollection() { super(); }
+    public AgentResponseCollection() {
+        super();
+    }
+
     public AgentResponseCollection(final Collection<? extends AgentResponse> responses) {
         super(responses);
     }
 
-    @XmlElement(name="agent")
+    @XmlElement(name = "agent")
     @JsonProperty("agent")
     public List<AgentResponse> getObjects() {
         return super.getObjects();

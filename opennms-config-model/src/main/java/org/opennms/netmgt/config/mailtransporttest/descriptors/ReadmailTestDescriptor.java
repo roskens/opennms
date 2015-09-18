@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
 
 /**
@@ -46,13 +44,12 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
  * 
  * @version $Revision$ $Date$
  */
-@SuppressWarnings("all") public class ReadmailTestDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
-
+@SuppressWarnings("all")
+public class ReadmailTestDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,39 +75,38 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ReadmailTestDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/mail-transport-test";
         _xmlName = "readmail-test";
         _elementDefinition = true;
-        
+
         //-- set grouping compositor
         setCompositorAsSequence();
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- _debug
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Boolean.TYPE, "_debug", "debug", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
-                if (!target.hasDebug()) { return null; }
+                if (!target.hasDebug()) {
+                    return null;
+                }
                 return (target.getDebug() ? java.lang.Boolean.TRUE : java.lang.Boolean.FALSE);
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
                     // if null, use delete method for optional primitives 
@@ -118,11 +114,12 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
                         target.deleteDebug();
                         return;
                     }
-                    target.setDebug( ((java.lang.Boolean) value).booleanValue());
+                    target.setDebug(((java.lang.Boolean) value).booleanValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -133,7 +130,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _debug
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -147,23 +144,23 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
                 return target.getMailFolder();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
-                    target.setMailFolder( (java.lang.String) value);
+                    target.setMailFolder((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -174,7 +171,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _mailFolder
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -189,23 +186,23 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
                 return target.getSubjectMatch();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
-                    target.setSubjectMatch( (java.lang.String) value);
+                    target.setSubjectMatch((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -216,7 +213,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _subjectMatch
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -230,17 +227,18 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Long.TYPE, "_attemptInterval", "attempt-interval", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
-                if (!target.hasAttemptInterval()) { return null; }
+                if (!target.hasAttemptInterval()) {
+                    return null;
+                }
                 return new java.lang.Long(target.getAttemptInterval());
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
                     // if null, use delete method for optional primitives 
@@ -248,11 +246,12 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
                         target.deleteAttemptInterval();
                         return;
                     }
-                    target.setAttemptInterval( ((java.lang.Long) value).longValue());
+                    target.setAttemptInterval(((java.lang.Long) value).longValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -263,7 +262,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _attemptInterval
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -276,17 +275,18 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Boolean.TYPE, "_deleteAllMail", "delete-all-mail", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
-                if (!target.hasDeleteAllMail()) { return null; }
+                if (!target.hasDeleteAllMail()) {
+                    return null;
+                }
                 return (target.getDeleteAllMail() ? java.lang.Boolean.TRUE : java.lang.Boolean.FALSE);
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
                     // if null, use delete method for optional primitives 
@@ -294,11 +294,12 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
                         target.deleteDeleteAllMail();
                         return;
                     }
-                    target.setDeleteAllMail( ((java.lang.Boolean) value).booleanValue());
+                    target.setDeleteAllMail(((java.lang.Boolean) value).booleanValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -309,7 +310,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _deleteAllMail
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -319,28 +320,28 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         }
         desc.setValidator(fieldValidator);
         //-- initialize element descriptors
-        
+
         //-- _javamailPropertyList
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.JavamailProperty.class, "_javamailPropertyList", "javamail-property", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
                 return target.getJavamailProperty();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
-                    target.addJavamailProperty( (org.opennms.netmgt.config.mailtransporttest.JavamailProperty) value);
+                    target.addJavamailProperty((org.opennms.netmgt.config.mailtransporttest.JavamailProperty) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
@@ -349,6 +350,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -361,7 +363,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _javamailPropertyList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(0);
@@ -372,23 +374,23 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.ReadmailHost.class, "_readmailHost", "readmail-host", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
                 return target.getReadmailHost();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
-                    target.setReadmailHost( (org.opennms.netmgt.config.mailtransporttest.ReadmailHost) value);
+                    target.setReadmailHost((org.opennms.netmgt.config.mailtransporttest.ReadmailHost) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -402,7 +404,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _readmailHost
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -413,23 +415,23 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.UserAuth.class, "_userAuth", "user-auth", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 ReadmailTest target = (ReadmailTest) object;
                 return target.getUserAuth();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     ReadmailTest target = (ReadmailTest) object;
-                    target.setUserAuth( (org.opennms.netmgt.config.mailtransporttest.UserAuth) value);
+                    target.setUserAuth((org.opennms.netmgt.config.mailtransporttest.UserAuth) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -443,7 +445,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _userAuth
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -452,19 +454,16 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
         desc.setValidator(fieldValidator);
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -475,8 +474,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -486,8 +484,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.config.mailtransporttest.ReadmailTest.class;
     }
 
@@ -497,8 +494,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -509,8 +505,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -521,8 +516,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -532,8 +526,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -544,8 +537,7 @@ import org.opennms.netmgt.config.mailtransporttest.ReadmailTest;
      * of a global
      * element or element with anonymous type definition.
      */
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

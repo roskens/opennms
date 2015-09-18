@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.ami;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,12 +48,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "range")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Range implements Serializable {
+
     private static final long serialVersionUID = 8055671432443263541L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Starting IP address of the range.
      */
@@ -71,7 +69,6 @@ public class Range implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Range() {
         super();
     }
@@ -85,7 +82,6 @@ public class Range implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -94,26 +90,31 @@ public class Range implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Range) {
 
             Range temp = (Range) obj;
             if (this._begin != null) {
-                if (temp._begin == null)
+                if (temp._begin == null) {
                     return false;
-                else if (!(this._begin.equals(temp._begin)))
+                } else if (!(this._begin.equals(temp._begin))) {
                     return false;
-            } else if (temp._begin != null)
+                }
+            } else if (temp._begin != null) {
                 return false;
+            }
             if (this._end != null) {
-                if (temp._end == null)
+                if (temp._end == null) {
                     return false;
-                else if (!(this._end.equals(temp._end)))
+                } else if (!(this._end.equals(temp._end))) {
                     return false;
-            } else if (temp._end != null)
+                }
+            } else if (temp._end != null) {
                 return false;
+            }
             return true;
         }
         return false;

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.charts;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,48 +41,41 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlValue;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="blue")
+@XmlRootElement(name = "blue")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("chart-configuration.xsd")
-@SuppressWarnings("all") public class Blue implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Blue implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _rgbColor.
      */
     @XmlValue
     private Integer _rgbColor;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Blue() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteRgbColor(
-    ) {
-        this._rgbColor= null;
+    public void deleteRgbColor() {
+        this._rgbColor = null;
     }
 
     /**
@@ -96,19 +87,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Blue) {
 
-            Blue temp = (Blue)obj;
+            Blue temp = (Blue) obj;
             if (this._rgbColor != null) {
-                if (temp._rgbColor == null) return false;
-                else if (!(this._rgbColor.equals(temp._rgbColor)))
+                if (temp._rgbColor == null) {
                     return false;
-            }
-            else if (temp._rgbColor != null)
+                } else if (!(this._rgbColor.equals(temp._rgbColor))) {
+                    return false;
+                }
+            } else if (temp._rgbColor != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -119,8 +113,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RgbColor'.
      */
-    public Integer getRgbColor(
-    ) {
+    public Integer getRgbColor() {
         return this._rgbColor;
     }
 
@@ -129,8 +122,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one RgbColor has been added
      */
-    public boolean hasRgbColor(
-    ) {
+    public boolean hasRgbColor() {
         return this._rgbColor != null;
     }
 
@@ -143,8 +135,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
@@ -158,8 +149,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -179,7 +169,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -196,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -222,7 +212,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.charts.Blue unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.charts.Blue) Unmarshaller.unmarshal(org.opennms.netmgt.config.charts.Blue.class, reader);
     }
 
@@ -232,9 +222,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

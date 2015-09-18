@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import java.io.IOException;
@@ -56,29 +55,29 @@ import org.xml.sax.ContentHandler;
  * The Mask for event configuration: The mask contains one
  *  or more 'maskelements' which uniquely identify an event.
  */
-@XmlRootElement(name="mask")
+@XmlRootElement(name = "mask")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventconf.xsd")
-@XmlType(propOrder={"m_maskElements", "m_varbinds"})
+@XmlType(propOrder = {"m_maskElements", "m_varbinds"})
 public class Mask implements Serializable {
-	private static final long serialVersionUID = 6447323136878359636L;
-	private static final Varbind[] EMPTY_VARBIND_ARRAY = new Varbind[0];
-	private static final Maskelement[] EMPTY_MASKELEMENT_ARRAY = new Maskelement[0];
 
-	/**
+    private static final long serialVersionUID = 6447323136878359636L;
+    private static final Varbind[] EMPTY_VARBIND_ARRAY = new Varbind[0];
+    private static final Maskelement[] EMPTY_MASKELEMENT_ARRAY = new Maskelement[0];
+
+    /**
      * The mask element
      */
 	// @NotNull
-	// @Size(min=1)
-	@XmlElement(name="maskelement", required=true)
+    // @Size(min=1)
+    @XmlElement(name = "maskelement", required = true)
     private List<Maskelement> m_maskElements = new ArrayList<Maskelement>();
 
     /**
      * The varbind element
      */
-	@XmlElement(name="varbind")
+    @XmlElement(name = "varbind")
     private List<Varbind> m_varbinds = new ArrayList<Varbind>();
-
 
     public void addMaskelement(final Maskelement element) throws IndexOutOfBoundsException {
         m_maskElements.add(element);
@@ -201,12 +200,14 @@ public class Mask implements Serializable {
     public void setMaskelement(final Maskelement[] elements) {
         m_maskElements.clear();
         for (final Maskelement element : elements) {
-        	m_maskElements.add(element);
+            m_maskElements.add(element);
         }
     }
 
     public void setMaskelement(final List<Maskelement> elements) {
-        if (m_maskElements == elements) return;
+        if (m_maskElements == elements) {
+            return;
+        }
         m_maskElements.clear();
         m_maskElements.addAll(elements);
     }
@@ -225,12 +226,14 @@ public class Mask implements Serializable {
     public void setVarbind(final Varbind[] varbinds) {
         m_varbinds.clear();
         for (final Varbind varbind : varbinds) {
-        	m_varbinds.add(varbind);
+            m_varbinds.add(varbind);
         }
     }
 
     public void setVarbind(final List<Varbind> varbinds) {
-        if (m_varbinds == varbinds) return;
+        if (m_varbinds == varbinds) {
+            return;
+        }
         m_varbinds.clear();
         m_varbinds.addAll(varbinds);
     }
@@ -247,63 +250,72 @@ public class Mask implements Serializable {
         new Validator().validate(this);
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((m_maskElements == null) ? 0 : m_maskElements.hashCode());
-		result = prime * result + ((m_varbinds == null) ? 0 : m_varbinds.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((m_maskElements == null) ? 0 : m_maskElements.hashCode());
+        result = prime * result + ((m_varbinds == null) ? 0 : m_varbinds.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (!(obj instanceof Mask)) return false;
-		final Mask other = (Mask) obj;
-		if (m_maskElements == null) {
-			if (other.m_maskElements != null) return false;
-		} else if (!m_maskElements.equals(other.m_maskElements)) {
-			return false;
-		}
-		if (m_varbinds == null) {
-			if (other.m_varbinds != null) return false;
-		} else if (!m_varbinds.equals(other.m_varbinds)) {
-			return false;
-		}
-		return true;
-	}
-	
-	public EventMatcher constructMatcher() {
-		EventMatcher[] matchers = new EventMatcher[getMaskelementCount()+getVarbindCount()];
-		int index = 0;
-		for(Maskelement maskElement : m_maskElements) {
-			matchers[index] = maskElement.constructMatcher();
-			index++;
- 		}
-		
-		for(Varbind varbind : m_varbinds) {
-			matchers[index] = varbind.constructMatcher();
-			index++;
-		}
-		
-		return EventMatchers.and(matchers);
-	}
-	
-	public Maskelement getMaskElement(String mename) {
-		for(Maskelement element : m_maskElements) {
-			if (mename.equals(element.getMename())) {
-				return element;
-			}
-		}
-		return null;
-	}
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Mask)) {
+            return false;
+        }
+        final Mask other = (Mask) obj;
+        if (m_maskElements == null) {
+            if (other.m_maskElements != null) {
+                return false;
+            }
+        } else if (!m_maskElements.equals(other.m_maskElements)) {
+            return false;
+        }
+        if (m_varbinds == null) {
+            if (other.m_varbinds != null) {
+                return false;
+            }
+        } else if (!m_varbinds.equals(other.m_varbinds)) {
+            return false;
+        }
+        return true;
+    }
 
-	public List<String> getMaskElementValues(String mename) {
-		Maskelement element = getMaskElement(mename);
-		return element == null ? null : element.getMevalueCollection();
-	}
-	
+    public EventMatcher constructMatcher() {
+        EventMatcher[] matchers = new EventMatcher[getMaskelementCount() + getVarbindCount()];
+        int index = 0;
+        for (Maskelement maskElement : m_maskElements) {
+            matchers[index] = maskElement.constructMatcher();
+            index++;
+        }
+
+        for (Varbind varbind : m_varbinds) {
+            matchers[index] = varbind.constructMatcher();
+            index++;
+        }
+
+        return EventMatchers.and(matchers);
+    }
+
+    public Maskelement getMaskElement(String mename) {
+        for (Maskelement element : m_maskElements) {
+            if (mename.equals(element.getMename())) {
+                return element;
+            }
+        }
+        return null;
+    }
+
+    public List<String> getMaskElementValues(String mename) {
+        Maskelement element = getMaskElement(mename);
+        return element == null ? null : element.getMevalueCollection();
+    }
 
 }

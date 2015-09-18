@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.xml.eventconf.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.xml.eventconf.Decode;
 
 /**
@@ -48,11 +46,9 @@ import org.opennms.netmgt.xml.eventconf.Decode;
  */
 public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
-
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,43 +74,41 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public DecodeDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/eventconf";
         _xmlName = "decode";
         _elementDefinition = true;
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- _varbindvalue
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_varbindvalue", "varbindvalue", org.exolab.castor.xml.NodeType.Attribute);
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Decode target = (Decode) object;
                 return target.getVarbindvalue();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Decode target = (Decode) object;
-                    target.setVarbindvalue( (java.lang.String) value);
+                    target.setVarbindvalue((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -125,7 +119,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
         desc.setRequired(true);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _varbindvalue
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -141,23 +135,23 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Decode target = (Decode) object;
                 return target.getVarbinddecodedstring();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Decode target = (Decode) object;
-                    target.setVarbinddecodedstring( (java.lang.String) value);
+                    target.setVarbinddecodedstring((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -168,7 +162,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
         desc.setRequired(true);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _varbinddecodedstring
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -180,22 +174,19 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
         }
         desc.setValidator(fieldValidator);
         //-- initialize element descriptors
-        
+
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -206,8 +197,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -217,8 +207,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.xml.eventconf.Decode.class;
     }
 
@@ -228,8 +217,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -240,8 +228,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -252,8 +239,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -263,8 +249,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -276,8 +261,7 @@ public class DecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescrip
      * element or element with anonymous type definition.
      */
     @Override
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

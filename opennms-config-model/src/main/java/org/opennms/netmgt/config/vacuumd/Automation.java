@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,6 +48,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "automation")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Automation implements Serializable {
+
     private static final long serialVersionUID = -1003423077476370628L;
 
     private static final boolean DEFAULT_ACTIVE_FLAG = true;
@@ -57,7 +56,6 @@ public class Automation implements Serializable {
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * The name of this automation
      */
@@ -103,7 +101,6 @@ public class Automation implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Automation() {
         super();
     }
@@ -125,7 +122,6 @@ public class Automation implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -134,48 +130,65 @@ public class Automation implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Automation other = (Automation) obj;
         if (_actionEvent == null) {
-            if (other._actionEvent != null)
+            if (other._actionEvent != null) {
                 return false;
-        } else if (!_actionEvent.equals(other._actionEvent))
+            }
+        } else if (!_actionEvent.equals(other._actionEvent)) {
             return false;
+        }
         if (_actionName == null) {
-            if (other._actionName != null)
+            if (other._actionName != null) {
                 return false;
-        } else if (!_actionName.equals(other._actionName))
+            }
+        } else if (!_actionName.equals(other._actionName)) {
             return false;
+        }
         if (_active == null) {
-            if (other._active != null)
+            if (other._active != null) {
                 return false;
-        } else if (!_active.equals(other._active))
+            }
+        } else if (!_active.equals(other._active)) {
             return false;
+        }
         if (_autoEventName == null) {
-            if (other._autoEventName != null)
+            if (other._autoEventName != null) {
                 return false;
-        } else if (!_autoEventName.equals(other._autoEventName))
+            }
+        } else if (!_autoEventName.equals(other._autoEventName)) {
             return false;
+        }
         if (_interval == null) {
-            if (other._interval != null)
+            if (other._interval != null) {
                 return false;
-        } else if (!_interval.equals(other._interval))
+            }
+        } else if (!_interval.equals(other._interval)) {
             return false;
+        }
         if (_name == null) {
-            if (other._name != null)
+            if (other._name != null) {
                 return false;
-        } else if (!_name.equals(other._name))
+            }
+        } else if (!_name.equals(other._name)) {
             return false;
+        }
         if (_triggerName == null) {
-            if (other._triggerName != null)
+            if (other._triggerName != null) {
                 return false;
-        } else if (!_triggerName.equals(other._triggerName))
+            }
+        } else if (!_triggerName.equals(other._triggerName)) {
             return false;
+        }
         return true;
     }
 

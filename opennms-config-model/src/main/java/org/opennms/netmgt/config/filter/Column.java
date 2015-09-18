@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.filter;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,68 +48,63 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="column")
+@XmlRootElement(name = "column")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("database-schema.xsd")
-@SuppressWarnings("all") public class Column implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Column implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _sqlType.
      */
-    @XmlAttribute(name="sql-type")
+    @XmlAttribute(name = "sql-type")
     private java.lang.String _sqlType;
 
     /**
      * Field _javaType.
      */
-    @XmlAttribute(name="java-type")
+    @XmlAttribute(name = "java-type")
     private java.lang.String _javaType;
 
     /**
      * Field _visible.
      */
-    @XmlAttribute(name="visible")
+    @XmlAttribute(name = "visible")
     private java.lang.String _visible;
 
     /**
      * Field _aliasList.
      */
-    @XmlElement(name="alias")
+    @XmlElement(name = "alias")
     private java.util.List<org.opennms.netmgt.config.filter.Alias> _aliasList;
 
     /**
      * Field _constraintList.
      */
-    @XmlElement(name="constraint")
+    @XmlElement(name = "constraint")
     private java.util.List<org.opennms.netmgt.config.filter.Constraint> _constraintList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Column() {
         super();
         this._aliasList = new java.util.ArrayList<org.opennms.netmgt.config.filter.Alias>();
         this._constraintList = new java.util.ArrayList<org.opennms.netmgt.config.filter.Constraint>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -122,7 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addAlias(
             final org.opennms.netmgt.config.filter.Alias vAlias)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._aliasList.add(vAlias);
     }
 
@@ -137,7 +129,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addAlias(
             final int index,
             final org.opennms.netmgt.config.filter.Alias vAlias)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._aliasList.add(index, vAlias);
     }
 
@@ -150,7 +142,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addConstraint(
             final org.opennms.netmgt.config.filter.Constraint vConstraint)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._constraintList.add(vConstraint);
     }
 
@@ -165,7 +157,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addConstraint(
             final int index,
             final org.opennms.netmgt.config.filter.Constraint vConstraint)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._constraintList.add(index, vConstraint);
     }
 
@@ -175,8 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.filter.Alias> enumerateAlias(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.filter.Alias> enumerateAlias() {
         return java.util.Collections.enumeration(this._aliasList);
     }
 
@@ -186,8 +177,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.filter.Constraint> enumerateConstraint(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.filter.Constraint> enumerateConstraint() {
         return java.util.Collections.enumeration(this._constraintList);
     }
 
@@ -200,54 +190,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Column) {
 
-            Column temp = (Column)obj;
+            Column temp = (Column) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._sqlType != null) {
-                if (temp._sqlType == null) return false;
-                else if (!(this._sqlType.equals(temp._sqlType)))
+                if (temp._sqlType == null) {
                     return false;
-            }
-            else if (temp._sqlType != null)
+                } else if (!(this._sqlType.equals(temp._sqlType))) {
+                    return false;
+                }
+            } else if (temp._sqlType != null) {
                 return false;
+            }
             if (this._javaType != null) {
-                if (temp._javaType == null) return false;
-                else if (!(this._javaType.equals(temp._javaType)))
+                if (temp._javaType == null) {
                     return false;
-            }
-            else if (temp._javaType != null)
+                } else if (!(this._javaType.equals(temp._javaType))) {
+                    return false;
+                }
+            } else if (temp._javaType != null) {
                 return false;
+            }
             if (this._visible != null) {
-                if (temp._visible == null) return false;
-                else if (!(this._visible.equals(temp._visible)))
+                if (temp._visible == null) {
                     return false;
-            }
-            else if (temp._visible != null)
+                } else if (!(this._visible.equals(temp._visible))) {
+                    return false;
+                }
+            } else if (temp._visible != null) {
                 return false;
+            }
             if (this._aliasList != null) {
-                if (temp._aliasList == null) return false;
-                else if (!(this._aliasList.equals(temp._aliasList)))
+                if (temp._aliasList == null) {
                     return false;
-            }
-            else if (temp._aliasList != null)
+                } else if (!(this._aliasList.equals(temp._aliasList))) {
+                    return false;
+                }
+            } else if (temp._aliasList != null) {
                 return false;
+            }
             if (this._constraintList != null) {
-                if (temp._constraintList == null) return false;
-                else if (!(this._constraintList.equals(temp._constraintList)))
+                if (temp._constraintList == null) {
                     return false;
-            }
-            else if (temp._constraintList != null)
+                } else if (!(this._constraintList.equals(temp._constraintList))) {
+                    return false;
+                }
+            } else if (temp._constraintList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -264,7 +267,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.filter.Alias getAlias(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._aliasList.size()) {
             throw new IndexOutOfBoundsException("getAlias: Index value '" + index + "' not in range [0.." + (this._aliasList.size() - 1) + "]");
@@ -282,8 +285,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.filter.Alias[] getAlias(
-    ) {
+    public org.opennms.netmgt.config.filter.Alias[] getAlias() {
         org.opennms.netmgt.config.filter.Alias[] array = new org.opennms.netmgt.config.filter.Alias[0];
         return (org.opennms.netmgt.config.filter.Alias[]) this._aliasList.toArray(array);
     }
@@ -295,8 +297,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.filter.Alias> getAliasCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.filter.Alias> getAliasCollection() {
         return this._aliasList;
     }
 
@@ -305,8 +306,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getAliasCount(
-    ) {
+    public int getAliasCount() {
         return this._aliasList.size();
     }
 
@@ -321,7 +321,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.filter.Constraint getConstraint(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._constraintList.size()) {
             throw new IndexOutOfBoundsException("getConstraint: Index value '" + index + "' not in range [0.." + (this._constraintList.size() - 1) + "]");
@@ -339,8 +339,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.filter.Constraint[] getConstraint(
-    ) {
+    public org.opennms.netmgt.config.filter.Constraint[] getConstraint() {
         org.opennms.netmgt.config.filter.Constraint[] array = new org.opennms.netmgt.config.filter.Constraint[0];
         return (org.opennms.netmgt.config.filter.Constraint[]) this._constraintList.toArray(array);
     }
@@ -352,8 +351,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.filter.Constraint> getConstraintCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.filter.Constraint> getConstraintCollection() {
         return this._constraintList;
     }
 
@@ -362,8 +360,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getConstraintCount(
-    ) {
+    public int getConstraintCount() {
         return this._constraintList.size();
     }
 
@@ -372,8 +369,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'JavaType'.
      */
-    public java.lang.String getJavaType(
-    ) {
+    public java.lang.String getJavaType() {
         return this._javaType;
     }
 
@@ -382,8 +378,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -392,8 +387,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SqlType'.
      */
-    public java.lang.String getSqlType(
-    ) {
+    public java.lang.String getSqlType() {
         return this._sqlType;
     }
 
@@ -402,8 +396,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Visible'.
      */
-    public java.lang.String getVisible(
-    ) {
+    public java.lang.String getVisible() {
         return this._visible == null ? "true" : this._visible;
     }
 
@@ -416,28 +409,27 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_sqlType != null) {
-           result = 37 * result + _sqlType.hashCode();
+            result = 37 * result + _sqlType.hashCode();
         }
         if (_javaType != null) {
-           result = 37 * result + _javaType.hashCode();
+            result = 37 * result + _javaType.hashCode();
         }
         if (_visible != null) {
-           result = 37 * result + _visible.hashCode();
+            result = 37 * result + _visible.hashCode();
         }
         if (_aliasList != null) {
-           result = 37 * result + _aliasList.hashCode();
+            result = 37 * result + _aliasList.hashCode();
         }
         if (_constraintList != null) {
-           result = 37 * result + _constraintList.hashCode();
+            result = 37 * result + _constraintList.hashCode();
         }
 
         return result;
@@ -448,8 +440,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -464,8 +455,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.filter.Alias> iterateAlias(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.filter.Alias> iterateAlias() {
         return this._aliasList.iterator();
     }
 
@@ -475,8 +465,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.filter.Constraint> iterateConstraint(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.filter.Constraint> iterateConstraint() {
         return this._constraintList.iterator();
     }
 
@@ -491,7 +480,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -508,7 +497,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -538,15 +527,13 @@ import org.opennms.core.xml.ValidateUsing;
 
     /**
      */
-    public void removeAllAlias(
-    ) {
+    public void removeAllAlias() {
         this._aliasList.clear();
     }
 
     /**
      */
-    public void removeAllConstraint(
-    ) {
+    public void removeAllConstraint() {
         this._constraintList.clear();
     }
 
@@ -585,7 +572,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setAlias(
             final int index,
             final org.opennms.netmgt.config.filter.Alias vAlias)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._aliasList.size()) {
             throw new IndexOutOfBoundsException("setAlias: Index value '" + index + "' not in range [0.." + (this._aliasList.size() - 1) + "]");
@@ -605,7 +592,7 @@ import org.opennms.core.xml.ValidateUsing;
         _aliasList.clear();
 
         for (int i = 0; i < vAliasArray.length; i++) {
-                this._aliasList.add(vAliasArray[i]);
+            this._aliasList.add(vAliasArray[i]);
         }
     }
 
@@ -646,7 +633,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setConstraint(
             final int index,
             final org.opennms.netmgt.config.filter.Constraint vConstraint)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._constraintList.size()) {
             throw new IndexOutOfBoundsException("setConstraint: Index value '" + index + "' not in range [0.." + (this._constraintList.size() - 1) + "]");
@@ -666,7 +653,7 @@ import org.opennms.core.xml.ValidateUsing;
         _constraintList.clear();
 
         for (int i = 0; i < vConstraintArray.length; i++) {
-                this._constraintList.add(vConstraintArray[i]);
+            this._constraintList.add(vConstraintArray[i]);
         }
     }
 
@@ -749,7 +736,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.filter.Column unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.filter.Column) Unmarshaller.unmarshal(org.opennms.netmgt.config.filter.Column.class, reader);
     }
 
@@ -759,9 +746,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

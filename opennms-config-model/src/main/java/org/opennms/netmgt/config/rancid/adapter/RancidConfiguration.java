@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.rancid.adapter;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,16 +49,15 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="rancid-configuration")
+@XmlRootElement(name = "rancid-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("rancid-adapter-configuration.xsd")
-@SuppressWarnings("all") public class RancidConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class RancidConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The time in sec to wait before trying
      *  to set the download flag to up in router.db.
@@ -70,21 +66,21 @@ import org.opennms.core.xml.ValidateUsing;
      *  Otherwise you wait until schedule let you write on rancid.
      *
      */
-    @XmlAttribute(name="delay", required = true)
+    @XmlAttribute(name = "delay", required = true)
     private Long _delay;
 
     /**
      * The maximum number of retry before
      *  sending a failure.
      */
-    @XmlAttribute(name="retries", required = true)
+    @XmlAttribute(name = "retries", required = true)
     private Integer _retries;
 
     /**
      * If you want to use opennms categories
      *  to match rancid device type.
      */
-    @XmlAttribute(name="useCategories")
+    @XmlAttribute(name = "useCategories")
     private Boolean _useCategories;
     private static final Boolean DEFAULT_USE_CATEGORIES = false;
 
@@ -93,7 +89,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  for provisioned node is found.
      *
      */
-    @XmlAttribute(name="default-type")
+    @XmlAttribute(name = "default-type")
     private java.lang.String _defaultType;
     private static final String DEFAULT_TYPE = "cisco";
 
@@ -101,30 +97,26 @@ import org.opennms.core.xml.ValidateUsing;
      * Configuration of Policy
      *  functionality
      */
-    @XmlElement(name="policies")
+    @XmlElement(name = "policies")
     private org.opennms.netmgt.config.rancid.adapter.Policies _policies;
 
     /**
      * A map from sysoids masks and rancid device type.
      */
-    @XmlElement(name="mapping")
+    @XmlElement(name = "mapping")
     private java.util.List<org.opennms.netmgt.config.rancid.adapter.Mapping> _mappingList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public RancidConfiguration() {
         super();
         this._mappingList = new java.util.ArrayList<org.opennms.netmgt.config.rancid.adapter.Mapping>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -134,7 +126,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addMapping(
             final org.opennms.netmgt.config.rancid.adapter.Mapping vMapping)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._mappingList.add(vMapping);
     }
 
@@ -149,28 +141,25 @@ import org.opennms.core.xml.ValidateUsing;
     public void addMapping(
             final int index,
             final org.opennms.netmgt.config.rancid.adapter.Mapping vMapping)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._mappingList.add(index, vMapping);
     }
 
     /**
      */
-    public void deleteDelay(
-    ) {
+    public void deleteDelay() {
         this._delay = null;
     }
 
     /**
      */
-    public void deleteRetries(
-    ) {
+    public void deleteRetries() {
         this._retries = null;
     }
 
     /**
      */
-    public void deleteUseCategories(
-    ) {
+    public void deleteUseCategories() {
         this._useCategories = null;
     }
 
@@ -180,8 +169,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.rancid.adapter.Mapping> enumerateMapping(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.rancid.adapter.Mapping> enumerateMapping() {
         return java.util.Collections.enumeration(this._mappingList);
     }
 
@@ -194,54 +182,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof RancidConfiguration) {
 
-            RancidConfiguration temp = (RancidConfiguration)obj;
+            RancidConfiguration temp = (RancidConfiguration) obj;
             if (this._delay != null) {
-                if (temp._delay == null) return false;
-                else if (!(this._delay.equals(temp._delay)))
+                if (temp._delay == null) {
                     return false;
-            }
-            else if (temp._delay != null)
+                } else if (!(this._delay.equals(temp._delay))) {
+                    return false;
+                }
+            } else if (temp._delay != null) {
                 return false;
+            }
             if (this._retries != null) {
-                if (temp._retries == null) return false;
-                else if (!(this._retries.equals(temp._retries)))
+                if (temp._retries == null) {
                     return false;
-            }
-            else if (temp._retries != null)
+                } else if (!(this._retries.equals(temp._retries))) {
+                    return false;
+                }
+            } else if (temp._retries != null) {
                 return false;
+            }
             if (this._useCategories != null) {
-                if (temp._useCategories == null) return false;
-                else if (!(this._useCategories.equals(temp._useCategories)))
+                if (temp._useCategories == null) {
                     return false;
-            }
-            else if (temp._useCategories != null)
+                } else if (!(this._useCategories.equals(temp._useCategories))) {
+                    return false;
+                }
+            } else if (temp._useCategories != null) {
                 return false;
+            }
             if (this._defaultType != null) {
-                if (temp._defaultType == null) return false;
-                else if (!(this._defaultType.equals(temp._defaultType)))
+                if (temp._defaultType == null) {
                     return false;
-            }
-            else if (temp._defaultType != null)
+                } else if (!(this._defaultType.equals(temp._defaultType))) {
+                    return false;
+                }
+            } else if (temp._defaultType != null) {
                 return false;
+            }
             if (this._policies != null) {
-                if (temp._policies == null) return false;
-                else if (!(this._policies.equals(temp._policies)))
+                if (temp._policies == null) {
                     return false;
-            }
-            else if (temp._policies != null)
+                } else if (!(this._policies.equals(temp._policies))) {
+                    return false;
+                }
+            } else if (temp._policies != null) {
                 return false;
+            }
             if (this._mappingList != null) {
-                if (temp._mappingList == null) return false;
-                else if (!(this._mappingList.equals(temp._mappingList)))
+                if (temp._mappingList == null) {
                     return false;
-            }
-            else if (temp._mappingList != null)
+                } else if (!(this._mappingList.equals(temp._mappingList))) {
+                    return false;
+                }
+            } else if (temp._mappingList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -256,8 +257,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DefaultType'.
      */
-    public java.lang.String getDefaultType(
-    ) {
+    public java.lang.String getDefaultType() {
         return this._defaultType == null ? DEFAULT_TYPE : this._defaultType;
     }
 
@@ -273,8 +273,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Delay'.
      */
-    public Long getDelay(
-    ) {
+    public Long getDelay() {
         return this._delay;
     }
 
@@ -290,7 +289,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.rancid.adapter.Mapping getMapping(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._mappingList.size()) {
             throw new IndexOutOfBoundsException("getMapping: Index value '" + index + "' not in range [0.." + (this._mappingList.size() - 1) + "]");
@@ -308,8 +307,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.rancid.adapter.Mapping[] getMapping(
-    ) {
+    public org.opennms.netmgt.config.rancid.adapter.Mapping[] getMapping() {
         org.opennms.netmgt.config.rancid.adapter.Mapping[] array = new org.opennms.netmgt.config.rancid.adapter.Mapping[0];
         return (org.opennms.netmgt.config.rancid.adapter.Mapping[]) this._mappingList.toArray(array);
     }
@@ -321,8 +319,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.rancid.adapter.Mapping> getMappingCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.rancid.adapter.Mapping> getMappingCollection() {
         return this._mappingList;
     }
 
@@ -331,8 +328,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getMappingCount(
-    ) {
+    public int getMappingCount() {
         return this._mappingList.size();
     }
 
@@ -343,8 +339,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Policies'.
      */
-    public org.opennms.netmgt.config.rancid.adapter.Policies getPolicies(
-    ) {
+    public org.opennms.netmgt.config.rancid.adapter.Policies getPolicies() {
         return this._policies;
     }
 
@@ -356,8 +351,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retries'.
      */
-    public Integer getRetries(
-    ) {
+    public Integer getRetries() {
         return this._retries;
     }
 
@@ -369,8 +363,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseCategories'.
      */
-    public Boolean getUseCategories(
-    ) {
+    public Boolean getUseCategories() {
         return this._useCategories == null ? DEFAULT_USE_CATEGORIES : this._useCategories;
     }
 
@@ -379,8 +372,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Delay has been added
      */
-    public boolean hasDelay(
-    ) {
+    public boolean hasDelay() {
         return this._delay != null;
     }
 
@@ -389,8 +381,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Retries has been added
      */
-    public boolean hasRetries(
-    ) {
+    public boolean hasRetries() {
         return this._retries != null;
     }
 
@@ -399,8 +390,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one UseCategories has been added
      */
-    public boolean hasUseCategories(
-    ) {
+    public boolean hasUseCategories() {
         return this._useCategories != null;
     }
 
@@ -413,28 +403,27 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_delay != null) {
-           result = 37 * result + _delay.hashCode();
+            result = 37 * result + _delay.hashCode();
         }
         if (_retries != null) {
-           result = 37 * result + _retries.hashCode();
+            result = 37 * result + _retries.hashCode();
         }
         if (_useCategories != null) {
-           result = 37 * result + _useCategories.hashCode();
+            result = 37 * result + _useCategories.hashCode();
         }
         if (_defaultType != null) {
-           result = 37 * result + _defaultType.hashCode();
+            result = 37 * result + _defaultType.hashCode();
         }
         if (_policies != null) {
-           result = 37 * result + _policies.hashCode();
+            result = 37 * result + _policies.hashCode();
         }
         if (_mappingList != null) {
-           result = 37 * result + _mappingList.hashCode();
+            result = 37 * result + _mappingList.hashCode();
         }
 
         return result;
@@ -448,8 +437,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseCategories'.
      */
-    public boolean isUseCategories(
-    ) {
+    public boolean isUseCategories() {
         return this._useCategories;
     }
 
@@ -458,8 +446,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -474,8 +461,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.rancid.adapter.Mapping> iterateMapping(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.rancid.adapter.Mapping> iterateMapping() {
         return this._mappingList.iterator();
     }
 
@@ -490,7 +476,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -507,14 +493,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllMapping(
-    ) {
+    public void removeAllMapping() {
         this._mappingList.clear();
     }
 
@@ -583,7 +568,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setMapping(
             final int index,
             final org.opennms.netmgt.config.rancid.adapter.Mapping vMapping)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._mappingList.size()) {
             throw new IndexOutOfBoundsException("setMapping: Index value '" + index + "' not in range [0.." + (this._mappingList.size() - 1) + "]");
@@ -603,7 +588,7 @@ import org.opennms.core.xml.ValidateUsing;
         _mappingList.clear();
 
         for (int i = 0; i < vMappingArray.length; i++) {
-                this._mappingList.add(vMappingArray[i]);
+            this._mappingList.add(vMappingArray[i]);
         }
     }
 
@@ -684,7 +669,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.rancid.adapter.RancidConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.rancid.adapter.RancidConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.rancid.adapter.RancidConfiguration.class, reader);
     }
 
@@ -694,9 +679,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

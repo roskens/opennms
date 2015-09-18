@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.categories;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,34 +41,32 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="category")
+@XmlRootElement(name = "category")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("categories.xsd")
-@SuppressWarnings("all") public class Category implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Category implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The category label. NOTE: category labels will need
      *  to be unique across category groups.
      */
-    @XmlElement(name="label")
+    @XmlElement(name = "label")
     private java.lang.String _label;
 
     /**
      * A comment describing the category.
      */
-    @XmlElement(name="comment")
+    @XmlElement(name = "comment")
     private java.lang.String _comment;
 
     /**
@@ -81,7 +77,7 @@ import org.opennms.core.xml.ValidateUsing;
      * this
      *  value.
      */
-    @XmlElement(name="normal")
+    @XmlElement(name = "normal")
     private Double _normal;
 
     /**
@@ -94,7 +90,7 @@ import org.opennms.core.xml.ValidateUsing;
      * is less
      *  than this value, category is displayed in red.
      */
-    @XmlElement(name="warning")
+    @XmlElement(name = "warning")
     private Double _warning;
 
     /**
@@ -108,30 +104,26 @@ import org.opennms.core.xml.ValidateUsing;
      * added to
      *  the category.
      */
-    @XmlElement(name="service")
+    @XmlElement(name = "service")
     private java.util.List<java.lang.String> _serviceList;
 
     /**
      * The category rule.
      */
-    @XmlElement(name="rule")
+    @XmlElement(name = "rule")
     private java.lang.String _rule;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Category() {
         super();
         this._serviceList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -141,7 +133,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addService(
             final java.lang.String vService)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._serviceList.add(vService);
     }
 
@@ -156,22 +148,20 @@ import org.opennms.core.xml.ValidateUsing;
     public void addService(
             final int index,
             final java.lang.String vService)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._serviceList.add(index, vService);
     }
 
     /**
      */
-    public void deleteNormal(
-    ) {
-        this._normal= null;
+    public void deleteNormal() {
+        this._normal = null;
     }
 
     /**
      */
-    public void deleteWarning(
-    ) {
-        this._warning= null;
+    public void deleteWarning() {
+        this._warning = null;
     }
 
     /**
@@ -180,8 +170,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateService(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateService() {
         return java.util.Collections.enumeration(this._serviceList);
     }
 
@@ -194,54 +183,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Category) {
 
-            Category temp = (Category)obj;
+            Category temp = (Category) obj;
             if (this._label != null) {
-                if (temp._label == null) return false;
-                else if (!(this._label.equals(temp._label)))
+                if (temp._label == null) {
                     return false;
-            }
-            else if (temp._label != null)
+                } else if (!(this._label.equals(temp._label))) {
+                    return false;
+                }
+            } else if (temp._label != null) {
                 return false;
+            }
             if (this._comment != null) {
-                if (temp._comment == null) return false;
-                else if (!(this._comment.equals(temp._comment)))
+                if (temp._comment == null) {
                     return false;
-            }
-            else if (temp._comment != null)
+                } else if (!(this._comment.equals(temp._comment))) {
+                    return false;
+                }
+            } else if (temp._comment != null) {
                 return false;
+            }
             if (this._normal != null) {
-                if (temp._normal == null) return false;
-                else if (!(this._normal.equals(temp._normal)))
+                if (temp._normal == null) {
                     return false;
-            }
-            else if (temp._normal != null)
+                } else if (!(this._normal.equals(temp._normal))) {
+                    return false;
+                }
+            } else if (temp._normal != null) {
                 return false;
+            }
             if (this._warning != null) {
-                if (temp._warning == null) return false;
-                else if (!(this._warning.equals(temp._warning)))
+                if (temp._warning == null) {
                     return false;
-            }
-            else if (temp._warning != null)
+                } else if (!(this._warning.equals(temp._warning))) {
+                    return false;
+                }
+            } else if (temp._warning != null) {
                 return false;
+            }
             if (this._serviceList != null) {
-                if (temp._serviceList == null) return false;
-                else if (!(this._serviceList.equals(temp._serviceList)))
+                if (temp._serviceList == null) {
                     return false;
-            }
-            else if (temp._serviceList != null)
+                } else if (!(this._serviceList.equals(temp._serviceList))) {
+                    return false;
+                }
+            } else if (temp._serviceList != null) {
                 return false;
+            }
             if (this._rule != null) {
-                if (temp._rule == null) return false;
-                else if (!(this._rule.equals(temp._rule)))
+                if (temp._rule == null) {
                     return false;
-            }
-            else if (temp._rule != null)
+                } else if (!(this._rule.equals(temp._rule))) {
+                    return false;
+                }
+            } else if (temp._rule != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -254,8 +256,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Comment'.
      */
-    public java.lang.String getComment(
-    ) {
+    public java.lang.String getComment() {
         return this._comment;
     }
 
@@ -267,8 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Label'.
      */
-    public java.lang.String getLabel(
-    ) {
+    public java.lang.String getLabel() {
         return this._label;
     }
 
@@ -284,8 +284,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Normal'.
      */
-    public double getNormal(
-    ) {
+    public double getNormal() {
         return this._normal;
     }
 
@@ -295,8 +294,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rule'.
      */
-    public java.lang.String getRule(
-    ) {
+    public java.lang.String getRule() {
         return this._rule;
     }
 
@@ -310,7 +308,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getService(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._serviceList.size()) {
             throw new IndexOutOfBoundsException("getService: Index value '" + index + "' not in range [0.." + (this._serviceList.size() - 1) + "]");
@@ -328,8 +326,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getService(
-    ) {
+    public java.lang.String[] getService() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._serviceList.toArray(array);
     }
@@ -341,8 +338,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getServiceCollection(
-    ) {
+    public java.util.List<java.lang.String> getServiceCollection() {
         return this._serviceList;
     }
 
@@ -351,8 +347,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getServiceCount(
-    ) {
+    public int getServiceCount() {
         return this._serviceList.size();
     }
 
@@ -370,8 +365,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Warning'.
      */
-    public double getWarning(
-    ) {
+    public double getWarning() {
         return this._warning;
     }
 
@@ -380,8 +374,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Normal has been added
      */
-    public boolean hasNormal(
-    ) {
+    public boolean hasNormal() {
         return this._normal != null;
     }
 
@@ -390,8 +383,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Warning has been added
      */
-    public boolean hasWarning(
-    ) {
+    public boolean hasWarning() {
         return this._warning != null;
     }
 
@@ -404,26 +396,25 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_label != null) {
-           result = 37 * result + _label.hashCode();
+            result = 37 * result + _label.hashCode();
         }
         if (_comment != null) {
-           result = 37 * result + _comment.hashCode();
+            result = 37 * result + _comment.hashCode();
         }
         tmp = java.lang.Double.doubleToLongBits(_normal);
-        result = 37 * result + (int)(tmp^(tmp>>>32));
+        result = 37 * result + (int) (tmp ^ (tmp >>> 32));
         tmp = java.lang.Double.doubleToLongBits(_warning);
-        result = 37 * result + (int)(tmp^(tmp>>>32));
+        result = 37 * result + (int) (tmp ^ (tmp >>> 32));
         if (_serviceList != null) {
-           result = 37 * result + _serviceList.hashCode();
+            result = 37 * result + _serviceList.hashCode();
         }
         if (_rule != null) {
-           result = 37 * result + _rule.hashCode();
+            result = 37 * result + _rule.hashCode();
         }
 
         return result;
@@ -434,8 +425,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -450,8 +440,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateService(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateService() {
         return this._serviceList.iterator();
     }
 
@@ -466,7 +455,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -483,14 +472,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllService(
-    ) {
+    public void removeAllService() {
         this._serviceList.clear();
     }
 
@@ -582,7 +570,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setService(
             final int index,
             final java.lang.String vService)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._serviceList.size()) {
             throw new IndexOutOfBoundsException("setService: Index value '" + index + "' not in range [0.." + (this._serviceList.size() - 1) + "]");
@@ -602,7 +590,7 @@ import org.opennms.core.xml.ValidateUsing;
         _serviceList.clear();
 
         for (int i = 0; i < vServiceArray.length; i++) {
-                this._serviceList.add(vServiceArray[i]);
+            this._serviceList.add(vServiceArray[i]);
         }
     }
 
@@ -664,7 +652,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.categories.Category unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.categories.Category) Unmarshaller.unmarshal(org.opennms.netmgt.config.categories.Category.class, reader);
     }
 
@@ -674,9 +662,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

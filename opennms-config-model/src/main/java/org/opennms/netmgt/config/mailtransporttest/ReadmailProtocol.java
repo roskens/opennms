@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -60,28 +58,28 @@ import org.xml.sax.ContentHandler;
  * Basically attributes that help setup the javamailer's confusion
  * set of properties.
  */
-
-@XmlRootElement(name="readmail-protocol")
+@XmlRootElement(name = "readmail-protocol")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ReadmailProtocol implements Serializable {
+
     private static final long serialVersionUID = 8023143379589483011L;
 
     /**
      * Field m_transport.
      */
-    @XmlAttribute(name="transport")
+    @XmlAttribute(name = "transport")
     private String m_transport;
 
     /**
      * Field m_sslEnable.
      */
-    @XmlAttribute(name="ssl-enable")
+    @XmlAttribute(name = "ssl-enable")
     private Boolean m_sslEnable;
 
     /**
      * Field m_startTls.
      */
-    @XmlAttribute(name="start-tls")
+    @XmlAttribute(name = "start-tls")
     private Boolean m_startTls;
 
     public ReadmailProtocol() {
@@ -111,10 +109,12 @@ public class ReadmailProtocol implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof ReadmailProtocol) {
-            final ReadmailProtocol temp = (ReadmailProtocol)obj;
+            final ReadmailProtocol temp = (ReadmailProtocol) obj;
             if (m_transport != null) {
                 if (temp.m_transport == null) {
                     return false;
@@ -153,7 +153,7 @@ public class ReadmailProtocol implements Serializable {
      * @return the value of field 'SslEnable'.
      */
     public Boolean getSslEnable() {
-        return m_sslEnable == null? false : m_sslEnable;
+        return m_sslEnable == null ? false : m_sslEnable;
     }
 
     /**
@@ -162,7 +162,7 @@ public class ReadmailProtocol implements Serializable {
      * @return the value of field 'StartTls'.
      */
     public Boolean getStartTls() {
-        return m_startTls == null? false : m_startTls;
+        return m_startTls == null ? false : m_startTls;
     }
 
     /**
@@ -171,7 +171,7 @@ public class ReadmailProtocol implements Serializable {
      * @return the value of field 'Transport'.
      */
     public String getTransport() {
-        return m_transport == null? "pop3" : m_transport;
+        return m_transport == null ? "pop3" : m_transport;
     }
 
     /**
@@ -200,20 +200,19 @@ public class ReadmailProtocol implements Serializable {
      * 
      * @return a hash code value for the object.
      */
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
-        
+
         if (m_transport != null) {
             result = 37 * result + m_transport.hashCode();
-         }
+        }
         if (m_sslEnable != null) {
             result = 37 * result + m_sslEnable.hashCode();
-         }
+        }
         if (m_startTls != null) {
             result = 37 * result + m_startTls.hashCode();
-         }
-        
+        }
+
         return result;
     }
 
@@ -223,7 +222,7 @@ public class ReadmailProtocol implements Serializable {
      * @return the value of field 'SslEnable'.
      */
     public Boolean isSslEnable() {
-        return m_sslEnable == null? false : m_sslEnable;
+        return m_sslEnable == null ? false : m_sslEnable;
     }
 
     /**
@@ -232,7 +231,7 @@ public class ReadmailProtocol implements Serializable {
      * @return the value of field 'StartTls'.
      */
     public Boolean isStartTls() {
-        return m_startTls == null? false : m_startTls;
+        return m_startTls == null ? false : m_startTls;
     }
 
     /**

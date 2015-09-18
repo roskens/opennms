@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.reportd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -54,7 +52,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -62,82 +59,77 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="report")
+@XmlRootElement(name = "report")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("reportd-configuration.xsd")
-@SuppressWarnings("all") public class Report implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Report implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _reportTemplate.
      */
-    @XmlAttribute(name="report-template", required = true)
+    @XmlAttribute(name = "report-template", required = true)
     private java.lang.String _reportTemplate;
 
     /**
      * Field _reportName.
      */
-    @XmlAttribute(name="report-name", required = true)
+    @XmlAttribute(name = "report-name", required = true)
     private java.lang.String _reportName;
 
     /**
      * Field _reportFormat.
      */
-    @XmlAttribute(name="report-format")
+    @XmlAttribute(name = "report-format")
     private java.lang.String _reportFormat;
     private static final String DEFAULT_REPORT_FORMAT = "pdf";
 
     /**
      * Field _reportEngine.
      */
-    @XmlAttribute(name="report-engine")
+    @XmlAttribute(name = "report-engine")
     private java.lang.String _reportEngine;
     private static final String DEFAULT_REPORT_ENGINE = "opennms";
 
     /**
      * Field _cronSchedule.
      */
-    @XmlElement(name="cron-schedule")
+    @XmlElement(name = "cron-schedule")
     private java.lang.String _cronSchedule;
 
     /**
      * Field _recipientList.
      */
-    @XmlElement(name="recipient")
+    @XmlElement(name = "recipient")
     private java.util.List<java.lang.String> _recipientList;
 
     /**
      * Field _mailer.
      */
-    @XmlElement(name="mailer")
+    @XmlElement(name = "mailer")
     private java.lang.String _mailer;
 
     /**
      * Field _parameterList.
      */
-    @XmlElement(name="parameter")
+    @XmlElement(name = "parameter")
     private java.util.List<org.opennms.netmgt.config.reportd.Parameter> _parameterList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Report() {
         super();
         this._recipientList = new java.util.ArrayList<java.lang.String>();
         this._parameterList = new java.util.ArrayList<org.opennms.netmgt.config.reportd.Parameter>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -147,7 +139,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addParameter(
             final org.opennms.netmgt.config.reportd.Parameter vParameter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._parameterList.add(vParameter);
     }
 
@@ -162,7 +154,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addParameter(
             final int index,
             final org.opennms.netmgt.config.reportd.Parameter vParameter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._parameterList.add(index, vParameter);
     }
 
@@ -175,7 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addRecipient(
             final java.lang.String vRecipient)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._recipientList.add(vRecipient);
     }
 
@@ -190,7 +182,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addRecipient(
             final int index,
             final java.lang.String vRecipient)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._recipientList.add(index, vRecipient);
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.reportd.Parameter> enumerateParameter(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.reportd.Parameter> enumerateParameter() {
         return java.util.Collections.enumeration(this._parameterList);
     }
 
@@ -211,8 +202,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateRecipient(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateRecipient() {
         return java.util.Collections.enumeration(this._recipientList);
     }
 
@@ -225,68 +215,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Report) {
 
-            Report temp = (Report)obj;
+            Report temp = (Report) obj;
             if (this._reportTemplate != null) {
-                if (temp._reportTemplate == null) return false;
-                else if (!(this._reportTemplate.equals(temp._reportTemplate)))
+                if (temp._reportTemplate == null) {
                     return false;
-            }
-            else if (temp._reportTemplate != null)
+                } else if (!(this._reportTemplate.equals(temp._reportTemplate))) {
+                    return false;
+                }
+            } else if (temp._reportTemplate != null) {
                 return false;
+            }
             if (this._reportName != null) {
-                if (temp._reportName == null) return false;
-                else if (!(this._reportName.equals(temp._reportName)))
+                if (temp._reportName == null) {
                     return false;
-            }
-            else if (temp._reportName != null)
+                } else if (!(this._reportName.equals(temp._reportName))) {
+                    return false;
+                }
+            } else if (temp._reportName != null) {
                 return false;
+            }
             if (this._reportFormat != null) {
-                if (temp._reportFormat == null) return false;
-                else if (!(this._reportFormat.equals(temp._reportFormat)))
+                if (temp._reportFormat == null) {
                     return false;
-            }
-            else if (temp._reportFormat != null)
+                } else if (!(this._reportFormat.equals(temp._reportFormat))) {
+                    return false;
+                }
+            } else if (temp._reportFormat != null) {
                 return false;
+            }
             if (this._reportEngine != null) {
-                if (temp._reportEngine == null) return false;
-                else if (!(this._reportEngine.equals(temp._reportEngine)))
+                if (temp._reportEngine == null) {
                     return false;
-            }
-            else if (temp._reportEngine != null)
+                } else if (!(this._reportEngine.equals(temp._reportEngine))) {
+                    return false;
+                }
+            } else if (temp._reportEngine != null) {
                 return false;
+            }
             if (this._cronSchedule != null) {
-                if (temp._cronSchedule == null) return false;
-                else if (!(this._cronSchedule.equals(temp._cronSchedule)))
+                if (temp._cronSchedule == null) {
                     return false;
-            }
-            else if (temp._cronSchedule != null)
+                } else if (!(this._cronSchedule.equals(temp._cronSchedule))) {
+                    return false;
+                }
+            } else if (temp._cronSchedule != null) {
                 return false;
+            }
             if (this._recipientList != null) {
-                if (temp._recipientList == null) return false;
-                else if (!(this._recipientList.equals(temp._recipientList)))
+                if (temp._recipientList == null) {
                     return false;
-            }
-            else if (temp._recipientList != null)
+                } else if (!(this._recipientList.equals(temp._recipientList))) {
+                    return false;
+                }
+            } else if (temp._recipientList != null) {
                 return false;
+            }
             if (this._mailer != null) {
-                if (temp._mailer == null) return false;
-                else if (!(this._mailer.equals(temp._mailer)))
+                if (temp._mailer == null) {
                     return false;
-            }
-            else if (temp._mailer != null)
+                } else if (!(this._mailer.equals(temp._mailer))) {
+                    return false;
+                }
+            } else if (temp._mailer != null) {
                 return false;
+            }
             if (this._parameterList != null) {
-                if (temp._parameterList == null) return false;
-                else if (!(this._parameterList.equals(temp._parameterList)))
+                if (temp._parameterList == null) {
                     return false;
-            }
-            else if (temp._parameterList != null)
+                } else if (!(this._parameterList.equals(temp._parameterList))) {
+                    return false;
+                }
+            } else if (temp._parameterList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -297,8 +304,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'CronSchedule'.
      */
-    public java.lang.String getCronSchedule(
-    ) {
+    public java.lang.String getCronSchedule() {
         return this._cronSchedule;
     }
 
@@ -307,8 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Mailer'.
      */
-    public java.lang.String getMailer(
-    ) {
+    public java.lang.String getMailer() {
         return this._mailer;
     }
 
@@ -323,7 +328,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.reportd.Parameter getParameter(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._parameterList.size()) {
             throw new IndexOutOfBoundsException("getParameter: Index value '" + index + "' not in range [0.." + (this._parameterList.size() - 1) + "]");
@@ -341,8 +346,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.reportd.Parameter[] getParameter(
-    ) {
+    public org.opennms.netmgt.config.reportd.Parameter[] getParameter() {
         org.opennms.netmgt.config.reportd.Parameter[] array = new org.opennms.netmgt.config.reportd.Parameter[0];
         return (org.opennms.netmgt.config.reportd.Parameter[]) this._parameterList.toArray(array);
     }
@@ -354,8 +358,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.reportd.Parameter> getParameterCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.reportd.Parameter> getParameterCollection() {
         return this._parameterList;
     }
 
@@ -364,8 +367,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getParameterCount(
-    ) {
+    public int getParameterCount() {
         return this._parameterList.size();
     }
 
@@ -379,7 +381,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getRecipient(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._recipientList.size()) {
             throw new IndexOutOfBoundsException("getRecipient: Index value '" + index + "' not in range [0.." + (this._recipientList.size() - 1) + "]");
@@ -397,8 +399,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getRecipient(
-    ) {
+    public java.lang.String[] getRecipient() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._recipientList.toArray(array);
     }
@@ -410,8 +411,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getRecipientCollection(
-    ) {
+    public java.util.List<java.lang.String> getRecipientCollection() {
         return this._recipientList;
     }
 
@@ -420,8 +420,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getRecipientCount(
-    ) {
+    public int getRecipientCount() {
         return this._recipientList.size();
     }
 
@@ -430,8 +429,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReportEngine'.
      */
-    public java.lang.String getReportEngine(
-    ) {
+    public java.lang.String getReportEngine() {
         return this._reportEngine == null ? DEFAULT_REPORT_ENGINE : this._reportEngine;
     }
 
@@ -440,8 +438,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReportFormat'.
      */
-    public java.lang.String getReportFormat(
-    ) {
+    public java.lang.String getReportFormat() {
         return this._reportFormat == null ? DEFAULT_REPORT_FORMAT : this._reportFormat;
     }
 
@@ -450,8 +447,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReportName'.
      */
-    public java.lang.String getReportName(
-    ) {
+    public java.lang.String getReportName() {
         return this._reportName;
     }
 
@@ -460,8 +456,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReportTemplate'.
      */
-    public java.lang.String getReportTemplate(
-    ) {
+    public java.lang.String getReportTemplate() {
         return this._reportTemplate;
     }
 
@@ -474,34 +469,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_reportTemplate != null) {
-           result = 37 * result + _reportTemplate.hashCode();
+            result = 37 * result + _reportTemplate.hashCode();
         }
         if (_reportName != null) {
-           result = 37 * result + _reportName.hashCode();
+            result = 37 * result + _reportName.hashCode();
         }
         if (_reportFormat != null) {
-           result = 37 * result + _reportFormat.hashCode();
+            result = 37 * result + _reportFormat.hashCode();
         }
         if (_reportEngine != null) {
-           result = 37 * result + _reportEngine.hashCode();
+            result = 37 * result + _reportEngine.hashCode();
         }
         if (_cronSchedule != null) {
-           result = 37 * result + _cronSchedule.hashCode();
+            result = 37 * result + _cronSchedule.hashCode();
         }
         if (_recipientList != null) {
-           result = 37 * result + _recipientList.hashCode();
+            result = 37 * result + _recipientList.hashCode();
         }
         if (_mailer != null) {
-           result = 37 * result + _mailer.hashCode();
+            result = 37 * result + _mailer.hashCode();
         }
         if (_parameterList != null) {
-           result = 37 * result + _parameterList.hashCode();
+            result = 37 * result + _parameterList.hashCode();
         }
 
         return result;
@@ -512,8 +506,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -528,8 +521,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.reportd.Parameter> iterateParameter(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.reportd.Parameter> iterateParameter() {
         return this._parameterList.iterator();
     }
 
@@ -539,8 +531,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateRecipient(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateRecipient() {
         return this._recipientList.iterator();
     }
 
@@ -555,7 +546,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -572,21 +563,19 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllParameter(
-    ) {
+    public void removeAllParameter() {
         this._parameterList.clear();
     }
 
     /**
      */
-    public void removeAllRecipient(
-    ) {
+    public void removeAllRecipient() {
         this._recipientList.clear();
     }
 
@@ -669,7 +658,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setParameter(
             final int index,
             final org.opennms.netmgt.config.reportd.Parameter vParameter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._parameterList.size()) {
             throw new IndexOutOfBoundsException("setParameter: Index value '" + index + "' not in range [0.." + (this._parameterList.size() - 1) + "]");
@@ -689,7 +678,7 @@ import org.opennms.core.xml.ValidateUsing;
         _parameterList.clear();
 
         for (int i = 0; i < vParameterArray.length; i++) {
-                this._parameterList.add(vParameterArray[i]);
+            this._parameterList.add(vParameterArray[i]);
         }
     }
 
@@ -730,7 +719,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setRecipient(
             final int index,
             final java.lang.String vRecipient)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._recipientList.size()) {
             throw new IndexOutOfBoundsException("setRecipient: Index value '" + index + "' not in range [0.." + (this._recipientList.size() - 1) + "]");
@@ -750,7 +739,7 @@ import org.opennms.core.xml.ValidateUsing;
         _recipientList.clear();
 
         for (int i = 0; i < vRecipientArray.length; i++) {
-                this._recipientList.add(vRecipientArray[i]);
+            this._recipientList.add(vRecipientArray[i]);
         }
     }
 
@@ -833,7 +822,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.reportd.Report unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.reportd.Report) Unmarshaller.unmarshal(org.opennms.netmgt.config.reportd.Report.class, reader);
     }
 
@@ -843,9 +832,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

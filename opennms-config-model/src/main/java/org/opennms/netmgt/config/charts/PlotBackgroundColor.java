@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.charts;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,43 +41,37 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="plot-background-color")
+@XmlRootElement(name = "plot-background-color")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("chart-configuration.xsd")
-@SuppressWarnings("all") public class PlotBackgroundColor implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class PlotBackgroundColor implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _rgb.
      */
-    @XmlElement(name="rgb")
+    @XmlElement(name = "rgb")
     private org.opennms.netmgt.config.charts.Rgb _rgb;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public PlotBackgroundColor() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -89,19 +81,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof PlotBackgroundColor) {
 
-            PlotBackgroundColor temp = (PlotBackgroundColor)obj;
+            PlotBackgroundColor temp = (PlotBackgroundColor) obj;
             if (this._rgb != null) {
-                if (temp._rgb == null) return false;
-                else if (!(this._rgb.equals(temp._rgb)))
+                if (temp._rgb == null) {
                     return false;
-            }
-            else if (temp._rgb != null)
+                } else if (!(this._rgb.equals(temp._rgb))) {
+                    return false;
+                }
+            } else if (temp._rgb != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -112,8 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rgb'.
      */
-    public org.opennms.netmgt.config.charts.Rgb getRgb(
-    ) {
+    public org.opennms.netmgt.config.charts.Rgb getRgb() {
         return this._rgb;
     }
 
@@ -126,13 +120,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_rgb != null) {
-           result = 37 * result + _rgb.hashCode();
+            result = 37 * result + _rgb.hashCode();
         }
 
         return result;
@@ -143,8 +136,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -164,7 +156,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -181,7 +173,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -208,7 +200,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.charts.PlotBackgroundColor unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.charts.PlotBackgroundColor) Unmarshaller.unmarshal(org.opennms.netmgt.config.charts.PlotBackgroundColor.class, reader);
     }
 
@@ -218,9 +210,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

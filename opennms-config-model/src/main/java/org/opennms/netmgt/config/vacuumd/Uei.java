@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,12 +48,12 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlRootElement(name = "uei")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Uei implements Serializable {
+
     private static final long serialVersionUID = -4848875755202066725L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * internal content storage
      */
@@ -65,7 +63,6 @@ public class Uei implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Uei() {
         super();
     }
@@ -78,7 +75,6 @@ public class Uei implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -87,19 +83,22 @@ public class Uei implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Uei) {
 
             Uei temp = (Uei) obj;
             if (this._content != null) {
-                if (temp._content == null)
+                if (temp._content == null) {
                     return false;
-                else if (!(this._content.equals(temp._content)))
+                } else if (!(this._content.equals(temp._content))) {
                     return false;
-            } else if (temp._content != null)
+                }
+            } else if (temp._content != null) {
                 return false;
+            }
             return true;
         }
         return false;

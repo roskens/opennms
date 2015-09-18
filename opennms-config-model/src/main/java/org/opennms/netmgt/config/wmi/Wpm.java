@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.wmi;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,28 +48,27 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="wpm")
+@XmlRootElement(name = "wpm")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("wmi-datacollection.xsd")
-@SuppressWarnings("all") public class Wpm implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Wpm implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The name of this group, for user id purposes
      *
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * This is the WMI object class that we'll be checking.
      *
      */
-    @XmlAttribute(name="wmiClass", required = true)
+    @XmlAttribute(name = "wmiClass", required = true)
     private java.lang.String _wmiClass;
 
     /**
@@ -80,7 +76,7 @@ import org.opennms.core.xml.ValidateUsing;
      * this group should be collected
      *
      */
-    @XmlAttribute(name="keyvalue", required = true)
+    @XmlAttribute(name = "keyvalue", required = true)
     private java.lang.String _keyvalue;
 
     /**
@@ -88,14 +84,14 @@ import org.opennms.core.xml.ValidateUsing;
      *  should be rechecked for existence. In milliseconds
      *
      */
-    @XmlAttribute(name="recheckInterval", required = true)
+    @XmlAttribute(name = "recheckInterval", required = true)
     private Integer _recheckInterval;
 
     /**
      * Specifies the interface collection type.
      *
      */
-    @XmlAttribute(name="ifType", required = true)
+    @XmlAttribute(name = "ifType", required = true)
     private java.lang.String _ifType;
 
     /**
@@ -109,7 +105,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  resource type declared in datacollection-config.xml.
      *
      */
-    @XmlAttribute(name="resourceType", required = true)
+    @XmlAttribute(name = "resourceType", required = true)
     private java.lang.String _resourceType;
 
     /**
@@ -118,7 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  resides. The default is "root/cimv2".
      *
      */
-    @XmlAttribute(name="wmiNamespace")
+    @XmlAttribute(name = "wmiNamespace")
     private java.lang.String _wmiNamespace;
     private static final String DEFAULT_WMINAMESPACE = "root/cimv2";
 
@@ -126,24 +122,20 @@ import org.opennms.core.xml.ValidateUsing;
      * An WMI Object
      *
      */
-    @XmlElement(name="attrib")
+    @XmlElement(name = "attrib")
     private java.util.List<org.opennms.netmgt.config.wmi.Attrib> _attribList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Wpm() {
         super();
         this._attribList = new java.util.ArrayList<org.opennms.netmgt.config.wmi.Attrib>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -153,7 +145,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addAttrib(
             final org.opennms.netmgt.config.wmi.Attrib vAttrib)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._attribList.add(vAttrib);
     }
 
@@ -168,14 +160,13 @@ import org.opennms.core.xml.ValidateUsing;
     public void addAttrib(
             final int index,
             final org.opennms.netmgt.config.wmi.Attrib vAttrib)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._attribList.add(index, vAttrib);
     }
 
     /**
      */
-    public void deleteRecheckInterval(
-    ) {
+    public void deleteRecheckInterval() {
         this._recheckInterval = null;
     }
 
@@ -185,8 +176,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.wmi.Attrib> enumerateAttrib(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.wmi.Attrib> enumerateAttrib() {
         return java.util.Collections.enumeration(this._attribList);
     }
 
@@ -199,68 +189,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Wpm) {
 
-            Wpm temp = (Wpm)obj;
+            Wpm temp = (Wpm) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._wmiClass != null) {
-                if (temp._wmiClass == null) return false;
-                else if (!(this._wmiClass.equals(temp._wmiClass)))
+                if (temp._wmiClass == null) {
                     return false;
-            }
-            else if (temp._wmiClass != null)
+                } else if (!(this._wmiClass.equals(temp._wmiClass))) {
+                    return false;
+                }
+            } else if (temp._wmiClass != null) {
                 return false;
+            }
             if (this._keyvalue != null) {
-                if (temp._keyvalue == null) return false;
-                else if (!(this._keyvalue.equals(temp._keyvalue)))
+                if (temp._keyvalue == null) {
                     return false;
-            }
-            else if (temp._keyvalue != null)
+                } else if (!(this._keyvalue.equals(temp._keyvalue))) {
+                    return false;
+                }
+            } else if (temp._keyvalue != null) {
                 return false;
+            }
             if (this._recheckInterval != null) {
-                if (temp._recheckInterval == null) return false;
-                else if (!(this._recheckInterval.equals(temp._recheckInterval)))
+                if (temp._recheckInterval == null) {
                     return false;
-            }
-            else if (temp._recheckInterval != null)
+                } else if (!(this._recheckInterval.equals(temp._recheckInterval))) {
+                    return false;
+                }
+            } else if (temp._recheckInterval != null) {
                 return false;
+            }
             if (this._ifType != null) {
-                if (temp._ifType == null) return false;
-                else if (!(this._ifType.equals(temp._ifType)))
+                if (temp._ifType == null) {
                     return false;
-            }
-            else if (temp._ifType != null)
+                } else if (!(this._ifType.equals(temp._ifType))) {
+                    return false;
+                }
+            } else if (temp._ifType != null) {
                 return false;
+            }
             if (this._resourceType != null) {
-                if (temp._resourceType == null) return false;
-                else if (!(this._resourceType.equals(temp._resourceType)))
+                if (temp._resourceType == null) {
                     return false;
-            }
-            else if (temp._resourceType != null)
+                } else if (!(this._resourceType.equals(temp._resourceType))) {
+                    return false;
+                }
+            } else if (temp._resourceType != null) {
                 return false;
+            }
             if (this._wmiNamespace != null) {
-                if (temp._wmiNamespace == null) return false;
-                else if (!(this._wmiNamespace.equals(temp._wmiNamespace)))
+                if (temp._wmiNamespace == null) {
                     return false;
-            }
-            else if (temp._wmiNamespace != null)
+                } else if (!(this._wmiNamespace.equals(temp._wmiNamespace))) {
+                    return false;
+                }
+            } else if (temp._wmiNamespace != null) {
                 return false;
+            }
             if (this._attribList != null) {
-                if (temp._attribList == null) return false;
-                else if (!(this._attribList.equals(temp._attribList)))
+                if (temp._attribList == null) {
                     return false;
-            }
-            else if (temp._attribList != null)
+                } else if (!(this._attribList.equals(temp._attribList))) {
+                    return false;
+                }
+            } else if (temp._attribList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -277,7 +284,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.wmi.Attrib getAttrib(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._attribList.size()) {
             throw new IndexOutOfBoundsException("getAttrib: Index value '" + index + "' not in range [0.." + (this._attribList.size() - 1) + "]");
@@ -295,8 +302,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.wmi.Attrib[] getAttrib(
-    ) {
+    public org.opennms.netmgt.config.wmi.Attrib[] getAttrib() {
         org.opennms.netmgt.config.wmi.Attrib[] array = new org.opennms.netmgt.config.wmi.Attrib[0];
         return (org.opennms.netmgt.config.wmi.Attrib[]) this._attribList.toArray(array);
     }
@@ -308,8 +314,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.wmi.Attrib> getAttribCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.wmi.Attrib> getAttribCollection() {
         return this._attribList;
     }
 
@@ -318,8 +323,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getAttribCount(
-    ) {
+    public int getAttribCount() {
         return this._attribList.size();
     }
 
@@ -331,8 +335,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'IfType'.
      */
-    public java.lang.String getIfType(
-    ) {
+    public java.lang.String getIfType() {
         return this._ifType;
     }
 
@@ -345,8 +348,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Keyvalue'.
      */
-    public java.lang.String getKeyvalue(
-    ) {
+    public java.lang.String getKeyvalue() {
         return this._keyvalue;
     }
 
@@ -358,8 +360,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -372,8 +373,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RecheckInterval'.
      */
-    public Integer getRecheckInterval(
-    ) {
+    public Integer getRecheckInterval() {
         return this._recheckInterval;
     }
 
@@ -391,8 +391,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ResourceType'.
      */
-    public java.lang.String getResourceType(
-    ) {
+    public java.lang.String getResourceType() {
         return this._resourceType;
     }
 
@@ -404,8 +403,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'WmiClass'.
      */
-    public java.lang.String getWmiClass(
-    ) {
+    public java.lang.String getWmiClass() {
         return this._wmiClass;
     }
 
@@ -418,8 +416,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'WmiNamespace'.
      */
-    public java.lang.String getWmiNamespace(
-    ) {
+    public java.lang.String getWmiNamespace() {
         return this._wmiNamespace;
     }
 
@@ -428,8 +425,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one RecheckInterval has been added
      */
-    public boolean hasRecheckInterval(
-    ) {
+    public boolean hasRecheckInterval() {
         return this._recheckInterval != null;
     }
 
@@ -442,34 +438,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_wmiClass != null) {
-           result = 37 * result + _wmiClass.hashCode();
+            result = 37 * result + _wmiClass.hashCode();
         }
         if (_keyvalue != null) {
-           result = 37 * result + _keyvalue.hashCode();
+            result = 37 * result + _keyvalue.hashCode();
         }
         if (_recheckInterval != null) {
-           result = 37 * result + _recheckInterval.hashCode();
+            result = 37 * result + _recheckInterval.hashCode();
         }
         if (_ifType != null) {
-           result = 37 * result + _ifType.hashCode();
+            result = 37 * result + _ifType.hashCode();
         }
         if (_resourceType != null) {
-           result = 37 * result + _resourceType.hashCode();
+            result = 37 * result + _resourceType.hashCode();
         }
         if (_wmiNamespace != null) {
-           result = 37 * result + _wmiNamespace.hashCode();
+            result = 37 * result + _wmiNamespace.hashCode();
         }
         if (_attribList != null) {
-           result = 37 * result + _attribList.hashCode();
+            result = 37 * result + _attribList.hashCode();
         }
 
         return result;
@@ -480,8 +475,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -496,8 +490,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.wmi.Attrib> iterateAttrib(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.wmi.Attrib> iterateAttrib() {
         return this._attribList.iterator();
     }
 
@@ -512,7 +505,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -529,14 +522,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllAttrib(
-    ) {
+    public void removeAllAttrib() {
         this._attribList.clear();
     }
 
@@ -575,7 +567,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setAttrib(
             final int index,
             final org.opennms.netmgt.config.wmi.Attrib vAttrib)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._attribList.size()) {
             throw new IndexOutOfBoundsException("setAttrib: Index value '" + index + "' not in range [0.." + (this._attribList.size() - 1) + "]");
@@ -595,7 +587,7 @@ import org.opennms.core.xml.ValidateUsing;
         _attribList.clear();
 
         for (int i = 0; i < vAttribArray.length; i++) {
-                this._attribList.add(vAttribArray[i]);
+            this._attribList.add(vAttribArray[i]);
         }
     }
 
@@ -736,7 +728,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.wmi.Wpm unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.wmi.Wpm) Unmarshaller.unmarshal(org.opennms.netmgt.config.wmi.Wpm.class, reader);
     }
 
@@ -746,9 +738,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

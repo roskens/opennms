@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.categories;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,50 +42,44 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="catinfo")
+@XmlRootElement(name = "catinfo")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("categories.xsd")
-@SuppressWarnings("all") public class Catinfo implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Catinfo implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Header for this file.
      */
-    @XmlElement(name="header")
+    @XmlElement(name = "header")
     private org.opennms.netmgt.config.categories.Header _header;
 
     /**
      * The category groups.
      */
-    @XmlElement(name="categorygroup")
+    @XmlElement(name = "categorygroup")
     private java.util.List<org.opennms.netmgt.config.categories.Categorygroup> _categorygroupList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Catinfo() {
         super();
         this._categorygroupList = new java.util.ArrayList<org.opennms.netmgt.config.categories.Categorygroup>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -97,7 +89,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addCategorygroup(
             final org.opennms.netmgt.config.categories.Categorygroup vCategorygroup)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._categorygroupList.add(vCategorygroup);
     }
 
@@ -112,7 +104,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addCategorygroup(
             final int index,
             final org.opennms.netmgt.config.categories.Categorygroup vCategorygroup)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._categorygroupList.add(index, vCategorygroup);
     }
 
@@ -122,8 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.categories.Categorygroup> enumerateCategorygroup(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.categories.Categorygroup> enumerateCategorygroup() {
         return java.util.Collections.enumeration(this._categorygroupList);
     }
 
@@ -136,26 +127,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Catinfo) {
 
-            Catinfo temp = (Catinfo)obj;
+            Catinfo temp = (Catinfo) obj;
             if (this._header != null) {
-                if (temp._header == null) return false;
-                else if (!(this._header.equals(temp._header)))
+                if (temp._header == null) {
                     return false;
-            }
-            else if (temp._header != null)
+                } else if (!(this._header.equals(temp._header))) {
+                    return false;
+                }
+            } else if (temp._header != null) {
                 return false;
+            }
             if (this._categorygroupList != null) {
-                if (temp._categorygroupList == null) return false;
-                else if (!(this._categorygroupList.equals(temp._categorygroupList)))
+                if (temp._categorygroupList == null) {
                     return false;
-            }
-            else if (temp._categorygroupList != null)
+                } else if (!(this._categorygroupList.equals(temp._categorygroupList))) {
+                    return false;
+                }
+            } else if (temp._categorygroupList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -173,7 +169,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.categories.Categorygroup getCategorygroup(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._categorygroupList.size()) {
             throw new IndexOutOfBoundsException("getCategorygroup: Index value '" + index + "' not in range [0.." + (this._categorygroupList.size() - 1) + "]");
@@ -192,8 +188,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.categories.Categorygroup[] getCategorygroup(
-    ) {
+    public org.opennms.netmgt.config.categories.Categorygroup[] getCategorygroup() {
         org.opennms.netmgt.config.categories.Categorygroup[] array = new org.opennms.netmgt.config.categories.Categorygroup[0];
         return (org.opennms.netmgt.config.categories.Categorygroup[]) this._categorygroupList.toArray(array);
     }
@@ -205,8 +200,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.categories.Categorygroup> getCategorygroupCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.categories.Categorygroup> getCategorygroupCollection() {
         return this._categorygroupList;
     }
 
@@ -215,8 +209,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getCategorygroupCount(
-    ) {
+    public int getCategorygroupCount() {
         return this._categorygroupList.size();
     }
 
@@ -226,8 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Header'.
      */
-    public org.opennms.netmgt.config.categories.Header getHeader(
-    ) {
+    public org.opennms.netmgt.config.categories.Header getHeader() {
         return this._header;
     }
 
@@ -240,16 +232,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_header != null) {
-           result = 37 * result + _header.hashCode();
+            result = 37 * result + _header.hashCode();
         }
         if (_categorygroupList != null) {
-           result = 37 * result + _categorygroupList.hashCode();
+            result = 37 * result + _categorygroupList.hashCode();
         }
 
         return result;
@@ -260,8 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -276,8 +266,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.categories.Categorygroup> iterateCategorygroup(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.categories.Categorygroup> iterateCategorygroup() {
         return this._categorygroupList.iterator();
     }
 
@@ -292,7 +281,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -309,14 +298,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllCategorygroup(
-    ) {
+    public void removeAllCategorygroup() {
         this._categorygroupList.clear();
     }
 
@@ -355,7 +343,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setCategorygroup(
             final int index,
             final org.opennms.netmgt.config.categories.Categorygroup vCategorygroup)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._categorygroupList.size()) {
             throw new IndexOutOfBoundsException("setCategorygroup: Index value '" + index + "' not in range [0.." + (this._categorygroupList.size() - 1) + "]");
@@ -375,7 +363,7 @@ import org.opennms.core.xml.ValidateUsing;
         _categorygroupList.clear();
 
         for (int i = 0; i < vCategorygroupArray.length; i++) {
-                this._categorygroupList.add(vCategorygroupArray[i]);
+            this._categorygroupList.add(vCategorygroupArray[i]);
         }
     }
 
@@ -429,7 +417,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.categories.Catinfo unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.categories.Catinfo) Unmarshaller.unmarshal(org.opennms.netmgt.config.categories.Catinfo.class, reader);
     }
 
@@ -439,9 +427,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

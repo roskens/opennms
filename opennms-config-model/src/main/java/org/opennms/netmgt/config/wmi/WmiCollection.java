@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.wmi;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,48 +48,43 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="wmi-collection")
+@XmlRootElement(name = "wmi-collection")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("wmi-datacollection.xsd")
-@SuppressWarnings("all") public class WmiCollection implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class WmiCollection implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * RRD parms
      */
-    @XmlElement(name="rrd")
+    @XmlElement(name = "rrd")
     private org.opennms.netmgt.config.wmi.Rrd _rrd;
 
     /**
      * WMI object groups
      */
-    @XmlElement(name="wpms")
+    @XmlElement(name = "wpms")
     private org.opennms.netmgt.config.wmi.Wpms _wpms;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public WmiCollection() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -102,33 +94,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof WmiCollection) {
 
-            WmiCollection temp = (WmiCollection)obj;
+            WmiCollection temp = (WmiCollection) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._rrd != null) {
-                if (temp._rrd == null) return false;
-                else if (!(this._rrd.equals(temp._rrd)))
+                if (temp._rrd == null) {
                     return false;
-            }
-            else if (temp._rrd != null)
+                } else if (!(this._rrd.equals(temp._rrd))) {
+                    return false;
+                }
+            } else if (temp._rrd != null) {
                 return false;
+            }
             if (this._wpms != null) {
-                if (temp._wpms == null) return false;
-                else if (!(this._wpms.equals(temp._wpms)))
+                if (temp._wpms == null) {
                     return false;
-            }
-            else if (temp._wpms != null)
+                } else if (!(this._wpms.equals(temp._wpms))) {
+                    return false;
+                }
+            } else if (temp._wpms != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -139,8 +138,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -150,8 +148,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rrd'.
      */
-    public org.opennms.netmgt.config.wmi.Rrd getRrd(
-    ) {
+    public org.opennms.netmgt.config.wmi.Rrd getRrd() {
         return this._rrd;
     }
 
@@ -161,8 +158,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Wpms'.
      */
-    public org.opennms.netmgt.config.wmi.Wpms getWpms(
-    ) {
+    public org.opennms.netmgt.config.wmi.Wpms getWpms() {
         return this._wpms;
     }
 
@@ -175,19 +171,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_rrd != null) {
-           result = 37 * result + _rrd.hashCode();
+            result = 37 * result + _rrd.hashCode();
         }
         if (_wpms != null) {
-           result = 37 * result + _wpms.hashCode();
+            result = 37 * result + _wpms.hashCode();
         }
 
         return result;
@@ -198,8 +193,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -219,7 +213,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -236,7 +230,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -285,7 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.wmi.WmiCollection unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.wmi.WmiCollection) Unmarshaller.unmarshal(org.opennms.netmgt.config.wmi.WmiCollection.class, reader);
     }
 
@@ -295,9 +289,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

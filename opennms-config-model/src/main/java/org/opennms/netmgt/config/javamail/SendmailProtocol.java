@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.javamail;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -46,111 +44,102 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="sendmail-protocol")
+@XmlRootElement(name = "sendmail-protocol")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("javamail-configuration.xsd")
-@SuppressWarnings("all") public class SendmailProtocol implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class SendmailProtocol implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _charSet.
      */
-    @XmlAttribute(name="char-set")
+    @XmlAttribute(name = "char-set")
     private java.lang.String _charSet;
     private static final String DEFAULT_CHARSET = "us-ascii";
 
     /**
      * Field _mailer.
      */
-    @XmlAttribute(name="mailer")
+    @XmlAttribute(name = "mailer")
     private java.lang.String _mailer;
     private static final String DEFAULT_MAILER = "smtpsend";
 
     /**
      * Field _messageContentType.
      */
-    @XmlAttribute(name="message-content-type")
+    @XmlAttribute(name = "message-content-type")
     private java.lang.String _messageContentType;
     private static final String DEFAULT_MESSAGE_CONTENT_TYPE = "text/plain";
 
     /**
      * Field _messageEncoding.
      */
-    @XmlAttribute(name="message-encoding")
+    @XmlAttribute(name = "message-encoding")
     private java.lang.String _messageEncoding;
     private static final String DEFAULT_MESSAGE_ENCODING = "7-bit";
 
     /**
      * Field _quitWait.
      */
-    @XmlAttribute(name="quit-wait")
+    @XmlAttribute(name = "quit-wait")
     private Boolean _quitWait;
     private static final Boolean DEFAULT_QUIT_WAIT = true;
 
     /**
      * Field _transport.
      */
-    @XmlAttribute(name="transport")
+    @XmlAttribute(name = "transport")
     private java.lang.String _transport;
     private static final String DEFAULT_TRANSPORT = "smtp";
 
     /**
      * Field _sslEnable.
      */
-    @XmlAttribute(name="ssl-enable")
+    @XmlAttribute(name = "ssl-enable")
     private Boolean _sslEnable;
     private static final Boolean DEFAULT_SSL_ENABLE = false;
 
     /**
      * Field _startTls.
      */
-    @XmlAttribute(name="start-tls")
+    @XmlAttribute(name = "start-tls")
     private Boolean _startTls;
     private static final Boolean DEFAULT_START_TLS = false;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public SendmailProtocol() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteQuitWait(
-    ) {
+    public void deleteQuitWait() {
         this._quitWait = null;
     }
 
     /**
      */
-    public void deleteSslEnable(
-    ) {
+    public void deleteSslEnable() {
         this._sslEnable = null;
     }
 
     /**
      */
-    public void deleteStartTls(
-    ) {
+    public void deleteStartTls() {
         this._startTls = null;
     }
 
@@ -163,68 +152,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof SendmailProtocol) {
 
-            SendmailProtocol temp = (SendmailProtocol)obj;
+            SendmailProtocol temp = (SendmailProtocol) obj;
             if (this._charSet != null) {
-                if (temp._charSet == null) return false;
-                else if (!(this._charSet.equals(temp._charSet)))
+                if (temp._charSet == null) {
                     return false;
-            }
-            else if (temp._charSet != null)
+                } else if (!(this._charSet.equals(temp._charSet))) {
+                    return false;
+                }
+            } else if (temp._charSet != null) {
                 return false;
+            }
             if (this._mailer != null) {
-                if (temp._mailer == null) return false;
-                else if (!(this._mailer.equals(temp._mailer)))
+                if (temp._mailer == null) {
                     return false;
-            }
-            else if (temp._mailer != null)
+                } else if (!(this._mailer.equals(temp._mailer))) {
+                    return false;
+                }
+            } else if (temp._mailer != null) {
                 return false;
+            }
             if (this._messageContentType != null) {
-                if (temp._messageContentType == null) return false;
-                else if (!(this._messageContentType.equals(temp._messageContentType)))
+                if (temp._messageContentType == null) {
                     return false;
-            }
-            else if (temp._messageContentType != null)
+                } else if (!(this._messageContentType.equals(temp._messageContentType))) {
+                    return false;
+                }
+            } else if (temp._messageContentType != null) {
                 return false;
+            }
             if (this._messageEncoding != null) {
-                if (temp._messageEncoding == null) return false;
-                else if (!(this._messageEncoding.equals(temp._messageEncoding)))
+                if (temp._messageEncoding == null) {
                     return false;
-            }
-            else if (temp._messageEncoding != null)
+                } else if (!(this._messageEncoding.equals(temp._messageEncoding))) {
+                    return false;
+                }
+            } else if (temp._messageEncoding != null) {
                 return false;
+            }
             if (this._quitWait != null) {
-                if (temp._quitWait == null) return false;
-                else if (!(this._quitWait.equals(temp._quitWait)))
+                if (temp._quitWait == null) {
                     return false;
-            }
-            else if (temp._quitWait != null)
+                } else if (!(this._quitWait.equals(temp._quitWait))) {
+                    return false;
+                }
+            } else if (temp._quitWait != null) {
                 return false;
+            }
             if (this._transport != null) {
-                if (temp._transport == null) return false;
-                else if (!(this._transport.equals(temp._transport)))
+                if (temp._transport == null) {
                     return false;
-            }
-            else if (temp._transport != null)
+                } else if (!(this._transport.equals(temp._transport))) {
+                    return false;
+                }
+            } else if (temp._transport != null) {
                 return false;
+            }
             if (this._sslEnable != null) {
-                if (temp._sslEnable == null) return false;
-                else if (!(this._sslEnable.equals(temp._sslEnable)))
+                if (temp._sslEnable == null) {
                     return false;
-            }
-            else if (temp._sslEnable != null)
+                } else if (!(this._sslEnable.equals(temp._sslEnable))) {
+                    return false;
+                }
+            } else if (temp._sslEnable != null) {
                 return false;
+            }
             if (this._startTls != null) {
-                if (temp._startTls == null) return false;
-                else if (!(this._startTls.equals(temp._startTls)))
+                if (temp._startTls == null) {
                     return false;
-            }
-            else if (temp._startTls != null)
+                } else if (!(this._startTls.equals(temp._startTls))) {
+                    return false;
+                }
+            } else if (temp._startTls != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -235,8 +241,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'CharSet'.
      */
-    public java.lang.String getCharSet(
-    ) {
+    public java.lang.String getCharSet() {
         return this._charSet == null ? DEFAULT_CHARSET : this._charSet;
     }
 
@@ -245,8 +250,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Mailer'.
      */
-    public java.lang.String getMailer(
-    ) {
+    public java.lang.String getMailer() {
         return this._mailer == null ? DEFAULT_MAILER : this._mailer;
     }
 
@@ -255,8 +259,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MessageContentType'.
      */
-    public java.lang.String getMessageContentType(
-    ) {
+    public java.lang.String getMessageContentType() {
         return this._messageContentType == null ? DEFAULT_MESSAGE_CONTENT_TYPE : this._messageContentType;
     }
 
@@ -265,8 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MessageEncoding'.
      */
-    public java.lang.String getMessageEncoding(
-    ) {
+    public java.lang.String getMessageEncoding() {
         return this._messageEncoding == null ? DEFAULT_MESSAGE_ENCODING : this._messageEncoding;
     }
 
@@ -275,8 +277,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'QuitWait'.
      */
-    public Boolean getQuitWait(
-    ) {
+    public Boolean getQuitWait() {
         return this._quitWait == null ? DEFAULT_QUIT_WAIT : this._quitWait;
     }
 
@@ -285,8 +286,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SslEnable'.
      */
-    public Boolean getSslEnable(
-    ) {
+    public Boolean getSslEnable() {
         return this._sslEnable == null ? DEFAULT_SSL_ENABLE : this._sslEnable;
     }
 
@@ -295,8 +295,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'StartTls'.
      */
-    public Boolean getStartTls(
-    ) {
+    public Boolean getStartTls() {
         return this._startTls == null ? DEFAULT_START_TLS : this._startTls;
     }
 
@@ -305,8 +304,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Transport'.
      */
-    public java.lang.String getTransport(
-    ) {
+    public java.lang.String getTransport() {
         return this._transport == null ? DEFAULT_TRANSPORT : this._transport;
     }
 
@@ -315,8 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one QuitWait has been added
      */
-    public boolean hasQuitWait(
-    ) {
+    public boolean hasQuitWait() {
         return this._quitWait != null;
     }
 
@@ -325,8 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one SslEnable has been added
      */
-    public boolean hasSslEnable(
-    ) {
+    public boolean hasSslEnable() {
         return this._sslEnable != null;
     }
 
@@ -335,8 +331,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one StartTls has been added
      */
-    public boolean hasStartTls(
-    ) {
+    public boolean hasStartTls() {
         return this._startTls != null;
     }
 
@@ -349,34 +344,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_charSet != null) {
-           result = 37 * result + _charSet.hashCode();
+            result = 37 * result + _charSet.hashCode();
         }
         if (_mailer != null) {
-           result = 37 * result + _mailer.hashCode();
+            result = 37 * result + _mailer.hashCode();
         }
         if (_messageContentType != null) {
-           result = 37 * result + _messageContentType.hashCode();
+            result = 37 * result + _messageContentType.hashCode();
         }
         if (_messageEncoding != null) {
-           result = 37 * result + _messageEncoding.hashCode();
+            result = 37 * result + _messageEncoding.hashCode();
         }
         if (_quitWait != null) {
-           result = 37 * result + _quitWait.hashCode();
+            result = 37 * result + _quitWait.hashCode();
         }
         if (_transport != null) {
-           result = 37 * result + _transport.hashCode();
+            result = 37 * result + _transport.hashCode();
         }
         if (_sslEnable != null) {
-           result = 37 * result + _sslEnable.hashCode();
+            result = 37 * result + _sslEnable.hashCode();
         }
         if (_startTls != null) {
-           result = 37 * result + _startTls.hashCode();
+            result = 37 * result + _startTls.hashCode();
         }
 
         return result;
@@ -387,8 +381,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'QuitWait'.
      */
-    public boolean isQuitWait(
-    ) {
+    public boolean isQuitWait() {
         return this._quitWait;
     }
 
@@ -397,8 +390,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SslEnable'.
      */
-    public boolean isSslEnable(
-    ) {
+    public boolean isSslEnable() {
         return this._sslEnable;
     }
 
@@ -407,8 +399,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'StartTls'.
      */
-    public boolean isStartTls(
-    ) {
+    public boolean isStartTls() {
         return this._startTls;
     }
 
@@ -417,8 +408,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -438,7 +428,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -455,7 +445,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -553,7 +543,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.javamail.SendmailProtocol unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.javamail.SendmailProtocol) Unmarshaller.unmarshal(org.opennms.netmgt.config.javamail.SendmailProtocol.class, reader);
     }
 
@@ -563,9 +553,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

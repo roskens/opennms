@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -65,10 +63,10 @@ import org.xml.sax.ContentHandler;
 /**
  * Class ReadmailTest.
  */
-
-@XmlRootElement(name="readmail-test")
+@XmlRootElement(name = "readmail-test")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ReadmailTest implements Serializable {
+
     private static final long serialVersionUID = -737845064838033210L;
 
     private static final JavamailProperty[] EMPTY_LIST_OF_JAVAMAIL_PROPERTIES = new JavamailProperty[0];
@@ -76,31 +74,31 @@ public class ReadmailTest implements Serializable {
     /**
      * Field m_debug.
      */
-    @XmlAttribute(name="debug")
+    @XmlAttribute(name = "debug")
     private Boolean m_debug;
 
     /**
      * Field m_mailFolder.
      */
-    @XmlAttribute(name="mail-folder")
+    @XmlAttribute(name = "mail-folder")
     private String m_mailFolder;
 
     /**
      * Field m_subjectMatch.
      */
-    @XmlAttribute(name="subject-match")
+    @XmlAttribute(name = "subject-match")
     private String m_subjectMatch;
 
     /**
      * Field m_attemptInterval.
      */
-    @XmlAttribute(name="attempt-interval")
+    @XmlAttribute(name = "attempt-interval")
     private Long m_attemptInterval;
 
     /**
      * Field m_deleteAllMail.
      */
-    @XmlAttribute(name="delete-all-mail")
+    @XmlAttribute(name = "delete-all-mail")
     private Boolean m_deleteAllMail;
 
     /**
@@ -109,7 +107,7 @@ public class ReadmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="javamail-property")
+    @XmlElement(name = "javamail-property")
     private List<JavamailProperty> m_javamailProperties = new ArrayList<JavamailProperty>();
 
     /**
@@ -119,7 +117,7 @@ public class ReadmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="readmail-host", required=true)
+    @XmlElement(name = "readmail-host", required = true)
     private ReadmailHost m_readmailHost;
 
     /**
@@ -127,7 +125,7 @@ public class ReadmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="user-auth", required=true)
+    @XmlElement(name = "user-auth", required = true)
     private UserAuth m_userAuth;
 
     public ReadmailTest() {
@@ -207,11 +205,13 @@ public class ReadmailTest implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof ReadmailTest) {
-            final ReadmailTest temp = (ReadmailTest)obj;
-            
+            final ReadmailTest temp = (ReadmailTest) obj;
+
             if (m_debug != null) {
                 if (temp.m_debug == null) {
                     return false;
@@ -295,7 +295,7 @@ public class ReadmailTest implements Serializable {
      * @return the value of field 'AttemptInterval'.
      */
     public Long getAttemptInterval() {
-        return m_attemptInterval == null? 1000L : m_attemptInterval;
+        return m_attemptInterval == null ? 1000L : m_attemptInterval;
     }
 
     /**
@@ -304,7 +304,7 @@ public class ReadmailTest implements Serializable {
      * @return the value of field 'Debug'.
      */
     public Boolean getDebug() {
-        return m_debug == null? true : m_debug;
+        return m_debug == null ? true : m_debug;
     }
 
     /**
@@ -313,7 +313,7 @@ public class ReadmailTest implements Serializable {
      * @return the value of field 'DeleteAllMail'.
      */
     public Boolean getDeleteAllMail() {
-        return m_deleteAllMail == null? false : m_deleteAllMail;
+        return m_deleteAllMail == null ? false : m_deleteAllMail;
     }
 
     /**
@@ -370,7 +370,7 @@ public class ReadmailTest implements Serializable {
      * @return the value of field 'MailFolder'.
      */
     public String getMailFolder() {
-        return m_mailFolder == null? "INBOX" : m_mailFolder;
+        return m_mailFolder == null ? "INBOX" : m_mailFolder;
     }
 
     /**
@@ -447,32 +447,32 @@ public class ReadmailTest implements Serializable {
      */
     public int hashCode() {
         int result = 17;
-        
+
         if (m_debug != null) {
             result = 37 * result + m_debug.hashCode();
-         }
+        }
         if (m_mailFolder != null) {
-           result = 37 * result + m_mailFolder.hashCode();
+            result = 37 * result + m_mailFolder.hashCode();
         }
         if (m_subjectMatch != null) {
-           result = 37 * result + m_subjectMatch.hashCode();
+            result = 37 * result + m_subjectMatch.hashCode();
         }
         if (m_attemptInterval != null) {
-           result = 37 * result + m_attemptInterval.hashCode();
+            result = 37 * result + m_attemptInterval.hashCode();
         }
         if (m_deleteAllMail != null) {
-           result = 37 * result + m_deleteAllMail.hashCode();
+            result = 37 * result + m_deleteAllMail.hashCode();
         }
         if (m_javamailProperties != null) {
-           result = 37 * result + m_javamailProperties.hashCode();
+            result = 37 * result + m_javamailProperties.hashCode();
         }
         if (m_readmailHost != null) {
-           result = 37 * result + m_readmailHost.hashCode();
+            result = 37 * result + m_readmailHost.hashCode();
         }
         if (m_userAuth != null) {
-           result = 37 * result + m_userAuth.hashCode();
+            result = 37 * result + m_userAuth.hashCode();
         }
-        
+
         return result;
     }
 
@@ -482,7 +482,7 @@ public class ReadmailTest implements Serializable {
      * @return the value of field 'Debug'.
      */
     public boolean isDebug() {
-        return m_debug == null? true : m_debug;
+        return m_debug == null ? true : m_debug;
     }
 
     /**
@@ -491,7 +491,7 @@ public class ReadmailTest implements Serializable {
      * @return the value of field 'DeleteAllMail'.
      */
     public boolean isDeleteAllMail() {
-        return m_deleteAllMail == null? false : m_deleteAllMail;
+        return m_deleteAllMail == null ? false : m_deleteAllMail;
     }
 
     /**

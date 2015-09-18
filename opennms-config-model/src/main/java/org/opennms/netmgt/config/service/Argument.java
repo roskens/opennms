@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.service;
 // ---------------------------------/
 // - Imported classes and packages -/
 // ---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,12 +49,12 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlRootElement(name = "argument")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Argument implements Serializable {
+
     private static final long serialVersionUID = 5531241110724194289L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * internal content storage
      */
@@ -72,7 +70,6 @@ public class Argument implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Argument() {
         super();
         setContent("");
@@ -87,7 +84,6 @@ public class Argument implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      * 
@@ -96,26 +92,31 @@ public class Argument implements Serializable {
      */
     @Override()
     public boolean equals(final java.lang.Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Argument) {
 
             Argument temp = (Argument) obj;
             if (this._content != null) {
-                if (temp._content == null)
+                if (temp._content == null) {
                     return false;
-                else if (!(this._content.equals(temp._content)))
+                } else if (!(this._content.equals(temp._content))) {
                     return false;
-            } else if (temp._content != null)
+                }
+            } else if (temp._content != null) {
                 return false;
+            }
             if (this._type != null) {
-                if (temp._type == null)
+                if (temp._type == null) {
                     return false;
-                else if (!(this._type.equals(temp._type)))
+                } else if (!(this._type.equals(temp._type))) {
                     return false;
-            } else if (temp._type != null)
+                }
+            } else if (temp._type != null) {
                 return false;
+            }
             return true;
         }
         return false;

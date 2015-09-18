@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.hardware;
 
 import java.io.Serializable;
@@ -44,8 +43,8 @@ import org.opennms.netmgt.snmp.SnmpObjId;
  * 
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
-@XmlRootElement(name="MibObj")
-@XmlType(propOrder={"oid", "type", "alias", "replace"})
+@XmlRootElement(name = "MibObj")
+@XmlType(propOrder = {"oid", "type", "alias", "replace"})
 @XmlAccessorType(XmlAccessType.NONE)
 public class MibObj implements Serializable {
 
@@ -67,7 +66,8 @@ public class MibObj implements Serializable {
     /**
      * The Constructor.
      */
-    public MibObj() {}
+    public MibObj() {
+    }
 
     /**
      * The Constructor.
@@ -103,7 +103,7 @@ public class MibObj implements Serializable {
      *
      * @return the OID
      */
-    @XmlAttribute(name="oid", required=true)
+    @XmlAttribute(name = "oid", required = true)
     @XmlJavaTypeAdapter(SnmpObjIdAdapter.class)
     public SnmpObjId getOid() {
         return oid;
@@ -123,7 +123,7 @@ public class MibObj implements Serializable {
      *
      * @return the type
      */
-    @XmlAttribute(name="type", required=false)
+    @XmlAttribute(name = "type", required = false)
     public String getType() {
         return type;
     }
@@ -142,7 +142,7 @@ public class MibObj implements Serializable {
      *
      * @return the alias
      */
-    @XmlAttribute(name="alias", required=true)
+    @XmlAttribute(name = "alias", required = true)
     public String getAlias() {
         return alias;
     }
@@ -161,7 +161,7 @@ public class MibObj implements Serializable {
      * 
      * @return the replace
      */
-    @XmlAttribute(name="replace", required=false)
+    @XmlAttribute(name = "replace", required = false)
     public String getReplace() {
         return replace;
     }

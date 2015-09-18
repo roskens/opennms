@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.service;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,17 +52,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "service-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ServiceConfiguration implements Serializable {
+
     private static final long serialVersionUID = 1477638002034420045L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Service to be launched by the manager.
      */
     @XmlElement(name = "service")
-    private List<Service> _serviceList = new ArrayList<Service>(0);;
+    private List<Service> _serviceList = new ArrayList<Service>(0);
+
+    ;
 
     // ----------------/
     // - Constructors -/
@@ -82,7 +82,6 @@ public class ServiceConfiguration implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * 
      * 
@@ -125,19 +124,22 @@ public class ServiceConfiguration implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ServiceConfiguration) {
 
             ServiceConfiguration temp = (ServiceConfiguration) obj;
             if (this._serviceList != null) {
-                if (temp._serviceList == null)
+                if (temp._serviceList == null) {
                     return false;
-                else if (!(this._serviceList.equals(temp._serviceList)))
+                } else if (!(this._serviceList.equals(temp._serviceList))) {
                     return false;
-            } else if (temp._serviceList != null)
+                }
+            } else if (temp._serviceList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -238,7 +240,7 @@ public class ServiceConfiguration implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeService(final Service vService) {
-    	return _serviceList.remove(vService);
+        return _serviceList.remove(vService);
     }
 
     /**

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.thresholding;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,57 +49,52 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="group")
+@XmlRootElement(name = "group")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("thresholding-config.xsd")
-@SuppressWarnings("all") public class Group implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Group implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Group name
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Full path to the RRD repository where the data is stored
      *
      */
-    @XmlAttribute(name="rrdRepository", required = true)
+    @XmlAttribute(name = "rrdRepository", required = true)
     private java.lang.String _rrdRepository;
 
     /**
      * Threshold definition
      */
-    @XmlElement(name="threshold")
+    @XmlElement(name = "threshold")
     private java.util.List<org.opennms.netmgt.config.thresholding.Threshold> _thresholdList;
 
     /**
      * Expression definition
      */
-    @XmlElement(name="expression")
+    @XmlElement(name = "expression")
     private java.util.List<org.opennms.netmgt.config.thresholding.Expression> _expressionList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Group() {
         super();
         this._thresholdList = new java.util.ArrayList<org.opennms.netmgt.config.thresholding.Threshold>();
         this._expressionList = new java.util.ArrayList<org.opennms.netmgt.config.thresholding.Expression>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -112,7 +104,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addExpression(
             final org.opennms.netmgt.config.thresholding.Expression vExpression)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._expressionList.add(vExpression);
     }
 
@@ -127,7 +119,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addExpression(
             final int index,
             final org.opennms.netmgt.config.thresholding.Expression vExpression)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._expressionList.add(index, vExpression);
     }
 
@@ -140,7 +132,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addThreshold(
             final org.opennms.netmgt.config.thresholding.Threshold vThreshold)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._thresholdList.add(vThreshold);
     }
 
@@ -155,7 +147,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addThreshold(
             final int index,
             final org.opennms.netmgt.config.thresholding.Threshold vThreshold)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._thresholdList.add(index, vThreshold);
     }
 
@@ -165,8 +157,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.Expression> enumerateExpression(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.Expression> enumerateExpression() {
         return java.util.Collections.enumeration(this._expressionList);
     }
 
@@ -176,8 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.Threshold> enumerateThreshold(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.Threshold> enumerateThreshold() {
         return java.util.Collections.enumeration(this._thresholdList);
     }
 
@@ -190,40 +180,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Group) {
 
-            Group temp = (Group)obj;
+            Group temp = (Group) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._rrdRepository != null) {
-                if (temp._rrdRepository == null) return false;
-                else if (!(this._rrdRepository.equals(temp._rrdRepository)))
+                if (temp._rrdRepository == null) {
                     return false;
-            }
-            else if (temp._rrdRepository != null)
+                } else if (!(this._rrdRepository.equals(temp._rrdRepository))) {
+                    return false;
+                }
+            } else if (temp._rrdRepository != null) {
                 return false;
+            }
             if (this._thresholdList != null) {
-                if (temp._thresholdList == null) return false;
-                else if (!(this._thresholdList.equals(temp._thresholdList)))
+                if (temp._thresholdList == null) {
                     return false;
-            }
-            else if (temp._thresholdList != null)
+                } else if (!(this._thresholdList.equals(temp._thresholdList))) {
+                    return false;
+                }
+            } else if (temp._thresholdList != null) {
                 return false;
+            }
             if (this._expressionList != null) {
-                if (temp._expressionList == null) return false;
-                else if (!(this._expressionList.equals(temp._expressionList)))
+                if (temp._expressionList == null) {
                     return false;
-            }
-            else if (temp._expressionList != null)
+                } else if (!(this._expressionList.equals(temp._expressionList))) {
+                    return false;
+                }
+            } else if (temp._expressionList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -241,7 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.thresholding.Expression getExpression(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._expressionList.size()) {
             throw new IndexOutOfBoundsException("getExpression: Index value '" + index + "' not in range [0.." + (this._expressionList.size() - 1) + "]");
@@ -259,8 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.thresholding.Expression[] getExpression(
-    ) {
+    public org.opennms.netmgt.config.thresholding.Expression[] getExpression() {
         org.opennms.netmgt.config.thresholding.Expression[] array = new org.opennms.netmgt.config.thresholding.Expression[0];
         return (org.opennms.netmgt.config.thresholding.Expression[]) this._expressionList.toArray(array);
     }
@@ -272,8 +270,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.thresholding.Expression> getExpressionCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.thresholding.Expression> getExpressionCollection() {
         return this._expressionList;
     }
 
@@ -282,8 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getExpressionCount(
-    ) {
+    public int getExpressionCount() {
         return this._expressionList.size();
     }
 
@@ -293,8 +289,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -306,8 +301,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RrdRepository'.
      */
-    public java.lang.String getRrdRepository(
-    ) {
+    public java.lang.String getRrdRepository() {
         return this._rrdRepository;
     }
 
@@ -323,7 +317,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.thresholding.Threshold getThreshold(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._thresholdList.size()) {
             throw new IndexOutOfBoundsException("getThreshold: Index value '" + index + "' not in range [0.." + (this._thresholdList.size() - 1) + "]");
@@ -341,8 +335,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.thresholding.Threshold[] getThreshold(
-    ) {
+    public org.opennms.netmgt.config.thresholding.Threshold[] getThreshold() {
         org.opennms.netmgt.config.thresholding.Threshold[] array = new org.opennms.netmgt.config.thresholding.Threshold[0];
         return (org.opennms.netmgt.config.thresholding.Threshold[]) this._thresholdList.toArray(array);
     }
@@ -354,8 +347,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.thresholding.Threshold> getThresholdCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.thresholding.Threshold> getThresholdCollection() {
         return this._thresholdList;
     }
 
@@ -364,8 +356,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getThresholdCount(
-    ) {
+    public int getThresholdCount() {
         return this._thresholdList.size();
     }
 
@@ -378,22 +369,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_rrdRepository != null) {
-           result = 37 * result + _rrdRepository.hashCode();
+            result = 37 * result + _rrdRepository.hashCode();
         }
         if (_thresholdList != null) {
-           result = 37 * result + _thresholdList.hashCode();
+            result = 37 * result + _thresholdList.hashCode();
         }
         if (_expressionList != null) {
-           result = 37 * result + _expressionList.hashCode();
+            result = 37 * result + _expressionList.hashCode();
         }
 
         return result;
@@ -404,8 +394,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -420,8 +409,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.thresholding.Expression> iterateExpression(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.thresholding.Expression> iterateExpression() {
         return this._expressionList.iterator();
     }
 
@@ -431,8 +419,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.thresholding.Threshold> iterateThreshold(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.thresholding.Threshold> iterateThreshold() {
         return this._thresholdList.iterator();
     }
 
@@ -447,7 +434,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -464,21 +451,19 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllExpression(
-    ) {
+    public void removeAllExpression() {
         this._expressionList.clear();
     }
 
     /**
      */
-    public void removeAllThreshold(
-    ) {
+    public void removeAllThreshold() {
         this._thresholdList.clear();
     }
 
@@ -541,7 +526,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setExpression(
             final int index,
             final org.opennms.netmgt.config.thresholding.Expression vExpression)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._expressionList.size()) {
             throw new IndexOutOfBoundsException("setExpression: Index value '" + index + "' not in range [0.." + (this._expressionList.size() - 1) + "]");
@@ -561,7 +546,7 @@ import org.opennms.core.xml.ValidateUsing;
         _expressionList.clear();
 
         for (int i = 0; i < vExpressionArray.length; i++) {
-                this._expressionList.add(vExpressionArray[i]);
+            this._expressionList.add(vExpressionArray[i]);
         }
     }
 
@@ -626,7 +611,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setThreshold(
             final int index,
             final org.opennms.netmgt.config.thresholding.Threshold vThreshold)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._thresholdList.size()) {
             throw new IndexOutOfBoundsException("setThreshold: Index value '" + index + "' not in range [0.." + (this._thresholdList.size() - 1) + "]");
@@ -646,7 +631,7 @@ import org.opennms.core.xml.ValidateUsing;
         _thresholdList.clear();
 
         for (int i = 0; i < vThresholdArray.length; i++) {
-                this._thresholdList.add(vThresholdArray[i]);
+            this._thresholdList.add(vThresholdArray[i]);
         }
     }
 
@@ -689,7 +674,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.thresholding.Group unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.thresholding.Group) Unmarshaller.unmarshal(org.opennms.netmgt.config.thresholding.Group.class, reader);
     }
 
@@ -699,9 +684,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

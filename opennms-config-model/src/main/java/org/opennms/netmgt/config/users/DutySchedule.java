@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.users;
 
 import java.util.BitSet;
@@ -50,6 +49,7 @@ import org.springframework.util.Assert;
  * @author <A HREF="http://www.opennms.org/">OpenNMS </A>
  */
 public class DutySchedule {
+
     private static final Logger LOG = LoggerFactory.getLogger(DutySchedule.class);
     /**
      * Each boolean in the bit set represents a day of the week. Monday = 0,
@@ -94,13 +94,13 @@ public class DutySchedule {
     /**
      * A list of names to abbreviate the days of the week
      */
-    public static final String[] DAY_NAMES = { "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su" };
+    public static final String[] DAY_NAMES = {"Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"};
 
     /**
      * A mapping between the days of the week as indexed by the DutySchedule
      * class and those of the Calendar class
      */
-    private static final int[] CALENDAR_DAY_MAPPING = { Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY };
+    private static final int[] CALENDAR_DAY_MAPPING = {Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY};
 
     /**
      * Default constructor, builds the BitSet used to identify the days of the
@@ -150,9 +150,9 @@ public class DutySchedule {
     public DutySchedule(List<Boolean> schedule, int start, int end) {
         Assert.notNull(schedule, "argument schedule must not be null");
         Assert.isTrue(schedule.size() == 7, "argument schedule must contain exactly seven Boolean objects");
-        
+
         m_days = new BitSet(7);
-        
+
         for (int i = 0; i < 7; i++) {
             m_days.set(i, schedule.get(i).booleanValue());
         }
@@ -160,6 +160,7 @@ public class DutySchedule {
         m_startTime = start;
         m_stopTime = end;
     }
+
     /**
      * This constructor is designed to build a new DutySchedule from a String
      * representation formatted as such. <day_of_week_abbr><start>- <stop>eg.
@@ -358,7 +359,7 @@ public class DutySchedule {
         Calendar startTime = new GregorianCalendar(nTime.get(Calendar.YEAR), nTime.get(Calendar.MONTH), nTime.get(Calendar.DATE));
         //the hour will be the integer part of the start time divided by 100
         //cause it should be in military time
-        startTime.set(Calendar.HOUR_OF_DAY, (m_startTime/100));
+        startTime.set(Calendar.HOUR_OF_DAY, (m_startTime / 100));
 
         //the minute will be the start time mod 100 cause it should be in
         //military time
@@ -367,7 +368,7 @@ public class DutySchedule {
 
         Calendar endTime = new GregorianCalendar(nTime.get(Calendar.YEAR), nTime.get(Calendar.MONTH), nTime.get(Calendar.DATE));
 
-        endTime.set(Calendar.HOUR_OF_DAY, (m_stopTime/100));
+        endTime.set(Calendar.HOUR_OF_DAY, (m_stopTime / 100));
         endTime.set(Calendar.MINUTE, (m_stopTime % 100));
         endTime.set(Calendar.SECOND, 0);
 
@@ -419,7 +420,7 @@ public class DutySchedule {
                     ndays += 7;
                 }
                 LOG.debug("nextInSchedule: day {} is {} from today", i, ndays);
-                tempnext = (86400000L * (long)ndays) - dateMillis + startMillis;
+                tempnext = (86400000L * (long) ndays) - dateMillis + startMillis;
                 if (tempnext < next || next == -1) {
                     next = tempnext;
                     LOG.debug("nextInSchedule: duty begins in {} millisecs", next);
@@ -487,7 +488,7 @@ public class DutySchedule {
         cal.setTime(time);
         return isInSchedule(cal);
     }
-    
+
     /**
      * <p>hasDay</p>
      *

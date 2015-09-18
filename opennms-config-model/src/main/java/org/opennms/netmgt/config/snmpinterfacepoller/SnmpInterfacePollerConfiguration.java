@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.snmpinterfacepoller;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -45,7 +43,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -53,21 +50,20 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="snmp-interface-poller-configuration")
+@XmlRootElement(name = "snmp-interface-poller-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("snmp-interface-poller-configuration.xsd")
-@SuppressWarnings("all") public class SnmpInterfacePollerConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class SnmpInterfacePollerConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Default Interval at which the interfaces are to be
      *  polled
      */
-    @XmlAttribute(name="interval")
+    @XmlAttribute(name = "interval")
     private Long _interval;
     private static final Long DEFAULT_INTERVAL = 300000L;
 
@@ -75,13 +71,13 @@ import org.opennms.core.xml.ValidateUsing;
      * The maximum number of threads used for
      *  snmp polling.
      */
-    @XmlAttribute(name="threads", required = true)
+    @XmlAttribute(name = "threads", required = true)
     private Integer _threads;
 
     /**
      * The SNMP service string usually 'SNMP'.
      */
-    @XmlAttribute(name="service", required = true)
+    @XmlAttribute(name = "service", required = true)
     private java.lang.String _service;
 
     /**
@@ -89,7 +85,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  This is deprecated and will be ignored in the code!
      *
      */
-    @XmlAttribute(name="suppressAdminDownEvent")
+    @XmlAttribute(name = "suppressAdminDownEvent")
     private java.lang.String _suppressAdminDownEvent;
     private static final String DEFAULT_SUPPRESSADMINDOWNEVENT = "true";
 
@@ -101,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  instead of do this selection through requisition policies.
      *
      */
-    @XmlAttribute(name="useCriteriaFilters")
+    @XmlAttribute(name = "useCriteriaFilters")
     private java.lang.String _useCriteriaFilters;
     private static final String DEFAULT_USECRITERIAFILTERS = "false";
 
@@ -109,31 +105,27 @@ import org.opennms.core.xml.ValidateUsing;
      * Configuration of node-outage
      *  functionality
      */
-    @XmlElement(name="node-outage")
+    @XmlElement(name = "node-outage")
     private org.opennms.netmgt.config.snmpinterfacepoller.NodeOutage _nodeOutage;
 
     /**
      * Package encapsulating addresses, services to be
      *  polled for these addresses, etc..
      */
-    @XmlElement(name="package")
+    @XmlElement(name = "package")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Package> _packageList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public SnmpInterfacePollerConfiguration() {
         super();
         this._packageList = new java.util.ArrayList<org.opennms.netmgt.config.snmpinterfacepoller.Package>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -143,7 +135,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addPackage(
             final org.opennms.netmgt.config.snmpinterfacepoller.Package vPackage)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._packageList.add(vPackage);
     }
 
@@ -158,21 +150,19 @@ import org.opennms.core.xml.ValidateUsing;
     public void addPackage(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.Package vPackage)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._packageList.add(index, vPackage);
     }
 
     /**
      */
-    public void deleteInterval(
-    ) {
+    public void deleteInterval() {
         this._interval = null;
     }
 
     /**
      */
-    public void deleteThreads(
-    ) {
+    public void deleteThreads() {
         this._threads = null;
     }
 
@@ -182,8 +172,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.Package> enumeratePackage(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.Package> enumeratePackage() {
         return java.util.Collections.enumeration(this._packageList);
     }
 
@@ -196,61 +185,76 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof SnmpInterfacePollerConfiguration) {
 
-            SnmpInterfacePollerConfiguration temp = (SnmpInterfacePollerConfiguration)obj;
+            SnmpInterfacePollerConfiguration temp = (SnmpInterfacePollerConfiguration) obj;
             if (this._interval != null) {
-                if (temp._interval == null) return false;
-                else if (!(this._interval.equals(temp._interval)))
+                if (temp._interval == null) {
                     return false;
-            }
-            else if (temp._interval != null)
+                } else if (!(this._interval.equals(temp._interval))) {
+                    return false;
+                }
+            } else if (temp._interval != null) {
                 return false;
+            }
             if (this._threads != null) {
-                if (temp._threads == null) return false;
-                else if (!(this._threads.equals(temp._threads)))
+                if (temp._threads == null) {
                     return false;
-            }
-            else if (temp._threads != null)
+                } else if (!(this._threads.equals(temp._threads))) {
+                    return false;
+                }
+            } else if (temp._threads != null) {
                 return false;
+            }
             if (this._service != null) {
-                if (temp._service == null) return false;
-                else if (!(this._service.equals(temp._service)))
+                if (temp._service == null) {
                     return false;
-            }
-            else if (temp._service != null)
+                } else if (!(this._service.equals(temp._service))) {
+                    return false;
+                }
+            } else if (temp._service != null) {
                 return false;
+            }
             if (this._suppressAdminDownEvent != null) {
-                if (temp._suppressAdminDownEvent == null) return false;
-                else if (!(this._suppressAdminDownEvent.equals(temp._suppressAdminDownEvent)))
+                if (temp._suppressAdminDownEvent == null) {
                     return false;
-            }
-            else if (temp._suppressAdminDownEvent != null)
+                } else if (!(this._suppressAdminDownEvent.equals(temp._suppressAdminDownEvent))) {
+                    return false;
+                }
+            } else if (temp._suppressAdminDownEvent != null) {
                 return false;
+            }
             if (this._useCriteriaFilters != null) {
-                if (temp._useCriteriaFilters == null) return false;
-                else if (!(this._useCriteriaFilters.equals(temp._useCriteriaFilters)))
+                if (temp._useCriteriaFilters == null) {
                     return false;
-            }
-            else if (temp._useCriteriaFilters != null)
+                } else if (!(this._useCriteriaFilters.equals(temp._useCriteriaFilters))) {
+                    return false;
+                }
+            } else if (temp._useCriteriaFilters != null) {
                 return false;
+            }
             if (this._nodeOutage != null) {
-                if (temp._nodeOutage == null) return false;
-                else if (!(this._nodeOutage.equals(temp._nodeOutage)))
+                if (temp._nodeOutage == null) {
                     return false;
-            }
-            else if (temp._nodeOutage != null)
+                } else if (!(this._nodeOutage.equals(temp._nodeOutage))) {
+                    return false;
+                }
+            } else if (temp._nodeOutage != null) {
                 return false;
+            }
             if (this._packageList != null) {
-                if (temp._packageList == null) return false;
-                else if (!(this._packageList.equals(temp._packageList)))
+                if (temp._packageList == null) {
                     return false;
-            }
-            else if (temp._packageList != null)
+                } else if (!(this._packageList.equals(temp._packageList))) {
+                    return false;
+                }
+            } else if (temp._packageList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -264,8 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Interval'.
      */
-    public Long getInterval(
-    ) {
+    public Long getInterval() {
         return this._interval == null ? DEFAULT_INTERVAL : this._interval;
     }
 
@@ -277,8 +280,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NodeOutage'.
      */
-    public org.opennms.netmgt.config.snmpinterfacepoller.NodeOutage getNodeOutage(
-    ) {
+    public org.opennms.netmgt.config.snmpinterfacepoller.NodeOutage getNodeOutage() {
         return this._nodeOutage;
     }
 
@@ -294,7 +296,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.snmpinterfacepoller.Package getPackage(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._packageList.size()) {
             throw new IndexOutOfBoundsException("getPackage: Index value '" + index + "' not in range [0.." + (this._packageList.size() - 1) + "]");
@@ -312,8 +314,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.snmpinterfacepoller.Package[] getPackage(
-    ) {
+    public org.opennms.netmgt.config.snmpinterfacepoller.Package[] getPackage() {
         org.opennms.netmgt.config.snmpinterfacepoller.Package[] array = new org.opennms.netmgt.config.snmpinterfacepoller.Package[0];
         return (org.opennms.netmgt.config.snmpinterfacepoller.Package[]) this._packageList.toArray(array);
     }
@@ -325,8 +326,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Package> getPackageCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Package> getPackageCollection() {
         return this._packageList;
     }
 
@@ -335,8 +335,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getPackageCount(
-    ) {
+    public int getPackageCount() {
         return this._packageList.size();
     }
 
@@ -347,8 +346,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Service'.
      */
-    public java.lang.String getService(
-    ) {
+    public java.lang.String getService() {
         return this._service;
     }
 
@@ -362,8 +360,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SuppressAdminDownEvent'.
      */
-    public java.lang.String getSuppressAdminDownEvent(
-    ) {
+    public java.lang.String getSuppressAdminDownEvent() {
         return this._suppressAdminDownEvent == null ? DEFAULT_SUPPRESSADMINDOWNEVENT : this._suppressAdminDownEvent;
     }
 
@@ -375,8 +372,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Threads'.
      */
-    public Integer getThreads(
-    ) {
+    public Integer getThreads() {
         return this._threads;
     }
 
@@ -392,8 +388,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseCriteriaFilters'.
      */
-    public java.lang.String getUseCriteriaFilters(
-    ) {
+    public java.lang.String getUseCriteriaFilters() {
         return this._useCriteriaFilters == null ? DEFAULT_USECRITERIAFILTERS : this._useCriteriaFilters;
     }
 
@@ -402,8 +397,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Interval has been added
      */
-    public boolean hasInterval(
-    ) {
+    public boolean hasInterval() {
         return this._interval != null;
     }
 
@@ -412,8 +406,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Threads has been added
      */
-    public boolean hasThreads(
-    ) {
+    public boolean hasThreads() {
         return this._threads != null;
     }
 
@@ -426,31 +419,30 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_interval != null) {
-           result = 37 * result + _interval.hashCode();
+            result = 37 * result + _interval.hashCode();
         }
         if (_threads != null) {
-           result = 37 * result + _threads.hashCode();
+            result = 37 * result + _threads.hashCode();
         }
         if (_service != null) {
-           result = 37 * result + _service.hashCode();
+            result = 37 * result + _service.hashCode();
         }
         if (_suppressAdminDownEvent != null) {
-           result = 37 * result + _suppressAdminDownEvent.hashCode();
+            result = 37 * result + _suppressAdminDownEvent.hashCode();
         }
         if (_useCriteriaFilters != null) {
-           result = 37 * result + _useCriteriaFilters.hashCode();
+            result = 37 * result + _useCriteriaFilters.hashCode();
         }
         if (_nodeOutage != null) {
-           result = 37 * result + _nodeOutage.hashCode();
+            result = 37 * result + _nodeOutage.hashCode();
         }
         if (_packageList != null) {
-           result = 37 * result + _packageList.hashCode();
+            result = 37 * result + _packageList.hashCode();
         }
 
         return result;
@@ -461,8 +453,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -477,8 +468,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.Package> iteratePackage(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.Package> iteratePackage() {
         return this._packageList.iterator();
     }
 
@@ -493,7 +483,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -510,14 +500,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllPackage(
-    ) {
+    public void removeAllPackage() {
         this._packageList.clear();
     }
 
@@ -581,7 +570,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setPackage(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.Package vPackage)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._packageList.size()) {
             throw new IndexOutOfBoundsException("setPackage: Index value '" + index + "' not in range [0.." + (this._packageList.size() - 1) + "]");
@@ -601,7 +590,7 @@ import org.opennms.core.xml.ValidateUsing;
         _packageList.clear();
 
         for (int i = 0; i < vPackageArray.length; i++) {
-                this._packageList.add(vPackageArray[i]);
+            this._packageList.add(vPackageArray[i]);
         }
     }
 
@@ -702,7 +691,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.snmpinterfacepoller.SnmpInterfacePollerConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.snmpinterfacepoller.SnmpInterfacePollerConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpinterfacepoller.SnmpInterfacePollerConfiguration.class, reader);
     }
 
@@ -712,9 +701,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

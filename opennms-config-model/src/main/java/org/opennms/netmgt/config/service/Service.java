@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -50,6 +49,7 @@ import org.opennms.core.xml.JaxbUtils;
  */
 @XmlRootElement(name = "service")
 public class Service implements Serializable {
+
     private static final long serialVersionUID = -3812929848708891094L;
 
     /**
@@ -85,7 +85,6 @@ public class Service implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Service() {
         super();
     }
@@ -102,7 +101,6 @@ public class Service implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * 
      * 
@@ -179,40 +177,49 @@ public class Service implements Serializable {
      */
     @Override()
     public boolean equals(final java.lang.Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Service) {
 
             Service temp = (Service) obj;
             if (this._name != null) {
-                if (temp._name == null)
+                if (temp._name == null) {
                     return false;
-                else if (!(this._name.equals(temp._name)))
+                } else if (!(this._name.equals(temp._name))) {
                     return false;
-            } else if (temp._name != null)
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._className != null) {
-                if (temp._className == null)
+                if (temp._className == null) {
                     return false;
-                else if (!(this._className.equals(temp._className)))
+                } else if (!(this._className.equals(temp._className))) {
                     return false;
-            } else if (temp._className != null)
+                }
+            } else if (temp._className != null) {
                 return false;
+            }
             if (this._attributeList != null) {
-                if (temp._attributeList == null)
+                if (temp._attributeList == null) {
                     return false;
-                else if (!(this._attributeList.equals(temp._attributeList)))
+                } else if (!(this._attributeList.equals(temp._attributeList))) {
                     return false;
-            } else if (temp._attributeList != null)
+                }
+            } else if (temp._attributeList != null) {
                 return false;
+            }
             if (this._invokeList != null) {
-                if (temp._invokeList == null)
+                if (temp._invokeList == null) {
                     return false;
-                else if (!(this._invokeList.equals(temp._invokeList)))
+                } else if (!(this._invokeList.equals(temp._invokeList))) {
                     return false;
-            } else if (temp._invokeList != null)
+                }
+            } else if (temp._invokeList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -358,7 +365,7 @@ public class Service implements Serializable {
      */
     @XmlTransient
     public Boolean isEnabled() {
-        return this._enabled == null? Boolean.TRUE : this._enabled;
+        return this._enabled == null ? Boolean.TRUE : this._enabled;
     }
 
     /**

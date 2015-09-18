@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.poller.outages;
 
 import java.io.IOException;
@@ -55,11 +54,11 @@ import org.xml.sax.ContentHandler;
  * A scheduled outage
  * 
  */
-
-@XmlRootElement(name="outage", namespace="http://xmlns.opennms.org/xsd/config/poller/outages")
+@XmlRootElement(name = "outage", namespace = "http://xmlns.opennms.org/xsd/config/poller/outages")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("poll-outages.xsd")
 public class Outage extends BasicSchedule implements Serializable {
+
     private static final long serialVersionUID = -2187904465632591493L;
 
     private static final Node[] EMPTY_NODE_LIST = new Node[0];
@@ -69,14 +68,14 @@ public class Outage extends BasicSchedule implements Serializable {
      * List of interfaces to which the outage
      *  applies.
      */
-    @XmlElement(name="interface")
+    @XmlElement(name = "interface")
     private List<Interface> m_interfaces = new ArrayList<Interface>();
 
     /**
      * List of nodes to which the outage
      *  applies.
      */
-    @XmlElement(name="node")
+    @XmlElement(name = "node")
     private List<Node> m_nodes = new ArrayList<Node>();
 
     public Outage() {
@@ -525,10 +524,10 @@ public class Outage extends BasicSchedule implements Serializable {
 
     @Override
     public String toString() {
-        return "Outage[name=" + getName() +
-                ",type=" + getType() +
-                ",times=" + getTime() +
-                ",interfaces=" + m_interfaces +
-                ",nodes=" + m_nodes + "]";
+        return "Outage[name=" + getName()
+                + ",type=" + getType()
+                + ",times=" + getTime()
+                + ",interfaces=" + m_interfaces
+                + ",nodes=" + m_nodes + "]";
     }
 }

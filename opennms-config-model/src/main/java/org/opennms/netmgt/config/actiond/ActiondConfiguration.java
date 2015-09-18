@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.actiond;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -53,12 +51,12 @@ import org.opennms.core.xml.ValidateUsing;
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("actiond-configuration.xsd")
 public class ActiondConfiguration implements Serializable {
+
     private static final long serialVersionUID = 1978139055248268440L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * The maximum number of simultaneous processes launched by actiond. If
      * the number of launched processes currently running reaches this number,
@@ -78,7 +76,6 @@ public class ActiondConfiguration implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public ActiondConfiguration() {
         super();
     }
@@ -92,7 +89,6 @@ public class ActiondConfiguration implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -101,9 +97,15 @@ public class ActiondConfiguration implements Serializable {
      */
     @Override
     public boolean equals(final Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
 
         final ActiondConfiguration other = (ActiondConfiguration) obj;
         if (m_maxOutstandingActions == null) {

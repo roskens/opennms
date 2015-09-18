@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.ackd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,12 +49,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "parameter")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Parameter implements Serializable {
+
     private static final long serialVersionUID = -6535297763331028940L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _key.
      */
@@ -72,7 +70,6 @@ public class Parameter implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Parameter() {
         super();
     }
@@ -86,7 +83,6 @@ public class Parameter implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      * 
@@ -95,26 +91,31 @@ public class Parameter implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Parameter) {
 
             Parameter temp = (Parameter) obj;
             if (this._key != null) {
-                if (temp._key == null)
+                if (temp._key == null) {
                     return false;
-                else if (!(this._key.equals(temp._key)))
+                } else if (!(this._key.equals(temp._key))) {
                     return false;
-            } else if (temp._key != null)
+                }
+            } else if (temp._key != null) {
                 return false;
+            }
             if (this._value != null) {
-                if (temp._value == null)
+                if (temp._value == null) {
                     return false;
-                else if (!(this._value.equals(temp._value)))
+                } else if (!(this._value.equals(temp._value))) {
                     return false;
-            } else if (temp._value != null)
+                }
+            } else if (temp._value != null) {
                 return false;
+            }
             return true;
         }
         return false;

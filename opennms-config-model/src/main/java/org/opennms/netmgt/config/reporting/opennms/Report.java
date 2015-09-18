@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.reporting.opennms;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,79 +41,73 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
-@XmlRootElement(name="report")
+@XmlRootElement(name = "report")
 @XmlAccessorType(XmlAccessType.FIELD)
-@SuppressWarnings("all") public class Report implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Report implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * the name of this report
      */
-    @XmlAttribute(name="id")
+    @XmlAttribute(name = "id")
     private String _id;
 
     /**
      * type of this report (calendar/classic)
      */
-    @XmlAttribute(name="type")
+    @XmlAttribute(name = "type")
     private String _type;
 
     /**
      * Field _parameters.
      */
-    @XmlElement(name="parameters")
+    @XmlElement(name = "parameters")
     private org.opennms.netmgt.config.reporting.opennms.Parameters _parameters;
 
     /**
      * template to convert to display the report in PDF format
      */
-    @XmlElement(name="pdf-template")
+    @XmlElement(name = "pdf-template")
     private String _pdfTemplate;
 
     /**
      * template to convert to display the report in PDF format with
      * embedded SVG
      */
-    @XmlElement(name="svg-template")
+    @XmlElement(name = "svg-template")
     private String _svgTemplate;
 
     /**
      * template to convert to display the report in HTML format
      */
-    @XmlElement(name="html-template")
+    @XmlElement(name = "html-template")
     private String _htmlTemplate;
 
     /**
      * path to the logo file
      */
-    @XmlElement(name="logo")
+    @XmlElement(name = "logo")
     private String _logo;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Report() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -125,61 +117,76 @@ import javax.xml.bind.annotation.XmlElement;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Report) {
 
-            Report temp = (Report)obj;
+            Report temp = (Report) obj;
             if (this._id != null) {
-                if (temp._id == null) return false;
-                else if (!(this._id.equals(temp._id)))
+                if (temp._id == null) {
                     return false;
-            }
-            else if (temp._id != null)
+                } else if (!(this._id.equals(temp._id))) {
+                    return false;
+                }
+            } else if (temp._id != null) {
                 return false;
+            }
             if (this._type != null) {
-                if (temp._type == null) return false;
-                else if (!(this._type.equals(temp._type)))
+                if (temp._type == null) {
                     return false;
-            }
-            else if (temp._type != null)
+                } else if (!(this._type.equals(temp._type))) {
+                    return false;
+                }
+            } else if (temp._type != null) {
                 return false;
+            }
             if (this._parameters != null) {
-                if (temp._parameters == null) return false;
-                else if (!(this._parameters.equals(temp._parameters)))
+                if (temp._parameters == null) {
                     return false;
-            }
-            else if (temp._parameters != null)
+                } else if (!(this._parameters.equals(temp._parameters))) {
+                    return false;
+                }
+            } else if (temp._parameters != null) {
                 return false;
+            }
             if (this._pdfTemplate != null) {
-                if (temp._pdfTemplate == null) return false;
-                else if (!(this._pdfTemplate.equals(temp._pdfTemplate)))
+                if (temp._pdfTemplate == null) {
                     return false;
-            }
-            else if (temp._pdfTemplate != null)
+                } else if (!(this._pdfTemplate.equals(temp._pdfTemplate))) {
+                    return false;
+                }
+            } else if (temp._pdfTemplate != null) {
                 return false;
+            }
             if (this._svgTemplate != null) {
-                if (temp._svgTemplate == null) return false;
-                else if (!(this._svgTemplate.equals(temp._svgTemplate)))
+                if (temp._svgTemplate == null) {
                     return false;
-            }
-            else if (temp._svgTemplate != null)
+                } else if (!(this._svgTemplate.equals(temp._svgTemplate))) {
+                    return false;
+                }
+            } else if (temp._svgTemplate != null) {
                 return false;
+            }
             if (this._htmlTemplate != null) {
-                if (temp._htmlTemplate == null) return false;
-                else if (!(this._htmlTemplate.equals(temp._htmlTemplate)))
+                if (temp._htmlTemplate == null) {
                     return false;
-            }
-            else if (temp._htmlTemplate != null)
+                } else if (!(this._htmlTemplate.equals(temp._htmlTemplate))) {
+                    return false;
+                }
+            } else if (temp._htmlTemplate != null) {
                 return false;
+            }
             if (this._logo != null) {
-                if (temp._logo == null) return false;
-                else if (!(this._logo.equals(temp._logo)))
+                if (temp._logo == null) {
                     return false;
-            }
-            else if (temp._logo != null)
+                } else if (!(this._logo.equals(temp._logo))) {
+                    return false;
+                }
+            } else if (temp._logo != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -192,8 +199,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return the value of field 'HtmlTemplate'.
      */
-    public java.lang.String getHtmlTemplate(
-    ) {
+    public java.lang.String getHtmlTemplate() {
         return this._htmlTemplate;
     }
 
@@ -203,8 +209,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return the value of field 'Id'.
      */
-    public java.lang.String getId(
-    ) {
+    public java.lang.String getId() {
         return this._id;
     }
 
@@ -214,8 +219,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return the value of field 'Logo'.
      */
-    public java.lang.String getLogo(
-    ) {
+    public java.lang.String getLogo() {
         return this._logo;
     }
 
@@ -224,8 +228,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return the value of field 'Parameters'.
      */
-    public org.opennms.netmgt.config.reporting.opennms.Parameters getParameters(
-    ) {
+    public org.opennms.netmgt.config.reporting.opennms.Parameters getParameters() {
         return this._parameters;
     }
 
@@ -236,8 +239,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return the value of field 'PdfTemplate'.
      */
-    public java.lang.String getPdfTemplate(
-    ) {
+    public java.lang.String getPdfTemplate() {
         return this._pdfTemplate;
     }
 
@@ -249,8 +251,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return the value of field 'SvgTemplate'.
      */
-    public java.lang.String getSvgTemplate(
-    ) {
+    public java.lang.String getSvgTemplate() {
         return this._svgTemplate;
     }
 
@@ -261,8 +262,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return the value of field 'Type'.
      */
-    public java.lang.String getType(
-    ) {
+    public java.lang.String getType() {
         return this._type;
     }
 
@@ -275,31 +275,30 @@ import javax.xml.bind.annotation.XmlElement;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_id != null) {
-           result = 37 * result + _id.hashCode();
+            result = 37 * result + _id.hashCode();
         }
         if (_type != null) {
-           result = 37 * result + _type.hashCode();
+            result = 37 * result + _type.hashCode();
         }
         if (_parameters != null) {
-           result = 37 * result + _parameters.hashCode();
+            result = 37 * result + _parameters.hashCode();
         }
         if (_pdfTemplate != null) {
-           result = 37 * result + _pdfTemplate.hashCode();
+            result = 37 * result + _pdfTemplate.hashCode();
         }
         if (_svgTemplate != null) {
-           result = 37 * result + _svgTemplate.hashCode();
+            result = 37 * result + _svgTemplate.hashCode();
         }
         if (_htmlTemplate != null) {
-           result = 37 * result + _htmlTemplate.hashCode();
+            result = 37 * result + _htmlTemplate.hashCode();
         }
         if (_logo != null) {
-           result = 37 * result + _logo.hashCode();
+            result = 37 * result + _logo.hashCode();
         }
 
         return result;
@@ -310,8 +309,7 @@ import javax.xml.bind.annotation.XmlElement;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -331,7 +329,7 @@ import javax.xml.bind.annotation.XmlElement;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -348,7 +346,7 @@ import javax.xml.bind.annotation.XmlElement;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -446,7 +444,7 @@ import javax.xml.bind.annotation.XmlElement;
      */
     public static org.opennms.netmgt.config.reporting.opennms.Report unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.reporting.opennms.Report) Unmarshaller.unmarshal(org.opennms.netmgt.config.reporting.opennms.Report.class, reader);
     }
 
@@ -456,9 +454,8 @@ import javax.xml.bind.annotation.XmlElement;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

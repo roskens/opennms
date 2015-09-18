@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.statsd.model;
 
 import java.util.ArrayList;
@@ -48,6 +47,7 @@ import org.springframework.orm.ObjectRetrievalFailureException;
  * @version $Id: $
  */
 public class StatsdConfig {
+
     private StatisticsDaemonConfiguration m_castorConfig;
     private List<Report> m_reports = new ArrayList<Report>();
     private List<StatsdPackage> m_packages = new ArrayList<StatsdPackage>();
@@ -69,7 +69,7 @@ public class StatsdConfig {
             }
             m_reports.add(r);
         }
-        
+
         for (org.opennms.netmgt.config.statsd.Package pkg : getCastorPackages()) {
             StatsdPackage p = new StatsdPackage();
             p.setName(pkg.getName());
@@ -94,7 +94,7 @@ public class StatsdConfig {
             m_packages.add(p);
         }
     }
-    
+
     /**
      * <p>getReports</p>
      *
@@ -119,7 +119,7 @@ public class StatsdConfig {
                 return report;
             }
         }
-        
+
         throw new ObjectRetrievalFailureException("There is no report definition named '" + name + "'", name);
     }
 

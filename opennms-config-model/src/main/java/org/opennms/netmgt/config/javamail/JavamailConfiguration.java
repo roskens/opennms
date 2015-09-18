@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.javamail;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,26 +49,25 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="javamail-configuration")
+@XmlRootElement(name = "javamail-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("javamail-configuration.xsd")
-@SuppressWarnings("all") public class JavamailConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class JavamailConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _defaultSendConfigName.
      */
-    @XmlAttribute(name="default-send-config-name")
+    @XmlAttribute(name = "default-send-config-name")
     private java.lang.String _defaultSendConfigName;
 
     /**
      * Field _defaultReadConfigName.
      */
-    @XmlAttribute(name="default-read-config-name")
+    @XmlAttribute(name = "default-read-config-name")
     private java.lang.String _defaultReadConfigName;
 
     /**
@@ -86,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
-    @XmlElement(name="sendmail-config")
+    @XmlElement(name = "sendmail-config")
     private java.util.List<org.opennms.netmgt.config.javamail.SendmailConfig> _sendmailConfigList;
 
     /**
@@ -95,21 +91,19 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
-    @XmlElement(name="readmail-config")
+    @XmlElement(name = "readmail-config")
     private java.util.List<org.opennms.netmgt.config.javamail.ReadmailConfig> _readmailConfigList;
 
     /**
      * Read and Send configuration list
      *
      */
-    @XmlElement(name="end2end-mail-config")
+    @XmlElement(name = "end2end-mail-config")
     private java.util.List<org.opennms.netmgt.config.javamail.End2endMailConfig> _end2endMailConfigList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public JavamailConfiguration() {
         super();
         this._sendmailConfigList = new java.util.ArrayList<org.opennms.netmgt.config.javamail.SendmailConfig>();
@@ -117,11 +111,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._end2endMailConfigList = new java.util.ArrayList<org.opennms.netmgt.config.javamail.End2endMailConfig>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -131,7 +123,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addEnd2endMailConfig(
             final org.opennms.netmgt.config.javamail.End2endMailConfig vEnd2endMailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._end2endMailConfigList.add(vEnd2endMailConfig);
     }
 
@@ -146,7 +138,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addEnd2endMailConfig(
             final int index,
             final org.opennms.netmgt.config.javamail.End2endMailConfig vEnd2endMailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._end2endMailConfigList.add(index, vEnd2endMailConfig);
     }
 
@@ -159,7 +151,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addReadmailConfig(
             final org.opennms.netmgt.config.javamail.ReadmailConfig vReadmailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._readmailConfigList.add(vReadmailConfig);
     }
 
@@ -174,7 +166,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addReadmailConfig(
             final int index,
             final org.opennms.netmgt.config.javamail.ReadmailConfig vReadmailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._readmailConfigList.add(index, vReadmailConfig);
     }
 
@@ -187,7 +179,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSendmailConfig(
             final org.opennms.netmgt.config.javamail.SendmailConfig vSendmailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._sendmailConfigList.add(vSendmailConfig);
     }
 
@@ -202,7 +194,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSendmailConfig(
             final int index,
             final org.opennms.netmgt.config.javamail.SendmailConfig vSendmailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._sendmailConfigList.add(index, vSendmailConfig);
     }
 
@@ -212,8 +204,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.javamail.End2endMailConfig> enumerateEnd2endMailConfig(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.javamail.End2endMailConfig> enumerateEnd2endMailConfig() {
         return java.util.Collections.enumeration(this._end2endMailConfigList);
     }
 
@@ -223,8 +214,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.javamail.ReadmailConfig> enumerateReadmailConfig(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.javamail.ReadmailConfig> enumerateReadmailConfig() {
         return java.util.Collections.enumeration(this._readmailConfigList);
     }
 
@@ -234,8 +224,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.javamail.SendmailConfig> enumerateSendmailConfig(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.javamail.SendmailConfig> enumerateSendmailConfig() {
         return java.util.Collections.enumeration(this._sendmailConfigList);
     }
 
@@ -248,47 +237,58 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof JavamailConfiguration) {
 
-            JavamailConfiguration temp = (JavamailConfiguration)obj;
+            JavamailConfiguration temp = (JavamailConfiguration) obj;
             if (this._defaultSendConfigName != null) {
-                if (temp._defaultSendConfigName == null) return false;
-                else if (!(this._defaultSendConfigName.equals(temp._defaultSendConfigName)))
+                if (temp._defaultSendConfigName == null) {
                     return false;
-            }
-            else if (temp._defaultSendConfigName != null)
+                } else if (!(this._defaultSendConfigName.equals(temp._defaultSendConfigName))) {
+                    return false;
+                }
+            } else if (temp._defaultSendConfigName != null) {
                 return false;
+            }
             if (this._defaultReadConfigName != null) {
-                if (temp._defaultReadConfigName == null) return false;
-                else if (!(this._defaultReadConfigName.equals(temp._defaultReadConfigName)))
+                if (temp._defaultReadConfigName == null) {
                     return false;
-            }
-            else if (temp._defaultReadConfigName != null)
+                } else if (!(this._defaultReadConfigName.equals(temp._defaultReadConfigName))) {
+                    return false;
+                }
+            } else if (temp._defaultReadConfigName != null) {
                 return false;
+            }
             if (this._sendmailConfigList != null) {
-                if (temp._sendmailConfigList == null) return false;
-                else if (!(this._sendmailConfigList.equals(temp._sendmailConfigList)))
+                if (temp._sendmailConfigList == null) {
                     return false;
-            }
-            else if (temp._sendmailConfigList != null)
+                } else if (!(this._sendmailConfigList.equals(temp._sendmailConfigList))) {
+                    return false;
+                }
+            } else if (temp._sendmailConfigList != null) {
                 return false;
+            }
             if (this._readmailConfigList != null) {
-                if (temp._readmailConfigList == null) return false;
-                else if (!(this._readmailConfigList.equals(temp._readmailConfigList)))
+                if (temp._readmailConfigList == null) {
                     return false;
-            }
-            else if (temp._readmailConfigList != null)
+                } else if (!(this._readmailConfigList.equals(temp._readmailConfigList))) {
+                    return false;
+                }
+            } else if (temp._readmailConfigList != null) {
                 return false;
+            }
             if (this._end2endMailConfigList != null) {
-                if (temp._end2endMailConfigList == null) return false;
-                else if (!(this._end2endMailConfigList.equals(temp._end2endMailConfigList)))
+                if (temp._end2endMailConfigList == null) {
                     return false;
-            }
-            else if (temp._end2endMailConfigList != null)
+                } else if (!(this._end2endMailConfigList.equals(temp._end2endMailConfigList))) {
+                    return false;
+                }
+            } else if (temp._end2endMailConfigList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -299,8 +299,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DefaultReadConfigName'.
      */
-    public java.lang.String getDefaultReadConfigName(
-    ) {
+    public java.lang.String getDefaultReadConfigName() {
         return this._defaultReadConfigName;
     }
 
@@ -309,8 +308,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DefaultSendConfigName'.
      */
-    public java.lang.String getDefaultSendConfigName(
-    ) {
+    public java.lang.String getDefaultSendConfigName() {
         return this._defaultSendConfigName;
     }
 
@@ -326,7 +324,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.javamail.End2endMailConfig getEnd2endMailConfig(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._end2endMailConfigList.size()) {
             throw new IndexOutOfBoundsException("getEnd2endMailConfig: Index value '" + index + "' not in range [0.." + (this._end2endMailConfigList.size() - 1) + "]");
@@ -345,8 +343,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.javamail.End2endMailConfig[] getEnd2endMailConfig(
-    ) {
+    public org.opennms.netmgt.config.javamail.End2endMailConfig[] getEnd2endMailConfig() {
         org.opennms.netmgt.config.javamail.End2endMailConfig[] array = new org.opennms.netmgt.config.javamail.End2endMailConfig[0];
         return (org.opennms.netmgt.config.javamail.End2endMailConfig[]) this._end2endMailConfigList.toArray(array);
     }
@@ -358,8 +355,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.javamail.End2endMailConfig> getEnd2endMailConfigCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.javamail.End2endMailConfig> getEnd2endMailConfigCollection() {
         return this._end2endMailConfigList;
     }
 
@@ -368,8 +364,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getEnd2endMailConfigCount(
-    ) {
+    public int getEnd2endMailConfigCount() {
         return this._end2endMailConfigList.size();
     }
 
@@ -385,7 +380,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.javamail.ReadmailConfig getReadmailConfig(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._readmailConfigList.size()) {
             throw new IndexOutOfBoundsException("getReadmailConfig: Index value '" + index + "' not in range [0.." + (this._readmailConfigList.size() - 1) + "]");
@@ -404,8 +399,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.javamail.ReadmailConfig[] getReadmailConfig(
-    ) {
+    public org.opennms.netmgt.config.javamail.ReadmailConfig[] getReadmailConfig() {
         org.opennms.netmgt.config.javamail.ReadmailConfig[] array = new org.opennms.netmgt.config.javamail.ReadmailConfig[0];
         return (org.opennms.netmgt.config.javamail.ReadmailConfig[]) this._readmailConfigList.toArray(array);
     }
@@ -417,8 +411,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.javamail.ReadmailConfig> getReadmailConfigCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.javamail.ReadmailConfig> getReadmailConfigCollection() {
         return this._readmailConfigList;
     }
 
@@ -427,8 +420,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getReadmailConfigCount(
-    ) {
+    public int getReadmailConfigCount() {
         return this._readmailConfigList.size();
     }
 
@@ -444,7 +436,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.javamail.SendmailConfig getSendmailConfig(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._sendmailConfigList.size()) {
             throw new IndexOutOfBoundsException("getSendmailConfig: Index value '" + index + "' not in range [0.." + (this._sendmailConfigList.size() - 1) + "]");
@@ -463,8 +455,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.javamail.SendmailConfig[] getSendmailConfig(
-    ) {
+    public org.opennms.netmgt.config.javamail.SendmailConfig[] getSendmailConfig() {
         org.opennms.netmgt.config.javamail.SendmailConfig[] array = new org.opennms.netmgt.config.javamail.SendmailConfig[0];
         return (org.opennms.netmgt.config.javamail.SendmailConfig[]) this._sendmailConfigList.toArray(array);
     }
@@ -476,8 +467,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.javamail.SendmailConfig> getSendmailConfigCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.javamail.SendmailConfig> getSendmailConfigCollection() {
         return this._sendmailConfigList;
     }
 
@@ -486,8 +476,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSendmailConfigCount(
-    ) {
+    public int getSendmailConfigCount() {
         return this._sendmailConfigList.size();
     }
 
@@ -500,25 +489,24 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_defaultSendConfigName != null) {
-           result = 37 * result + _defaultSendConfigName.hashCode();
+            result = 37 * result + _defaultSendConfigName.hashCode();
         }
         if (_defaultReadConfigName != null) {
-           result = 37 * result + _defaultReadConfigName.hashCode();
+            result = 37 * result + _defaultReadConfigName.hashCode();
         }
         if (_sendmailConfigList != null) {
-           result = 37 * result + _sendmailConfigList.hashCode();
+            result = 37 * result + _sendmailConfigList.hashCode();
         }
         if (_readmailConfigList != null) {
-           result = 37 * result + _readmailConfigList.hashCode();
+            result = 37 * result + _readmailConfigList.hashCode();
         }
         if (_end2endMailConfigList != null) {
-           result = 37 * result + _end2endMailConfigList.hashCode();
+            result = 37 * result + _end2endMailConfigList.hashCode();
         }
 
         return result;
@@ -529,8 +517,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -545,8 +532,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.javamail.End2endMailConfig> iterateEnd2endMailConfig(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.javamail.End2endMailConfig> iterateEnd2endMailConfig() {
         return this._end2endMailConfigList.iterator();
     }
 
@@ -556,8 +542,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.javamail.ReadmailConfig> iterateReadmailConfig(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.javamail.ReadmailConfig> iterateReadmailConfig() {
         return this._readmailConfigList.iterator();
     }
 
@@ -567,8 +552,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.javamail.SendmailConfig> iterateSendmailConfig(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.javamail.SendmailConfig> iterateSendmailConfig() {
         return this._sendmailConfigList.iterator();
     }
 
@@ -583,7 +567,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -600,28 +584,25 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllEnd2endMailConfig(
-    ) {
+    public void removeAllEnd2endMailConfig() {
         this._end2endMailConfigList.clear();
     }
 
     /**
      */
-    public void removeAllReadmailConfig(
-    ) {
+    public void removeAllReadmailConfig() {
         this._readmailConfigList.clear();
     }
 
     /**
      */
-    public void removeAllSendmailConfig(
-    ) {
+    public void removeAllSendmailConfig() {
         this._sendmailConfigList.clear();
     }
 
@@ -730,7 +711,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setEnd2endMailConfig(
             final int index,
             final org.opennms.netmgt.config.javamail.End2endMailConfig vEnd2endMailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._end2endMailConfigList.size()) {
             throw new IndexOutOfBoundsException("setEnd2endMailConfig: Index value '" + index + "' not in range [0.." + (this._end2endMailConfigList.size() - 1) + "]");
@@ -750,7 +731,7 @@ import org.opennms.core.xml.ValidateUsing;
         _end2endMailConfigList.clear();
 
         for (int i = 0; i < vEnd2endMailConfigArray.length; i++) {
-                this._end2endMailConfigList.add(vEnd2endMailConfigArray[i]);
+            this._end2endMailConfigList.add(vEnd2endMailConfigArray[i]);
         }
     }
 
@@ -791,7 +772,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setReadmailConfig(
             final int index,
             final org.opennms.netmgt.config.javamail.ReadmailConfig vReadmailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._readmailConfigList.size()) {
             throw new IndexOutOfBoundsException("setReadmailConfig: Index value '" + index + "' not in range [0.." + (this._readmailConfigList.size() - 1) + "]");
@@ -811,7 +792,7 @@ import org.opennms.core.xml.ValidateUsing;
         _readmailConfigList.clear();
 
         for (int i = 0; i < vReadmailConfigArray.length; i++) {
-                this._readmailConfigList.add(vReadmailConfigArray[i]);
+            this._readmailConfigList.add(vReadmailConfigArray[i]);
         }
     }
 
@@ -852,7 +833,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSendmailConfig(
             final int index,
             final org.opennms.netmgt.config.javamail.SendmailConfig vSendmailConfig)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._sendmailConfigList.size()) {
             throw new IndexOutOfBoundsException("setSendmailConfig: Index value '" + index + "' not in range [0.." + (this._sendmailConfigList.size() - 1) + "]");
@@ -872,7 +853,7 @@ import org.opennms.core.xml.ValidateUsing;
         _sendmailConfigList.clear();
 
         for (int i = 0; i < vSendmailConfigArray.length; i++) {
-                this._sendmailConfigList.add(vSendmailConfigArray[i]);
+            this._sendmailConfigList.add(vSendmailConfigArray[i]);
         }
     }
 
@@ -915,7 +896,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.javamail.JavamailConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.javamail.JavamailConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.javamail.JavamailConfiguration.class, reader);
     }
 
@@ -925,9 +906,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

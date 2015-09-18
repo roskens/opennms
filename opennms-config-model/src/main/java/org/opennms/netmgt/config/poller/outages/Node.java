@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.poller.outages;
 
 import java.io.IOException;
@@ -50,17 +49,17 @@ import org.xml.sax.ContentHandler;
  * Node to which the outage applies.
  * 
  */
-
-@XmlRootElement(name="node", namespace="http://xmlns.opennms.org/xsd/config/poller/outages")
+@XmlRootElement(name = "node", namespace = "http://xmlns.opennms.org/xsd/config/poller/outages")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("poll-outages.xsd")
 public class Node implements Serializable {
+
     private static final long serialVersionUID = -3839620822068533737L;
 
     /**
      * Field _id.
      */
-    @XmlAttribute(name="id")
+    @XmlAttribute(name = "id")
     private Integer _id;
 
     public Node() {
@@ -81,14 +80,16 @@ public class Node implements Serializable {
      */
     @Override
     public boolean equals(final Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
-        
+        }
+
         if (obj instanceof Node) {
-        
-            Node temp = (Node)obj;
-            if (this._id != temp._id)
+
+            Node temp = (Node) obj;
+            if (this._id != temp._id) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -100,7 +101,7 @@ public class Node implements Serializable {
      * @return the value of field 'Id'.
      */
     public Integer getId() {
-        return _id == null? 0 : _id;
+        return _id == null ? 0 : _id;
     }
 
     /**
@@ -123,9 +124,9 @@ public class Node implements Serializable {
     @Override
     public int hashCode() {
         int result = 17;
-        
+
         result = 37 * result + _id;
-        
+
         return result;
     }
 

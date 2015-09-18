@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.translator;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -45,7 +43,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -53,26 +50,25 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="assignment")
+@XmlRootElement(name = "assignment")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("translator-configuration.xsd")
-@SuppressWarnings("all") public class Assignment implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Assignment implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _type.
      */
-    @XmlAttribute(name="type", required = true)
+    @XmlAttribute(name = "type", required = true)
     private java.lang.String _type;
 
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
@@ -80,23 +76,19 @@ import org.opennms.core.xml.ValidateUsing;
      *  translation.
      *
      */
-    @XmlElement(name="value")
+    @XmlElement(name = "value")
     private org.opennms.netmgt.config.translator.Value _value;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Assignment() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -106,33 +98,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Assignment) {
 
-            Assignment temp = (Assignment)obj;
+            Assignment temp = (Assignment) obj;
             if (this._type != null) {
-                if (temp._type == null) return false;
-                else if (!(this._type.equals(temp._type)))
+                if (temp._type == null) {
                     return false;
-            }
-            else if (temp._type != null)
+                } else if (!(this._type.equals(temp._type))) {
+                    return false;
+                }
+            } else if (temp._type != null) {
                 return false;
+            }
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._value != null) {
-                if (temp._value == null) return false;
-                else if (!(this._value.equals(temp._value)))
+                if (temp._value == null) {
                     return false;
-            }
-            else if (temp._value != null)
+                } else if (!(this._value.equals(temp._value))) {
+                    return false;
+                }
+            } else if (temp._value != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -143,8 +142,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -153,8 +151,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Type'.
      */
-    public java.lang.String getType(
-    ) {
+    public java.lang.String getType() {
         return this._type;
     }
 
@@ -167,8 +164,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Value'.
      */
-    public org.opennms.netmgt.config.translator.Value getValue(
-    ) {
+    public org.opennms.netmgt.config.translator.Value getValue() {
         return this._value;
     }
 
@@ -181,19 +177,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_type != null) {
-           result = 37 * result + _type.hashCode();
+            result = 37 * result + _type.hashCode();
         }
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_value != null) {
-           result = 37 * result + _value.hashCode();
+            result = 37 * result + _value.hashCode();
         }
 
         return result;
@@ -204,8 +199,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -225,7 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -242,7 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -293,7 +287,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.translator.Assignment unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.translator.Assignment) Unmarshaller.unmarshal(org.opennms.netmgt.config.translator.Assignment.class, reader);
     }
 
@@ -303,9 +297,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import java.io.Reader;
@@ -47,23 +46,24 @@ import org.opennms.core.xml.ValidateUsing;
  * 
  * @author <a href="mailto:david@opennms.org>David Hustace</a>
  */
-@XmlRootElement(name="update-field")
+@XmlRootElement(name = "update-field")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventconf.xsd")
 public class UpdateField implements Serializable {
-	private static final long serialVersionUID = 6199096374743077928L;
 
-	// @NotNull
-	@XmlAttribute(name="field-name", required=true)
+    private static final long serialVersionUID = 6199096374743077928L;
+
+    // @NotNull
+    @XmlAttribute(name = "field-name", required = true)
     private String m_fieldName;
-    
-    @XmlAttribute(name="update-on-reduction", required=false)
+
+    @XmlAttribute(name = "update-on-reduction", required = false)
     private Boolean m_updateOnReduction = Boolean.TRUE;
 
     public boolean hasFieldName() {
         return m_fieldName != null ? true : false;
     }
-    
+
     public String getFieldName() {
         return m_fieldName;
     }
@@ -71,19 +71,19 @@ public class UpdateField implements Serializable {
     public void setFieldName(final String fieldName) {
         m_fieldName = fieldName;
     }
-    
+
     public boolean hasUpdateOnReduction() {
-        return m_updateOnReduction != null ? true : false; 
+        return m_updateOnReduction != null ? true : false;
     }
-    
+
     public Boolean isUpdateOnReduction() {
         return m_updateOnReduction;
     }
-    
+
     public void setUpdateOnReduction(final Boolean update) {
         m_updateOnReduction = update;
     }
-    
+
     public static UpdateField unmarshal(final Reader reader) throws MarshalException, ValidationException {
         return (UpdateField) Unmarshaller.unmarshal(UpdateField.class, reader);
     }
@@ -93,32 +93,42 @@ public class UpdateField implements Serializable {
         validator.validate(this);
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((m_fieldName == null) ? 0 : m_fieldName.hashCode());
-		result = prime * result + ((m_updateOnReduction == null) ? 0 : m_updateOnReduction.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((m_fieldName == null) ? 0 : m_fieldName.hashCode());
+        result = prime * result + ((m_updateOnReduction == null) ? 0 : m_updateOnReduction.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (!(obj instanceof UpdateField)) return false;
-		final UpdateField other = (UpdateField) obj;
-		if (m_fieldName == null) {
-			if (other.m_fieldName != null) return false;
-		} else if (!m_fieldName.equals(other.m_fieldName)) {
-			return false;
-		}
-		if (m_updateOnReduction == null) {
-			if (other.m_updateOnReduction != null) return false;
-		} else if (!m_updateOnReduction.equals(other.m_updateOnReduction)) {
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof UpdateField)) {
+            return false;
+        }
+        final UpdateField other = (UpdateField) obj;
+        if (m_fieldName == null) {
+            if (other.m_fieldName != null) {
+                return false;
+            }
+        } else if (!m_fieldName.equals(other.m_fieldName)) {
+            return false;
+        }
+        if (m_updateOnReduction == null) {
+            if (other.m_updateOnReduction != null) {
+                return false;
+            }
+        } else if (!m_updateOnReduction.equals(other.m_updateOnReduction)) {
+            return false;
+        }
+        return true;
+    }
 
 }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.ackd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,6 +50,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "reader-schedule")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ReaderSchedule implements Serializable {
+
     private static final long serialVersionUID = 3113838261541036911L;
 
     public static final long DEFAULT_INTERVAL = 1L;
@@ -61,7 +60,6 @@ public class ReaderSchedule implements Serializable {
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _interval.
      */
@@ -77,7 +75,6 @@ public class ReaderSchedule implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public ReaderSchedule() {
         super();
     }
@@ -91,7 +88,6 @@ public class ReaderSchedule implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      * 
@@ -100,23 +96,30 @@ public class ReaderSchedule implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         ReaderSchedule other = (ReaderSchedule) obj;
         if (_interval == null) {
-            if (other._interval != null)
+            if (other._interval != null) {
                 return false;
-        } else if (!_interval.equals(other._interval))
+            }
+        } else if (!_interval.equals(other._interval)) {
             return false;
+        }
         if (_unit == null) {
-            if (other._unit != null)
+            if (other._unit != null) {
                 return false;
-        } else if (!_unit.equals(other._unit))
+            }
+        } else if (!_unit.equals(other._unit)) {
             return false;
+        }
         return true;
     }
 

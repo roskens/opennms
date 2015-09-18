@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.kscReports;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,91 +41,85 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="Graph")
+@XmlRootElement(name = "Graph")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("ksc-performance-reports.xsd")
-@SuppressWarnings("all") public class Graph implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Graph implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _title.
      */
-    @XmlAttribute(name="title", required = true)
+    @XmlAttribute(name = "title", required = true)
     private java.lang.String _title;
 
     /**
      * Field _resourceId.
      */
-    @XmlAttribute(name="resourceId")
+    @XmlAttribute(name = "resourceId")
     private java.lang.String _resourceId;
 
     /**
      * Field _nodeId.
      */
-    @XmlAttribute(name="nodeId")
+    @XmlAttribute(name = "nodeId")
     private java.lang.String _nodeId;
 
     /**
      * Field _nodeSource.
      */
-    @XmlAttribute(name="nodeSource")
+    @XmlAttribute(name = "nodeSource")
     private java.lang.String _nodeSource;
 
     /**
      * Field _domain.
      */
-    @XmlAttribute(name="domain")
+    @XmlAttribute(name = "domain")
     private java.lang.String _domain;
 
     /**
      * Field _interfaceId.
      */
-    @XmlAttribute(name="interfaceId")
+    @XmlAttribute(name = "interfaceId")
     private java.lang.String _interfaceId;
 
     /**
      * Field _timespan.
      */
-    @XmlAttribute(name="timespan", required = true)
+    @XmlAttribute(name = "timespan", required = true)
     private java.lang.String _timespan;
 
     /**
      * Field _graphtype.
      */
-    @XmlAttribute(name="graphtype", required = true)
+    @XmlAttribute(name = "graphtype", required = true)
     private java.lang.String _graphtype;
 
     /**
      * Field _extlink.
      */
-    @XmlAttribute(name="extlink")
+    @XmlAttribute(name = "extlink")
     private java.lang.String _extlink;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Graph() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -137,75 +129,94 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Graph) {
 
-            Graph temp = (Graph)obj;
+            Graph temp = (Graph) obj;
             if (this._title != null) {
-                if (temp._title == null) return false;
-                else if (!(this._title.equals(temp._title)))
+                if (temp._title == null) {
                     return false;
-            }
-            else if (temp._title != null)
+                } else if (!(this._title.equals(temp._title))) {
+                    return false;
+                }
+            } else if (temp._title != null) {
                 return false;
+            }
             if (this._resourceId != null) {
-                if (temp._resourceId == null) return false;
-                else if (!(this._resourceId.equals(temp._resourceId)))
+                if (temp._resourceId == null) {
                     return false;
-            }
-            else if (temp._resourceId != null)
+                } else if (!(this._resourceId.equals(temp._resourceId))) {
+                    return false;
+                }
+            } else if (temp._resourceId != null) {
                 return false;
+            }
             if (this._nodeId != null) {
-                if (temp._nodeId == null) return false;
-                else if (!(this._nodeId.equals(temp._nodeId)))
+                if (temp._nodeId == null) {
                     return false;
-            }
-            else if (temp._nodeId != null)
+                } else if (!(this._nodeId.equals(temp._nodeId))) {
+                    return false;
+                }
+            } else if (temp._nodeId != null) {
                 return false;
+            }
             if (this._nodeSource != null) {
-                if (temp._nodeSource == null) return false;
-                else if (!(this._nodeSource.equals(temp._nodeSource)))
+                if (temp._nodeSource == null) {
                     return false;
-            }
-            else if (temp._nodeSource != null)
+                } else if (!(this._nodeSource.equals(temp._nodeSource))) {
+                    return false;
+                }
+            } else if (temp._nodeSource != null) {
                 return false;
+            }
             if (this._domain != null) {
-                if (temp._domain == null) return false;
-                else if (!(this._domain.equals(temp._domain)))
+                if (temp._domain == null) {
                     return false;
-            }
-            else if (temp._domain != null)
+                } else if (!(this._domain.equals(temp._domain))) {
+                    return false;
+                }
+            } else if (temp._domain != null) {
                 return false;
+            }
             if (this._interfaceId != null) {
-                if (temp._interfaceId == null) return false;
-                else if (!(this._interfaceId.equals(temp._interfaceId)))
+                if (temp._interfaceId == null) {
                     return false;
-            }
-            else if (temp._interfaceId != null)
+                } else if (!(this._interfaceId.equals(temp._interfaceId))) {
+                    return false;
+                }
+            } else if (temp._interfaceId != null) {
                 return false;
+            }
             if (this._timespan != null) {
-                if (temp._timespan == null) return false;
-                else if (!(this._timespan.equals(temp._timespan)))
+                if (temp._timespan == null) {
                     return false;
-            }
-            else if (temp._timespan != null)
+                } else if (!(this._timespan.equals(temp._timespan))) {
+                    return false;
+                }
+            } else if (temp._timespan != null) {
                 return false;
+            }
             if (this._graphtype != null) {
-                if (temp._graphtype == null) return false;
-                else if (!(this._graphtype.equals(temp._graphtype)))
+                if (temp._graphtype == null) {
                     return false;
-            }
-            else if (temp._graphtype != null)
+                } else if (!(this._graphtype.equals(temp._graphtype))) {
+                    return false;
+                }
+            } else if (temp._graphtype != null) {
                 return false;
+            }
             if (this._extlink != null) {
-                if (temp._extlink == null) return false;
-                else if (!(this._extlink.equals(temp._extlink)))
+                if (temp._extlink == null) {
                     return false;
-            }
-            else if (temp._extlink != null)
+                } else if (!(this._extlink.equals(temp._extlink))) {
+                    return false;
+                }
+            } else if (temp._extlink != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -216,8 +227,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Domain'.
      */
-    public java.lang.String getDomain(
-    ) {
+    public java.lang.String getDomain() {
         return this._domain;
     }
 
@@ -226,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Extlink'.
      */
-    public java.lang.String getExtlink(
-    ) {
+    public java.lang.String getExtlink() {
         return this._extlink;
     }
 
@@ -236,8 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Graphtype'.
      */
-    public java.lang.String getGraphtype(
-    ) {
+    public java.lang.String getGraphtype() {
         return this._graphtype;
     }
 
@@ -246,8 +254,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'InterfaceId'.
      */
-    public java.lang.String getInterfaceId(
-    ) {
+    public java.lang.String getInterfaceId() {
         return this._interfaceId;
     }
 
@@ -256,8 +263,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NodeId'.
      */
-    public java.lang.String getNodeId(
-    ) {
+    public java.lang.String getNodeId() {
         return this._nodeId;
     }
 
@@ -266,8 +272,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NodeSource'.
      */
-    public java.lang.String getNodeSource(
-    ) {
+    public java.lang.String getNodeSource() {
         return this._nodeSource;
     }
 
@@ -276,8 +281,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ResourceId'.
      */
-    public java.lang.String getResourceId(
-    ) {
+    public java.lang.String getResourceId() {
         return this._resourceId;
     }
 
@@ -286,8 +290,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timespan'.
      */
-    public java.lang.String getTimespan(
-    ) {
+    public java.lang.String getTimespan() {
         return this._timespan;
     }
 
@@ -296,8 +299,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Title'.
      */
-    public java.lang.String getTitle(
-    ) {
+    public java.lang.String getTitle() {
         return this._title;
     }
 
@@ -310,37 +312,36 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_title != null) {
-           result = 37 * result + _title.hashCode();
+            result = 37 * result + _title.hashCode();
         }
         if (_resourceId != null) {
-           result = 37 * result + _resourceId.hashCode();
+            result = 37 * result + _resourceId.hashCode();
         }
         if (_nodeId != null) {
-           result = 37 * result + _nodeId.hashCode();
+            result = 37 * result + _nodeId.hashCode();
         }
         if (_nodeSource != null) {
-           result = 37 * result + _nodeSource.hashCode();
+            result = 37 * result + _nodeSource.hashCode();
         }
         if (_domain != null) {
-           result = 37 * result + _domain.hashCode();
+            result = 37 * result + _domain.hashCode();
         }
         if (_interfaceId != null) {
-           result = 37 * result + _interfaceId.hashCode();
+            result = 37 * result + _interfaceId.hashCode();
         }
         if (_timespan != null) {
-           result = 37 * result + _timespan.hashCode();
+            result = 37 * result + _timespan.hashCode();
         }
         if (_graphtype != null) {
-           result = 37 * result + _graphtype.hashCode();
+            result = 37 * result + _graphtype.hashCode();
         }
         if (_extlink != null) {
-           result = 37 * result + _extlink.hashCode();
+            result = 37 * result + _extlink.hashCode();
         }
 
         return result;
@@ -351,8 +352,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -372,7 +372,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -389,7 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -496,7 +496,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.kscReports.Graph unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.kscReports.Graph) Unmarshaller.unmarshal(org.opennms.netmgt.config.kscReports.Graph.class, reader);
     }
 
@@ -506,9 +506,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

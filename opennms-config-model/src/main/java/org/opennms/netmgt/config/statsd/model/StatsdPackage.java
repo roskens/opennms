@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.statsd.model;
 
 import java.util.ArrayList;
@@ -40,10 +39,11 @@ import java.util.List;
  * @version $Id: $
  */
 public class StatsdPackage {
+
     private String m_name;
     private String m_filter;
     private List<PackageReport> m_reports = new ArrayList<PackageReport>();
-    
+
     /**
      * <p>getFilter</p>
      *
@@ -52,6 +52,7 @@ public class StatsdPackage {
     public String getFilter() {
         return m_filter;
     }
+
     /**
      * <p>setFilter</p>
      *
@@ -60,6 +61,7 @@ public class StatsdPackage {
     public void setFilter(String filter) {
         m_filter = filter;
     }
+
     /**
      * <p>getName</p>
      *
@@ -68,6 +70,7 @@ public class StatsdPackage {
     public String getName() {
         return m_name;
     }
+
     /**
      * <p>setName</p>
      *
@@ -76,6 +79,7 @@ public class StatsdPackage {
     public void setName(String name) {
         m_name = name;
     }
+
     /**
      * <p>getReports</p>
      *
@@ -84,6 +88,7 @@ public class StatsdPackage {
     public List<PackageReport> getReports() {
         return m_reports;
     }
+
     /**
      * <p>setReports</p>
      *
@@ -92,6 +97,7 @@ public class StatsdPackage {
     public void setReports(List<PackageReport> reports) {
         m_reports = reports;
     }
+
     /**
      * <p>addReport</p>
      *

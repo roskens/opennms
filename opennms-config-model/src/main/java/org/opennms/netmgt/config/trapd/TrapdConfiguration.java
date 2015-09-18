@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.trapd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,22 +49,21 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="trapd-configuration")
+@XmlRootElement(name = "trapd-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("trapd-configuration.xsd")
-@SuppressWarnings("all") public class TrapdConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class TrapdConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The IP address on which trapd listens for connections.
      *  If "" is specified, trapd will bind to all addresses. The
      * default is .
      */
-    @XmlAttribute(name="snmp-trap-address")
+    @XmlAttribute(name = "snmp-trap-address")
     private java.lang.String _snmpTrapAddress;
     private static final String DEFAULT_SNMP_TRAP_ADDRESS = "*";
 
@@ -75,37 +71,33 @@ import org.opennms.core.xml.ValidateUsing;
      * The port on which trapd listens for SNMP traps. The
      *  standard port is 162.
      */
-    @XmlAttribute(name="snmp-trap-port", required = true)
+    @XmlAttribute(name = "snmp-trap-port", required = true)
     private Integer _snmpTrapPort;
 
     /**
      * Whether traps from devices unknown to OpenNMS should
      *  generate newSuspect events.
      */
-    @XmlAttribute(name="new-suspect-on-trap", required = true)
+    @XmlAttribute(name = "new-suspect-on-trap", required = true)
     private Boolean _newSuspectOnTrap;
 
     /**
      * SNMPv3 configuration.
      */
-    @XmlElement(name="snmpv3-user")
+    @XmlElement(name = "snmpv3-user")
     private java.util.List<org.opennms.netmgt.config.trapd.Snmpv3User> _snmpv3UserList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public TrapdConfiguration() {
         super();
         this._snmpv3UserList = new java.util.ArrayList<org.opennms.netmgt.config.trapd.Snmpv3User>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -115,7 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSnmpv3User(
             final org.opennms.netmgt.config.trapd.Snmpv3User vSnmpv3User)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._snmpv3UserList.add(vSnmpv3User);
     }
 
@@ -130,21 +122,19 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSnmpv3User(
             final int index,
             final org.opennms.netmgt.config.trapd.Snmpv3User vSnmpv3User)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._snmpv3UserList.add(index, vSnmpv3User);
     }
 
     /**
      */
-    public void deleteNewSuspectOnTrap(
-    ) {
+    public void deleteNewSuspectOnTrap() {
         this._newSuspectOnTrap = null;
     }
 
     /**
      */
-    public void deleteSnmpTrapPort(
-    ) {
+    public void deleteSnmpTrapPort() {
         this._snmpTrapPort = null;
     }
 
@@ -154,8 +144,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.trapd.Snmpv3User> enumerateSnmpv3User(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.trapd.Snmpv3User> enumerateSnmpv3User() {
         return java.util.Collections.enumeration(this._snmpv3UserList);
     }
 
@@ -168,40 +157,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof TrapdConfiguration) {
 
-            TrapdConfiguration temp = (TrapdConfiguration)obj;
+            TrapdConfiguration temp = (TrapdConfiguration) obj;
             if (this._snmpTrapAddress != null) {
-                if (temp._snmpTrapAddress == null) return false;
-                else if (!(this._snmpTrapAddress.equals(temp._snmpTrapAddress)))
+                if (temp._snmpTrapAddress == null) {
                     return false;
-            }
-            else if (temp._snmpTrapAddress != null)
+                } else if (!(this._snmpTrapAddress.equals(temp._snmpTrapAddress))) {
+                    return false;
+                }
+            } else if (temp._snmpTrapAddress != null) {
                 return false;
+            }
             if (this._snmpTrapPort != null) {
-                if (temp._snmpTrapPort == null) return false;
-                else if (!(this._snmpTrapPort.equals(temp._snmpTrapPort)))
+                if (temp._snmpTrapPort == null) {
                     return false;
-            }
-            else if (temp._snmpTrapPort != null)
+                } else if (!(this._snmpTrapPort.equals(temp._snmpTrapPort))) {
+                    return false;
+                }
+            } else if (temp._snmpTrapPort != null) {
                 return false;
+            }
             if (this._newSuspectOnTrap != null) {
-                if (temp._newSuspectOnTrap == null) return false;
-                else if (!(this._newSuspectOnTrap.equals(temp._newSuspectOnTrap)))
+                if (temp._newSuspectOnTrap == null) {
                     return false;
-            }
-            else if (temp._newSuspectOnTrap != null)
+                } else if (!(this._newSuspectOnTrap.equals(temp._newSuspectOnTrap))) {
+                    return false;
+                }
+            } else if (temp._newSuspectOnTrap != null) {
                 return false;
+            }
             if (this._snmpv3UserList != null) {
-                if (temp._snmpv3UserList == null) return false;
-                else if (!(this._snmpv3UserList.equals(temp._snmpv3UserList)))
+                if (temp._snmpv3UserList == null) {
                     return false;
-            }
-            else if (temp._snmpv3UserList != null)
+                } else if (!(this._snmpv3UserList.equals(temp._snmpv3UserList))) {
+                    return false;
+                }
+            } else if (temp._snmpv3UserList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -215,8 +213,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NewSuspectOnTrap'.
      */
-    public Boolean getNewSuspectOnTrap(
-    ) {
+    public Boolean getNewSuspectOnTrap() {
         return this._newSuspectOnTrap;
     }
 
@@ -229,8 +226,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SnmpTrapAddress'.
      */
-    public java.lang.String getSnmpTrapAddress(
-    ) {
+    public java.lang.String getSnmpTrapAddress() {
         return this._snmpTrapAddress == null ? DEFAULT_SNMP_TRAP_ADDRESS : this._snmpTrapAddress;
     }
 
@@ -242,8 +238,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SnmpTrapPort'.
      */
-    public Integer getSnmpTrapPort(
-    ) {
+    public Integer getSnmpTrapPort() {
         return this._snmpTrapPort;
     }
 
@@ -258,7 +253,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.trapd.Snmpv3User getSnmpv3User(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._snmpv3UserList.size()) {
             throw new IndexOutOfBoundsException("getSnmpv3User: Index value '" + index + "' not in range [0.." + (this._snmpv3UserList.size() - 1) + "]");
@@ -276,8 +271,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.trapd.Snmpv3User[] getSnmpv3User(
-    ) {
+    public org.opennms.netmgt.config.trapd.Snmpv3User[] getSnmpv3User() {
         org.opennms.netmgt.config.trapd.Snmpv3User[] array = new org.opennms.netmgt.config.trapd.Snmpv3User[0];
         return (org.opennms.netmgt.config.trapd.Snmpv3User[]) this._snmpv3UserList.toArray(array);
     }
@@ -289,8 +283,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.trapd.Snmpv3User> getSnmpv3UserCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.trapd.Snmpv3User> getSnmpv3UserCollection() {
         return this._snmpv3UserList;
     }
 
@@ -299,8 +292,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSnmpv3UserCount(
-    ) {
+    public int getSnmpv3UserCount() {
         return this._snmpv3UserList.size();
     }
 
@@ -309,8 +301,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one NewSuspectOnTrap has been added
      */
-    public boolean hasNewSuspectOnTrap(
-    ) {
+    public boolean hasNewSuspectOnTrap() {
         return this._newSuspectOnTrap != null;
     }
 
@@ -319,8 +310,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one SnmpTrapPort has been added
      */
-    public boolean hasSnmpTrapPort(
-    ) {
+    public boolean hasSnmpTrapPort() {
         return this._snmpTrapPort != null;
     }
 
@@ -333,22 +323,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_snmpTrapAddress != null) {
-           result = 37 * result + _snmpTrapAddress.hashCode();
+            result = 37 * result + _snmpTrapAddress.hashCode();
         }
         if (_snmpTrapPort != null) {
-           result = 37 * result + _snmpTrapPort.hashCode();
+            result = 37 * result + _snmpTrapPort.hashCode();
         }
         if (_newSuspectOnTrap != null) {
-           result = 37 * result + _newSuspectOnTrap.hashCode();
+            result = 37 * result + _newSuspectOnTrap.hashCode();
         }
         if (_snmpv3UserList != null) {
-           result = 37 * result + _snmpv3UserList.hashCode();
+            result = 37 * result + _snmpv3UserList.hashCode();
         }
 
         return result;
@@ -362,8 +351,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NewSuspectOnTrap'.
      */
-    public boolean isNewSuspectOnTrap(
-    ) {
+    public boolean isNewSuspectOnTrap() {
         return this._newSuspectOnTrap;
     }
 
@@ -372,8 +360,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -388,8 +375,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.trapd.Snmpv3User> iterateSnmpv3User(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.trapd.Snmpv3User> iterateSnmpv3User() {
         return this._snmpv3UserList.iterator();
     }
 
@@ -404,7 +390,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -421,14 +407,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllSnmpv3User(
-    ) {
+    public void removeAllSnmpv3User() {
         this._snmpv3UserList.clear();
     }
 
@@ -507,7 +492,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSnmpv3User(
             final int index,
             final org.opennms.netmgt.config.trapd.Snmpv3User vSnmpv3User)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._snmpv3UserList.size()) {
             throw new IndexOutOfBoundsException("setSnmpv3User: Index value '" + index + "' not in range [0.." + (this._snmpv3UserList.size() - 1) + "]");
@@ -527,7 +512,7 @@ import org.opennms.core.xml.ValidateUsing;
         _snmpv3UserList.clear();
 
         for (int i = 0; i < vSnmpv3UserArray.length; i++) {
-                this._snmpv3UserList.add(vSnmpv3UserArray[i]);
+            this._snmpv3UserList.add(vSnmpv3UserArray[i]);
         }
     }
 
@@ -570,7 +555,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.trapd.TrapdConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.trapd.TrapdConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.trapd.TrapdConfiguration.class, reader);
     }
 
@@ -580,9 +565,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

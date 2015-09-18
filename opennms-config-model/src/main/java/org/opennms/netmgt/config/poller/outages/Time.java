@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.poller.outages;
 
 import java.io.IOException;
@@ -50,11 +49,11 @@ import org.xml.sax.ContentHandler;
  * Defines start/end time for the outage
  * 
  */
-
-@XmlRootElement(name="time", namespace="http://xmlns.opennms.org/xsd/config/poller/outages")
+@XmlRootElement(name = "time", namespace = "http://xmlns.opennms.org/xsd/config/poller/outages")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("poll-outages.xsd")
 public class Time implements Serializable {
+
     private static final long serialVersionUID = -189226850513095472L;
 
     /**
@@ -62,25 +61,25 @@ public class Time implements Serializable {
      * identifier is not assigned it will be assigned an identifier by web-ui.
      *  
      */
-    @XmlAttribute(name="id")
+    @XmlAttribute(name = "id")
     private String _id;
 
     /**
      * Field _day.
      */
-    @XmlAttribute(name="day")
+    @XmlAttribute(name = "day")
     private String _day;
 
     /**
      * when the outage starts
      */
-    @XmlAttribute(name="begins")
+    @XmlAttribute(name = "begins")
     private String _begins;
 
     /**
      * when the outage ends
      */
-    @XmlAttribute(name="ends")
+    @XmlAttribute(name = "ends")
     private String _ends;
 
     public Time() {
@@ -95,40 +94,49 @@ public class Time implements Serializable {
      */
     @Override
     public boolean equals(final Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Time) {
 
-            Time temp = (Time)obj;
+            Time temp = (Time) obj;
             if (this._id != null) {
-                if (temp._id == null) return false;
-                else if (!(this._id.equals(temp._id))) 
+                if (temp._id == null) {
                     return false;
-            }
-            else if (temp._id != null)
+                } else if (!(this._id.equals(temp._id))) {
+                    return false;
+                }
+            } else if (temp._id != null) {
                 return false;
+            }
             if (this._day != null) {
-                if (temp._day == null) return false;
-                else if (!(this._day.equals(temp._day))) 
+                if (temp._day == null) {
                     return false;
-            }
-            else if (temp._day != null)
+                } else if (!(this._day.equals(temp._day))) {
+                    return false;
+                }
+            } else if (temp._day != null) {
                 return false;
+            }
             if (this._begins != null) {
-                if (temp._begins == null) return false;
-                else if (!(this._begins.equals(temp._begins))) 
+                if (temp._begins == null) {
                     return false;
-            }
-            else if (temp._begins != null)
+                } else if (!(this._begins.equals(temp._begins))) {
+                    return false;
+                }
+            } else if (temp._begins != null) {
                 return false;
+            }
             if (this._ends != null) {
-                if (temp._ends == null) return false;
-                else if (!(this._ends.equals(temp._ends))) 
+                if (temp._ends == null) {
                     return false;
-            }
-            else if (temp._ends != null)
+                } else if (!(this._ends.equals(temp._ends))) {
+                    return false;
+                }
+            } else if (temp._ends != null) {
                 return false;
+            }
             return true;
         }
         return false;

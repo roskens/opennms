@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.agents;
 
 import java.net.InetAddress;
@@ -41,27 +40,28 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.opennms.core.network.InetAddressXmlAdapter;
 import org.opennms.core.xml.JaxbMapAdapter;
 
-
-@XmlRootElement(name="agent")
+@XmlRootElement(name = "agent")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AgentResponse {
-    @XmlElement(name="address")
+
+    @XmlElement(name = "address")
     @XmlJavaTypeAdapter(InetAddressXmlAdapter.class)
     private InetAddress m_address;
 
-    @XmlElement(name="port")
+    @XmlElement(name = "port")
     private Integer m_port;
 
-    @XmlElement(name="serviceName")
+    @XmlElement(name = "serviceName")
     private String m_serviceName;
 
     @XmlElement(name = "parameters")
     @XmlJavaTypeAdapter(JaxbMapAdapter.class)
-    private Map<String,String> m_parameters = new HashMap<String, String>();
+    private Map<String, String> m_parameters = new HashMap<String, String>();
 
-    public AgentResponse() { }
+    public AgentResponse() {
+    }
 
-    public AgentResponse(final InetAddress address, final Integer port, final String serviceName, final Map<String,String> parameters) {
+    public AgentResponse(final InetAddress address, final Integer port, final String serviceName, final Map<String, String> parameters) {
         m_address = address;
         m_port = port;
         m_serviceName = serviceName;
@@ -80,7 +80,7 @@ public class AgentResponse {
         return m_serviceName;
     }
 
-    public Map<String,String> getParameters() {
+    public Map<String, String> getParameters() {
         return m_parameters;
     }
 
@@ -105,33 +105,44 @@ public class AgentResponse {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         AgentResponse other = (AgentResponse) obj;
         if (m_address == null) {
-            if (other.m_address != null)
+            if (other.m_address != null) {
                 return false;
-        } else if (!m_address.equals(other.m_address))
+            }
+        } else if (!m_address.equals(other.m_address)) {
             return false;
+        }
         if (m_parameters == null) {
-            if (other.m_parameters != null)
+            if (other.m_parameters != null) {
                 return false;
-        } else if (!m_parameters.equals(other.m_parameters))
+            }
+        } else if (!m_parameters.equals(other.m_parameters)) {
             return false;
+        }
         if (m_port == null) {
-            if (other.m_port != null)
+            if (other.m_port != null) {
                 return false;
-        } else if (!m_port.equals(other.m_port))
+            }
+        } else if (!m_port.equals(other.m_port)) {
             return false;
+        }
         if (m_serviceName == null) {
-            if (other.m_serviceName != null)
+            if (other.m_serviceName != null) {
                 return false;
-        } else if (!m_serviceName.equals(other.m_serviceName))
+            }
+        } else if (!m_serviceName.equals(other.m_serviceName)) {
             return false;
+        }
         return true;
     }
 }

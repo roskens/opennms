@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.threshd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,27 +48,26 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="thresholder")
+@XmlRootElement(name = "thresholder")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("threshd-configuration.xsd")
-@SuppressWarnings("all") public class Thresholder implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Thresholder implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Service name
      */
-    @XmlAttribute(name="service", required = true)
+    @XmlAttribute(name = "service", required = true)
     private java.lang.String _service;
 
     /**
      * Java class name used to perform thresholding via the
      *  service
      */
-    @XmlAttribute(name="class-name", required = true)
+    @XmlAttribute(name = "class-name", required = true)
     private java.lang.String _className;
 
     /**
@@ -79,24 +75,20 @@ import org.opennms.core.xml.ValidateUsing;
      *  service. Parameters are specfic to the service
      *  thresholder.
      */
-    @XmlElement(name="parameter")
+    @XmlElement(name = "parameter")
     private java.util.List<org.opennms.netmgt.config.threshd.Parameter> _parameterList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Thresholder() {
         super();
         this._parameterList = new java.util.ArrayList<org.opennms.netmgt.config.threshd.Parameter>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -106,7 +98,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addParameter(
             final org.opennms.netmgt.config.threshd.Parameter vParameter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._parameterList.add(vParameter);
     }
 
@@ -121,7 +113,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addParameter(
             final int index,
             final org.opennms.netmgt.config.threshd.Parameter vParameter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._parameterList.add(index, vParameter);
     }
 
@@ -131,8 +123,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.threshd.Parameter> enumerateParameter(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.threshd.Parameter> enumerateParameter() {
         return java.util.Collections.enumeration(this._parameterList);
     }
 
@@ -145,33 +136,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Thresholder) {
 
-            Thresholder temp = (Thresholder)obj;
+            Thresholder temp = (Thresholder) obj;
             if (this._service != null) {
-                if (temp._service == null) return false;
-                else if (!(this._service.equals(temp._service)))
+                if (temp._service == null) {
                     return false;
-            }
-            else if (temp._service != null)
+                } else if (!(this._service.equals(temp._service))) {
+                    return false;
+                }
+            } else if (temp._service != null) {
                 return false;
+            }
             if (this._className != null) {
-                if (temp._className == null) return false;
-                else if (!(this._className.equals(temp._className)))
+                if (temp._className == null) {
                     return false;
-            }
-            else if (temp._className != null)
+                } else if (!(this._className.equals(temp._className))) {
+                    return false;
+                }
+            } else if (temp._className != null) {
                 return false;
+            }
             if (this._parameterList != null) {
-                if (temp._parameterList == null) return false;
-                else if (!(this._parameterList.equals(temp._parameterList)))
+                if (temp._parameterList == null) {
                     return false;
-            }
-            else if (temp._parameterList != null)
+                } else if (!(this._parameterList.equals(temp._parameterList))) {
+                    return false;
+                }
+            } else if (temp._parameterList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -185,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ClassName'.
      */
-    public java.lang.String getClassName(
-    ) {
+    public java.lang.String getClassName() {
         return this._className;
     }
 
@@ -201,7 +198,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.threshd.Parameter getParameter(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._parameterList.size()) {
             throw new IndexOutOfBoundsException("getParameter: Index value '" + index + "' not in range [0.." + (this._parameterList.size() - 1) + "]");
@@ -219,8 +216,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.threshd.Parameter[] getParameter(
-    ) {
+    public org.opennms.netmgt.config.threshd.Parameter[] getParameter() {
         org.opennms.netmgt.config.threshd.Parameter[] array = new org.opennms.netmgt.config.threshd.Parameter[0];
         return (org.opennms.netmgt.config.threshd.Parameter[]) this._parameterList.toArray(array);
     }
@@ -232,8 +228,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.threshd.Parameter> getParameterCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.threshd.Parameter> getParameterCollection() {
         return this._parameterList;
     }
 
@@ -242,8 +237,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getParameterCount(
-    ) {
+    public int getParameterCount() {
         return this._parameterList.size();
     }
 
@@ -253,8 +247,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Service'.
      */
-    public java.lang.String getService(
-    ) {
+    public java.lang.String getService() {
         return this._service;
     }
 
@@ -267,19 +260,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_service != null) {
-           result = 37 * result + _service.hashCode();
+            result = 37 * result + _service.hashCode();
         }
         if (_className != null) {
-           result = 37 * result + _className.hashCode();
+            result = 37 * result + _className.hashCode();
         }
         if (_parameterList != null) {
-           result = 37 * result + _parameterList.hashCode();
+            result = 37 * result + _parameterList.hashCode();
         }
 
         return result;
@@ -290,8 +282,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -306,8 +297,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.threshd.Parameter> iterateParameter(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.threshd.Parameter> iterateParameter() {
         return this._parameterList.iterator();
     }
 
@@ -322,7 +312,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -339,14 +329,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllParameter(
-    ) {
+    public void removeAllParameter() {
         this._parameterList.clear();
     }
 
@@ -398,7 +387,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setParameter(
             final int index,
             final org.opennms.netmgt.config.threshd.Parameter vParameter)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._parameterList.size()) {
             throw new IndexOutOfBoundsException("setParameter: Index value '" + index + "' not in range [0.." + (this._parameterList.size() - 1) + "]");
@@ -418,7 +407,7 @@ import org.opennms.core.xml.ValidateUsing;
         _parameterList.clear();
 
         for (int i = 0; i < vParameterArray.length; i++) {
-                this._parameterList.add(vParameterArray[i]);
+            this._parameterList.add(vParameterArray[i]);
         }
     }
 
@@ -472,7 +461,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.threshd.Thresholder unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.threshd.Thresholder) Unmarshaller.unmarshal(org.opennms.netmgt.config.threshd.Thresholder.class, reader);
     }
 
@@ -482,9 +471,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

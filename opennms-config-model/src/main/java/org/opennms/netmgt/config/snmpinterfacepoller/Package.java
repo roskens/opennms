@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.snmpinterfacepoller;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,20 +49,19 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="package")
+@XmlRootElement(name = "package")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("snmp-interface-poller-configuration.xsd")
-@SuppressWarnings("all") public class Package implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Package implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Name or identifier for this package.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
@@ -74,26 +70,26 @@ import org.opennms.core.xml.ValidateUsing;
      * pass
      *  this filter.
      */
-    @XmlElement(name="filter")
+    @XmlElement(name = "filter")
     private org.opennms.netmgt.config.snmpinterfacepoller.Filter _filter;
 
     /**
      * Addresses in this package
      */
-    @XmlElement(name="specific")
+    @XmlElement(name = "specific")
     private java.util.List<java.lang.String> _specificList;
 
     /**
      * Range of addresses in this package.
      */
-    @XmlElement(name="include-range")
+    @XmlElement(name = "include-range")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> _includeRangeList;
 
     /**
      * Range of addresses to be excluded from this
      *  package.
      */
-    @XmlElement(name="exclude-range")
+    @XmlElement(name = "exclude-range")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> _excludeRangeList;
 
     /**
@@ -103,21 +99,19 @@ import org.opennms.core.xml.ValidateUsing;
      *  #<comments>. Lines starting with a '#' are ignored and so
      *  are characters after a '<space>#' in a line.
      */
-    @XmlElement(name="include-url")
+    @XmlElement(name = "include-url")
     private java.util.List<java.lang.String> _includeUrlList;
 
     /**
      * Interfaces to be polled for addresses belonging to
      *  this package.
      */
-    @XmlElement(name="interface")
+    @XmlElement(name = "interface")
     private java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Interface> _interfaceList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Package() {
         super();
         this._specificList = new java.util.ArrayList<java.lang.String>();
@@ -127,11 +121,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._interfaceList = new java.util.ArrayList<org.opennms.netmgt.config.snmpinterfacepoller.Interface>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -141,7 +133,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addExcludeRange(
             final org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._excludeRangeList.add(vExcludeRange);
     }
 
@@ -156,7 +148,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addExcludeRange(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._excludeRangeList.add(index, vExcludeRange);
     }
 
@@ -169,7 +161,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIncludeRange(
             final org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeRangeList.add(vIncludeRange);
     }
 
@@ -184,7 +176,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIncludeRange(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeRangeList.add(index, vIncludeRange);
     }
 
@@ -197,7 +189,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIncludeUrl(
             final java.lang.String vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeUrlList.add(vIncludeUrl);
     }
 
@@ -212,7 +204,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIncludeUrl(
             final int index,
             final java.lang.String vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeUrlList.add(index, vIncludeUrl);
     }
 
@@ -225,7 +217,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addInterface(
             final org.opennms.netmgt.config.snmpinterfacepoller.Interface vInterface)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._interfaceList.add(vInterface);
     }
 
@@ -240,7 +232,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addInterface(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.Interface vInterface)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._interfaceList.add(index, vInterface);
     }
 
@@ -253,7 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSpecific(
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(vSpecific);
     }
 
@@ -268,7 +260,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSpecific(
             final int index,
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(index, vSpecific);
     }
 
@@ -278,8 +270,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> enumerateExcludeRange(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> enumerateExcludeRange() {
         return java.util.Collections.enumeration(this._excludeRangeList);
     }
 
@@ -289,8 +280,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> enumerateIncludeRange(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> enumerateIncludeRange() {
         return java.util.Collections.enumeration(this._includeRangeList);
     }
 
@@ -300,8 +290,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateIncludeUrl(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateIncludeUrl() {
         return java.util.Collections.enumeration(this._includeUrlList);
     }
 
@@ -311,8 +300,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.Interface> enumerateInterface(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.snmpinterfacepoller.Interface> enumerateInterface() {
         return java.util.Collections.enumeration(this._interfaceList);
     }
 
@@ -322,8 +310,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateSpecific(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateSpecific() {
         return java.util.Collections.enumeration(this._specificList);
     }
 
@@ -336,61 +323,76 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Package) {
 
-            Package temp = (Package)obj;
+            Package temp = (Package) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._filter != null) {
-                if (temp._filter == null) return false;
-                else if (!(this._filter.equals(temp._filter)))
+                if (temp._filter == null) {
                     return false;
-            }
-            else if (temp._filter != null)
+                } else if (!(this._filter.equals(temp._filter))) {
+                    return false;
+                }
+            } else if (temp._filter != null) {
                 return false;
+            }
             if (this._specificList != null) {
-                if (temp._specificList == null) return false;
-                else if (!(this._specificList.equals(temp._specificList)))
+                if (temp._specificList == null) {
                     return false;
-            }
-            else if (temp._specificList != null)
+                } else if (!(this._specificList.equals(temp._specificList))) {
+                    return false;
+                }
+            } else if (temp._specificList != null) {
                 return false;
+            }
             if (this._includeRangeList != null) {
-                if (temp._includeRangeList == null) return false;
-                else if (!(this._includeRangeList.equals(temp._includeRangeList)))
+                if (temp._includeRangeList == null) {
                     return false;
-            }
-            else if (temp._includeRangeList != null)
+                } else if (!(this._includeRangeList.equals(temp._includeRangeList))) {
+                    return false;
+                }
+            } else if (temp._includeRangeList != null) {
                 return false;
+            }
             if (this._excludeRangeList != null) {
-                if (temp._excludeRangeList == null) return false;
-                else if (!(this._excludeRangeList.equals(temp._excludeRangeList)))
+                if (temp._excludeRangeList == null) {
                     return false;
-            }
-            else if (temp._excludeRangeList != null)
+                } else if (!(this._excludeRangeList.equals(temp._excludeRangeList))) {
+                    return false;
+                }
+            } else if (temp._excludeRangeList != null) {
                 return false;
+            }
             if (this._includeUrlList != null) {
-                if (temp._includeUrlList == null) return false;
-                else if (!(this._includeUrlList.equals(temp._includeUrlList)))
+                if (temp._includeUrlList == null) {
                     return false;
-            }
-            else if (temp._includeUrlList != null)
+                } else if (!(this._includeUrlList.equals(temp._includeUrlList))) {
+                    return false;
+                }
+            } else if (temp._includeUrlList != null) {
                 return false;
+            }
             if (this._interfaceList != null) {
-                if (temp._interfaceList == null) return false;
-                else if (!(this._interfaceList.equals(temp._interfaceList)))
+                if (temp._interfaceList == null) {
                     return false;
-            }
-            else if (temp._interfaceList != null)
+                } else if (!(this._interfaceList.equals(temp._interfaceList))) {
+                    return false;
+                }
+            } else if (temp._interfaceList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -408,7 +410,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange getExcludeRange(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._excludeRangeList.size()) {
             throw new IndexOutOfBoundsException("getExcludeRange: Index value '" + index + "' not in range [0.." + (this._excludeRangeList.size() - 1) + "]");
@@ -427,8 +429,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange[] getExcludeRange(
-    ) {
+    public org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange[] getExcludeRange() {
         org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange[] array = new org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange[0];
         return (org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange[]) this._excludeRangeList.toArray(array);
     }
@@ -440,8 +441,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> getExcludeRangeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> getExcludeRangeCollection() {
         return this._excludeRangeList;
     }
 
@@ -450,8 +450,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getExcludeRangeCount(
-    ) {
+    public int getExcludeRangeCount() {
         return this._excludeRangeList.size();
     }
 
@@ -465,8 +464,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Filter'.
      */
-    public org.opennms.netmgt.config.snmpinterfacepoller.Filter getFilter(
-    ) {
+    public org.opennms.netmgt.config.snmpinterfacepoller.Filter getFilter() {
         return this._filter;
     }
 
@@ -482,7 +480,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange getIncludeRange(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeRangeList.size()) {
             throw new IndexOutOfBoundsException("getIncludeRange: Index value '" + index + "' not in range [0.." + (this._includeRangeList.size() - 1) + "]");
@@ -501,8 +499,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange[] getIncludeRange(
-    ) {
+    public org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange[] getIncludeRange() {
         org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange[] array = new org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange[0];
         return (org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange[]) this._includeRangeList.toArray(array);
     }
@@ -514,8 +511,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> getIncludeRangeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> getIncludeRangeCollection() {
         return this._includeRangeList;
     }
 
@@ -524,8 +520,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIncludeRangeCount(
-    ) {
+    public int getIncludeRangeCount() {
         return this._includeRangeList.size();
     }
 
@@ -539,7 +534,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getIncludeUrl(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeUrlList.size()) {
             throw new IndexOutOfBoundsException("getIncludeUrl: Index value '" + index + "' not in range [0.." + (this._includeUrlList.size() - 1) + "]");
@@ -557,8 +552,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getIncludeUrl(
-    ) {
+    public java.lang.String[] getIncludeUrl() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._includeUrlList.toArray(array);
     }
@@ -570,8 +564,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getIncludeUrlCollection(
-    ) {
+    public java.util.List<java.lang.String> getIncludeUrlCollection() {
         return this._includeUrlList;
     }
 
@@ -580,8 +573,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIncludeUrlCount(
-    ) {
+    public int getIncludeUrlCount() {
         return this._includeUrlList.size();
     }
 
@@ -597,7 +589,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.snmpinterfacepoller.Interface getInterface(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._interfaceList.size()) {
             throw new IndexOutOfBoundsException("getInterface: Index value '" + index + "' not in range [0.." + (this._interfaceList.size() - 1) + "]");
@@ -615,8 +607,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.snmpinterfacepoller.Interface[] getInterface(
-    ) {
+    public org.opennms.netmgt.config.snmpinterfacepoller.Interface[] getInterface() {
         org.opennms.netmgt.config.snmpinterfacepoller.Interface[] array = new org.opennms.netmgt.config.snmpinterfacepoller.Interface[0];
         return (org.opennms.netmgt.config.snmpinterfacepoller.Interface[]) this._interfaceList.toArray(array);
     }
@@ -628,8 +619,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Interface> getInterfaceCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.snmpinterfacepoller.Interface> getInterfaceCollection() {
         return this._interfaceList;
     }
 
@@ -638,8 +628,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getInterfaceCount(
-    ) {
+    public int getInterfaceCount() {
         return this._interfaceList.size();
     }
 
@@ -649,8 +638,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -664,7 +652,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getSpecific(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("getSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -682,8 +670,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getSpecific(
-    ) {
+    public java.lang.String[] getSpecific() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._specificList.toArray(array);
     }
@@ -695,8 +682,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getSpecificCollection(
-    ) {
+    public java.util.List<java.lang.String> getSpecificCollection() {
         return this._specificList;
     }
 
@@ -705,8 +691,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSpecificCount(
-    ) {
+    public int getSpecificCount() {
         return this._specificList.size();
     }
 
@@ -719,31 +704,30 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_filter != null) {
-           result = 37 * result + _filter.hashCode();
+            result = 37 * result + _filter.hashCode();
         }
         if (_specificList != null) {
-           result = 37 * result + _specificList.hashCode();
+            result = 37 * result + _specificList.hashCode();
         }
         if (_includeRangeList != null) {
-           result = 37 * result + _includeRangeList.hashCode();
+            result = 37 * result + _includeRangeList.hashCode();
         }
         if (_excludeRangeList != null) {
-           result = 37 * result + _excludeRangeList.hashCode();
+            result = 37 * result + _excludeRangeList.hashCode();
         }
         if (_includeUrlList != null) {
-           result = 37 * result + _includeUrlList.hashCode();
+            result = 37 * result + _includeUrlList.hashCode();
         }
         if (_interfaceList != null) {
-           result = 37 * result + _interfaceList.hashCode();
+            result = 37 * result + _interfaceList.hashCode();
         }
 
         return result;
@@ -754,8 +738,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -770,8 +753,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> iterateExcludeRange(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange> iterateExcludeRange() {
         return this._excludeRangeList.iterator();
     }
 
@@ -781,8 +763,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> iterateIncludeRange(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange> iterateIncludeRange() {
         return this._includeRangeList.iterator();
     }
 
@@ -792,8 +773,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateIncludeUrl(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateIncludeUrl() {
         return this._includeUrlList.iterator();
     }
 
@@ -803,8 +783,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.Interface> iterateInterface(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.snmpinterfacepoller.Interface> iterateInterface() {
         return this._interfaceList.iterator();
     }
 
@@ -814,8 +793,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateSpecific(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateSpecific() {
         return this._specificList.iterator();
     }
 
@@ -830,7 +808,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -847,42 +825,37 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllExcludeRange(
-    ) {
+    public void removeAllExcludeRange() {
         this._excludeRangeList.clear();
     }
 
     /**
      */
-    public void removeAllIncludeRange(
-    ) {
+    public void removeAllIncludeRange() {
         this._includeRangeList.clear();
     }
 
     /**
      */
-    public void removeAllIncludeUrl(
-    ) {
+    public void removeAllIncludeUrl() {
         this._includeUrlList.clear();
     }
 
     /**
      */
-    public void removeAllInterface(
-    ) {
+    public void removeAllInterface() {
         this._interfaceList.clear();
     }
 
     /**
      */
-    public void removeAllSpecific(
-    ) {
+    public void removeAllSpecific() {
         this._specificList.clear();
     }
 
@@ -1017,7 +990,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setExcludeRange(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._excludeRangeList.size()) {
             throw new IndexOutOfBoundsException("setExcludeRange: Index value '" + index + "' not in range [0.." + (this._excludeRangeList.size() - 1) + "]");
@@ -1037,7 +1010,7 @@ import org.opennms.core.xml.ValidateUsing;
         _excludeRangeList.clear();
 
         for (int i = 0; i < vExcludeRangeArray.length; i++) {
-                this._excludeRangeList.add(vExcludeRangeArray[i]);
+            this._excludeRangeList.add(vExcludeRangeArray[i]);
         }
     }
 
@@ -1093,7 +1066,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIncludeRange(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeRangeList.size()) {
             throw new IndexOutOfBoundsException("setIncludeRange: Index value '" + index + "' not in range [0.." + (this._includeRangeList.size() - 1) + "]");
@@ -1113,7 +1086,7 @@ import org.opennms.core.xml.ValidateUsing;
         _includeRangeList.clear();
 
         for (int i = 0; i < vIncludeRangeArray.length; i++) {
-                this._includeRangeList.add(vIncludeRangeArray[i]);
+            this._includeRangeList.add(vIncludeRangeArray[i]);
         }
     }
 
@@ -1154,7 +1127,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIncludeUrl(
             final int index,
             final java.lang.String vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeUrlList.size()) {
             throw new IndexOutOfBoundsException("setIncludeUrl: Index value '" + index + "' not in range [0.." + (this._includeUrlList.size() - 1) + "]");
@@ -1174,7 +1147,7 @@ import org.opennms.core.xml.ValidateUsing;
         _includeUrlList.clear();
 
         for (int i = 0; i < vIncludeUrlArray.length; i++) {
-                this._includeUrlList.add(vIncludeUrlArray[i]);
+            this._includeUrlList.add(vIncludeUrlArray[i]);
         }
     }
 
@@ -1215,7 +1188,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setInterface(
             final int index,
             final org.opennms.netmgt.config.snmpinterfacepoller.Interface vInterface)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._interfaceList.size()) {
             throw new IndexOutOfBoundsException("setInterface: Index value '" + index + "' not in range [0.." + (this._interfaceList.size() - 1) + "]");
@@ -1235,7 +1208,7 @@ import org.opennms.core.xml.ValidateUsing;
         _interfaceList.clear();
 
         for (int i = 0; i < vInterfaceArray.length; i++) {
-                this._interfaceList.add(vInterfaceArray[i]);
+            this._interfaceList.add(vInterfaceArray[i]);
         }
     }
 
@@ -1287,7 +1260,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSpecific(
             final int index,
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("setSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -1307,7 +1280,7 @@ import org.opennms.core.xml.ValidateUsing;
         _specificList.clear();
 
         for (int i = 0; i < vSpecificArray.length; i++) {
-                this._specificList.add(vSpecificArray[i]);
+            this._specificList.add(vSpecificArray[i]);
         }
     }
 
@@ -1350,7 +1323,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.snmpinterfacepoller.Package unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.snmpinterfacepoller.Package) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpinterfacepoller.Package.class, reader);
     }
 
@@ -1360,9 +1333,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

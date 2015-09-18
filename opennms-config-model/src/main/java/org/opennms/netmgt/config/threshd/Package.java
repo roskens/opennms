@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.threshd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,20 +49,19 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="package")
+@XmlRootElement(name = "package")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("threshd-configuration.xsd")
-@SuppressWarnings("all") public class Package implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Package implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Name or identifier for this package
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
@@ -74,26 +70,26 @@ import org.opennms.core.xml.ValidateUsing;
      * pass
      *  this filter
      */
-    @XmlElement(name="filter", required = true)
+    @XmlElement(name = "filter", required = true)
     private org.opennms.netmgt.config.threshd.Filter _filter;
 
     /**
      * Adresses in this package
      */
-    @XmlElement(name="specific")
+    @XmlElement(name = "specific")
     private java.util.List<java.lang.String> _specificList;
 
     /**
      * Range of addresses in this package
      */
-    @XmlElement(name="include-range")
+    @XmlElement(name = "include-range")
     private java.util.List<org.opennms.netmgt.config.threshd.IncludeRange> _includeRangeList;
 
     /**
      * Range of addresses to be excluded from this
      *  package
      */
-    @XmlElement(name="exclude-range")
+    @XmlElement(name = "exclude-range")
     private java.util.List<org.opennms.netmgt.config.threshd.ExcludeRange> _excludeRangeList;
 
     /**
@@ -103,28 +99,26 @@ import org.opennms.core.xml.ValidateUsing;
      *  #<comments>. Lines starting with a '#' are ignored and so
      *  are characters after a '<space>#' in a line.
      */
-    @XmlElement(name="include-url")
+    @XmlElement(name = "include-url")
     private java.util.List<java.lang.String> _includeUrlList;
 
     /**
      * Services for which thresholding is to occur in this
      *  package
      */
-    @XmlElement(name="service")
+    @XmlElement(name = "service")
     private java.util.List<org.opennms.netmgt.config.threshd.Service> _serviceList;
 
     /**
      * Scheduled outages. Thresholding is not performed
      *  during scheduled outages.
      */
-    @XmlElement(name="outage-calendar")
+    @XmlElement(name = "outage-calendar")
     private java.util.List<java.lang.String> _outageCalendarList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Package() {
         super();
         this._specificList = new java.util.ArrayList<java.lang.String>();
@@ -135,11 +129,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._outageCalendarList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -149,7 +141,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addExcludeRange(
             final org.opennms.netmgt.config.threshd.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._excludeRangeList.add(vExcludeRange);
     }
 
@@ -164,7 +156,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addExcludeRange(
             final int index,
             final org.opennms.netmgt.config.threshd.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._excludeRangeList.add(index, vExcludeRange);
     }
 
@@ -177,7 +169,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIncludeRange(
             final org.opennms.netmgt.config.threshd.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeRangeList.add(vIncludeRange);
     }
 
@@ -192,7 +184,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIncludeRange(
             final int index,
             final org.opennms.netmgt.config.threshd.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeRangeList.add(index, vIncludeRange);
     }
 
@@ -205,7 +197,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIncludeUrl(
             final java.lang.String vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeUrlList.add(vIncludeUrl);
     }
 
@@ -220,7 +212,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIncludeUrl(
             final int index,
             final java.lang.String vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeUrlList.add(index, vIncludeUrl);
     }
 
@@ -233,7 +225,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addOutageCalendar(
             final java.lang.String vOutageCalendar)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._outageCalendarList.add(vOutageCalendar);
     }
 
@@ -248,7 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addOutageCalendar(
             final int index,
             final java.lang.String vOutageCalendar)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._outageCalendarList.add(index, vOutageCalendar);
     }
 
@@ -261,7 +253,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addService(
             final org.opennms.netmgt.config.threshd.Service vService)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._serviceList.add(vService);
     }
 
@@ -276,7 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addService(
             final int index,
             final org.opennms.netmgt.config.threshd.Service vService)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._serviceList.add(index, vService);
     }
 
@@ -289,7 +281,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSpecific(
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(vSpecific);
     }
 
@@ -304,7 +296,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSpecific(
             final int index,
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(index, vSpecific);
     }
 
@@ -314,8 +306,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.threshd.ExcludeRange> enumerateExcludeRange(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.threshd.ExcludeRange> enumerateExcludeRange() {
         return java.util.Collections.enumeration(this._excludeRangeList);
     }
 
@@ -325,8 +316,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.threshd.IncludeRange> enumerateIncludeRange(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.threshd.IncludeRange> enumerateIncludeRange() {
         return java.util.Collections.enumeration(this._includeRangeList);
     }
 
@@ -336,8 +326,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateIncludeUrl(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateIncludeUrl() {
         return java.util.Collections.enumeration(this._includeUrlList);
     }
 
@@ -347,8 +336,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateOutageCalendar(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateOutageCalendar() {
         return java.util.Collections.enumeration(this._outageCalendarList);
     }
 
@@ -358,8 +346,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.threshd.Service> enumerateService(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.threshd.Service> enumerateService() {
         return java.util.Collections.enumeration(this._serviceList);
     }
 
@@ -369,8 +356,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateSpecific(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateSpecific() {
         return java.util.Collections.enumeration(this._specificList);
     }
 
@@ -383,68 +369,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Package) {
 
-            Package temp = (Package)obj;
+            Package temp = (Package) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._filter != null) {
-                if (temp._filter == null) return false;
-                else if (!(this._filter.equals(temp._filter)))
+                if (temp._filter == null) {
                     return false;
-            }
-            else if (temp._filter != null)
+                } else if (!(this._filter.equals(temp._filter))) {
+                    return false;
+                }
+            } else if (temp._filter != null) {
                 return false;
+            }
             if (this._specificList != null) {
-                if (temp._specificList == null) return false;
-                else if (!(this._specificList.equals(temp._specificList)))
+                if (temp._specificList == null) {
                     return false;
-            }
-            else if (temp._specificList != null)
+                } else if (!(this._specificList.equals(temp._specificList))) {
+                    return false;
+                }
+            } else if (temp._specificList != null) {
                 return false;
+            }
             if (this._includeRangeList != null) {
-                if (temp._includeRangeList == null) return false;
-                else if (!(this._includeRangeList.equals(temp._includeRangeList)))
+                if (temp._includeRangeList == null) {
                     return false;
-            }
-            else if (temp._includeRangeList != null)
+                } else if (!(this._includeRangeList.equals(temp._includeRangeList))) {
+                    return false;
+                }
+            } else if (temp._includeRangeList != null) {
                 return false;
+            }
             if (this._excludeRangeList != null) {
-                if (temp._excludeRangeList == null) return false;
-                else if (!(this._excludeRangeList.equals(temp._excludeRangeList)))
+                if (temp._excludeRangeList == null) {
                     return false;
-            }
-            else if (temp._excludeRangeList != null)
+                } else if (!(this._excludeRangeList.equals(temp._excludeRangeList))) {
+                    return false;
+                }
+            } else if (temp._excludeRangeList != null) {
                 return false;
+            }
             if (this._includeUrlList != null) {
-                if (temp._includeUrlList == null) return false;
-                else if (!(this._includeUrlList.equals(temp._includeUrlList)))
+                if (temp._includeUrlList == null) {
                     return false;
-            }
-            else if (temp._includeUrlList != null)
+                } else if (!(this._includeUrlList.equals(temp._includeUrlList))) {
+                    return false;
+                }
+            } else if (temp._includeUrlList != null) {
                 return false;
+            }
             if (this._serviceList != null) {
-                if (temp._serviceList == null) return false;
-                else if (!(this._serviceList.equals(temp._serviceList)))
+                if (temp._serviceList == null) {
                     return false;
-            }
-            else if (temp._serviceList != null)
+                } else if (!(this._serviceList.equals(temp._serviceList))) {
+                    return false;
+                }
+            } else if (temp._serviceList != null) {
                 return false;
+            }
             if (this._outageCalendarList != null) {
-                if (temp._outageCalendarList == null) return false;
-                else if (!(this._outageCalendarList.equals(temp._outageCalendarList)))
+                if (temp._outageCalendarList == null) {
                     return false;
-            }
-            else if (temp._outageCalendarList != null)
+                } else if (!(this._outageCalendarList.equals(temp._outageCalendarList))) {
+                    return false;
+                }
+            } else if (temp._outageCalendarList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -462,7 +465,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.threshd.ExcludeRange getExcludeRange(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._excludeRangeList.size()) {
             throw new IndexOutOfBoundsException("getExcludeRange: Index value '" + index + "' not in range [0.." + (this._excludeRangeList.size() - 1) + "]");
@@ -481,8 +484,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.threshd.ExcludeRange[] getExcludeRange(
-    ) {
+    public org.opennms.netmgt.config.threshd.ExcludeRange[] getExcludeRange() {
         org.opennms.netmgt.config.threshd.ExcludeRange[] array = new org.opennms.netmgt.config.threshd.ExcludeRange[0];
         return (org.opennms.netmgt.config.threshd.ExcludeRange[]) this._excludeRangeList.toArray(array);
     }
@@ -494,8 +496,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.threshd.ExcludeRange> getExcludeRangeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.threshd.ExcludeRange> getExcludeRangeCollection() {
         return this._excludeRangeList;
     }
 
@@ -504,8 +505,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getExcludeRangeCount(
-    ) {
+    public int getExcludeRangeCount() {
         return this._excludeRangeList.size();
     }
 
@@ -519,8 +519,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Filter'.
      */
-    public org.opennms.netmgt.config.threshd.Filter getFilter(
-    ) {
+    public org.opennms.netmgt.config.threshd.Filter getFilter() {
         return this._filter;
     }
 
@@ -536,7 +535,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.threshd.IncludeRange getIncludeRange(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeRangeList.size()) {
             throw new IndexOutOfBoundsException("getIncludeRange: Index value '" + index + "' not in range [0.." + (this._includeRangeList.size() - 1) + "]");
@@ -555,8 +554,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.threshd.IncludeRange[] getIncludeRange(
-    ) {
+    public org.opennms.netmgt.config.threshd.IncludeRange[] getIncludeRange() {
         org.opennms.netmgt.config.threshd.IncludeRange[] array = new org.opennms.netmgt.config.threshd.IncludeRange[0];
         return (org.opennms.netmgt.config.threshd.IncludeRange[]) this._includeRangeList.toArray(array);
     }
@@ -568,8 +566,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.threshd.IncludeRange> getIncludeRangeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.threshd.IncludeRange> getIncludeRangeCollection() {
         return this._includeRangeList;
     }
 
@@ -578,8 +575,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIncludeRangeCount(
-    ) {
+    public int getIncludeRangeCount() {
         return this._includeRangeList.size();
     }
 
@@ -593,7 +589,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getIncludeUrl(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeUrlList.size()) {
             throw new IndexOutOfBoundsException("getIncludeUrl: Index value '" + index + "' not in range [0.." + (this._includeUrlList.size() - 1) + "]");
@@ -611,8 +607,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getIncludeUrl(
-    ) {
+    public java.lang.String[] getIncludeUrl() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._includeUrlList.toArray(array);
     }
@@ -624,8 +619,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getIncludeUrlCollection(
-    ) {
+    public java.util.List<java.lang.String> getIncludeUrlCollection() {
         return this._includeUrlList;
     }
 
@@ -634,8 +628,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIncludeUrlCount(
-    ) {
+    public int getIncludeUrlCount() {
         return this._includeUrlList.size();
     }
 
@@ -645,8 +638,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -660,7 +652,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getOutageCalendar(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._outageCalendarList.size()) {
             throw new IndexOutOfBoundsException("getOutageCalendar: Index value '" + index + "' not in range [0.." + (this._outageCalendarList.size() - 1) + "]");
@@ -679,8 +671,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getOutageCalendar(
-    ) {
+    public java.lang.String[] getOutageCalendar() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._outageCalendarList.toArray(array);
     }
@@ -692,8 +683,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getOutageCalendarCollection(
-    ) {
+    public java.util.List<java.lang.String> getOutageCalendarCollection() {
         return this._outageCalendarList;
     }
 
@@ -702,8 +692,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getOutageCalendarCount(
-    ) {
+    public int getOutageCalendarCount() {
         return this._outageCalendarList.size();
     }
 
@@ -718,7 +707,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.threshd.Service getService(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._serviceList.size()) {
             throw new IndexOutOfBoundsException("getService: Index value '" + index + "' not in range [0.." + (this._serviceList.size() - 1) + "]");
@@ -736,8 +725,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.threshd.Service[] getService(
-    ) {
+    public org.opennms.netmgt.config.threshd.Service[] getService() {
         org.opennms.netmgt.config.threshd.Service[] array = new org.opennms.netmgt.config.threshd.Service[0];
         return (org.opennms.netmgt.config.threshd.Service[]) this._serviceList.toArray(array);
     }
@@ -749,8 +737,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.threshd.Service> getServiceCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.threshd.Service> getServiceCollection() {
         return this._serviceList;
     }
 
@@ -759,8 +746,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getServiceCount(
-    ) {
+    public int getServiceCount() {
         return this._serviceList.size();
     }
 
@@ -774,7 +760,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getSpecific(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("getSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -792,8 +778,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getSpecific(
-    ) {
+    public java.lang.String[] getSpecific() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._specificList.toArray(array);
     }
@@ -805,8 +790,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getSpecificCollection(
-    ) {
+    public java.util.List<java.lang.String> getSpecificCollection() {
         return this._specificList;
     }
 
@@ -815,8 +799,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSpecificCount(
-    ) {
+    public int getSpecificCount() {
         return this._specificList.size();
     }
 
@@ -829,34 +812,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_filter != null) {
-           result = 37 * result + _filter.hashCode();
+            result = 37 * result + _filter.hashCode();
         }
         if (_specificList != null) {
-           result = 37 * result + _specificList.hashCode();
+            result = 37 * result + _specificList.hashCode();
         }
         if (_includeRangeList != null) {
-           result = 37 * result + _includeRangeList.hashCode();
+            result = 37 * result + _includeRangeList.hashCode();
         }
         if (_excludeRangeList != null) {
-           result = 37 * result + _excludeRangeList.hashCode();
+            result = 37 * result + _excludeRangeList.hashCode();
         }
         if (_includeUrlList != null) {
-           result = 37 * result + _includeUrlList.hashCode();
+            result = 37 * result + _includeUrlList.hashCode();
         }
         if (_serviceList != null) {
-           result = 37 * result + _serviceList.hashCode();
+            result = 37 * result + _serviceList.hashCode();
         }
         if (_outageCalendarList != null) {
-           result = 37 * result + _outageCalendarList.hashCode();
+            result = 37 * result + _outageCalendarList.hashCode();
         }
 
         return result;
@@ -867,8 +849,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -883,8 +864,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.threshd.ExcludeRange> iterateExcludeRange(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.threshd.ExcludeRange> iterateExcludeRange() {
         return this._excludeRangeList.iterator();
     }
 
@@ -894,8 +874,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.threshd.IncludeRange> iterateIncludeRange(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.threshd.IncludeRange> iterateIncludeRange() {
         return this._includeRangeList.iterator();
     }
 
@@ -905,8 +884,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateIncludeUrl(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateIncludeUrl() {
         return this._includeUrlList.iterator();
     }
 
@@ -916,8 +894,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateOutageCalendar(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateOutageCalendar() {
         return this._outageCalendarList.iterator();
     }
 
@@ -927,8 +904,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.threshd.Service> iterateService(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.threshd.Service> iterateService() {
         return this._serviceList.iterator();
     }
 
@@ -938,8 +914,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateSpecific(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateSpecific() {
         return this._specificList.iterator();
     }
 
@@ -954,7 +929,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -971,49 +946,43 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllExcludeRange(
-    ) {
+    public void removeAllExcludeRange() {
         this._excludeRangeList.clear();
     }
 
     /**
      */
-    public void removeAllIncludeRange(
-    ) {
+    public void removeAllIncludeRange() {
         this._includeRangeList.clear();
     }
 
     /**
      */
-    public void removeAllIncludeUrl(
-    ) {
+    public void removeAllIncludeUrl() {
         this._includeUrlList.clear();
     }
 
     /**
      */
-    public void removeAllOutageCalendar(
-    ) {
+    public void removeAllOutageCalendar() {
         this._outageCalendarList.clear();
     }
 
     /**
      */
-    public void removeAllService(
-    ) {
+    public void removeAllService() {
         this._serviceList.clear();
     }
 
     /**
      */
-    public void removeAllSpecific(
-    ) {
+    public void removeAllSpecific() {
         this._specificList.clear();
     }
 
@@ -1172,7 +1141,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setExcludeRange(
             final int index,
             final org.opennms.netmgt.config.threshd.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._excludeRangeList.size()) {
             throw new IndexOutOfBoundsException("setExcludeRange: Index value '" + index + "' not in range [0.." + (this._excludeRangeList.size() - 1) + "]");
@@ -1192,7 +1161,7 @@ import org.opennms.core.xml.ValidateUsing;
         _excludeRangeList.clear();
 
         for (int i = 0; i < vExcludeRangeArray.length; i++) {
-                this._excludeRangeList.add(vExcludeRangeArray[i]);
+            this._excludeRangeList.add(vExcludeRangeArray[i]);
         }
     }
 
@@ -1248,7 +1217,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIncludeRange(
             final int index,
             final org.opennms.netmgt.config.threshd.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeRangeList.size()) {
             throw new IndexOutOfBoundsException("setIncludeRange: Index value '" + index + "' not in range [0.." + (this._includeRangeList.size() - 1) + "]");
@@ -1268,7 +1237,7 @@ import org.opennms.core.xml.ValidateUsing;
         _includeRangeList.clear();
 
         for (int i = 0; i < vIncludeRangeArray.length; i++) {
-                this._includeRangeList.add(vIncludeRangeArray[i]);
+            this._includeRangeList.add(vIncludeRangeArray[i]);
         }
     }
 
@@ -1309,7 +1278,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIncludeUrl(
             final int index,
             final java.lang.String vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeUrlList.size()) {
             throw new IndexOutOfBoundsException("setIncludeUrl: Index value '" + index + "' not in range [0.." + (this._includeUrlList.size() - 1) + "]");
@@ -1329,7 +1298,7 @@ import org.opennms.core.xml.ValidateUsing;
         _includeUrlList.clear();
 
         for (int i = 0; i < vIncludeUrlArray.length; i++) {
-                this._includeUrlList.add(vIncludeUrlArray[i]);
+            this._includeUrlList.add(vIncludeUrlArray[i]);
         }
     }
 
@@ -1381,7 +1350,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setOutageCalendar(
             final int index,
             final java.lang.String vOutageCalendar)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._outageCalendarList.size()) {
             throw new IndexOutOfBoundsException("setOutageCalendar: Index value '" + index + "' not in range [0.." + (this._outageCalendarList.size() - 1) + "]");
@@ -1401,7 +1370,7 @@ import org.opennms.core.xml.ValidateUsing;
         _outageCalendarList.clear();
 
         for (int i = 0; i < vOutageCalendarArray.length; i++) {
-                this._outageCalendarList.add(vOutageCalendarArray[i]);
+            this._outageCalendarList.add(vOutageCalendarArray[i]);
         }
     }
 
@@ -1442,7 +1411,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setService(
             final int index,
             final org.opennms.netmgt.config.threshd.Service vService)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._serviceList.size()) {
             throw new IndexOutOfBoundsException("setService: Index value '" + index + "' not in range [0.." + (this._serviceList.size() - 1) + "]");
@@ -1462,7 +1431,7 @@ import org.opennms.core.xml.ValidateUsing;
         _serviceList.clear();
 
         for (int i = 0; i < vServiceArray.length; i++) {
-                this._serviceList.add(vServiceArray[i]);
+            this._serviceList.add(vServiceArray[i]);
         }
     }
 
@@ -1503,7 +1472,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSpecific(
             final int index,
             final java.lang.String vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("setSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -1523,7 +1492,7 @@ import org.opennms.core.xml.ValidateUsing;
         _specificList.clear();
 
         for (int i = 0; i < vSpecificArray.length; i++) {
-                this._specificList.add(vSpecificArray[i]);
+            this._specificList.add(vSpecificArray[i]);
         }
     }
 
@@ -1566,7 +1535,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.threshd.Package unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.threshd.Package) Unmarshaller.unmarshal(org.opennms.netmgt.config.threshd.Package.class, reader);
     }
 
@@ -1576,9 +1545,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

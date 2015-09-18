@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.xml.eventconf.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.xml.eventconf.Mask;
 
 /**
@@ -48,11 +46,9 @@ import org.opennms.netmgt.xml.eventconf.Mask;
  */
 public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
-
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,47 +74,44 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public MaskDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/eventconf";
         _xmlName = "mask";
         _elementDefinition = true;
-        
+
         //-- set grouping compositor
         setCompositorAsSequence();
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- initialize element descriptors
-        
         //-- _maskelementList
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.xml.eventconf.Maskelement.class, "_maskelementList", "maskelement", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Mask target = (Mask) object;
                 return target.getMaskelement();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Mask target = (Mask) object;
-                    target.addMaskelement( (org.opennms.netmgt.xml.eventconf.Maskelement) value);
+                    target.addMaskelement((org.opennms.netmgt.xml.eventconf.Maskelement) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
                 try {
@@ -128,6 +121,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return new org.opennms.netmgt.xml.eventconf.Maskelement();
@@ -140,7 +134,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _maskelementList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -151,23 +145,23 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.xml.eventconf.Varbind.class, "_varbindList", "varbind", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Mask target = (Mask) object;
                 return target.getVarbind();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Mask target = (Mask) object;
-                    target.addVarbind( (org.opennms.netmgt.xml.eventconf.Varbind) value);
+                    target.addVarbind((org.opennms.netmgt.xml.eventconf.Varbind) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
                 try {
@@ -177,6 +171,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return new org.opennms.netmgt.xml.eventconf.Varbind();
@@ -188,7 +183,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _varbindList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(0);
@@ -197,19 +192,16 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
         desc.setValidator(fieldValidator);
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -220,8 +212,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -231,8 +222,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.xml.eventconf.Mask.class;
     }
 
@@ -242,8 +232,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -254,8 +243,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -266,8 +254,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -277,8 +264,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -290,8 +276,7 @@ public class MaskDescriptor extends org.exolab.castor.xml.util.XMLClassDescripto
      * element or element with anonymous type definition.
      */
     @Override
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

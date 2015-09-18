@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,22 +53,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "actions")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Actions implements Serializable {
+
     private static final long serialVersionUID = -8231751311732262169L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * actions modify the database based on results of a trigger
      */
-    @XmlElement(name="action")
+    @XmlElement(name = "action")
     private List<Action> _actionList = new ArrayList<Action>(0);
 
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Actions() {
         super();
     }
@@ -83,7 +80,6 @@ public class Actions implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -126,19 +122,22 @@ public class Actions implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Actions) {
 
             Actions temp = (Actions) obj;
             if (this._actionList != null) {
-                if (temp._actionList == null)
+                if (temp._actionList == null) {
                     return false;
-                else if (!(this._actionList.equals(temp._actionList)))
+                } else if (!(this._actionList.equals(temp._actionList))) {
                     return false;
-            } else if (temp._actionList != null)
+                }
+            } else if (temp._actionList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -231,7 +230,7 @@ public class Actions implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeAction(final Action vAction) {
-    	return _actionList.remove(vAction);
+        return _actionList.remove(vAction);
     }
 
     /**
@@ -241,7 +240,7 @@ public class Actions implements Serializable {
      * @return the element removed from the collection
      */
     public Action removeActionAt(final int index) {
-    	return (Action) this._actionList.remove(index);
+        return (Action) this._actionList.remove(index);
     }
 
     /**

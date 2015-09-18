@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.snmpAsset.adapter;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import javax.xml.bind.annotation.XmlElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
@@ -44,45 +42,39 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import org.opennms.core.xml.ValidateUsing;
 
 @ValidateUsing("snmp-asset-adapter-configuration.xsd")
-@SuppressWarnings("all") public class PackageChoice implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class PackageChoice implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * System object identifier (sysoid) which uniquely
      *  identifies the system.
      */
-    @XmlElement(name="sysoid")
+    @XmlElement(name = "sysoid")
     private java.lang.String _sysoid;
 
     /**
      * Sysoid mask which can be used to match multiple
      *  systems if their sysoid begins with the mask
      */
-    @XmlElement(name="sysoidMask")
+    @XmlElement(name = "sysoidMask")
     private java.lang.String _sysoidMask;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public PackageChoice() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -92,26 +84,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof PackageChoice) {
 
-            PackageChoice temp = (PackageChoice)obj;
+            PackageChoice temp = (PackageChoice) obj;
             if (this._sysoid != null) {
-                if (temp._sysoid == null) return false;
-                else if (!(this._sysoid.equals(temp._sysoid)))
+                if (temp._sysoid == null) {
                     return false;
-            }
-            else if (temp._sysoid != null)
+                } else if (!(this._sysoid.equals(temp._sysoid))) {
+                    return false;
+                }
+            } else if (temp._sysoid != null) {
                 return false;
+            }
             if (this._sysoidMask != null) {
-                if (temp._sysoidMask == null) return false;
-                else if (!(this._sysoidMask.equals(temp._sysoidMask)))
+                if (temp._sysoidMask == null) {
                     return false;
-            }
-            else if (temp._sysoidMask != null)
+                } else if (!(this._sysoidMask.equals(temp._sysoidMask))) {
+                    return false;
+                }
+            } else if (temp._sysoidMask != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -125,8 +122,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Sysoid'.
      */
-    public java.lang.String getSysoid(
-    ) {
+    public java.lang.String getSysoid() {
         return this._sysoid;
     }
 
@@ -138,8 +134,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SysoidMask'.
      */
-    public java.lang.String getSysoidMask(
-    ) {
+    public java.lang.String getSysoidMask() {
         return this._sysoidMask;
     }
 
@@ -152,16 +147,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_sysoid != null) {
-           result = 37 * result + _sysoid.hashCode();
+            result = 37 * result + _sysoid.hashCode();
         }
         if (_sysoidMask != null) {
-           result = 37 * result + _sysoidMask.hashCode();
+            result = 37 * result + _sysoidMask.hashCode();
         }
 
         return result;
@@ -172,8 +166,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -193,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -210,7 +203,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -253,7 +246,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpAsset.adapter.PackageChoice.class, reader);
     }
 
@@ -263,9 +256,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.poller.outages;
 
 import java.io.IOException;
@@ -55,11 +54,11 @@ import org.xml.sax.ContentHandler;
  * Class BasicSchedule.
  * 
  */
-
-@XmlRootElement(name="basicSchedule", namespace="http://xmlns.opennms.org/xsd/config/poller/outages")
+@XmlRootElement(name = "basicSchedule", namespace = "http://xmlns.opennms.org/xsd/config/poller/outages")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("poll-outages.xsd")
 public class BasicSchedule implements java.io.Serializable {
+
     private static final long serialVersionUID = 4415207395024013808L;
 
     private static final Time[] EMPTY_TIME_LIST = new Time[0];
@@ -67,21 +66,20 @@ public class BasicSchedule implements java.io.Serializable {
     /**
      * outage name
      */
-    @XmlAttribute(name="name")
+    @XmlAttribute(name = "name")
     private String m_name;
 
     /**
      * outage type
      */
-    @XmlAttribute(name="type")
+    @XmlAttribute(name = "type")
     private String m_type;
 
     /**
      * defines start/end time for the outage
      */
-    @XmlElement(name="time")
+    @XmlElement(name = "time")
     private List<Time> m_times = new ArrayList<Time>();
-
 
     public BasicSchedule() {
         super();

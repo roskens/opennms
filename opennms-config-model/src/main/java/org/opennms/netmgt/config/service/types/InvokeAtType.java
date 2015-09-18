@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.service.types;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -44,12 +42,12 @@ import java.util.Hashtable;
  * @version $Revision$ $Date$
  */
 public class InvokeAtType implements java.io.Serializable {
+
     private static final long serialVersionUID = -4284023865042615453L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * The start type
      */
@@ -59,7 +57,7 @@ public class InvokeAtType implements java.io.Serializable {
      * The instance of the start type
      */
     public static final InvokeAtType START = new InvokeAtType(START_TYPE,
-                                                              "start");
+            "start");
 
     /**
      * The stop type
@@ -70,7 +68,7 @@ public class InvokeAtType implements java.io.Serializable {
      * The instance of the stop type
      */
     public static final InvokeAtType STOP = new InvokeAtType(STOP_TYPE,
-                                                             "stop");
+            "stop");
 
     /**
      * The status type
@@ -81,7 +79,7 @@ public class InvokeAtType implements java.io.Serializable {
      * The instance of the status type
      */
     public static final InvokeAtType STATUS = new InvokeAtType(STATUS_TYPE,
-                                                               "status");
+            "status");
 
     /**
      * Field _memberTable.
@@ -101,7 +99,6 @@ public class InvokeAtType implements java.io.Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     private InvokeAtType(final int type, final String value) {
         super();
         this.type = type;
@@ -111,7 +108,6 @@ public class InvokeAtType implements java.io.Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Method enumerate.Returns an enumeration of all possible instances of
      * InvokeAtType

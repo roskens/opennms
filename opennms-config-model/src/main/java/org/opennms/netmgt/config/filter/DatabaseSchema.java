@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.filter;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,44 +42,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="database-schema")
+@XmlRootElement(name = "database-schema")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("database-schema.xsd")
-@SuppressWarnings("all") public class DatabaseSchema implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class DatabaseSchema implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _tableList.
      */
-    @XmlElement(name="table")
+    @XmlElement(name = "table")
     private java.util.List<org.opennms.netmgt.config.filter.Table> _tableList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public DatabaseSchema() {
         super();
         this._tableList = new java.util.ArrayList<org.opennms.netmgt.config.filter.Table>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -91,7 +83,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addTable(
             final org.opennms.netmgt.config.filter.Table vTable)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._tableList.add(vTable);
     }
 
@@ -106,7 +98,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addTable(
             final int index,
             final org.opennms.netmgt.config.filter.Table vTable)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._tableList.add(index, vTable);
     }
 
@@ -116,8 +108,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.filter.Table> enumerateTable(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.filter.Table> enumerateTable() {
         return java.util.Collections.enumeration(this._tableList);
     }
 
@@ -130,19 +121,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof DatabaseSchema) {
 
-            DatabaseSchema temp = (DatabaseSchema)obj;
+            DatabaseSchema temp = (DatabaseSchema) obj;
             if (this._tableList != null) {
-                if (temp._tableList == null) return false;
-                else if (!(this._tableList.equals(temp._tableList)))
+                if (temp._tableList == null) {
                     return false;
-            }
-            else if (temp._tableList != null)
+                } else if (!(this._tableList.equals(temp._tableList))) {
+                    return false;
+                }
+            } else if (temp._tableList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -159,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.filter.Table getTable(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._tableList.size()) {
             throw new IndexOutOfBoundsException("getTable: Index value '" + index + "' not in range [0.." + (this._tableList.size() - 1) + "]");
@@ -177,8 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.filter.Table[] getTable(
-    ) {
+    public org.opennms.netmgt.config.filter.Table[] getTable() {
         org.opennms.netmgt.config.filter.Table[] array = new org.opennms.netmgt.config.filter.Table[0];
         return (org.opennms.netmgt.config.filter.Table[]) this._tableList.toArray(array);
     }
@@ -190,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.filter.Table> getTableCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.filter.Table> getTableCollection() {
         return this._tableList;
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getTableCount(
-    ) {
+    public int getTableCount() {
         return this._tableList.size();
     }
 
@@ -214,13 +205,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_tableList != null) {
-           result = 37 * result + _tableList.hashCode();
+            result = 37 * result + _tableList.hashCode();
         }
 
         return result;
@@ -231,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -247,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.filter.Table> iterateTable(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.filter.Table> iterateTable() {
         return this._tableList.iterator();
     }
 
@@ -263,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -280,14 +268,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllTable(
-    ) {
+    public void removeAllTable() {
         this._tableList.clear();
     }
 
@@ -326,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setTable(
             final int index,
             final org.opennms.netmgt.config.filter.Table vTable)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._tableList.size()) {
             throw new IndexOutOfBoundsException("setTable: Index value '" + index + "' not in range [0.." + (this._tableList.size() - 1) + "]");
@@ -346,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
         _tableList.clear();
 
         for (int i = 0; i < vTableArray.length; i++) {
-                this._tableList.add(vTableArray[i]);
+            this._tableList.add(vTableArray[i]);
         }
     }
 
@@ -389,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.filter.DatabaseSchema unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.filter.DatabaseSchema) Unmarshaller.unmarshal(org.opennms.netmgt.config.filter.DatabaseSchema.class, reader);
     }
 
@@ -399,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

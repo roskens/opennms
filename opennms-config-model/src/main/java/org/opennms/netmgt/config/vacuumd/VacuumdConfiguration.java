@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,12 +54,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "VacuumdConfiguration")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class VacuumdConfiguration implements Serializable {
+
     private static final long serialVersionUID = -3370783056683052503L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * how often to vacuum the database in seconds
      */
@@ -96,7 +94,8 @@ public class VacuumdConfiguration implements Serializable {
      * Field _autoEvents.
      */
     @XmlElement(name = "auto-events")
-    private AutoEvents _autoEvents = new AutoEvents();;
+    private AutoEvents _autoEvents = new AutoEvents();
+    ;
 
     /**
      * Field _actionEvents.
@@ -107,7 +106,6 @@ public class VacuumdConfiguration implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public VacuumdConfiguration() {
         super();
     }
@@ -129,7 +127,6 @@ public class VacuumdConfiguration implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -172,48 +169,65 @@ public class VacuumdConfiguration implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         VacuumdConfiguration other = (VacuumdConfiguration) obj;
         if (_actionEvents == null) {
-            if (other._actionEvents != null)
+            if (other._actionEvents != null) {
                 return false;
-        } else if (!_actionEvents.equals(other._actionEvents))
+            }
+        } else if (!_actionEvents.equals(other._actionEvents)) {
             return false;
+        }
         if (_actions == null) {
-            if (other._actions != null)
+            if (other._actions != null) {
                 return false;
-        } else if (!_actions.equals(other._actions))
+            }
+        } else if (!_actions.equals(other._actions)) {
             return false;
+        }
         if (_autoEvents == null) {
-            if (other._autoEvents != null)
+            if (other._autoEvents != null) {
                 return false;
-        } else if (!_autoEvents.equals(other._autoEvents))
+            }
+        } else if (!_autoEvents.equals(other._autoEvents)) {
             return false;
+        }
         if (_automations == null) {
-            if (other._automations != null)
+            if (other._automations != null) {
                 return false;
-        } else if (!_automations.equals(other._automations))
+            }
+        } else if (!_automations.equals(other._automations)) {
             return false;
+        }
         if (_period == null) {
-            if (other._period != null)
+            if (other._period != null) {
                 return false;
-        } else if (!_period.equals(other._period))
+            }
+        } else if (!_period.equals(other._period)) {
             return false;
+        }
         if (_statementList == null) {
-            if (other._statementList != null)
+            if (other._statementList != null) {
                 return false;
-        } else if (!_statementList.equals(other._statementList))
+            }
+        } else if (!_statementList.equals(other._statementList)) {
             return false;
+        }
         if (_triggers == null) {
-            if (other._triggers != null)
+            if (other._triggers != null) {
                 return false;
-        } else if (!_triggers.equals(other._triggers))
+            }
+        } else if (!_triggers.equals(other._triggers)) {
             return false;
+        }
         return true;
     }
 
@@ -379,7 +393,7 @@ public class VacuumdConfiguration implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeStatement(final Statement vStatement) {
-    	return _statementList.remove(vStatement);
+        return _statementList.remove(vStatement);
     }
 
     /**
@@ -389,7 +403,7 @@ public class VacuumdConfiguration implements Serializable {
      * @return the element removed from the collection
      */
     public Statement removeStatementAt(final int index) {
-    	return (Statement) this._statementList.remove(index);
+        return (Statement) this._statementList.remove(index);
     }
 
     /**

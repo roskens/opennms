@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.ami;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -58,12 +56,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "ami-config")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AmiConfig implements Serializable {
+
     private static final long serialVersionUID = -7864880053573062376L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Default port.
      *
@@ -116,7 +114,6 @@ public class AmiConfig implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public AmiConfig() {
         super();
     }
@@ -137,7 +134,6 @@ public class AmiConfig implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -180,48 +176,65 @@ public class AmiConfig implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         AmiConfig other = (AmiConfig) obj;
         if (_definitionList == null) {
-            if (other._definitionList != null)
+            if (other._definitionList != null) {
                 return false;
-        } else if (!_definitionList.equals(other._definitionList))
+            }
+        } else if (!_definitionList.equals(other._definitionList)) {
             return false;
+        }
         if (_password == null) {
-            if (other._password != null)
+            if (other._password != null) {
                 return false;
-        } else if (!_password.equals(other._password))
+            }
+        } else if (!_password.equals(other._password)) {
             return false;
+        }
         if (_port == null) {
-            if (other._port != null)
+            if (other._port != null) {
                 return false;
-        } else if (!_port.equals(other._port))
+            }
+        } else if (!_port.equals(other._port)) {
             return false;
+        }
         if (_retry == null) {
-            if (other._retry != null)
+            if (other._retry != null) {
                 return false;
-        } else if (!_retry.equals(other._retry))
+            }
+        } else if (!_retry.equals(other._retry)) {
             return false;
+        }
         if (_timeout == null) {
-            if (other._timeout != null)
+            if (other._timeout != null) {
                 return false;
-        } else if (!_timeout.equals(other._timeout))
+            }
+        } else if (!_timeout.equals(other._timeout)) {
             return false;
+        }
         if (_useSsl == null) {
-            if (other._useSsl != null)
+            if (other._useSsl != null) {
                 return false;
-        } else if (!_useSsl.equals(other._useSsl))
+            }
+        } else if (!_useSsl.equals(other._useSsl)) {
             return false;
+        }
         if (_username == null) {
-            if (other._username != null)
+            if (other._username != null) {
                 return false;
-        } else if (!_username.equals(other._username))
+            }
+        } else if (!_username.equals(other._username)) {
             return false;
+        }
         return true;
     }
 
@@ -239,11 +252,11 @@ public class AmiConfig implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._definitionList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "getDefinition: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._definitionList.size() - 1)
-                                                        + "]");
+                    "getDefinition: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._definitionList.size() - 1)
+                    + "]");
         }
 
         return (Definition) _definitionList.get(index);
@@ -409,7 +422,7 @@ public class AmiConfig implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeDefinition(final Definition vDefinition) {
-    	return _definitionList.remove(vDefinition);
+        return _definitionList.remove(vDefinition);
     }
 
     /**
@@ -419,7 +432,7 @@ public class AmiConfig implements Serializable {
      * @return the element removed from the collection
      */
     public Definition removeDefinitionAt(final int index) {
-    	return (Definition) this._definitionList.remove(index);
+        return (Definition) this._definitionList.remove(index);
     }
 
     /**
@@ -435,11 +448,11 @@ public class AmiConfig implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._definitionList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "setDefinition: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._definitionList.size() - 1)
-                                                        + "]");
+                    "setDefinition: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._definitionList.size() - 1)
+                    + "]");
         }
 
         this._definitionList.set(index, vDefinition);

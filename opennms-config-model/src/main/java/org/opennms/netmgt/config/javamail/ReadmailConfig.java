@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.javamail;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -46,7 +44,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -54,44 +51,43 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="readmail-config")
+@XmlRootElement(name = "readmail-config")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("javamail-configuration.xsd")
-@SuppressWarnings("all") public class ReadmailConfig implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ReadmailConfig implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _debug.
      */
-    @XmlAttribute(name="debug")
+    @XmlAttribute(name = "debug")
     private Boolean _debug;
 
     /**
      * Field _mailFolder.
      */
-    @XmlAttribute(name="mail-folder")
+    @XmlAttribute(name = "mail-folder")
     private java.lang.String _mailFolder;
 
     /**
      * Field _attemptInterval.
      */
-    @XmlAttribute(name="attempt-interval")
+    @XmlAttribute(name = "attempt-interval")
     private Long _attemptInterval;
 
     /**
      * Field _deleteAllMail.
      */
-    @XmlAttribute(name="delete-all-mail")
+    @XmlAttribute(name = "delete-all-mail")
     private Boolean _deleteAllMail;
 
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
@@ -100,7 +96,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
-    @XmlElement(name="javamail-property")
+    @XmlElement(name = "javamail-property")
     private java.util.List<org.opennms.netmgt.config.javamail.JavamailProperty> _javamailPropertyList;
 
     /**
@@ -108,7 +104,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
-    @XmlElement(name="readmail-host")
+    @XmlElement(name = "readmail-host")
     private org.opennms.netmgt.config.javamail.ReadmailHost _readmailHost;
 
     /**
@@ -116,24 +112,20 @@ import org.opennms.core.xml.ValidateUsing;
      *
      *
      */
-    @XmlElement(name="user-auth")
+    @XmlElement(name = "user-auth")
     private org.opennms.netmgt.config.javamail.UserAuth _userAuth;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ReadmailConfig() {
         super();
         this._javamailPropertyList = new java.util.ArrayList<org.opennms.netmgt.config.javamail.JavamailProperty>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -143,7 +135,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addJavamailProperty(
             final org.opennms.netmgt.config.javamail.JavamailProperty vJavamailProperty)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._javamailPropertyList.add(vJavamailProperty);
     }
 
@@ -158,28 +150,25 @@ import org.opennms.core.xml.ValidateUsing;
     public void addJavamailProperty(
             final int index,
             final org.opennms.netmgt.config.javamail.JavamailProperty vJavamailProperty)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._javamailPropertyList.add(index, vJavamailProperty);
     }
 
     /**
      */
-    public void deleteAttemptInterval(
-    ) {
+    public void deleteAttemptInterval() {
         this._attemptInterval = null;
     }
 
     /**
      */
-    public void deleteDebug(
-    ) {
+    public void deleteDebug() {
         this._debug = null;
     }
 
     /**
      */
-    public void deleteDeleteAllMail(
-    ) {
+    public void deleteDeleteAllMail() {
         this._deleteAllMail = null;
     }
 
@@ -189,8 +178,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.javamail.JavamailProperty> enumerateJavamailProperty(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.javamail.JavamailProperty> enumerateJavamailProperty() {
         return java.util.Collections.enumeration(this._javamailPropertyList);
     }
 
@@ -203,68 +191,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ReadmailConfig) {
 
-            ReadmailConfig temp = (ReadmailConfig)obj;
+            ReadmailConfig temp = (ReadmailConfig) obj;
             if (this._debug != null) {
-                if (temp._debug == null) return false;
-                else if (!(this._debug.equals(temp._debug)))
+                if (temp._debug == null) {
                     return false;
-            }
-            else if (temp._debug != null)
+                } else if (!(this._debug.equals(temp._debug))) {
+                    return false;
+                }
+            } else if (temp._debug != null) {
                 return false;
+            }
             if (this._mailFolder != null) {
-                if (temp._mailFolder == null) return false;
-                else if (!(this._mailFolder.equals(temp._mailFolder)))
+                if (temp._mailFolder == null) {
                     return false;
-            }
-            else if (temp._mailFolder != null)
+                } else if (!(this._mailFolder.equals(temp._mailFolder))) {
+                    return false;
+                }
+            } else if (temp._mailFolder != null) {
                 return false;
+            }
             if (this._attemptInterval != null) {
-                if (temp._attemptInterval == null) return false;
-                else if (!(this._attemptInterval.equals(temp._attemptInterval)))
+                if (temp._attemptInterval == null) {
                     return false;
-            }
-            else if (temp._attemptInterval != null)
+                } else if (!(this._attemptInterval.equals(temp._attemptInterval))) {
+                    return false;
+                }
+            } else if (temp._attemptInterval != null) {
                 return false;
+            }
             if (this._deleteAllMail != null) {
-                if (temp._deleteAllMail == null) return false;
-                else if (!(this._deleteAllMail.equals(temp._deleteAllMail)))
+                if (temp._deleteAllMail == null) {
                     return false;
-            }
-            else if (temp._deleteAllMail != null)
+                } else if (!(this._deleteAllMail.equals(temp._deleteAllMail))) {
+                    return false;
+                }
+            } else if (temp._deleteAllMail != null) {
                 return false;
+            }
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._javamailPropertyList != null) {
-                if (temp._javamailPropertyList == null) return false;
-                else if (!(this._javamailPropertyList.equals(temp._javamailPropertyList)))
+                if (temp._javamailPropertyList == null) {
                     return false;
-            }
-            else if (temp._javamailPropertyList != null)
+                } else if (!(this._javamailPropertyList.equals(temp._javamailPropertyList))) {
+                    return false;
+                }
+            } else if (temp._javamailPropertyList != null) {
                 return false;
+            }
             if (this._readmailHost != null) {
-                if (temp._readmailHost == null) return false;
-                else if (!(this._readmailHost.equals(temp._readmailHost)))
+                if (temp._readmailHost == null) {
                     return false;
-            }
-            else if (temp._readmailHost != null)
+                } else if (!(this._readmailHost.equals(temp._readmailHost))) {
+                    return false;
+                }
+            } else if (temp._readmailHost != null) {
                 return false;
+            }
             if (this._userAuth != null) {
-                if (temp._userAuth == null) return false;
-                else if (!(this._userAuth.equals(temp._userAuth)))
+                if (temp._userAuth == null) {
                     return false;
-            }
-            else if (temp._userAuth != null)
+                } else if (!(this._userAuth.equals(temp._userAuth))) {
+                    return false;
+                }
+            } else if (temp._userAuth != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -275,8 +280,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AttemptInterval'.
      */
-    public Long getAttemptInterval(
-    ) {
+    public Long getAttemptInterval() {
         return this._attemptInterval == null ? 1000L : this._attemptInterval;
     }
 
@@ -285,8 +289,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Debug'.
      */
-    public Boolean getDebug(
-    ) {
+    public Boolean getDebug() {
         return this._debug == null ? Boolean.TRUE : this._debug;
     }
 
@@ -295,8 +298,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DeleteAllMail'.
      */
-    public Boolean getDeleteAllMail(
-    ) {
+    public Boolean getDeleteAllMail() {
         return this._deleteAllMail == null ? Boolean.FALSE : this._deleteAllMail;
     }
 
@@ -312,7 +314,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.javamail.JavamailProperty getJavamailProperty(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._javamailPropertyList.size()) {
             throw new IndexOutOfBoundsException("getJavamailProperty: Index value '" + index + "' not in range [0.." + (this._javamailPropertyList.size() - 1) + "]");
@@ -331,8 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.javamail.JavamailProperty[] getJavamailProperty(
-    ) {
+    public org.opennms.netmgt.config.javamail.JavamailProperty[] getJavamailProperty() {
         org.opennms.netmgt.config.javamail.JavamailProperty[] array = new org.opennms.netmgt.config.javamail.JavamailProperty[0];
         return (org.opennms.netmgt.config.javamail.JavamailProperty[]) this._javamailPropertyList.toArray(array);
     }
@@ -344,8 +345,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.javamail.JavamailProperty> getJavamailPropertyCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.javamail.JavamailProperty> getJavamailPropertyCollection() {
         return this._javamailPropertyList;
     }
 
@@ -354,8 +354,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getJavamailPropertyCount(
-    ) {
+    public int getJavamailPropertyCount() {
         return this._javamailPropertyList.size();
     }
 
@@ -364,8 +363,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MailFolder'.
      */
-    public java.lang.String getMailFolder(
-    ) {
+    public java.lang.String getMailFolder() {
         return this._mailFolder == null ? "INBOX" : this._mailFolder;
     }
 
@@ -374,8 +372,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -388,8 +385,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReadmailHost'.
      */
-    public org.opennms.netmgt.config.javamail.ReadmailHost getReadmailHost(
-    ) {
+    public org.opennms.netmgt.config.javamail.ReadmailHost getReadmailHost() {
         return this._readmailHost;
     }
 
@@ -402,8 +398,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UserAuth'.
      */
-    public org.opennms.netmgt.config.javamail.UserAuth getUserAuth(
-    ) {
+    public org.opennms.netmgt.config.javamail.UserAuth getUserAuth() {
         return this._userAuth;
     }
 
@@ -412,8 +407,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one AttemptInterval has been added
      */
-    public boolean hasAttemptInterval(
-    ) {
+    public boolean hasAttemptInterval() {
         return this._attemptInterval != null;
     }
 
@@ -422,8 +416,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Debug has been added
      */
-    public boolean hasDebug(
-    ) {
+    public boolean hasDebug() {
         return this._debug != null;
     }
 
@@ -432,8 +425,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one DeleteAllMail has been added
      */
-    public boolean hasDeleteAllMail(
-    ) {
+    public boolean hasDeleteAllMail() {
         return this._deleteAllMail != null;
     }
 
@@ -446,34 +438,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_debug != null) {
-           result = 37 * result + _debug.hashCode();
+            result = 37 * result + _debug.hashCode();
         }
         if (_mailFolder != null) {
-           result = 37 * result + _mailFolder.hashCode();
+            result = 37 * result + _mailFolder.hashCode();
         }
         if (_attemptInterval != null) {
-           result = 37 * result + _attemptInterval.hashCode();
+            result = 37 * result + _attemptInterval.hashCode();
         }
         if (_deleteAllMail != null) {
-           result = 37 * result + _deleteAllMail.hashCode();
+            result = 37 * result + _deleteAllMail.hashCode();
         }
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_javamailPropertyList != null) {
-           result = 37 * result + _javamailPropertyList.hashCode();
+            result = 37 * result + _javamailPropertyList.hashCode();
         }
         if (_readmailHost != null) {
-           result = 37 * result + _readmailHost.hashCode();
+            result = 37 * result + _readmailHost.hashCode();
         }
         if (_userAuth != null) {
-           result = 37 * result + _userAuth.hashCode();
+            result = 37 * result + _userAuth.hashCode();
         }
 
         return result;
@@ -484,8 +475,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Debug'.
      */
-    public boolean isDebug(
-    ) {
+    public boolean isDebug() {
         return this._debug;
     }
 
@@ -494,8 +484,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DeleteAllMail'.
      */
-    public boolean isDeleteAllMail(
-    ) {
+    public boolean isDeleteAllMail() {
         return this._deleteAllMail;
     }
 
@@ -504,8 +493,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -520,8 +508,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.javamail.JavamailProperty> iterateJavamailProperty(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.javamail.JavamailProperty> iterateJavamailProperty() {
         return this._javamailPropertyList.iterator();
     }
 
@@ -536,7 +523,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -553,14 +540,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllJavamailProperty(
-    ) {
+    public void removeAllJavamailProperty() {
         this._javamailPropertyList.clear();
     }
 
@@ -629,7 +615,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setJavamailProperty(
             final int index,
             final org.opennms.netmgt.config.javamail.JavamailProperty vJavamailProperty)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._javamailPropertyList.size()) {
             throw new IndexOutOfBoundsException("setJavamailProperty: Index value '" + index + "' not in range [0.." + (this._javamailPropertyList.size() - 1) + "]");
@@ -649,7 +635,7 @@ import org.opennms.core.xml.ValidateUsing;
         _javamailPropertyList.clear();
 
         for (int i = 0; i < vJavamailPropertyArray.length; i++) {
-                this._javamailPropertyList.add(vJavamailPropertyArray[i]);
+            this._javamailPropertyList.add(vJavamailPropertyArray[i]);
         }
     }
 
@@ -740,7 +726,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.javamail.ReadmailConfig unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.javamail.ReadmailConfig) Unmarshaller.unmarshal(org.opennms.netmgt.config.javamail.ReadmailConfig.class, reader);
     }
 
@@ -750,9 +736,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

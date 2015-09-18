@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.hardware;
 
 import java.io.Serializable;
@@ -46,7 +45,7 @@ import org.opennms.netmgt.snmp.SnmpObjId;
  * 
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
-@XmlRootElement(name="hardware-inventory-adapter-configuration")
+@XmlRootElement(name = "hardware-inventory-adapter-configuration")
 @XmlAccessorType(XmlAccessType.NONE)
 public class HwInventoryAdapterConfiguration implements Serializable {
 
@@ -61,7 +60,7 @@ public class HwInventoryAdapterConfiguration implements Serializable {
      *
      * @return the extensions
      */
-    @XmlElement(name="hw-extension")
+    @XmlElement(name = "hw-extension")
     public List<HwExtension> getExtensions() {
         return extensions;
     }
@@ -107,8 +106,8 @@ public class HwInventoryAdapterConfiguration implements Serializable {
      *
      * @return the replacement map
      */
-    public Map<String,String> getReplacementMap() {
-        final Map<String,String> replacementMap = new HashMap<String,String>();
+    public Map<String, String> getReplacementMap() {
+        final Map<String, String> replacementMap = new HashMap<String, String>();
         for (HwExtension ext : getExtensions()) {
             for (MibObj obj : ext.getMibObjects()) {
                 if (obj.getReplace() != null && !obj.getReplace().trim().isEmpty()) {

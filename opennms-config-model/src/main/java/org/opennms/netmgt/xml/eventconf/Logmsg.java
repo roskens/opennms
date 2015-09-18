@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import java.io.IOException;
@@ -58,20 +57,21 @@ import org.xml.sax.ContentHandler;
  * particular event (by default it is true - i.e. a notice
  * will be sent).
  */
-@XmlRootElement(name="logmsg")
+@XmlRootElement(name = "logmsg")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventconf.xsd")
 public class Logmsg implements Serializable {
-	private static final long serialVersionUID = 385279987964113028L;
 
-	@XmlValue
+    private static final long serialVersionUID = 385279987964113028L;
+
+    @XmlValue
     private String m_content = "";
 
-	@XmlAttribute(name="notify", required=false)
+    @XmlAttribute(name = "notify", required = false)
     private Boolean m_notify;
 
-	// @Pattern(regexp="(logndisplay|displayonly|logonly|suppress|donotpersist|discardtraps)")
-	@XmlAttribute(name="dest", required=false)
+    // @Pattern(regexp="(logndisplay|displayonly|logonly|suppress|donotpersist|discardtraps)")
+    @XmlAttribute(name = "dest", required = false)
     private String m_dest;
 
     public void deleteNotify() {
@@ -135,38 +135,50 @@ public class Logmsg implements Serializable {
         new Validator().validate(this);
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((m_content == null) ? 0 : m_content.hashCode());
-		result = prime * result + ((m_dest == null) ? 0 : m_dest.hashCode());
-		result = prime * result + ((m_notify == null) ? 0 : m_notify.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((m_content == null) ? 0 : m_content.hashCode());
+        result = prime * result + ((m_dest == null) ? 0 : m_dest.hashCode());
+        result = prime * result + ((m_notify == null) ? 0 : m_notify.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (!(obj instanceof Logmsg)) return false;
-		final Logmsg other = (Logmsg) obj;
-		if (m_content == null) {
-			if (other.m_content != null) return false;
-		} else if (!m_content.equals(other.m_content)) {
-			return false;
-		}
-		if (m_dest == null) {
-			if (other.m_dest != null) return false;
-		} else if (!m_dest.equals(other.m_dest)) {
-			return false;
-		}
-		if (m_notify == null) {
-			if (other.m_notify != null) return false;
-		} else if (!m_notify.equals(other.m_notify)) {
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Logmsg)) {
+            return false;
+        }
+        final Logmsg other = (Logmsg) obj;
+        if (m_content == null) {
+            if (other.m_content != null) {
+                return false;
+            }
+        } else if (!m_content.equals(other.m_content)) {
+            return false;
+        }
+        if (m_dest == null) {
+            if (other.m_dest != null) {
+                return false;
+            }
+        } else if (!m_dest.equals(other.m_dest)) {
+            return false;
+        }
+        if (m_notify == null) {
+            if (other.m_notify != null) {
+                return false;
+            }
+        } else if (!m_notify.equals(other.m_notify)) {
+            return false;
+        }
+        return true;
+    }
 
 }

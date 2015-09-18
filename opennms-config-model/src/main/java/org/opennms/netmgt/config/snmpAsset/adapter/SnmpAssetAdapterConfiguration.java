@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.snmpAsset.adapter;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,44 +41,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="snmp-asset-adapter-configuration")
+@XmlRootElement(name = "snmp-asset-adapter-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("snmp-asset-adapter-configuration.xsd")
-@SuppressWarnings("all") public class SnmpAssetAdapterConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class SnmpAssetAdapterConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _packageList.
      */
-    @XmlElement(name="package")
+    @XmlElement(name = "package")
     private java.util.List<org.opennms.netmgt.config.snmpAsset.adapter.Package> _packageList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public SnmpAssetAdapterConfiguration() {
         super();
         this._packageList = new java.util.ArrayList<org.opennms.netmgt.config.snmpAsset.adapter.Package>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -90,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addPackage(
             final org.opennms.netmgt.config.snmpAsset.adapter.Package vPackage)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._packageList.add(vPackage);
     }
 
@@ -105,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addPackage(
             final int index,
             final org.opennms.netmgt.config.snmpAsset.adapter.Package vPackage)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._packageList.add(index, vPackage);
     }
 
@@ -115,8 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.snmpAsset.adapter.Package> enumeratePackage(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.snmpAsset.adapter.Package> enumeratePackage() {
         return java.util.Collections.enumeration(this._packageList);
     }
 
@@ -129,19 +120,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof SnmpAssetAdapterConfiguration) {
 
-            SnmpAssetAdapterConfiguration temp = (SnmpAssetAdapterConfiguration)obj;
+            SnmpAssetAdapterConfiguration temp = (SnmpAssetAdapterConfiguration) obj;
             if (this._packageList != null) {
-                if (temp._packageList == null) return false;
-                else if (!(this._packageList.equals(temp._packageList)))
+                if (temp._packageList == null) {
                     return false;
-            }
-            else if (temp._packageList != null)
+                } else if (!(this._packageList.equals(temp._packageList))) {
+                    return false;
+                }
+            } else if (temp._packageList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -159,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.snmpAsset.adapter.Package getPackage(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._packageList.size()) {
             throw new IndexOutOfBoundsException("getPackage: Index value '" + index + "' not in range [0.." + (this._packageList.size() - 1) + "]");
@@ -177,8 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.snmpAsset.adapter.Package[] getPackage(
-    ) {
+    public org.opennms.netmgt.config.snmpAsset.adapter.Package[] getPackage() {
         org.opennms.netmgt.config.snmpAsset.adapter.Package[] array = new org.opennms.netmgt.config.snmpAsset.adapter.Package[0];
         return (org.opennms.netmgt.config.snmpAsset.adapter.Package[]) this._packageList.toArray(array);
     }
@@ -190,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.snmpAsset.adapter.Package> getPackageCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.snmpAsset.adapter.Package> getPackageCollection() {
         return this._packageList;
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getPackageCount(
-    ) {
+    public int getPackageCount() {
         return this._packageList.size();
     }
 
@@ -214,13 +205,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_packageList != null) {
-           result = 37 * result + _packageList.hashCode();
+            result = 37 * result + _packageList.hashCode();
         }
 
         return result;
@@ -231,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -247,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.snmpAsset.adapter.Package> iteratePackage(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.snmpAsset.adapter.Package> iteratePackage() {
         return this._packageList.iterator();
     }
 
@@ -263,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -280,14 +268,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllPackage(
-    ) {
+    public void removeAllPackage() {
         this._packageList.clear();
     }
 
@@ -326,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setPackage(
             final int index,
             final org.opennms.netmgt.config.snmpAsset.adapter.Package vPackage)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._packageList.size()) {
             throw new IndexOutOfBoundsException("setPackage: Index value '" + index + "' not in range [0.." + (this._packageList.size() - 1) + "]");
@@ -346,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
         _packageList.clear();
 
         for (int i = 0; i < vPackageArray.length; i++) {
-                this._packageList.add(vPackageArray[i]);
+            this._packageList.add(vPackageArray[i]);
         }
     }
 
@@ -389,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.snmpAsset.adapter.SnmpAssetAdapterConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.snmpAsset.adapter.SnmpAssetAdapterConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpAsset.adapter.SnmpAssetAdapterConfiguration.class, reader);
     }
 
@@ -399,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

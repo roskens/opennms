@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,12 +53,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "auto-events")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AutoEvents implements Serializable {
+
     private static final long serialVersionUID = 8553439381132405258L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * (THIS IS BEING DEPRECATED) actions modify the database based on results
      * of a trigger
@@ -71,7 +69,6 @@ public class AutoEvents implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public AutoEvents() {
         super();
     }
@@ -84,7 +81,6 @@ public class AutoEvents implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -127,19 +123,22 @@ public class AutoEvents implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof AutoEvents) {
 
             AutoEvents temp = (AutoEvents) obj;
             if (this._autoEventList != null) {
-                if (temp._autoEventList == null)
+                if (temp._autoEventList == null) {
                     return false;
-                else if (!(this._autoEventList.equals(temp._autoEventList)))
+                } else if (!(this._autoEventList.equals(temp._autoEventList))) {
                     return false;
-            } else if (temp._autoEventList != null)
+                }
+            } else if (temp._autoEventList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -239,7 +238,7 @@ public class AutoEvents implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeAutoEvent(final AutoEvent vAutoEvent) {
-    	return _autoEventList.remove(vAutoEvent);
+        return _autoEventList.remove(vAutoEvent);
     }
 
     /**
@@ -249,7 +248,7 @@ public class AutoEvents implements Serializable {
      * @return the element removed from the collection
      */
     public AutoEvent removeAutoEventAt(final int index) {
-    	return (AutoEvent) this._autoEventList.remove(index);
+        return (AutoEvent) this._autoEventList.remove(index);
     }
 
     /**

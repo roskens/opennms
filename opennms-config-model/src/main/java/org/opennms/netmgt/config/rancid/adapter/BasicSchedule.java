@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.rancid.adapter;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,49 +48,44 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="basicSchedule")
+@XmlRootElement(name = "basicSchedule")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("rancid-adapter-configuration.xsd")
-@SuppressWarnings("all") public class BasicSchedule implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class BasicSchedule implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * outage name
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * outage type
      */
-    @XmlAttribute(name="type", required = true)
+    @XmlAttribute(name = "type", required = true)
     private java.lang.String _type;
 
     /**
      * defines start/end time for the outage
      */
-    @XmlElement(name="time")
+    @XmlElement(name = "time")
     private java.util.List<org.opennms.netmgt.config.rancid.adapter.Time> _timeList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public BasicSchedule() {
         super();
         this._timeList = new java.util.ArrayList<org.opennms.netmgt.config.rancid.adapter.Time>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -103,7 +95,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addTime(
             final org.opennms.netmgt.config.rancid.adapter.Time vTime)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._timeList.add(vTime);
     }
 
@@ -118,7 +110,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addTime(
             final int index,
             final org.opennms.netmgt.config.rancid.adapter.Time vTime)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._timeList.add(index, vTime);
     }
 
@@ -128,8 +120,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.rancid.adapter.Time> enumerateTime(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.rancid.adapter.Time> enumerateTime() {
         return java.util.Collections.enumeration(this._timeList);
     }
 
@@ -142,33 +133,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof BasicSchedule) {
 
-            BasicSchedule temp = (BasicSchedule)obj;
+            BasicSchedule temp = (BasicSchedule) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._type != null) {
-                if (temp._type == null) return false;
-                else if (!(this._type.equals(temp._type)))
+                if (temp._type == null) {
                     return false;
-            }
-            else if (temp._type != null)
+                } else if (!(this._type.equals(temp._type))) {
+                    return false;
+                }
+            } else if (temp._type != null) {
                 return false;
+            }
             if (this._timeList != null) {
-                if (temp._timeList == null) return false;
-                else if (!(this._timeList.equals(temp._timeList)))
+                if (temp._timeList == null) {
                     return false;
-            }
-            else if (temp._timeList != null)
+                } else if (!(this._timeList.equals(temp._timeList))) {
+                    return false;
+                }
+            } else if (temp._timeList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -180,8 +178,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -197,7 +194,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.rancid.adapter.Time getTime(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._timeList.size()) {
             throw new IndexOutOfBoundsException("getTime: Index value '" + index + "' not in range [0.." + (this._timeList.size() - 1) + "]");
@@ -215,8 +212,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.rancid.adapter.Time[] getTime(
-    ) {
+    public org.opennms.netmgt.config.rancid.adapter.Time[] getTime() {
         org.opennms.netmgt.config.rancid.adapter.Time[] array = new org.opennms.netmgt.config.rancid.adapter.Time[0];
         return (org.opennms.netmgt.config.rancid.adapter.Time[]) this._timeList.toArray(array);
     }
@@ -228,8 +224,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.rancid.adapter.Time> getTimeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.rancid.adapter.Time> getTimeCollection() {
         return this._timeList;
     }
 
@@ -238,8 +233,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getTimeCount(
-    ) {
+    public int getTimeCount() {
         return this._timeList.size();
     }
 
@@ -249,8 +243,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Type'.
      */
-    public java.lang.String getType(
-    ) {
+    public java.lang.String getType() {
         return this._type;
     }
 
@@ -263,19 +256,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_type != null) {
-           result = 37 * result + _type.hashCode();
+            result = 37 * result + _type.hashCode();
         }
         if (_timeList != null) {
-           result = 37 * result + _timeList.hashCode();
+            result = 37 * result + _timeList.hashCode();
         }
 
         return result;
@@ -286,8 +278,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -302,8 +293,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.rancid.adapter.Time> iterateTime(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.rancid.adapter.Time> iterateTime() {
         return this._timeList.iterator();
     }
 
@@ -318,7 +308,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -335,14 +325,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllTime(
-    ) {
+    public void removeAllTime() {
         this._timeList.clear();
     }
 
@@ -392,7 +381,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setTime(
             final int index,
             final org.opennms.netmgt.config.rancid.adapter.Time vTime)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._timeList.size()) {
             throw new IndexOutOfBoundsException("setTime: Index value '" + index + "' not in range [0.." + (this._timeList.size() - 1) + "]");
@@ -412,7 +401,7 @@ import org.opennms.core.xml.ValidateUsing;
         _timeList.clear();
 
         for (int i = 0; i < vTimeArray.length; i++) {
-                this._timeList.add(vTimeArray[i]);
+            this._timeList.add(vTimeArray[i]);
         }
     }
 
@@ -466,7 +455,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.rancid.adapter.BasicSchedule unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.rancid.adapter.BasicSchedule) Unmarshaller.unmarshal(org.opennms.netmgt.config.rancid.adapter.BasicSchedule.class, reader);
     }
 
@@ -476,9 +465,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

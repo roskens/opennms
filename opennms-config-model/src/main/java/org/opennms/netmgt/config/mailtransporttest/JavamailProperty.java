@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -60,22 +58,22 @@ import org.xml.sax.ContentHandler;
  * Use these name value pairs to configure freeform properties from
  * the JavaMail class.
  */
-
-@XmlRootElement(name="javamail-property")
+@XmlRootElement(name = "javamail-property")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JavamailProperty implements Serializable {
+
     private static final long serialVersionUID = -3716889757544640520L;
 
     /**
      * Field m_name.
      */
-    @XmlAttribute(name="name")
+    @XmlAttribute(name = "name")
     private String m_name;
 
     /**
      * Field m_value.
      */
-    @XmlAttribute(name="value")
+    @XmlAttribute(name = "value")
     private String m_value;
 
     public JavamailProperty() {

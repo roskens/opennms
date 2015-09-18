@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.wmi;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,43 +48,38 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="wmi-datacollection-config")
+@XmlRootElement(name = "wmi-datacollection-config")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("wmi-datacollection.xsd")
-@SuppressWarnings("all") public class WmiDatacollectionConfig implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class WmiDatacollectionConfig implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _rrdRepository.
      */
-    @XmlAttribute(name="rrdRepository", required = true)
+    @XmlAttribute(name = "rrdRepository", required = true)
     private java.lang.String _rrdRepository;
 
     /**
      * A grouping of WMI related RRD parms and WMI object groups
      */
-    @XmlElement(name="wmi-collection")
+    @XmlElement(name = "wmi-collection")
     private java.util.List<org.opennms.netmgt.config.wmi.WmiCollection> _wmiCollectionList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public WmiDatacollectionConfig() {
         super();
         this._wmiCollectionList = new java.util.ArrayList<org.opennms.netmgt.config.wmi.WmiCollection>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -97,7 +89,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addWmiCollection(
             final org.opennms.netmgt.config.wmi.WmiCollection vWmiCollection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._wmiCollectionList.add(vWmiCollection);
     }
 
@@ -112,7 +104,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addWmiCollection(
             final int index,
             final org.opennms.netmgt.config.wmi.WmiCollection vWmiCollection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._wmiCollectionList.add(index, vWmiCollection);
     }
 
@@ -122,8 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.wmi.WmiCollection> enumerateWmiCollection(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.wmi.WmiCollection> enumerateWmiCollection() {
         return java.util.Collections.enumeration(this._wmiCollectionList);
     }
 
@@ -136,26 +127,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof WmiDatacollectionConfig) {
 
-            WmiDatacollectionConfig temp = (WmiDatacollectionConfig)obj;
+            WmiDatacollectionConfig temp = (WmiDatacollectionConfig) obj;
             if (this._rrdRepository != null) {
-                if (temp._rrdRepository == null) return false;
-                else if (!(this._rrdRepository.equals(temp._rrdRepository)))
+                if (temp._rrdRepository == null) {
                     return false;
-            }
-            else if (temp._rrdRepository != null)
+                } else if (!(this._rrdRepository.equals(temp._rrdRepository))) {
+                    return false;
+                }
+            } else if (temp._rrdRepository != null) {
                 return false;
+            }
             if (this._wmiCollectionList != null) {
-                if (temp._wmiCollectionList == null) return false;
-                else if (!(this._wmiCollectionList.equals(temp._wmiCollectionList)))
+                if (temp._wmiCollectionList == null) {
                     return false;
-            }
-            else if (temp._wmiCollectionList != null)
+                } else if (!(this._wmiCollectionList.equals(temp._wmiCollectionList))) {
+                    return false;
+                }
+            } else if (temp._wmiCollectionList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -166,8 +162,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RrdRepository'.
      */
-    public java.lang.String getRrdRepository(
-    ) {
+    public java.lang.String getRrdRepository() {
         return this._rrdRepository;
     }
 
@@ -182,7 +177,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.wmi.WmiCollection getWmiCollection(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._wmiCollectionList.size()) {
             throw new IndexOutOfBoundsException("getWmiCollection: Index value '" + index + "' not in range [0.." + (this._wmiCollectionList.size() - 1) + "]");
@@ -201,8 +196,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.wmi.WmiCollection[] getWmiCollection(
-    ) {
+    public org.opennms.netmgt.config.wmi.WmiCollection[] getWmiCollection() {
         org.opennms.netmgt.config.wmi.WmiCollection[] array = new org.opennms.netmgt.config.wmi.WmiCollection[0];
         return (org.opennms.netmgt.config.wmi.WmiCollection[]) this._wmiCollectionList.toArray(array);
     }
@@ -214,8 +208,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.wmi.WmiCollection> getWmiCollectionCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.wmi.WmiCollection> getWmiCollectionCollection() {
         return this._wmiCollectionList;
     }
 
@@ -224,8 +217,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getWmiCollectionCount(
-    ) {
+    public int getWmiCollectionCount() {
         return this._wmiCollectionList.size();
     }
 
@@ -238,16 +230,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_rrdRepository != null) {
-           result = 37 * result + _rrdRepository.hashCode();
+            result = 37 * result + _rrdRepository.hashCode();
         }
         if (_wmiCollectionList != null) {
-           result = 37 * result + _wmiCollectionList.hashCode();
+            result = 37 * result + _wmiCollectionList.hashCode();
         }
 
         return result;
@@ -258,8 +249,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -274,8 +264,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.wmi.WmiCollection> iterateWmiCollection(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.wmi.WmiCollection> iterateWmiCollection() {
         return this._wmiCollectionList.iterator();
     }
 
@@ -290,7 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -307,14 +296,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllWmiCollection(
-    ) {
+    public void removeAllWmiCollection() {
         this._wmiCollectionList.clear();
     }
 
@@ -363,7 +351,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setWmiCollection(
             final int index,
             final org.opennms.netmgt.config.wmi.WmiCollection vWmiCollection)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._wmiCollectionList.size()) {
             throw new IndexOutOfBoundsException("setWmiCollection: Index value '" + index + "' not in range [0.." + (this._wmiCollectionList.size() - 1) + "]");
@@ -383,7 +371,7 @@ import org.opennms.core.xml.ValidateUsing;
         _wmiCollectionList.clear();
 
         for (int i = 0; i < vWmiCollectionArray.length; i++) {
-                this._wmiCollectionList.add(vWmiCollectionArray[i]);
+            this._wmiCollectionList.add(vWmiCollectionArray[i]);
         }
     }
 
@@ -426,7 +414,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.wmi.WmiDatacollectionConfig unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.wmi.WmiDatacollectionConfig) Unmarshaller.unmarshal(org.opennms.netmgt.config.wmi.WmiDatacollectionConfig.class, reader);
     }
 
@@ -436,9 +424,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

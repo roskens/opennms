@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.enlinkd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -45,29 +43,27 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="enlinkd-configuration")
+@XmlRootElement(name = "enlinkd-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("enlinkd-configuration.xsd")
-@SuppressWarnings("all") public class EnlinkdConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class EnlinkdConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The max number of threads used for polling snmp
      *  devices and discovery links.
      *
      */
-    @XmlAttribute(name="threads", required = true)
+    @XmlAttribute(name = "threads", required = true)
     private Integer _threads;
 
     /**
@@ -75,14 +71,14 @@ import org.opennms.core.xml.ValidateUsing;
      *  node Link Discovery.
      *
      */
-    @XmlAttribute(name="initial_sleep_time", required = true)
+    @XmlAttribute(name = "initial_sleep_time", required = true)
     private Long _initial_sleep_time;
 
     /**
      * Node Link Discovery Rescan Time interval in mill seconds.
      *
      */
-    @XmlAttribute(name="rescan_interval", required = true)
+    @XmlAttribute(name = "rescan_interval", required = true)
     private Long _rescan_interval;
 
     /**
@@ -90,7 +86,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  cisco discovery protocol cache table.
      *
      */
-    @XmlAttribute(name="use-cdp-discovery")
+    @XmlAttribute(name = "use-cdp-discovery")
     private Boolean _useCdpDiscovery;
 
     /**
@@ -98,7 +94,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  Bridge mib data.
      *
      */
-    @XmlAttribute(name="use-bridge-discovery")
+    @XmlAttribute(name = "use-bridge-discovery")
     private Boolean _useBridgeDiscovery;
 
     /**
@@ -106,7 +102,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  lldp mib data.
      *
      */
-    @XmlAttribute(name="use-lldp-discovery")
+    @XmlAttribute(name = "use-lldp-discovery")
     private Boolean _useLldpDiscovery;
 
     /**
@@ -114,7 +110,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  ospf mib data.
      *
      */
-    @XmlAttribute(name="use-ospf-discovery")
+    @XmlAttribute(name = "use-ospf-discovery")
     private Boolean _useOspfDiscovery;
 
     /**
@@ -122,76 +118,65 @@ import org.opennms.core.xml.ValidateUsing;
      *  isis mib data.
      *
      */
-    @XmlAttribute(name="use-isis-discovery")
+    @XmlAttribute(name = "use-isis-discovery")
     private Boolean _useIsisDiscovery;
 
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public EnlinkdConfiguration() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteInitial_sleep_time(
-    ) {
-        this._initial_sleep_time= null;
+    public void deleteInitial_sleep_time() {
+        this._initial_sleep_time = null;
     }
 
     /**
      */
-    public void deleteRescan_interval(
-    ) {
-        this._rescan_interval= null;
+    public void deleteRescan_interval() {
+        this._rescan_interval = null;
     }
 
     /**
      */
-    public void deleteThreads(
-    ) {
-        this._threads= null;
+    public void deleteThreads() {
+        this._threads = null;
     }
 
     /**
      */
-    public void deleteUseBridgeDiscovery(
-    ) {
-        this._useBridgeDiscovery= null;
+    public void deleteUseBridgeDiscovery() {
+        this._useBridgeDiscovery = null;
     }
 
     /**
      */
-    public void deleteUseCdpDiscovery(
-    ) {
-        this._useCdpDiscovery= null;
+    public void deleteUseCdpDiscovery() {
+        this._useCdpDiscovery = null;
     }
 
     /**
      */
-    public void deleteUseIsisDiscovery(
-    ) {
-        this._useIsisDiscovery= null;
+    public void deleteUseIsisDiscovery() {
+        this._useIsisDiscovery = null;
     }
 
     /**
      */
-    public void deleteUseLldpDiscovery(
-    ) {
-        this._useLldpDiscovery= null;
+    public void deleteUseLldpDiscovery() {
+        this._useLldpDiscovery = null;
     }
 
     /**
      */
-    public void deleteUseOspfDiscovery(
-    ) {
-        this._useOspfDiscovery= null;
+    public void deleteUseOspfDiscovery() {
+        this._useOspfDiscovery = null;
     }
 
     /**
@@ -203,68 +188,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof EnlinkdConfiguration) {
 
-            EnlinkdConfiguration temp = (EnlinkdConfiguration)obj;
+            EnlinkdConfiguration temp = (EnlinkdConfiguration) obj;
             if (this._threads != null) {
-                if (temp._threads == null) return false;
-                else if (!(this._threads.equals(temp._threads)))
+                if (temp._threads == null) {
                     return false;
-            }
-            else if (temp._threads != null)
+                } else if (!(this._threads.equals(temp._threads))) {
+                    return false;
+                }
+            } else if (temp._threads != null) {
                 return false;
+            }
             if (this._initial_sleep_time != null) {
-                if (temp._initial_sleep_time == null) return false;
-                else if (!(this._initial_sleep_time.equals(temp._initial_sleep_time)))
+                if (temp._initial_sleep_time == null) {
                     return false;
-            }
-            else if (temp._initial_sleep_time != null)
+                } else if (!(this._initial_sleep_time.equals(temp._initial_sleep_time))) {
+                    return false;
+                }
+            } else if (temp._initial_sleep_time != null) {
                 return false;
+            }
             if (this._rescan_interval != null) {
-                if (temp._rescan_interval == null) return false;
-                else if (!(this._rescan_interval.equals(temp._rescan_interval)))
+                if (temp._rescan_interval == null) {
                     return false;
-            }
-            else if (temp._rescan_interval != null)
+                } else if (!(this._rescan_interval.equals(temp._rescan_interval))) {
+                    return false;
+                }
+            } else if (temp._rescan_interval != null) {
                 return false;
+            }
             if (this._useCdpDiscovery != null) {
-                if (temp._useCdpDiscovery == null) return false;
-                else if (!(this._useCdpDiscovery.equals(temp._useCdpDiscovery)))
+                if (temp._useCdpDiscovery == null) {
                     return false;
-            }
-            else if (temp._useCdpDiscovery != null)
+                } else if (!(this._useCdpDiscovery.equals(temp._useCdpDiscovery))) {
+                    return false;
+                }
+            } else if (temp._useCdpDiscovery != null) {
                 return false;
+            }
             if (this._useBridgeDiscovery != null) {
-                if (temp._useBridgeDiscovery == null) return false;
-                else if (!(this._useBridgeDiscovery.equals(temp._useBridgeDiscovery)))
+                if (temp._useBridgeDiscovery == null) {
                     return false;
-            }
-            else if (temp._useBridgeDiscovery != null)
+                } else if (!(this._useBridgeDiscovery.equals(temp._useBridgeDiscovery))) {
+                    return false;
+                }
+            } else if (temp._useBridgeDiscovery != null) {
                 return false;
+            }
             if (this._useLldpDiscovery != null) {
-                if (temp._useLldpDiscovery == null) return false;
-                else if (!(this._useLldpDiscovery.equals(temp._useLldpDiscovery)))
+                if (temp._useLldpDiscovery == null) {
                     return false;
-            }
-            else if (temp._useLldpDiscovery != null)
+                } else if (!(this._useLldpDiscovery.equals(temp._useLldpDiscovery))) {
+                    return false;
+                }
+            } else if (temp._useLldpDiscovery != null) {
                 return false;
+            }
             if (this._useOspfDiscovery != null) {
-                if (temp._useOspfDiscovery == null) return false;
-                else if (!(this._useOspfDiscovery.equals(temp._useOspfDiscovery)))
+                if (temp._useOspfDiscovery == null) {
                     return false;
-            }
-            else if (temp._useOspfDiscovery != null)
+                } else if (!(this._useOspfDiscovery.equals(temp._useOspfDiscovery))) {
+                    return false;
+                }
+            } else if (temp._useOspfDiscovery != null) {
                 return false;
+            }
             if (this._useIsisDiscovery != null) {
-                if (temp._useIsisDiscovery == null) return false;
-                else if (!(this._useIsisDiscovery.equals(temp._useIsisDiscovery)))
+                if (temp._useIsisDiscovery == null) {
                     return false;
-            }
-            else if (temp._useIsisDiscovery != null)
+                } else if (!(this._useIsisDiscovery.equals(temp._useIsisDiscovery))) {
+                    return false;
+                }
+            } else if (temp._useIsisDiscovery != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -279,8 +281,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Initial_sleep_time'.
      */
-    public Long getInitial_sleep_time(
-    ) {
+    public Long getInitial_sleep_time() {
         return this._initial_sleep_time;
     }
 
@@ -292,8 +293,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rescan_interval'.
      */
-    public Long getRescan_interval(
-    ) {
+    public Long getRescan_interval() {
         return this._rescan_interval;
     }
 
@@ -306,8 +306,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Threads'.
      */
-    public Integer getThreads(
-    ) {
+    public Integer getThreads() {
         return this._threads;
     }
 
@@ -320,8 +319,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseBridgeDiscovery'.
      */
-    public Boolean getUseBridgeDiscovery(
-    ) {
+    public Boolean getUseBridgeDiscovery() {
         return this._useBridgeDiscovery == null ? true : this._useBridgeDiscovery;
     }
 
@@ -334,8 +332,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseCdpDiscovery'.
      */
-    public Boolean getUseCdpDiscovery(
-    ) {
+    public Boolean getUseCdpDiscovery() {
         return this._useCdpDiscovery == null ? true : this._useCdpDiscovery;
     }
 
@@ -348,8 +345,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseIsisDiscovery'.
      */
-    public Boolean getUseIsisDiscovery(
-    ) {
+    public Boolean getUseIsisDiscovery() {
         return this._useIsisDiscovery == null ? true : this._useIsisDiscovery;
     }
 
@@ -362,8 +358,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseLldpDiscovery'.
      */
-    public Boolean getUseLldpDiscovery(
-    ) {
+    public Boolean getUseLldpDiscovery() {
         return this._useLldpDiscovery == null ? true : this._useLldpDiscovery;
     }
 
@@ -376,8 +371,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseOspfDiscovery'.
      */
-    public Boolean getUseOspfDiscovery(
-    ) {
+    public Boolean getUseOspfDiscovery() {
         return this._useOspfDiscovery == null ? true : this._useOspfDiscovery;
     }
 
@@ -386,8 +380,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Initial_sleep_time has been adde
      */
-    public boolean hasInitial_sleep_time(
-    ) {
+    public boolean hasInitial_sleep_time() {
         return this._initial_sleep_time != null;
     }
 
@@ -396,8 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Rescan_interval has been added
      */
-    public boolean hasRescan_interval(
-    ) {
+    public boolean hasRescan_interval() {
         return this._rescan_interval != null;
     }
 
@@ -406,8 +398,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Threads has been added
      */
-    public boolean hasThreads(
-    ) {
+    public boolean hasThreads() {
         return this._threads != null;
     }
 
@@ -416,8 +407,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one UseBridgeDiscovery has been adde
      */
-    public boolean hasUseBridgeDiscovery(
-    ) {
+    public boolean hasUseBridgeDiscovery() {
         return this._useBridgeDiscovery != null;
     }
 
@@ -426,8 +416,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one UseCdpDiscovery has been added
      */
-    public boolean hasUseCdpDiscovery(
-    ) {
+    public boolean hasUseCdpDiscovery() {
         return this._useCdpDiscovery != null;
     }
 
@@ -436,8 +425,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one UseIsisDiscovery has been added
      */
-    public boolean hasUseIsisDiscovery(
-    ) {
+    public boolean hasUseIsisDiscovery() {
         return this._useIsisDiscovery != null;
     }
 
@@ -446,8 +434,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one UseLldpDiscovery has been added
      */
-    public boolean hasUseLldpDiscovery(
-    ) {
+    public boolean hasUseLldpDiscovery() {
         return this._useLldpDiscovery != null;
     }
 
@@ -456,8 +443,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one UseOspfDiscovery has been added
      */
-    public boolean hasUseOspfDiscovery(
-    ) {
+    public boolean hasUseOspfDiscovery() {
         return this._useOspfDiscovery != null;
     }
 
@@ -470,8 +456,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
@@ -512,8 +497,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseBridgeDiscovery'.
      */
-    public boolean isUseBridgeDiscovery(
-    ) {
+    public boolean isUseBridgeDiscovery() {
         return this._useBridgeDiscovery;
     }
 
@@ -526,8 +510,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseCdpDiscovery'.
      */
-    public boolean isUseCdpDiscovery(
-    ) {
+    public boolean isUseCdpDiscovery() {
         return this._useCdpDiscovery;
     }
 
@@ -540,8 +523,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseIsisDiscovery'.
      */
-    public boolean isUseIsisDiscovery(
-    ) {
+    public boolean isUseIsisDiscovery() {
         return this._useIsisDiscovery;
     }
 
@@ -554,8 +536,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseLldpDiscovery'.
      */
-    public boolean isUseLldpDiscovery(
-    ) {
+    public boolean isUseLldpDiscovery() {
         return this._useLldpDiscovery;
     }
 
@@ -568,8 +549,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UseOspfDiscovery'.
      */
-    public boolean isUseOspfDiscovery(
-    ) {
+    public boolean isUseOspfDiscovery() {
         return this._useOspfDiscovery;
     }
 
@@ -578,8 +558,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -599,7 +578,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -616,7 +595,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -746,7 +725,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.enlinkd.EnlinkdConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.enlinkd.EnlinkdConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.enlinkd.EnlinkdConfiguration.class, reader);
     }
 
@@ -756,9 +735,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

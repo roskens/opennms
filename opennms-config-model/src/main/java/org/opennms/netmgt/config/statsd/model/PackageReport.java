@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.statsd.model;
 
 import java.util.LinkedHashMap;
@@ -40,6 +39,7 @@ import java.util.Map;
  * @version $Id: $
  */
 public class PackageReport {
+
     private Report m_report;
     private String m_schedule;
     private boolean m_enabled;
@@ -47,7 +47,7 @@ public class PackageReport {
     private String m_description;
     private Long m_retainInterval;
     private StatsdPackage m_pkg;
-    
+
     /**
      * <p>isEnabled</p>
      *
@@ -56,6 +56,7 @@ public class PackageReport {
     public boolean isEnabled() {
         return m_enabled;
     }
+
     /**
      * <p>setEnabled</p>
      *
@@ -64,6 +65,7 @@ public class PackageReport {
     public void setEnabled(boolean enabled) {
         m_enabled = enabled;
     }
+
     /**
      * <p>getParameters</p>
      *
@@ -72,6 +74,7 @@ public class PackageReport {
     public Map<String, String> getParameters() {
         return m_parameters;
     }
+
     /**
      * <p>setParameters</p>
      *
@@ -80,6 +83,7 @@ public class PackageReport {
     public void setParameters(Map<String, String> parameters) {
         m_parameters = parameters;
     }
+
     /**
      * <p>addParameter</p>
      *
@@ -89,6 +93,7 @@ public class PackageReport {
     public void addParameter(String key, String value) {
         m_parameters.put(key, value);
     }
+
     /**
      * <p>getAggregateParameters</p>
      *
@@ -99,6 +104,7 @@ public class PackageReport {
         agg.putAll(getParameters());
         return agg;
     }
+
     /**
      * <p>getSchedule</p>
      *
@@ -107,6 +113,7 @@ public class PackageReport {
     public String getSchedule() {
         return m_schedule;
     }
+
     /**
      * <p>setSchedule</p>
      *
@@ -115,6 +122,7 @@ public class PackageReport {
     public void setSchedule(String schedule) {
         m_schedule = schedule;
     }
+
     /**
      * <p>getReport</p>
      *
@@ -123,6 +131,7 @@ public class PackageReport {
     public Report getReport() {
         return m_report;
     }
+
     /**
      * <p>setReport</p>
      *
@@ -131,6 +140,7 @@ public class PackageReport {
     public void setReport(Report report) {
         m_report = report;
     }
+
     /**
      * <p>getDescription</p>
      *
@@ -139,6 +149,7 @@ public class PackageReport {
     public String getDescription() {
         return m_description;
     }
+
     /**
      * <p>setDescription</p>
      *
@@ -147,6 +158,7 @@ public class PackageReport {
     public void setDescription(String description) {
         m_description = description;
     }
+
     /**
      * <p>getRetainInterval</p>
      *
@@ -155,6 +167,7 @@ public class PackageReport {
     public Long getRetainInterval() {
         return m_retainInterval;
     }
+
     /**
      * <p>setRetainInterval</p>
      *
@@ -163,6 +176,7 @@ public class PackageReport {
     public void setRetainInterval(Long retainInterval) {
         m_retainInterval = retainInterval;
     }
+
     /**
      * <p>getPackage</p>
      *
@@ -171,6 +185,7 @@ public class PackageReport {
     public StatsdPackage getPackage() {
         return m_pkg;
     }
+
     /**
      * <p>setPackage</p>
      *

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.rtc;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,35 +42,33 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="RTCConfiguration")
+@XmlRootElement(name = "RTCConfiguration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("rtc-configuration.xsd")
-@SuppressWarnings("all") public class RTCConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class RTCConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Maximum number of threads reading the events and
      *  updating the RTC data.
      */
-    @XmlAttribute(name="updaters", required = true)
+    @XmlAttribute(name = "updaters", required = true)
     private Integer _updaters;
 
     /**
      * Maximum number of threads sending data to the
      *  UI.
      */
-    @XmlAttribute(name="senders", required = true)
+    @XmlAttribute(name = "senders", required = true)
     private Integer _senders;
 
     /**
@@ -80,7 +76,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  calculated. It can be specified as a combination of
      *  hours/minutes/seconds. E.g.: 10h20m5s
      */
-    @XmlAttribute(name="rollingWindow", required = true)
+    @XmlAttribute(name = "rollingWindow", required = true)
     private java.lang.String _rollingWindow;
 
     /**
@@ -90,26 +86,26 @@ import org.opennms.core.xml.ValidateUsing;
      *  immediately instead of waiting for a timer to go
      *  off.
      */
-    @XmlAttribute(name="maxEventsBeforeResend", required = true)
+    @XmlAttribute(name = "maxEventsBeforeResend", required = true)
     private Integer _maxEventsBeforeResend;
 
     /**
      * Low threshold timer interval.
      */
-    @XmlAttribute(name="lowThresholdInterval", required = true)
+    @XmlAttribute(name = "lowThresholdInterval", required = true)
     private java.lang.String _lowThresholdInterval;
 
     /**
      * High threshold timer interval.
      */
-    @XmlAttribute(name="highThresholdInterval", required = true)
+    @XmlAttribute(name = "highThresholdInterval", required = true)
     private java.lang.String _highThresholdInterval;
 
     /**
      * User threshold timer interval. Used to send RTC data
      *  to the UI when no events are coming in.
      */
-    @XmlAttribute(name="userRefreshInterval", required = true)
+    @XmlAttribute(name = "userRefreshInterval", required = true)
     private java.lang.String _userRefreshInterval;
 
     /**
@@ -119,48 +115,40 @@ import org.opennms.core.xml.ValidateUsing;
      *  the URL is not unsubscribed until an 'unsubscribe' event is
      *  received.
      */
-    @XmlAttribute(name="errorsBeforeUrlUnsubscribe", required = true)
+    @XmlAttribute(name = "errorsBeforeUrlUnsubscribe", required = true)
     private Integer _errorsBeforeUrlUnsubscribe;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public RTCConfiguration() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteErrorsBeforeUrlUnsubscribe(
-    ) {
+    public void deleteErrorsBeforeUrlUnsubscribe() {
         this._errorsBeforeUrlUnsubscribe = null;
     }
 
     /**
      */
-    public void deleteMaxEventsBeforeResend(
-    ) {
+    public void deleteMaxEventsBeforeResend() {
         this._maxEventsBeforeResend = null;
     }
 
     /**
      */
-    public void deleteSenders(
-    ) {
+    public void deleteSenders() {
         this._senders = null;
     }
 
     /**
      */
-    public void deleteUpdaters(
-    ) {
+    public void deleteUpdaters() {
         this._updaters = null;
     }
 
@@ -173,68 +161,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof RTCConfiguration) {
 
-            RTCConfiguration temp = (RTCConfiguration)obj;
+            RTCConfiguration temp = (RTCConfiguration) obj;
             if (this._updaters != null) {
-                if (temp._updaters == null) return false;
-                else if (!(this._updaters.equals(temp._updaters)))
+                if (temp._updaters == null) {
                     return false;
-            }
-            else if (temp._updaters != null)
+                } else if (!(this._updaters.equals(temp._updaters))) {
+                    return false;
+                }
+            } else if (temp._updaters != null) {
                 return false;
+            }
             if (this._senders != null) {
-                if (temp._senders == null) return false;
-                else if (!(this._senders.equals(temp._senders)))
+                if (temp._senders == null) {
                     return false;
-            }
-            else if (temp._senders != null)
+                } else if (!(this._senders.equals(temp._senders))) {
+                    return false;
+                }
+            } else if (temp._senders != null) {
                 return false;
+            }
             if (this._rollingWindow != null) {
-                if (temp._rollingWindow == null) return false;
-                else if (!(this._rollingWindow.equals(temp._rollingWindow)))
+                if (temp._rollingWindow == null) {
                     return false;
-            }
-            else if (temp._rollingWindow != null)
+                } else if (!(this._rollingWindow.equals(temp._rollingWindow))) {
+                    return false;
+                }
+            } else if (temp._rollingWindow != null) {
                 return false;
+            }
             if (this._maxEventsBeforeResend != null) {
-                if (temp._maxEventsBeforeResend == null) return false;
-                else if (!(this._maxEventsBeforeResend.equals(temp._maxEventsBeforeResend)))
+                if (temp._maxEventsBeforeResend == null) {
                     return false;
-            }
-            else if (temp._maxEventsBeforeResend != null)
+                } else if (!(this._maxEventsBeforeResend.equals(temp._maxEventsBeforeResend))) {
+                    return false;
+                }
+            } else if (temp._maxEventsBeforeResend != null) {
                 return false;
+            }
             if (this._lowThresholdInterval != null) {
-                if (temp._lowThresholdInterval == null) return false;
-                else if (!(this._lowThresholdInterval.equals(temp._lowThresholdInterval)))
+                if (temp._lowThresholdInterval == null) {
                     return false;
-            }
-            else if (temp._lowThresholdInterval != null)
+                } else if (!(this._lowThresholdInterval.equals(temp._lowThresholdInterval))) {
+                    return false;
+                }
+            } else if (temp._lowThresholdInterval != null) {
                 return false;
+            }
             if (this._highThresholdInterval != null) {
-                if (temp._highThresholdInterval == null) return false;
-                else if (!(this._highThresholdInterval.equals(temp._highThresholdInterval)))
+                if (temp._highThresholdInterval == null) {
                     return false;
-            }
-            else if (temp._highThresholdInterval != null)
+                } else if (!(this._highThresholdInterval.equals(temp._highThresholdInterval))) {
+                    return false;
+                }
+            } else if (temp._highThresholdInterval != null) {
                 return false;
+            }
             if (this._userRefreshInterval != null) {
-                if (temp._userRefreshInterval == null) return false;
-                else if (!(this._userRefreshInterval.equals(temp._userRefreshInterval)))
+                if (temp._userRefreshInterval == null) {
                     return false;
-            }
-            else if (temp._userRefreshInterval != null)
+                } else if (!(this._userRefreshInterval.equals(temp._userRefreshInterval))) {
+                    return false;
+                }
+            } else if (temp._userRefreshInterval != null) {
                 return false;
+            }
             if (this._errorsBeforeUrlUnsubscribe != null) {
-                if (temp._errorsBeforeUrlUnsubscribe == null) return false;
-                else if (!(this._errorsBeforeUrlUnsubscribe.equals(temp._errorsBeforeUrlUnsubscribe)))
+                if (temp._errorsBeforeUrlUnsubscribe == null) {
                     return false;
-            }
-            else if (temp._errorsBeforeUrlUnsubscribe != null)
+                } else if (!(this._errorsBeforeUrlUnsubscribe.equals(temp._errorsBeforeUrlUnsubscribe))) {
+                    return false;
+                }
+            } else if (temp._errorsBeforeUrlUnsubscribe != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -251,8 +256,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ErrorsBeforeUrlUnsubscribe'.
      */
-    public Integer getErrorsBeforeUrlUnsubscribe(
-    ) {
+    public Integer getErrorsBeforeUrlUnsubscribe() {
         return this._errorsBeforeUrlUnsubscribe;
     }
 
@@ -263,8 +267,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'HighThresholdInterval'.
      */
-    public java.lang.String getHighThresholdInterval(
-    ) {
+    public java.lang.String getHighThresholdInterval() {
         return this._highThresholdInterval;
     }
 
@@ -275,8 +278,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'LowThresholdInterval'.
      */
-    public java.lang.String getLowThresholdInterval(
-    ) {
+    public java.lang.String getLowThresholdInterval() {
         return this._lowThresholdInterval;
     }
 
@@ -291,8 +293,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MaxEventsBeforeResend'.
      */
-    public Integer getMaxEventsBeforeResend(
-    ) {
+    public Integer getMaxEventsBeforeResend() {
         return this._maxEventsBeforeResend;
     }
 
@@ -305,8 +306,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RollingWindow'.
      */
-    public java.lang.String getRollingWindow(
-    ) {
+    public java.lang.String getRollingWindow() {
         return this._rollingWindow;
     }
 
@@ -318,8 +318,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Senders'.
      */
-    public Integer getSenders(
-    ) {
+    public Integer getSenders() {
         return this._senders;
     }
 
@@ -331,8 +330,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Updaters'.
      */
-    public Integer getUpdaters(
-    ) {
+    public Integer getUpdaters() {
         return this._updaters;
     }
 
@@ -344,8 +342,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UserRefreshInterval'.
      */
-    public java.lang.String getUserRefreshInterval(
-    ) {
+    public java.lang.String getUserRefreshInterval() {
         return this._userRefreshInterval;
     }
 
@@ -355,8 +352,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if at least one ErrorsBeforeUrlUnsubscribe has
      * been added
      */
-    public boolean hasErrorsBeforeUrlUnsubscribe(
-    ) {
+    public boolean hasErrorsBeforeUrlUnsubscribe() {
         return this._errorsBeforeUrlUnsubscribe != null;
     }
 
@@ -366,8 +362,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if at least one MaxEventsBeforeResend has been
      * added
      */
-    public boolean hasMaxEventsBeforeResend(
-    ) {
+    public boolean hasMaxEventsBeforeResend() {
         return this._maxEventsBeforeResend != null;
     }
 
@@ -376,8 +371,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Senders has been added
      */
-    public boolean hasSenders(
-    ) {
+    public boolean hasSenders() {
         return this._senders != null;
     }
 
@@ -386,8 +380,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Updaters has been added
      */
-    public boolean hasUpdaters(
-    ) {
+    public boolean hasUpdaters() {
         return this._updaters != null;
     }
 
@@ -400,34 +393,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_updaters != null) {
-           result = 37 * result + _updaters.hashCode();
+            result = 37 * result + _updaters.hashCode();
         }
         if (_senders != null) {
-           result = 37 * result + _senders.hashCode();
+            result = 37 * result + _senders.hashCode();
         }
         if (_maxEventsBeforeResend != null) {
-           result = 37 * result + _maxEventsBeforeResend.hashCode();
+            result = 37 * result + _maxEventsBeforeResend.hashCode();
         }
         if (_rollingWindow != null) {
-           result = 37 * result + _rollingWindow.hashCode();
+            result = 37 * result + _rollingWindow.hashCode();
         }
         if (_lowThresholdInterval != null) {
-           result = 37 * result + _lowThresholdInterval.hashCode();
+            result = 37 * result + _lowThresholdInterval.hashCode();
         }
         if (_highThresholdInterval != null) {
-           result = 37 * result + _highThresholdInterval.hashCode();
+            result = 37 * result + _highThresholdInterval.hashCode();
         }
         if (_userRefreshInterval != null) {
-           result = 37 * result + _userRefreshInterval.hashCode();
+            result = 37 * result + _userRefreshInterval.hashCode();
         }
         if (_errorsBeforeUrlUnsubscribe != null) {
-           result = 37 * result + _errorsBeforeUrlUnsubscribe.hashCode();
+            result = 37 * result + _errorsBeforeUrlUnsubscribe.hashCode();
         }
 
         return result;
@@ -438,8 +430,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -459,7 +450,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -476,7 +467,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -607,7 +598,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.rtc.RTCConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.rtc.RTCConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.rtc.RTCConfiguration.class, reader);
     }
 
@@ -617,9 +608,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.groups;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,69 +41,63 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="group")
+@XmlRootElement(name = "group")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("groups.xsd")
-@SuppressWarnings("all") public class Group implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Group implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlElement(name="name")
+    @XmlElement(name = "name")
     private java.lang.String _name;
 
     /**
      * Field _defaultMap.
      */
-    @XmlElement(name="default-map")
+    @XmlElement(name = "default-map")
     private java.lang.String _defaultMap;
 
     /**
      * Field _comments.
      */
-    @XmlElement(name="comments")
+    @XmlElement(name = "comments")
     private java.lang.String _comments;
 
     /**
      * Field _userList.
      */
-    @XmlElement(name="user")
+    @XmlElement(name = "user")
     private java.util.List<java.lang.String> _userList;
 
     /**
      * Field _dutyScheduleList.
      */
-    @XmlElement(name="duty-schedule")
+    @XmlElement(name = "duty-schedule")
     private java.util.List<java.lang.String> _dutyScheduleList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Group() {
         super();
         this._userList = new java.util.ArrayList<java.lang.String>();
         this._dutyScheduleList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -115,7 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addDutySchedule(
             final java.lang.String vDutySchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._dutyScheduleList.add(vDutySchedule);
     }
 
@@ -130,7 +122,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addDutySchedule(
             final int index,
             final java.lang.String vDutySchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._dutyScheduleList.add(index, vDutySchedule);
     }
 
@@ -143,7 +135,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addUser(
             final java.lang.String vUser)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._userList.add(vUser);
     }
 
@@ -158,7 +150,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addUser(
             final int index,
             final java.lang.String vUser)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._userList.add(index, vUser);
     }
 
@@ -168,8 +160,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateDutySchedule(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateDutySchedule() {
         return java.util.Collections.enumeration(this._dutyScheduleList);
     }
 
@@ -179,8 +170,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateUser(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateUser() {
         return java.util.Collections.enumeration(this._userList);
     }
 
@@ -193,47 +183,58 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Group) {
 
-            Group temp = (Group)obj;
+            Group temp = (Group) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._defaultMap != null) {
-                if (temp._defaultMap == null) return false;
-                else if (!(this._defaultMap.equals(temp._defaultMap)))
+                if (temp._defaultMap == null) {
                     return false;
-            }
-            else if (temp._defaultMap != null)
+                } else if (!(this._defaultMap.equals(temp._defaultMap))) {
+                    return false;
+                }
+            } else if (temp._defaultMap != null) {
                 return false;
+            }
             if (this._comments != null) {
-                if (temp._comments == null) return false;
-                else if (!(this._comments.equals(temp._comments)))
+                if (temp._comments == null) {
                     return false;
-            }
-            else if (temp._comments != null)
+                } else if (!(this._comments.equals(temp._comments))) {
+                    return false;
+                }
+            } else if (temp._comments != null) {
                 return false;
+            }
             if (this._userList != null) {
-                if (temp._userList == null) return false;
-                else if (!(this._userList.equals(temp._userList)))
+                if (temp._userList == null) {
                     return false;
-            }
-            else if (temp._userList != null)
+                } else if (!(this._userList.equals(temp._userList))) {
+                    return false;
+                }
+            } else if (temp._userList != null) {
                 return false;
+            }
             if (this._dutyScheduleList != null) {
-                if (temp._dutyScheduleList == null) return false;
-                else if (!(this._dutyScheduleList.equals(temp._dutyScheduleList)))
+                if (temp._dutyScheduleList == null) {
                     return false;
-            }
-            else if (temp._dutyScheduleList != null)
+                } else if (!(this._dutyScheduleList.equals(temp._dutyScheduleList))) {
+                    return false;
+                }
+            } else if (temp._dutyScheduleList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -244,8 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Comments'.
      */
-    public java.lang.String getComments(
-    ) {
+    public java.lang.String getComments() {
         return this._comments;
     }
 
@@ -254,8 +254,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DefaultMap'.
      */
-    public java.lang.String getDefaultMap(
-    ) {
+    public java.lang.String getDefaultMap() {
         return this._defaultMap;
     }
 
@@ -269,7 +268,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDutySchedule(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._dutyScheduleList.size()) {
             throw new IndexOutOfBoundsException("getDutySchedule: Index value '" + index + "' not in range [0.." + (this._dutyScheduleList.size() - 1) + "]");
@@ -288,8 +287,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getDutySchedule(
-    ) {
+    public java.lang.String[] getDutySchedule() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._dutyScheduleList.toArray(array);
     }
@@ -301,8 +299,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getDutyScheduleCollection(
-    ) {
+    public java.util.List<java.lang.String> getDutyScheduleCollection() {
         return this._dutyScheduleList;
     }
 
@@ -311,8 +308,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getDutyScheduleCount(
-    ) {
+    public int getDutyScheduleCount() {
         return this._dutyScheduleList.size();
     }
 
@@ -321,8 +317,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -336,7 +331,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getUser(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._userList.size()) {
             throw new IndexOutOfBoundsException("getUser: Index value '" + index + "' not in range [0.." + (this._userList.size() - 1) + "]");
@@ -354,8 +349,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getUser(
-    ) {
+    public java.lang.String[] getUser() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._userList.toArray(array);
     }
@@ -367,8 +361,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getUserCollection(
-    ) {
+    public java.util.List<java.lang.String> getUserCollection() {
         return this._userList;
     }
 
@@ -377,8 +370,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getUserCount(
-    ) {
+    public int getUserCount() {
         return this._userList.size();
     }
 
@@ -391,25 +383,24 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_defaultMap != null) {
-           result = 37 * result + _defaultMap.hashCode();
+            result = 37 * result + _defaultMap.hashCode();
         }
         if (_comments != null) {
-           result = 37 * result + _comments.hashCode();
+            result = 37 * result + _comments.hashCode();
         }
         if (_userList != null) {
-           result = 37 * result + _userList.hashCode();
+            result = 37 * result + _userList.hashCode();
         }
         if (_dutyScheduleList != null) {
-           result = 37 * result + _dutyScheduleList.hashCode();
+            result = 37 * result + _dutyScheduleList.hashCode();
         }
 
         return result;
@@ -420,8 +411,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -436,8 +426,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateDutySchedule(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateDutySchedule() {
         return this._dutyScheduleList.iterator();
     }
 
@@ -447,8 +436,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateUser(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateUser() {
         return this._userList.iterator();
     }
 
@@ -463,7 +451,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -480,21 +468,19 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllDutySchedule(
-    ) {
+    public void removeAllDutySchedule() {
         this._dutyScheduleList.clear();
     }
 
     /**
      */
-    public void removeAllUser(
-    ) {
+    public void removeAllUser() {
         this._userList.clear();
     }
 
@@ -577,7 +563,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setDutySchedule(
             final int index,
             final java.lang.String vDutySchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._dutyScheduleList.size()) {
             throw new IndexOutOfBoundsException("setDutySchedule: Index value '" + index + "' not in range [0.." + (this._dutyScheduleList.size() - 1) + "]");
@@ -597,7 +583,7 @@ import org.opennms.core.xml.ValidateUsing;
         _dutyScheduleList.clear();
 
         for (int i = 0; i < vDutyScheduleArray.length; i++) {
-                this._dutyScheduleList.add(vDutyScheduleArray[i]);
+            this._dutyScheduleList.add(vDutyScheduleArray[i]);
         }
     }
 
@@ -648,7 +634,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setUser(
             final int index,
             final java.lang.String vUser)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._userList.size()) {
             throw new IndexOutOfBoundsException("setUser: Index value '" + index + "' not in range [0.." + (this._userList.size() - 1) + "]");
@@ -668,7 +654,7 @@ import org.opennms.core.xml.ValidateUsing;
         _userList.clear();
 
         for (int i = 0; i < vUserArray.length; i++) {
-                this._userList.add(vUserArray[i]);
+            this._userList.add(vUserArray[i]);
         }
     }
 
@@ -710,7 +696,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.groups.Group unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.groups.Group) Unmarshaller.unmarshal(org.opennms.netmgt.config.groups.Group.class, reader);
     }
 
@@ -720,9 +706,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

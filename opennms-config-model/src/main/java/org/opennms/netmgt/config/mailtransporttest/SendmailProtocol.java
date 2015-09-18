@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -60,58 +58,58 @@ import org.xml.sax.ContentHandler;
  * Basically attributes that help setup the javamailer's confusion
  * set of properties.
  */
-
-@XmlRootElement(name="sendmail-protocol")
+@XmlRootElement(name = "sendmail-protocol")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SendmailProtocol implements Serializable {
+
     private static final long serialVersionUID = -3167315498187497958L;
 
     /**
      * Field m_charSet.
      */
-    @XmlAttribute(name="char-set")
+    @XmlAttribute(name = "char-set")
     private String m_charSet;
 
     /**
      * Field m_mailer.
      */
-    @XmlAttribute(name="mailer")
+    @XmlAttribute(name = "mailer")
     private String m_mailer;
 
     /**
      * Field m_messageContentType.
      */
-    @XmlAttribute(name="message-content-type")
+    @XmlAttribute(name = "message-content-type")
     private String m_messageContentType;
 
     /**
      * Field m_messageEncoding.
      */
-    @XmlAttribute(name="message-encoding")
+    @XmlAttribute(name = "message-encoding")
     private String m_messageEncoding;
 
     /**
      * Field m_quitWait.
      */
-    @XmlAttribute(name="quit-wait")
+    @XmlAttribute(name = "quit-wait")
     private Boolean m_quitWait;
 
     /**
      * Field m_transport.
      */
-    @XmlAttribute(name="transport")
+    @XmlAttribute(name = "transport")
     private String m_transport;
 
     /**
      * Field m_sslEnable.
      */
-    @XmlAttribute(name="ssl-enable")
+    @XmlAttribute(name = "ssl-enable")
     private Boolean m_sslEnable;
 
     /**
      * Field m_startTls.
      */
-    @XmlAttribute(name="start-tls")
+    @XmlAttribute(name = "start-tls")
     private Boolean m_startTls;
 
     public SendmailProtocol() {
@@ -136,7 +134,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'CharSet'.
      */
     public String getCharSet() {
-        return m_charSet == null? "us-ascii" : m_charSet;
+        return m_charSet == null ? "us-ascii" : m_charSet;
     }
 
     /**
@@ -145,7 +143,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'Mailer'.
      */
     public String getMailer() {
-        return m_mailer == null? "smtpsend" : m_mailer;
+        return m_mailer == null ? "smtpsend" : m_mailer;
     }
 
     /**
@@ -154,7 +152,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'MessageContentType'.
      */
     public String getMessageContentType() {
-        return m_messageContentType == null? "text/plain" : m_messageContentType;
+        return m_messageContentType == null ? "text/plain" : m_messageContentType;
     }
 
     /**
@@ -163,7 +161,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'MessageEncoding'.
      */
     public String getMessageEncoding() {
-        return m_messageEncoding == null? "7-bit" : m_messageEncoding;
+        return m_messageEncoding == null ? "7-bit" : m_messageEncoding;
     }
 
     /**
@@ -172,7 +170,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'QuitWait'.
      */
     public Boolean getQuitWait() {
-        return m_quitWait == null? true : m_quitWait;
+        return m_quitWait == null ? true : m_quitWait;
     }
 
     /**
@@ -181,7 +179,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'SslEnable'.
      */
     public Boolean getSslEnable() {
-        return m_sslEnable == null? false : m_sslEnable;
+        return m_sslEnable == null ? false : m_sslEnable;
     }
 
     /**
@@ -190,7 +188,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'StartTls'.
      */
     public Boolean getStartTls() {
-        return m_startTls == null? false : m_startTls;
+        return m_startTls == null ? false : m_startTls;
     }
 
     /**
@@ -199,7 +197,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'Transport'.
      */
     public String getTransport() {
-        return m_transport == null? "smtp" : m_transport;
+        return m_transport == null ? "smtp" : m_transport;
     }
 
     /**
@@ -235,7 +233,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'QuitWait'.
      */
     public Boolean isQuitWait() {
-        return m_quitWait == null? true : m_quitWait;
+        return m_quitWait == null ? true : m_quitWait;
     }
 
     /**
@@ -244,7 +242,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'SslEnable'.
      */
     public Boolean isSslEnable() {
-        return m_sslEnable == null? false : m_sslEnable;
+        return m_sslEnable == null ? false : m_sslEnable;
     }
 
     /**
@@ -253,7 +251,7 @@ public class SendmailProtocol implements Serializable {
      * @return the value of field 'StartTls'.
      */
     public Boolean isStartTls() {
-        return m_startTls == null? false : m_startTls;
+        return m_startTls == null ? false : m_startTls;
     }
 
     /**

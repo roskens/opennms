@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.reporting.opennms;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,46 +41,42 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="parameters")
+@XmlRootElement(name = "parameters")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("opennms-reports.xsd")
-@SuppressWarnings("all") public class Parameters implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Parameters implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _stringParmList.
      */
-    @XmlElement(name="string-parm")
+    @XmlElement(name = "string-parm")
     private java.util.List<org.opennms.netmgt.config.reporting.opennms.StringParm> _stringParmList;
 
     /**
      * Field _dateParmList.
      */
-    @XmlElement(name="date-parm")
+    @XmlElement(name = "date-parm")
     private java.util.List<org.opennms.netmgt.config.reporting.opennms.DateParm> _dateParmList;
 
     /**
      * Field _intParmList.
      */
-    @XmlElement(name="int-parm")
+    @XmlElement(name = "int-parm")
     private java.util.List<org.opennms.netmgt.config.reporting.opennms.IntParm> _intParmList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Parameters() {
         super();
         this._stringParmList = new java.util.ArrayList<org.opennms.netmgt.config.reporting.opennms.StringParm>();
@@ -90,11 +84,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._intParmList = new java.util.ArrayList<org.opennms.netmgt.config.reporting.opennms.IntParm>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -104,7 +96,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addDateParm(
             final org.opennms.netmgt.config.reporting.opennms.DateParm vDateParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._dateParmList.add(vDateParm);
     }
 
@@ -119,7 +111,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addDateParm(
             final int index,
             final org.opennms.netmgt.config.reporting.opennms.DateParm vDateParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._dateParmList.add(index, vDateParm);
     }
 
@@ -132,7 +124,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIntParm(
             final org.opennms.netmgt.config.reporting.opennms.IntParm vIntParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._intParmList.add(vIntParm);
     }
 
@@ -147,7 +139,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIntParm(
             final int index,
             final org.opennms.netmgt.config.reporting.opennms.IntParm vIntParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._intParmList.add(index, vIntParm);
     }
 
@@ -160,7 +152,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addStringParm(
             final org.opennms.netmgt.config.reporting.opennms.StringParm vStringParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._stringParmList.add(vStringParm);
     }
 
@@ -175,7 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addStringParm(
             final int index,
             final org.opennms.netmgt.config.reporting.opennms.StringParm vStringParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._stringParmList.add(index, vStringParm);
     }
 
@@ -185,8 +177,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.reporting.opennms.DateParm> enumerateDateParm(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.reporting.opennms.DateParm> enumerateDateParm() {
         return java.util.Collections.enumeration(this._dateParmList);
     }
 
@@ -196,8 +187,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.reporting.opennms.IntParm> enumerateIntParm(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.reporting.opennms.IntParm> enumerateIntParm() {
         return java.util.Collections.enumeration(this._intParmList);
     }
 
@@ -207,8 +197,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.reporting.opennms.StringParm> enumerateStringParm(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.reporting.opennms.StringParm> enumerateStringParm() {
         return java.util.Collections.enumeration(this._stringParmList);
     }
 
@@ -221,33 +210,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Parameters) {
 
-            Parameters temp = (Parameters)obj;
+            Parameters temp = (Parameters) obj;
             if (this._stringParmList != null) {
-                if (temp._stringParmList == null) return false;
-                else if (!(this._stringParmList.equals(temp._stringParmList)))
+                if (temp._stringParmList == null) {
                     return false;
-            }
-            else if (temp._stringParmList != null)
+                } else if (!(this._stringParmList.equals(temp._stringParmList))) {
+                    return false;
+                }
+            } else if (temp._stringParmList != null) {
                 return false;
+            }
             if (this._dateParmList != null) {
-                if (temp._dateParmList == null) return false;
-                else if (!(this._dateParmList.equals(temp._dateParmList)))
+                if (temp._dateParmList == null) {
                     return false;
-            }
-            else if (temp._dateParmList != null)
+                } else if (!(this._dateParmList.equals(temp._dateParmList))) {
+                    return false;
+                }
+            } else if (temp._dateParmList != null) {
                 return false;
+            }
             if (this._intParmList != null) {
-                if (temp._intParmList == null) return false;
-                else if (!(this._intParmList.equals(temp._intParmList)))
+                if (temp._intParmList == null) {
                     return false;
-            }
-            else if (temp._intParmList != null)
+                } else if (!(this._intParmList.equals(temp._intParmList))) {
+                    return false;
+                }
+            } else if (temp._intParmList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -265,7 +261,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.reporting.opennms.DateParm getDateParm(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._dateParmList.size()) {
             throw new IndexOutOfBoundsException("getDateParm: Index value '" + index + "' not in range [0.." + (this._dateParmList.size() - 1) + "]");
@@ -283,8 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.reporting.opennms.DateParm[] getDateParm(
-    ) {
+    public org.opennms.netmgt.config.reporting.opennms.DateParm[] getDateParm() {
         org.opennms.netmgt.config.reporting.opennms.DateParm[] array = new org.opennms.netmgt.config.reporting.opennms.DateParm[0];
         return (org.opennms.netmgt.config.reporting.opennms.DateParm[]) this._dateParmList.toArray(array);
     }
@@ -296,8 +291,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.reporting.opennms.DateParm> getDateParmCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.reporting.opennms.DateParm> getDateParmCollection() {
         return this._dateParmList;
     }
 
@@ -306,8 +300,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getDateParmCount(
-    ) {
+    public int getDateParmCount() {
         return this._dateParmList.size();
     }
 
@@ -323,7 +316,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.reporting.opennms.IntParm getIntParm(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._intParmList.size()) {
             throw new IndexOutOfBoundsException("getIntParm: Index value '" + index + "' not in range [0.." + (this._intParmList.size() - 1) + "]");
@@ -341,8 +334,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.reporting.opennms.IntParm[] getIntParm(
-    ) {
+    public org.opennms.netmgt.config.reporting.opennms.IntParm[] getIntParm() {
         org.opennms.netmgt.config.reporting.opennms.IntParm[] array = new org.opennms.netmgt.config.reporting.opennms.IntParm[0];
         return (org.opennms.netmgt.config.reporting.opennms.IntParm[]) this._intParmList.toArray(array);
     }
@@ -354,8 +346,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.reporting.opennms.IntParm> getIntParmCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.reporting.opennms.IntParm> getIntParmCollection() {
         return this._intParmList;
     }
 
@@ -364,8 +355,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIntParmCount(
-    ) {
+    public int getIntParmCount() {
         return this._intParmList.size();
     }
 
@@ -381,7 +371,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.reporting.opennms.StringParm getStringParm(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._stringParmList.size()) {
             throw new IndexOutOfBoundsException("getStringParm: Index value '" + index + "' not in range [0.." + (this._stringParmList.size() - 1) + "]");
@@ -399,8 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.reporting.opennms.StringParm[] getStringParm(
-    ) {
+    public org.opennms.netmgt.config.reporting.opennms.StringParm[] getStringParm() {
         org.opennms.netmgt.config.reporting.opennms.StringParm[] array = new org.opennms.netmgt.config.reporting.opennms.StringParm[0];
         return (org.opennms.netmgt.config.reporting.opennms.StringParm[]) this._stringParmList.toArray(array);
     }
@@ -412,8 +401,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.reporting.opennms.StringParm> getStringParmCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.reporting.opennms.StringParm> getStringParmCollection() {
         return this._stringParmList;
     }
 
@@ -422,8 +410,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getStringParmCount(
-    ) {
+    public int getStringParmCount() {
         return this._stringParmList.size();
     }
 
@@ -436,19 +423,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_stringParmList != null) {
-           result = 37 * result + _stringParmList.hashCode();
+            result = 37 * result + _stringParmList.hashCode();
         }
         if (_dateParmList != null) {
-           result = 37 * result + _dateParmList.hashCode();
+            result = 37 * result + _dateParmList.hashCode();
         }
         if (_intParmList != null) {
-           result = 37 * result + _intParmList.hashCode();
+            result = 37 * result + _intParmList.hashCode();
         }
 
         return result;
@@ -459,8 +445,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -475,8 +460,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.reporting.opennms.DateParm> iterateDateParm(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.reporting.opennms.DateParm> iterateDateParm() {
         return this._dateParmList.iterator();
     }
 
@@ -486,8 +470,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.reporting.opennms.IntParm> iterateIntParm(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.reporting.opennms.IntParm> iterateIntParm() {
         return this._intParmList.iterator();
     }
 
@@ -497,8 +480,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.reporting.opennms.StringParm> iterateStringParm(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.reporting.opennms.StringParm> iterateStringParm() {
         return this._stringParmList.iterator();
     }
 
@@ -513,7 +495,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -530,28 +512,25 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllDateParm(
-    ) {
+    public void removeAllDateParm() {
         this._dateParmList.clear();
     }
 
     /**
      */
-    public void removeAllIntParm(
-    ) {
+    public void removeAllIntParm() {
         this._intParmList.clear();
     }
 
     /**
      */
-    public void removeAllStringParm(
-    ) {
+    public void removeAllStringParm() {
         this._stringParmList.clear();
     }
 
@@ -638,7 +617,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setDateParm(
             final int index,
             final org.opennms.netmgt.config.reporting.opennms.DateParm vDateParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._dateParmList.size()) {
             throw new IndexOutOfBoundsException("setDateParm: Index value '" + index + "' not in range [0.." + (this._dateParmList.size() - 1) + "]");
@@ -658,7 +637,7 @@ import org.opennms.core.xml.ValidateUsing;
         _dateParmList.clear();
 
         for (int i = 0; i < vDateParmArray.length; i++) {
-                this._dateParmList.add(vDateParmArray[i]);
+            this._dateParmList.add(vDateParmArray[i]);
         }
     }
 
@@ -699,7 +678,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIntParm(
             final int index,
             final org.opennms.netmgt.config.reporting.opennms.IntParm vIntParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._intParmList.size()) {
             throw new IndexOutOfBoundsException("setIntParm: Index value '" + index + "' not in range [0.." + (this._intParmList.size() - 1) + "]");
@@ -719,7 +698,7 @@ import org.opennms.core.xml.ValidateUsing;
         _intParmList.clear();
 
         for (int i = 0; i < vIntParmArray.length; i++) {
-                this._intParmList.add(vIntParmArray[i]);
+            this._intParmList.add(vIntParmArray[i]);
         }
     }
 
@@ -760,7 +739,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setStringParm(
             final int index,
             final org.opennms.netmgt.config.reporting.opennms.StringParm vStringParm)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._stringParmList.size()) {
             throw new IndexOutOfBoundsException("setStringParm: Index value '" + index + "' not in range [0.." + (this._stringParmList.size() - 1) + "]");
@@ -780,7 +759,7 @@ import org.opennms.core.xml.ValidateUsing;
         _stringParmList.clear();
 
         for (int i = 0; i < vStringParmArray.length; i++) {
-                this._stringParmList.add(vStringParmArray[i]);
+            this._stringParmList.add(vStringParmArray[i]);
         }
     }
 
@@ -823,7 +802,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.reporting.opennms.Parameters unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.reporting.opennms.Parameters) Unmarshaller.unmarshal(org.opennms.netmgt.config.reporting.opennms.Parameters.class, reader);
     }
 
@@ -833,9 +812,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

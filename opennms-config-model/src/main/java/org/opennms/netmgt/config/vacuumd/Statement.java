@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,6 +49,7 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlRootElement(name = "statement")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Statement implements Serializable {
+
     private static final long serialVersionUID = -3916499875634577541L;
 
     private final static boolean DEFAULT_TRANSACTIONAL_FLAG = true;
@@ -58,7 +57,6 @@ public class Statement implements Serializable {
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * internal content storage
      */
@@ -74,7 +72,6 @@ public class Statement implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Statement() {
         super();
     }
@@ -88,7 +85,6 @@ public class Statement implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -97,23 +93,30 @@ public class Statement implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Statement other = (Statement) obj;
         if (_content == null) {
-            if (other._content != null)
+            if (other._content != null) {
                 return false;
-        } else if (!_content.equals(other._content))
+            }
+        } else if (!_content.equals(other._content)) {
             return false;
+        }
         if (_transactional == null) {
-            if (other._transactional != null)
+            if (other._transactional != null) {
                 return false;
-        } else if (!_transactional.equals(other._transactional))
+            }
+        } else if (!_transactional.equals(other._transactional)) {
             return false;
+        }
         return true;
     }
 
@@ -134,7 +137,7 @@ public class Statement implements Serializable {
      */
     public boolean getTransactional() {
         return _transactional == null ? DEFAULT_TRANSACTIONAL_FLAG
-                                     : _transactional;
+                : _transactional;
     }
 
     /**
@@ -163,7 +166,7 @@ public class Statement implements Serializable {
      */
     public boolean isTransactional() {
         return _transactional == null ? DEFAULT_TRANSACTIONAL_FLAG
-                                     : _transactional;
+                : _transactional;
     }
 
     /**

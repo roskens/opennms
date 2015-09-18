@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.surveillanceViews;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,55 +48,50 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="view")
+@XmlRootElement(name = "view")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("surveillance-views.xsd")
-@SuppressWarnings("all") public class View implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class View implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _refreshSeconds.
      */
-    @XmlAttribute(name="refresh-seconds")
+    @XmlAttribute(name = "refresh-seconds")
     private java.lang.String _refreshSeconds;
     private static final String DEFAULT_REFRESH_SECONDS = "300";
 
     /**
      * Field _rows.
      */
-    @XmlElement(name="rows")
+    @XmlElement(name = "rows")
     private org.opennms.netmgt.config.surveillanceViews.Rows _rows;
 
     /**
      * Field _columns.
      */
-    @XmlElement(name="columns")
+    @XmlElement(name = "columns")
     private org.opennms.netmgt.config.surveillanceViews.Columns _columns;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public View() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -109,40 +101,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof View) {
 
-            View temp = (View)obj;
+            View temp = (View) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._refreshSeconds != null) {
-                if (temp._refreshSeconds == null) return false;
-                else if (!(this._refreshSeconds.equals(temp._refreshSeconds)))
+                if (temp._refreshSeconds == null) {
                     return false;
-            }
-            else if (temp._refreshSeconds != null)
+                } else if (!(this._refreshSeconds.equals(temp._refreshSeconds))) {
+                    return false;
+                }
+            } else if (temp._refreshSeconds != null) {
                 return false;
+            }
             if (this._rows != null) {
-                if (temp._rows == null) return false;
-                else if (!(this._rows.equals(temp._rows)))
+                if (temp._rows == null) {
                     return false;
-            }
-            else if (temp._rows != null)
+                } else if (!(this._rows.equals(temp._rows))) {
+                    return false;
+                }
+            } else if (temp._rows != null) {
                 return false;
+            }
             if (this._columns != null) {
-                if (temp._columns == null) return false;
-                else if (!(this._columns.equals(temp._columns)))
+                if (temp._columns == null) {
                     return false;
-            }
-            else if (temp._columns != null)
+                } else if (!(this._columns.equals(temp._columns))) {
+                    return false;
+                }
+            } else if (temp._columns != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -153,8 +154,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Columns'.
      */
-    public org.opennms.netmgt.config.surveillanceViews.Columns getColumns(
-    ) {
+    public org.opennms.netmgt.config.surveillanceViews.Columns getColumns() {
         return this._columns;
     }
 
@@ -163,8 +163,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -173,8 +172,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RefreshSeconds'.
      */
-    public java.lang.String getRefreshSeconds(
-    ) {
+    public java.lang.String getRefreshSeconds() {
         return this._refreshSeconds == null ? DEFAULT_REFRESH_SECONDS : this._refreshSeconds;
     }
 
@@ -183,8 +181,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rows'.
      */
-    public org.opennms.netmgt.config.surveillanceViews.Rows getRows(
-    ) {
+    public org.opennms.netmgt.config.surveillanceViews.Rows getRows() {
         return this._rows;
     }
 
@@ -197,22 +194,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_refreshSeconds != null) {
-           result = 37 * result + _refreshSeconds.hashCode();
+            result = 37 * result + _refreshSeconds.hashCode();
         }
         if (_rows != null) {
-           result = 37 * result + _rows.hashCode();
+            result = 37 * result + _rows.hashCode();
         }
         if (_columns != null) {
-           result = 37 * result + _columns.hashCode();
+            result = 37 * result + _columns.hashCode();
         }
 
         return result;
@@ -223,8 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -244,7 +239,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -261,7 +256,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -318,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.surveillanceViews.View unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.surveillanceViews.View) Unmarshaller.unmarshal(org.opennms.netmgt.config.surveillanceViews.View.class, reader);
     }
 
@@ -328,9 +323,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

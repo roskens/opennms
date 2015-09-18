@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -72,10 +70,10 @@ import org.xml.sax.ContentHandler;
  *  an attribute for every javamail property possible (some are
  * fairly obscure).
  */
-
-@XmlRootElement(name="sendmail-test")
+@XmlRootElement(name = "sendmail-test")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SendmailTest implements Serializable {
+
     private static final long serialVersionUID = 8076651227806492951L;
 
     private static final JavamailProperty[] EMPTY_LIST_OF_JAVAMAIL_PROPERTIES = new JavamailProperty[0];
@@ -83,25 +81,25 @@ public class SendmailTest implements Serializable {
     /**
      * Field m_debug.
      */
-    @XmlAttribute(name="debug")
+    @XmlAttribute(name = "debug")
     private Boolean m_debug;
 
     /**
      * Field m_useAuthentication.
      */
-    @XmlAttribute(name="use-authentication")
+    @XmlAttribute(name = "use-authentication")
     private Boolean m_useAuthentication;
 
     /**
      * Field m_useJmta.
      */
-    @XmlAttribute(name="use-jmta")
+    @XmlAttribute(name = "use-jmta")
     private Boolean m_useJmta;
 
     /**
      * Field m_attemptInterval.
      */
-    @XmlAttribute(name="attempt-interval")
+    @XmlAttribute(name = "attempt-interval")
     private Long m_attemptInterval;
 
     /**
@@ -110,7 +108,7 @@ public class SendmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="javamail-property")
+    @XmlElement(name = "javamail-property")
     private List<JavamailProperty> m_javamailProperties = new ArrayList<JavamailProperty>();
 
     /**
@@ -120,7 +118,7 @@ public class SendmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="sendmail-host")
+    @XmlElement(name = "sendmail-host")
     private SendmailHost m_sendmailHost;
 
     /**
@@ -129,7 +127,7 @@ public class SendmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="sendmail-protocol")
+    @XmlElement(name = "sendmail-protocol")
     private SendmailProtocol m_sendmailProtocol;
 
     /**
@@ -139,7 +137,7 @@ public class SendmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="sendmail-message")
+    @XmlElement(name = "sendmail-message")
     private SendmailMessage m_sendmailMessage;
 
     /**
@@ -147,7 +145,7 @@ public class SendmailTest implements Serializable {
      *  
      *  
      */
-    @XmlElement(name="user-auth")
+    @XmlElement(name = "user-auth")
     private UserAuth m_userAuth;
 
     public SendmailTest() {
@@ -223,10 +221,12 @@ public class SendmailTest implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof SendmailTest) {
-            final SendmailTest temp = (SendmailTest)obj;
+            final SendmailTest temp = (SendmailTest) obj;
 
             if (m_debug != null) {
                 if (temp.m_debug == null) {
@@ -320,7 +320,7 @@ public class SendmailTest implements Serializable {
      * @return the value of field 'AttemptInterval'.
      */
     public Long getAttemptInterval() {
-        return m_attemptInterval == null? 3000L : m_attemptInterval;
+        return m_attemptInterval == null ? 3000L : m_attemptInterval;
     }
 
     /**
@@ -329,7 +329,7 @@ public class SendmailTest implements Serializable {
      * @return the value of field 'Debug'.
      */
     public Boolean getDebug() {
-        return m_debug == null? true : m_debug;
+        return m_debug == null ? true : m_debug;
     }
 
     /**
@@ -430,7 +430,7 @@ public class SendmailTest implements Serializable {
      * @return the value of field 'UseAuthentication'.
      */
     public Boolean getUseAuthentication() {
-        return m_useAuthentication == null? false : m_useAuthentication;
+        return m_useAuthentication == null ? false : m_useAuthentication;
     }
 
     /**
@@ -439,7 +439,7 @@ public class SendmailTest implements Serializable {
      * @return the value of field 'UseJmta'.
      */
     public Boolean getUseJmta() {
-        return m_useJmta == null? true : m_useJmta;
+        return m_useJmta == null ? true : m_useJmta;
     }
 
     /**
@@ -499,38 +499,37 @@ public class SendmailTest implements Serializable {
      * 
      * @return a hash code value for the object.
      */
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
-        
+
         if (m_debug != null) {
             result = 37 * result + m_debug.hashCode();
-         }
+        }
         if (m_useAuthentication != null) {
             result = 37 * result + m_useAuthentication.hashCode();
-         }
+        }
         if (m_useJmta != null) {
             result = 37 * result + m_useJmta.hashCode();
-         }
+        }
         if (m_attemptInterval != null) {
             result = 37 * result + m_attemptInterval.hashCode();
-         }
+        }
         if (m_javamailProperties != null) {
-           result = 37 * result + m_javamailProperties.hashCode();
+            result = 37 * result + m_javamailProperties.hashCode();
         }
         if (m_sendmailHost != null) {
-           result = 37 * result + m_sendmailHost.hashCode();
+            result = 37 * result + m_sendmailHost.hashCode();
         }
         if (m_sendmailProtocol != null) {
-           result = 37 * result + m_sendmailProtocol.hashCode();
+            result = 37 * result + m_sendmailProtocol.hashCode();
         }
         if (m_sendmailMessage != null) {
-           result = 37 * result + m_sendmailMessage.hashCode();
+            result = 37 * result + m_sendmailMessage.hashCode();
         }
         if (m_userAuth != null) {
-           result = 37 * result + m_userAuth.hashCode();
+            result = 37 * result + m_userAuth.hashCode();
         }
-        
+
         return result;
     }
 
@@ -540,7 +539,7 @@ public class SendmailTest implements Serializable {
      * @return the value of field 'Debug'.
      */
     public Boolean isDebug() {
-        return m_debug == null? true : m_debug;
+        return m_debug == null ? true : m_debug;
     }
 
     /**
@@ -549,7 +548,7 @@ public class SendmailTest implements Serializable {
      * @return the value of field 'UseAuthentication'.
      */
     public Boolean isUseAuthentication() {
-        return m_useAuthentication == null? false : m_useAuthentication;
+        return m_useAuthentication == null ? false : m_useAuthentication;
     }
 
     /**
@@ -558,7 +557,7 @@ public class SendmailTest implements Serializable {
      * @return the value of field 'UseJmta'.
      */
     public Boolean isUseJmta() {
-        return m_useJmta == null? true : m_useJmta;
+        return m_useJmta == null ? true : m_useJmta;
     }
 
     /**

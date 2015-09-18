@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.rws;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,50 +42,44 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="rws-configuration")
+@XmlRootElement(name = "rws-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("rws-configuration.xsd")
-@SuppressWarnings("all") public class RwsConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class RwsConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Base Url(s) for Rancid Server.
      */
-    @XmlElement(name="base-url")
+    @XmlElement(name = "base-url")
     private org.opennms.netmgt.config.rws.BaseUrl _baseUrl;
 
     /**
      * Stand By Url(s) for Rancid Servers.
      */
-    @XmlElement(name="standby-url")
+    @XmlElement(name = "standby-url")
     private java.util.List<org.opennms.netmgt.config.rws.StandbyUrl> _standbyUrlList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public RwsConfiguration() {
         super();
         this._standbyUrlList = new java.util.ArrayList<org.opennms.netmgt.config.rws.StandbyUrl>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -97,7 +89,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addStandbyUrl(
             final org.opennms.netmgt.config.rws.StandbyUrl vStandbyUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._standbyUrlList.add(vStandbyUrl);
     }
 
@@ -112,7 +104,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addStandbyUrl(
             final int index,
             final org.opennms.netmgt.config.rws.StandbyUrl vStandbyUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._standbyUrlList.add(index, vStandbyUrl);
     }
 
@@ -122,8 +114,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.rws.StandbyUrl> enumerateStandbyUrl(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.rws.StandbyUrl> enumerateStandbyUrl() {
         return java.util.Collections.enumeration(this._standbyUrlList);
     }
 
@@ -136,26 +127,31 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof RwsConfiguration) {
 
-            RwsConfiguration temp = (RwsConfiguration)obj;
+            RwsConfiguration temp = (RwsConfiguration) obj;
             if (this._baseUrl != null) {
-                if (temp._baseUrl == null) return false;
-                else if (!(this._baseUrl.equals(temp._baseUrl)))
+                if (temp._baseUrl == null) {
                     return false;
-            }
-            else if (temp._baseUrl != null)
+                } else if (!(this._baseUrl.equals(temp._baseUrl))) {
+                    return false;
+                }
+            } else if (temp._baseUrl != null) {
                 return false;
+            }
             if (this._standbyUrlList != null) {
-                if (temp._standbyUrlList == null) return false;
-                else if (!(this._standbyUrlList.equals(temp._standbyUrlList)))
+                if (temp._standbyUrlList == null) {
                     return false;
-            }
-            else if (temp._standbyUrlList != null)
+                } else if (!(this._standbyUrlList.equals(temp._standbyUrlList))) {
+                    return false;
+                }
+            } else if (temp._standbyUrlList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -168,8 +164,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'BaseUrl'.
      */
-    public org.opennms.netmgt.config.rws.BaseUrl getBaseUrl(
-    ) {
+    public org.opennms.netmgt.config.rws.BaseUrl getBaseUrl() {
         return this._baseUrl;
     }
 
@@ -184,7 +179,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.rws.StandbyUrl getStandbyUrl(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._standbyUrlList.size()) {
             throw new IndexOutOfBoundsException("getStandbyUrl: Index value '" + index + "' not in range [0.." + (this._standbyUrlList.size() - 1) + "]");
@@ -202,8 +197,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.rws.StandbyUrl[] getStandbyUrl(
-    ) {
+    public org.opennms.netmgt.config.rws.StandbyUrl[] getStandbyUrl() {
         org.opennms.netmgt.config.rws.StandbyUrl[] array = new org.opennms.netmgt.config.rws.StandbyUrl[0];
         return (org.opennms.netmgt.config.rws.StandbyUrl[]) this._standbyUrlList.toArray(array);
     }
@@ -215,8 +209,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.rws.StandbyUrl> getStandbyUrlCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.rws.StandbyUrl> getStandbyUrlCollection() {
         return this._standbyUrlList;
     }
 
@@ -225,8 +218,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getStandbyUrlCount(
-    ) {
+    public int getStandbyUrlCount() {
         return this._standbyUrlList.size();
     }
 
@@ -239,16 +231,15 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_baseUrl != null) {
-           result = 37 * result + _baseUrl.hashCode();
+            result = 37 * result + _baseUrl.hashCode();
         }
         if (_standbyUrlList != null) {
-           result = 37 * result + _standbyUrlList.hashCode();
+            result = 37 * result + _standbyUrlList.hashCode();
         }
 
         return result;
@@ -259,8 +250,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -275,8 +265,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.rws.StandbyUrl> iterateStandbyUrl(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.rws.StandbyUrl> iterateStandbyUrl() {
         return this._standbyUrlList.iterator();
     }
 
@@ -291,7 +280,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -308,14 +297,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllStandbyUrl(
-    ) {
+    public void removeAllStandbyUrl() {
         this._standbyUrlList.clear();
     }
 
@@ -365,7 +353,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setStandbyUrl(
             final int index,
             final org.opennms.netmgt.config.rws.StandbyUrl vStandbyUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._standbyUrlList.size()) {
             throw new IndexOutOfBoundsException("setStandbyUrl: Index value '" + index + "' not in range [0.." + (this._standbyUrlList.size() - 1) + "]");
@@ -385,7 +373,7 @@ import org.opennms.core.xml.ValidateUsing;
         _standbyUrlList.clear();
 
         for (int i = 0; i < vStandbyUrlArray.length; i++) {
-                this._standbyUrlList.add(vStandbyUrlArray[i]);
+            this._standbyUrlList.add(vStandbyUrlArray[i]);
         }
     }
 
@@ -428,7 +416,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.rws.RwsConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.rws.RwsConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.rws.RwsConfiguration.class, reader);
     }
 
@@ -438,9 +426,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

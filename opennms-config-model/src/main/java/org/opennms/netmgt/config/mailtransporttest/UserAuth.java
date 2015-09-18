@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -59,44 +57,39 @@ import org.xml.sax.ContentHandler;
 /**
  * Configure user based authentication.
  */
-
-@XmlRootElement(name="user-auth")
+@XmlRootElement(name = "user-auth")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class UserAuth implements Serializable {
+
     private static final long serialVersionUID = 2159704058514250131L;
 
     /**
      * Field m_userName.
      */
-    @XmlAttribute(name="user-name")
+    @XmlAttribute(name = "user-name")
     private String m_userName;
 
     /**
      * Field m_password.
      */
-    @XmlAttribute(name="password")
+    @XmlAttribute(name = "password")
     private String m_password;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public UserAuth() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     public UserAuth(final String username, final String password) {
         super();
         m_userName = username;
         m_password = password;
     }
-
 
     /**
      * Overrides the Object.equals method.
@@ -106,10 +99,12 @@ public class UserAuth implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof UserAuth) {
-            final UserAuth temp = (UserAuth)obj;
+            final UserAuth temp = (UserAuth) obj;
             if (m_userName != null) {
                 if (temp.m_userName == null) {
                     return false;
@@ -139,7 +134,7 @@ public class UserAuth implements Serializable {
      * @return the value of field 'Password'.
      */
     public String getPassword() {
-        return m_password == null? "opennms" : m_password;
+        return m_password == null ? "opennms" : m_password;
     }
 
     /**
@@ -148,7 +143,7 @@ public class UserAuth implements Serializable {
      * @return the value of field 'UserName'.
      */
     public String getUserName() {
-        return m_userName == null? "opennms" : m_userName;
+        return m_userName == null ? "opennms" : m_userName;
     }
 
     /**
@@ -161,14 +156,14 @@ public class UserAuth implements Serializable {
      */
     public int hashCode() {
         int result = 17;
-        
+
         if (m_userName != null) {
-           result = 37 * result + m_userName.hashCode();
+            result = 37 * result + m_userName.hashCode();
         }
         if (m_password != null) {
-           result = 37 * result + m_password.hashCode();
+            result = 37 * result + m_password.hashCode();
         }
-        
+
         return result;
     }
 

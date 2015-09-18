@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.httpdatacollection;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,60 +41,53 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="attrib")
+@XmlRootElement(name = "attrib")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("http-datacollection-config.xsd")
-@SuppressWarnings("all") public class Attrib implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Attrib implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _alias.
      */
-    @XmlAttribute(name="alias", required = true)
+    @XmlAttribute(name = "alias", required = true)
     private java.lang.String _alias;
 
     /**
      * Field _matchGroup.
      */
-    @XmlAttribute(name="match-group", required = true)
+    @XmlAttribute(name = "match-group", required = true)
     private Integer _matchGroup;
 
     /**
      * Field _type.
      */
-    @XmlAttribute(name="type", required = true)
+    @XmlAttribute(name = "type", required = true)
     private java.lang.String _type;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Attrib() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteMatchGroup(
-    ) {
-        this._matchGroup= null;
+    public void deleteMatchGroup() {
+        this._matchGroup = null;
     }
 
     /**
@@ -108,33 +99,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Attrib) {
 
-            Attrib temp = (Attrib)obj;
+            Attrib temp = (Attrib) obj;
             if (this._alias != null) {
-                if (temp._alias == null) return false;
-                else if (!(this._alias.equals(temp._alias)))
+                if (temp._alias == null) {
                     return false;
-            }
-            else if (temp._alias != null)
+                } else if (!(this._alias.equals(temp._alias))) {
+                    return false;
+                }
+            } else if (temp._alias != null) {
                 return false;
+            }
             if (this._matchGroup != null) {
-                if (temp._matchGroup == null) return false;
-                else if (!(this._matchGroup.equals(temp._matchGroup)))
+                if (temp._matchGroup == null) {
                     return false;
-            }
-            else if (temp._matchGroup != null)
+                } else if (!(this._matchGroup.equals(temp._matchGroup))) {
+                    return false;
+                }
+            } else if (temp._matchGroup != null) {
                 return false;
+            }
             if (this._type != null) {
-                if (temp._type == null) return false;
-                else if (!(this._type.equals(temp._type)))
+                if (temp._type == null) {
                     return false;
-            }
-            else if (temp._type != null)
+                } else if (!(this._type.equals(temp._type))) {
+                    return false;
+                }
+            } else if (temp._type != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -145,8 +143,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Alias'.
      */
-    public java.lang.String getAlias(
-    ) {
+    public java.lang.String getAlias() {
         return this._alias;
     }
 
@@ -155,8 +152,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchGroup'.
      */
-    public Integer getMatchGroup(
-    ) {
+    public Integer getMatchGroup() {
         return this._matchGroup;
     }
 
@@ -165,8 +161,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Type'.
      */
-    public java.lang.String getType(
-    ) {
+    public java.lang.String getType() {
         return this._type;
     }
 
@@ -175,8 +170,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one MatchGroup has been added
      */
-    public boolean hasMatchGroup(
-    ) {
+    public boolean hasMatchGroup() {
         return this._matchGroup != null;
     }
 
@@ -189,19 +183,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_alias != null) {
-           result = 37 * result + _alias.hashCode();
+            result = 37 * result + _alias.hashCode();
         }
         if (_matchGroup != null) {
-           result = 37 * result + _matchGroup.hashCode();
+            result = 37 * result + _matchGroup.hashCode();
         }
         if (_type != null) {
-           result = 37 * result + _type.hashCode();
+            result = 37 * result + _type.hashCode();
         }
 
         return result;
@@ -212,8 +205,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -233,7 +225,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -250,7 +242,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -297,7 +289,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.httpdatacollection.Attrib unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.httpdatacollection.Attrib) Unmarshaller.unmarshal(org.opennms.netmgt.config.httpdatacollection.Attrib.class, reader);
     }
 
@@ -307,9 +299,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

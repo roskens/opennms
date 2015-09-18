@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.surveillanceViews;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,44 +41,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="columns")
+@XmlRootElement(name = "columns")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("surveillance-views.xsd")
-@SuppressWarnings("all") public class Columns implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Columns implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _columnDefList.
      */
-    @XmlElement(name="column-def")
+    @XmlElement(name = "column-def")
     private java.util.List<org.opennms.netmgt.config.surveillanceViews.ColumnDef> _columnDefList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Columns() {
         super();
         this._columnDefList = new java.util.ArrayList<org.opennms.netmgt.config.surveillanceViews.ColumnDef>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -90,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addColumnDef(
             final org.opennms.netmgt.config.surveillanceViews.ColumnDef vColumnDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._columnDefList.add(vColumnDef);
     }
 
@@ -105,7 +97,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addColumnDef(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.ColumnDef vColumnDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._columnDefList.add(index, vColumnDef);
     }
 
@@ -115,8 +107,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.ColumnDef> enumerateColumnDef(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.ColumnDef> enumerateColumnDef() {
         return java.util.Collections.enumeration(this._columnDefList);
     }
 
@@ -129,19 +120,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Columns) {
 
-            Columns temp = (Columns)obj;
+            Columns temp = (Columns) obj;
             if (this._columnDefList != null) {
-                if (temp._columnDefList == null) return false;
-                else if (!(this._columnDefList.equals(temp._columnDefList)))
+                if (temp._columnDefList == null) {
                     return false;
-            }
-            else if (temp._columnDefList != null)
+                } else if (!(this._columnDefList.equals(temp._columnDefList))) {
+                    return false;
+                }
+            } else if (temp._columnDefList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -159,7 +153,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.surveillanceViews.ColumnDef getColumnDef(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._columnDefList.size()) {
             throw new IndexOutOfBoundsException("getColumnDef: Index value '" + index + "' not in range [0.." + (this._columnDefList.size() - 1) + "]");
@@ -177,8 +171,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.surveillanceViews.ColumnDef[] getColumnDef(
-    ) {
+    public org.opennms.netmgt.config.surveillanceViews.ColumnDef[] getColumnDef() {
         org.opennms.netmgt.config.surveillanceViews.ColumnDef[] array = new org.opennms.netmgt.config.surveillanceViews.ColumnDef[0];
         return (org.opennms.netmgt.config.surveillanceViews.ColumnDef[]) this._columnDefList.toArray(array);
     }
@@ -190,8 +183,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.surveillanceViews.ColumnDef> getColumnDefCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.surveillanceViews.ColumnDef> getColumnDefCollection() {
         return this._columnDefList;
     }
 
@@ -200,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getColumnDefCount(
-    ) {
+    public int getColumnDefCount() {
         return this._columnDefList.size();
     }
 
@@ -214,13 +205,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_columnDefList != null) {
-           result = 37 * result + _columnDefList.hashCode();
+            result = 37 * result + _columnDefList.hashCode();
         }
 
         return result;
@@ -231,8 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -247,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.ColumnDef> iterateColumnDef(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.ColumnDef> iterateColumnDef() {
         return this._columnDefList.iterator();
     }
 
@@ -263,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -280,14 +268,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllColumnDef(
-    ) {
+    public void removeAllColumnDef() {
         this._columnDefList.clear();
     }
 
@@ -326,7 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setColumnDef(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.ColumnDef vColumnDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._columnDefList.size()) {
             throw new IndexOutOfBoundsException("setColumnDef: Index value '" + index + "' not in range [0.." + (this._columnDefList.size() - 1) + "]");
@@ -346,7 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
         _columnDefList.clear();
 
         for (int i = 0; i < vColumnDefArray.length; i++) {
-                this._columnDefList.add(vColumnDefArray[i]);
+            this._columnDefList.add(vColumnDefArray[i]);
         }
     }
 
@@ -389,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.surveillanceViews.Columns unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.surveillanceViews.Columns) Unmarshaller.unmarshal(org.opennms.netmgt.config.surveillanceViews.Columns.class, reader);
     }
 
@@ -399,9 +386,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

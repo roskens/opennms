@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.users;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,81 +48,76 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="user")
+@XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("users.xsd")
-@SuppressWarnings("all") public class User implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class User implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _readOnly.
      */
-    @XmlAttribute(name="read-only")
+    @XmlAttribute(name = "read-only")
     private Boolean _readOnly;
     private static final Boolean DEFAULT_READ_ONLY = false;
 
     /**
      * Field _userId.
      */
-    @XmlElement(name="user-id")
+    @XmlElement(name = "user-id")
     private java.lang.String _userId;
 
     /**
      * Field _fullName.
      */
-    @XmlElement(name="full-name")
+    @XmlElement(name = "full-name")
     private java.lang.String _fullName;
 
     /**
      * Field _userComments.
      */
-    @XmlElement(name="user-comments")
+    @XmlElement(name = "user-comments")
     private java.lang.String _userComments;
 
     /**
      * Field _password.
      */
-    @XmlElement(name="password")
+    @XmlElement(name = "password")
     private org.opennms.netmgt.config.users.Password _password;
 
     /**
      * Field _contactList.
      */
-    @XmlElement(name="contact")
+    @XmlElement(name = "contact")
     private java.util.List<org.opennms.netmgt.config.users.Contact> _contactList;
 
     /**
      * Field _dutyScheduleList.
      */
-    @XmlElement(name="duty-schedule")
+    @XmlElement(name = "duty-schedule")
     private java.util.List<java.lang.String> _dutyScheduleList;
 
     /**
      * Field _tuiPin.
      */
-    @XmlElement(name="tui-pin")
+    @XmlElement(name = "tui-pin")
     private java.lang.String _tuiPin;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public User() {
         super();
         this._contactList = new java.util.ArrayList<org.opennms.netmgt.config.users.Contact>();
         this._dutyScheduleList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -135,7 +127,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addContact(
             final org.opennms.netmgt.config.users.Contact vContact)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._contactList.add(vContact);
     }
 
@@ -150,7 +142,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addContact(
             final int index,
             final org.opennms.netmgt.config.users.Contact vContact)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._contactList.add(index, vContact);
     }
 
@@ -163,7 +155,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addDutySchedule(
             final java.lang.String vDutySchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._dutyScheduleList.add(vDutySchedule);
     }
 
@@ -178,14 +170,13 @@ import org.opennms.core.xml.ValidateUsing;
     public void addDutySchedule(
             final int index,
             final java.lang.String vDutySchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._dutyScheduleList.add(index, vDutySchedule);
     }
 
     /**
      */
-    public void deleteReadOnly(
-    ) {
+    public void deleteReadOnly() {
         this._readOnly = null;
     }
 
@@ -195,8 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.users.Contact> enumerateContact(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.users.Contact> enumerateContact() {
         return java.util.Collections.enumeration(this._contactList);
     }
 
@@ -206,8 +196,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateDutySchedule(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateDutySchedule() {
         return java.util.Collections.enumeration(this._dutyScheduleList);
     }
 
@@ -220,68 +209,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof User) {
 
-            User temp = (User)obj;
+            User temp = (User) obj;
             if (this._readOnly != null) {
-                if (temp._readOnly == null) return false;
-                else if (!(this._readOnly.equals(temp._readOnly)))
+                if (temp._readOnly == null) {
                     return false;
-            }
-            else if (temp._readOnly != null)
+                } else if (!(this._readOnly.equals(temp._readOnly))) {
+                    return false;
+                }
+            } else if (temp._readOnly != null) {
                 return false;
+            }
             if (this._userId != null) {
-                if (temp._userId == null) return false;
-                else if (!(this._userId.equals(temp._userId)))
+                if (temp._userId == null) {
                     return false;
-            }
-            else if (temp._userId != null)
+                } else if (!(this._userId.equals(temp._userId))) {
+                    return false;
+                }
+            } else if (temp._userId != null) {
                 return false;
+            }
             if (this._fullName != null) {
-                if (temp._fullName == null) return false;
-                else if (!(this._fullName.equals(temp._fullName)))
+                if (temp._fullName == null) {
                     return false;
-            }
-            else if (temp._fullName != null)
+                } else if (!(this._fullName.equals(temp._fullName))) {
+                    return false;
+                }
+            } else if (temp._fullName != null) {
                 return false;
+            }
             if (this._userComments != null) {
-                if (temp._userComments == null) return false;
-                else if (!(this._userComments.equals(temp._userComments)))
+                if (temp._userComments == null) {
                     return false;
-            }
-            else if (temp._userComments != null)
+                } else if (!(this._userComments.equals(temp._userComments))) {
+                    return false;
+                }
+            } else if (temp._userComments != null) {
                 return false;
+            }
             if (this._password != null) {
-                if (temp._password == null) return false;
-                else if (!(this._password.equals(temp._password)))
+                if (temp._password == null) {
                     return false;
-            }
-            else if (temp._password != null)
+                } else if (!(this._password.equals(temp._password))) {
+                    return false;
+                }
+            } else if (temp._password != null) {
                 return false;
+            }
             if (this._contactList != null) {
-                if (temp._contactList == null) return false;
-                else if (!(this._contactList.equals(temp._contactList)))
+                if (temp._contactList == null) {
                     return false;
-            }
-            else if (temp._contactList != null)
+                } else if (!(this._contactList.equals(temp._contactList))) {
+                    return false;
+                }
+            } else if (temp._contactList != null) {
                 return false;
+            }
             if (this._dutyScheduleList != null) {
-                if (temp._dutyScheduleList == null) return false;
-                else if (!(this._dutyScheduleList.equals(temp._dutyScheduleList)))
+                if (temp._dutyScheduleList == null) {
                     return false;
-            }
-            else if (temp._dutyScheduleList != null)
+                } else if (!(this._dutyScheduleList.equals(temp._dutyScheduleList))) {
+                    return false;
+                }
+            } else if (temp._dutyScheduleList != null) {
                 return false;
+            }
             if (this._tuiPin != null) {
-                if (temp._tuiPin == null) return false;
-                else if (!(this._tuiPin.equals(temp._tuiPin)))
+                if (temp._tuiPin == null) {
                     return false;
-            }
-            else if (temp._tuiPin != null)
+                } else if (!(this._tuiPin.equals(temp._tuiPin))) {
+                    return false;
+                }
+            } else if (temp._tuiPin != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -298,7 +304,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.users.Contact getContact(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._contactList.size()) {
             throw new IndexOutOfBoundsException("getContact: Index value '" + index + "' not in range [0.." + (this._contactList.size() - 1) + "]");
@@ -316,8 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.users.Contact[] getContact(
-    ) {
+    public org.opennms.netmgt.config.users.Contact[] getContact() {
         org.opennms.netmgt.config.users.Contact[] array = new org.opennms.netmgt.config.users.Contact[0];
         return (org.opennms.netmgt.config.users.Contact[]) this._contactList.toArray(array);
     }
@@ -329,8 +334,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.users.Contact> getContactCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.users.Contact> getContactCollection() {
         return this._contactList;
     }
 
@@ -339,8 +343,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getContactCount(
-    ) {
+    public int getContactCount() {
         return this._contactList.size();
     }
 
@@ -354,7 +357,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getDutySchedule(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._dutyScheduleList.size()) {
             throw new IndexOutOfBoundsException("getDutySchedule: Index value '" + index + "' not in range [0.." + (this._dutyScheduleList.size() - 1) + "]");
@@ -373,8 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getDutySchedule(
-    ) {
+    public java.lang.String[] getDutySchedule() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._dutyScheduleList.toArray(array);
     }
@@ -386,8 +388,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getDutyScheduleCollection(
-    ) {
+    public java.util.List<java.lang.String> getDutyScheduleCollection() {
         return this._dutyScheduleList;
     }
 
@@ -396,8 +397,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getDutyScheduleCount(
-    ) {
+    public int getDutyScheduleCount() {
         return this._dutyScheduleList.size();
     }
 
@@ -406,8 +406,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'FullName'.
      */
-    public java.lang.String getFullName(
-    ) {
+    public java.lang.String getFullName() {
         return this._fullName;
     }
 
@@ -416,8 +415,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Password'.
      */
-    public org.opennms.netmgt.config.users.Password getPassword(
-    ) {
+    public org.opennms.netmgt.config.users.Password getPassword() {
         return this._password;
     }
 
@@ -426,8 +424,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReadOnly'.
      */
-    public Boolean getReadOnly(
-    ) {
+    public Boolean getReadOnly() {
         return this._readOnly == null ? DEFAULT_READ_ONLY : this._readOnly;
     }
 
@@ -436,8 +433,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'TuiPin'.
      */
-    public java.lang.String getTuiPin(
-    ) {
+    public java.lang.String getTuiPin() {
         return this._tuiPin;
     }
 
@@ -446,8 +442,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UserComments'.
      */
-    public java.lang.String getUserComments(
-    ) {
+    public java.lang.String getUserComments() {
         return this._userComments;
     }
 
@@ -456,8 +451,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UserId'.
      */
-    public java.lang.String getUserId(
-    ) {
+    public java.lang.String getUserId() {
         return this._userId;
     }
 
@@ -466,8 +460,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one ReadOnly has been added
      */
-    public boolean hasReadOnly(
-    ) {
+    public boolean hasReadOnly() {
         return this._readOnly != null;
     }
 
@@ -480,34 +473,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_readOnly != null) {
-           result = 37 * result + _readOnly.hashCode();
+            result = 37 * result + _readOnly.hashCode();
         }
         if (_userId != null) {
-           result = 37 * result + _userId.hashCode();
+            result = 37 * result + _userId.hashCode();
         }
         if (_fullName != null) {
-           result = 37 * result + _fullName.hashCode();
+            result = 37 * result + _fullName.hashCode();
         }
         if (_userComments != null) {
-           result = 37 * result + _userComments.hashCode();
+            result = 37 * result + _userComments.hashCode();
         }
         if (_password != null) {
-           result = 37 * result + _password.hashCode();
+            result = 37 * result + _password.hashCode();
         }
         if (_contactList != null) {
-           result = 37 * result + _contactList.hashCode();
+            result = 37 * result + _contactList.hashCode();
         }
         if (_dutyScheduleList != null) {
-           result = 37 * result + _dutyScheduleList.hashCode();
+            result = 37 * result + _dutyScheduleList.hashCode();
         }
         if (_tuiPin != null) {
-           result = 37 * result + _tuiPin.hashCode();
+            result = 37 * result + _tuiPin.hashCode();
         }
 
         return result;
@@ -518,8 +510,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReadOnly'.
      */
-    public boolean isReadOnly(
-    ) {
+    public boolean isReadOnly() {
         return this._readOnly;
     }
 
@@ -528,8 +519,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -544,8 +534,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.users.Contact> iterateContact(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.users.Contact> iterateContact() {
         return this._contactList.iterator();
     }
 
@@ -555,8 +544,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateDutySchedule(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateDutySchedule() {
         return this._dutyScheduleList.iterator();
     }
 
@@ -571,7 +559,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -588,21 +576,19 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllContact(
-    ) {
+    public void removeAllContact() {
         this._contactList.clear();
     }
 
     /**
      */
-    public void removeAllDutySchedule(
-    ) {
+    public void removeAllDutySchedule() {
         this._dutyScheduleList.clear();
     }
 
@@ -665,7 +651,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setContact(
             final int index,
             final org.opennms.netmgt.config.users.Contact vContact)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._contactList.size()) {
             throw new IndexOutOfBoundsException("setContact: Index value '" + index + "' not in range [0.." + (this._contactList.size() - 1) + "]");
@@ -685,7 +671,7 @@ import org.opennms.core.xml.ValidateUsing;
         _contactList.clear();
 
         for (int i = 0; i < vContactArray.length; i++) {
-                this._contactList.add(vContactArray[i]);
+            this._contactList.add(vContactArray[i]);
         }
     }
 
@@ -726,7 +712,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setDutySchedule(
             final int index,
             final java.lang.String vDutySchedule)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._dutyScheduleList.size()) {
             throw new IndexOutOfBoundsException("setDutySchedule: Index value '" + index + "' not in range [0.." + (this._dutyScheduleList.size() - 1) + "]");
@@ -746,7 +732,7 @@ import org.opennms.core.xml.ValidateUsing;
         _dutyScheduleList.clear();
 
         for (int i = 0; i < vDutyScheduleArray.length; i++) {
-                this._dutyScheduleList.add(vDutyScheduleArray[i]);
+            this._dutyScheduleList.add(vDutyScheduleArray[i]);
         }
     }
 
@@ -848,7 +834,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.users.User unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.users.User) Unmarshaller.unmarshal(org.opennms.netmgt.config.users.User.class, reader);
     }
 
@@ -858,9 +844,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

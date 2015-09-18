@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.syslogd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,23 +48,22 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="ueiMatch")
+@XmlRootElement(name = "ueiMatch")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("syslogd-configuration.xsd")
-@SuppressWarnings("all") public class UeiMatch implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class UeiMatch implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The name of a syslog facility. If present, the facility of
      *  an incoming message must match one of the facilities named
      *  by an instance of this tag within the ueiMatch.
      *
      */
-    @XmlElement(name="facility")
+    @XmlElement(name = "facility")
     private java.util.List<java.lang.String> _facilityList;
 
     /**
@@ -76,7 +72,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  by an instance of this tag within the ueiMatch.
      *
      */
-    @XmlElement(name="severity")
+    @XmlElement(name = "severity")
     private java.util.List<java.lang.String> _severityList;
 
     /**
@@ -86,7 +82,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  considered non-matches.
      *
      */
-    @XmlElement(name="process-match")
+    @XmlElement(name = "process-match")
     private org.opennms.netmgt.config.syslogd.ProcessMatch _processMatch;
 
     /**
@@ -94,7 +90,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  as a regular expression.
      *
      */
-    @XmlElement(name="hostname-match")
+    @XmlElement(name = "hostname-match")
     private org.opennms.netmgt.config.syslogd.HostnameMatch _hostnameMatch;
 
     /**
@@ -103,7 +99,7 @@ import org.opennms.core.xml.ValidateUsing;
      *  as a regular expression.
      *
      */
-    @XmlElement(name="hostaddr-match")
+    @XmlElement(name = "hostaddr-match")
     private org.opennms.netmgt.config.syslogd.HostaddrMatch _hostaddrMatch;
 
     /**
@@ -112,13 +108,13 @@ import org.opennms.core.xml.ValidateUsing;
      *  value of the "type" attribute
      *
      */
-    @XmlElement(name="match", required = true)
+    @XmlElement(name = "match", required = true)
     private org.opennms.netmgt.config.syslogd.Match _match;
 
     /**
      * UEI
      */
-    @XmlElement(name="uei", required = true)
+    @XmlElement(name = "uei", required = true)
     private String _uei;
 
     /**
@@ -126,14 +122,12 @@ import org.opennms.core.xml.ValidateUsing;
      *  to a named event parameter
      *
      */
-    @XmlElement(name="parameter-assignment")
+    @XmlElement(name = "parameter-assignment")
     private java.util.List<org.opennms.netmgt.config.syslogd.ParameterAssignment> _parameterAssignmentList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public UeiMatch() {
         super();
         this._facilityList = new java.util.ArrayList<java.lang.String>();
@@ -141,11 +135,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._parameterAssignmentList = new java.util.ArrayList<org.opennms.netmgt.config.syslogd.ParameterAssignment>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -155,7 +147,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addFacility(
             final java.lang.String vFacility)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._facilityList.add(vFacility);
     }
 
@@ -170,7 +162,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addFacility(
             final int index,
             final java.lang.String vFacility)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._facilityList.add(index, vFacility);
     }
 
@@ -183,7 +175,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addParameterAssignment(
             final org.opennms.netmgt.config.syslogd.ParameterAssignment vParameterAssignment)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._parameterAssignmentList.add(vParameterAssignment);
     }
 
@@ -198,7 +190,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addParameterAssignment(
             final int index,
             final org.opennms.netmgt.config.syslogd.ParameterAssignment vParameterAssignment)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._parameterAssignmentList.add(index, vParameterAssignment);
     }
 
@@ -211,7 +203,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSeverity(
             final java.lang.String vSeverity)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._severityList.add(vSeverity);
     }
 
@@ -226,7 +218,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSeverity(
             final int index,
             final java.lang.String vSeverity)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._severityList.add(index, vSeverity);
     }
 
@@ -236,8 +228,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateFacility(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateFacility() {
         return java.util.Collections.enumeration(this._facilityList);
     }
 
@@ -247,8 +238,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.syslogd.ParameterAssignment> enumerateParameterAssignment(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.syslogd.ParameterAssignment> enumerateParameterAssignment() {
         return java.util.Collections.enumeration(this._parameterAssignmentList);
     }
 
@@ -258,8 +248,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateSeverity(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateSeverity() {
         return java.util.Collections.enumeration(this._severityList);
     }
 
@@ -272,68 +261,85 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof UeiMatch) {
 
-            UeiMatch temp = (UeiMatch)obj;
+            UeiMatch temp = (UeiMatch) obj;
             if (this._facilityList != null) {
-                if (temp._facilityList == null) return false;
-                else if (!(this._facilityList.equals(temp._facilityList)))
+                if (temp._facilityList == null) {
                     return false;
-            }
-            else if (temp._facilityList != null)
+                } else if (!(this._facilityList.equals(temp._facilityList))) {
+                    return false;
+                }
+            } else if (temp._facilityList != null) {
                 return false;
+            }
             if (this._severityList != null) {
-                if (temp._severityList == null) return false;
-                else if (!(this._severityList.equals(temp._severityList)))
+                if (temp._severityList == null) {
                     return false;
-            }
-            else if (temp._severityList != null)
+                } else if (!(this._severityList.equals(temp._severityList))) {
+                    return false;
+                }
+            } else if (temp._severityList != null) {
                 return false;
+            }
             if (this._processMatch != null) {
-                if (temp._processMatch == null) return false;
-                else if (!(this._processMatch.equals(temp._processMatch)))
+                if (temp._processMatch == null) {
                     return false;
-            }
-            else if (temp._processMatch != null)
+                } else if (!(this._processMatch.equals(temp._processMatch))) {
+                    return false;
+                }
+            } else if (temp._processMatch != null) {
                 return false;
+            }
             if (this._hostnameMatch != null) {
-                if (temp._hostnameMatch == null) return false;
-                else if (!(this._hostnameMatch.equals(temp._hostnameMatch)))
+                if (temp._hostnameMatch == null) {
                     return false;
-            }
-            else if (temp._hostnameMatch != null)
+                } else if (!(this._hostnameMatch.equals(temp._hostnameMatch))) {
+                    return false;
+                }
+            } else if (temp._hostnameMatch != null) {
                 return false;
+            }
             if (this._hostaddrMatch != null) {
-                if (temp._hostaddrMatch == null) return false;
-                else if (!(this._hostaddrMatch.equals(temp._hostaddrMatch)))
+                if (temp._hostaddrMatch == null) {
                     return false;
-            }
-            else if (temp._hostaddrMatch != null)
+                } else if (!(this._hostaddrMatch.equals(temp._hostaddrMatch))) {
+                    return false;
+                }
+            } else if (temp._hostaddrMatch != null) {
                 return false;
+            }
             if (this._match != null) {
-                if (temp._match == null) return false;
-                else if (!(this._match.equals(temp._match)))
+                if (temp._match == null) {
                     return false;
-            }
-            else if (temp._match != null)
+                } else if (!(this._match.equals(temp._match))) {
+                    return false;
+                }
+            } else if (temp._match != null) {
                 return false;
+            }
             if (this._uei != null) {
-                if (temp._uei == null) return false;
-                else if (!(this._uei.equals(temp._uei)))
+                if (temp._uei == null) {
                     return false;
-            }
-            else if (temp._uei != null)
+                } else if (!(this._uei.equals(temp._uei))) {
+                    return false;
+                }
+            } else if (temp._uei != null) {
                 return false;
+            }
             if (this._parameterAssignmentList != null) {
-                if (temp._parameterAssignmentList == null) return false;
-                else if (!(this._parameterAssignmentList.equals(temp._parameterAssignmentList)))
+                if (temp._parameterAssignmentList == null) {
                     return false;
-            }
-            else if (temp._parameterAssignmentList != null)
+                } else if (!(this._parameterAssignmentList.equals(temp._parameterAssignmentList))) {
+                    return false;
+                }
+            } else if (temp._parameterAssignmentList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -349,7 +355,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getFacility(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._facilityList.size()) {
             throw new IndexOutOfBoundsException("getFacility: Index value '" + index + "' not in range [0.." + (this._facilityList.size() - 1) + "]");
@@ -367,8 +373,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getFacility(
-    ) {
+    public java.lang.String[] getFacility() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._facilityList.toArray(array);
     }
@@ -380,8 +385,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getFacilityCollection(
-    ) {
+    public java.util.List<java.lang.String> getFacilityCollection() {
         return this._facilityList;
     }
 
@@ -390,8 +394,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getFacilityCount(
-    ) {
+    public int getFacilityCount() {
         return this._facilityList.size();
     }
 
@@ -404,8 +407,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'HostaddrMatch'.
      */
-    public org.opennms.netmgt.config.syslogd.HostaddrMatch getHostaddrMatch(
-    ) {
+    public org.opennms.netmgt.config.syslogd.HostaddrMatch getHostaddrMatch() {
         return this._hostaddrMatch;
     }
 
@@ -418,8 +420,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'HostnameMatch'.
      */
-    public org.opennms.netmgt.config.syslogd.HostnameMatch getHostnameMatch(
-    ) {
+    public org.opennms.netmgt.config.syslogd.HostnameMatch getHostnameMatch() {
         return this._hostnameMatch;
     }
 
@@ -433,8 +434,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Match'.
      */
-    public org.opennms.netmgt.config.syslogd.Match getMatch(
-    ) {
+    public org.opennms.netmgt.config.syslogd.Match getMatch() {
         return this._match;
     }
 
@@ -450,7 +450,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.syslogd.ParameterAssignment getParameterAssignment(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._parameterAssignmentList.size()) {
             throw new IndexOutOfBoundsException("getParameterAssignment: Index value '" + index + "' not in range [0.." + (this._parameterAssignmentList.size() - 1) + "]");
@@ -469,8 +469,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.syslogd.ParameterAssignment[] getParameterAssignment(
-    ) {
+    public org.opennms.netmgt.config.syslogd.ParameterAssignment[] getParameterAssignment() {
         org.opennms.netmgt.config.syslogd.ParameterAssignment[] array = new org.opennms.netmgt.config.syslogd.ParameterAssignment[0];
         return (org.opennms.netmgt.config.syslogd.ParameterAssignment[]) this._parameterAssignmentList.toArray(array);
     }
@@ -482,8 +481,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.syslogd.ParameterAssignment> getParameterAssignmentCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.syslogd.ParameterAssignment> getParameterAssignmentCollection() {
         return this._parameterAssignmentList;
     }
 
@@ -492,8 +490,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getParameterAssignmentCount(
-    ) {
+    public int getParameterAssignmentCount() {
         return this._parameterAssignmentList.size();
     }
 
@@ -508,8 +505,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ProcessMatch'.
      */
-    public org.opennms.netmgt.config.syslogd.ProcessMatch getProcessMatch(
-    ) {
+    public org.opennms.netmgt.config.syslogd.ProcessMatch getProcessMatch() {
         return this._processMatch;
     }
 
@@ -523,7 +519,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getSeverity(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._severityList.size()) {
             throw new IndexOutOfBoundsException("getSeverity: Index value '" + index + "' not in range [0.." + (this._severityList.size() - 1) + "]");
@@ -541,8 +537,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getSeverity(
-    ) {
+    public java.lang.String[] getSeverity() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._severityList.toArray(array);
     }
@@ -554,8 +549,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getSeverityCollection(
-    ) {
+    public java.util.List<java.lang.String> getSeverityCollection() {
         return this._severityList;
     }
 
@@ -564,8 +558,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSeverityCount(
-    ) {
+    public int getSeverityCount() {
         return this._severityList.size();
     }
 
@@ -575,8 +568,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Uei'.
      */
-    public java.lang.String getUei(
-    ) {
+    public java.lang.String getUei() {
         return this._uei;
     }
 
@@ -589,34 +581,33 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_facilityList != null) {
-           result = 37 * result + _facilityList.hashCode();
+            result = 37 * result + _facilityList.hashCode();
         }
         if (_severityList != null) {
-           result = 37 * result + _severityList.hashCode();
+            result = 37 * result + _severityList.hashCode();
         }
         if (_processMatch != null) {
-           result = 37 * result + _processMatch.hashCode();
+            result = 37 * result + _processMatch.hashCode();
         }
         if (_hostnameMatch != null) {
-           result = 37 * result + _hostnameMatch.hashCode();
+            result = 37 * result + _hostnameMatch.hashCode();
         }
         if (_hostaddrMatch != null) {
-           result = 37 * result + _hostaddrMatch.hashCode();
+            result = 37 * result + _hostaddrMatch.hashCode();
         }
         if (_match != null) {
-           result = 37 * result + _match.hashCode();
+            result = 37 * result + _match.hashCode();
         }
         if (_uei != null) {
-           result = 37 * result + _uei.hashCode();
+            result = 37 * result + _uei.hashCode();
         }
         if (_parameterAssignmentList != null) {
-           result = 37 * result + _parameterAssignmentList.hashCode();
+            result = 37 * result + _parameterAssignmentList.hashCode();
         }
 
         return result;
@@ -627,8 +618,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -643,8 +633,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateFacility(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateFacility() {
         return this._facilityList.iterator();
     }
 
@@ -654,8 +643,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.syslogd.ParameterAssignment> iterateParameterAssignment(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.syslogd.ParameterAssignment> iterateParameterAssignment() {
         return this._parameterAssignmentList.iterator();
     }
 
@@ -665,8 +653,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateSeverity(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateSeverity() {
         return this._severityList.iterator();
     }
 
@@ -681,7 +668,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -698,28 +685,25 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllFacility(
-    ) {
+    public void removeAllFacility() {
         this._facilityList.clear();
     }
 
     /**
      */
-    public void removeAllParameterAssignment(
-    ) {
+    public void removeAllParameterAssignment() {
         this._parameterAssignmentList.clear();
     }
 
     /**
      */
-    public void removeAllSeverity(
-    ) {
+    public void removeAllSeverity() {
         this._severityList.clear();
     }
 
@@ -806,7 +790,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setFacility(
             final int index,
             final java.lang.String vFacility)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._facilityList.size()) {
             throw new IndexOutOfBoundsException("setFacility: Index value '" + index + "' not in range [0.." + (this._facilityList.size() - 1) + "]");
@@ -826,7 +810,7 @@ import org.opennms.core.xml.ValidateUsing;
         _facilityList.clear();
 
         for (int i = 0; i < vFacilityArray.length; i++) {
-                this._facilityList.add(vFacilityArray[i]);
+            this._facilityList.add(vFacilityArray[i]);
         }
     }
 
@@ -910,7 +894,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setParameterAssignment(
             final int index,
             final org.opennms.netmgt.config.syslogd.ParameterAssignment vParameterAssignment)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._parameterAssignmentList.size()) {
             throw new IndexOutOfBoundsException("setParameterAssignment: Index value '" + index + "' not in range [0.." + (this._parameterAssignmentList.size() - 1) + "]");
@@ -930,7 +914,7 @@ import org.opennms.core.xml.ValidateUsing;
         _parameterAssignmentList.clear();
 
         for (int i = 0; i < vParameterAssignmentArray.length; i++) {
-                this._parameterAssignmentList.add(vParameterAssignmentArray[i]);
+            this._parameterAssignmentList.add(vParameterAssignmentArray[i]);
         }
     }
 
@@ -987,7 +971,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSeverity(
             final int index,
             final java.lang.String vSeverity)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._severityList.size()) {
             throw new IndexOutOfBoundsException("setSeverity: Index value '" + index + "' not in range [0.." + (this._severityList.size() - 1) + "]");
@@ -1007,7 +991,7 @@ import org.opennms.core.xml.ValidateUsing;
         _severityList.clear();
 
         for (int i = 0; i < vSeverityArray.length; i++) {
-                this._severityList.add(vSeverityArray[i]);
+            this._severityList.add(vSeverityArray[i]);
         }
     }
 
@@ -1061,7 +1045,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.syslogd.UeiMatch unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.syslogd.UeiMatch) Unmarshaller.unmarshal(org.opennms.netmgt.config.syslogd.UeiMatch.class, reader);
     }
 
@@ -1071,9 +1055,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

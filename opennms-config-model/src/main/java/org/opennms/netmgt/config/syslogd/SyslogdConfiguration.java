@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.syslogd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,57 +48,52 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="syslogd-configuration")
+@XmlRootElement(name = "syslogd-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("syslogd-configuration.xsd")
-@SuppressWarnings("all") public class SyslogdConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class SyslogdConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Top-level element for the syslogd-configuration.xml
      *  configuration file.
      *
      */
-    @XmlElement(name="configuration", required = true)
+    @XmlElement(name = "configuration", required = true)
     private org.opennms.netmgt.config.syslogd.Configuration _configuration;
 
     /**
      * Field _ueiList.
      */
-    @XmlElement(name="ueiList")
+    @XmlElement(name = "ueiList")
     private org.opennms.netmgt.config.syslogd.UeiList _ueiList;
 
     /**
      * Field _hideMessage.
      */
-    @XmlElement(name="hideMessage")
+    @XmlElement(name = "hideMessage")
     private org.opennms.netmgt.config.syslogd.HideMessage _hideMessage;
 
     /**
      * Field _importFileList.
      */
-    @XmlElement(name="import-file")
+    @XmlElement(name = "import-file")
     private java.util.List<java.lang.String> _importFileList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public SyslogdConfiguration() {
         super();
         this._importFileList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -111,7 +103,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addImportFile(
             final java.lang.String vImportFile)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._importFileList.add(vImportFile);
     }
 
@@ -126,7 +118,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addImportFile(
             final int index,
             final java.lang.String vImportFile)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._importFileList.add(index, vImportFile);
     }
 
@@ -136,8 +128,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateImportFile(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateImportFile() {
         return java.util.Collections.enumeration(this._importFileList);
     }
 
@@ -150,40 +141,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof SyslogdConfiguration) {
 
-            SyslogdConfiguration temp = (SyslogdConfiguration)obj;
+            SyslogdConfiguration temp = (SyslogdConfiguration) obj;
             if (this._configuration != null) {
-                if (temp._configuration == null) return false;
-                else if (!(this._configuration.equals(temp._configuration)))
+                if (temp._configuration == null) {
                     return false;
-            }
-            else if (temp._configuration != null)
+                } else if (!(this._configuration.equals(temp._configuration))) {
+                    return false;
+                }
+            } else if (temp._configuration != null) {
                 return false;
+            }
             if (this._ueiList != null) {
-                if (temp._ueiList == null) return false;
-                else if (!(this._ueiList.equals(temp._ueiList)))
+                if (temp._ueiList == null) {
                     return false;
-            }
-            else if (temp._ueiList != null)
+                } else if (!(this._ueiList.equals(temp._ueiList))) {
+                    return false;
+                }
+            } else if (temp._ueiList != null) {
                 return false;
+            }
             if (this._hideMessage != null) {
-                if (temp._hideMessage == null) return false;
-                else if (!(this._hideMessage.equals(temp._hideMessage)))
+                if (temp._hideMessage == null) {
                     return false;
-            }
-            else if (temp._hideMessage != null)
+                } else if (!(this._hideMessage.equals(temp._hideMessage))) {
+                    return false;
+                }
+            } else if (temp._hideMessage != null) {
                 return false;
+            }
             if (this._importFileList != null) {
-                if (temp._importFileList == null) return false;
-                else if (!(this._importFileList.equals(temp._importFileList)))
+                if (temp._importFileList == null) {
                     return false;
-            }
-            else if (temp._importFileList != null)
+                } else if (!(this._importFileList.equals(temp._importFileList))) {
+                    return false;
+                }
+            } else if (temp._importFileList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -198,8 +198,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Configuration'.
      */
-    public org.opennms.netmgt.config.syslogd.Configuration getConfiguration(
-    ) {
+    public org.opennms.netmgt.config.syslogd.Configuration getConfiguration() {
         return this._configuration;
     }
 
@@ -208,8 +207,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'HideMessage'.
      */
-    public org.opennms.netmgt.config.syslogd.HideMessage getHideMessage(
-    ) {
+    public org.opennms.netmgt.config.syslogd.HideMessage getHideMessage() {
         return this._hideMessage;
     }
 
@@ -223,7 +221,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getImportFile(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._importFileList.size()) {
             throw new IndexOutOfBoundsException("getImportFile: Index value '" + index + "' not in range [0.." + (this._importFileList.size() - 1) + "]");
@@ -241,8 +239,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getImportFile(
-    ) {
+    public java.lang.String[] getImportFile() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._importFileList.toArray(array);
     }
@@ -254,8 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getImportFileCollection(
-    ) {
+    public java.util.List<java.lang.String> getImportFileCollection() {
         return this._importFileList;
     }
 
@@ -264,8 +260,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getImportFileCount(
-    ) {
+    public int getImportFileCount() {
         return this._importFileList.size();
     }
 
@@ -274,8 +269,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UeiList'.
      */
-    public org.opennms.netmgt.config.syslogd.UeiList getUeiList(
-    ) {
+    public org.opennms.netmgt.config.syslogd.UeiList getUeiList() {
         return this._ueiList;
     }
 
@@ -288,22 +282,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_configuration != null) {
-           result = 37 * result + _configuration.hashCode();
+            result = 37 * result + _configuration.hashCode();
         }
         if (_ueiList != null) {
-           result = 37 * result + _ueiList.hashCode();
+            result = 37 * result + _ueiList.hashCode();
         }
         if (_hideMessage != null) {
-           result = 37 * result + _hideMessage.hashCode();
+            result = 37 * result + _hideMessage.hashCode();
         }
         if (_importFileList != null) {
-           result = 37 * result + _importFileList.hashCode();
+            result = 37 * result + _importFileList.hashCode();
         }
 
         return result;
@@ -314,8 +307,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -330,8 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateImportFile(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateImportFile() {
         return this._importFileList.iterator();
     }
 
@@ -346,7 +337,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -363,14 +354,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllImportFile(
-    ) {
+    public void removeAllImportFile() {
         this._importFileList.clear();
     }
 
@@ -433,7 +423,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setImportFile(
             final int index,
             final java.lang.String vImportFile)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._importFileList.size()) {
             throw new IndexOutOfBoundsException("setImportFile: Index value '" + index + "' not in range [0.." + (this._importFileList.size() - 1) + "]");
@@ -453,7 +443,7 @@ import org.opennms.core.xml.ValidateUsing;
         _importFileList.clear();
 
         for (int i = 0; i < vImportFileArray.length; i++) {
-                this._importFileList.add(vImportFileArray[i]);
+            this._importFileList.add(vImportFileArray[i]);
         }
     }
 
@@ -506,7 +496,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.syslogd.SyslogdConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.syslogd.SyslogdConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.syslogd.SyslogdConfiguration.class, reader);
     }
 
@@ -516,9 +506,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

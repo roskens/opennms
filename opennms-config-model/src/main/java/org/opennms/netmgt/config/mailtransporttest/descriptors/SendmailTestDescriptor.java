@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
 
 /**
@@ -46,13 +44,12 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
  * 
  * @version $Revision$ $Date$
  */
-@SuppressWarnings("all") public class SendmailTestDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
-
+@SuppressWarnings("all")
+public class SendmailTestDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,39 +75,38 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public SendmailTestDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/mail-transport-test";
         _xmlName = "sendmail-test";
         _elementDefinition = true;
-        
+
         //-- set grouping compositor
         setCompositorAsSequence();
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- _debug
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Boolean.TYPE, "_debug", "debug", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
-                if (!target.hasDebug()) { return null; }
+                if (!target.hasDebug()) {
+                    return null;
+                }
                 return (target.getDebug() ? java.lang.Boolean.TRUE : java.lang.Boolean.FALSE);
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
                     // if null, use delete method for optional primitives 
@@ -118,11 +114,12 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
                         target.deleteDebug();
                         return;
                     }
-                    target.setDebug( ((java.lang.Boolean) value).booleanValue());
+                    target.setDebug(((java.lang.Boolean) value).booleanValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -133,7 +130,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _debug
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -146,17 +143,18 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Boolean.TYPE, "_useAuthentication", "use-authentication", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
-                if (!target.hasUseAuthentication()) { return null; }
+                if (!target.hasUseAuthentication()) {
+                    return null;
+                }
                 return (target.getUseAuthentication() ? java.lang.Boolean.TRUE : java.lang.Boolean.FALSE);
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
                     // if null, use delete method for optional primitives 
@@ -164,11 +162,12 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
                         target.deleteUseAuthentication();
                         return;
                     }
-                    target.setUseAuthentication( ((java.lang.Boolean) value).booleanValue());
+                    target.setUseAuthentication(((java.lang.Boolean) value).booleanValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -179,7 +178,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _useAuthentication
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -192,17 +191,18 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Boolean.TYPE, "_useJmta", "use-jmta", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
-                if (!target.hasUseJmta()) { return null; }
+                if (!target.hasUseJmta()) {
+                    return null;
+                }
                 return (target.getUseJmta() ? java.lang.Boolean.TRUE : java.lang.Boolean.FALSE);
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
                     // if null, use delete method for optional primitives 
@@ -210,11 +210,12 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
                         target.deleteUseJmta();
                         return;
                     }
-                    target.setUseJmta( ((java.lang.Boolean) value).booleanValue());
+                    target.setUseJmta(((java.lang.Boolean) value).booleanValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -225,7 +226,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _useJmta
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -238,17 +239,18 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.Long.TYPE, "_attemptInterval", "attempt-interval", org.exolab.castor.xml.NodeType.Attribute);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
-                if (!target.hasAttemptInterval()) { return null; }
+                if (!target.hasAttemptInterval()) {
+                    return null;
+                }
                 return new java.lang.Long(target.getAttemptInterval());
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
                     // if null, use delete method for optional primitives 
@@ -256,11 +258,12 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
                         target.deleteAttemptInterval();
                         return;
                     }
-                    target.setAttemptInterval( ((java.lang.Long) value).longValue());
+                    target.setAttemptInterval(((java.lang.Long) value).longValue());
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -271,7 +274,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _attemptInterval
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -281,28 +284,28 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         }
         desc.setValidator(fieldValidator);
         //-- initialize element descriptors
-        
+
         //-- _javamailPropertyList
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.JavamailProperty.class, "_javamailPropertyList", "javamail-property", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
                 return target.getJavamailProperty();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
-                    target.addJavamailProperty( (org.opennms.netmgt.config.mailtransporttest.JavamailProperty) value);
+                    target.addJavamailProperty((org.opennms.netmgt.config.mailtransporttest.JavamailProperty) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
@@ -311,6 +314,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -323,7 +327,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _javamailPropertyList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(0);
@@ -334,23 +338,23 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.SendmailHost.class, "_sendmailHost", "sendmail-host", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
                 return target.getSendmailHost();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
-                    target.setSendmailHost( (org.opennms.netmgt.config.mailtransporttest.SendmailHost) value);
+                    target.setSendmailHost((org.opennms.netmgt.config.mailtransporttest.SendmailHost) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -364,7 +368,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _sendmailHost
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -375,23 +379,23 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.SendmailProtocol.class, "_sendmailProtocol", "sendmail-protocol", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
                 return target.getSendmailProtocol();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
-                    target.setSendmailProtocol( (org.opennms.netmgt.config.mailtransporttest.SendmailProtocol) value);
+                    target.setSendmailProtocol((org.opennms.netmgt.config.mailtransporttest.SendmailProtocol) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -405,7 +409,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _sendmailProtocol
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -416,23 +420,23 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.SendmailMessage.class, "_sendmailMessage", "sendmail-message", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
                 return target.getSendmailMessage();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
-                    target.setSendmailMessage( (org.opennms.netmgt.config.mailtransporttest.SendmailMessage) value);
+                    target.setSendmailMessage((org.opennms.netmgt.config.mailtransporttest.SendmailMessage) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -446,7 +450,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _sendmailMessage
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -457,23 +461,23 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.config.mailtransporttest.UserAuth.class, "_userAuth", "user-auth", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 SendmailTest target = (SendmailTest) object;
                 return target.getUserAuth();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     SendmailTest target = (SendmailTest) object;
-                    target.setUserAuth( (org.opennms.netmgt.config.mailtransporttest.UserAuth) value);
+                    target.setUserAuth((org.opennms.netmgt.config.mailtransporttest.UserAuth) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -487,7 +491,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _userAuth
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -496,19 +500,16 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
         desc.setValidator(fieldValidator);
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -519,8 +520,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -530,8 +530,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.config.mailtransporttest.SendmailTest.class;
     }
 
@@ -541,8 +540,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -553,8 +551,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -565,8 +562,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -576,8 +572,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -588,8 +583,7 @@ import org.opennms.netmgt.config.mailtransporttest.SendmailTest;
      * of a global
      * element or element with anonymous type definition.
      */
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

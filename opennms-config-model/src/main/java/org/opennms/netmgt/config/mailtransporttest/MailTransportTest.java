@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -75,11 +73,11 @@ import org.xml.sax.ContentHandler;
  *  sequence is delivery of a message from one mail host to
  * another.
  */
-
-@XmlRootElement(name="mail-transport-test")
+@XmlRootElement(name = "mail-transport-test")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("mail-transport-test.xsd")
 public class MailTransportTest implements Serializable {
+
     private static final long serialVersionUID = -1213778109324747604L;
 
     /**
@@ -88,23 +86,19 @@ public class MailTransportTest implements Serializable {
      *  configured, then the use case (d) will be executed.
      *  
      */
-    @XmlElement(name="mail-test")
+    @XmlElement(name = "mail-test")
     private MailTest m_mailTest;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public MailTransportTest() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the Object.equals method.
      * 
@@ -113,10 +107,12 @@ public class MailTransportTest implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof MailTransportTest) {
-            final MailTransportTest temp = (MailTransportTest)obj;
+            final MailTransportTest temp = (MailTransportTest) obj;
             if (m_mailTest != null) {
                 if (temp.m_mailTest == null) {
                     return false;
@@ -154,11 +150,11 @@ public class MailTransportTest implements Serializable {
      */
     public int hashCode() {
         int result = 17;
-        
+
         if (m_mailTest != null) {
-           result = 37 * result + m_mailTest.hashCode();
+            result = 37 * result + m_mailTest.hashCode();
         }
-        
+
         return result;
     }
 

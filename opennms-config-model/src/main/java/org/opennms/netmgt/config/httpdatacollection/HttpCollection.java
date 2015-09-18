@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.httpdatacollection;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,48 +48,43 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="http-collection")
+@XmlRootElement(name = "http-collection")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("http-datacollection-config.xsd")
-@SuppressWarnings("all") public class HttpCollection implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class HttpCollection implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name")
+    @XmlAttribute(name = "name")
     private java.lang.String _name;
 
     /**
      * RRD parms
      */
-    @XmlElement(name="rrd")
+    @XmlElement(name = "rrd")
     private org.opennms.netmgt.config.httpdatacollection.Rrd _rrd;
 
     /**
      * Field _uris.
      */
-    @XmlElement(name="uris")
+    @XmlElement(name = "uris")
     private org.opennms.netmgt.config.httpdatacollection.Uris _uris;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public HttpCollection() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -102,33 +94,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof HttpCollection) {
 
-            HttpCollection temp = (HttpCollection)obj;
+            HttpCollection temp = (HttpCollection) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._rrd != null) {
-                if (temp._rrd == null) return false;
-                else if (!(this._rrd.equals(temp._rrd)))
+                if (temp._rrd == null) {
                     return false;
-            }
-            else if (temp._rrd != null)
+                } else if (!(this._rrd.equals(temp._rrd))) {
+                    return false;
+                }
+            } else if (temp._rrd != null) {
                 return false;
+            }
             if (this._uris != null) {
-                if (temp._uris == null) return false;
-                else if (!(this._uris.equals(temp._uris)))
+                if (temp._uris == null) {
                     return false;
-            }
-            else if (temp._uris != null)
+                } else if (!(this._uris.equals(temp._uris))) {
+                    return false;
+                }
+            } else if (temp._uris != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -139,8 +138,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name == null ? "default" : this._name;
     }
 
@@ -150,8 +148,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Rrd'.
      */
-    public org.opennms.netmgt.config.httpdatacollection.Rrd getRrd(
-    ) {
+    public org.opennms.netmgt.config.httpdatacollection.Rrd getRrd() {
         return this._rrd;
     }
 
@@ -160,8 +157,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Uris'.
      */
-    public org.opennms.netmgt.config.httpdatacollection.Uris getUris(
-    ) {
+    public org.opennms.netmgt.config.httpdatacollection.Uris getUris() {
         return this._uris;
     }
 
@@ -174,19 +170,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_rrd != null) {
-           result = 37 * result + _rrd.hashCode();
+            result = 37 * result + _rrd.hashCode();
         }
         if (_uris != null) {
-           result = 37 * result + _uris.hashCode();
+            result = 37 * result + _uris.hashCode();
         }
 
         return result;
@@ -197,8 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -218,7 +212,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -235,7 +229,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -283,7 +277,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.httpdatacollection.HttpCollection unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.httpdatacollection.HttpCollection) Unmarshaller.unmarshal(org.opennms.netmgt.config.httpdatacollection.HttpCollection.class, reader);
     }
 
@@ -293,9 +287,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

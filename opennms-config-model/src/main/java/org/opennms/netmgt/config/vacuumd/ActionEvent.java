@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,6 +54,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "action-event")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ActionEvent implements Serializable {
+
     private static final long serialVersionUID = 1286974132304106079L;
 
     private static final boolean DEFAULT_FOR_EACH_RESULT_FLAG = false;
@@ -65,7 +64,6 @@ public class ActionEvent implements Serializable {
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _name.
      */
@@ -93,7 +91,6 @@ public class ActionEvent implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public ActionEvent() {
         super();
     }
@@ -110,7 +107,6 @@ public class ActionEvent implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -153,33 +149,44 @@ public class ActionEvent implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         ActionEvent other = (ActionEvent) obj;
         if (_addAllParms == null) {
-            if (other._addAllParms != null)
+            if (other._addAllParms != null) {
                 return false;
-        } else if (!_addAllParms.equals(other._addAllParms))
+            }
+        } else if (!_addAllParms.equals(other._addAllParms)) {
             return false;
+        }
         if (_assignmentList == null) {
-            if (other._assignmentList != null)
+            if (other._assignmentList != null) {
                 return false;
-        } else if (!_assignmentList.equals(other._assignmentList))
+            }
+        } else if (!_assignmentList.equals(other._assignmentList)) {
             return false;
+        }
         if (_forEachResult == null) {
-            if (other._forEachResult != null)
+            if (other._forEachResult != null) {
                 return false;
-        } else if (!_forEachResult.equals(other._forEachResult))
+            }
+        } else if (!_forEachResult.equals(other._forEachResult)) {
             return false;
+        }
         if (_name == null) {
-            if (other._name != null)
+            if (other._name != null) {
                 return false;
-        } else if (!_name.equals(other._name))
+            }
+        } else if (!_name.equals(other._name)) {
             return false;
+        }
         return true;
     }
 
@@ -190,7 +197,7 @@ public class ActionEvent implements Serializable {
      */
     public boolean getAddAllParms() {
         return _addAllParms == null ? DEFAULT_ADD_ALL_PARMS_FLAG
-                                   : _addAllParms;
+                : _addAllParms;
     }
 
     /**
@@ -206,11 +213,11 @@ public class ActionEvent implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._assignmentList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "getAssignment: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._assignmentList.size() - 1)
-                                                        + "]");
+                    "getAssignment: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._assignmentList.size() - 1)
+                    + "]");
         }
 
         return (Assignment) _assignmentList.get(index);
@@ -259,7 +266,7 @@ public class ActionEvent implements Serializable {
      */
     public boolean getForEachResult() {
         return _forEachResult == null ? DEFAULT_FOR_EACH_RESULT_FLAG
-                                     : _forEachResult;
+                : _forEachResult;
     }
 
     /**
@@ -301,7 +308,7 @@ public class ActionEvent implements Serializable {
      */
     public boolean isAddAllParms() {
         return _addAllParms == null ? DEFAULT_ADD_ALL_PARMS_FLAG
-                                   : _addAllParms;
+                : _addAllParms;
     }
 
     /**
@@ -311,7 +318,7 @@ public class ActionEvent implements Serializable {
      */
     public boolean isForEachResult() {
         return _forEachResult == null ? DEFAULT_FOR_EACH_RESULT_FLAG
-                                     : _forEachResult;
+                : _forEachResult;
     }
 
     /**
@@ -372,11 +379,11 @@ public class ActionEvent implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._assignmentList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "setAssignment: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._assignmentList.size() - 1)
-                                                        + "]");
+                    "setAssignment: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._assignmentList.size() - 1)
+                    + "]");
         }
 
         this._assignmentList.set(index, vAssignment);

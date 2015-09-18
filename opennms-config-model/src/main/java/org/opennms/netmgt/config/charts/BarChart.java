@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.charts;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,140 +48,135 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="bar-chart")
+@XmlRootElement(name = "bar-chart")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("chart-configuration.xsd")
-@SuppressWarnings("all") public class BarChart implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class BarChart implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _name.
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Field _domainAxisLabel.
      */
-    @XmlAttribute(name="domain-axis-label", required = true)
+    @XmlAttribute(name = "domain-axis-label", required = true)
     private java.lang.String _domainAxisLabel;
 
     /**
      * Field _rangeAxisLabel.
      */
-    @XmlAttribute(name="range-axis-label", required = true)
+    @XmlAttribute(name = "range-axis-label", required = true)
     private java.lang.String _rangeAxisLabel;
 
     /**
      * Field _subLabelClass.
      */
-    @XmlAttribute(name="sub-label-class")
+    @XmlAttribute(name = "sub-label-class")
     private java.lang.String _subLabelClass;
 
     /**
      * Field _seriesColorClass.
      */
-    @XmlAttribute(name="series-color-class")
+    @XmlAttribute(name = "series-color-class")
     private java.lang.String _seriesColorClass;
 
     /**
      * Field _drawBarOutline.
      */
-    @XmlAttribute(name="draw-bar-outline")
+    @XmlAttribute(name = "draw-bar-outline")
     private Boolean _drawBarOutline = true;
 
     /**
      * Field _showLegend.
      */
-    @XmlAttribute(name="show-legend")
+    @XmlAttribute(name = "show-legend")
     private Boolean _showLegend = true;
 
     /**
      * Field _showToolTips.
      */
-    @XmlAttribute(name="show-tool-tips")
+    @XmlAttribute(name = "show-tool-tips")
     private Boolean _showToolTips = false;
 
     /**
      * Field _showUrls.
      */
-    @XmlAttribute(name="show-urls")
+    @XmlAttribute(name = "show-urls")
     private Boolean _showUrls = false;
 
     /**
      * Field _variation.
      */
-    @XmlAttribute(name="variation")
+    @XmlAttribute(name = "variation")
     private java.lang.String _variation;
 
     /**
      * Field _plotOrientation.
      */
-    @XmlAttribute(name="plot-orientation")
+    @XmlAttribute(name = "plot-orientation")
     private java.lang.String _plotOrientation;
 
     /**
      * Field _title.
      */
-    @XmlElement(name="title")
+    @XmlElement(name = "title")
     private org.opennms.netmgt.config.charts.Title _title;
 
     /**
      * Field _imageSize.
      */
-    @XmlElement(name="image-size")
+    @XmlElement(name = "image-size")
     private org.opennms.netmgt.config.charts.ImageSize _imageSize;
 
     /**
      * Field _subTitleList.
      */
-    @XmlElement(name="sub-title")
+    @XmlElement(name = "sub-title")
     private java.util.List<org.opennms.netmgt.config.charts.SubTitle> _subTitleList;
 
     /**
      * Field _gridLines.
      */
-    @XmlElement(name="grid-lines")
+    @XmlElement(name = "grid-lines")
     private org.opennms.netmgt.config.charts.GridLines _gridLines;
 
     /**
      * Field _seriesDefList.
      */
-    @XmlElement(name="series-def")
+    @XmlElement(name = "series-def")
     private java.util.List<org.opennms.netmgt.config.charts.SeriesDef> _seriesDefList;
 
     /**
      * Field _plotBackgroundColor.
      */
-    @XmlElement(name="plot-background-color")
+    @XmlElement(name = "plot-background-color")
     private org.opennms.netmgt.config.charts.PlotBackgroundColor _plotBackgroundColor;
 
     /**
      * Field _chartBackgroundColor.
      */
-    @XmlElement(name="chart-background-color")
+    @XmlElement(name = "chart-background-color")
     private org.opennms.netmgt.config.charts.ChartBackgroundColor _chartBackgroundColor;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public BarChart() {
         super();
         this._subTitleList = new java.util.ArrayList<org.opennms.netmgt.config.charts.SubTitle>();
         this._seriesDefList = new java.util.ArrayList<org.opennms.netmgt.config.charts.SeriesDef>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -194,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSeriesDef(
             final org.opennms.netmgt.config.charts.SeriesDef vSeriesDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._seriesDefList.add(vSeriesDef);
     }
 
@@ -209,7 +201,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSeriesDef(
             final int index,
             final org.opennms.netmgt.config.charts.SeriesDef vSeriesDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._seriesDefList.add(index, vSeriesDef);
     }
 
@@ -222,7 +214,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSubTitle(
             final org.opennms.netmgt.config.charts.SubTitle vSubTitle)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._subTitleList.add(vSubTitle);
     }
 
@@ -237,36 +229,32 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSubTitle(
             final int index,
             final org.opennms.netmgt.config.charts.SubTitle vSubTitle)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._subTitleList.add(index, vSubTitle);
     }
 
     /**
      */
-    public void deleteDrawBarOutline(
-    ) {
+    public void deleteDrawBarOutline() {
         this._drawBarOutline = null;
     }
 
     /**
      */
-    public void deleteShowLegend(
-    ) {
-        this._showLegend= null;
+    public void deleteShowLegend() {
+        this._showLegend = null;
     }
 
     /**
      */
-    public void deleteShowToolTips(
-    ) {
-        this._showToolTips= null;
+    public void deleteShowToolTips() {
+        this._showToolTips = null;
     }
 
     /**
      */
-    public void deleteShowUrls(
-    ) {
-        this._showUrls= null;
+    public void deleteShowUrls() {
+        this._showUrls = null;
     }
 
     /**
@@ -275,8 +263,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.charts.SeriesDef> enumerateSeriesDef(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.charts.SeriesDef> enumerateSeriesDef() {
         return java.util.Collections.enumeration(this._seriesDefList);
     }
 
@@ -286,8 +273,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.charts.SubTitle> enumerateSubTitle(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.charts.SubTitle> enumerateSubTitle() {
         return java.util.Collections.enumeration(this._subTitleList);
     }
 
@@ -300,138 +286,175 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof BarChart) {
 
-            BarChart temp = (BarChart)obj;
+            BarChart temp = (BarChart) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._domainAxisLabel != null) {
-                if (temp._domainAxisLabel == null) return false;
-                else if (!(this._domainAxisLabel.equals(temp._domainAxisLabel)))
+                if (temp._domainAxisLabel == null) {
                     return false;
-            }
-            else if (temp._domainAxisLabel != null)
+                } else if (!(this._domainAxisLabel.equals(temp._domainAxisLabel))) {
+                    return false;
+                }
+            } else if (temp._domainAxisLabel != null) {
                 return false;
+            }
             if (this._rangeAxisLabel != null) {
-                if (temp._rangeAxisLabel == null) return false;
-                else if (!(this._rangeAxisLabel.equals(temp._rangeAxisLabel)))
+                if (temp._rangeAxisLabel == null) {
                     return false;
-            }
-            else if (temp._rangeAxisLabel != null)
+                } else if (!(this._rangeAxisLabel.equals(temp._rangeAxisLabel))) {
+                    return false;
+                }
+            } else if (temp._rangeAxisLabel != null) {
                 return false;
+            }
             if (this._subLabelClass != null) {
-                if (temp._subLabelClass == null) return false;
-                else if (!(this._subLabelClass.equals(temp._subLabelClass)))
+                if (temp._subLabelClass == null) {
                     return false;
-            }
-            else if (temp._subLabelClass != null)
+                } else if (!(this._subLabelClass.equals(temp._subLabelClass))) {
+                    return false;
+                }
+            } else if (temp._subLabelClass != null) {
                 return false;
+            }
             if (this._seriesColorClass != null) {
-                if (temp._seriesColorClass == null) return false;
-                else if (!(this._seriesColorClass.equals(temp._seriesColorClass)))
+                if (temp._seriesColorClass == null) {
                     return false;
-            }
-            else if (temp._seriesColorClass != null)
+                } else if (!(this._seriesColorClass.equals(temp._seriesColorClass))) {
+                    return false;
+                }
+            } else if (temp._seriesColorClass != null) {
                 return false;
+            }
             if (this._drawBarOutline != null) {
-                if (temp._drawBarOutline == null) return false;
-                else if (!(this._drawBarOutline.equals(temp._drawBarOutline)))
+                if (temp._drawBarOutline == null) {
                     return false;
-            }
-            else if (temp._drawBarOutline != null)
+                } else if (!(this._drawBarOutline.equals(temp._drawBarOutline))) {
+                    return false;
+                }
+            } else if (temp._drawBarOutline != null) {
                 return false;
+            }
             if (this._showLegend != null) {
-                if (temp._showLegend == null) return false;
-                else if (!(this._showLegend.equals(temp._showLegend)))
+                if (temp._showLegend == null) {
                     return false;
-            }
-            else if (temp._showLegend != null)
+                } else if (!(this._showLegend.equals(temp._showLegend))) {
+                    return false;
+                }
+            } else if (temp._showLegend != null) {
                 return false;
+            }
             if (this._showToolTips != null) {
-                if (temp._showToolTips == null) return false;
-                else if (!(this._showToolTips.equals(temp._showToolTips)))
+                if (temp._showToolTips == null) {
                     return false;
-            }
-            else if (temp._showToolTips != null)
+                } else if (!(this._showToolTips.equals(temp._showToolTips))) {
+                    return false;
+                }
+            } else if (temp._showToolTips != null) {
                 return false;
+            }
             if (this._showUrls != null) {
-                if (temp._showUrls == null) return false;
-                else if (!(this._showUrls.equals(temp._showUrls)))
+                if (temp._showUrls == null) {
                     return false;
-            }
-            else if (temp._showUrls != null)
+                } else if (!(this._showUrls.equals(temp._showUrls))) {
+                    return false;
+                }
+            } else if (temp._showUrls != null) {
                 return false;
+            }
             if (this._variation != null) {
-                if (temp._variation == null) return false;
-                else if (!(this._variation.equals(temp._variation)))
+                if (temp._variation == null) {
                     return false;
-            }
-            else if (temp._variation != null)
+                } else if (!(this._variation.equals(temp._variation))) {
+                    return false;
+                }
+            } else if (temp._variation != null) {
                 return false;
+            }
             if (this._plotOrientation != null) {
-                if (temp._plotOrientation == null) return false;
-                else if (!(this._plotOrientation.equals(temp._plotOrientation)))
+                if (temp._plotOrientation == null) {
                     return false;
-            }
-            else if (temp._plotOrientation != null)
+                } else if (!(this._plotOrientation.equals(temp._plotOrientation))) {
+                    return false;
+                }
+            } else if (temp._plotOrientation != null) {
                 return false;
+            }
             if (this._title != null) {
-                if (temp._title == null) return false;
-                else if (!(this._title.equals(temp._title)))
+                if (temp._title == null) {
                     return false;
-            }
-            else if (temp._title != null)
+                } else if (!(this._title.equals(temp._title))) {
+                    return false;
+                }
+            } else if (temp._title != null) {
                 return false;
+            }
             if (this._imageSize != null) {
-                if (temp._imageSize == null) return false;
-                else if (!(this._imageSize.equals(temp._imageSize)))
+                if (temp._imageSize == null) {
                     return false;
-            }
-            else if (temp._imageSize != null)
+                } else if (!(this._imageSize.equals(temp._imageSize))) {
+                    return false;
+                }
+            } else if (temp._imageSize != null) {
                 return false;
+            }
             if (this._subTitleList != null) {
-                if (temp._subTitleList == null) return false;
-                else if (!(this._subTitleList.equals(temp._subTitleList)))
+                if (temp._subTitleList == null) {
                     return false;
-            }
-            else if (temp._subTitleList != null)
+                } else if (!(this._subTitleList.equals(temp._subTitleList))) {
+                    return false;
+                }
+            } else if (temp._subTitleList != null) {
                 return false;
+            }
             if (this._gridLines != null) {
-                if (temp._gridLines == null) return false;
-                else if (!(this._gridLines.equals(temp._gridLines)))
+                if (temp._gridLines == null) {
                     return false;
-            }
-            else if (temp._gridLines != null)
+                } else if (!(this._gridLines.equals(temp._gridLines))) {
+                    return false;
+                }
+            } else if (temp._gridLines != null) {
                 return false;
+            }
             if (this._seriesDefList != null) {
-                if (temp._seriesDefList == null) return false;
-                else if (!(this._seriesDefList.equals(temp._seriesDefList)))
+                if (temp._seriesDefList == null) {
                     return false;
-            }
-            else if (temp._seriesDefList != null)
+                } else if (!(this._seriesDefList.equals(temp._seriesDefList))) {
+                    return false;
+                }
+            } else if (temp._seriesDefList != null) {
                 return false;
+            }
             if (this._plotBackgroundColor != null) {
-                if (temp._plotBackgroundColor == null) return false;
-                else if (!(this._plotBackgroundColor.equals(temp._plotBackgroundColor)))
+                if (temp._plotBackgroundColor == null) {
                     return false;
-            }
-            else if (temp._plotBackgroundColor != null)
+                } else if (!(this._plotBackgroundColor.equals(temp._plotBackgroundColor))) {
+                    return false;
+                }
+            } else if (temp._plotBackgroundColor != null) {
                 return false;
+            }
             if (this._chartBackgroundColor != null) {
-                if (temp._chartBackgroundColor == null) return false;
-                else if (!(this._chartBackgroundColor.equals(temp._chartBackgroundColor)))
+                if (temp._chartBackgroundColor == null) {
                     return false;
-            }
-            else if (temp._chartBackgroundColor != null)
+                } else if (!(this._chartBackgroundColor.equals(temp._chartBackgroundColor))) {
+                    return false;
+                }
+            } else if (temp._chartBackgroundColor != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -442,8 +465,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ChartBackgroundColor'.
      */
-    public org.opennms.netmgt.config.charts.ChartBackgroundColor getChartBackgroundColor(
-    ) {
+    public org.opennms.netmgt.config.charts.ChartBackgroundColor getChartBackgroundColor() {
         return this._chartBackgroundColor;
     }
 
@@ -452,8 +474,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DomainAxisLabel'.
      */
-    public java.lang.String getDomainAxisLabel(
-    ) {
+    public java.lang.String getDomainAxisLabel() {
         return this._domainAxisLabel;
     }
 
@@ -462,8 +483,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DrawBarOutline'.
      */
-    public boolean getDrawBarOutline(
-    ) {
+    public boolean getDrawBarOutline() {
         return this._drawBarOutline;
     }
 
@@ -472,8 +492,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'GridLines'.
      */
-    public org.opennms.netmgt.config.charts.GridLines getGridLines(
-    ) {
+    public org.opennms.netmgt.config.charts.GridLines getGridLines() {
         return this._gridLines;
     }
 
@@ -482,8 +501,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ImageSize'.
      */
-    public org.opennms.netmgt.config.charts.ImageSize getImageSize(
-    ) {
+    public org.opennms.netmgt.config.charts.ImageSize getImageSize() {
         return this._imageSize;
     }
 
@@ -492,8 +510,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -502,8 +519,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PlotBackgroundColor'.
      */
-    public org.opennms.netmgt.config.charts.PlotBackgroundColor getPlotBackgroundColor(
-    ) {
+    public org.opennms.netmgt.config.charts.PlotBackgroundColor getPlotBackgroundColor() {
         return this._plotBackgroundColor;
     }
 
@@ -512,8 +528,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PlotOrientation'.
      */
-    public java.lang.String getPlotOrientation(
-    ) {
+    public java.lang.String getPlotOrientation() {
         return this._plotOrientation;
     }
 
@@ -522,8 +537,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RangeAxisLabel'.
      */
-    public java.lang.String getRangeAxisLabel(
-    ) {
+    public java.lang.String getRangeAxisLabel() {
         return this._rangeAxisLabel;
     }
 
@@ -532,8 +546,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SeriesColorClass'.
      */
-    public java.lang.String getSeriesColorClass(
-    ) {
+    public java.lang.String getSeriesColorClass() {
         return this._seriesColorClass;
     }
 
@@ -548,7 +561,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.charts.SeriesDef getSeriesDef(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._seriesDefList.size()) {
             throw new IndexOutOfBoundsException("getSeriesDef: Index value '" + index + "' not in range [0.." + (this._seriesDefList.size() - 1) + "]");
@@ -566,8 +579,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.charts.SeriesDef[] getSeriesDef(
-    ) {
+    public org.opennms.netmgt.config.charts.SeriesDef[] getSeriesDef() {
         org.opennms.netmgt.config.charts.SeriesDef[] array = new org.opennms.netmgt.config.charts.SeriesDef[0];
         return (org.opennms.netmgt.config.charts.SeriesDef[]) this._seriesDefList.toArray(array);
     }
@@ -579,8 +591,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.charts.SeriesDef> getSeriesDefCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.charts.SeriesDef> getSeriesDefCollection() {
         return this._seriesDefList;
     }
 
@@ -589,8 +600,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSeriesDefCount(
-    ) {
+    public int getSeriesDefCount() {
         return this._seriesDefList.size();
     }
 
@@ -599,8 +609,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowLegend'.
      */
-    public boolean getShowLegend(
-    ) {
+    public boolean getShowLegend() {
         return this._showLegend;
     }
 
@@ -609,8 +618,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowToolTips'.
      */
-    public boolean getShowToolTips(
-    ) {
+    public boolean getShowToolTips() {
         return this._showToolTips;
     }
 
@@ -619,8 +627,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowUrls'.
      */
-    public boolean getShowUrls(
-    ) {
+    public boolean getShowUrls() {
         return this._showUrls;
     }
 
@@ -629,8 +636,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'SubLabelClass'.
      */
-    public java.lang.String getSubLabelClass(
-    ) {
+    public java.lang.String getSubLabelClass() {
         return this._subLabelClass;
     }
 
@@ -645,7 +651,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.charts.SubTitle getSubTitle(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._subTitleList.size()) {
             throw new IndexOutOfBoundsException("getSubTitle: Index value '" + index + "' not in range [0.." + (this._subTitleList.size() - 1) + "]");
@@ -663,8 +669,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.charts.SubTitle[] getSubTitle(
-    ) {
+    public org.opennms.netmgt.config.charts.SubTitle[] getSubTitle() {
         org.opennms.netmgt.config.charts.SubTitle[] array = new org.opennms.netmgt.config.charts.SubTitle[0];
         return (org.opennms.netmgt.config.charts.SubTitle[]) this._subTitleList.toArray(array);
     }
@@ -676,8 +681,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.charts.SubTitle> getSubTitleCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.charts.SubTitle> getSubTitleCollection() {
         return this._subTitleList;
     }
 
@@ -686,8 +690,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSubTitleCount(
-    ) {
+    public int getSubTitleCount() {
         return this._subTitleList.size();
     }
 
@@ -696,8 +699,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Title'.
      */
-    public org.opennms.netmgt.config.charts.Title getTitle(
-    ) {
+    public org.opennms.netmgt.config.charts.Title getTitle() {
         return this._title;
     }
 
@@ -706,8 +708,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Variation'.
      */
-    public java.lang.String getVariation(
-    ) {
+    public java.lang.String getVariation() {
         return this._variation;
     }
 
@@ -716,8 +717,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one DrawBarOutline has been added
      */
-    public Boolean hasDrawBarOutline(
-    ) {
+    public Boolean hasDrawBarOutline() {
         return this._drawBarOutline != null;
     }
 
@@ -726,8 +726,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one ShowLegend has been added
      */
-    public boolean hasShowLegend(
-    ) {
+    public boolean hasShowLegend() {
         return this._showLegend != null;
     }
 
@@ -736,8 +735,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one ShowToolTips has been added
      */
-    public boolean hasShowToolTips(
-    ) {
+    public boolean hasShowToolTips() {
         return this._showToolTips != null;
     }
 
@@ -746,8 +744,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one ShowUrls has been added
      */
-    public boolean hasShowUrls(
-    ) {
+    public boolean hasShowUrls() {
         return this._showUrls != null;
     }
 
@@ -760,64 +757,63 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_domainAxisLabel != null) {
-           result = 37 * result + _domainAxisLabel.hashCode();
+            result = 37 * result + _domainAxisLabel.hashCode();
         }
         if (_rangeAxisLabel != null) {
-           result = 37 * result + _rangeAxisLabel.hashCode();
+            result = 37 * result + _rangeAxisLabel.hashCode();
         }
         if (_subLabelClass != null) {
-           result = 37 * result + _subLabelClass.hashCode();
+            result = 37 * result + _subLabelClass.hashCode();
         }
         if (_seriesColorClass != null) {
-           result = 37 * result + _seriesColorClass.hashCode();
+            result = 37 * result + _seriesColorClass.hashCode();
         }
         if (_drawBarOutline != null) {
-           result = 37 * result + _drawBarOutline.hashCode();
+            result = 37 * result + _drawBarOutline.hashCode();
         }
         if (_showLegend != null) {
-           result = 37 * result + _showLegend.hashCode();
+            result = 37 * result + _showLegend.hashCode();
         }
         if (_showToolTips != null) {
-           result = 37 * result + _showToolTips.hashCode();
+            result = 37 * result + _showToolTips.hashCode();
         }
         if (_showUrls != null) {
-           result = 37 * result + _showUrls.hashCode();
+            result = 37 * result + _showUrls.hashCode();
         }
         if (_variation != null) {
-           result = 37 * result + _variation.hashCode();
+            result = 37 * result + _variation.hashCode();
         }
         if (_plotOrientation != null) {
-           result = 37 * result + _plotOrientation.hashCode();
+            result = 37 * result + _plotOrientation.hashCode();
         }
         if (_title != null) {
-           result = 37 * result + _title.hashCode();
+            result = 37 * result + _title.hashCode();
         }
         if (_imageSize != null) {
-           result = 37 * result + _imageSize.hashCode();
+            result = 37 * result + _imageSize.hashCode();
         }
         if (_subTitleList != null) {
-           result = 37 * result + _subTitleList.hashCode();
+            result = 37 * result + _subTitleList.hashCode();
         }
         if (_gridLines != null) {
-           result = 37 * result + _gridLines.hashCode();
+            result = 37 * result + _gridLines.hashCode();
         }
         if (_seriesDefList != null) {
-           result = 37 * result + _seriesDefList.hashCode();
+            result = 37 * result + _seriesDefList.hashCode();
         }
         if (_plotBackgroundColor != null) {
-           result = 37 * result + _plotBackgroundColor.hashCode();
+            result = 37 * result + _plotBackgroundColor.hashCode();
         }
         if (_chartBackgroundColor != null) {
-           result = 37 * result + _chartBackgroundColor.hashCode();
+            result = 37 * result + _chartBackgroundColor.hashCode();
         }
 
         return result;
@@ -828,8 +824,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DrawBarOutline'.
      */
-    public Boolean isDrawBarOutline(
-    ) {
+    public Boolean isDrawBarOutline() {
         return this._drawBarOutline;
     }
 
@@ -838,8 +833,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowLegend'.
      */
-    public Boolean isShowLegend(
-    ) {
+    public Boolean isShowLegend() {
         return this._showLegend;
     }
 
@@ -848,8 +842,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowToolTips'.
      */
-    public Boolean isShowToolTips(
-    ) {
+    public Boolean isShowToolTips() {
         return this._showToolTips;
     }
 
@@ -858,8 +851,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ShowUrls'.
      */
-    public Boolean isShowUrls(
-    ) {
+    public Boolean isShowUrls() {
         return this._showUrls;
     }
 
@@ -868,8 +860,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -884,8 +875,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.charts.SeriesDef> iterateSeriesDef(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.charts.SeriesDef> iterateSeriesDef() {
         return this._seriesDefList.iterator();
     }
 
@@ -895,8 +885,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.charts.SubTitle> iterateSubTitle(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.charts.SubTitle> iterateSubTitle() {
         return this._subTitleList.iterator();
     }
 
@@ -911,7 +900,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -928,21 +917,19 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllSeriesDef(
-    ) {
+    public void removeAllSeriesDef() {
         this._seriesDefList.clear();
     }
 
     /**
      */
-    public void removeAllSubTitle(
-    ) {
+    public void removeAllSubTitle() {
         this._subTitleList.clear();
     }
 
@@ -1107,7 +1094,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSeriesDef(
             final int index,
             final org.opennms.netmgt.config.charts.SeriesDef vSeriesDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._seriesDefList.size()) {
             throw new IndexOutOfBoundsException("setSeriesDef: Index value '" + index + "' not in range [0.." + (this._seriesDefList.size() - 1) + "]");
@@ -1127,7 +1114,7 @@ import org.opennms.core.xml.ValidateUsing;
         _seriesDefList.clear();
 
         for (int i = 0; i < vSeriesDefArray.length; i++) {
-                this._seriesDefList.add(vSeriesDefArray[i]);
+            this._seriesDefList.add(vSeriesDefArray[i]);
         }
     }
 
@@ -1208,7 +1195,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSubTitle(
             final int index,
             final org.opennms.netmgt.config.charts.SubTitle vSubTitle)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._subTitleList.size()) {
             throw new IndexOutOfBoundsException("setSubTitle: Index value '" + index + "' not in range [0.." + (this._subTitleList.size() - 1) + "]");
@@ -1228,7 +1215,7 @@ import org.opennms.core.xml.ValidateUsing;
         _subTitleList.clear();
 
         for (int i = 0; i < vSubTitleArray.length; i++) {
-                this._subTitleList.add(vSubTitleArray[i]);
+            this._subTitleList.add(vSubTitleArray[i]);
         }
     }
 
@@ -1291,7 +1278,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.charts.BarChart unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.charts.BarChart) Unmarshaller.unmarshal(org.opennms.netmgt.config.charts.BarChart.class, reader);
     }
 
@@ -1301,9 +1288,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

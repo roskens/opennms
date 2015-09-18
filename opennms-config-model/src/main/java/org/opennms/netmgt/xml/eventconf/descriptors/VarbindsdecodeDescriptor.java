@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.xml.eventconf.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.xml.eventconf.Varbindsdecode;
 
 /**
@@ -48,11 +46,9 @@ import org.opennms.netmgt.xml.eventconf.Varbindsdecode;
  */
 public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
-
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,48 +74,45 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public VarbindsdecodeDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/eventconf";
         _xmlName = "varbindsdecode";
         _elementDefinition = true;
-        
+
         //-- set grouping compositor
         setCompositorAsSequence();
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- initialize element descriptors
-        
         //-- _parmid
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_parmid", "parmid", org.exolab.castor.xml.NodeType.Element);
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Varbindsdecode target = (Varbindsdecode) object;
                 return target.getParmid();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Varbindsdecode target = (Varbindsdecode) object;
-                    target.setParmid( (java.lang.String) value);
+                    target.setParmid((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return null;
@@ -131,7 +124,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _parmid
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -146,23 +139,23 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(org.opennms.netmgt.xml.eventconf.Decode.class, "_decodeList", "decode", org.exolab.castor.xml.NodeType.Element);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 Varbindsdecode target = (Varbindsdecode) object;
                 return target.getDecode();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     Varbindsdecode target = (Varbindsdecode) object;
-                    target.addDecode( (org.opennms.netmgt.xml.eventconf.Decode) value);
+                    target.addDecode((org.opennms.netmgt.xml.eventconf.Decode) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public void resetValue(Object object) throws IllegalStateException, IllegalArgumentException {
                 try {
@@ -172,6 +165,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             public java.lang.Object newInstance(java.lang.Object parent) {
                 return new org.opennms.netmgt.xml.eventconf.Decode();
@@ -184,7 +178,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
         desc.setMultivalued(true);
         addFieldDescriptor(desc);
         addSequenceElement(desc);
-        
+
         //-- validation code for: _decodeList
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         fieldValidator.setMinOccurs(1);
@@ -193,19 +187,16 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
         desc.setValidator(fieldValidator);
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -216,8 +207,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -227,8 +217,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.xml.eventconf.Varbindsdecode.class;
     }
 
@@ -238,8 +227,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -250,8 +238,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -262,8 +249,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -273,8 +259,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -286,8 +271,7 @@ public class VarbindsdecodeDescriptor extends org.exolab.castor.xml.util.XMLClas
      * element or element with anonymous type definition.
      */
     @Override
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

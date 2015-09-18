@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.snmpinterfacepoller;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,49 +42,47 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="interface")
+@XmlRootElement(name = "interface")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("snmp-interface-poller-configuration.xsd")
-@SuppressWarnings("all") public class Interface implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Interface implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * This represents the SQL criteria that is performed to select
      * interfaces to be polled
      *  example: (snmpifname like '%eth%' and snmpiftype=6)
      */
-    @XmlAttribute(name="criteria")
+    @XmlAttribute(name = "criteria")
     private java.lang.String _criteria;
 
     /**
      * Interfaces group name
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private java.lang.String _name;
 
     /**
      * Interval at which the interfaces are to be
      *  polled
      */
-    @XmlAttribute(name="interval", required = true)
+    @XmlAttribute(name = "interval", required = true)
     private Long _interval;
 
     /**
      * Specifies if the service is user defined. Used
      *  specifically for UI purposes.
      */
-    @XmlAttribute(name="user-defined")
+    @XmlAttribute(name = "user-defined")
     private java.lang.String _userDefined;
     private static final String DEFAULT_USER_DEFINED = "false";
 
@@ -94,7 +90,7 @@ import org.opennms.core.xml.ValidateUsing;
      * Status of the interfaces. The interfaces are polled only if
      *  this is set to 'on'.
      */
-    @XmlAttribute(name="status")
+    @XmlAttribute(name = "status")
     private java.lang.String _status;
     private static final String DEFAULT_STATUS = "on";
 
@@ -102,13 +98,13 @@ import org.opennms.core.xml.ValidateUsing;
      * If set, overrides UDP port 161 as the port where SNMP
      *  GET/GETNEXT/GETBULK requests are sent.
      */
-    @XmlAttribute(name="port")
+    @XmlAttribute(name = "port")
     private Integer _port;
 
     /**
      * Default number of retries
      */
-    @XmlAttribute(name="retry")
+    @XmlAttribute(name = "retry")
     private Integer _retry;
 
     /**
@@ -132,57 +128,48 @@ import org.opennms.core.xml.ValidateUsing;
     private static final Integer DEFAULT_MAXINTERFACEPERPDU = 0;
 
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Interface() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteInterval(
-    ) {
+    public void deleteInterval() {
         this._interval = null;
     }
 
     /**
      */
-    public void deleteMaxInterfacePerPdu(
-    ) {
+    public void deleteMaxInterfacePerPdu() {
         this._maxInterfacePerPdu = null;
     }
 
     /**
      */
-    public void deleteMaxVarsPerPdu(
-    ) {
+    public void deleteMaxVarsPerPdu() {
         this._maxVarsPerPdu = null;
     }
 
     /**
      */
-    public void deletePort(
-    ) {
+    public void deletePort() {
         this._port = null;
     }
 
     /**
      */
-    public void deleteRetry(
-    ) {
+    public void deleteRetry() {
         this._retry = null;
     }
 
     /**
      */
-    public void deleteTimeout(
-    ) {
+    public void deleteTimeout() {
         this._timeout = null;
     }
 
@@ -195,82 +182,103 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Interface) {
 
-            Interface temp = (Interface)obj;
+            Interface temp = (Interface) obj;
             if (this._criteria != null) {
-                if (temp._criteria == null) return false;
-                else if (!(this._criteria.equals(temp._criteria)))
+                if (temp._criteria == null) {
                     return false;
-            }
-            else if (temp._criteria != null)
+                } else if (!(this._criteria.equals(temp._criteria))) {
+                    return false;
+                }
+            } else if (temp._criteria != null) {
                 return false;
+            }
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._interval != null) {
-                if (temp._interval == null) return false;
-                else if (!(this._interval.equals(temp._interval)))
+                if (temp._interval == null) {
                     return false;
-            }
-            else if (temp._interval != null)
+                } else if (!(this._interval.equals(temp._interval))) {
+                    return false;
+                }
+            } else if (temp._interval != null) {
                 return false;
+            }
             if (this._userDefined != null) {
-                if (temp._userDefined == null) return false;
-                else if (!(this._userDefined.equals(temp._userDefined)))
+                if (temp._userDefined == null) {
                     return false;
-            }
-            else if (temp._userDefined != null)
+                } else if (!(this._userDefined.equals(temp._userDefined))) {
+                    return false;
+                }
+            } else if (temp._userDefined != null) {
                 return false;
+            }
             if (this._status != null) {
-                if (temp._status == null) return false;
-                else if (!(this._status.equals(temp._status)))
+                if (temp._status == null) {
                     return false;
-            }
-            else if (temp._status != null)
+                } else if (!(this._status.equals(temp._status))) {
+                    return false;
+                }
+            } else if (temp._status != null) {
                 return false;
+            }
             if (this._port != null) {
-                if (temp._port == null) return false;
-                else if (!(this._port.equals(temp._port)))
+                if (temp._port == null) {
                     return false;
-            }
-            else if (temp._port != null)
+                } else if (!(this._port.equals(temp._port))) {
+                    return false;
+                }
+            } else if (temp._port != null) {
                 return false;
+            }
             if (this._retry != null) {
-                if (temp._retry == null) return false;
-                else if (!(this._retry.equals(temp._retry)))
+                if (temp._retry == null) {
                     return false;
-            }
-            else if (temp._retry != null)
+                } else if (!(this._retry.equals(temp._retry))) {
+                    return false;
+                }
+            } else if (temp._retry != null) {
                 return false;
+            }
             if (this._timeout != null) {
-                if (temp._timeout == null) return false;
-                else if (!(this._timeout.equals(temp._timeout)))
+                if (temp._timeout == null) {
                     return false;
-            }
-            else if (temp._timeout != null)
+                } else if (!(this._timeout.equals(temp._timeout))) {
+                    return false;
+                }
+            } else if (temp._timeout != null) {
                 return false;
+            }
             if (this._maxVarsPerPdu != null) {
-                if (temp._maxVarsPerPdu == null) return false;
-                else if (!(this._maxVarsPerPdu.equals(temp._maxVarsPerPdu)))
+                if (temp._maxVarsPerPdu == null) {
                     return false;
-            }
-            else if (temp._maxVarsPerPdu != null)
+                } else if (!(this._maxVarsPerPdu.equals(temp._maxVarsPerPdu))) {
+                    return false;
+                }
+            } else if (temp._maxVarsPerPdu != null) {
                 return false;
+            }
             if (this._maxInterfacePerPdu != null) {
-                if (temp._maxInterfacePerPdu == null) return false;
-                else if (!(this._maxInterfacePerPdu.equals(temp._maxInterfacePerPdu)))
+                if (temp._maxInterfacePerPdu == null) {
                     return false;
-            }
-            else if (temp._maxInterfacePerPdu != null)
+                } else if (!(this._maxInterfacePerPdu.equals(temp._maxInterfacePerPdu))) {
+                    return false;
+                }
+            } else if (temp._maxInterfacePerPdu != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -284,8 +292,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Criteria'.
      */
-    public java.lang.String getCriteria(
-    ) {
+    public java.lang.String getCriteria() {
         return this._criteria;
     }
 
@@ -297,8 +304,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Interval'.
      */
-    public Long getInterval(
-    ) {
+    public Long getInterval() {
         return this._interval;
     }
 
@@ -311,8 +317,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MaxInterfacePerPdu'.
      */
-    public Integer getMaxInterfacePerPdu(
-    ) {
+    public Integer getMaxInterfacePerPdu() {
         return this._maxInterfacePerPdu == null ? DEFAULT_MAXINTERFACEPERPDU : this._maxInterfacePerPdu;
     }
 
@@ -324,8 +329,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MaxVarsPerPdu'.
      */
-    public Integer getMaxVarsPerPdu(
-    ) {
+    public Integer getMaxVarsPerPdu() {
         return this._maxVarsPerPdu == null ? DEFAULT_MAXVARSPERPDU : this._maxVarsPerPdu;
     }
 
@@ -335,8 +339,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -348,8 +351,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Port'.
      */
-    public Integer getPort(
-    ) {
+    public Integer getPort() {
         return this._port;
     }
 
@@ -359,8 +361,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retry'.
      */
-    public Integer getRetry(
-    ) {
+    public Integer getRetry() {
         return this._retry;
     }
 
@@ -372,8 +373,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Status'.
      */
-    public java.lang.String getStatus(
-    ) {
+    public java.lang.String getStatus() {
         return this._status == null ? DEFAULT_STATUS : this._status;
     }
 
@@ -384,8 +384,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timeout'.
      */
-    public int getTimeout(
-    ) {
+    public int getTimeout() {
         return this._timeout;
     }
 
@@ -397,8 +396,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'UserDefined'.
      */
-    public java.lang.String getUserDefined(
-    ) {
+    public java.lang.String getUserDefined() {
         return this._userDefined == null ? DEFAULT_USER_DEFINED : this._userDefined;
     }
 
@@ -407,8 +405,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Interval has been added
      */
-    public boolean hasInterval(
-    ) {
+    public boolean hasInterval() {
         return this._interval != null;
     }
 
@@ -417,8 +414,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one MaxInterfacePerPdu has been adde
      */
-    public boolean hasMaxInterfacePerPdu(
-    ) {
+    public boolean hasMaxInterfacePerPdu() {
         return this._maxInterfacePerPdu != null;
     }
 
@@ -427,8 +423,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one MaxVarsPerPdu has been added
      */
-    public boolean hasMaxVarsPerPdu(
-    ) {
+    public boolean hasMaxVarsPerPdu() {
         return this._maxVarsPerPdu != null;
     }
 
@@ -437,8 +432,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Port has been added
      */
-    public boolean hasPort(
-    ) {
+    public boolean hasPort() {
         return this._port != null;
     }
 
@@ -447,8 +441,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Retry has been added
      */
-    public boolean hasRetry(
-    ) {
+    public boolean hasRetry() {
         return this._retry != null;
     }
 
@@ -457,8 +450,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Timeout has been added
      */
-    public boolean hasTimeout(
-    ) {
+    public boolean hasTimeout() {
         return this._timeout != null;
     }
 
@@ -471,40 +463,39 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_criteria != null) {
-           result = 37 * result + _criteria.hashCode();
+            result = 37 * result + _criteria.hashCode();
         }
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_interval != null) {
-           result = 37 * result + _interval.hashCode();
+            result = 37 * result + _interval.hashCode();
         }
         if (_userDefined != null) {
-           result = 37 * result + _userDefined.hashCode();
+            result = 37 * result + _userDefined.hashCode();
         }
         if (_status != null) {
-           result = 37 * result + _status.hashCode();
+            result = 37 * result + _status.hashCode();
         }
         if (_port != null) {
-           result = 37 * result + _port.hashCode();
+            result = 37 * result + _port.hashCode();
         }
         if (_retry != null) {
-           result = 37 * result + _retry.hashCode();
+            result = 37 * result + _retry.hashCode();
         }
         if (_timeout != null) {
-           result = 37 * result + _timeout.hashCode();
+            result = 37 * result + _timeout.hashCode();
         }
         if (_maxVarsPerPdu != null) {
-           result = 37 * result + _maxVarsPerPdu.hashCode();
+            result = 37 * result + _maxVarsPerPdu.hashCode();
         }
         if (_maxInterfacePerPdu != null) {
-           result = 37 * result + _maxInterfacePerPdu.hashCode();
+            result = 37 * result + _maxInterfacePerPdu.hashCode();
         }
 
         return result;
@@ -515,8 +506,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -536,7 +526,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -553,7 +543,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -696,7 +686,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.snmpinterfacepoller.Interface unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.snmpinterfacepoller.Interface) Unmarshaller.unmarshal(org.opennms.netmgt.config.snmpinterfacepoller.Interface.class, reader);
     }
 
@@ -706,9 +696,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

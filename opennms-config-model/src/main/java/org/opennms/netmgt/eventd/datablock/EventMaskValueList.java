@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.eventd.datablock;
 
 import java.util.ArrayList;
@@ -44,6 +43,7 @@ import java.util.Collection;
  * @version $Id: $
  */
 public class EventMaskValueList extends ArrayList<String> {
+
     private static final long serialVersionUID = -7375744883429450497L;
 
     /**
@@ -94,7 +94,6 @@ public class EventMaskValueList extends ArrayList<String> {
     /*
      * Following methods are to ensure hashcode is not out of sync with elements
      */
-
     /**
      * Override to re-evaluate hashcode
      *
@@ -229,7 +228,6 @@ public class EventMaskValueList extends ArrayList<String> {
     /*
      * End methods to ensure hashcode is not out of sync with elements
      */
-
     /**
      * <p>
      * Handling the mask values ending with '%' is a pain since the hashcodes

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.reporting.opennms;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,26 +48,25 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="string-parm")
+@XmlRootElement(name = "string-parm")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("opennms-reports.xsd")
-@SuppressWarnings("all") public class StringParm implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class StringParm implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * the name of this parameter as passed to the report engine
      */
-    @XmlAttribute(name="name", required = true)
+    @XmlAttribute(name = "name", required = true)
     private String _name;
 
     /**
      * the name of this parameter as displayed in the webui
      */
-    @XmlAttribute(name="display-name", required = true)
+    @XmlAttribute(name = "display-name", required = true)
     private String _displayName;
 
     /**
@@ -78,29 +74,25 @@ import org.opennms.core.xml.ValidateUsing;
      * pre-filled drop-down boxes (reportCategorySelector) or
      * freeText
      */
-    @XmlAttribute(name="input-type", required = true)
+    @XmlAttribute(name = "input-type", required = true)
     private String _inputType;
 
     /**
      * value
      */
-    @XmlElement(name="default")
+    @XmlElement(name = "default")
     private String _default;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public StringParm() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -110,40 +102,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof StringParm) {
 
-            StringParm temp = (StringParm)obj;
+            StringParm temp = (StringParm) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._displayName != null) {
-                if (temp._displayName == null) return false;
-                else if (!(this._displayName.equals(temp._displayName)))
+                if (temp._displayName == null) {
                     return false;
-            }
-            else if (temp._displayName != null)
+                } else if (!(this._displayName.equals(temp._displayName))) {
+                    return false;
+                }
+            } else if (temp._displayName != null) {
                 return false;
+            }
             if (this._inputType != null) {
-                if (temp._inputType == null) return false;
-                else if (!(this._inputType.equals(temp._inputType)))
+                if (temp._inputType == null) {
                     return false;
-            }
-            else if (temp._inputType != null)
+                } else if (!(this._inputType.equals(temp._inputType))) {
+                    return false;
+                }
+            } else if (temp._inputType != null) {
                 return false;
+            }
             if (this._default != null) {
-                if (temp._default == null) return false;
-                else if (!(this._default.equals(temp._default)))
+                if (temp._default == null) {
                     return false;
-            }
-            else if (temp._default != null)
+                } else if (!(this._default.equals(temp._default))) {
+                    return false;
+                }
+            } else if (temp._default != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -155,8 +156,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Default'.
      */
-    public java.lang.String getDefault(
-    ) {
+    public java.lang.String getDefault() {
         return this._default;
     }
 
@@ -167,8 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DisplayName'.
      */
-    public java.lang.String getDisplayName(
-    ) {
+    public java.lang.String getDisplayName() {
         return this._displayName;
     }
 
@@ -180,8 +179,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'InputType'.
      */
-    public java.lang.String getInputType(
-    ) {
+    public java.lang.String getInputType() {
         return this._inputType;
     }
 
@@ -192,8 +190,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -206,22 +203,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_displayName != null) {
-           result = 37 * result + _displayName.hashCode();
+            result = 37 * result + _displayName.hashCode();
         }
         if (_inputType != null) {
-           result = 37 * result + _inputType.hashCode();
+            result = 37 * result + _inputType.hashCode();
         }
         if (_default != null) {
-           result = 37 * result + _default.hashCode();
+            result = 37 * result + _default.hashCode();
         }
 
         return result;
@@ -232,8 +228,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -253,7 +248,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -270,7 +265,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -336,7 +331,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.reporting.opennms.StringParm unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.reporting.opennms.StringParm) Unmarshaller.unmarshal(org.opennms.netmgt.config.reporting.opennms.StringParm.class, reader);
     }
 
@@ -346,9 +341,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,12 +53,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "automations")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Automations implements Serializable {
+
     private static final long serialVersionUID = 7676358751414193033L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Triggers and Actions hooked up and run by the Vacuumd schedule using
      * interval for frequency
@@ -71,7 +69,6 @@ public class Automations implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Automations() {
         super();
     }
@@ -84,7 +81,6 @@ public class Automations implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      *
      *
@@ -127,19 +123,22 @@ public class Automations implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Automations) {
 
             Automations temp = (Automations) obj;
             if (this._automationList != null) {
-                if (temp._automationList == null)
+                if (temp._automationList == null) {
                     return false;
-                else if (!(this._automationList.equals(temp._automationList)))
+                } else if (!(this._automationList.equals(temp._automationList))) {
                     return false;
-            } else if (temp._automationList != null)
+                }
+            } else if (temp._automationList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -158,11 +157,11 @@ public class Automations implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._automationList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "getAutomation: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._automationList.size() - 1)
-                                                        + "]");
+                    "getAutomation: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._automationList.size() - 1)
+                    + "]");
         }
 
         return (Automation) _automationList.get(index);
@@ -244,7 +243,7 @@ public class Automations implements Serializable {
      * @return true if the object was removed from the collection.
      */
     public boolean removeAutomation(final Automation vAutomation) {
-    	return _automationList.remove(vAutomation);
+        return _automationList.remove(vAutomation);
     }
 
     /**
@@ -254,7 +253,7 @@ public class Automations implements Serializable {
      * @return the element removed from the collection
      */
     public Automation removeAutomationAt(final int index) {
-    	return (Automation) this._automationList.remove(index);
+        return (Automation) this._automationList.remove(index);
     }
 
     /**
@@ -270,11 +269,11 @@ public class Automations implements Serializable {
         // check bounds for index
         if (index < 0 || index >= this._automationList.size()) {
             throw new IndexOutOfBoundsException(
-                                                "setAutomation: Index value '"
-                                                        + index
-                                                        + "' not in range [0.."
-                                                        + (this._automationList.size() - 1)
-                                                        + "]");
+                    "setAutomation: Index value '"
+                    + index
+                    + "' not in range [0.."
+                    + (this._automationList.size() - 1)
+                    + "]");
         }
 
         this._automationList.set(index, vAutomation);

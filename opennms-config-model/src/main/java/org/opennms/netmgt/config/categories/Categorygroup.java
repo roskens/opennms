@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.categories;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -46,65 +44,59 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="categorygroup")
+@XmlRootElement(name = "categorygroup")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("categories.xsd")
-@SuppressWarnings("all") public class Categorygroup implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Categorygroup implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The name of the category group. This is seemingly
      *  unused.
      */
-    @XmlElement(name="name")
+    @XmlElement(name = "name")
     private java.lang.String _name;
 
     /**
      * A comment describing the category group. This is
      *  seemingly unused.
      */
-    @XmlElement(name="comment")
+    @XmlElement(name = "comment")
     private java.lang.String _comment;
 
     /**
      * Common attributes that apply to all categories in
      *  the group.
      */
-    @XmlElement(name="common")
+    @XmlElement(name = "common")
     private org.opennms.netmgt.config.categories.Common _common;
 
     /**
      * The categories belonging to this category
      *  group.
      */
-    @XmlElement(name="categories")
+    @XmlElement(name = "categories")
     private org.opennms.netmgt.config.categories.Categories _categories;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Categorygroup() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      *
@@ -114,40 +106,49 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Categorygroup) {
 
-            Categorygroup temp = (Categorygroup)obj;
+            Categorygroup temp = (Categorygroup) obj;
             if (this._name != null) {
-                if (temp._name == null) return false;
-                else if (!(this._name.equals(temp._name)))
+                if (temp._name == null) {
                     return false;
-            }
-            else if (temp._name != null)
+                } else if (!(this._name.equals(temp._name))) {
+                    return false;
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._comment != null) {
-                if (temp._comment == null) return false;
-                else if (!(this._comment.equals(temp._comment)))
+                if (temp._comment == null) {
                     return false;
-            }
-            else if (temp._comment != null)
+                } else if (!(this._comment.equals(temp._comment))) {
+                    return false;
+                }
+            } else if (temp._comment != null) {
                 return false;
+            }
             if (this._common != null) {
-                if (temp._common == null) return false;
-                else if (!(this._common.equals(temp._common)))
+                if (temp._common == null) {
                     return false;
-            }
-            else if (temp._common != null)
+                } else if (!(this._common.equals(temp._common))) {
+                    return false;
+                }
+            } else if (temp._common != null) {
                 return false;
+            }
             if (this._categories != null) {
-                if (temp._categories == null) return false;
-                else if (!(this._categories.equals(temp._categories)))
+                if (temp._categories == null) {
                     return false;
-            }
-            else if (temp._categories != null)
+                } else if (!(this._categories.equals(temp._categories))) {
+                    return false;
+                }
+            } else if (temp._categories != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -161,8 +162,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Categories'.
      */
-    public org.opennms.netmgt.config.categories.Categories getCategories(
-    ) {
+    public org.opennms.netmgt.config.categories.Categories getCategories() {
         return this._categories;
     }
 
@@ -174,8 +174,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Comment'.
      */
-    public java.lang.String getComment(
-    ) {
+    public java.lang.String getComment() {
         return this._comment;
     }
 
@@ -187,8 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Common'.
      */
-    public org.opennms.netmgt.config.categories.Common getCommon(
-    ) {
+    public org.opennms.netmgt.config.categories.Common getCommon() {
         return this._common;
     }
 
@@ -200,8 +198,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Name'.
      */
-    public java.lang.String getName(
-    ) {
+    public java.lang.String getName() {
         return this._name;
     }
 
@@ -214,22 +211,21 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_name != null) {
-           result = 37 * result + _name.hashCode();
+            result = 37 * result + _name.hashCode();
         }
         if (_comment != null) {
-           result = 37 * result + _comment.hashCode();
+            result = 37 * result + _comment.hashCode();
         }
         if (_common != null) {
-           result = 37 * result + _common.hashCode();
+            result = 37 * result + _common.hashCode();
         }
         if (_categories != null) {
-           result = 37 * result + _categories.hashCode();
+            result = 37 * result + _categories.hashCode();
         }
 
         return result;
@@ -240,8 +236,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -261,7 +256,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -278,7 +273,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -347,7 +342,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.categories.Categorygroup unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.categories.Categorygroup) Unmarshaller.unmarshal(org.opennms.netmgt.config.categories.Categorygroup.class, reader);
     }
 
@@ -357,9 +352,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.vacuumd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,6 +49,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "action")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Action implements Serializable {
+
     private static final long serialVersionUID = -3299921998796224904L;
 
     private static final String DEFAULT_DATA_SOURCE = "opennms";
@@ -58,7 +57,6 @@ public class Action implements Serializable {
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _name.
      */
@@ -80,7 +78,6 @@ public class Action implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Action() {
         super();
     }
@@ -96,7 +93,6 @@ public class Action implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the Object.equals method.
      *
@@ -105,33 +101,40 @@ public class Action implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Action) {
 
             Action temp = (Action) obj;
             if (this._name != null) {
-                if (temp._name == null)
+                if (temp._name == null) {
                     return false;
-                else if (!(this._name.equals(temp._name)))
+                } else if (!(this._name.equals(temp._name))) {
                     return false;
-            } else if (temp._name != null)
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._dataSource != null) {
-                if (temp._dataSource == null)
+                if (temp._dataSource == null) {
                     return false;
-                else if (!(this._dataSource.equals(temp._dataSource)))
+                } else if (!(this._dataSource.equals(temp._dataSource))) {
                     return false;
-            } else if (temp._dataSource != null)
+                }
+            } else if (temp._dataSource != null) {
                 return false;
+            }
             if (this._statement != null) {
-                if (temp._statement == null)
+                if (temp._statement == null) {
                     return false;
-                else if (!(this._statement.equals(temp._statement)))
+                } else if (!(this._statement.equals(temp._statement))) {
                     return false;
-            } else if (temp._statement != null)
+                }
+            } else if (temp._statement != null) {
                 return false;
+            }
             return true;
         }
         return false;

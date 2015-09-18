@@ -4,13 +4,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.scriptd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import javax.xml.bind.annotation.XmlElement;
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
@@ -20,42 +18,36 @@ import org.exolab.castor.xml.Unmarshaller;
  * 
  * @version $Revision$ $Date$
  */
-
-@SuppressWarnings("all") public class Events implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Events implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _ueiList.
      */
-    @XmlElement(name="uei")
+    @XmlElement(name = "uei")
     private java.util.List<java.lang.String> _ueiList;
 
     /**
      * Field _eventScriptNameList.
      */
-    @XmlElement(name="event-script-name")
+    @XmlElement(name = "event-script-name")
     private java.util.List<java.lang.String> _eventScriptNameList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Events() {
         super();
         this._ueiList = new java.util.ArrayList<java.lang.String>();
         this._eventScriptNameList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * 
      * 
@@ -65,7 +57,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void addEventScriptName(
             final java.lang.String vEventScriptName)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._eventScriptNameList.add(vEventScriptName);
     }
 
@@ -80,7 +72,7 @@ import org.exolab.castor.xml.Unmarshaller;
     public void addEventScriptName(
             final int index,
             final java.lang.String vEventScriptName)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._eventScriptNameList.add(index, vEventScriptName);
     }
 
@@ -93,7 +85,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void addUei(
             final java.lang.String vUei)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._ueiList.add(vUei);
     }
 
@@ -108,7 +100,7 @@ import org.exolab.castor.xml.Unmarshaller;
     public void addUei(
             final int index,
             final java.lang.String vUei)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._ueiList.add(index, vUei);
     }
 
@@ -118,8 +110,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateEventScriptName(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateEventScriptName() {
         return java.util.Collections.enumeration(this._eventScriptNameList);
     }
 
@@ -129,8 +120,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateUei(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateUei() {
         return java.util.Collections.enumeration(this._ueiList);
     }
 
@@ -143,26 +133,31 @@ import org.exolab.castor.xml.Unmarshaller;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
-        
+        }
+
         if (obj instanceof Events) {
-        
-            Events temp = (Events)obj;
+
+            Events temp = (Events) obj;
             if (this._ueiList != null) {
-                if (temp._ueiList == null) return false;
-                else if (!(this._ueiList.equals(temp._ueiList))) 
+                if (temp._ueiList == null) {
                     return false;
-            }
-            else if (temp._ueiList != null)
+                } else if (!(this._ueiList.equals(temp._ueiList))) {
+                    return false;
+                }
+            } else if (temp._ueiList != null) {
                 return false;
+            }
             if (this._eventScriptNameList != null) {
-                if (temp._eventScriptNameList == null) return false;
-                else if (!(this._eventScriptNameList.equals(temp._eventScriptNameList))) 
+                if (temp._eventScriptNameList == null) {
                     return false;
-            }
-            else if (temp._eventScriptNameList != null)
+                } else if (!(this._eventScriptNameList.equals(temp._eventScriptNameList))) {
+                    return false;
+                }
+            } else if (temp._eventScriptNameList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -178,12 +173,12 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public java.lang.String getEventScriptName(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._eventScriptNameList.size()) {
             throw new IndexOutOfBoundsException("getEventScriptName: Index value '" + index + "' not in range [0.." + (this._eventScriptNameList.size() - 1) + "]");
         }
-        
+
         return (java.lang.String) _eventScriptNameList.get(index);
     }
 
@@ -197,8 +192,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return this collection as an Array
      */
-    public java.lang.String[] getEventScriptName(
-    ) {
+    public java.lang.String[] getEventScriptName() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._eventScriptNameList.toArray(array);
     }
@@ -210,8 +204,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getEventScriptNameCollection(
-    ) {
+    public java.util.List<java.lang.String> getEventScriptNameCollection() {
         return this._eventScriptNameList;
     }
 
@@ -220,8 +213,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return the size of this collection
      */
-    public int getEventScriptNameCount(
-    ) {
+    public int getEventScriptNameCount() {
         return this._eventScriptNameList.size();
     }
 
@@ -235,12 +227,12 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public java.lang.String getUei(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._ueiList.size()) {
             throw new IndexOutOfBoundsException("getUei: Index value '" + index + "' not in range [0.." + (this._ueiList.size() - 1) + "]");
         }
-        
+
         return (java.lang.String) _ueiList.get(index);
     }
 
@@ -253,8 +245,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return this collection as an Array
      */
-    public java.lang.String[] getUei(
-    ) {
+    public java.lang.String[] getUei() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._ueiList.toArray(array);
     }
@@ -266,8 +257,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getUeiCollection(
-    ) {
+    public java.util.List<java.lang.String> getUeiCollection() {
         return this._ueiList;
     }
 
@@ -276,8 +266,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return the size of this collection
      */
-    public int getUeiCount(
-    ) {
+    public int getUeiCount() {
         return this._ueiList.size();
     }
 
@@ -289,18 +278,17 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return a hash code value for the object.
      */
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
-        
+
         long tmp;
         if (_ueiList != null) {
-           result = 37 * result + _ueiList.hashCode();
+            result = 37 * result + _ueiList.hashCode();
         }
         if (_eventScriptNameList != null) {
-           result = 37 * result + _eventScriptNameList.hashCode();
+            result = 37 * result + _eventScriptNameList.hashCode();
         }
-        
+
         return result;
     }
 
@@ -309,8 +297,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * 
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -325,8 +312,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateEventScriptName(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateEventScriptName() {
         return this._eventScriptNameList.iterator();
     }
 
@@ -336,8 +322,7 @@ import org.exolab.castor.xml.Unmarshaller;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateUei(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateUei() {
         return this._ueiList.iterator();
     }
 
@@ -352,7 +337,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -369,21 +354,19 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllEventScriptName(
-    ) {
+    public void removeAllEventScriptName() {
         this._eventScriptNameList.clear();
     }
 
     /**
      */
-    public void removeAllUei(
-    ) {
+    public void removeAllUei() {
         this._ueiList.clear();
     }
 
@@ -446,12 +429,12 @@ import org.exolab.castor.xml.Unmarshaller;
     public void setEventScriptName(
             final int index,
             final java.lang.String vEventScriptName)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._eventScriptNameList.size()) {
             throw new IndexOutOfBoundsException("setEventScriptName: Index value '" + index + "' not in range [0.." + (this._eventScriptNameList.size() - 1) + "]");
         }
-        
+
         this._eventScriptNameList.set(index, vEventScriptName);
     }
 
@@ -464,9 +447,9 @@ import org.exolab.castor.xml.Unmarshaller;
             final java.lang.String[] vEventScriptNameArray) {
         //-- copy array
         _eventScriptNameList.clear();
-        
+
         for (int i = 0; i < vEventScriptNameArray.length; i++) {
-                this._eventScriptNameList.add(vEventScriptNameArray[i]);
+            this._eventScriptNameList.add(vEventScriptNameArray[i]);
         }
     }
 
@@ -480,7 +463,7 @@ import org.exolab.castor.xml.Unmarshaller;
             final java.util.List<java.lang.String> vEventScriptNameList) {
         // copy vector
         this._eventScriptNameList.clear();
-        
+
         this._eventScriptNameList.addAll(vEventScriptNameList);
     }
 
@@ -507,12 +490,12 @@ import org.exolab.castor.xml.Unmarshaller;
     public void setUei(
             final int index,
             final java.lang.String vUei)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._ueiList.size()) {
             throw new IndexOutOfBoundsException("setUei: Index value '" + index + "' not in range [0.." + (this._ueiList.size() - 1) + "]");
         }
-        
+
         this._ueiList.set(index, vUei);
     }
 
@@ -525,9 +508,9 @@ import org.exolab.castor.xml.Unmarshaller;
             final java.lang.String[] vUeiArray) {
         //-- copy array
         _ueiList.clear();
-        
+
         for (int i = 0; i < vUeiArray.length; i++) {
-                this._ueiList.add(vUeiArray[i]);
+            this._ueiList.add(vUeiArray[i]);
         }
     }
 
@@ -541,7 +524,7 @@ import org.exolab.castor.xml.Unmarshaller;
             final java.util.List<java.lang.String> vUeiList) {
         // copy vector
         this._ueiList.clear();
-        
+
         this._ueiList.addAll(vUeiList);
     }
 
@@ -570,7 +553,7 @@ import org.exolab.castor.xml.Unmarshaller;
      */
     public static org.opennms.netmgt.config.scriptd.Events unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.scriptd.Events) Unmarshaller.unmarshal(org.opennms.netmgt.config.scriptd.Events.class, reader);
     }
 
@@ -580,9 +563,8 @@ import org.exolab.castor.xml.Unmarshaller;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

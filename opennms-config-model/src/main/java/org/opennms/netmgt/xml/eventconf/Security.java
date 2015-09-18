@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import java.io.IOException;
@@ -54,20 +53,21 @@ import org.xml.sax.ContentHandler;
 /**
  * Security settings for this configuration
  */
-@XmlRootElement(name="security")
+@XmlRootElement(name = "security")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("eventconf.xsd")
 public class Security implements Serializable {
-	private static final long serialVersionUID = -3138224695711877257L;
-	private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
-	/**
+    private static final long serialVersionUID = -3138224695711877257L;
+    private static final String[] EMPTY_STRING_ARRAY = new String[0];
+
+    /**
      * Event element whose value cannot be overridden by a
      *  value in an incoming event
      */
 	// @NotNull
-	// @Size(min=1)
-	@XmlElement(name="doNotOverride", required=true)
+    // @Size(min=1)
+    @XmlElement(name = "doNotOverride", required = true)
     private List<String> m_doNotOverride = new ArrayList<String>();
 
     public void addDoNotOverride(final String doNotOverride) throws IndexOutOfBoundsException {
@@ -147,12 +147,14 @@ public class Security implements Serializable {
     public void setDoNotOverride(final String[] doNotOverride) {
         m_doNotOverride.clear();
         for (final String dno : doNotOverride) {
-        	m_doNotOverride.add(dno);
+            m_doNotOverride.add(dno);
         }
     }
 
     public void setDoNotOverride(final List<String> doNotOverride) {
-        if (m_doNotOverride == doNotOverride) return;
+        if (m_doNotOverride == doNotOverride) {
+            return;
+        }
         m_doNotOverride.clear();
         m_doNotOverride.addAll(doNotOverride);
     }
@@ -169,30 +171,38 @@ public class Security implements Serializable {
         new Validator().validate(this);
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((m_doNotOverride == null) ? 0 : m_doNotOverride.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((m_doNotOverride == null) ? 0 : m_doNotOverride.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (!(obj instanceof Security)) return false;
-		final Security other = (Security) obj;
-		if (m_doNotOverride == null) {
-			if (other.m_doNotOverride != null) return false;
-		} else if (!m_doNotOverride.equals(other.m_doNotOverride)) {
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Security)) {
+            return false;
+        }
+        final Security other = (Security) obj;
+        if (m_doNotOverride == null) {
+            if (other.m_doNotOverride != null) {
+                return false;
+            }
+        } else if (!m_doNotOverride.equals(other.m_doNotOverride)) {
+            return false;
+        }
+        return true;
+    }
 
-	public boolean isSecureTag(String tag) {
-		return m_doNotOverride == null ? false : m_doNotOverride.contains(tag);
-	}
+    public boolean isSecureTag(String tag) {
+        return m_doNotOverride == null ? false : m_doNotOverride.contains(tag);
+    }
 
 }

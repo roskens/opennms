@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.statsd.model;
 
 import java.util.LinkedHashMap;
@@ -40,10 +39,11 @@ import java.util.Map;
  * @version $Id: $
  */
 public class Report {
+
     private String m_name;
     private String m_className;
     private Map<String, String> m_parameters = new LinkedHashMap<String, String>();
-    
+
     /**
      * <p>getClassName</p>
      *
@@ -52,6 +52,7 @@ public class Report {
     public String getClassName() {
         return m_className;
     }
+
     /**
      * <p>setClassName</p>
      *
@@ -60,6 +61,7 @@ public class Report {
     public void setClassName(String className) {
         m_className = className;
     }
+
     /**
      * <p>getName</p>
      *
@@ -68,6 +70,7 @@ public class Report {
     public String getName() {
         return m_name;
     }
+
     /**
      * <p>setName</p>
      *
@@ -76,6 +79,7 @@ public class Report {
     public void setName(String name) {
         m_name = name;
     }
+
     /**
      * <p>getParameters</p>
      *
@@ -84,6 +88,7 @@ public class Report {
     public Map<String, String> getParameters() {
         return m_parameters;
     }
+
     /**
      * <p>setParameters</p>
      *
@@ -92,6 +97,7 @@ public class Report {
     public void setParameters(Map<String, String> parameters) {
         m_parameters = parameters;
     }
+
     /**
      * <p>addParameter</p>
      *

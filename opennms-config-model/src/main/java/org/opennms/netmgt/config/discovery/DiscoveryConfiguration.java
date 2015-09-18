@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.discovery;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,35 +49,34 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="discovery-configuration")
+@XmlRootElement(name = "discovery-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("discovery-configuration.xsd")
-@SuppressWarnings("all") public class DiscoveryConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class DiscoveryConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * the number of threads to be used for
      *  discovery
      */
-    @XmlAttribute(name="threads", required = true)
+    @XmlAttribute(name = "threads", required = true)
     private Integer _threads;
 
     /**
      * the total number of ping packets sent per second from
      *  OpenNMS for discovery
      */
-    @XmlAttribute(name="packets-per-second", required = true)
+    @XmlAttribute(name = "packets-per-second", required = true)
     private Integer _packetsPerSecond;
 
     /**
      * The initial pause (in milliseconds) after discovery
      *  starts up before discovery is started.
      */
-    @XmlAttribute(name="initial-sleep-time", required = true)
+    @XmlAttribute(name = "initial-sleep-time", required = true)
     private Long _initialSleepTime;
 
     /**
@@ -91,7 +87,7 @@ import org.opennms.core.xml.ValidateUsing;
      * another
      *  sweep.
      */
-    @XmlAttribute(name="restart-sleep-time", required = true)
+    @XmlAttribute(name = "restart-sleep-time", required = true)
     private Long _restartSleepTime;
 
     /**
@@ -104,7 +100,7 @@ import org.opennms.core.xml.ValidateUsing;
      * addresses or
      *  sets of addresses that are configured in this file.
      */
-    @XmlAttribute(name="retries")
+    @XmlAttribute(name = "retries")
     private Integer _retries;
 
     /**
@@ -113,46 +109,44 @@ import org.opennms.core.xml.ValidateUsing;
      * sets of
      *  addresses that are configured in this file.
      */
-    @XmlAttribute(name="timeout")
+    @XmlAttribute(name = "timeout")
     private Long _timeout;
 
     /**
      * Field _foreignSource.
      */
-    @XmlAttribute(name="foreign-source")
+    @XmlAttribute(name = "foreign-source")
     private java.lang.String _foreignSource;
 
     /**
      * the specific addresses to be polled
      */
-    @XmlElement(name="specific")
+    @XmlElement(name = "specific")
     private java.util.List<org.opennms.netmgt.config.discovery.Specific> _specificList;
 
     /**
      * the range of addresses to be polled
      */
-    @XmlElement(name="include-range")
+    @XmlElement(name = "include-range")
     private java.util.List<org.opennms.netmgt.config.discovery.IncludeRange> _includeRangeList;
 
     /**
      * the range of addresses to be excluded from the
      *  polling
      */
-    @XmlElement(name="exclude-range")
+    @XmlElement(name = "exclude-range")
     private java.util.List<org.opennms.netmgt.config.discovery.ExcludeRange> _excludeRangeList;
 
     /**
      * a file URL holding specific addresses to be
      *  polled
      */
-    @XmlElement(name="include-url")
+    @XmlElement(name = "include-url")
     private java.util.List<org.opennms.netmgt.config.discovery.IncludeUrl> _includeUrlList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public DiscoveryConfiguration() {
         super();
         this._specificList = new java.util.ArrayList<org.opennms.netmgt.config.discovery.Specific>();
@@ -161,11 +155,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._includeUrlList = new java.util.ArrayList<org.opennms.netmgt.config.discovery.IncludeUrl>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -175,7 +167,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addExcludeRange(
             final org.opennms.netmgt.config.discovery.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._excludeRangeList.add(vExcludeRange);
     }
 
@@ -190,7 +182,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addExcludeRange(
             final int index,
             final org.opennms.netmgt.config.discovery.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._excludeRangeList.add(index, vExcludeRange);
     }
 
@@ -203,7 +195,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIncludeRange(
             final org.opennms.netmgt.config.discovery.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeRangeList.add(vIncludeRange);
     }
 
@@ -218,7 +210,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIncludeRange(
             final int index,
             final org.opennms.netmgt.config.discovery.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeRangeList.add(index, vIncludeRange);
     }
 
@@ -231,7 +223,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addIncludeUrl(
             final org.opennms.netmgt.config.discovery.IncludeUrl vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeUrlList.add(vIncludeUrl);
     }
 
@@ -246,7 +238,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addIncludeUrl(
             final int index,
             final org.opennms.netmgt.config.discovery.IncludeUrl vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._includeUrlList.add(index, vIncludeUrl);
     }
 
@@ -259,7 +251,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addSpecific(
             final org.opennms.netmgt.config.discovery.Specific vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(vSpecific);
     }
 
@@ -274,50 +266,44 @@ import org.opennms.core.xml.ValidateUsing;
     public void addSpecific(
             final int index,
             final org.opennms.netmgt.config.discovery.Specific vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._specificList.add(index, vSpecific);
     }
 
     /**
      */
-    public void deleteInitialSleepTime(
-    ) {
-        this._initialSleepTime= null;
+    public void deleteInitialSleepTime() {
+        this._initialSleepTime = null;
     }
 
     /**
      */
-    public void deletePacketsPerSecond(
-    ) {
-        this._packetsPerSecond= null;
+    public void deletePacketsPerSecond() {
+        this._packetsPerSecond = null;
     }
 
     /**
      */
-    public void deleteRestartSleepTime(
-    ) {
-        this._restartSleepTime= null;
+    public void deleteRestartSleepTime() {
+        this._restartSleepTime = null;
     }
 
     /**
      */
-    public void deleteRetries(
-    ) {
-        this._retries= null;
+    public void deleteRetries() {
+        this._retries = null;
     }
 
     /**
      */
-    public void deleteThreads(
-    ) {
-        this._threads= null;
+    public void deleteThreads() {
+        this._threads = null;
     }
 
     /**
      */
-    public void deleteTimeout(
-    ) {
-        this._timeout= null;
+    public void deleteTimeout() {
+        this._timeout = null;
     }
 
     /**
@@ -326,8 +312,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.discovery.ExcludeRange> enumerateExcludeRange(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.discovery.ExcludeRange> enumerateExcludeRange() {
         return java.util.Collections.enumeration(this._excludeRangeList);
     }
 
@@ -337,8 +322,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.discovery.IncludeRange> enumerateIncludeRange(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.discovery.IncludeRange> enumerateIncludeRange() {
         return java.util.Collections.enumeration(this._includeRangeList);
     }
 
@@ -348,8 +332,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.discovery.IncludeUrl> enumerateIncludeUrl(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.discovery.IncludeUrl> enumerateIncludeUrl() {
         return java.util.Collections.enumeration(this._includeUrlList);
     }
 
@@ -359,8 +342,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.discovery.Specific> enumerateSpecific(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.discovery.Specific> enumerateSpecific() {
         return java.util.Collections.enumeration(this._specificList);
     }
 
@@ -373,89 +355,112 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof DiscoveryConfiguration) {
 
-            DiscoveryConfiguration temp = (DiscoveryConfiguration)obj;
+            DiscoveryConfiguration temp = (DiscoveryConfiguration) obj;
             if (this._threads != null) {
-                if (temp._threads == null) return false;
-                else if (!(this._threads.equals(temp._threads)))
+                if (temp._threads == null) {
                     return false;
-            }
-            else if (temp._threads != null)
+                } else if (!(this._threads.equals(temp._threads))) {
+                    return false;
+                }
+            } else if (temp._threads != null) {
                 return false;
+            }
             if (this._packetsPerSecond != null) {
-                if (temp._packetsPerSecond == null) return false;
-                else if (!(this._packetsPerSecond.equals(temp._packetsPerSecond)))
+                if (temp._packetsPerSecond == null) {
                     return false;
-            }
-            else if (temp._packetsPerSecond != null)
+                } else if (!(this._packetsPerSecond.equals(temp._packetsPerSecond))) {
+                    return false;
+                }
+            } else if (temp._packetsPerSecond != null) {
                 return false;
+            }
             if (this._initialSleepTime != null) {
-                if (temp._initialSleepTime == null) return false;
-                else if (!(this._initialSleepTime.equals(temp._initialSleepTime)))
+                if (temp._initialSleepTime == null) {
                     return false;
-            }
-            else if (temp._initialSleepTime != null)
+                } else if (!(this._initialSleepTime.equals(temp._initialSleepTime))) {
+                    return false;
+                }
+            } else if (temp._initialSleepTime != null) {
                 return false;
+            }
             if (this._restartSleepTime != null) {
-                if (temp._restartSleepTime == null) return false;
-                else if (!(this._restartSleepTime.equals(temp._restartSleepTime)))
+                if (temp._restartSleepTime == null) {
                     return false;
-            }
-            else if (temp._restartSleepTime != null)
+                } else if (!(this._restartSleepTime.equals(temp._restartSleepTime))) {
+                    return false;
+                }
+            } else if (temp._restartSleepTime != null) {
                 return false;
+            }
             if (this._retries != null) {
-                if (temp._retries == null) return false;
-                else if (!(this._retries.equals(temp._retries)))
+                if (temp._retries == null) {
                     return false;
-            }
-            else if (temp._retries != null)
+                } else if (!(this._retries.equals(temp._retries))) {
+                    return false;
+                }
+            } else if (temp._retries != null) {
                 return false;
+            }
             if (this._timeout != null) {
-                if (temp._timeout == null) return false;
-                else if (!(this._timeout.equals(temp._timeout)))
+                if (temp._timeout == null) {
                     return false;
-            }
-            else if (temp._timeout != null)
+                } else if (!(this._timeout.equals(temp._timeout))) {
+                    return false;
+                }
+            } else if (temp._timeout != null) {
                 return false;
+            }
             if (this._foreignSource != null) {
-                if (temp._foreignSource == null) return false;
-                else if (!(this._foreignSource.equals(temp._foreignSource)))
+                if (temp._foreignSource == null) {
                     return false;
-            }
-            else if (temp._foreignSource != null)
+                } else if (!(this._foreignSource.equals(temp._foreignSource))) {
+                    return false;
+                }
+            } else if (temp._foreignSource != null) {
                 return false;
+            }
             if (this._specificList != null) {
-                if (temp._specificList == null) return false;
-                else if (!(this._specificList.equals(temp._specificList)))
+                if (temp._specificList == null) {
                     return false;
-            }
-            else if (temp._specificList != null)
+                } else if (!(this._specificList.equals(temp._specificList))) {
+                    return false;
+                }
+            } else if (temp._specificList != null) {
                 return false;
+            }
             if (this._includeRangeList != null) {
-                if (temp._includeRangeList == null) return false;
-                else if (!(this._includeRangeList.equals(temp._includeRangeList)))
+                if (temp._includeRangeList == null) {
                     return false;
-            }
-            else if (temp._includeRangeList != null)
+                } else if (!(this._includeRangeList.equals(temp._includeRangeList))) {
+                    return false;
+                }
+            } else if (temp._includeRangeList != null) {
                 return false;
+            }
             if (this._excludeRangeList != null) {
-                if (temp._excludeRangeList == null) return false;
-                else if (!(this._excludeRangeList.equals(temp._excludeRangeList)))
+                if (temp._excludeRangeList == null) {
                     return false;
-            }
-            else if (temp._excludeRangeList != null)
+                } else if (!(this._excludeRangeList.equals(temp._excludeRangeList))) {
+                    return false;
+                }
+            } else if (temp._excludeRangeList != null) {
                 return false;
+            }
             if (this._includeUrlList != null) {
-                if (temp._includeUrlList == null) return false;
-                else if (!(this._includeUrlList.equals(temp._includeUrlList)))
+                if (temp._includeUrlList == null) {
                     return false;
-            }
-            else if (temp._includeUrlList != null)
+                } else if (!(this._includeUrlList.equals(temp._includeUrlList))) {
+                    return false;
+                }
+            } else if (temp._includeUrlList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -473,7 +478,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.discovery.ExcludeRange getExcludeRange(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._excludeRangeList.size()) {
             throw new IndexOutOfBoundsException("getExcludeRange: Index value '" + index + "' not in range [0.." + (this._excludeRangeList.size() - 1) + "]");
@@ -492,8 +497,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.discovery.ExcludeRange[] getExcludeRange(
-    ) {
+    public org.opennms.netmgt.config.discovery.ExcludeRange[] getExcludeRange() {
         org.opennms.netmgt.config.discovery.ExcludeRange[] array = new org.opennms.netmgt.config.discovery.ExcludeRange[0];
         return (org.opennms.netmgt.config.discovery.ExcludeRange[]) this._excludeRangeList.toArray(array);
     }
@@ -505,8 +509,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.discovery.ExcludeRange> getExcludeRangeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.discovery.ExcludeRange> getExcludeRangeCollection() {
         return this._excludeRangeList;
     }
 
@@ -515,8 +518,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getExcludeRangeCount(
-    ) {
+    public int getExcludeRangeCount() {
         return this._excludeRangeList.size();
     }
 
@@ -525,8 +527,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ForeignSource'.
      */
-    public java.lang.String getForeignSource(
-    ) {
+    public java.lang.String getForeignSource() {
         return this._foreignSource;
     }
 
@@ -542,7 +543,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.discovery.IncludeRange getIncludeRange(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeRangeList.size()) {
             throw new IndexOutOfBoundsException("getIncludeRange: Index value '" + index + "' not in range [0.." + (this._includeRangeList.size() - 1) + "]");
@@ -561,8 +562,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.discovery.IncludeRange[] getIncludeRange(
-    ) {
+    public org.opennms.netmgt.config.discovery.IncludeRange[] getIncludeRange() {
         org.opennms.netmgt.config.discovery.IncludeRange[] array = new org.opennms.netmgt.config.discovery.IncludeRange[0];
         return (org.opennms.netmgt.config.discovery.IncludeRange[]) this._includeRangeList.toArray(array);
     }
@@ -574,8 +574,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.discovery.IncludeRange> getIncludeRangeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.discovery.IncludeRange> getIncludeRangeCollection() {
         return this._includeRangeList;
     }
 
@@ -584,8 +583,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIncludeRangeCount(
-    ) {
+    public int getIncludeRangeCount() {
         return this._includeRangeList.size();
     }
 
@@ -601,7 +599,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.discovery.IncludeUrl getIncludeUrl(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeUrlList.size()) {
             throw new IndexOutOfBoundsException("getIncludeUrl: Index value '" + index + "' not in range [0.." + (this._includeUrlList.size() - 1) + "]");
@@ -619,8 +617,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.discovery.IncludeUrl[] getIncludeUrl(
-    ) {
+    public org.opennms.netmgt.config.discovery.IncludeUrl[] getIncludeUrl() {
         org.opennms.netmgt.config.discovery.IncludeUrl[] array = new org.opennms.netmgt.config.discovery.IncludeUrl[0];
         return (org.opennms.netmgt.config.discovery.IncludeUrl[]) this._includeUrlList.toArray(array);
     }
@@ -632,8 +629,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.discovery.IncludeUrl> getIncludeUrlCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.discovery.IncludeUrl> getIncludeUrlCollection() {
         return this._includeUrlList;
     }
 
@@ -642,8 +638,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getIncludeUrlCount(
-    ) {
+    public int getIncludeUrlCount() {
         return this._includeUrlList.size();
     }
 
@@ -655,8 +650,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'InitialSleepTime'.
      */
-    public Long getInitialSleepTime(
-    ) {
+    public Long getInitialSleepTime() {
         return this._initialSleepTime;
     }
 
@@ -668,8 +662,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PacketsPerSecond'.
      */
-    public Integer getPacketsPerSecond(
-    ) {
+    public Integer getPacketsPerSecond() {
         return this._packetsPerSecond;
     }
 
@@ -685,8 +678,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RestartSleepTime'.
      */
-    public Long getRestartSleepTime(
-    ) {
+    public Long getRestartSleepTime() {
         return this._restartSleepTime;
     }
 
@@ -704,8 +696,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retries'.
      */
-    public Integer getRetries(
-    ) {
+    public Integer getRetries() {
         return this._retries;
     }
 
@@ -721,7 +712,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.discovery.Specific getSpecific(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("getSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -739,8 +730,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.discovery.Specific[] getSpecific(
-    ) {
+    public org.opennms.netmgt.config.discovery.Specific[] getSpecific() {
         org.opennms.netmgt.config.discovery.Specific[] array = new org.opennms.netmgt.config.discovery.Specific[0];
         return (org.opennms.netmgt.config.discovery.Specific[]) this._specificList.toArray(array);
     }
@@ -752,8 +742,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.discovery.Specific> getSpecificCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.discovery.Specific> getSpecificCollection() {
         return this._specificList;
     }
 
@@ -762,8 +751,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getSpecificCount(
-    ) {
+    public int getSpecificCount() {
         return this._specificList.size();
     }
 
@@ -775,8 +763,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Threads'.
      */
-    public Integer getThreads(
-    ) {
+    public Integer getThreads() {
         return this._threads;
     }
 
@@ -790,8 +777,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timeout'.
      */
-    public Long getTimeout(
-    ) {
+    public Long getTimeout() {
         return this._timeout;
     }
 
@@ -800,8 +786,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one InitialSleepTime has been added
      */
-    public boolean hasInitialSleepTime(
-    ) {
+    public boolean hasInitialSleepTime() {
         return this._initialSleepTime != null;
     }
 
@@ -810,8 +795,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one PacketsPerSecond has been added
      */
-    public boolean hasPacketsPerSecond(
-    ) {
+    public boolean hasPacketsPerSecond() {
         return this._packetsPerSecond != null;
     }
 
@@ -820,8 +804,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one RestartSleepTime has been added
      */
-    public boolean hasRestartSleepTime(
-    ) {
+    public boolean hasRestartSleepTime() {
         return this._restartSleepTime != null;
     }
 
@@ -830,8 +813,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Retries has been added
      */
-    public boolean hasRetries(
-    ) {
+    public boolean hasRetries() {
         return this._retries != null;
     }
 
@@ -840,8 +822,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Threads has been added
      */
-    public boolean hasThreads(
-    ) {
+    public boolean hasThreads() {
         return this._threads != null;
     }
 
@@ -850,8 +831,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Timeout has been added
      */
-    public boolean hasTimeout(
-    ) {
+    public boolean hasTimeout() {
         return this._timeout != null;
     }
 
@@ -864,43 +844,42 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_threads != null) {
-           result = 37 * result + _threads.hashCode();
+            result = 37 * result + _threads.hashCode();
         }
         if (_packetsPerSecond != null) {
-           result = 37 * result + _packetsPerSecond.hashCode();
+            result = 37 * result + _packetsPerSecond.hashCode();
         }
         if (_initialSleepTime != null) {
-           result = 37 * result + _initialSleepTime.hashCode();
+            result = 37 * result + _initialSleepTime.hashCode();
         }
         if (_restartSleepTime != null) {
-           result = 37 * result + _restartSleepTime.hashCode();
+            result = 37 * result + _restartSleepTime.hashCode();
         }
         if (_retries != null) {
-           result = 37 * result + _retries.hashCode();
+            result = 37 * result + _retries.hashCode();
         }
         if (_timeout != null) {
-           result = 37 * result + _timeout.hashCode();
+            result = 37 * result + _timeout.hashCode();
         }
         if (_foreignSource != null) {
-           result = 37 * result + _foreignSource.hashCode();
+            result = 37 * result + _foreignSource.hashCode();
         }
         if (_specificList != null) {
-           result = 37 * result + _specificList.hashCode();
+            result = 37 * result + _specificList.hashCode();
         }
         if (_includeRangeList != null) {
-           result = 37 * result + _includeRangeList.hashCode();
+            result = 37 * result + _includeRangeList.hashCode();
         }
         if (_excludeRangeList != null) {
-           result = 37 * result + _excludeRangeList.hashCode();
+            result = 37 * result + _excludeRangeList.hashCode();
         }
         if (_includeUrlList != null) {
-           result = 37 * result + _includeUrlList.hashCode();
+            result = 37 * result + _includeUrlList.hashCode();
         }
 
         return result;
@@ -911,8 +890,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -927,8 +905,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.discovery.ExcludeRange> iterateExcludeRange(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.discovery.ExcludeRange> iterateExcludeRange() {
         return this._excludeRangeList.iterator();
     }
 
@@ -938,8 +915,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.discovery.IncludeRange> iterateIncludeRange(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.discovery.IncludeRange> iterateIncludeRange() {
         return this._includeRangeList.iterator();
     }
 
@@ -949,8 +925,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.discovery.IncludeUrl> iterateIncludeUrl(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.discovery.IncludeUrl> iterateIncludeUrl() {
         return this._includeUrlList.iterator();
     }
 
@@ -960,8 +935,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.discovery.Specific> iterateSpecific(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.discovery.Specific> iterateSpecific() {
         return this._specificList.iterator();
     }
 
@@ -976,7 +950,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -993,35 +967,31 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllExcludeRange(
-    ) {
+    public void removeAllExcludeRange() {
         this._excludeRangeList.clear();
     }
 
     /**
      */
-    public void removeAllIncludeRange(
-    ) {
+    public void removeAllIncludeRange() {
         this._includeRangeList.clear();
     }
 
     /**
      */
-    public void removeAllIncludeUrl(
-    ) {
+    public void removeAllIncludeUrl() {
         this._includeUrlList.clear();
     }
 
     /**
      */
-    public void removeAllSpecific(
-    ) {
+    public void removeAllSpecific() {
         this._specificList.clear();
     }
 
@@ -1132,7 +1102,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setExcludeRange(
             final int index,
             final org.opennms.netmgt.config.discovery.ExcludeRange vExcludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._excludeRangeList.size()) {
             throw new IndexOutOfBoundsException("setExcludeRange: Index value '" + index + "' not in range [0.." + (this._excludeRangeList.size() - 1) + "]");
@@ -1152,7 +1122,7 @@ import org.opennms.core.xml.ValidateUsing;
         _excludeRangeList.clear();
 
         for (int i = 0; i < vExcludeRangeArray.length; i++) {
-                this._excludeRangeList.add(vExcludeRangeArray[i]);
+            this._excludeRangeList.add(vExcludeRangeArray[i]);
         }
     }
 
@@ -1203,7 +1173,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIncludeRange(
             final int index,
             final org.opennms.netmgt.config.discovery.IncludeRange vIncludeRange)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeRangeList.size()) {
             throw new IndexOutOfBoundsException("setIncludeRange: Index value '" + index + "' not in range [0.." + (this._includeRangeList.size() - 1) + "]");
@@ -1223,7 +1193,7 @@ import org.opennms.core.xml.ValidateUsing;
         _includeRangeList.clear();
 
         for (int i = 0; i < vIncludeRangeArray.length; i++) {
-                this._includeRangeList.add(vIncludeRangeArray[i]);
+            this._includeRangeList.add(vIncludeRangeArray[i]);
         }
     }
 
@@ -1264,7 +1234,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setIncludeUrl(
             final int index,
             final org.opennms.netmgt.config.discovery.IncludeUrl vIncludeUrl)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._includeUrlList.size()) {
             throw new IndexOutOfBoundsException("setIncludeUrl: Index value '" + index + "' not in range [0.." + (this._includeUrlList.size() - 1) + "]");
@@ -1284,7 +1254,7 @@ import org.opennms.core.xml.ValidateUsing;
         _includeUrlList.clear();
 
         for (int i = 0; i < vIncludeUrlArray.length; i++) {
-                this._includeUrlList.add(vIncludeUrlArray[i]);
+            this._includeUrlList.add(vIncludeUrlArray[i]);
         }
     }
 
@@ -1390,7 +1360,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setSpecific(
             final int index,
             final org.opennms.netmgt.config.discovery.Specific vSpecific)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._specificList.size()) {
             throw new IndexOutOfBoundsException("setSpecific: Index value '" + index + "' not in range [0.." + (this._specificList.size() - 1) + "]");
@@ -1410,7 +1380,7 @@ import org.opennms.core.xml.ValidateUsing;
         _specificList.clear();
 
         for (int i = 0; i < vSpecificArray.length; i++) {
-                this._specificList.add(vSpecificArray[i]);
+            this._specificList.add(vSpecificArray[i]);
         }
     }
 
@@ -1484,7 +1454,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.discovery.DiscoveryConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.discovery.DiscoveryConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.discovery.DiscoveryConfiguration.class, reader);
     }
 
@@ -1494,9 +1464,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

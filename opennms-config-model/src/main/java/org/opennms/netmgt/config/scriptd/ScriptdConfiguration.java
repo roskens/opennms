@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.scriptd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,64 +42,60 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="scriptd-configuration")
+@XmlRootElement(name = "scriptd-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("scriptd-configuration.xsd")
-@SuppressWarnings("all") public class ScriptdConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ScriptdConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _engineList.
      */
-    @XmlElement(name="engine")
+    @XmlElement(name = "engine")
     private java.util.List<org.opennms.netmgt.config.scriptd.Engine> _engineList;
 
     /**
      * Field _startScriptList.
      */
-    @XmlElement(name="start-script")
+    @XmlElement(name = "start-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.StartScript> _startScriptList;
 
     /**
      * Field _stopScriptList.
      */
-    @XmlElement(name="stop-script")
+    @XmlElement(name = "stop-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.StopScript> _stopScriptList;
 
     /**
      * Field _reloadScriptList.
      */
-    @XmlElement(name="reload-script")
+    @XmlElement(name = "reload-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.ReloadScript> _reloadScriptList;
 
     /**
      * Field _eventScriptList.
      */
-    @XmlElement(name="event-script")
+    @XmlElement(name = "event-script")
     private java.util.List<org.opennms.netmgt.config.scriptd.EventScript> _eventScriptList;
 
     /**
      * Field _eventsList.
      */
-    @XmlElement(name="events")
+    @XmlElement(name = "events")
     private java.util.List<org.opennms.netmgt.config.scriptd.Events> _eventsList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ScriptdConfiguration() {
         super();
         this._engineList = new java.util.ArrayList<org.opennms.netmgt.config.scriptd.Engine>();
@@ -112,11 +106,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._eventsList = new java.util.ArrayList<org.opennms.netmgt.config.scriptd.Events>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -126,7 +118,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addEngine(
             final org.opennms.netmgt.config.scriptd.Engine vEngine)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._engineList.add(vEngine);
     }
 
@@ -141,7 +133,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addEngine(
             final int index,
             final org.opennms.netmgt.config.scriptd.Engine vEngine)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._engineList.add(index, vEngine);
     }
 
@@ -154,7 +146,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addEventScript(
             final org.opennms.netmgt.config.scriptd.EventScript vEventScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._eventScriptList.add(vEventScript);
     }
 
@@ -169,7 +161,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addEventScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.EventScript vEventScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._eventScriptList.add(index, vEventScript);
     }
 
@@ -182,7 +174,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addEvents(
             final org.opennms.netmgt.config.scriptd.Events vEvents)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._eventsList.add(vEvents);
     }
 
@@ -197,7 +189,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addEvents(
             final int index,
             final org.opennms.netmgt.config.scriptd.Events vEvents)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._eventsList.add(index, vEvents);
     }
 
@@ -210,7 +202,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addReloadScript(
             final org.opennms.netmgt.config.scriptd.ReloadScript vReloadScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._reloadScriptList.add(vReloadScript);
     }
 
@@ -225,7 +217,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addReloadScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.ReloadScript vReloadScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._reloadScriptList.add(index, vReloadScript);
     }
 
@@ -238,7 +230,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addStartScript(
             final org.opennms.netmgt.config.scriptd.StartScript vStartScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._startScriptList.add(vStartScript);
     }
 
@@ -253,7 +245,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addStartScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.StartScript vStartScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._startScriptList.add(index, vStartScript);
     }
 
@@ -266,7 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addStopScript(
             final org.opennms.netmgt.config.scriptd.StopScript vStopScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._stopScriptList.add(vStopScript);
     }
 
@@ -281,7 +273,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addStopScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.StopScript vStopScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._stopScriptList.add(index, vStopScript);
     }
 
@@ -291,8 +283,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.Engine> enumerateEngine(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.Engine> enumerateEngine() {
         return java.util.Collections.enumeration(this._engineList);
     }
 
@@ -302,8 +293,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.EventScript> enumerateEventScript(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.EventScript> enumerateEventScript() {
         return java.util.Collections.enumeration(this._eventScriptList);
     }
 
@@ -313,8 +303,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.Events> enumerateEvents(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.Events> enumerateEvents() {
         return java.util.Collections.enumeration(this._eventsList);
     }
 
@@ -324,8 +313,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.ReloadScript> enumerateReloadScript(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.ReloadScript> enumerateReloadScript() {
         return java.util.Collections.enumeration(this._reloadScriptList);
     }
 
@@ -335,8 +323,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.StartScript> enumerateStartScript(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.StartScript> enumerateStartScript() {
         return java.util.Collections.enumeration(this._startScriptList);
     }
 
@@ -346,8 +333,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.StopScript> enumerateStopScript(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.scriptd.StopScript> enumerateStopScript() {
         return java.util.Collections.enumeration(this._stopScriptList);
     }
 
@@ -360,54 +346,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ScriptdConfiguration) {
 
-            ScriptdConfiguration temp = (ScriptdConfiguration)obj;
+            ScriptdConfiguration temp = (ScriptdConfiguration) obj;
             if (this._engineList != null) {
-                if (temp._engineList == null) return false;
-                else if (!(this._engineList.equals(temp._engineList)))
+                if (temp._engineList == null) {
                     return false;
-            }
-            else if (temp._engineList != null)
+                } else if (!(this._engineList.equals(temp._engineList))) {
+                    return false;
+                }
+            } else if (temp._engineList != null) {
                 return false;
+            }
             if (this._startScriptList != null) {
-                if (temp._startScriptList == null) return false;
-                else if (!(this._startScriptList.equals(temp._startScriptList)))
+                if (temp._startScriptList == null) {
                     return false;
-            }
-            else if (temp._startScriptList != null)
+                } else if (!(this._startScriptList.equals(temp._startScriptList))) {
+                    return false;
+                }
+            } else if (temp._startScriptList != null) {
                 return false;
+            }
             if (this._stopScriptList != null) {
-                if (temp._stopScriptList == null) return false;
-                else if (!(this._stopScriptList.equals(temp._stopScriptList)))
+                if (temp._stopScriptList == null) {
                     return false;
-            }
-            else if (temp._stopScriptList != null)
+                } else if (!(this._stopScriptList.equals(temp._stopScriptList))) {
+                    return false;
+                }
+            } else if (temp._stopScriptList != null) {
                 return false;
+            }
             if (this._reloadScriptList != null) {
-                if (temp._reloadScriptList == null) return false;
-                else if (!(this._reloadScriptList.equals(temp._reloadScriptList)))
+                if (temp._reloadScriptList == null) {
                     return false;
-            }
-            else if (temp._reloadScriptList != null)
+                } else if (!(this._reloadScriptList.equals(temp._reloadScriptList))) {
+                    return false;
+                }
+            } else if (temp._reloadScriptList != null) {
                 return false;
+            }
             if (this._eventScriptList != null) {
-                if (temp._eventScriptList == null) return false;
-                else if (!(this._eventScriptList.equals(temp._eventScriptList)))
+                if (temp._eventScriptList == null) {
                     return false;
-            }
-            else if (temp._eventScriptList != null)
+                } else if (!(this._eventScriptList.equals(temp._eventScriptList))) {
+                    return false;
+                }
+            } else if (temp._eventScriptList != null) {
                 return false;
+            }
             if (this._eventsList != null) {
-                if (temp._eventsList == null) return false;
-                else if (!(this._eventsList.equals(temp._eventsList)))
+                if (temp._eventsList == null) {
                     return false;
-            }
-            else if (temp._eventsList != null)
+                } else if (!(this._eventsList.equals(temp._eventsList))) {
+                    return false;
+                }
+            } else if (temp._eventsList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -424,7 +423,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.scriptd.Engine getEngine(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._engineList.size()) {
             throw new IndexOutOfBoundsException("getEngine: Index value '" + index + "' not in range [0.." + (this._engineList.size() - 1) + "]");
@@ -442,8 +441,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.scriptd.Engine[] getEngine(
-    ) {
+    public org.opennms.netmgt.config.scriptd.Engine[] getEngine() {
         org.opennms.netmgt.config.scriptd.Engine[] array = new org.opennms.netmgt.config.scriptd.Engine[0];
         return (org.opennms.netmgt.config.scriptd.Engine[]) this._engineList.toArray(array);
     }
@@ -455,8 +453,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.scriptd.Engine> getEngineCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.scriptd.Engine> getEngineCollection() {
         return this._engineList;
     }
 
@@ -465,8 +462,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getEngineCount(
-    ) {
+    public int getEngineCount() {
         return this._engineList.size();
     }
 
@@ -482,7 +478,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.scriptd.EventScript getEventScript(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._eventScriptList.size()) {
             throw new IndexOutOfBoundsException("getEventScript: Index value '" + index + "' not in range [0.." + (this._eventScriptList.size() - 1) + "]");
@@ -500,8 +496,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.scriptd.EventScript[] getEventScript(
-    ) {
+    public org.opennms.netmgt.config.scriptd.EventScript[] getEventScript() {
         org.opennms.netmgt.config.scriptd.EventScript[] array = new org.opennms.netmgt.config.scriptd.EventScript[0];
         return (org.opennms.netmgt.config.scriptd.EventScript[]) this._eventScriptList.toArray(array);
     }
@@ -513,8 +508,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.scriptd.EventScript> getEventScriptCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.scriptd.EventScript> getEventScriptCollection() {
         return this._eventScriptList;
     }
 
@@ -523,8 +517,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getEventScriptCount(
-    ) {
+    public int getEventScriptCount() {
         return this._eventScriptList.size();
     }
 
@@ -539,7 +532,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.scriptd.Events getEvents(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._eventsList.size()) {
             throw new IndexOutOfBoundsException("getEvents: Index value '" + index + "' not in range [0.." + (this._eventsList.size() - 1) + "]");
@@ -557,8 +550,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.scriptd.Events[] getEvents(
-    ) {
+    public org.opennms.netmgt.config.scriptd.Events[] getEvents() {
         org.opennms.netmgt.config.scriptd.Events[] array = new org.opennms.netmgt.config.scriptd.Events[0];
         return (org.opennms.netmgt.config.scriptd.Events[]) this._eventsList.toArray(array);
     }
@@ -570,8 +562,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.scriptd.Events> getEventsCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.scriptd.Events> getEventsCollection() {
         return this._eventsList;
     }
 
@@ -580,8 +571,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getEventsCount(
-    ) {
+    public int getEventsCount() {
         return this._eventsList.size();
     }
 
@@ -597,7 +587,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.scriptd.ReloadScript getReloadScript(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._reloadScriptList.size()) {
             throw new IndexOutOfBoundsException("getReloadScript: Index value '" + index + "' not in range [0.." + (this._reloadScriptList.size() - 1) + "]");
@@ -616,8 +606,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.scriptd.ReloadScript[] getReloadScript(
-    ) {
+    public org.opennms.netmgt.config.scriptd.ReloadScript[] getReloadScript() {
         org.opennms.netmgt.config.scriptd.ReloadScript[] array = new org.opennms.netmgt.config.scriptd.ReloadScript[0];
         return (org.opennms.netmgt.config.scriptd.ReloadScript[]) this._reloadScriptList.toArray(array);
     }
@@ -629,8 +618,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.scriptd.ReloadScript> getReloadScriptCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.scriptd.ReloadScript> getReloadScriptCollection() {
         return this._reloadScriptList;
     }
 
@@ -639,8 +627,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getReloadScriptCount(
-    ) {
+    public int getReloadScriptCount() {
         return this._reloadScriptList.size();
     }
 
@@ -656,7 +643,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.scriptd.StartScript getStartScript(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._startScriptList.size()) {
             throw new IndexOutOfBoundsException("getStartScript: Index value '" + index + "' not in range [0.." + (this._startScriptList.size() - 1) + "]");
@@ -674,8 +661,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.scriptd.StartScript[] getStartScript(
-    ) {
+    public org.opennms.netmgt.config.scriptd.StartScript[] getStartScript() {
         org.opennms.netmgt.config.scriptd.StartScript[] array = new org.opennms.netmgt.config.scriptd.StartScript[0];
         return (org.opennms.netmgt.config.scriptd.StartScript[]) this._startScriptList.toArray(array);
     }
@@ -687,8 +673,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.scriptd.StartScript> getStartScriptCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.scriptd.StartScript> getStartScriptCollection() {
         return this._startScriptList;
     }
 
@@ -697,8 +682,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getStartScriptCount(
-    ) {
+    public int getStartScriptCount() {
         return this._startScriptList.size();
     }
 
@@ -714,7 +698,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.scriptd.StopScript getStopScript(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._stopScriptList.size()) {
             throw new IndexOutOfBoundsException("getStopScript: Index value '" + index + "' not in range [0.." + (this._stopScriptList.size() - 1) + "]");
@@ -732,8 +716,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.scriptd.StopScript[] getStopScript(
-    ) {
+    public org.opennms.netmgt.config.scriptd.StopScript[] getStopScript() {
         org.opennms.netmgt.config.scriptd.StopScript[] array = new org.opennms.netmgt.config.scriptd.StopScript[0];
         return (org.opennms.netmgt.config.scriptd.StopScript[]) this._stopScriptList.toArray(array);
     }
@@ -745,8 +728,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.scriptd.StopScript> getStopScriptCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.scriptd.StopScript> getStopScriptCollection() {
         return this._stopScriptList;
     }
 
@@ -755,8 +737,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getStopScriptCount(
-    ) {
+    public int getStopScriptCount() {
         return this._stopScriptList.size();
     }
 
@@ -769,28 +750,27 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_engineList != null) {
-           result = 37 * result + _engineList.hashCode();
+            result = 37 * result + _engineList.hashCode();
         }
         if (_startScriptList != null) {
-           result = 37 * result + _startScriptList.hashCode();
+            result = 37 * result + _startScriptList.hashCode();
         }
         if (_stopScriptList != null) {
-           result = 37 * result + _stopScriptList.hashCode();
+            result = 37 * result + _stopScriptList.hashCode();
         }
         if (_reloadScriptList != null) {
-           result = 37 * result + _reloadScriptList.hashCode();
+            result = 37 * result + _reloadScriptList.hashCode();
         }
         if (_eventScriptList != null) {
-           result = 37 * result + _eventScriptList.hashCode();
+            result = 37 * result + _eventScriptList.hashCode();
         }
         if (_eventsList != null) {
-           result = 37 * result + _eventsList.hashCode();
+            result = 37 * result + _eventsList.hashCode();
         }
 
         return result;
@@ -801,8 +781,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -817,8 +796,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.scriptd.Engine> iterateEngine(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.scriptd.Engine> iterateEngine() {
         return this._engineList.iterator();
     }
 
@@ -828,8 +806,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.scriptd.EventScript> iterateEventScript(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.scriptd.EventScript> iterateEventScript() {
         return this._eventScriptList.iterator();
     }
 
@@ -839,8 +816,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.scriptd.Events> iterateEvents(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.scriptd.Events> iterateEvents() {
         return this._eventsList.iterator();
     }
 
@@ -850,8 +826,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.scriptd.ReloadScript> iterateReloadScript(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.scriptd.ReloadScript> iterateReloadScript() {
         return this._reloadScriptList.iterator();
     }
 
@@ -861,8 +836,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.scriptd.StartScript> iterateStartScript(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.scriptd.StartScript> iterateStartScript() {
         return this._startScriptList.iterator();
     }
 
@@ -872,8 +846,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.scriptd.StopScript> iterateStopScript(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.scriptd.StopScript> iterateStopScript() {
         return this._stopScriptList.iterator();
     }
 
@@ -888,7 +861,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -905,49 +878,43 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllEngine(
-    ) {
+    public void removeAllEngine() {
         this._engineList.clear();
     }
 
     /**
      */
-    public void removeAllEventScript(
-    ) {
+    public void removeAllEventScript() {
         this._eventScriptList.clear();
     }
 
     /**
      */
-    public void removeAllEvents(
-    ) {
+    public void removeAllEvents() {
         this._eventsList.clear();
     }
 
     /**
      */
-    public void removeAllReloadScript(
-    ) {
+    public void removeAllReloadScript() {
         this._reloadScriptList.clear();
     }
 
     /**
      */
-    public void removeAllStartScript(
-    ) {
+    public void removeAllStartScript() {
         this._startScriptList.clear();
     }
 
     /**
      */
-    public void removeAllStopScript(
-    ) {
+    public void removeAllStopScript() {
         this._stopScriptList.clear();
     }
 
@@ -1106,7 +1073,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setEngine(
             final int index,
             final org.opennms.netmgt.config.scriptd.Engine vEngine)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._engineList.size()) {
             throw new IndexOutOfBoundsException("setEngine: Index value '" + index + "' not in range [0.." + (this._engineList.size() - 1) + "]");
@@ -1126,7 +1093,7 @@ import org.opennms.core.xml.ValidateUsing;
         _engineList.clear();
 
         for (int i = 0; i < vEngineArray.length; i++) {
-                this._engineList.add(vEngineArray[i]);
+            this._engineList.add(vEngineArray[i]);
         }
     }
 
@@ -1167,7 +1134,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setEventScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.EventScript vEventScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._eventScriptList.size()) {
             throw new IndexOutOfBoundsException("setEventScript: Index value '" + index + "' not in range [0.." + (this._eventScriptList.size() - 1) + "]");
@@ -1187,7 +1154,7 @@ import org.opennms.core.xml.ValidateUsing;
         _eventScriptList.clear();
 
         for (int i = 0; i < vEventScriptArray.length; i++) {
-                this._eventScriptList.add(vEventScriptArray[i]);
+            this._eventScriptList.add(vEventScriptArray[i]);
         }
     }
 
@@ -1228,7 +1195,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setEvents(
             final int index,
             final org.opennms.netmgt.config.scriptd.Events vEvents)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._eventsList.size()) {
             throw new IndexOutOfBoundsException("setEvents: Index value '" + index + "' not in range [0.." + (this._eventsList.size() - 1) + "]");
@@ -1248,7 +1215,7 @@ import org.opennms.core.xml.ValidateUsing;
         _eventsList.clear();
 
         for (int i = 0; i < vEventsArray.length; i++) {
-                this._eventsList.add(vEventsArray[i]);
+            this._eventsList.add(vEventsArray[i]);
         }
     }
 
@@ -1289,7 +1256,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setReloadScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.ReloadScript vReloadScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._reloadScriptList.size()) {
             throw new IndexOutOfBoundsException("setReloadScript: Index value '" + index + "' not in range [0.." + (this._reloadScriptList.size() - 1) + "]");
@@ -1309,7 +1276,7 @@ import org.opennms.core.xml.ValidateUsing;
         _reloadScriptList.clear();
 
         for (int i = 0; i < vReloadScriptArray.length; i++) {
-                this._reloadScriptList.add(vReloadScriptArray[i]);
+            this._reloadScriptList.add(vReloadScriptArray[i]);
         }
     }
 
@@ -1350,7 +1317,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setStartScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.StartScript vStartScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._startScriptList.size()) {
             throw new IndexOutOfBoundsException("setStartScript: Index value '" + index + "' not in range [0.." + (this._startScriptList.size() - 1) + "]");
@@ -1370,7 +1337,7 @@ import org.opennms.core.xml.ValidateUsing;
         _startScriptList.clear();
 
         for (int i = 0; i < vStartScriptArray.length; i++) {
-                this._startScriptList.add(vStartScriptArray[i]);
+            this._startScriptList.add(vStartScriptArray[i]);
         }
     }
 
@@ -1411,7 +1378,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setStopScript(
             final int index,
             final org.opennms.netmgt.config.scriptd.StopScript vStopScript)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._stopScriptList.size()) {
             throw new IndexOutOfBoundsException("setStopScript: Index value '" + index + "' not in range [0.." + (this._stopScriptList.size() - 1) + "]");
@@ -1431,7 +1398,7 @@ import org.opennms.core.xml.ValidateUsing;
         _stopScriptList.clear();
 
         for (int i = 0; i < vStopScriptArray.length; i++) {
-                this._stopScriptList.add(vStopScriptArray[i]);
+            this._stopScriptList.add(vStopScriptArray[i]);
         }
     }
 
@@ -1474,7 +1441,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.scriptd.ScriptdConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.scriptd.ScriptdConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.scriptd.ScriptdConfiguration.class, reader);
     }
 
@@ -1484,9 +1451,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.protocols.wmi.config;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,72 +49,67 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="wmi-config")
+@XmlRootElement(name = "wmi-config")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("wmi-config.xsd")
-@SuppressWarnings("all") public class WmiConfig implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class WmiConfig implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Default timeout (in milliseconds).
      *
      */
-    @XmlAttribute(name="timeout")
+    @XmlAttribute(name = "timeout")
     private Integer _timeout;
 
     /**
      * Default number of retries.
      *
      */
-    @XmlAttribute(name="retry")
+    @XmlAttribute(name = "retry")
     private Integer _retry;
 
     /**
      * Default username.
      */
-    @XmlAttribute(name="username")
+    @XmlAttribute(name = "username")
     private java.lang.String _username;
 
     /**
      * Default Windows Domain.
      *
      */
-    @XmlAttribute(name="domain")
+    @XmlAttribute(name = "domain")
     private java.lang.String _domain;
 
     /**
      * Default user password.
      *
      */
-    @XmlAttribute(name="password")
+    @XmlAttribute(name = "password")
     private java.lang.String _password;
 
     /**
      * Maps IP addresses to specific SNMP parameters
      *  (retries, timeouts...)
      */
-    @XmlElement(name="definition")
+    @XmlElement(name = "definition")
     private java.util.List<org.opennms.protocols.wmi.config.Definition> _definitionList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public WmiConfig() {
         super();
         this._definitionList = new java.util.ArrayList<org.opennms.protocols.wmi.config.Definition>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -127,7 +119,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addDefinition(
             final org.opennms.protocols.wmi.config.Definition vDefinition)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._definitionList.add(vDefinition);
     }
 
@@ -142,22 +134,20 @@ import org.opennms.core.xml.ValidateUsing;
     public void addDefinition(
             final int index,
             final org.opennms.protocols.wmi.config.Definition vDefinition)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._definitionList.add(index, vDefinition);
     }
 
     /**
      */
-    public void deleteRetry(
-    ) {
-        this._retry= null;
+    public void deleteRetry() {
+        this._retry = null;
     }
 
     /**
      */
-    public void deleteTimeout(
-    ) {
-        this._timeout= null;
+    public void deleteTimeout() {
+        this._timeout = null;
     }
 
     /**
@@ -166,8 +156,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.protocols.wmi.config.Definition> enumerateDefinition(
-    ) {
+    public java.util.Enumeration<org.opennms.protocols.wmi.config.Definition> enumerateDefinition() {
         return java.util.Collections.enumeration(this._definitionList);
     }
 
@@ -180,54 +169,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof WmiConfig) {
 
-            WmiConfig temp = (WmiConfig)obj;
+            WmiConfig temp = (WmiConfig) obj;
             if (this._timeout != null) {
-                if (temp._timeout == null) return false;
-                else if (!(this._timeout.equals(temp._timeout)))
+                if (temp._timeout == null) {
                     return false;
-            }
-            else if (temp._timeout != null)
+                } else if (!(this._timeout.equals(temp._timeout))) {
+                    return false;
+                }
+            } else if (temp._timeout != null) {
                 return false;
+            }
             if (this._retry != null) {
-                if (temp._retry == null) return false;
-                else if (!(this._retry.equals(temp._retry)))
+                if (temp._retry == null) {
                     return false;
-            }
-            else if (temp._retry != null)
+                } else if (!(this._retry.equals(temp._retry))) {
+                    return false;
+                }
+            } else if (temp._retry != null) {
                 return false;
+            }
             if (this._username != null) {
-                if (temp._username == null) return false;
-                else if (!(this._username.equals(temp._username)))
+                if (temp._username == null) {
                     return false;
-            }
-            else if (temp._username != null)
+                } else if (!(this._username.equals(temp._username))) {
+                    return false;
+                }
+            } else if (temp._username != null) {
                 return false;
+            }
             if (this._domain != null) {
-                if (temp._domain == null) return false;
-                else if (!(this._domain.equals(temp._domain)))
+                if (temp._domain == null) {
                     return false;
-            }
-            else if (temp._domain != null)
+                } else if (!(this._domain.equals(temp._domain))) {
+                    return false;
+                }
+            } else if (temp._domain != null) {
                 return false;
+            }
             if (this._password != null) {
-                if (temp._password == null) return false;
-                else if (!(this._password.equals(temp._password)))
+                if (temp._password == null) {
                     return false;
-            }
-            else if (temp._password != null)
+                } else if (!(this._password.equals(temp._password))) {
+                    return false;
+                }
+            } else if (temp._password != null) {
                 return false;
+            }
             if (this._definitionList != null) {
-                if (temp._definitionList == null) return false;
-                else if (!(this._definitionList.equals(temp._definitionList)))
+                if (temp._definitionList == null) {
                     return false;
-            }
-            else if (temp._definitionList != null)
+                } else if (!(this._definitionList.equals(temp._definitionList))) {
+                    return false;
+                }
+            } else if (temp._definitionList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -244,7 +246,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.protocols.wmi.config.Definition getDefinition(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._definitionList.size()) {
             throw new IndexOutOfBoundsException("getDefinition: Index value '" + index + "' not in range [0.." + (this._definitionList.size() - 1) + "]");
@@ -262,8 +264,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.protocols.wmi.config.Definition[] getDefinition(
-    ) {
+    public org.opennms.protocols.wmi.config.Definition[] getDefinition() {
         org.opennms.protocols.wmi.config.Definition[] array = new org.opennms.protocols.wmi.config.Definition[0];
         return (org.opennms.protocols.wmi.config.Definition[]) this._definitionList.toArray(array);
     }
@@ -275,8 +276,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.protocols.wmi.config.Definition> getDefinitionCollection(
-    ) {
+    public java.util.List<org.opennms.protocols.wmi.config.Definition> getDefinitionCollection() {
         return this._definitionList;
     }
 
@@ -285,8 +285,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getDefinitionCount(
-    ) {
+    public int getDefinitionCount() {
         return this._definitionList.size();
     }
 
@@ -297,8 +296,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Domain'.
      */
-    public java.lang.String getDomain(
-    ) {
+    public java.lang.String getDomain() {
         return this._domain;
     }
 
@@ -309,8 +307,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Password'.
      */
-    public java.lang.String getPassword(
-    ) {
+    public java.lang.String getPassword() {
         return this._password;
     }
 
@@ -321,8 +318,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Retry'.
      */
-    public Integer getRetry(
-    ) {
+    public Integer getRetry() {
         return this._retry == null ? 2 : this._retry;
     }
 
@@ -334,8 +330,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Timeout'.
      */
-    public Integer getTimeout(
-    ) {
+    public Integer getTimeout() {
         return this._timeout == null ? 1500 : this._timeout;
     }
 
@@ -345,8 +340,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Username'.
      */
-    public java.lang.String getUsername(
-    ) {
+    public java.lang.String getUsername() {
         return this._username;
     }
 
@@ -355,8 +349,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Retry has been added
      */
-    public boolean hasRetry(
-    ) {
+    public boolean hasRetry() {
         return this._retry != null;
     }
 
@@ -365,8 +358,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Timeout has been added
      */
-    public boolean hasTimeout(
-    ) {
+    public boolean hasTimeout() {
         return this._timeout != null;
     }
 
@@ -379,24 +371,23 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         result = 37 * result + _timeout;
         result = 37 * result + _retry;
         if (_username != null) {
-           result = 37 * result + _username.hashCode();
+            result = 37 * result + _username.hashCode();
         }
         if (_domain != null) {
-           result = 37 * result + _domain.hashCode();
+            result = 37 * result + _domain.hashCode();
         }
         if (_password != null) {
-           result = 37 * result + _password.hashCode();
+            result = 37 * result + _password.hashCode();
         }
         if (_definitionList != null) {
-           result = 37 * result + _definitionList.hashCode();
+            result = 37 * result + _definitionList.hashCode();
         }
 
         return result;
@@ -407,8 +398,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -423,8 +413,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.protocols.wmi.config.Definition> iterateDefinition(
-    ) {
+    public java.util.Iterator<org.opennms.protocols.wmi.config.Definition> iterateDefinition() {
         return this._definitionList.iterator();
     }
 
@@ -439,7 +428,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -456,14 +445,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllDefinition(
-    ) {
+    public void removeAllDefinition() {
         this._definitionList.clear();
     }
 
@@ -502,7 +490,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setDefinition(
             final int index,
             final org.opennms.protocols.wmi.config.Definition vDefinition)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._definitionList.size()) {
             throw new IndexOutOfBoundsException("setDefinition: Index value '" + index + "' not in range [0.." + (this._definitionList.size() - 1) + "]");
@@ -522,7 +510,7 @@ import org.opennms.core.xml.ValidateUsing;
         _definitionList.clear();
 
         for (int i = 0; i < vDefinitionArray.length; i++) {
-                this._definitionList.add(vDefinitionArray[i]);
+            this._definitionList.add(vDefinitionArray[i]);
         }
     }
 
@@ -625,7 +613,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.protocols.wmi.config.WmiConfig unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.protocols.wmi.config.WmiConfig) Unmarshaller.unmarshal(org.opennms.protocols.wmi.config.WmiConfig.class, reader);
     }
 
@@ -635,9 +623,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

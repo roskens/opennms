@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.surveillanceViews;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,26 +48,25 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="column-def")
+@XmlRootElement(name = "column-def")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("surveillance-views.xsd")
-@SuppressWarnings("all") public class ColumnDef implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ColumnDef implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _label.
      */
-    @XmlAttribute(name="label", required = true)
+    @XmlAttribute(name = "label", required = true)
     private java.lang.String _label;
 
     /**
      * Field _reportCategory.
      */
-    @XmlAttribute(name="report-category")
+    @XmlAttribute(name = "report-category")
     private java.lang.String _reportCategory;
 
     /**
@@ -84,24 +80,20 @@ import org.opennms.core.xml.ValidateUsing;
      * changed and the service layer is adapted for this behavior.
      *
      */
-    @XmlElement(name="category")
+    @XmlElement(name = "category")
     private java.util.List<org.opennms.netmgt.config.surveillanceViews.Category> _categoryList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ColumnDef() {
         super();
         this._categoryList = new java.util.ArrayList<org.opennms.netmgt.config.surveillanceViews.Category>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -111,7 +103,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addCategory(
             final org.opennms.netmgt.config.surveillanceViews.Category vCategory)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._categoryList.add(vCategory);
     }
 
@@ -126,7 +118,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addCategory(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.Category vCategory)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._categoryList.add(index, vCategory);
     }
 
@@ -136,8 +128,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.Category> enumerateCategory(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.surveillanceViews.Category> enumerateCategory() {
         return java.util.Collections.enumeration(this._categoryList);
     }
 
@@ -150,33 +141,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ColumnDef) {
 
-            ColumnDef temp = (ColumnDef)obj;
+            ColumnDef temp = (ColumnDef) obj;
             if (this._label != null) {
-                if (temp._label == null) return false;
-                else if (!(this._label.equals(temp._label)))
+                if (temp._label == null) {
                     return false;
-            }
-            else if (temp._label != null)
+                } else if (!(this._label.equals(temp._label))) {
+                    return false;
+                }
+            } else if (temp._label != null) {
                 return false;
+            }
             if (this._reportCategory != null) {
-                if (temp._reportCategory == null) return false;
-                else if (!(this._reportCategory.equals(temp._reportCategory)))
+                if (temp._reportCategory == null) {
                     return false;
-            }
-            else if (temp._reportCategory != null)
+                } else if (!(this._reportCategory.equals(temp._reportCategory))) {
+                    return false;
+                }
+            } else if (temp._reportCategory != null) {
                 return false;
+            }
             if (this._categoryList != null) {
-                if (temp._categoryList == null) return false;
-                else if (!(this._categoryList.equals(temp._categoryList)))
+                if (temp._categoryList == null) {
                     return false;
-            }
-            else if (temp._categoryList != null)
+                } else if (!(this._categoryList.equals(temp._categoryList))) {
+                    return false;
+                }
+            } else if (temp._categoryList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -194,7 +192,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.surveillanceViews.Category getCategory(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._categoryList.size()) {
             throw new IndexOutOfBoundsException("getCategory: Index value '" + index + "' not in range [0.." + (this._categoryList.size() - 1) + "]");
@@ -212,8 +210,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.surveillanceViews.Category[] getCategory(
-    ) {
+    public org.opennms.netmgt.config.surveillanceViews.Category[] getCategory() {
         org.opennms.netmgt.config.surveillanceViews.Category[] array = new org.opennms.netmgt.config.surveillanceViews.Category[0];
         return (org.opennms.netmgt.config.surveillanceViews.Category[]) this._categoryList.toArray(array);
     }
@@ -225,8 +222,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.surveillanceViews.Category> getCategoryCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.surveillanceViews.Category> getCategoryCollection() {
         return this._categoryList;
     }
 
@@ -235,8 +231,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getCategoryCount(
-    ) {
+    public int getCategoryCount() {
         return this._categoryList.size();
     }
 
@@ -245,8 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Label'.
      */
-    public java.lang.String getLabel(
-    ) {
+    public java.lang.String getLabel() {
         return this._label;
     }
 
@@ -255,8 +249,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReportCategory'.
      */
-    public java.lang.String getReportCategory(
-    ) {
+    public java.lang.String getReportCategory() {
         return this._reportCategory;
     }
 
@@ -269,19 +262,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_label != null) {
-           result = 37 * result + _label.hashCode();
+            result = 37 * result + _label.hashCode();
         }
         if (_reportCategory != null) {
-           result = 37 * result + _reportCategory.hashCode();
+            result = 37 * result + _reportCategory.hashCode();
         }
         if (_categoryList != null) {
-           result = 37 * result + _categoryList.hashCode();
+            result = 37 * result + _categoryList.hashCode();
         }
 
         return result;
@@ -292,8 +284,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -308,8 +299,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.Category> iterateCategory(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.surveillanceViews.Category> iterateCategory() {
         return this._categoryList.iterator();
     }
 
@@ -324,7 +314,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -341,14 +331,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllCategory(
-    ) {
+    public void removeAllCategory() {
         this._categoryList.clear();
     }
 
@@ -387,7 +376,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setCategory(
             final int index,
             final org.opennms.netmgt.config.surveillanceViews.Category vCategory)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._categoryList.size()) {
             throw new IndexOutOfBoundsException("setCategory: Index value '" + index + "' not in range [0.." + (this._categoryList.size() - 1) + "]");
@@ -407,7 +396,7 @@ import org.opennms.core.xml.ValidateUsing;
         _categoryList.clear();
 
         for (int i = 0; i < vCategoryArray.length; i++) {
-                this._categoryList.add(vCategoryArray[i]);
+            this._categoryList.add(vCategoryArray[i]);
         }
     }
 
@@ -470,7 +459,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.surveillanceViews.ColumnDef unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.surveillanceViews.ColumnDef) Unmarshaller.unmarshal(org.opennms.netmgt.config.surveillanceViews.ColumnDef.class, reader);
     }
 
@@ -480,9 +469,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

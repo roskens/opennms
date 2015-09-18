@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.thresholding;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,44 +42,38 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="thresholding-config")
+@XmlRootElement(name = "thresholding-config")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("thresholding-config.xsd")
-@SuppressWarnings("all") public class ThresholdingConfig implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ThresholdingConfig implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Thresholding group element
      */
-    @XmlElement(name="group")
+    @XmlElement(name = "group")
     private java.util.List<org.opennms.netmgt.config.thresholding.Group> _groupList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ThresholdingConfig() {
         super();
         this._groupList = new java.util.ArrayList<org.opennms.netmgt.config.thresholding.Group>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -91,7 +83,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addGroup(
             final org.opennms.netmgt.config.thresholding.Group vGroup)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._groupList.add(vGroup);
     }
 
@@ -106,7 +98,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addGroup(
             final int index,
             final org.opennms.netmgt.config.thresholding.Group vGroup)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._groupList.add(index, vGroup);
     }
 
@@ -116,8 +108,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.Group> enumerateGroup(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.thresholding.Group> enumerateGroup() {
         return java.util.Collections.enumeration(this._groupList);
     }
 
@@ -130,19 +121,22 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ThresholdingConfig) {
 
-            ThresholdingConfig temp = (ThresholdingConfig)obj;
+            ThresholdingConfig temp = (ThresholdingConfig) obj;
             if (this._groupList != null) {
-                if (temp._groupList == null) return false;
-                else if (!(this._groupList.equals(temp._groupList)))
+                if (temp._groupList == null) {
                     return false;
-            }
-            else if (temp._groupList != null)
+                } else if (!(this._groupList.equals(temp._groupList))) {
+                    return false;
+                }
+            } else if (temp._groupList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -160,7 +154,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.thresholding.Group getGroup(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._groupList.size()) {
             throw new IndexOutOfBoundsException("getGroup: Index value '" + index + "' not in range [0.." + (this._groupList.size() - 1) + "]");
@@ -178,8 +172,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.thresholding.Group[] getGroup(
-    ) {
+    public org.opennms.netmgt.config.thresholding.Group[] getGroup() {
         org.opennms.netmgt.config.thresholding.Group[] array = new org.opennms.netmgt.config.thresholding.Group[0];
         return (org.opennms.netmgt.config.thresholding.Group[]) this._groupList.toArray(array);
     }
@@ -191,8 +184,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.thresholding.Group> getGroupCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.thresholding.Group> getGroupCollection() {
         return this._groupList;
     }
 
@@ -201,8 +193,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getGroupCount(
-    ) {
+    public int getGroupCount() {
         return this._groupList.size();
     }
 
@@ -215,13 +206,12 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_groupList != null) {
-           result = 37 * result + _groupList.hashCode();
+            result = 37 * result + _groupList.hashCode();
         }
 
         return result;
@@ -232,8 +222,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -248,8 +237,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.thresholding.Group> iterateGroup(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.thresholding.Group> iterateGroup() {
         return this._groupList.iterator();
     }
 
@@ -264,7 +252,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -281,14 +269,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllGroup(
-    ) {
+    public void removeAllGroup() {
         this._groupList.clear();
     }
 
@@ -327,7 +314,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setGroup(
             final int index,
             final org.opennms.netmgt.config.thresholding.Group vGroup)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._groupList.size()) {
             throw new IndexOutOfBoundsException("setGroup: Index value '" + index + "' not in range [0.." + (this._groupList.size() - 1) + "]");
@@ -347,7 +334,7 @@ import org.opennms.core.xml.ValidateUsing;
         _groupList.clear();
 
         for (int i = 0; i < vGroupArray.length; i++) {
-                this._groupList.add(vGroupArray[i]);
+            this._groupList.add(vGroupArray[i]);
         }
     }
 
@@ -390,7 +377,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.thresholding.ThresholdingConfig unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.thresholding.ThresholdingConfig) Unmarshaller.unmarshal(org.opennms.netmgt.config.thresholding.ThresholdingConfig.class, reader);
     }
 
@@ -400,9 +387,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

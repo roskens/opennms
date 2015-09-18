@@ -25,16 +25,17 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.config.statsd.types;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 public class PackageReportStatusTypeAdapter extends XmlAdapter<String, PackageReportStatusType> {
+
     @Override
     public PackageReportStatusType unmarshal(String val) throws Exception {
         return PackageReportStatusType.valueOf(val);
     }
+
     @Override
     public String marshal(PackageReportStatusType type) {
         return type.toString();

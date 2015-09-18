@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest.descriptors;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.opennms.netmgt.config.mailtransporttest.UserAuth;
 
 /**
@@ -46,13 +44,12 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
  * 
  * @version $Revision$ $Date$
  */
-@SuppressWarnings("all") public class UserAuthDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
-
+@SuppressWarnings("all")
+public class UserAuthDescriptor extends org.exolab.castor.xml.util.XMLClassDescriptorImpl {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _elementDefinition.
      */
@@ -78,43 +75,41 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      */
     private org.exolab.castor.xml.XMLFieldDescriptor _identity;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public UserAuthDescriptor() {
         super();
         _nsURI = "http://xmlns.opennms.org/xsd/mail-transport-test";
         _xmlName = "user-auth";
         _elementDefinition = true;
-        org.exolab.castor.xml.util.XMLFieldDescriptorImpl  desc           = null;
-        org.exolab.castor.mapping.FieldHandler             handler        = null;
-        org.exolab.castor.xml.FieldValidator               fieldValidator = null;
+        org.exolab.castor.xml.util.XMLFieldDescriptorImpl desc = null;
+        org.exolab.castor.mapping.FieldHandler handler = null;
+        org.exolab.castor.xml.FieldValidator fieldValidator = null;
         //-- initialize attribute descriptors
-        
+
         //-- _userName
         desc = new org.exolab.castor.xml.util.XMLFieldDescriptorImpl(java.lang.String.class, "_userName", "user-name", org.exolab.castor.xml.NodeType.Attribute);
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 UserAuth target = (UserAuth) object;
                 return target.getUserName();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     UserAuth target = (UserAuth) object;
-                    target.setUserName( (java.lang.String) value);
+                    target.setUserName((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -125,7 +120,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _userName
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -140,23 +135,23 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
         desc.setImmutable(true);
         handler = new org.exolab.castor.xml.XMLFieldHandler() {
             @Override
-            public java.lang.Object getValue( java.lang.Object object ) 
-                throws IllegalStateException
-            {
+            public java.lang.Object getValue(java.lang.Object object)
+                    throws IllegalStateException {
                 UserAuth target = (UserAuth) object;
                 return target.getPassword();
             }
+
             @Override
-            public void setValue( java.lang.Object object, java.lang.Object value) 
-                throws IllegalStateException, IllegalArgumentException
-            {
+            public void setValue(java.lang.Object object, java.lang.Object value)
+                    throws IllegalStateException, IllegalArgumentException {
                 try {
                     UserAuth target = (UserAuth) object;
-                    target.setPassword( (java.lang.String) value);
+                    target.setPassword((java.lang.String) value);
                 } catch (java.lang.Exception ex) {
                     throw new IllegalStateException(ex.toString());
                 }
             }
+
             @Override
             @SuppressWarnings("unused")
             public java.lang.Object newInstance(java.lang.Object parent) {
@@ -167,7 +162,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
         desc.setHandler(handler);
         desc.setMultivalued(false);
         addFieldDescriptor(desc);
-        
+
         //-- validation code for: _password
         fieldValidator = new org.exolab.castor.xml.FieldValidator();
         { //-- local scope
@@ -178,22 +173,19 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
         }
         desc.setValidator(fieldValidator);
         //-- initialize element descriptors
-        
+
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      * Method getAccessMode.
      * 
      * @return the access mode specified for this class.
      */
     @Override()
-    public org.exolab.castor.mapping.AccessMode getAccessMode(
-    ) {
+    public org.exolab.castor.mapping.AccessMode getAccessMode() {
         return null;
     }
 
@@ -204,8 +196,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      * identity.
      */
     @Override()
-    public org.exolab.castor.mapping.FieldDescriptor getIdentity(
-    ) {
+    public org.exolab.castor.mapping.FieldDescriptor getIdentity() {
         return _identity;
     }
 
@@ -215,8 +206,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      * @return the Java class represented by this descriptor.
      */
     @Override()
-    public java.lang.Class<?> getJavaClass(
-    ) {
+    public java.lang.Class<?> getJavaClass() {
         return org.opennms.netmgt.config.mailtransporttest.UserAuth.class;
     }
 
@@ -226,8 +216,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      * @return the namespace prefix to use when marshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpacePrefix(
-    ) {
+    public java.lang.String getNameSpacePrefix() {
         return _nsPrefix;
     }
 
@@ -238,8 +227,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      * unmarshaling as XML.
      */
     @Override()
-    public java.lang.String getNameSpaceURI(
-    ) {
+    public java.lang.String getNameSpaceURI() {
         return _nsURI;
     }
 
@@ -250,8 +238,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      * ClassDescriptor.
      */
     @Override()
-    public org.exolab.castor.xml.TypeValidator getValidator(
-    ) {
+    public org.exolab.castor.xml.TypeValidator getValidator() {
         return this;
     }
 
@@ -261,8 +248,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      * @return the XML Name for the Class being described.
      */
     @Override()
-    public java.lang.String getXMLName(
-    ) {
+    public java.lang.String getXMLName() {
         return _xmlName;
     }
 
@@ -273,8 +259,7 @@ import org.opennms.netmgt.config.mailtransporttest.UserAuth;
      * of a global
      * element or element with anonymous type definition.
      */
-    public boolean isElementDefinition(
-    ) {
+    public boolean isElementDefinition() {
         return _elementDefinition;
     }
 

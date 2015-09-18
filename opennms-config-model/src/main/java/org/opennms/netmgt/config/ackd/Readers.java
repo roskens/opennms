@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.ackd;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,12 +54,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "readers")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Readers implements Serializable {
+
     private static final long serialVersionUID = 7999107140580085865L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _readerList.
      */
@@ -71,7 +69,6 @@ public class Readers implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Readers() {
         super();
     }
@@ -89,7 +86,6 @@ public class Readers implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * 
      * 
@@ -132,19 +128,22 @@ public class Readers implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Readers) {
 
             Readers temp = (Readers) obj;
             if (this._readerList != null) {
-                if (temp._readerList == null)
+                if (temp._readerList == null) {
                     return false;
-                else if (!(this._readerList.equals(temp._readerList)))
+                } else if (!(this._readerList.equals(temp._readerList))) {
                     return false;
-            } else if (temp._readerList != null)
+                }
+            } else if (temp._readerList != null) {
                 return false;
+            }
             return true;
         }
         return false;

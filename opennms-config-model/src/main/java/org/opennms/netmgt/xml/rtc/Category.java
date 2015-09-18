@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.xml.rtc;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,57 +41,51 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="category")
+@XmlRootElement(name = "category")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("rtceui.xsd")
-@SuppressWarnings("all") public class Category implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Category implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * The category label
      */
-    @XmlElement(name="catlabel")
+    @XmlElement(name = "catlabel")
     private java.lang.String _catlabel;
 
     /**
      * The category availability value
      */
-    @XmlElement(name="catvalue")
+    @XmlElement(name = "catvalue")
     private Double _catvalue;
 
     /**
      * A node that belongs to this
      *  category
      */
-    @XmlElement(name="node")
+    @XmlElement(name = "node")
     private java.util.List<org.opennms.netmgt.xml.rtc.Node> _nodeList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Category() {
         super();
         this._nodeList = new java.util.ArrayList<org.opennms.netmgt.xml.rtc.Node>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -103,7 +95,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addNode(
             final org.opennms.netmgt.xml.rtc.Node vNode)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._nodeList.add(vNode);
     }
 
@@ -118,14 +110,13 @@ import org.opennms.core.xml.ValidateUsing;
     public void addNode(
             final int index,
             final org.opennms.netmgt.xml.rtc.Node vNode)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._nodeList.add(index, vNode);
     }
 
     /**
      */
-    public void deleteCatvalue(
-    ) {
+    public void deleteCatvalue() {
         this._catvalue = null;
     }
 
@@ -135,8 +126,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.xml.rtc.Node> enumerateNode(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.xml.rtc.Node> enumerateNode() {
         return java.util.Collections.enumeration(this._nodeList);
     }
 
@@ -149,33 +139,40 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Category) {
 
-            Category temp = (Category)obj;
+            Category temp = (Category) obj;
             if (this._catlabel != null) {
-                if (temp._catlabel == null) return false;
-                else if (!(this._catlabel.equals(temp._catlabel)))
+                if (temp._catlabel == null) {
                     return false;
-            }
-            else if (temp._catlabel != null)
+                } else if (!(this._catlabel.equals(temp._catlabel))) {
+                    return false;
+                }
+            } else if (temp._catlabel != null) {
                 return false;
+            }
             if (this._catvalue != null) {
-                if (temp._catvalue == null) return false;
-                else if (!(this._catvalue.equals(temp._catvalue)))
+                if (temp._catvalue == null) {
                     return false;
-            }
-            else if (temp._catvalue != null)
+                } else if (!(this._catvalue.equals(temp._catvalue))) {
+                    return false;
+                }
+            } else if (temp._catvalue != null) {
                 return false;
+            }
             if (this._nodeList != null) {
-                if (temp._nodeList == null) return false;
-                else if (!(this._nodeList.equals(temp._nodeList)))
+                if (temp._nodeList == null) {
                     return false;
-            }
-            else if (temp._nodeList != null)
+                } else if (!(this._nodeList.equals(temp._nodeList))) {
+                    return false;
+                }
+            } else if (temp._nodeList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -187,8 +184,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Catlabel'.
      */
-    public java.lang.String getCatlabel(
-    ) {
+    public java.lang.String getCatlabel() {
         return this._catlabel;
     }
 
@@ -199,8 +195,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Catvalue'.
      */
-    public Double getCatvalue(
-    ) {
+    public Double getCatvalue() {
         return this._catvalue;
     }
 
@@ -215,7 +210,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.xml.rtc.Node getNode(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._nodeList.size()) {
             throw new IndexOutOfBoundsException("getNode: Index value '" + index + "' not in range [0.." + (this._nodeList.size() - 1) + "]");
@@ -233,8 +228,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.xml.rtc.Node[] getNode(
-    ) {
+    public org.opennms.netmgt.xml.rtc.Node[] getNode() {
         org.opennms.netmgt.xml.rtc.Node[] array = new org.opennms.netmgt.xml.rtc.Node[0];
         return (org.opennms.netmgt.xml.rtc.Node[]) this._nodeList.toArray(array);
     }
@@ -246,8 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.xml.rtc.Node> getNodeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.xml.rtc.Node> getNodeCollection() {
         return this._nodeList;
     }
 
@@ -256,8 +249,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getNodeCount(
-    ) {
+    public int getNodeCount() {
         return this._nodeList.size();
     }
 
@@ -266,8 +258,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Catvalue has been added
      */
-    public boolean hasCatvalue(
-    ) {
+    public boolean hasCatvalue() {
         return this._catvalue != null;
     }
 
@@ -280,19 +271,18 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_catlabel != null) {
-           result = 37 * result + _catlabel.hashCode();
+            result = 37 * result + _catlabel.hashCode();
         }
         if (_catvalue != null) {
-           result = 37 * result + _catvalue.hashCode();
+            result = 37 * result + _catvalue.hashCode();
         }
         if (_nodeList != null) {
-           result = 37 * result + _nodeList.hashCode();
+            result = 37 * result + _nodeList.hashCode();
         }
 
         return result;
@@ -303,8 +293,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -319,8 +308,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.xml.rtc.Node> iterateNode(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.xml.rtc.Node> iterateNode() {
         return this._nodeList.iterator();
     }
 
@@ -335,7 +323,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -352,14 +340,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllNode(
-    ) {
+    public void removeAllNode() {
         this._nodeList.clear();
     }
 
@@ -420,7 +407,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setNode(
             final int index,
             final org.opennms.netmgt.xml.rtc.Node vNode)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._nodeList.size()) {
             throw new IndexOutOfBoundsException("setNode: Index value '" + index + "' not in range [0.." + (this._nodeList.size() - 1) + "]");
@@ -440,7 +427,7 @@ import org.opennms.core.xml.ValidateUsing;
         _nodeList.clear();
 
         for (int i = 0; i < vNodeArray.length; i++) {
-                this._nodeList.add(vNodeArray[i]);
+            this._nodeList.add(vNodeArray[i]);
         }
     }
 
@@ -482,7 +469,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.xml.rtc.Category unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.xml.rtc.Category) Unmarshaller.unmarshal(org.opennms.netmgt.xml.rtc.Category.class, reader);
     }
 
@@ -492,9 +479,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

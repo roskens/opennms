@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.databaseReports;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,48 +41,46 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="report")
+@XmlRootElement(name = "report")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("database-reports.xsd")
-@SuppressWarnings("all") public class Report implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Report implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * the name of this report as defined in engine
      *  configuration
      */
-    @XmlAttribute(name="id")
+    @XmlAttribute(name = "id")
     private java.lang.String _id;
 
     /**
      * the name of this report as displayed in the webui
      *
      */
-    @XmlAttribute(name="display-name")
+    @XmlAttribute(name = "display-name")
     private java.lang.String _displayName;
 
     /**
      * the name of the engine to use to process and
      *  render this report
      */
-    @XmlAttribute(name="report-service")
+    @XmlAttribute(name = "report-service")
     private java.lang.String _reportService;
 
     /**
      * report description
      */
-    @XmlAttribute(name="description")
+    @XmlAttribute(name = "description")
     private java.lang.String _description;
 
     /**
@@ -93,28 +89,23 @@ import org.opennms.core.xml.ValidateUsing;
      * the report
      *  must be executed in batch mode.
      */
-    @XmlAttribute(name="online")
+    @XmlAttribute(name = "online")
     private Boolean _online;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Report() {
         super();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      */
-    public void deleteOnline(
-    ) {
-        this._online= null;
+    public void deleteOnline() {
+        this._online = null;
     }
 
     /**
@@ -126,47 +117,58 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Report) {
 
-            Report temp = (Report)obj;
+            Report temp = (Report) obj;
             if (this._id != null) {
-                if (temp._id == null) return false;
-                else if (!(this._id.equals(temp._id)))
+                if (temp._id == null) {
                     return false;
-            }
-            else if (temp._id != null)
+                } else if (!(this._id.equals(temp._id))) {
+                    return false;
+                }
+            } else if (temp._id != null) {
                 return false;
+            }
             if (this._displayName != null) {
-                if (temp._displayName == null) return false;
-                else if (!(this._displayName.equals(temp._displayName)))
+                if (temp._displayName == null) {
                     return false;
-            }
-            else if (temp._displayName != null)
+                } else if (!(this._displayName.equals(temp._displayName))) {
+                    return false;
+                }
+            } else if (temp._displayName != null) {
                 return false;
+            }
             if (this._reportService != null) {
-                if (temp._reportService == null) return false;
-                else if (!(this._reportService.equals(temp._reportService)))
+                if (temp._reportService == null) {
                     return false;
-            }
-            else if (temp._reportService != null)
+                } else if (!(this._reportService.equals(temp._reportService))) {
+                    return false;
+                }
+            } else if (temp._reportService != null) {
                 return false;
+            }
             if (this._description != null) {
-                if (temp._description == null) return false;
-                else if (!(this._description.equals(temp._description)))
+                if (temp._description == null) {
                     return false;
-            }
-            else if (temp._description != null)
+                } else if (!(this._description.equals(temp._description))) {
+                    return false;
+                }
+            } else if (temp._description != null) {
                 return false;
+            }
             if (this._online != null) {
-                if (temp._online == null) return false;
-                else if (!(this._online.equals(temp._online)))
+                if (temp._online == null) {
                     return false;
-            }
-            else if (temp._online != null)
+                } else if (!(this._online.equals(temp._online))) {
+                    return false;
+                }
+            } else if (temp._online != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -179,8 +181,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Description'.
      */
-    public java.lang.String getDescription(
-    ) {
+    public java.lang.String getDescription() {
         return this._description;
     }
 
@@ -192,8 +193,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'DisplayName'.
      */
-    public java.lang.String getDisplayName(
-    ) {
+    public java.lang.String getDisplayName() {
         return this._displayName;
     }
 
@@ -205,8 +205,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Id'.
      */
-    public java.lang.String getId(
-    ) {
+    public java.lang.String getId() {
         return this._id;
     }
 
@@ -220,8 +219,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Online'.
      */
-    public Boolean getOnline(
-    ) {
+    public Boolean getOnline() {
         return this._online == null ? false : this._online;
     }
 
@@ -233,8 +231,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ReportService'.
      */
-    public java.lang.String getReportService(
-    ) {
+    public java.lang.String getReportService() {
         return this._reportService;
     }
 
@@ -243,8 +240,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Online has been added
      */
-    public boolean hasOnline(
-    ) {
+    public boolean hasOnline() {
         return this._online != null;
     }
 
@@ -257,24 +253,23 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         if (_id != null) {
-           result = 37 * result + _id.hashCode();
+            result = 37 * result + _id.hashCode();
         }
         if (_displayName != null) {
-           result = 37 * result + _displayName.hashCode();
+            result = 37 * result + _displayName.hashCode();
         }
         if (_reportService != null) {
-           result = 37 * result + _reportService.hashCode();
+            result = 37 * result + _reportService.hashCode();
         }
         if (_description != null) {
-           result = 37 * result + _description.hashCode();
+            result = 37 * result + _description.hashCode();
         }
         if (_online != null) {
-           result = 37 * result + _online.hashCode();
+            result = 37 * result + _online.hashCode();
         }
 
         return result;
@@ -290,8 +285,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Online'.
      */
-    public Boolean isOnline(
-    ) {
+    public Boolean isOnline() {
         return this._online == null ? false : this._online;
     }
 
@@ -300,8 +294,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -321,7 +314,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -338,7 +331,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
@@ -421,7 +414,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.databaseReports.Report unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.databaseReports.Report) Unmarshaller.unmarshal(org.opennms.netmgt.config.databaseReports.Report.class, reader);
     }
 
@@ -431,9 +424,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

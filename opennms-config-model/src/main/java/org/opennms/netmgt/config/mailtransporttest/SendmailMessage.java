@@ -32,13 +32,11 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.mailtransporttest;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -61,34 +59,34 @@ import org.xml.sax.ContentHandler;
  * defined, one will be defined
  *  for your benefit (or confusion ;-)
  */
-
-@XmlRootElement(name="sendmail-message")
+@XmlRootElement(name = "sendmail-message")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SendmailMessage implements Serializable {
+
     private static final long serialVersionUID = -7401307903017394619L;
 
     /**
      * Field m_to.
      */
-    @XmlAttribute(name="to")
+    @XmlAttribute(name = "to")
     private String m_to;
 
     /**
      * Field m_from.
      */
-    @XmlAttribute(name="from")
+    @XmlAttribute(name = "from")
     private String m_from;
 
     /**
      * Field m_subject.
      */
-    @XmlAttribute(name="subject")
+    @XmlAttribute(name = "subject")
     private String m_subject;
 
     /**
      * Field m_body.
      */
-    @XmlAttribute(name="body")
+    @XmlAttribute(name = "body")
     private String m_body;
 
     public SendmailMessage() {
@@ -103,10 +101,12 @@ public class SendmailMessage implements Serializable {
      */
     @Override()
     public boolean equals(final Object obj) {
-        if ( this == obj ) return true;
-        
+        if (this == obj) {
+            return true;
+        }
+
         if (obj instanceof SendmailMessage) {
-            final SendmailMessage temp = (SendmailMessage)obj;
+            final SendmailMessage temp = (SendmailMessage) obj;
             if (m_to != null) {
                 if (temp.m_to == null) {
                     return false;
@@ -154,7 +154,7 @@ public class SendmailMessage implements Serializable {
      * @return the value of field 'Body'.
      */
     public String getBody() {
-        return m_body == null? "This is an OpenNMS test message." : m_body;
+        return m_body == null ? "This is an OpenNMS test message." : m_body;
     }
 
     /**
@@ -163,7 +163,7 @@ public class SendmailMessage implements Serializable {
      * @return the value of field 'From'.
      */
     public String getFrom() {
-        return m_from == null? "root@[127.0.0.1]" : m_from;
+        return m_from == null ? "root@[127.0.0.1]" : m_from;
     }
 
     /**
@@ -172,7 +172,7 @@ public class SendmailMessage implements Serializable {
      * @return the value of field 'Subject'.
      */
     public String getSubject() {
-        return m_subject == null? "OpenNMS Test Message" : m_subject;
+        return m_subject == null ? "OpenNMS Test Message" : m_subject;
     }
 
     /**
@@ -181,7 +181,7 @@ public class SendmailMessage implements Serializable {
      * @return the value of field 'To'.
      */
     public String getTo() {
-        return m_to == null? "root@localhost" : m_to;
+        return m_to == null ? "root@localhost" : m_to;
     }
 
     /**
@@ -194,20 +194,20 @@ public class SendmailMessage implements Serializable {
      */
     public int hashCode() {
         int result = 17;
-        
+
         if (m_to != null) {
-           result = 37 * result + m_to.hashCode();
+            result = 37 * result + m_to.hashCode();
         }
         if (m_from != null) {
-           result = 37 * result + m_from.hashCode();
+            result = 37 * result + m_from.hashCode();
         }
         if (m_subject != null) {
-           result = 37 * result + m_subject.hashCode();
+            result = 37 * result + m_subject.hashCode();
         }
         if (m_body != null) {
-           result = 37 * result + m_body.hashCode();
+            result = 37 * result + m_body.hashCode();
         }
-        
+
         return result;
     }
 

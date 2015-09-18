@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.provisiond;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,55 +49,54 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="provisiond-configuration")
+@XmlRootElement(name = "provisiond-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("provisiond-configuration.xsd")
-@SuppressWarnings("all") public class ProvisiondConfiguration implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class ProvisiondConfiguration implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _importThreads.
      */
-    @XmlAttribute(name="importThreads")
+    @XmlAttribute(name = "importThreads")
     private Integer _importThreads;
     private static final Integer DEFAULT_IMPORT_THREADS = 8;
 
     /**
      * Field _scanThreads.
      */
-    @XmlAttribute(name="scanThreads")
+    @XmlAttribute(name = "scanThreads")
     private Integer _scanThreads;
     private static final Integer DEFAULT_SCAN_THREADS = 10;
 
     /**
      * Field _rescanThreads.
      */
-    @XmlAttribute(name="rescanThreads")
+    @XmlAttribute(name = "rescanThreads")
     private Integer _rescanThreads;
     private static final Integer DEFAULT_RESCAN_THREADS = 10;
 
     /**
      * Field _writeThreads.
      */
-    @XmlAttribute(name="writeThreads")
+    @XmlAttribute(name = "writeThreads")
     private Integer _writeThreads;
     private static final Integer DEFAULT_WRITE_THREADS = 8;
 
     /**
      * Field _requistionDir.
      */
-    @XmlAttribute(name="requistion-dir")
+    @XmlAttribute(name = "requistion-dir")
     private java.lang.String _requistionDir;
     private static final String DEFAULT_REQUISTION_DIR = "${install.dir}/etc/imports";
 
     /**
      * Field _foreignSourceDir.
      */
-    @XmlAttribute(name="foreign-source-dir")
+    @XmlAttribute(name = "foreign-source-dir")
     private java.lang.String _foreignSourceDir;
     private static final String DEFAULT_FOREIGN_SOURCE_DIR = "${install.dir}/etc/foreign-sources";
 
@@ -118,24 +114,20 @@ import org.opennms.core.xml.ValidateUsing;
      *  Year (Opt) empty, 1970-2099 , - /
      *
      */
-    @XmlElement(name="requisition-def")
+    @XmlElement(name = "requisition-def")
     private java.util.List<org.opennms.netmgt.config.provisiond.RequisitionDef> _requisitionDefList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public ProvisiondConfiguration() {
         super();
         this._requisitionDefList = new java.util.ArrayList<org.opennms.netmgt.config.provisiond.RequisitionDef>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -145,7 +137,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addRequisitionDef(
             final org.opennms.netmgt.config.provisiond.RequisitionDef vRequisitionDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._requisitionDefList.add(vRequisitionDef);
     }
 
@@ -160,35 +152,31 @@ import org.opennms.core.xml.ValidateUsing;
     public void addRequisitionDef(
             final int index,
             final org.opennms.netmgt.config.provisiond.RequisitionDef vRequisitionDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._requisitionDefList.add(index, vRequisitionDef);
     }
 
     /**
      */
-    public void deleteImportThreads(
-    ) {
+    public void deleteImportThreads() {
         this._importThreads = null;
     }
 
     /**
      */
-    public void deleteRescanThreads(
-    ) {
+    public void deleteRescanThreads() {
         this._rescanThreads = null;
     }
 
     /**
      */
-    public void deleteScanThreads(
-    ) {
+    public void deleteScanThreads() {
         this._scanThreads = null;
     }
 
     /**
      */
-    public void deleteWriteThreads(
-    ) {
+    public void deleteWriteThreads() {
         this._writeThreads = null;
     }
 
@@ -198,8 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.provisiond.RequisitionDef> enumerateRequisitionDef(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.provisiond.RequisitionDef> enumerateRequisitionDef() {
         return java.util.Collections.enumeration(this._requisitionDefList);
     }
 
@@ -212,61 +199,76 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof ProvisiondConfiguration) {
 
-            ProvisiondConfiguration temp = (ProvisiondConfiguration)obj;
+            ProvisiondConfiguration temp = (ProvisiondConfiguration) obj;
             if (this._importThreads != null) {
-                if (temp._importThreads == null) return false;
-                else if (!(this._importThreads.equals(temp._importThreads)))
+                if (temp._importThreads == null) {
                     return false;
-            }
-            else if (temp._importThreads != null)
+                } else if (!(this._importThreads.equals(temp._importThreads))) {
+                    return false;
+                }
+            } else if (temp._importThreads != null) {
                 return false;
+            }
             if (this._scanThreads != null) {
-                if (temp._scanThreads == null) return false;
-                else if (!(this._scanThreads.equals(temp._scanThreads)))
+                if (temp._scanThreads == null) {
                     return false;
-            }
-            else if (temp._scanThreads != null)
+                } else if (!(this._scanThreads.equals(temp._scanThreads))) {
+                    return false;
+                }
+            } else if (temp._scanThreads != null) {
                 return false;
+            }
             if (this._rescanThreads != null) {
-                if (temp._rescanThreads == null) return false;
-                else if (!(this._rescanThreads.equals(temp._rescanThreads)))
+                if (temp._rescanThreads == null) {
                     return false;
-            }
-            else if (temp._rescanThreads != null)
+                } else if (!(this._rescanThreads.equals(temp._rescanThreads))) {
+                    return false;
+                }
+            } else if (temp._rescanThreads != null) {
                 return false;
+            }
             if (this._writeThreads != null) {
-                if (temp._writeThreads == null) return false;
-                else if (!(this._writeThreads.equals(temp._writeThreads)))
+                if (temp._writeThreads == null) {
                     return false;
-            }
-            else if (temp._writeThreads != null)
+                } else if (!(this._writeThreads.equals(temp._writeThreads))) {
+                    return false;
+                }
+            } else if (temp._writeThreads != null) {
                 return false;
+            }
             if (this._requistionDir != null) {
-                if (temp._requistionDir == null) return false;
-                else if (!(this._requistionDir.equals(temp._requistionDir)))
+                if (temp._requistionDir == null) {
                     return false;
-            }
-            else if (temp._requistionDir != null)
+                } else if (!(this._requistionDir.equals(temp._requistionDir))) {
+                    return false;
+                }
+            } else if (temp._requistionDir != null) {
                 return false;
+            }
             if (this._foreignSourceDir != null) {
-                if (temp._foreignSourceDir == null) return false;
-                else if (!(this._foreignSourceDir.equals(temp._foreignSourceDir)))
+                if (temp._foreignSourceDir == null) {
                     return false;
-            }
-            else if (temp._foreignSourceDir != null)
+                } else if (!(this._foreignSourceDir.equals(temp._foreignSourceDir))) {
+                    return false;
+                }
+            } else if (temp._foreignSourceDir != null) {
                 return false;
+            }
             if (this._requisitionDefList != null) {
-                if (temp._requisitionDefList == null) return false;
-                else if (!(this._requisitionDefList.equals(temp._requisitionDefList)))
+                if (temp._requisitionDefList == null) {
                     return false;
-            }
-            else if (temp._requisitionDefList != null)
+                } else if (!(this._requisitionDefList.equals(temp._requisitionDefList))) {
+                    return false;
+                }
+            } else if (temp._requisitionDefList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -277,8 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ForeignSourceDir'.
      */
-    public java.lang.String getForeignSourceDir(
-    ) {
+    public java.lang.String getForeignSourceDir() {
         return this._foreignSourceDir == null ? DEFAULT_FOREIGN_SOURCE_DIR : this._foreignSourceDir;
     }
 
@@ -287,8 +288,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ImportThreads'.
      */
-    public Integer getImportThreads(
-    ) {
+    public Integer getImportThreads() {
         return this._importThreads == null ? DEFAULT_IMPORT_THREADS : this._importThreads;
     }
 
@@ -304,7 +304,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.provisiond.RequisitionDef getRequisitionDef(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._requisitionDefList.size()) {
             throw new IndexOutOfBoundsException("getRequisitionDef: Index value '" + index + "' not in range [0.." + (this._requisitionDefList.size() - 1) + "]");
@@ -323,8 +323,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.provisiond.RequisitionDef[] getRequisitionDef(
-    ) {
+    public org.opennms.netmgt.config.provisiond.RequisitionDef[] getRequisitionDef() {
         org.opennms.netmgt.config.provisiond.RequisitionDef[] array = new org.opennms.netmgt.config.provisiond.RequisitionDef[0];
         return (org.opennms.netmgt.config.provisiond.RequisitionDef[]) this._requisitionDefList.toArray(array);
     }
@@ -336,8 +335,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.provisiond.RequisitionDef> getRequisitionDefCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.provisiond.RequisitionDef> getRequisitionDefCollection() {
         return this._requisitionDefList;
     }
 
@@ -346,8 +344,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getRequisitionDefCount(
-    ) {
+    public int getRequisitionDefCount() {
         return this._requisitionDefList.size();
     }
 
@@ -356,8 +353,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RequistionDir'.
      */
-    public java.lang.String getRequistionDir(
-    ) {
+    public java.lang.String getRequistionDir() {
         return this._requistionDir == null ? DEFAULT_REQUISTION_DIR : this._requistionDir;
     }
 
@@ -366,8 +362,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'RescanThreads'.
      */
-    public Integer getRescanThreads(
-    ) {
+    public Integer getRescanThreads() {
         return this._rescanThreads == null ? DEFAULT_RESCAN_THREADS : this._rescanThreads;
     }
 
@@ -376,8 +371,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ScanThreads'.
      */
-    public Integer getScanThreads(
-    ) {
+    public Integer getScanThreads() {
         return this._scanThreads == null ? DEFAULT_SCAN_THREADS : this._scanThreads;
     }
 
@@ -386,8 +380,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'WriteThreads'.
      */
-    public Integer getWriteThreads(
-    ) {
+    public Integer getWriteThreads() {
         return this._writeThreads == null ? DEFAULT_WRITE_THREADS : this._writeThreads;
     }
 
@@ -396,8 +389,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one ImportThreads has been added
      */
-    public boolean hasImportThreads(
-    ) {
+    public boolean hasImportThreads() {
         return this._importThreads != null;
     }
 
@@ -406,8 +398,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one RescanThreads has been added
      */
-    public boolean hasRescanThreads(
-    ) {
+    public boolean hasRescanThreads() {
         return this._rescanThreads != null;
     }
 
@@ -416,8 +407,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one ScanThreads has been added
      */
-    public boolean hasScanThreads(
-    ) {
+    public boolean hasScanThreads() {
         return this._scanThreads != null;
     }
 
@@ -426,8 +416,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one WriteThreads has been added
      */
-    public boolean hasWriteThreads(
-    ) {
+    public boolean hasWriteThreads() {
         return this._writeThreads != null;
     }
 
@@ -440,31 +429,30 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_importThreads != null) {
-           result = 37 * result + _importThreads.hashCode();
+            result = 37 * result + _importThreads.hashCode();
         }
         if (_scanThreads != null) {
-           result = 37 * result + _scanThreads.hashCode();
+            result = 37 * result + _scanThreads.hashCode();
         }
         if (_rescanThreads != null) {
-           result = 37 * result + _rescanThreads.hashCode();
+            result = 37 * result + _rescanThreads.hashCode();
         }
         if (_writeThreads != null) {
-           result = 37 * result + _writeThreads.hashCode();
+            result = 37 * result + _writeThreads.hashCode();
         }
         if (_requistionDir != null) {
-           result = 37 * result + _requistionDir.hashCode();
+            result = 37 * result + _requistionDir.hashCode();
         }
         if (_foreignSourceDir != null) {
-           result = 37 * result + _foreignSourceDir.hashCode();
+            result = 37 * result + _foreignSourceDir.hashCode();
         }
         if (_requisitionDefList != null) {
-           result = 37 * result + _requisitionDefList.hashCode();
+            result = 37 * result + _requisitionDefList.hashCode();
         }
 
         return result;
@@ -475,8 +463,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -491,8 +478,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.provisiond.RequisitionDef> iterateRequisitionDef(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.provisiond.RequisitionDef> iterateRequisitionDef() {
         return this._requisitionDefList.iterator();
     }
 
@@ -507,7 +493,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -524,14 +510,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllRequisitionDef(
-    ) {
+    public void removeAllRequisitionDef() {
         this._requisitionDefList.clear();
     }
 
@@ -590,7 +575,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setRequisitionDef(
             final int index,
             final org.opennms.netmgt.config.provisiond.RequisitionDef vRequisitionDef)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._requisitionDefList.size()) {
             throw new IndexOutOfBoundsException("setRequisitionDef: Index value '" + index + "' not in range [0.." + (this._requisitionDefList.size() - 1) + "]");
@@ -610,7 +595,7 @@ import org.opennms.core.xml.ValidateUsing;
         _requisitionDefList.clear();
 
         for (int i = 0; i < vRequisitionDefArray.length; i++) {
-                this._requisitionDefList.add(vRequisitionDefArray[i]);
+            this._requisitionDefList.add(vRequisitionDefArray[i]);
         }
     }
 
@@ -693,7 +678,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.provisiond.ProvisiondConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.provisiond.ProvisiondConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.provisiond.ProvisiondConfiguration.class, reader);
     }
 
@@ -703,9 +688,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

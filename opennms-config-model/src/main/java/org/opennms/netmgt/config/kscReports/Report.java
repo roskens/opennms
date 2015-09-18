@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.kscReports;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -43,7 +41,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,67 +48,62 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="Report")
+@XmlRootElement(name = "Report")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("ksc-performance-reports.xsd")
-@SuppressWarnings("all") public class Report implements java.io.Serializable {
-
+@SuppressWarnings("all")
+public class Report implements java.io.Serializable {
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _id.
      */
-    @XmlAttribute(name="id")
+    @XmlAttribute(name = "id")
     private Integer _id;
 
     /**
      * Field _title.
      */
-    @XmlAttribute(name="title", required = true)
+    @XmlAttribute(name = "title", required = true)
     private java.lang.String _title;
 
     /**
      * Field _show_timespan_button.
      */
-    @XmlAttribute(name="show_timespan_button")
+    @XmlAttribute(name = "show_timespan_button")
     private Boolean _show_timespan_button;
 
     /**
      * Field _show_graphtype_button.
      */
-    @XmlAttribute(name="show_graphtype_button")
+    @XmlAttribute(name = "show_graphtype_button")
     private Boolean _show_graphtype_button;
 
     /**
      * Field _graphs_per_line.
      */
-    @XmlAttribute(name="graphs_per_line")
+    @XmlAttribute(name = "graphs_per_line")
     private Integer _graphs_per_line;
 
     /**
      * Field _graphList.
      */
-    @XmlElement(name="Graph")
+    @XmlElement(name = "Graph")
     private java.util.List<org.opennms.netmgt.config.kscReports.Graph> _graphList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public Report() {
         super();
         this._graphList = new java.util.ArrayList<org.opennms.netmgt.config.kscReports.Graph>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -121,7 +113,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addGraph(
             final org.opennms.netmgt.config.kscReports.Graph vGraph)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._graphList.add(vGraph);
     }
 
@@ -136,35 +128,31 @@ import org.opennms.core.xml.ValidateUsing;
     public void addGraph(
             final int index,
             final org.opennms.netmgt.config.kscReports.Graph vGraph)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._graphList.add(index, vGraph);
     }
 
     /**
      */
-    public void deleteGraphs_per_line(
-    ) {
+    public void deleteGraphs_per_line() {
         this._graphs_per_line = null;
     }
 
     /**
      */
-    public void deleteId(
-    ) {
+    public void deleteId() {
         this._id = null;
     }
 
     /**
      */
-    public void deleteShow_graphtype_button(
-    ) {
+    public void deleteShow_graphtype_button() {
         this._show_graphtype_button = null;
     }
 
     /**
      */
-    public void deleteShow_timespan_button(
-    ) {
+    public void deleteShow_timespan_button() {
         this._show_timespan_button = null;
     }
 
@@ -174,8 +162,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.kscReports.Graph> enumerateGraph(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.kscReports.Graph> enumerateGraph() {
         return java.util.Collections.enumeration(this._graphList);
     }
 
@@ -188,54 +175,67 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Report) {
 
-            Report temp = (Report)obj;
+            Report temp = (Report) obj;
             if (this._id != null) {
-                if (temp._id == null) return false;
-                else if (!(this._id.equals(temp._id)))
+                if (temp._id == null) {
                     return false;
-            }
-            else if (temp._id != null)
+                } else if (!(this._id.equals(temp._id))) {
+                    return false;
+                }
+            } else if (temp._id != null) {
                 return false;
+            }
             if (this._title != null) {
-                if (temp._title == null) return false;
-                else if (!(this._title.equals(temp._title)))
+                if (temp._title == null) {
                     return false;
-            }
-            else if (temp._title != null)
+                } else if (!(this._title.equals(temp._title))) {
+                    return false;
+                }
+            } else if (temp._title != null) {
                 return false;
+            }
             if (this._show_timespan_button != null) {
-                if (temp._show_timespan_button == null) return false;
-                else if (!(this._show_timespan_button.equals(temp._show_timespan_button)))
+                if (temp._show_timespan_button == null) {
                     return false;
-            }
-            else if (temp._show_timespan_button != null)
+                } else if (!(this._show_timespan_button.equals(temp._show_timespan_button))) {
+                    return false;
+                }
+            } else if (temp._show_timespan_button != null) {
                 return false;
+            }
             if (this._show_graphtype_button != null) {
-                if (temp._show_graphtype_button == null) return false;
-                else if (!(this._show_graphtype_button.equals(temp._show_graphtype_button)))
+                if (temp._show_graphtype_button == null) {
                     return false;
-            }
-            else if (temp._show_graphtype_button != null)
+                } else if (!(this._show_graphtype_button.equals(temp._show_graphtype_button))) {
+                    return false;
+                }
+            } else if (temp._show_graphtype_button != null) {
                 return false;
+            }
             if (this._graphs_per_line != null) {
-                if (temp._graphs_per_line == null) return false;
-                else if (!(this._graphs_per_line.equals(temp._graphs_per_line)))
+                if (temp._graphs_per_line == null) {
                     return false;
-            }
-            else if (temp._graphs_per_line != null)
+                } else if (!(this._graphs_per_line.equals(temp._graphs_per_line))) {
+                    return false;
+                }
+            } else if (temp._graphs_per_line != null) {
                 return false;
+            }
             if (this._graphList != null) {
-                if (temp._graphList == null) return false;
-                else if (!(this._graphList.equals(temp._graphList)))
+                if (temp._graphList == null) {
                     return false;
-            }
-            else if (temp._graphList != null)
+                } else if (!(this._graphList.equals(temp._graphList))) {
+                    return false;
+                }
+            } else if (temp._graphList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -252,7 +252,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.kscReports.Graph getGraph(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._graphList.size()) {
             throw new IndexOutOfBoundsException("getGraph: Index value '" + index + "' not in range [0.." + (this._graphList.size() - 1) + "]");
@@ -270,8 +270,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.kscReports.Graph[] getGraph(
-    ) {
+    public org.opennms.netmgt.config.kscReports.Graph[] getGraph() {
         org.opennms.netmgt.config.kscReports.Graph[] array = new org.opennms.netmgt.config.kscReports.Graph[0];
         return (org.opennms.netmgt.config.kscReports.Graph[]) this._graphList.toArray(array);
     }
@@ -283,8 +282,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.kscReports.Graph> getGraphCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.kscReports.Graph> getGraphCollection() {
         return this._graphList;
     }
 
@@ -293,8 +291,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getGraphCount(
-    ) {
+    public int getGraphCount() {
         return this._graphList.size();
     }
 
@@ -303,8 +300,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Graphs_per_line'.
      */
-    public Integer getGraphs_per_line(
-    ) {
+    public Integer getGraphs_per_line() {
         return this._graphs_per_line;
     }
 
@@ -313,8 +309,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Id'.
      */
-    public Integer getId(
-    ) {
+    public Integer getId() {
         return this._id;
     }
 
@@ -323,8 +318,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Show_graphtype_button'.
      */
-    public Boolean getShow_graphtype_button(
-    ) {
+    public Boolean getShow_graphtype_button() {
         return this._show_graphtype_button;
     }
 
@@ -333,8 +327,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Show_timespan_button'.
      */
-    public Boolean getShow_timespan_button(
-    ) {
+    public Boolean getShow_timespan_button() {
         return this._show_timespan_button;
     }
 
@@ -343,8 +336,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Title'.
      */
-    public java.lang.String getTitle(
-    ) {
+    public java.lang.String getTitle() {
         return this._title;
     }
 
@@ -353,8 +345,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Graphs_per_line has been added
      */
-    public boolean hasGraphs_per_line(
-    ) {
+    public boolean hasGraphs_per_line() {
         return this._graphs_per_line != null;
     }
 
@@ -363,8 +354,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one Id has been added
      */
-    public boolean hasId(
-    ) {
+    public boolean hasId() {
         return this._id != null;
     }
 
@@ -374,8 +364,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if at least one Show_graphtype_button has been
      * added
      */
-    public boolean hasShow_graphtype_button(
-    ) {
+    public boolean hasShow_graphtype_button() {
         return this._show_graphtype_button != null;
     }
 
@@ -385,8 +374,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if at least one Show_timespan_button has been
      * added
      */
-    public boolean hasShow_timespan_button(
-    ) {
+    public boolean hasShow_timespan_button() {
         return this._show_timespan_button != null;
     }
 
@@ -399,28 +387,27 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_id != null) {
-           result = 37 * result + _id.hashCode();
+            result = 37 * result + _id.hashCode();
         }
         if (_title != null) {
-           result = 37 * result + _title.hashCode();
+            result = 37 * result + _title.hashCode();
         }
         if (_show_timespan_button != null) {
-           result = 37 * result + _show_timespan_button.hashCode();
+            result = 37 * result + _show_timespan_button.hashCode();
         }
         if (_show_graphtype_button != null) {
-           result = 37 * result + _show_graphtype_button.hashCode();
+            result = 37 * result + _show_graphtype_button.hashCode();
         }
         if (_graphs_per_line != null) {
-           result = 37 * result + _graphs_per_line.hashCode();
+            result = 37 * result + _graphs_per_line.hashCode();
         }
         if (_graphList != null) {
-           result = 37 * result + _graphList.hashCode();
+            result = 37 * result + _graphList.hashCode();
         }
 
         return result;
@@ -431,8 +418,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Show_graphtype_button'.
      */
-    public boolean isShow_graphtype_button(
-    ) {
+    public boolean isShow_graphtype_button() {
         return this._show_graphtype_button;
     }
 
@@ -441,8 +427,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Show_timespan_button'.
      */
-    public boolean isShow_timespan_button(
-    ) {
+    public boolean isShow_timespan_button() {
         return this._show_timespan_button;
     }
 
@@ -451,8 +436,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -467,8 +451,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.kscReports.Graph> iterateGraph(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.kscReports.Graph> iterateGraph() {
         return this._graphList.iterator();
     }
 
@@ -483,7 +466,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -500,14 +483,13 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllGraph(
-    ) {
+    public void removeAllGraph() {
         this._graphList.clear();
     }
 
@@ -546,7 +528,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setGraph(
             final int index,
             final org.opennms.netmgt.config.kscReports.Graph vGraph)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._graphList.size()) {
             throw new IndexOutOfBoundsException("setGraph: Index value '" + index + "' not in range [0.." + (this._graphList.size() - 1) + "]");
@@ -566,7 +548,7 @@ import org.opennms.core.xml.ValidateUsing;
         _graphList.clear();
 
         for (int i = 0; i < vGraphArray.length; i++) {
-                this._graphList.add(vGraphArray[i]);
+            this._graphList.add(vGraphArray[i]);
         }
     }
 
@@ -661,7 +643,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.kscReports.Report unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.kscReports.Report) Unmarshaller.unmarshal(org.opennms.netmgt.config.kscReports.Report.class, reader);
     }
 
@@ -671,9 +653,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

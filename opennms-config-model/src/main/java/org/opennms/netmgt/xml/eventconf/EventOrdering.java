@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -34,10 +33,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author brozow
  *
  */
-public class EventOrdering implements Comparable<EventOrdering>{
-    
+public class EventOrdering implements Comparable<EventOrdering> {
+
     public static class EventOrderIndex implements Comparable<EventOrderIndex> {
-        
+
         private final EventOrdering m_ordering;
         private final int m_index;
 
@@ -52,23 +51,24 @@ public class EventOrdering implements Comparable<EventOrdering>{
         @Override
         public int compareTo(EventOrderIndex orderIndex) {
             int parentOrder = m_ordering.compareTo(orderIndex.m_ordering);
-            if (parentOrder != 0) return parentOrder;
-            
+            if (parentOrder != 0) {
+                return parentOrder;
+            }
+
             return m_index - orderIndex.m_index;
         }
-        
+
     }
-    
+
     private final EventOrdering m_parent;
     private final int m_sequenceIndex;
-    
+
     private final AtomicInteger m_nextSubsequence = new AtomicInteger(0);
     private final AtomicInteger m_nextIndex = new AtomicInteger(0);
-    
+
     public EventOrdering() {
         this(null, 0);
     }
-    
 
     private EventOrdering(EventOrdering parent, int sequenceIndex) {
         m_parent = parent;
@@ -89,7 +89,7 @@ public class EventOrdering implements Comparable<EventOrdering>{
     public EventOrdering subsequence() {
         int nextSubsequence = m_nextSubsequence.getAndIncrement();
         return new EventOrdering(this, nextSubsequence);
-        
+
     }
 
 
@@ -99,18 +99,24 @@ public class EventOrdering implements Comparable<EventOrdering>{
     @Override
     public int compareTo(EventOrdering o) {
         int parentCompare = compareParents(m_parent, o.m_parent);
-        if (parentCompare != 0) return parentCompare;
-        
+        if (parentCompare != 0) {
+            return parentCompare;
+        }
+
         return m_sequenceIndex - o.m_sequenceIndex;
     }
-    
+
     private int compareParents(EventOrdering parent1, EventOrdering parent2) {
-        if (parent1 == parent2) return 0;
-        if (parent1 == null) return -1;
-        if (parent2 == null) return 1;
+        if (parent1 == parent2) {
+            return 0;
+        }
+        if (parent1 == null) {
+            return -1;
+        }
+        if (parent2 == null) {
+            return 1;
+        }
         return parent1.compareTo(parent2);
     }
-    
-    
 
 }

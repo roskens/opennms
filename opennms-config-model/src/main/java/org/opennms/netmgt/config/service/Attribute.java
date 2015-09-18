@@ -25,7 +25,6 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
@@ -34,7 +33,6 @@ package org.opennms.netmgt.config.service;
 //---------------------------------/
 //- Imported classes and packages -/
 //---------------------------------/
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,12 +48,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "attribute")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Attribute implements Serializable {
+
     private static final long serialVersionUID = -5369595993818814229L;
 
     // --------------------------/
     // - Class/Member Variables -/
     // --------------------------/
-
     /**
      * Field _name.
      */
@@ -71,7 +69,6 @@ public class Attribute implements Serializable {
     // ----------------/
     // - Constructors -/
     // ----------------/
-
     public Attribute() {
         super();
     }
@@ -86,7 +83,6 @@ public class Attribute implements Serializable {
     // -----------/
     // - Methods -/
     // -----------/
-
     /**
      * Overrides the java.lang.Object.equals method.
      * 
@@ -95,26 +91,31 @@ public class Attribute implements Serializable {
      */
     @Override()
     public boolean equals(final java.lang.Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof Attribute) {
 
             Attribute temp = (Attribute) obj;
             if (this._name != null) {
-                if (temp._name == null)
+                if (temp._name == null) {
                     return false;
-                else if (!(this._name.equals(temp._name)))
+                } else if (!(this._name.equals(temp._name))) {
                     return false;
-            } else if (temp._name != null)
+                }
+            } else if (temp._name != null) {
                 return false;
+            }
             if (this._value != null) {
-                if (temp._value == null)
+                if (temp._value == null) {
                     return false;
-                else if (!(this._value.equals(temp._value)))
+                } else if (!(this._value.equals(temp._value))) {
                     return false;
-            } else if (temp._value != null)
+                }
+            } else if (temp._value != null) {
                 return false;
+            }
             return true;
         }
         return false;

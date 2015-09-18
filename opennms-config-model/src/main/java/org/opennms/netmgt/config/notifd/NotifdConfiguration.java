@@ -25,16 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 /**
  * This class was original generated with Castor, but is no longer.
  */
 package org.opennms.netmgt.config.notifd;
 
   //---------------------------------/
- //- Imported classes and packages -/
+//- Imported classes and packages -/
 //---------------------------------/
-
 import org.exolab.castor.xml.Marshaller;
 import org.exolab.castor.xml.Unmarshaller;
 
@@ -44,7 +42,6 @@ import org.exolab.castor.xml.Unmarshaller;
  *
  * @version $Revision$ $Date$
  */
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,10 +49,11 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import org.opennms.core.xml.ValidateUsing;
 
-@XmlRootElement(name="notifd-configuration")
+@XmlRootElement(name = "notifd-configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 @ValidateUsing("notifd-configuration.xsd")
-@SuppressWarnings("all") public class NotifdConfiguration implements java.io.Serializable {
+@SuppressWarnings("all")
+public class NotifdConfiguration implements java.io.Serializable {
 
     private static final String DEFAULT_PAGES_SENT = "SELECT * FROM notifications";
     private static final String DEFAULT_NEXT_NOTIF_ID = "SELECT nextval('notifynxtid')";
@@ -68,110 +66,107 @@ import org.opennms.core.xml.ValidateUsing;
     private static final String DEFAULT_EMAIL_ADDRESS_COMMAND = "javaEmail";
 
       //--------------------------/
-     //- Class/Member Variables -/
+    //- Class/Member Variables -/
     //--------------------------/
-
     /**
      * Field _status.
      */
-    @XmlAttribute(name="status", required = true)
+    @XmlAttribute(name = "status", required = true)
     private java.lang.String _status;
 
     /**
      * Field _pagesSent.
      */
-    @XmlAttribute(name="pages-sent")
+    @XmlAttribute(name = "pages-sent")
     private java.lang.String _pagesSent;
 
     /**
      * Field _nextNotifId.
      */
-    @XmlAttribute(name="next-notif-id")
+    @XmlAttribute(name = "next-notif-id")
     private java.lang.String _nextNotifId;
 
     /**
      * Field _nextUserNotifId.
      */
-    @XmlAttribute(name="next-user-notif-id")
+    @XmlAttribute(name = "next-user-notif-id")
     private java.lang.String _nextUserNotifId;
 
     /**
      * Field _nextGroupId.
      */
-    @XmlAttribute(name="next-group-id")
+    @XmlAttribute(name = "next-group-id")
     private java.lang.String _nextGroupId;
 
     /**
      * Field _serviceIdSql.
      */
-    @XmlAttribute(name="service-id-sql")
+    @XmlAttribute(name = "service-id-sql")
     private java.lang.String _serviceIdSql;
 
     /**
      * Field _outstandingNoticesSql.
      */
-    @XmlAttribute(name="outstanding-notices-sql")
+    @XmlAttribute(name = "outstanding-notices-sql")
     private java.lang.String _outstandingNoticesSql;
 
     /**
      * Field _acknowledgeIdSql.
      */
-    @XmlAttribute(name="acknowledge-id-sql")
+    @XmlAttribute(name = "acknowledge-id-sql")
     private java.lang.String _acknowledgeIdSql;
 
     /**
      * Field _acknowledgeUpdateSql.
      */
-    @XmlAttribute(name="acknowledge-update-sql")
+    @XmlAttribute(name = "acknowledge-update-sql")
     private java.lang.String _acknowledgeUpdateSql;
 
     /**
      * Field _matchAll.
      */
-    @XmlAttribute(name="match-all", required = true)
+    @XmlAttribute(name = "match-all", required = true)
     private Boolean _matchAll;
 
     /**
      * Field _emailAddressCommand.
      */
-    @XmlAttribute(name="email-address-command")
+    @XmlAttribute(name = "email-address-command")
     private java.lang.String _emailAddressCommand;
 
     /**
      * Field _numericSkipResolutionPrefix.
      */
-    @XmlAttribute(name="numeric-skip-resolution-prefix")
+    @XmlAttribute(name = "numeric-skip-resolution-prefix")
     private Boolean _numericSkipResolutionPrefix;
 
     /**
      * Field _autoAcknowledgeAlarm.
      */
-    @XmlElement(name="auto-acknowledge-alarm")
+    @XmlElement(name = "auto-acknowledge-alarm")
     private org.opennms.netmgt.config.notifd.AutoAcknowledgeAlarm _autoAcknowledgeAlarm;
 
     /**
      * Field _autoAcknowledgeList.
      */
-    @XmlElement(name="auto-acknowledge")
+    @XmlElement(name = "auto-acknowledge")
     private java.util.List<org.opennms.netmgt.config.notifd.AutoAcknowledge> _autoAcknowledgeList;
 
     /**
      * Field _queueList.
      */
-    @XmlElement(name="queue")
+    @XmlElement(name = "queue")
     private java.util.List<org.opennms.netmgt.config.notifd.Queue> _queueList;
 
     /**
      * Field _outageCalendarList.
      */
-    @XmlElement(name="outage-calendar")
+    @XmlElement(name = "outage-calendar")
     private java.util.List<java.lang.String> _outageCalendarList;
 
-
       //----------------/
-     //- Constructors -/
+    //- Constructors -/
     //----------------/
-
     public NotifdConfiguration() {
         super();
         this._autoAcknowledgeList = new java.util.ArrayList<org.opennms.netmgt.config.notifd.AutoAcknowledge>();
@@ -179,11 +174,9 @@ import org.opennms.core.xml.ValidateUsing;
         this._outageCalendarList = new java.util.ArrayList<java.lang.String>();
     }
 
-
       //-----------/
-     //- Methods -/
+    //- Methods -/
     //-----------/
-
     /**
      *
      *
@@ -193,7 +186,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addAutoAcknowledge(
             final org.opennms.netmgt.config.notifd.AutoAcknowledge vAutoAcknowledge)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._autoAcknowledgeList.add(vAutoAcknowledge);
     }
 
@@ -208,7 +201,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addAutoAcknowledge(
             final int index,
             final org.opennms.netmgt.config.notifd.AutoAcknowledge vAutoAcknowledge)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._autoAcknowledgeList.add(index, vAutoAcknowledge);
     }
 
@@ -221,7 +214,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addOutageCalendar(
             final java.lang.String vOutageCalendar)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._outageCalendarList.add(vOutageCalendar);
     }
 
@@ -236,7 +229,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void addOutageCalendar(
             final int index,
             final java.lang.String vOutageCalendar)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._outageCalendarList.add(index, vOutageCalendar);
     }
 
@@ -249,7 +242,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void addQueue(
             final org.opennms.netmgt.config.notifd.Queue vQueue)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._queueList.add(vQueue);
     }
 
@@ -264,21 +257,19 @@ import org.opennms.core.xml.ValidateUsing;
     public void addQueue(
             final int index,
             final org.opennms.netmgt.config.notifd.Queue vQueue)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         this._queueList.add(index, vQueue);
     }
 
     /**
      */
-    public void deleteMatchAll(
-    ) {
+    public void deleteMatchAll() {
         this._matchAll = null;
     }
 
     /**
      */
-    public void deleteNumericSkipResolutionPrefix(
-    ) {
+    public void deleteNumericSkipResolutionPrefix() {
         this._numericSkipResolutionPrefix = null;
     }
 
@@ -288,8 +279,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.notifd.AutoAcknowledge> enumerateAutoAcknowledge(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.notifd.AutoAcknowledge> enumerateAutoAcknowledge() {
         return java.util.Collections.enumeration(this._autoAcknowledgeList);
     }
 
@@ -299,8 +289,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<java.lang.String> enumerateOutageCalendar(
-    ) {
+    public java.util.Enumeration<java.lang.String> enumerateOutageCalendar() {
         return java.util.Collections.enumeration(this._outageCalendarList);
     }
 
@@ -310,8 +299,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Enumeration over all possible elements of this
      * collection
      */
-    public java.util.Enumeration<org.opennms.netmgt.config.notifd.Queue> enumerateQueue(
-    ) {
+    public java.util.Enumeration<org.opennms.netmgt.config.notifd.Queue> enumerateQueue() {
         return java.util.Collections.enumeration(this._queueList);
     }
 
@@ -324,124 +312,157 @@ import org.opennms.core.xml.ValidateUsing;
     @Override()
     public boolean equals(
             final java.lang.Object obj) {
-        if ( this == obj )
+        if (this == obj) {
             return true;
+        }
 
         if (obj instanceof NotifdConfiguration) {
 
-            NotifdConfiguration temp = (NotifdConfiguration)obj;
+            NotifdConfiguration temp = (NotifdConfiguration) obj;
             if (this._status != null) {
-                if (temp._status == null) return false;
-                else if (!(this._status.equals(temp._status)))
+                if (temp._status == null) {
                     return false;
-            }
-            else if (temp._status != null)
+                } else if (!(this._status.equals(temp._status))) {
+                    return false;
+                }
+            } else if (temp._status != null) {
                 return false;
+            }
             if (this._pagesSent != null) {
-                if (temp._pagesSent == null) return false;
-                else if (!(this._pagesSent.equals(temp._pagesSent)))
+                if (temp._pagesSent == null) {
                     return false;
-            }
-            else if (temp._pagesSent != null)
+                } else if (!(this._pagesSent.equals(temp._pagesSent))) {
+                    return false;
+                }
+            } else if (temp._pagesSent != null) {
                 return false;
+            }
             if (this._nextNotifId != null) {
-                if (temp._nextNotifId == null) return false;
-                else if (!(this._nextNotifId.equals(temp._nextNotifId)))
+                if (temp._nextNotifId == null) {
                     return false;
-            }
-            else if (temp._nextNotifId != null)
+                } else if (!(this._nextNotifId.equals(temp._nextNotifId))) {
+                    return false;
+                }
+            } else if (temp._nextNotifId != null) {
                 return false;
+            }
             if (this._nextUserNotifId != null) {
-                if (temp._nextUserNotifId == null) return false;
-                else if (!(this._nextUserNotifId.equals(temp._nextUserNotifId)))
+                if (temp._nextUserNotifId == null) {
                     return false;
-            }
-            else if (temp._nextUserNotifId != null)
+                } else if (!(this._nextUserNotifId.equals(temp._nextUserNotifId))) {
+                    return false;
+                }
+            } else if (temp._nextUserNotifId != null) {
                 return false;
+            }
             if (this._nextGroupId != null) {
-                if (temp._nextGroupId == null) return false;
-                else if (!(this._nextGroupId.equals(temp._nextGroupId)))
+                if (temp._nextGroupId == null) {
                     return false;
-            }
-            else if (temp._nextGroupId != null)
+                } else if (!(this._nextGroupId.equals(temp._nextGroupId))) {
+                    return false;
+                }
+            } else if (temp._nextGroupId != null) {
                 return false;
+            }
             if (this._serviceIdSql != null) {
-                if (temp._serviceIdSql == null) return false;
-                else if (!(this._serviceIdSql.equals(temp._serviceIdSql)))
+                if (temp._serviceIdSql == null) {
                     return false;
-            }
-            else if (temp._serviceIdSql != null)
+                } else if (!(this._serviceIdSql.equals(temp._serviceIdSql))) {
+                    return false;
+                }
+            } else if (temp._serviceIdSql != null) {
                 return false;
+            }
             if (this._outstandingNoticesSql != null) {
-                if (temp._outstandingNoticesSql == null) return false;
-                else if (!(this._outstandingNoticesSql.equals(temp._outstandingNoticesSql)))
+                if (temp._outstandingNoticesSql == null) {
                     return false;
-            }
-            else if (temp._outstandingNoticesSql != null)
+                } else if (!(this._outstandingNoticesSql.equals(temp._outstandingNoticesSql))) {
+                    return false;
+                }
+            } else if (temp._outstandingNoticesSql != null) {
                 return false;
+            }
             if (this._acknowledgeIdSql != null) {
-                if (temp._acknowledgeIdSql == null) return false;
-                else if (!(this._acknowledgeIdSql.equals(temp._acknowledgeIdSql)))
+                if (temp._acknowledgeIdSql == null) {
                     return false;
-            }
-            else if (temp._acknowledgeIdSql != null)
+                } else if (!(this._acknowledgeIdSql.equals(temp._acknowledgeIdSql))) {
+                    return false;
+                }
+            } else if (temp._acknowledgeIdSql != null) {
                 return false;
+            }
             if (this._acknowledgeUpdateSql != null) {
-                if (temp._acknowledgeUpdateSql == null) return false;
-                else if (!(this._acknowledgeUpdateSql.equals(temp._acknowledgeUpdateSql)))
+                if (temp._acknowledgeUpdateSql == null) {
                     return false;
-            }
-            else if (temp._acknowledgeUpdateSql != null)
+                } else if (!(this._acknowledgeUpdateSql.equals(temp._acknowledgeUpdateSql))) {
+                    return false;
+                }
+            } else if (temp._acknowledgeUpdateSql != null) {
                 return false;
+            }
             if (this._matchAll != null) {
-                if (temp._matchAll == null) return false;
-                else if (!(this._matchAll.equals(temp._matchAll)))
+                if (temp._matchAll == null) {
                     return false;
-            }
-            else if (temp._matchAll != null)
+                } else if (!(this._matchAll.equals(temp._matchAll))) {
+                    return false;
+                }
+            } else if (temp._matchAll != null) {
                 return false;
+            }
             if (this._emailAddressCommand != null) {
-                if (temp._emailAddressCommand == null) return false;
-                else if (!(this._emailAddressCommand.equals(temp._emailAddressCommand)))
+                if (temp._emailAddressCommand == null) {
                     return false;
-            }
-            else if (temp._emailAddressCommand != null)
+                } else if (!(this._emailAddressCommand.equals(temp._emailAddressCommand))) {
+                    return false;
+                }
+            } else if (temp._emailAddressCommand != null) {
                 return false;
+            }
             if (this._numericSkipResolutionPrefix != null) {
-                if (temp._numericSkipResolutionPrefix == null) return false;
-                else if (!(this._numericSkipResolutionPrefix.equals(temp._numericSkipResolutionPrefix)))
+                if (temp._numericSkipResolutionPrefix == null) {
                     return false;
-            }
-            else if (temp._numericSkipResolutionPrefix != null)
+                } else if (!(this._numericSkipResolutionPrefix.equals(temp._numericSkipResolutionPrefix))) {
+                    return false;
+                }
+            } else if (temp._numericSkipResolutionPrefix != null) {
                 return false;
+            }
             if (this._autoAcknowledgeAlarm != null) {
-                if (temp._autoAcknowledgeAlarm == null) return false;
-                else if (!(this._autoAcknowledgeAlarm.equals(temp._autoAcknowledgeAlarm)))
+                if (temp._autoAcknowledgeAlarm == null) {
                     return false;
-            }
-            else if (temp._autoAcknowledgeAlarm != null)
+                } else if (!(this._autoAcknowledgeAlarm.equals(temp._autoAcknowledgeAlarm))) {
+                    return false;
+                }
+            } else if (temp._autoAcknowledgeAlarm != null) {
                 return false;
+            }
             if (this._autoAcknowledgeList != null) {
-                if (temp._autoAcknowledgeList == null) return false;
-                else if (!(this._autoAcknowledgeList.equals(temp._autoAcknowledgeList)))
+                if (temp._autoAcknowledgeList == null) {
                     return false;
-            }
-            else if (temp._autoAcknowledgeList != null)
+                } else if (!(this._autoAcknowledgeList.equals(temp._autoAcknowledgeList))) {
+                    return false;
+                }
+            } else if (temp._autoAcknowledgeList != null) {
                 return false;
+            }
             if (this._queueList != null) {
-                if (temp._queueList == null) return false;
-                else if (!(this._queueList.equals(temp._queueList)))
+                if (temp._queueList == null) {
                     return false;
-            }
-            else if (temp._queueList != null)
+                } else if (!(this._queueList.equals(temp._queueList))) {
+                    return false;
+                }
+            } else if (temp._queueList != null) {
                 return false;
+            }
             if (this._outageCalendarList != null) {
-                if (temp._outageCalendarList == null) return false;
-                else if (!(this._outageCalendarList.equals(temp._outageCalendarList)))
+                if (temp._outageCalendarList == null) {
                     return false;
-            }
-            else if (temp._outageCalendarList != null)
+                } else if (!(this._outageCalendarList.equals(temp._outageCalendarList))) {
+                    return false;
+                }
+            } else if (temp._outageCalendarList != null) {
                 return false;
+            }
             return true;
         }
         return false;
@@ -452,8 +473,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AcknowledgeIdSql'.
      */
-    public java.lang.String getAcknowledgeIdSql(
-    ) {
+    public java.lang.String getAcknowledgeIdSql() {
         return this._acknowledgeIdSql == null ? DEFAULT_ACKNOWLEDGE_ID_SQL : this._acknowledgeIdSql;
     }
 
@@ -462,8 +482,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AcknowledgeUpdateSql'.
      */
-    public java.lang.String getAcknowledgeUpdateSql(
-    ) {
+    public java.lang.String getAcknowledgeUpdateSql() {
         return this._acknowledgeUpdateSql == null ? DEFAULT_ACKNOWLEDGE_UPDATE_SQL : this._acknowledgeUpdateSql;
     }
 
@@ -479,7 +498,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.notifd.AutoAcknowledge getAutoAcknowledge(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._autoAcknowledgeList.size()) {
             throw new IndexOutOfBoundsException("getAutoAcknowledge: Index value '" + index + "' not in range [0.." + (this._autoAcknowledgeList.size() - 1) + "]");
@@ -498,8 +517,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.notifd.AutoAcknowledge[] getAutoAcknowledge(
-    ) {
+    public org.opennms.netmgt.config.notifd.AutoAcknowledge[] getAutoAcknowledge() {
         org.opennms.netmgt.config.notifd.AutoAcknowledge[] array = new org.opennms.netmgt.config.notifd.AutoAcknowledge[0];
         return (org.opennms.netmgt.config.notifd.AutoAcknowledge[]) this._autoAcknowledgeList.toArray(array);
     }
@@ -509,8 +527,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'AutoAcknowledgeAlarm'.
      */
-    public org.opennms.netmgt.config.notifd.AutoAcknowledgeAlarm getAutoAcknowledgeAlarm(
-    ) {
+    public org.opennms.netmgt.config.notifd.AutoAcknowledgeAlarm getAutoAcknowledgeAlarm() {
         return this._autoAcknowledgeAlarm;
     }
 
@@ -521,8 +538,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.notifd.AutoAcknowledge> getAutoAcknowledgeCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.notifd.AutoAcknowledge> getAutoAcknowledgeCollection() {
         return this._autoAcknowledgeList;
     }
 
@@ -531,8 +547,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getAutoAcknowledgeCount(
-    ) {
+    public int getAutoAcknowledgeCount() {
         return this._autoAcknowledgeList.size();
     }
 
@@ -541,8 +556,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'EmailAddressCommand'.
      */
-    public java.lang.String getEmailAddressCommand(
-    ) {
+    public java.lang.String getEmailAddressCommand() {
         return this._emailAddressCommand == null ? DEFAULT_EMAIL_ADDRESS_COMMAND : this._emailAddressCommand;
     }
 
@@ -551,8 +565,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchAll'.
      */
-    public Boolean getMatchAll(
-    ) {
+    public Boolean getMatchAll() {
         return this._matchAll;
     }
 
@@ -561,8 +574,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NextGroupId'.
      */
-    public java.lang.String getNextGroupId(
-    ) {
+    public java.lang.String getNextGroupId() {
         return this._nextGroupId == null ? DEFAULT_NEXT_GROUP_ID : this._nextGroupId;
     }
 
@@ -571,8 +583,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NextNotifId'.
      */
-    public java.lang.String getNextNotifId(
-    ) {
+    public java.lang.String getNextNotifId() {
         return this._nextNotifId == null ? DEFAULT_NEXT_NOTIF_ID : this._nextNotifId;
     }
 
@@ -581,8 +592,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NextUserNotifId'.
      */
-    public java.lang.String getNextUserNotifId(
-    ) {
+    public java.lang.String getNextUserNotifId() {
         return this._nextUserNotifId == null ? DEFAULT_NEXT_USER_NOTIF_ID : this._nextUserNotifId;
     }
 
@@ -591,8 +601,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NumericSkipResolutionPrefix'.
      */
-    public Boolean getNumericSkipResolutionPrefix(
-    ) {
+    public Boolean getNumericSkipResolutionPrefix() {
         return this._numericSkipResolutionPrefix == null ? Boolean.FALSE : this._numericSkipResolutionPrefix;
     }
 
@@ -606,7 +615,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public java.lang.String getOutageCalendar(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._outageCalendarList.size()) {
             throw new IndexOutOfBoundsException("getOutageCalendar: Index value '" + index + "' not in range [0.." + (this._outageCalendarList.size() - 1) + "]");
@@ -625,8 +634,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public java.lang.String[] getOutageCalendar(
-    ) {
+    public java.lang.String[] getOutageCalendar() {
         java.lang.String[] array = new java.lang.String[0];
         return (java.lang.String[]) this._outageCalendarList.toArray(array);
     }
@@ -638,8 +646,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<java.lang.String> getOutageCalendarCollection(
-    ) {
+    public java.util.List<java.lang.String> getOutageCalendarCollection() {
         return this._outageCalendarList;
     }
 
@@ -648,8 +655,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getOutageCalendarCount(
-    ) {
+    public int getOutageCalendarCount() {
         return this._outageCalendarList.size();
     }
 
@@ -658,8 +664,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'OutstandingNoticesSql'.
      */
-    public java.lang.String getOutstandingNoticesSql(
-    ) {
+    public java.lang.String getOutstandingNoticesSql() {
         return this._outstandingNoticesSql == null ? DEFAULT_OUTSTANDING_NOTICES_SQL : this._outstandingNoticesSql;
     }
 
@@ -668,8 +673,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'PagesSent'.
      */
-    public java.lang.String getPagesSent(
-    ) {
+    public java.lang.String getPagesSent() {
         return this._pagesSent == null ? DEFAULT_PAGES_SENT : this._pagesSent;
     }
 
@@ -684,7 +688,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public org.opennms.netmgt.config.notifd.Queue getQueue(
             final int index)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._queueList.size()) {
             throw new IndexOutOfBoundsException("getQueue: Index value '" + index + "' not in range [0.." + (this._queueList.size() - 1) + "]");
@@ -702,8 +706,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return this collection as an Array
      */
-    public org.opennms.netmgt.config.notifd.Queue[] getQueue(
-    ) {
+    public org.opennms.netmgt.config.notifd.Queue[] getQueue() {
         org.opennms.netmgt.config.notifd.Queue[] array = new org.opennms.netmgt.config.notifd.Queue[0];
         return (org.opennms.netmgt.config.notifd.Queue[]) this._queueList.toArray(array);
     }
@@ -715,8 +718,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return a reference to the Vector backing this class
      */
-    public java.util.List<org.opennms.netmgt.config.notifd.Queue> getQueueCollection(
-    ) {
+    public java.util.List<org.opennms.netmgt.config.notifd.Queue> getQueueCollection() {
         return this._queueList;
     }
 
@@ -725,8 +727,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the size of this collection
      */
-    public int getQueueCount(
-    ) {
+    public int getQueueCount() {
         return this._queueList.size();
     }
 
@@ -735,8 +736,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'ServiceIdSql'.
      */
-    public java.lang.String getServiceIdSql(
-    ) {
+    public java.lang.String getServiceIdSql() {
         return this._serviceIdSql == null ? DEFAULT_SERVICE_ID_SQL : this._serviceIdSql;
     }
 
@@ -745,8 +745,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'Status'.
      */
-    public java.lang.String getStatus(
-    ) {
+    public java.lang.String getStatus() {
         return this._status;
     }
 
@@ -755,8 +754,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if at least one MatchAll has been added
      */
-    public boolean hasMatchAll(
-    ) {
+    public boolean hasMatchAll() {
         return this._matchAll != null;
     }
 
@@ -766,8 +764,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return true if at least one NumericSkipResolutionPrefix has
      * been added
      */
-    public boolean hasNumericSkipResolutionPrefix(
-    ) {
+    public boolean hasNumericSkipResolutionPrefix() {
         return this._numericSkipResolutionPrefix != null;
     }
 
@@ -780,58 +777,57 @@ import org.opennms.core.xml.ValidateUsing;
      * @return a hash code value for the object.
      */
     @Override
-    public int hashCode(
-    ) {
+    public int hashCode() {
         int result = 17;
 
         long tmp;
         if (_status != null) {
-           result = 37 * result + _status.hashCode();
+            result = 37 * result + _status.hashCode();
         }
         if (_pagesSent != null) {
-           result = 37 * result + _pagesSent.hashCode();
+            result = 37 * result + _pagesSent.hashCode();
         }
         if (_nextNotifId != null) {
-           result = 37 * result + _nextNotifId.hashCode();
+            result = 37 * result + _nextNotifId.hashCode();
         }
         if (_nextUserNotifId != null) {
-           result = 37 * result + _nextUserNotifId.hashCode();
+            result = 37 * result + _nextUserNotifId.hashCode();
         }
         if (_nextGroupId != null) {
-           result = 37 * result + _nextGroupId.hashCode();
+            result = 37 * result + _nextGroupId.hashCode();
         }
         if (_serviceIdSql != null) {
-           result = 37 * result + _serviceIdSql.hashCode();
+            result = 37 * result + _serviceIdSql.hashCode();
         }
         if (_outstandingNoticesSql != null) {
-           result = 37 * result + _outstandingNoticesSql.hashCode();
+            result = 37 * result + _outstandingNoticesSql.hashCode();
         }
         if (_acknowledgeIdSql != null) {
-           result = 37 * result + _acknowledgeIdSql.hashCode();
+            result = 37 * result + _acknowledgeIdSql.hashCode();
         }
         if (_acknowledgeUpdateSql != null) {
-           result = 37 * result + _acknowledgeUpdateSql.hashCode();
+            result = 37 * result + _acknowledgeUpdateSql.hashCode();
         }
         if (_matchAll != null) {
-           result = 37 * result + _matchAll.hashCode();
+            result = 37 * result + _matchAll.hashCode();
         }
         if (_emailAddressCommand != null) {
-           result = 37 * result + _emailAddressCommand.hashCode();
+            result = 37 * result + _emailAddressCommand.hashCode();
         }
         if (_numericSkipResolutionPrefix != null) {
-           result = 37 * result + _numericSkipResolutionPrefix.hashCode();
+            result = 37 * result + _numericSkipResolutionPrefix.hashCode();
         }
         if (_autoAcknowledgeAlarm != null) {
-           result = 37 * result + _autoAcknowledgeAlarm.hashCode();
+            result = 37 * result + _autoAcknowledgeAlarm.hashCode();
         }
         if (_autoAcknowledgeList != null) {
-           result = 37 * result + _autoAcknowledgeList.hashCode();
+            result = 37 * result + _autoAcknowledgeList.hashCode();
         }
         if (_queueList != null) {
-           result = 37 * result + _queueList.hashCode();
+            result = 37 * result + _queueList.hashCode();
         }
         if (_outageCalendarList != null) {
-           result = 37 * result + _outageCalendarList.hashCode();
+            result = 37 * result + _outageCalendarList.hashCode();
         }
 
         return result;
@@ -842,8 +838,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'MatchAll'.
      */
-    public boolean isMatchAll(
-    ) {
+    public boolean isMatchAll() {
         return this._matchAll;
     }
 
@@ -852,8 +847,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return the value of field 'NumericSkipResolutionPrefix'.
      */
-    public boolean isNumericSkipResolutionPrefix(
-    ) {
+    public boolean isNumericSkipResolutionPrefix() {
         return this._numericSkipResolutionPrefix;
     }
 
@@ -862,8 +856,7 @@ import org.opennms.core.xml.ValidateUsing;
      *
      * @return true if this object is valid according to the schema
      */
-    public boolean isValid(
-    ) {
+    public boolean isValid() {
         try {
             validate();
         } catch (org.exolab.castor.xml.ValidationException vex) {
@@ -878,8 +871,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.notifd.AutoAcknowledge> iterateAutoAcknowledge(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.notifd.AutoAcknowledge> iterateAutoAcknowledge() {
         return this._autoAcknowledgeList.iterator();
     }
 
@@ -889,8 +881,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<java.lang.String> iterateOutageCalendar(
-    ) {
+    public java.util.Iterator<java.lang.String> iterateOutageCalendar() {
         return this._outageCalendarList.iterator();
     }
 
@@ -900,8 +891,7 @@ import org.opennms.core.xml.ValidateUsing;
      * @return an Iterator over all possible elements in this
      * collection
      */
-    public java.util.Iterator<org.opennms.netmgt.config.notifd.Queue> iterateQueue(
-    ) {
+    public java.util.Iterator<org.opennms.netmgt.config.notifd.Queue> iterateQueue() {
         return this._queueList.iterator();
     }
 
@@ -916,7 +906,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final java.io.Writer out)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, out);
     }
 
@@ -933,28 +923,25 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public void marshal(
             final org.xml.sax.ContentHandler handler)
-    throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws java.io.IOException, org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         Marshaller.marshal(this, handler);
     }
 
     /**
      */
-    public void removeAllAutoAcknowledge(
-    ) {
+    public void removeAllAutoAcknowledge() {
         this._autoAcknowledgeList.clear();
     }
 
     /**
      */
-    public void removeAllOutageCalendar(
-    ) {
+    public void removeAllOutageCalendar() {
         this._outageCalendarList.clear();
     }
 
     /**
      */
-    public void removeAllQueue(
-    ) {
+    public void removeAllQueue() {
         this._queueList.clear();
     }
 
@@ -1062,7 +1049,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setAutoAcknowledge(
             final int index,
             final org.opennms.netmgt.config.notifd.AutoAcknowledge vAutoAcknowledge)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._autoAcknowledgeList.size()) {
             throw new IndexOutOfBoundsException("setAutoAcknowledge: Index value '" + index + "' not in range [0.." + (this._autoAcknowledgeList.size() - 1) + "]");
@@ -1082,7 +1069,7 @@ import org.opennms.core.xml.ValidateUsing;
         _autoAcknowledgeList.clear();
 
         for (int i = 0; i < vAutoAcknowledgeArray.length; i++) {
-                this._autoAcknowledgeList.add(vAutoAcknowledgeArray[i]);
+            this._autoAcknowledgeList.add(vAutoAcknowledgeArray[i]);
         }
     }
 
@@ -1196,7 +1183,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setOutageCalendar(
             final int index,
             final java.lang.String vOutageCalendar)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._outageCalendarList.size()) {
             throw new IndexOutOfBoundsException("setOutageCalendar: Index value '" + index + "' not in range [0.." + (this._outageCalendarList.size() - 1) + "]");
@@ -1216,7 +1203,7 @@ import org.opennms.core.xml.ValidateUsing;
         _outageCalendarList.clear();
 
         for (int i = 0; i < vOutageCalendarArray.length; i++) {
-                this._outageCalendarList.add(vOutageCalendarArray[i]);
+            this._outageCalendarList.add(vOutageCalendarArray[i]);
         }
     }
 
@@ -1278,7 +1265,7 @@ import org.opennms.core.xml.ValidateUsing;
     public void setQueue(
             final int index,
             final org.opennms.netmgt.config.notifd.Queue vQueue)
-    throws java.lang.IndexOutOfBoundsException {
+            throws java.lang.IndexOutOfBoundsException {
         // check bounds for index
         if (index < 0 || index >= this._queueList.size()) {
             throw new IndexOutOfBoundsException("setQueue: Index value '" + index + "' not in range [0.." + (this._queueList.size() - 1) + "]");
@@ -1298,7 +1285,7 @@ import org.opennms.core.xml.ValidateUsing;
         _queueList.clear();
 
         for (int i = 0; i < vQueueArray.length; i++) {
-                this._queueList.add(vQueueArray[i]);
+            this._queueList.add(vQueueArray[i]);
         }
     }
 
@@ -1361,7 +1348,7 @@ import org.opennms.core.xml.ValidateUsing;
      */
     public static org.opennms.netmgt.config.notifd.NotifdConfiguration unmarshal(
             final java.io.Reader reader)
-    throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
+            throws org.exolab.castor.xml.MarshalException, org.exolab.castor.xml.ValidationException {
         return (org.opennms.netmgt.config.notifd.NotifdConfiguration) Unmarshaller.unmarshal(org.opennms.netmgt.config.notifd.NotifdConfiguration.class, reader);
     }
 
@@ -1371,9 +1358,8 @@ import org.opennms.core.xml.ValidateUsing;
      * @throws org.exolab.castor.xml.ValidationException if this
      * object is an invalid instance according to the schema
      */
-    public void validate(
-    )
-    throws org.exolab.castor.xml.ValidationException {
+    public void validate()
+            throws org.exolab.castor.xml.ValidationException {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     }

@@ -32,7 +32,6 @@
  * Schema.
  * $Id$
  */
-
 package org.opennms.netmgt.config.server;
 
 import java.io.IOException;
@@ -57,48 +56,48 @@ import org.xml.sax.ContentHandler;
  * Top-level element for the opennms-server.xml
  *  configuration file.
  */
-
-@XmlRootElement(name="local-server")
+@XmlRootElement(name = "local-server")
 @ValidateUsing("opennms-server.xsd")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class LocalServer implements Serializable {
+
     private static final long serialVersionUID = -8351197310769498904L;
 
     /**
      * Field m_serverName.
      */
-    @XmlAttribute(name="server-name")
+    @XmlAttribute(name = "server-name")
     private String m_serverName;
 
     /**
      * Field m_defaultCriticalPathIp.
      */
-    @XmlAttribute(name="defaultCriticalPathIp")
+    @XmlAttribute(name = "defaultCriticalPathIp")
     private String m_defaultCriticalPathIp;
 
     /**
      * Field m_defaultCriticalPathService.
      */
-    @XmlAttribute(name="defaultCriticalPathService")
+    @XmlAttribute(name = "defaultCriticalPathService")
     private String m_defaultCriticalPathService;
 
     /**
      * Field m_defaultCriticalPathTimeout.
      */
-    @XmlAttribute(name="defaultCriticalPathTimeout")
+    @XmlAttribute(name = "defaultCriticalPathTimeout")
     private Integer m_defaultCriticalPathTimeout;
 
     /**
      * Field m_defaultCriticalPathRetries.
      */
-    @XmlAttribute(name="defaultCriticalPathRetries")
+    @XmlAttribute(name = "defaultCriticalPathRetries")
     private Integer m_defaultCriticalPathRetries;
 
     /**
      * A flag to indicate if poller has to identify the nms
      *  server to restrict services to poll.
      */
-    @XmlAttribute(name="verify-server")
+    @XmlAttribute(name = "verify-server")
     private String m_verifyServer;
 
     public LocalServer() {
@@ -123,7 +122,7 @@ public class LocalServer implements Serializable {
      * @return the value of field 'DefaultCriticalPathIp'.
      */
     public String getDefaultCriticalPathIp() {
-        return m_defaultCriticalPathIp == null? "" : m_defaultCriticalPathIp;
+        return m_defaultCriticalPathIp == null ? "" : m_defaultCriticalPathIp;
     }
 
     /**
@@ -132,7 +131,7 @@ public class LocalServer implements Serializable {
      * @return the value of field 'DefaultCriticalPathRetries'.
      */
     public int getDefaultCriticalPathRetries() {
-        return m_defaultCriticalPathRetries == null? 0 : m_defaultCriticalPathRetries;
+        return m_defaultCriticalPathRetries == null ? 0 : m_defaultCriticalPathRetries;
     }
 
     /**
@@ -141,7 +140,7 @@ public class LocalServer implements Serializable {
      * @return the value of field 'DefaultCriticalPathService'.
      */
     public String getDefaultCriticalPathService() {
-        return m_defaultCriticalPathService == null? "" : m_defaultCriticalPathService;
+        return m_defaultCriticalPathService == null ? "" : m_defaultCriticalPathService;
     }
 
     /**
@@ -150,7 +149,7 @@ public class LocalServer implements Serializable {
      * @return the value of field 'DefaultCriticalPathTimeout'.
      */
     public Integer getDefaultCriticalPathTimeout() {
-        return m_defaultCriticalPathTimeout == null? 1500 : m_defaultCriticalPathTimeout;
+        return m_defaultCriticalPathTimeout == null ? 1500 : m_defaultCriticalPathTimeout;
     }
 
     /**
@@ -159,7 +158,7 @@ public class LocalServer implements Serializable {
      * @return the value of field 'ServerName'.
      */
     public String getServerName() {
-        return m_serverName == null? "localhost" : m_serverName;
+        return m_serverName == null ? "localhost" : m_serverName;
     }
 
     /**
@@ -171,7 +170,7 @@ public class LocalServer implements Serializable {
      * @return the value of field 'VerifyServer'.
      */
     public String getVerifyServer() {
-        return m_verifyServer == null? "false" : m_verifyServer;
+        return m_verifyServer == null ? "false" : m_verifyServer;
     }
 
     /**

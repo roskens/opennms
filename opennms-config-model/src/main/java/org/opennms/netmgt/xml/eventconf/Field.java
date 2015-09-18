@@ -25,9 +25,9 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-
 package org.opennms.netmgt.xml.eventconf;
 
 public interface Field {
-	public String get(org.opennms.netmgt.xml.event.Event matchingEvent);
+
+    public String get(org.opennms.netmgt.xml.event.Event matchingEvent);
 }
