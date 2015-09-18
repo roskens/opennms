@@ -91,7 +91,7 @@ import org.opennms.core.xml.ValidateUsing;
 
     /**
      * Parameters to be used for threshold checking this
-     *  service. Parameters are specfic to the service
+     *  service. Parameters are specific to the service
      *  thresholder.
      */
     @XmlElement(name="parameter")

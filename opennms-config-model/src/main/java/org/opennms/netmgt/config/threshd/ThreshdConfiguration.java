@@ -79,7 +79,7 @@ import org.opennms.core.xml.ValidateUsing;
     /**
      * Service thresholders
      */
-    @XmlElement(name="thresholders")
+    @XmlElement(name="thresholder")
     private java.util.List<org.opennms.netmgt.config.threshd.Thresholder> _thresholderList;
 
 

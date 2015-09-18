@@ -74,7 +74,7 @@ import org.opennms.core.xml.ValidateUsing;
      * pass
      *  this filter
      */
-    @XmlElement(name="filter")
+    @XmlElement(name="filter", required = true)
     private org.opennms.netmgt.config.threshd.Filter _filter;
 
     /**
@@ -84,13 +84,13 @@ import org.opennms.core.xml.ValidateUsing;
     private java.util.List<java.lang.String> _specificList;
 
     /**
-     * Range of adresses in this package
+     * Range of addresses in this package
      */
     @XmlElement(name="include-range")
     private java.util.List<org.opennms.netmgt.config.threshd.IncludeRange> _includeRangeList;
 
     /**
-     * Range of adresses to be excluded from this
+     * Range of addresses to be excluded from this
      *  package
      */
     @XmlElement(name="exclude-range")
