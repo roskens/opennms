@@ -214,7 +214,7 @@ public class TrapdConfiguration implements java.io.Serializable {
      * @return the value of field 'NewSuspectOnTrap'.
      */
     public Boolean getNewSuspectOnTrap() {
-        return this._newSuspectOnTrap;
+        return this._newSuspectOnTrap == null ? false : this._newSuspectOnTrap;
     }
 
     /**
@@ -239,7 +239,7 @@ public class TrapdConfiguration implements java.io.Serializable {
      * @return the value of field 'SnmpTrapPort'.
      */
     public Integer getSnmpTrapPort() {
-        return this._snmpTrapPort;
+        return this._snmpTrapPort == null ? 0 : this._snmpTrapPort;
     }
 
     /**

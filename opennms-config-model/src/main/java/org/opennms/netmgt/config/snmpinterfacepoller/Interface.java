@@ -305,7 +305,7 @@ public class Interface implements java.io.Serializable {
      * @return the value of field 'Interval'.
      */
     public Long getInterval() {
-        return this._interval;
+        return this._interval == null ? 0L : this._interval;
     }
 
     /**
@@ -352,7 +352,7 @@ public class Interface implements java.io.Serializable {
      * @return the value of field 'Port'.
      */
     public Integer getPort() {
-        return this._port;
+        return this._port == null ? 0 : this._port;
     }
 
     /**
@@ -362,7 +362,7 @@ public class Interface implements java.io.Serializable {
      * @return the value of field 'Retry'.
      */
     public Integer getRetry() {
-        return this._retry;
+        return this._retry == null ? 0 : this._retry;
     }
 
     /**

@@ -198,7 +198,7 @@ public class Specific implements java.io.Serializable {
      * @return the value of field 'Retries'.
      */
     public Integer getRetries() {
-        return this._retries;
+        return this._retries == null ? 0 : this._retries;
     }
 
     /**
@@ -210,7 +210,7 @@ public class Specific implements java.io.Serializable {
      * @return the value of field 'Timeout'.
      */
     public Long getTimeout() {
-        return this._timeout;
+        return this._timeout == null ? 0L : this._timeout;
     }
 
     /**

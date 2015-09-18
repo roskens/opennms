@@ -186,7 +186,7 @@ public class SeriesDef implements java.io.Serializable {
      * @return the value of field 'Number'.
      */
     public Integer getNumber() {
-        return this._number;
+        return this._number == null ? 0 : this._number;
     }
 
     /**
@@ -213,7 +213,7 @@ public class SeriesDef implements java.io.Serializable {
      * @return the value of field 'UseLabels'.
      */
     public Boolean getUseLabels() {
-        return this._useLabels;
+        return this._useLabels == null ? false : this._useLabels;
     }
 
     /**

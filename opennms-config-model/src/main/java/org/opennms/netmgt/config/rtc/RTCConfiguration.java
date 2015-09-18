@@ -257,7 +257,7 @@ public class RTCConfiguration implements java.io.Serializable {
      * @return the value of field 'ErrorsBeforeUrlUnsubscribe'.
      */
     public Integer getErrorsBeforeUrlUnsubscribe() {
-        return this._errorsBeforeUrlUnsubscribe;
+        return this._errorsBeforeUrlUnsubscribe == null ? 0 : this._errorsBeforeUrlUnsubscribe;
     }
 
     /**
@@ -294,7 +294,7 @@ public class RTCConfiguration implements java.io.Serializable {
      * @return the value of field 'MaxEventsBeforeResend'.
      */
     public Integer getMaxEventsBeforeResend() {
-        return this._maxEventsBeforeResend;
+        return this._maxEventsBeforeResend == null ? 0 : this._maxEventsBeforeResend;
     }
 
     /**
@@ -319,7 +319,7 @@ public class RTCConfiguration implements java.io.Serializable {
      * @return the value of field 'Senders'.
      */
     public Integer getSenders() {
-        return this._senders;
+        return this._senders == null ? 0 : this._senders;
     }
 
     /**
@@ -331,7 +331,7 @@ public class RTCConfiguration implements java.io.Serializable {
      * @return the value of field 'Updaters'.
      */
     public Integer getUpdaters() {
-        return this._updaters;
+        return this._updaters == null ? 0 : this._updaters;
     }
 
     /**

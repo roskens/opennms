@@ -223,7 +223,7 @@ public class Service implements java.io.Serializable {
      * @return the value of field 'Interval'.
      */
     public Long getInterval() {
-        return this._interval;
+        return this._interval == null ? 0L : this._interval;
     }
 
     /**

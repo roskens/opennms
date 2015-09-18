@@ -444,7 +444,7 @@ public abstract class Basethresholddef implements java.io.Serializable {
      * @return the value of field 'Rearm'.
      */
     public Double getRearm() {
-        return this._rearm;
+        return this._rearm == null ? 0.0d : this._rearm;
     }
 
     /**
@@ -543,7 +543,7 @@ public abstract class Basethresholddef implements java.io.Serializable {
      * @return the value of field 'Trigger'.
      */
     public Integer getTrigger() {
-        return this._trigger;
+        return this._trigger == null ? 0 : this._trigger;
     }
 
     /**
@@ -598,7 +598,7 @@ public abstract class Basethresholddef implements java.io.Serializable {
      * @return the value of field 'Value'.
      */
     public Double getValue() {
-        return this._value;
+        return this._value == null ? 0.0d : this._value;
     }
 
     /**

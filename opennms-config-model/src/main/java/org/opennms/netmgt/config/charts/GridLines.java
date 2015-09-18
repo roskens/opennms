@@ -139,7 +139,7 @@ public class GridLines implements java.io.Serializable {
      * @return the value of field 'Visible'.
      */
     public Boolean getVisible() {
-        return this._visible;
+        return this._visible == null ? false : this._visible;
     }
 
     /**

@@ -114,7 +114,7 @@ public class Red implements java.io.Serializable {
      * @return the value of field 'RgbColor'.
      */
     public Integer getRgbColor() {
-        return this._rgbColor;
+        return this._rgbColor == null ? 0 : this._rgbColor;
     }
 
     /**

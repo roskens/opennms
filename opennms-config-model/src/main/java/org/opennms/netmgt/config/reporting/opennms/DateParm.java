@@ -196,7 +196,7 @@ public class DateParm implements java.io.Serializable {
      * @return the value of field 'DefaultCount'.
      */
     public Integer getDefaultCount() {
-        return this._defaultCount;
+        return this._defaultCount == null ? 0 : this._defaultCount;
     }
 
     /**
@@ -247,7 +247,7 @@ public class DateParm implements java.io.Serializable {
      * @return the value of field 'UseAbsoluteDate'.
      */
     public Boolean getUseAbsoluteDate() {
-        return this._useAbsoluteDate;
+        return this._useAbsoluteDate == null ? false : this._useAbsoluteDate;
     }
 
     /**

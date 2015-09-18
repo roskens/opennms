@@ -396,7 +396,7 @@ public class Definition implements Serializable {
      * @return the value of field 'Port'.
      */
     public Integer getPort() {
-        return this._port;
+        return this._port == null ? 0 : this._port;
     }
 
     /**
@@ -458,7 +458,7 @@ public class Definition implements Serializable {
      * @return the value of field 'Retry'.
      */
     public Integer getRetry() {
-        return this._retry;
+        return this._retry == null ? 0 : this._retry;
     }
 
     /**
@@ -521,7 +521,7 @@ public class Definition implements Serializable {
      * @return the value of field 'Timeout'.
      */
     public Integer getTimeout() {
-        return this._timeout;
+        return this._timeout == null ? 0 : this._timeout;
     }
 
     /**

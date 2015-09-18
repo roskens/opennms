@@ -311,7 +311,7 @@ public class Configuration implements java.io.Serializable {
      * @return the value of field 'MatchingGroupHost'.
      */
     public Integer getMatchingGroupHost() {
-        return this._matchingGroupHost;
+        return this._matchingGroupHost == null ? 0 : this._matchingGroupHost;
     }
 
     /**
@@ -322,7 +322,7 @@ public class Configuration implements java.io.Serializable {
      * @return the value of field 'MatchingGroupMessage'.
      */
     public Integer getMatchingGroupMessage() {
-        return this._matchingGroupMessage;
+        return this._matchingGroupMessage == null ? 0 : this._matchingGroupMessage;
     }
 
     /**
@@ -372,7 +372,7 @@ public class Configuration implements java.io.Serializable {
      * @return the value of field 'SyslogPort'.
      */
     public Integer getSyslogPort() {
-        return this._syslogPort;
+        return this._syslogPort == null ? 0 : this._syslogPort;
     }
 
     /**

@@ -301,7 +301,7 @@ public class Report implements java.io.Serializable {
      * @return the value of field 'Graphs_per_line'.
      */
     public Integer getGraphs_per_line() {
-        return this._graphs_per_line;
+        return this._graphs_per_line == null ? 0 : this._graphs_per_line;
     }
 
     /**
@@ -310,7 +310,7 @@ public class Report implements java.io.Serializable {
      * @return the value of field 'Id'.
      */
     public Integer getId() {
-        return this._id;
+        return this._id == null ? 0 : this._id;
     }
 
     /**
@@ -319,7 +319,7 @@ public class Report implements java.io.Serializable {
      * @return the value of field 'Show_graphtype_button'.
      */
     public Boolean getShow_graphtype_button() {
-        return this._show_graphtype_button;
+        return this._show_graphtype_button == null ? false : this._show_graphtype_button;
     }
 
     /**
@@ -328,7 +328,7 @@ public class Report implements java.io.Serializable {
      * @return the value of field 'Show_timespan_button'.
      */
     public Boolean getShow_timespan_button() {
-        return this._show_timespan_button;
+        return this._show_timespan_button == null ? false : this._show_timespan_button;
     }
 
     /**

@@ -323,7 +323,7 @@ public class EventdConfiguration implements java.io.Serializable {
      * @return the value of field 'LogEventSummaries'.
      */
     public Boolean getLogEventSummaries() {
-        return this._logEventSummaries;
+        return this._logEventSummaries == null ? false : this._logEventSummaries;
     }
 
     /**
@@ -335,7 +335,7 @@ public class EventdConfiguration implements java.io.Serializable {
      * @return the value of field 'QueueLength'.
      */
     public Integer getQueueLength() {
-        return this._queueLength;
+        return this._queueLength == null ? 0 : this._queueLength;
     }
 
     /**
@@ -347,7 +347,7 @@ public class EventdConfiguration implements java.io.Serializable {
      * @return the value of field 'Receivers'.
      */
     public Integer getReceivers() {
-        return this._receivers;
+        return this._receivers == null ? 0 : this._receivers;
     }
 
     /**
@@ -360,7 +360,7 @@ public class EventdConfiguration implements java.io.Serializable {
      * @return the value of field 'SocketSoTimeoutPeriod'.
      */
     public Integer getSocketSoTimeoutPeriod() {
-        return this._socketSoTimeoutPeriod;
+        return this._socketSoTimeoutPeriod == null ? 0 : this._socketSoTimeoutPeriod;
     }
 
     /**

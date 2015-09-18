@@ -290,7 +290,7 @@ public class PolicyManage implements java.io.Serializable {
      * @return the value of field 'Delay'.
      */
     public Long getDelay() {
-        return this._delay;
+        return this._delay == null ? 0L : this._delay;
     }
 
     /**
@@ -325,7 +325,7 @@ public class PolicyManage implements java.io.Serializable {
      * @return the value of field 'Retries'.
      */
     public Integer getRetries() {
-        return this._retries;
+        return this._retries == null ? 0 : this._retries;
     }
 
     /**
@@ -392,7 +392,7 @@ public class PolicyManage implements java.io.Serializable {
      * @return the value of field 'UseCategories'.
      */
     public Boolean getUseCategories() {
-        return this._useCategories;
+        return this._useCategories == null ? false : this._useCategories;
     }
 
     /**

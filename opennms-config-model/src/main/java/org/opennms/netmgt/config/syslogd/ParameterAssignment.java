@@ -146,7 +146,7 @@ public class ParameterAssignment implements java.io.Serializable {
      * @return the value of field 'MatchingGroup'.
      */
     public Integer getMatchingGroup() {
-        return this._matchingGroup;
+        return this._matchingGroup == null ? 0 : this._matchingGroup;
     }
 
     /**

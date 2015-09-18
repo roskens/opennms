@@ -223,7 +223,7 @@ public class Rrd implements java.io.Serializable {
      * @return the value of field 'Step'.
      */
     public Integer getStep() {
-        return this._step;
+        return this._step == null ? 0 : this._step;
     }
 
     /**

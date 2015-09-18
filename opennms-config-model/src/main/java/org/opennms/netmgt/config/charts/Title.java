@@ -184,7 +184,7 @@ public class Title implements java.io.Serializable {
      * @return the value of field 'Pitch'.
      */
     public Integer getPitch() {
-        return this._pitch;
+        return this._pitch == null ? 0 : this._pitch;
     }
 
     /**

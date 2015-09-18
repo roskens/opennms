@@ -153,7 +153,7 @@ public class Attrib implements java.io.Serializable {
      * @return the value of field 'MatchGroup'.
      */
     public Integer getMatchGroup() {
-        return this._matchGroup;
+        return this._matchGroup == null ? 0 : this._matchGroup;
     }
 
     /**

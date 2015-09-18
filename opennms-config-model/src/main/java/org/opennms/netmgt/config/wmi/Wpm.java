@@ -374,7 +374,7 @@ public class Wpm implements java.io.Serializable {
      * @return the value of field 'RecheckInterval'.
      */
     public Integer getRecheckInterval() {
-        return this._recheckInterval;
+        return this._recheckInterval == null ? 0 : this._recheckInterval;
     }
 
     /**

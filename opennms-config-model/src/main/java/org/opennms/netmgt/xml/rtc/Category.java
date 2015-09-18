@@ -196,7 +196,7 @@ public class Category implements java.io.Serializable {
      * @return the value of field 'Catvalue'.
      */
     public Double getCatvalue() {
-        return this._catvalue;
+        return this._catvalue == null ? 0.0d : this._catvalue;
     }
 
     /**

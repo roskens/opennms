@@ -282,7 +282,7 @@ public class EnlinkdConfiguration implements java.io.Serializable {
      * @return the value of field 'Initial_sleep_time'.
      */
     public Long getInitial_sleep_time() {
-        return this._initial_sleep_time;
+        return this._initial_sleep_time == null ? 0L : this._initial_sleep_time;
     }
 
     /**
@@ -294,7 +294,7 @@ public class EnlinkdConfiguration implements java.io.Serializable {
      * @return the value of field 'Rescan_interval'.
      */
     public Long getRescan_interval() {
-        return this._rescan_interval;
+        return this._rescan_interval == null ? 0L : this._rescan_interval;
     }
 
     /**
@@ -307,7 +307,7 @@ public class EnlinkdConfiguration implements java.io.Serializable {
      * @return the value of field 'Threads'.
      */
     public Integer getThreads() {
-        return this._threads;
+        return this._threads == null ? 0 : this._threads;
     }
 
     /**

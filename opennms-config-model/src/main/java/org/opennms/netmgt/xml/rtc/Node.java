@@ -180,7 +180,7 @@ public class Node implements java.io.Serializable {
      * @return the value of field 'Nodeid'.
      */
     public Long getNodeid() {
-        return this._nodeid;
+        return this._nodeid == null ? 0L : this._nodeid;
     }
 
     /**
@@ -192,7 +192,7 @@ public class Node implements java.io.Serializable {
      * @return the value of field 'Nodesvccount'.
      */
     public Long getNodesvccount() {
-        return this._nodesvccount;
+        return this._nodesvccount == null ? 0L : this._nodesvccount;
     }
 
     /**
@@ -204,7 +204,7 @@ public class Node implements java.io.Serializable {
      * @return the value of field 'Nodesvcdowncount'.
      */
     public Long getNodesvcdowncount() {
-        return this._nodesvcdowncount;
+        return this._nodesvcdowncount == null ? 0L : this._nodesvcdowncount;
     }
 
     /**
@@ -215,7 +215,7 @@ public class Node implements java.io.Serializable {
      * @return the value of field 'Nodevalue'.
      */
     public Double getNodevalue() {
-        return this._nodevalue;
+        return this._nodevalue == null ? 0.0d : this._nodevalue;
     }
 
     /**

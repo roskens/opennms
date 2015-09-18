@@ -114,7 +114,7 @@ public class HzSize implements java.io.Serializable {
      * @return the value of field 'Pixels'.
      */
     public Integer getPixels() {
-        return this._pixels;
+        return this._pixels == null ? 0 : this._pixels;
     }
 
     /**

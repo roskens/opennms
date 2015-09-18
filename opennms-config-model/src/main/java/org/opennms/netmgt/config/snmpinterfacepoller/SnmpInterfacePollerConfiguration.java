@@ -373,7 +373,7 @@ public class SnmpInterfacePollerConfiguration implements java.io.Serializable {
      * @return the value of field 'Threads'.
      */
     public Integer getThreads() {
-        return this._threads;
+        return this._threads == null ? 0 : this._threads;
     }
 
     /**

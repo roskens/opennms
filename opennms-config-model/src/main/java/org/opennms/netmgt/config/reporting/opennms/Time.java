@@ -137,7 +137,7 @@ public class Time implements java.io.Serializable {
      * @return the value of field 'Hours'.
      */
     public Integer getHours() {
-        return this._hours;
+        return this._hours == null ? 0 : this._hours;
     }
 
     /**
@@ -147,7 +147,7 @@ public class Time implements java.io.Serializable {
      * @return the value of field 'Minutes'.
      */
     public Integer getMinutes() {
-        return this._minutes;
+        return this._minutes == null ? 0 : this._minutes;
     }
 
     /**

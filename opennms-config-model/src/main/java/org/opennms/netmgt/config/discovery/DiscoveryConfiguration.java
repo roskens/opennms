@@ -651,7 +651,7 @@ public class DiscoveryConfiguration implements java.io.Serializable {
      * @return the value of field 'InitialSleepTime'.
      */
     public Long getInitialSleepTime() {
-        return this._initialSleepTime;
+        return this._initialSleepTime == null ? 0L : this._initialSleepTime;
     }
 
     /**
@@ -663,7 +663,7 @@ public class DiscoveryConfiguration implements java.io.Serializable {
      * @return the value of field 'PacketsPerSecond'.
      */
     public Integer getPacketsPerSecond() {
-        return this._packetsPerSecond;
+        return this._packetsPerSecond == null ? 0 : this._packetsPerSecond;
     }
 
     /**
@@ -679,7 +679,7 @@ public class DiscoveryConfiguration implements java.io.Serializable {
      * @return the value of field 'RestartSleepTime'.
      */
     public Long getRestartSleepTime() {
-        return this._restartSleepTime;
+        return this._restartSleepTime == null ? 0L : this._restartSleepTime;
     }
 
     /**
@@ -697,7 +697,7 @@ public class DiscoveryConfiguration implements java.io.Serializable {
      * @return the value of field 'Retries'.
      */
     public Integer getRetries() {
-        return this._retries;
+        return this._retries == null ? 0 : this._retries;
     }
 
     /**
@@ -764,7 +764,7 @@ public class DiscoveryConfiguration implements java.io.Serializable {
      * @return the value of field 'Threads'.
      */
     public Integer getThreads() {
-        return this._threads;
+        return this._threads == null ? 0 : this._threads;
     }
 
     /**
@@ -778,7 +778,7 @@ public class DiscoveryConfiguration implements java.io.Serializable {
      * @return the value of field 'Timeout'.
      */
     public Long getTimeout() {
-        return this._timeout;
+        return this._timeout == null ? 0L : this._timeout;
     }
 
     /**

@@ -180,7 +180,7 @@ public class OutageConfiguration implements java.io.Serializable {
      * @return the value of field 'Writers'.
      */
     public Integer getWriters() {
-        return this._writers;
+        return this._writers == null ? 0 : this._writers;
     }
 
     /**

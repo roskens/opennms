@@ -566,7 +566,7 @@ public class NotifdConfiguration implements java.io.Serializable {
      * @return the value of field 'MatchAll'.
      */
     public Boolean getMatchAll() {
-        return this._matchAll;
+        return this._matchAll == null ? false : this._matchAll;
     }
 
     /**

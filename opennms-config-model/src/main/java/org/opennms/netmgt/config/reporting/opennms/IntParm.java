@@ -160,7 +160,7 @@ public class IntParm implements java.io.Serializable {
      * @return the value of field 'Default'.
      */
     public Integer getDefault() {
-        return this._default;
+        return this._default == null ? 0 : this._default;
     }
 
     /**
