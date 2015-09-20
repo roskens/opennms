@@ -32,7 +32,10 @@
             @XmlNs(prefix = "", namespaceURI = "http://xmlns.opennms.org/xsd/config/surveillance-views")
         }
 )
+@XmlJavaTypeAdapter(value = StringTrimAdapter.class, type = String.class)
 package org.opennms.netmgt.config.surveillanceViews;
 
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlSchema;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.opennms.core.xml.StringTrimAdapter;

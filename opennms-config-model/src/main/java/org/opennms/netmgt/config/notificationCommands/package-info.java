@@ -32,7 +32,10 @@
             @XmlNs(prefix = "", namespaceURI = "http://xmlns.opennms.org/xsd/notificationCommands")
         }
 )
+@XmlJavaTypeAdapter(value = StringTrimAdapter.class, type = String.class)
 package org.opennms.netmgt.config.notificationCommands;
 
 import javax.xml.bind.annotation.XmlNs;
 import javax.xml.bind.annotation.XmlSchema;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.opennms.core.xml.StringTrimAdapter;
