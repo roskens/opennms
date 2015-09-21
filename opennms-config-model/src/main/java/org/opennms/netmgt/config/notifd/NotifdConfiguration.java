@@ -47,6 +47,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.opennms.core.xml.StringTrimAdapter;
 import org.opennms.core.xml.ValidateUsing;
 
 @XmlRootElement(name = "notifd-configuration")
@@ -162,6 +164,7 @@ public class NotifdConfiguration implements java.io.Serializable {
      * Field _outageCalendarList.
      */
     @XmlElement(name = "outage-calendar")
+    @XmlJavaTypeAdapter(value = StringTrimAdapter.class)
     private java.util.List<java.lang.String> _outageCalendarList;
 
       //----------------/
