@@ -32,8 +32,14 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.opennms.features.reporting.model.basicreport.BasicReportDefinition;
 import org.opennms.features.reporting.model.jasperreport.SimpleJasperReportDefinition;
 import org.opennms.features.reporting.model.remoterepository.RemoteRepositoryDefinition;
@@ -41,12 +47,6 @@ import org.opennms.features.reporting.repository.ReportRepository;
 import org.opennms.features.reporting.sdo.RemoteReportSDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.sun.jersey.api.client.GenericType;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.client.apache.ApacheHttpClient;
-import com.sun.jersey.client.apache.config.ApacheHttpClientConfig;
-import com.sun.jersey.client.apache.config.DefaultApacheHttpClientConfig;
 
 /**
  * <p>DefaultRemoteRepository class.</p>
@@ -77,12 +77,12 @@ public class DefaultRemoteRepository implements ReportRepository {
     /**
      * HTTP client for ReST connection
      */
-    private ApacheHttpClient m_client;
+    private Client m_client;
 
     /**
      * Data structure from ReST call
      */
-    private WebResource m_webResource;
+    private WebTarget m_webTarget;
 
 
     /**
@@ -96,13 +96,9 @@ public class DefaultRemoteRepository implements ReportRepository {
             String jasperReportsVersion) {
         this.m_remoteRepositoryDefintion = remoteRepositoryDefinition;
         this.m_jasperReportsVersion = jasperReportsVersion;
-        ApacheHttpClientConfig clientConfig = new DefaultApacheHttpClientConfig();
-        clientConfig.getState().setCredentials(null,
-                m_remoteRepositoryDefintion.getURI().getHost(),
-                m_remoteRepositoryDefintion.getURI().getPort(),
-                m_remoteRepositoryDefintion.getLoginUser(),
-                m_remoteRepositoryDefintion.getLoginRepoPassword());
-        m_client = ApacheHttpClient.create(clientConfig);
+        m_client = ClientBuilder.newClient();
+        HttpAuthenticationFeature feature = HttpAuthenticationFeature.universal(m_remoteRepositoryDefintion.getLoginUser(), m_remoteRepositoryDefintion.getLoginRepoPassword());
+        m_client.register(feature);
     }
 
     /**
@@ -112,17 +108,17 @@ public class DefaultRemoteRepository implements ReportRepository {
     public List<BasicReportDefinition> getReports() {
         List<BasicReportDefinition> resultReports = new ArrayList<BasicReportDefinition>();
         if (isConfigOk()) {
-            m_webResource = m_client.resource(m_remoteRepositoryDefintion.getURI() + "reports" + "/" + m_jasperReportsVersion);
+            m_webTarget = m_client.target(m_remoteRepositoryDefintion.getURI()).path("reports" + "/" + m_jasperReportsVersion);
             List<RemoteReportSDO> webCallResult = new ArrayList<RemoteReportSDO>();
             try {
-                webCallResult = m_webResource.get(new GenericType<List<RemoteReportSDO>>() {
+                webCallResult = m_webTarget.request().get(new GenericType<List<RemoteReportSDO>>() {
                 });
             } catch (Exception e) {
-                logger.error("Error requesting report template from repository. Error message: '{}' Uri was: '{}'", e.getMessage(), m_webResource.getURI());
+                logger.error("Error requesting report template from repository. Error message: '{}' Uri was: '{}'", e.getMessage(), m_webTarget.getUri());
                 e.printStackTrace();
             }
 
-            logger.debug("getReports got '{}' RemoteReportSDOs from uri '{}'", webCallResult.size(), m_webResource.getURI());
+            logger.debug("getReports got '{}' RemoteReportSDOs from uri '{}'", webCallResult.size(), m_webTarget.getUri());
 
             resultReports = this.mapSDOListToBasicReportList(webCallResult);
 
@@ -138,16 +134,16 @@ public class DefaultRemoteRepository implements ReportRepository {
         List<BasicReportDefinition> resultReports = new ArrayList<BasicReportDefinition>();
         List<RemoteReportSDO> webCallResult = new ArrayList<RemoteReportSDO>();
         if (isConfigOk()) {
-            m_webResource = m_client.resource(m_remoteRepositoryDefintion.getURI() + "onlineReports" + "/" + m_jasperReportsVersion);
+            m_webTarget = m_client.target(m_remoteRepositoryDefintion.getURI()).path("onlineReports" + "/" + m_jasperReportsVersion);
             try {
-                webCallResult = m_webResource.get(new GenericType<List<RemoteReportSDO>>() {
+                webCallResult = m_webTarget.request().get(new GenericType<List<RemoteReportSDO>>() {
                 });
             } catch (Exception e) {
-                logger.error("Error requesting online reports. Error message: '{}' URI was: '{}'", e.getMessage(), m_webResource.getURI());
+                logger.error("Error requesting online reports. Error message: '{}' URI was: '{}'", e.getMessage(), m_webTarget.getUri());
                 e.printStackTrace();
             }
             
-            logger.debug("getOnlineReports got '{}' RemoteReportSDOs from uri '{}'", webCallResult.size(), m_webResource.getURI());
+            logger.debug("getOnlineReports got '{}' RemoteReportSDOs from uri '{}'", webCallResult.size(), m_webTarget.getUri());
             
             resultReports = this.mapSDOListToBasicReportList(webCallResult);
         }
@@ -162,14 +158,15 @@ public class DefaultRemoteRepository implements ReportRepository {
         reportId = reportId.substring(reportId.indexOf('_') + 1);
         String result = "";
         if (isConfigOk()) {
-            m_webResource = m_client.resource(m_remoteRepositoryDefintion.getURI() + "reportService/" + reportId);
+            m_webTarget = m_client.target(m_remoteRepositoryDefintion.getURI()).path("reportService/" + reportId);
             try {
-                result = m_webResource.get(String.class);
+                Response response = m_webTarget.request().get();
+                result = response.readEntity(String.class);
             } catch (Exception e) {
-                logger.error("Error requesting report service by report id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webResource.getURI());
+                logger.error("Error requesting report service by report id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webTarget.getUri());
                 e.printStackTrace();
             }
-            logger.debug("getReportService for id / result: '{}' URI was: '{}' ", reportId + " / " + result, m_webResource.getURI());
+            logger.debug("getReportService for id / result: '{}' URI was: '{}' ", reportId + " / " + result, m_webTarget.getUri());
         }
         return result;
     }
@@ -182,15 +179,16 @@ public class DefaultRemoteRepository implements ReportRepository {
         reportId = reportId.substring(reportId.indexOf('_') + 1);
         String result = "";
         if (isConfigOk()) {
-            m_webResource = m_client.resource(m_remoteRepositoryDefintion.getURI() + "displayName/" + reportId);
+            m_webTarget = m_client.target(m_remoteRepositoryDefintion.getURI()).path("displayName/" + reportId);
             try {
-                result = m_webResource.get(String.class);
+                Response response = m_webTarget.request().get();
+                result = response.readEntity(String.class);
             } catch (Exception e) {
-                logger.error("Error requesting display name by report id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webResource.getURI());
+                logger.error("Error requesting display name by report id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webTarget.getUri());
                 e.printStackTrace();
             }
             
-            logger.debug("getDisplayName for id / result: '{}' URI was: '{}' ", reportId + " / " + result, m_webResource.getURI());
+            logger.debug("getDisplayName for id / result: '{}' URI was: '{}' ", reportId + " / " + result, m_webTarget.getUri());
             
         }
         return result;
@@ -204,15 +202,16 @@ public class DefaultRemoteRepository implements ReportRepository {
         reportId = reportId.substring(reportId.indexOf('_') + 1);
         String result = "";
         if (isConfigOk()) {
-            m_webResource = m_client.resource(m_remoteRepositoryDefintion.getURI() + "engine/" + reportId);
+            m_webTarget = m_client.target(m_remoteRepositoryDefintion.getURI()).path("engine/" + reportId);
             try {
-                result = m_webResource.get(String.class);
+                Response response = m_webTarget.request().get();
+                result = response.readEntity(String.class);
             } catch (Exception e) {
-                logger.error("Error requesting engine by id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webResource.getURI());
+                logger.error("Error requesting engine by id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webTarget.getUri());
                 e.printStackTrace();
             }
             
-            logger.debug("getEngine for id / result: '{}' URI was: '{}' ", reportId + " / " + result, m_webResource.getURI());
+            logger.debug("getEngine for id / result: '{}' URI was: '{}' ", reportId + " / " + result, m_webTarget.getUri());
             
         }
         return result;
@@ -226,15 +225,16 @@ public class DefaultRemoteRepository implements ReportRepository {
         reportId = reportId.substring(reportId.indexOf('_') + 1);
         InputStream templateStreamResult = null;
         if (isConfigOk()) {
-            m_webResource = m_client.resource(m_remoteRepositoryDefintion.getURI() + "templateStream/" + reportId);
+            m_webTarget = m_client.target(m_remoteRepositoryDefintion.getURI()).path("templateStream/" + reportId);
             try {
-                templateStreamResult = m_webResource.get(InputStream.class);
+                Response response = m_webTarget.request().get();
+                templateStreamResult = response.readEntity(InputStream.class);
             } catch (Exception e) {
-                logger.error("Error requesting template stream by id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webResource.getURI());
+                logger.error("Error requesting template stream by id. Error message: '{}' URI was: '{}'", e.getMessage(), m_webTarget.getUri());
                 e.printStackTrace();
             }
             
-            logger.debug("getTemplateStream for id / inputstream: '{}' URI was: '{}' ", reportId + " / " + templateStreamResult, m_webResource.getURI());
+            logger.debug("getTemplateStream for id / inputstream: '{}' URI was: '{}' ", reportId + " / " + templateStreamResult, m_webTarget.getUri());
             
         }
         return templateStreamResult;

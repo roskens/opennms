@@ -14,6 +14,6 @@ public class DeleteCommand extends AbstractCommand {
     public void execute(final ResourceCli resourceCli) throws Exception {
         // Delete the data
         connect(resourceCli, this.resource)
-                .delete();
+                .request().delete();
     }
 }

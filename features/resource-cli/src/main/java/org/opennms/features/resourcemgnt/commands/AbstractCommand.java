@@ -1,24 +1,25 @@
 package org.opennms.features.resourcemgnt.commands;
 
+import com.fasterxml.jackson.jaxrs.annotation.JacksonFeatures;
 import com.google.common.base.Strings;
 import com.google.common.net.UrlEscapers;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.json.JSONConfiguration;
-import com.sun.jersey.client.apache.ApacheHttpClient;
-import com.sun.jersey.client.apache.config.DefaultApacheHttpClientConfig;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import org.opennms.features.resourcemgnt.ResourceCli;
 
-import javax.jws.WebParam;
+import javax.ws.rs.client.WebTarget;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 
 public abstract class AbstractCommand implements Command {
 
-    protected WebResource connect(final ResourceCli resourceCli, final String resource) {
+    protected WebTarget connect(final ResourceCli resourceCli, final String resource) {
         // Initialize the REST client
-        final DefaultApacheHttpClientConfig defaultApacheHttpClientConfig = new DefaultApacheHttpClientConfig();
-        defaultApacheHttpClientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
-        defaultApacheHttpClientConfig.getProperties().put(defaultApacheHttpClientConfig.PROPERTY_PREEMPTIVE_AUTHENTICATION, Boolean.TRUE);
-        defaultApacheHttpClientConfig.getState().setCredentials(null, null, -1, resourceCli.getUsername(), resourceCli.getPassword());
-        final ApacheHttpClient apacheHttpClient = ApacheHttpClient.create(defaultApacheHttpClientConfig);
+        ClientConfig clientConfig = new ClientConfig();
+        HttpAuthenticationFeature feature = HttpAuthenticationFeature.universal(resourceCli.getUsername(), resourceCli.getPassword());
+        clientConfig.register(feature);
+        clientConfig.register(JacksonFeatures.class);
+        Client client = ClientBuilder.newClient(clientConfig);
 
         // Build the request URL
         final StringBuilder url = new StringBuilder();
@@ -30,11 +31,11 @@ public abstract class AbstractCommand implements Command {
         }
 
         // Build the web resource
-        return apacheHttpClient
-                .resource(url.toString());
+        return client
+                .target(url.toString());
     }
 
-    protected WebResource connect(final ResourceCli resourceCli) {
+    protected WebTarget connect(final ResourceCli resourceCli) {
         return this.connect(resourceCli, null);
     }
 }

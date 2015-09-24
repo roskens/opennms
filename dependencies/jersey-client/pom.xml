@@ -10,41 +10,16 @@
   <artifactId>jersey-client-dependencies</artifactId>
   <packaging>pom</packaging>
   <name>OpenNMS Dependencies Jersey Client</name>
-  <properties>
-    <jerseyVersion>1.19</jerseyVersion>
-    <jerseyContribVersion>1.19</jerseyContribVersion>
-  </properties>
   <dependencies>
     <dependency>
-      <groupId>com.sun.jersey</groupId>
+      <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-client</artifactId>
       <version>${jerseyVersion}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.ws.rs</groupId>
-          <artifactId>jsr311-api</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
-      <groupId>com.sun.jersey.contribs</groupId>
-      <artifactId>jersey-apache-client</artifactId>
-      <version>${jerseyContribVersion}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <!-- replacing jsr311-api dep in jersey-client -->
-    <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
+      <groupId>org.glassfish.jersey.connectors</groupId>
+      <artifactId>jersey-apache-connector</artifactId>
+      <version>${jerseyVersion}</version>
     </dependency>
   </dependencies>
   <repositories>

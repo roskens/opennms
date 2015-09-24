@@ -7,8 +7,8 @@ import org.opennms.netmgt.model.RrdGraphAttribute;
 import org.opennms.web.rest.v1.ResourceDTO;
 import org.opennms.web.rest.v1.ResourceDTOCollection;
 
-import javax.jws.WebParam;
 import java.util.Map;
+import javax.ws.rs.core.MediaType;
 
 public class ShowCommand extends AbstractCommand {
 
@@ -21,7 +21,7 @@ public class ShowCommand extends AbstractCommand {
     public void execute(final ResourceCli resourceCli) throws Exception {
         // Request and print the data
         final ResourceDTO resource = connect(resourceCli, this.resource)
-                .header("Accept", "application/xml")
+                .request(MediaType.APPLICATION_XML)
                 .get(ResourceDTO.class);
 
         System.out.println("ID:         " + resource.getId());

@@ -1,6 +1,7 @@
 package org.opennms.features.resourcemgnt.commands;
 
 import com.google.common.base.Strings;
+import javax.ws.rs.core.MediaType;
 import org.opennms.features.resourcemgnt.ResourceCli;
 import org.opennms.web.rest.v1.ResourceDTO;
 import org.opennms.web.rest.v1.ResourceDTOCollection;
@@ -21,7 +22,7 @@ public class ListCommand extends AbstractCommand {
     public void execute(final ResourceCli resourceCli) throws Exception {
         // Request and print the data
         final ResourceDTOCollection resourceDTOCollection = connect(resourceCli)
-                .header("Accept", "application/xml")
+                .request(MediaType.APPLICATION_XML)
                 .get(ResourceDTOCollection.class);
 
         for (final ResourceDTO resource : resourceDTOCollection.getObjects()) {
