@@ -28,7 +28,7 @@
 
 package org.opennms.netmgt.model;
 
-import org.codehaus.jackson.annotate.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.CascadeType;

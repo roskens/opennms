@@ -17,7 +17,7 @@
     <description>Client for posting anonymous survey info to OpenNMS.com</description>
     
     <properties>
-      <jacksonVersion>1.9.12</jacksonVersion>
+      <jacksonVersion>2.6.2</jacksonVersion>
     </properties>
 
 	<dependencies>
@@ -28,13 +28,13 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
 			<version>${jacksonVersion}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 			<version>${jacksonVersion}</version>
 		</dependency>
 	</dependencies>

@@ -345,8 +345,8 @@
       <feature>opennms-snmp</feature>
 
       <!-- Needed for JSON annotations -->
-      <bundle dependency="true">mvn:org.codehaus.jackson/jackson-core-asl/${jacksonVersion}</bundle>
-      <bundle dependency="true">mvn:org.codehaus.jackson/jackson-mapper-asl/${jacksonVersion}</bundle>
+      <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jacksonVersion}</bundle>
+      <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jacksonVersion}</bundle>
 
       <bundle>mvn:org.opennms/opennms-model/${project.version}</bundle>
     </feature>
