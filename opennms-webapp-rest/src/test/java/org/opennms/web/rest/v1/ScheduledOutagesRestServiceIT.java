@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2011-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2011-2017 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2017 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -40,9 +40,13 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.easymock.EasyMock;
 import org.json.JSONObject;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.rules.TestName;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -66,6 +70,9 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
+import static org.hamcrest.CoreMatchers.containsString;
+import org.opennms.netmgt.events.api.EventProxy;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @RunWith(OpenNMSJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -95,6 +102,23 @@ public class ScheduledOutagesRestServiceIT extends AbstractSpringJerseyRestTestC
     @Autowired
     private PollOutagesConfigManager m_pollOutagesConfigManager;
 
+    @Autowired
+    @Qualifier("eventProxy")
+    protected EventProxy m_eventProxy;
+
+    @Rule
+    public TestName m_testName = new TestName();
+
+    @Before
+    public void printTestNameBegin() throws Exception {
+        System.err.println("\n\n------------------- begin " + m_testName.getMethodName() + " ---------------------\n");
+    }
+
+    @After
+    public void printTestNameEnd() throws InterruptedException {
+        System.err.println("\n------------------- end " + m_testName.getMethodName() + " -----------------------\n\n");
+    }
+
     @Override
     protected void beforeServletStart() throws Exception {
         MockLogAppender.setupLogging();
@@ -110,6 +134,11 @@ public class ScheduledOutagesRestServiceIT extends AbstractSpringJerseyRestTestC
                 + "<outages>"
                 + "<outage name='my-junit-test' type='weekly'>"
                 + "<time day='monday' begins='13:30:00' ends='13:30:01'/>"
+                + "<interface address='match-any'/>"
+                + "<node id='18'/><node id='40'/>"
+                + "</outage>"
+                + "<outage name='my-junit-test1' type='weekly'>"
+                + "<time day='monday' begins='14:30:00' ends='14:30:01'/>"
                 + "<interface address='match-any'/>"
                 + "<node id='18'/><node id='40'/>"
                 + "</outage>"
@@ -266,25 +295,41 @@ public class ScheduledOutagesRestServiceIT extends AbstractSpringJerseyRestTestC
 
     @Test
     public void testUpdateCollectdConfig() throws Exception {
+        File cxml = new File("target/test-work-dir/etc/collectd-configuration.xml");
         sendRequest(PUT, "/sched-outages/my-junit-test/collectd/example1", 204);
+        Thread.sleep(1000);
+        System.out.println(FileUtils.readFileToString(cxml));
+        sendRequest(PUT, "/sched-outages/my-junit-test1/collectd/cassandra-via-jmx", 204);
+        Thread.sleep(1000);
+        System.out.println(FileUtils.readFileToString(cxml));
+        String out = sendRequest(GET, "/sched-outages/my-junit-test/collectd/example1", 200);
+        Assert.assertEquals("collectd package example1 contains my-junit-test", "true", out);
         sendRequest(DELETE, "/sched-outages/my-junit-test/collectd/example1", 204);
+        Thread.sleep(1000);
+        System.out.println(FileUtils.readFileToString(cxml));
     }
 
     @Test
     public void testUpdatePollerdConfig() throws Exception {
         sendRequest(PUT, "/sched-outages/my-junit-test/pollerd/example1", 204);
+        String out = sendRequest(GET, "/sched-outages/my-junit-test/pollerd/example1", 200);
+        Assert.assertEquals("pollerd package example1 contains my-junit-test", "true", out);
         sendRequest(DELETE, "/sched-outages/my-junit-test/pollerd/example1", 204);
     }
 
     @Test
     public void testUpdateThreshdConfig() throws Exception {
         sendRequest(PUT, "/sched-outages/my-junit-test/threshd/example1", 204);
+        String out = sendRequest(GET, "/sched-outages/my-junit-test/threshd/example1", 200);
+        Assert.assertEquals("threshd package example1 contains my-junit-test", "true", out);
         sendRequest(DELETE, "/sched-outages/my-junit-test/threshd/example1", 204);
     }
 
     @Test
     public void testUpdateNotifdConfig() throws Exception {
         sendRequest(PUT, "/sched-outages/my-junit-test/notifd", 204);
+        String out = sendRequest(GET, "/sched-outages/my-junit-test/notifd", 200);
+        Assert.assertEquals("notifd contains scheduled outage my-junit-test", "true", out);
         sendRequest(DELETE, "/sched-outages/my-junit-test/notifd", 204);
     }
 
@@ -298,5 +343,45 @@ public class ScheduledOutagesRestServiceIT extends AbstractSpringJerseyRestTestC
     public void testInterfaceInOutage() throws Exception {
         Assert.assertEquals("false", sendRequest(GET, "/sched-outages/my-junit-test/interfaceInOutage/1.1.1.1", 200));
         Assert.assertEquals("false", sendRequest(GET, "/sched-outages/interfaceInOutage/1.1.1.1", 200));
+    }
+
+    @Test
+    public void testPollerdPackages() throws Exception {
+        String xml = sendRequest(GET, "/sched-outages/pollerd-packages", 200);
+        Assert.assertThat("pollerd packages contains example1", xml, containsString("example1"));
+    }
+
+    @Test
+    public void testCollectdPackages() throws Exception {
+        String xml = sendRequest(GET, "/sched-outages/collectd-packages", 200);
+        Assert.assertThat("collectd packages contains example1", xml, containsString("example1"));
+    }
+
+    @Test
+    public void testMultipleUpdates() throws Exception {
+        sendRequest(PUT, "/sched-outages/my-junit-test/pollerd/example1", 204);
+        sendRequest(GET, "/sched-outages/my-junit-test/affects", 200);
+        sendRequest(PUT, "/sched-outages/my-junit-test/collectd/example1", 204);
+        sendRequest(GET, "/sched-outages/my-junit-test/affects", 200);
+        sendRequest(PUT, "/sched-outages/my-junit-test/threshd/example1", 204);
+        sendRequest(GET, "/sched-outages/my-junit-test/affects", 200);
+        sendRequest(PUT, "/sched-outages/my-junit-test/notifd", 204);
+        sendRequest(GET, "/sched-outages/my-junit-test/affects", 200);
+        Thread.sleep(2000);
+        sendRequest(DELETE, "/sched-outages/my-junit-test/pollerd/example1", 204);
+        sendRequest(DELETE, "/sched-outages/my-junit-test/collectd/example1", 204);
+        sendRequest(DELETE, "/sched-outages/my-junit-test/threshd/example1", 204);
+        sendRequest(DELETE, "/sched-outages/my-junit-test/notifd", 204);
+    }
+
+    @Test
+    public void testOutageAffects() throws Exception {
+        sendRequest(PUT, "/sched-outages/my-junit-test/pollerd/example1", 204);
+        sendRequest(PUT, "/sched-outages/my-junit-test/collectd/example1", 204);
+
+        Thread.sleep(2000);
+        String xml = sendRequest(GET, "/sched-outages/my-junit-test/affects", 200);
+        Assert.assertThat("example1 pollerd package affects my-junit-test", xml, containsString("polling:example1"));
+        Assert.assertThat("example1 collectd package affects my-junit-test", xml, containsString("collect:example1"));
     }
 }

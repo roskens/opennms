@@ -1,0 +1,114 @@
+<!-- Author: Ronald Roskens <roskens@opennms.org> -->
+
+<ol class="breadcrumb">
+  <li><a href="/opennms/index.jsp">Home</a></li>
+  <li><a href="/opennms/admin/index.jsp">Admin</a></li>
+  <li>Scheduled Outages</li>
+</ol>
+
+<!-- Toolbar -->
+
+<div class="row">
+  <div class="col-md-6">
+    <h4>Scheduled Outages ({{ scheduleData.schedules.length }})</h4>
+  </div>
+  <div class="col-md-6" ng-show="loaded">
+    <form class="form-inline pull-right" role="search">
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"/></span>
+        <input class="form-control" type="text" placeholder="Search/Filter Scheduled Outages" ng-model="soFilter" id="search-schedules"></input>
+      </div>
+      <div class="input-group">
+        <button type="button" class="btn btn-default" ng-click="refreshData()" id="refresh-schedules" ng-disabled="timingStatus.isRunning">
+          <span class="glyphicon glyphicon-refresh"/> Refresh
+        </button>
+        <button type="button" class="btn btn-default" ng-click="addSchedule()" id="quick-add-schedule" ng-disabled="timingStatus.isRunning" ng-show="scheduleData.schedules.length > 0">
+          <span class="glyphicon glyphicon-plus-sign"/> Add Scheduled Outage
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Content -->
+
+<div class="row">
+  <div class="col-md-12">
+
+    <!-- Loading Message -->
+    <div class="jumbotron" ng-show="!loaded">
+      <div class="container">
+        <h1>Loading Scheduled Outages</h1>
+        <p>Please wait while all the scheduled outages are loaded into your browser.</p>
+        <p>This could take time, depending on the number of scheduled outages, and the number of nodes and/or interfaces on each scheduled outage.</p>
+      </div>
+    </div>
+
+    <!-- No Scheduled Outages -->
+    <div class="jumbotron" ng-show="loaded && scheduleData.schedules.length == 0">
+      <div class="container">
+        <h1>There are no scheduled outages</h1>
+        <p>Please click on the 'Add Scheduled Outage' button, to start adding scheduled outages.</p>
+      </div>
+    </div>
+
+    <!-- Table with Navigation -->
+    <div class="container-fluid table-responsive" ng-show="scheduleData.schedules.length > 0">
+
+      <table class="table table-striped table-condensed table-hover">
+        <thead>
+          <tr>
+            <th colspan="4"></th>
+            <th colspan="5">Affects...</th>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Nodes/Interfaces</th>
+            <th>Times</th>
+            <th>Notifications</th>
+            <th>Polling</th>
+            <th>Thresholds</th>
+            <th>Data collection</th>
+            <th><span class="pull-right">Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{danger: schedule.isModified()}" ng-repeat="schedule in filteredSchedules | startFrom:(currentPage-1)*pageSize | limitTo:pageSize">
+            <td>{{ schedule.name }}</td>
+            <td>{{ schedule.type }}</td>
+            <td>{{ schedule.nodes }}{{ schedule.interfaces }}</td>
+            <td>{{ schedule.times }}</td>
+            <td>{{ schedule.notifications }}</td>
+            <td>{{ schedule.polling }}</td>
+            <td>{{ schedule.thresholds }}</td>
+            <td>{{ schedule.datacollection }}</td>
+            <td>
+              <span class="pull-right">
+                <button type="button" class="btn btn-default btn-xs"
+                        uib-tooltip="Edit the {{schedule.name}} Scheduled Outage"
+                        ng-click="edit(schedule.name)">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button type="button" class="btn btn-default btn-xs"
+                        uib-tooltip="Remove the {{schedule.name}} Scheduled Outage"
+                        ng-disabled="timingStatus.isRunning"
+                        ng-click="delete(schedule)">
+                  <span class="glyphicon glyphicon-trash">&nbsp;&nbsp;Delete Scheduled Outage</span>
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br ng-hide="filteredSchedules.length > pageSize" />
+
+      <ul uib-pagination total-items="totalItems" num-pages="numPages" ng-model="currentPage" max-size="maxSize" boundary-links="true"
+        class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
+        ng-show="filteredSchedules.length > pageSize"></ul>
+
+    </div> <!-- table-with-navigation -->
+
+  </div> <!-- column -->
+</div> <!-- row -->

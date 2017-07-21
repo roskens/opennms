@@ -28,6 +28,14 @@
 
 package org.opennms.web.rest.v1;
 
+import com.thoughtworks.xstream.XStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -41,6 +49,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
+import org.opennms.core.config.api.ConfigurationResourceException;
 
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.config.CollectdConfigFactory;
@@ -62,7 +71,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * <p>ScheduledOutagesRestService class.</p>
- * 
+ *
  * <ul>
  * <li><b>GET /sched-outages</b><br>to get a list of configured scheduled outages.</li>
  * <li><b>POST /sched-outages</b><br>to add a new outage (or update an existing one).</li>
@@ -77,7 +86,7 @@ import org.springframework.stereotype.Component;
  * <li><b>DELETE /sched-outages/{outageName}/threshd/{package}</b><br>to remove a specific outage from a threshd's package.</li>
  * <li><b>DELETE /sched-outages/{outageName}/notifd</b><br>to remove a specific outage from the notifications.</li>
  * </ul>
- * 
+ *
  * <p>Node and Interface status (the requests return true or false):</p>
  * <ul>
  * <li><b>GET /sched-outages/{outageName}/nodeInOutage/{nodeId}</b><br>to check if a node (with a specific nodeId) is currently on outage for a specific scheduled outage calendar.</li>
@@ -85,18 +94,18 @@ import org.springframework.stereotype.Component;
  * <li><b>GET /sched-outages/nodeInOutage/{nodeId}</b><br>to check if a node (with a specific nodeId) is currently in outage.</li>
  * <li><b>GET /sched-outages/interfaceInOutage/{ipAddr}</b><br>to check if an interface (with a specific IP address) is currently on outage.</li>
  * </ul>
- * 
+ *
  * @author Alejandro Galue <agalue@opennms.org>
  */
 @Component("scheduledOutagesRestService")
 @Path("sched-outages")
 public class ScheduledOutagesRestService extends OnmsRestService {
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(ScheduledOutagesRestService.class);
 
 
     private enum ConfigAction { ADD, REMOVE, REMOVE_FROM_ALL };
-    
+
     @Autowired
     protected PollOutagesConfigFactory m_pollOutagesConfigFactory;
 
@@ -173,9 +182,71 @@ public class ScheduledOutagesRestService extends OnmsRestService {
         }
     }
 
+    @GET
+    @Path("{outageName}/affects")
+    public Response getOutageAffects(@PathParam("outageName") String outageName) throws IOException {
+        LOG.debug("getOutageAffects: outageName={}", outageName);
+        Outage outage = m_pollOutagesConfigFactory.getOutage(outageName);
+        if (outage == null) {
+            throw getException(Status.NOT_FOUND, "Scheduled outage {} was not found.", outageName);
+        }
+
+        //Load the initial set of enabled outages from the external configurations
+        // This will be overridden by a formSubmission to use the form values, but is necessary for the initial load of the page
+        //It is more efficient to piggy back on this initial setup (creating the hashmaps) than doing it separately
+        Set<String> enabledOutages = new HashSet<>();
+
+        // ******* Notification outages config *********
+        Collection<String> notificationOutages = NotifdConfigFactory.getInstance().getConfiguration().getOutageCalendars();
+        if (notificationOutages.contains(outageName)) {
+            enabledOutages.add("notifications");
+        }
+        LOG.debug("getOutageAffects: after notifd: enabledOutages={}", enabledOutages);
+
+        // ******* Threshd outages config *********
+        ThreshdConfigFactory.getInstance().getConfiguration().getPackages().stream().filter((pkg) -> (pkg.getOutageCalendars().contains(outageName))).forEachOrdered((pkg) -> {
+            enabledOutages.add("threshold:" + pkg.getName());
+        });
+        LOG.debug("getOutageAffects: after threshd: enabledOutages={}", enabledOutages);
+
+        // ******* Polling outages config *********
+        PollerConfigFactory.getInstance().getConfiguration().getPackages().stream().filter((pkg) -> (pkg.getOutageCalendars().contains(outageName))).forEachOrdered((pkg) -> {
+            enabledOutages.add("polling:" + pkg.getName());
+        });
+        LOG.debug("getOutageAffects: after pollerd: enabledOutages={}", enabledOutages);
+
+        // ******* Collectd outages config *********
+        m_collectdConfigFactory.getCollectdConfig().getPackages().stream().filter((pkg) -> (pkg.getOutageCalendars().contains(outageName))).forEachOrdered((pkg) -> {
+            enabledOutages.add("collect:" + pkg.getName());
+        });
+        LOG.debug("getOutageAffects: after collectd: enabledOutages={}", enabledOutages);
+
+        final XStream xStream = new XStream();
+        xStream.alias("affects", Set.class);
+        xStream.alias("affect", String.class);
+        return Response.ok(xStream.toXML(enabledOutages)).build();
+    }
+
+    @GET
+    @Path("{outageName}/collectd/{packageName}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String isOutageToCollectorPackage(@PathParam("outageName") String outageName, @PathParam("packageName") String packageName) {
+        Outage outage = getOutage(outageName);
+        if (outage == null) {
+            throw getException(Status.NOT_FOUND, "Scheduled outage {} was not found.", outageName);
+        }
+        Package pkg = m_collectdConfigFactory.getPackage(packageName);
+        if (pkg == null) {
+            throw getException(Status.NOT_FOUND, "Collectd package {} was not found.", packageName);
+        }
+        Boolean found = pkg.getOutageCalendars().contains(outageName);
+        return found.toString();
+    }
+
     @PUT
     @Path("{outageName}/collectd/{packageName}")
     public Response addOutageToCollector(@PathParam("outageName") String outageName, @PathParam("packageName") String packageName) {
+        LOG.debug("addOutageToCollector()");
         writeLock();
         try {
             updateCollectd(ConfigAction.ADD, outageName, packageName);
@@ -197,6 +268,22 @@ public class ScheduledOutagesRestService extends OnmsRestService {
         } finally {
             writeUnlock();
         }
+    }
+
+    @GET
+    @Path("{outageName}/pollerd/{packageName}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String isOutageInPollerPackage(@PathParam("outageName") final String outageName, @PathParam("packageName") final String packageName) {
+        Outage outage = getOutage(outageName);
+        if (outage == null) {
+            throw getException(Status.NOT_FOUND, "Scheduled outage {} was not found.", outageName);
+        }
+        org.opennms.netmgt.config.poller.Package pkg = PollerConfigFactory.getInstance().getPackage(packageName);
+        if (pkg == null) {
+            throw getException(Status.NOT_FOUND, "Pollerd package {} was not found.", packageName);
+        }
+        Boolean found = pkg.getOutageCalendars().contains(outageName);
+        return found.toString();
     }
 
     @PUT
@@ -225,6 +312,22 @@ public class ScheduledOutagesRestService extends OnmsRestService {
         }
     }
 
+    @GET
+    @Path("{outageName}/threshd/{packageName}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String isOutageInThresholderPackage(@PathParam("outageName") final String outageName, @PathParam("packageName") final String packageName) {
+        Outage outage = getOutage(outageName);
+        if (outage == null) {
+            throw getException(Status.NOT_FOUND, "Scheduled outage {} was not found.", outageName);
+        }
+        org.opennms.netmgt.config.threshd.Package pkg = ThreshdConfigFactory.getInstance().getPackage(packageName);
+        if (pkg == null) {
+            throw getException(Status.NOT_FOUND, "Threshd package {} was not found.", packageName);
+        }
+        Boolean found = pkg.getOutageCalendars().contains(outageName);
+        return found.toString();
+    }
+
     @PUT
     @Path("{outageName}/threshd/{packageName}")
     public Response addOutageToThresholder(@PathParam("outageName") String outageName, @PathParam("packageName") String packageName) {
@@ -251,6 +354,18 @@ public class ScheduledOutagesRestService extends OnmsRestService {
         } finally {
             writeUnlock();
         }
+    }
+
+    @GET
+    @Path("{outageName}/notifd")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String isOutageInNotifications(@PathParam("outageName") final String outageName) throws IOException {
+        Outage outage = getOutage(outageName);
+        if (outage == null) {
+            throw getException(Status.NOT_FOUND, "Scheduled outage {} was not found.", outageName);
+        }
+        Boolean found = NotifdConfigFactory.getInstance().getOutageCalendarNames().contains(outageName);
+        return found.toString();
     }
 
     @PUT
@@ -322,6 +437,50 @@ public class ScheduledOutagesRestService extends OnmsRestService {
         return Boolean.FALSE.toString();
     }
 
+    @GET
+    @Path("pollerd-packages")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.APPLICATION_ATOM_XML})
+    public Response getPollerdPackages() {
+        final List<org.opennms.netmgt.config.collectd.Package> packages = m_collectdConfigFactory.getCollectdConfig().getPackages();
+        List<String> packageNames = new ArrayList<>();
+        packages.forEach((pkg) -> {
+            packageNames.add(pkg.getName());
+        });
+
+        if (!packageNames.isEmpty()) {
+            Collections.sort(packageNames);
+            final XStream xStream = new XStream();
+            xStream.alias("packages", List.class);
+            xStream.alias("package", String.class);
+            return Response.ok(xStream.toXML(packageNames)).build();
+        }
+
+        LOG.warn("There are no collection package defined.");
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @GET
+    @Path("collectd-packages")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.APPLICATION_ATOM_XML})
+    public Response getCollectdPackages() throws ConfigurationResourceException {
+        final List<org.opennms.netmgt.config.collectd.Package> packages = m_collectdConfigFactory.getCollectdConfig().getPackages();
+        List<String> packageNames = new ArrayList<>();
+        packages.forEach((pkg) -> {
+            packageNames.add(pkg.getName());
+        });
+
+        if (!packageNames.isEmpty()) {
+            Collections.sort(packageNames);
+            final XStream xStream = new XStream();
+            xStream.alias("packages", List.class);
+            xStream.alias("package", String.class);
+            return Response.ok(xStream.toXML(packageNames)).build();
+        }
+
+        LOG.warn("There are no collection package defined.");
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
     private static void validateAddress(String ipAddress) {
         boolean valid = false;
         try {
@@ -335,6 +494,7 @@ public class ScheduledOutagesRestService extends OnmsRestService {
     }
 
     private void updateCollectd(ConfigAction action, String outageName, String packageName) {
+        LOG.debug("updateCollectd: action: {}, outageName: {}, packageName: {}", action, outageName, packageName);
         getOutage(outageName); // Validate if outageName exists.
         if (action.equals(ConfigAction.ADD)) {
             Package pkg = getCollectdPackage(packageName);
@@ -351,6 +511,7 @@ public class ScheduledOutagesRestService extends OnmsRestService {
             }
         }
         try {
+            LOG.debug("m_collectdConfigFactory: {}", m_collectdConfigFactory);
             m_collectdConfigFactory.saveCurrent();
         } catch (Exception e) {
             throw getException(Status.INTERNAL_SERVER_ERROR, "Can't save collector's configuration: {}", e.getMessage());
@@ -360,6 +521,7 @@ public class ScheduledOutagesRestService extends OnmsRestService {
     private Package getCollectdPackage(String packageName) {
         Package pkg = m_collectdConfigFactory.getPackage(packageName);
         if (pkg == null) throw getException(Status.NOT_FOUND, "Collector package {} does not exist.", packageName);
+        LOG.debug("getCollectdPackage({}): pkg={}", packageName, pkg);
         return pkg;
     }
 
