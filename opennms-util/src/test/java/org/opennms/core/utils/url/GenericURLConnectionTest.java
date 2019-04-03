@@ -28,7 +28,9 @@
 
 package org.opennms.core.utils.url;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,7 +43,7 @@ import java.net.URL;
  * @version $Id: $
  * @since 1.10.1
  */
-public class GenericURLConnectionTest extends TestCase {
+public class GenericURLConnectionTest {
 
     private GenericURLConnection m_genericURLConnection;
 
@@ -54,7 +56,6 @@ public class GenericURLConnectionTest extends TestCase {
     private URL m_baseUrlPathQueryString;
 
     @Before
-    @Override
     public void setUp() throws Exception {
         m_baseUrl = new URL("http://host.subdomain.domain.tld");
         m_userOnlyUrl = new URL("http://user@host.subdomain.domain.tld");
