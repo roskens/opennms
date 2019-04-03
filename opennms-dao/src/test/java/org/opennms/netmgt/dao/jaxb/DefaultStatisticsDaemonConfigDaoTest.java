@@ -28,10 +28,13 @@
 
 package org.opennms.netmgt.dao.jaxb;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.InputStream;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.netmgt.config.statsd.model.Report;
@@ -44,7 +47,8 @@ import org.springframework.core.io.InputStreamResource;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  * @see DefaultStatisticsDaemonConfigDao
  */
-public class DefaultStatisticsDaemonConfigDaoTest extends TestCase {
+public class DefaultStatisticsDaemonConfigDaoTest {
+    @Test
     public void testAfterPropertiesSetWithGoodConfigFile() throws Exception {
         DefaultStatisticsDaemonConfigDao dao = new DefaultStatisticsDaemonConfigDao();
         
@@ -53,6 +57,7 @@ public class DefaultStatisticsDaemonConfigDaoTest extends TestCase {
         dao.afterPropertiesSet();
     }
     
+    @Test
     public void testGetReports() throws Exception {
         DefaultStatisticsDaemonConfigDao dao = new DefaultStatisticsDaemonConfigDao();
         

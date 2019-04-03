@@ -28,14 +28,17 @@
 
 package org.opennms.ovapi;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigInteger;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.nnm.swig.OVsnmpVal;
 
-public class OVsnmpValTest extends TestCase {
+public class OVsnmpValTest {
     
+    @Test
     public void testCounter64() {
 
         OVsnmpVal val = new OVsnmpVal();
@@ -65,6 +68,7 @@ public class OVsnmpValTest extends TestCase {
         
     }
     
+    @Test
     public void testInteger() {
         OVsnmpVal val = new OVsnmpVal();
         
@@ -73,6 +77,7 @@ public class OVsnmpValTest extends TestCase {
         assertEquals(3, val.getIntValue());
     }
     
+    @Test
     public void testUnsigned32() {
         OVsnmpVal val = new OVsnmpVal();
         
@@ -83,6 +88,7 @@ public class OVsnmpValTest extends TestCase {
         assertEquals(v, val.getUnsigned32Value());
     }
     
+    @Test
     public void testObjectId() {
         OVsnmpVal val = new OVsnmpVal();
         
@@ -92,6 +98,7 @@ public class OVsnmpValTest extends TestCase {
         
     }
     
+    @Test
     public void testOctetString() {
         
         String expected = "a display string";

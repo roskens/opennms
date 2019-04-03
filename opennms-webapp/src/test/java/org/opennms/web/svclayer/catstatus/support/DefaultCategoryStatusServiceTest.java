@@ -28,6 +28,9 @@
 
 package org.opennms.web.svclayer.catstatus.support;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.isA;
@@ -55,19 +58,19 @@ import org.opennms.web.svclayer.catstatus.model.StatusSection;
 import org.opennms.web.svclayer.dao.CategoryConfigDao;
 import org.opennms.web.svclayer.dao.ViewDisplayDao;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 
-public class DefaultCategoryStatusServiceTest extends TestCase {
+public class DefaultCategoryStatusServiceTest {
 
 	private DefaultCategoryStatusService categoryStatusService;
 	private ViewDisplayDao viewDisplayDao;
 	private CategoryConfigDao categoryDao;
 	private OutageDao outageDao;
 	
-        @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
 		viewDisplayDao = createMock(ViewDisplayDao.class);
 		categoryDao = createMock(CategoryConfigDao.class);
 		outageDao = createMock(OutageDao.class);
@@ -78,6 +81,7 @@ public class DefaultCategoryStatusServiceTest extends TestCase {
 	}
 
 	
+	@Test
 	public void testCategoryGroupsReturnedWhenNoneExist() {
 		
 		
@@ -95,6 +99,7 @@ public class DefaultCategoryStatusServiceTest extends TestCase {
 	}
 	
 	
+	@Test
 	public void testGetCategoriesStatus(){
 	
 		View view = new View();

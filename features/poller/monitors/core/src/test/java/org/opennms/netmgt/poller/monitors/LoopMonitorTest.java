@@ -28,11 +28,16 @@
 
 package org.opennms.netmgt.poller.monitors;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.poller.MonitoredService;
@@ -40,21 +45,20 @@ import org.opennms.netmgt.poller.PollStatus;
 import org.opennms.netmgt.poller.ServiceMonitor;
 import org.opennms.netmgt.poller.mock.MockMonitoredService;
 
-public class LoopMonitorTest extends TestCase {
+public class LoopMonitorTest {
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown();
     }
 
     /*
      * Test method for 'org.opennms.netmgt.poller.monitors.LoopMonitor.poll(MonitoredService, Map, Package)'
      */
+    @Test
     public void testPoll() throws UnknownHostException {
         
         ServiceMonitor sm = new LoopMonitor();

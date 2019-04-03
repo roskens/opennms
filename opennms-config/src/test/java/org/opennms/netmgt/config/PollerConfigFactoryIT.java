@@ -28,6 +28,11 @@
 
 package org.opennms.netmgt.config;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileWriter;
@@ -48,14 +53,12 @@ import org.opennms.netmgt.config.poller.Service;
 import org.opennms.netmgt.filter.FilterDaoFactory;
 import org.opennms.netmgt.mock.MockNetwork;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
-public class PollerConfigFactoryIT extends TestCase {
+public class PollerConfigFactoryIT {
 
-    public static void main(String[] args) {
-        junit.textui.TestRunner.run(PollerConfigFactoryIT.class);
-    }
-    
     public static final String POLLER_CONFIG = "\n" +
             "<poller-configuration\n" +
             "   threads=\"10\"\n" +
@@ -79,9 +82,8 @@ public class PollerConfigFactoryIT extends TestCase {
             "   <monitor service=\"ICMP\" class-name=\"org.opennms.netmgt.mock.MockMonitor\"/>\n"+
             "</poller-configuration>\n";
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         MockLogAppender.setupLogging();
         
         DatabaseSchemaConfigFactory.init();
@@ -125,9 +127,8 @@ public class PollerConfigFactoryIT extends TestCase {
         FilterDaoFactory.getInstance();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown();
 		MockLogAppender.assertNoWarningsOrGreater();
     }
     
@@ -155,6 +156,7 @@ public class PollerConfigFactoryIT extends TestCase {
         }
     }
     
+    @Test
     public void testPollerConfigFactory() throws Exception {
         TestPollerConfigManager factory = new TestPollerConfigManager(POLLER_CONFIG);
         assertNull(factory.getPackage("TestPkg"));
@@ -197,6 +199,7 @@ public class PollerConfigFactoryIT extends TestCase {
         
     }
     
+    @Test
     public void testInterfaceInPackage() throws Exception {
         TestPollerConfigManager factory = new TestPollerConfigManager(POLLER_CONFIG);
         Package pkg = factory.getPackage("default");
@@ -208,6 +211,7 @@ public class PollerConfigFactoryIT extends TestCase {
         
     }
     
+    @Test
     public void testSpecific() throws Exception {
         TestPollerConfigManager factory = new TestPollerConfigManager(POLLER_CONFIG);
         assertNull(factory.getPackage("TestPkg"));
@@ -249,6 +253,7 @@ public class PollerConfigFactoryIT extends TestCase {
         
     }
 
+    @Test
     public void testIncludeUrl() throws Exception {
         TestPollerConfigManager factory = new TestPollerConfigManager(POLLER_CONFIG);
         assertNull(factory.getPackage("TestPkg"));

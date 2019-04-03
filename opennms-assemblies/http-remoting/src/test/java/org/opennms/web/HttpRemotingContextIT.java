@@ -32,7 +32,8 @@ import javax.servlet.Filter;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.MockLogAppender;
@@ -51,7 +52,7 @@ import org.springframework.web.context.ContextLoaderListener;
  * @author <a href="mailto:brozow@opennms.org">Mathew Brozowski</a>
  * @author Seth
  */
-public class HttpRemotingContextIT extends TestCase {
+public class HttpRemotingContextIT {
 
 	private String contextPath = "/opennms/http-remoting";
 
@@ -60,11 +61,12 @@ public class HttpRemotingContextIT extends TestCase {
 	private ContextLoaderListener contextListener;
 	private Filter filter;
 	
-	@Override
+	@Before
 	public void setUp() throws Exception {
 		MockLogAppender.setupLogging();
 	}
 
+	@Test
 	public void testLoadContext() throws Throwable {
 
 		DaoTestConfigBean bean = new DaoTestConfigBean();

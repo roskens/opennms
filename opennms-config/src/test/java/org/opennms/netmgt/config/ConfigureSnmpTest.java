@@ -28,9 +28,15 @@
 
 package org.opennms.netmgt.config;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.UnknownHostException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.utils.InetAddressUtils;
@@ -44,15 +50,14 @@ import org.springframework.core.io.Resource;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class ConfigureSnmpTest extends TestCase {
+public class ConfigureSnmpTest {
     final private int m_startingDefCount = 5;
 
     /* (non-Javadoc)
      * @see junit.framework.TestCase#setUp()
      */
-    @Override
+    @Before
     protected void setUp() throws Exception {
-    	super.setUp();
     	
         Resource rsrc = ConfigurationTestUtils.getSpringResourceForResource(this, "snmp-config-configureSnmpTest.xml");
     	SnmpPeerFactory.setInstance(new SnmpPeerFactory(rsrc));
@@ -64,6 +69,7 @@ public class ConfigureSnmpTest extends TestCase {
      * 
      * @throws UnknownHostException 
      */
+    @Test
     public void testToIpAddrString() throws UnknownHostException {
         String addr = "192.168.1.1";
         assertEquals(addr, InetAddressUtils.toIpAddrString(InetAddressUtils.addr(addr).getAddress()));
@@ -75,6 +81,7 @@ public class ConfigureSnmpTest extends TestCase {
      * 
      * @throws UnknownHostException 
      */
+    @Test
     public void testCreateSnmpEventInfo() throws UnknownHostException {
         EventBuilder bldr = createConfigureSnmpEventBuilder("192.168.1.1", null);
         addCommunityStringToEvent(bldr, "seemore");
@@ -91,6 +98,7 @@ public class ConfigureSnmpTest extends TestCase {
      * Tests getting the correct SNMP Peer after a configureSNMP event and merge to the running config.
      * @throws UnknownHostException
      */
+    @Test
     public void testSnmpEventInfoClassWithSpecific() throws UnknownHostException {
         final String addr = "192.168.0.5";
         EventBuilder bldr = createConfigureSnmpEventBuilder(addr, null);
@@ -110,6 +118,7 @@ public class ConfigureSnmpTest extends TestCase {
      * 
      * @throws UnknownHostException
      */
+    @Test
     public void testSnmpEventInfoClassWithRangeReplacingSpecific() throws UnknownHostException {
         final String addr1 = "192.168.0.5";
         final String addr2 = "192.168.0.7";
@@ -134,6 +143,7 @@ public class ConfigureSnmpTest extends TestCase {
      * 
      * @throws UnknownHostException
      */
+    @Test
     public void testSnmpEventInfoClassWithRangeSuperSettingDefRanges() throws UnknownHostException {
         final String addr1 = "192.168.99.1";
         final String addr2 = "192.168.108.254";
@@ -159,6 +169,7 @@ public class ConfigureSnmpTest extends TestCase {
      * 
      * @throws UnknownHostException
      */
+    @Test
     public void testSplicingSpecificsIntoRanges() throws UnknownHostException {
         assertEquals(3, SnmpPeerFactory.getInstance().getSnmpConfig().getDefinitions().get(2).getRanges().size());
         assertEquals(6, SnmpPeerFactory.getInstance().getSnmpConfig().getDefinitions().get(2).getSpecifics().size());
@@ -184,6 +195,7 @@ public class ConfigureSnmpTest extends TestCase {
      * 
      * @throws UnknownHostException
      */
+    @Test
     public void testSplice2() throws UnknownHostException {
         assertEquals(3, SnmpPeerFactory.getInstance().getSnmpConfig().getDefinitions().get(3).getRanges().size());
         assertEquals(1, SnmpPeerFactory.getInstance().getSnmpConfig().getDefinitions().get(3).getSpecifics().size());

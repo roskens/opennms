@@ -28,17 +28,20 @@
 
 package org.opennms.core.utils;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Date;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * 
  * @author <a href="mailto:ranger@opennms.org">Benjamin Reed</a>
  */
-public class FuzzyDateFormatterTest extends TestCase {
+public class FuzzyDateFormatterTest {
     protected Date now = new Date();
 
+    @Test
     public void testFuzzy() throws Exception {
         assertEquals("1 second",     FuzzyDateFormatter.calculateDifference(new Date(now.getTime() - 1000L                       ), now));
         assertEquals("30 seconds",   FuzzyDateFormatter.calculateDifference(new Date(now.getTime() - 30000L                      ), now));

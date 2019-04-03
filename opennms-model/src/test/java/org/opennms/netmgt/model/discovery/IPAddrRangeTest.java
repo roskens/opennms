@@ -28,12 +28,16 @@
 
 package org.opennms.netmgt.model.discovery;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Iterator;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.core.network.IPAddress;
 
@@ -42,7 +46,7 @@ import org.opennms.core.network.IPAddress;
  *
  * @author brozow
  */
-public class IPAddrRangeTest extends TestCase {
+public class IPAddrRangeTest {
 
     private final IPAddress addr2 = new IPAddress("192.168.1.3");
     private final IPAddress addr3 = new IPAddress("192.168.1.5");
@@ -61,6 +65,7 @@ public class IPAddrRangeTest extends TestCase {
         v6singleton = new IPAddrRange(v6low.toString(), v6low.toString());
     }
 
+    @Test
     public void testIterator() {
         // assertEquals(3, small.size());
         Iterator<InetAddress> it = small.iterator();
@@ -73,6 +78,7 @@ public class IPAddrRangeTest extends TestCase {
         assertFalse(it.hasNext());
     }
 
+    @Test
     public void testIterateSingleton() {
         Iterator<InetAddress> it = singleton.iterator();
         assertTrue(it.hasNext());
@@ -80,11 +86,13 @@ public class IPAddrRangeTest extends TestCase {
         assertFalse(it.hasNext());
     }
 
+    @Test
     public void testGetSizeOfIpAddrRange() {
         assertEquals(BigInteger.valueOf(3), small.size()); 
         assertEquals(BigInteger.ONE, singleton.size());
     }
 
+    @Test
     public void testSizeLargerThanIntegerMaxValue() {
         assertEquals(new BigInteger("220000000000000000000000000000", 16).add(BigInteger.ONE), v6large.size()); 
         assertEquals(BigInteger.ONE, v6singleton.size());

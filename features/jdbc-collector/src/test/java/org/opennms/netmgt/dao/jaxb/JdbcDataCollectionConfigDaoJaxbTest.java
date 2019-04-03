@@ -28,9 +28,11 @@
 
 package org.opennms.netmgt.dao.jaxb;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.InputStream;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.xml.MarshallingResourceFailureException;
@@ -39,8 +41,9 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 
-public class JdbcDataCollectionConfigDaoJaxbTest extends TestCase {
+public class JdbcDataCollectionConfigDaoJaxbTest {
     
+    @Test
     public void testAfterPropertiesSetWithNoConfigSet() {
         JdbcDataCollectionConfigDaoJaxb dao = new JdbcDataCollectionConfigDaoJaxb();
         
@@ -55,6 +58,7 @@ public class JdbcDataCollectionConfigDaoJaxbTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetWithBogusFileResource() throws Exception {
         Resource resource = new FileSystemResource("/bogus-file");
         JdbcDataCollectionConfigDaoJaxb dao = new JdbcDataCollectionConfigDaoJaxb();
@@ -71,6 +75,7 @@ public class JdbcDataCollectionConfigDaoJaxbTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetWithGoodConfigFile() throws Exception {
         JdbcDataCollectionConfigDaoJaxb dao = new JdbcDataCollectionConfigDaoJaxb();
         

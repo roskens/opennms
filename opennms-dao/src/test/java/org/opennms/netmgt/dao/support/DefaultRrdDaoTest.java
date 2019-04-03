@@ -28,13 +28,18 @@
 
 package org.opennms.netmgt.dao.support;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import static org.easymock.EasyMock.expect;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.OnmsAttribute;
@@ -52,15 +57,14 @@ import org.springframework.util.StringUtils;
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class DefaultRrdDaoTest extends TestCase {
+public class DefaultRrdDaoTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private RrdStrategy<?,?> m_rrdStrategy = m_mocks.createMock(RrdStrategy.class);
     
     private DefaultRrdDao m_dao;
     
-    @Override
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
 
         m_dao = new DefaultRrdDao();
         m_dao.setRrdStrategy(m_rrdStrategy);
@@ -69,10 +73,12 @@ public class DefaultRrdDaoTest extends TestCase {
         m_dao.afterPropertiesSet();
     }
 
+    @Test
     public void testInit() {
         // Don't do anything... test that the setUp method works
     }
 
+    @Test
     public void testPrintValue() throws Exception {
         long end = System.currentTimeMillis();
         long start = end - (24 * 60 * 60 * 1000);
@@ -83,9 +89,10 @@ public class DefaultRrdDaoTest extends TestCase {
         m_mocks.verifyAll();
         
         assertNotNull("value should not be null", value);
-        assertEquals("value", 1.0, value);
+        assertEquals("value", Double.valueOf(1.0), value);
     }
     
+    @Test
     public void testPrintValueWithNaN() throws Exception {
         long end = System.currentTimeMillis();
         long start = end - (24 * 60 * 60 * 1000);
@@ -96,9 +103,10 @@ public class DefaultRrdDaoTest extends TestCase {
         m_mocks.verifyAll();
         
         assertNotNull("value should not be null", value);
-        assertEquals("value", Double.NaN, value);
+        assertTrue("value", Double.isNaN(value));
     }
     
+    @Test
     public void testPrintValueWithnan() throws Exception {
         long end = System.currentTimeMillis();
         long start = end - (24 * 60 * 60 * 1000);
@@ -109,10 +117,11 @@ public class DefaultRrdDaoTest extends TestCase {
         m_mocks.verifyAll();
         
         assertNotNull("value should not be null", value);
-        assertEquals("value", Double.NaN, value);
+        assertTrue("value", Double.isNaN(value));
     }
 
     // NMS-5275
+    @Test
     public void testPrintValueWithNegativeNan() throws Exception {
         long end = System.currentTimeMillis();
         long start = end - (24 * 60 * 60 * 1000);
@@ -123,9 +132,10 @@ public class DefaultRrdDaoTest extends TestCase {
         m_mocks.verifyAll();
         
         assertNotNull("value should not be null", value);
-        assertEquals("value", Double.NaN, value);
+        assertTrue("value", Double.isNaN(value));
     }
 
+    @Test
     public void testPrintValueWithBogusLine() throws Exception {
         long end = System.currentTimeMillis();
         long start = end - (24 * 60 * 60 * 1000);
@@ -185,6 +195,7 @@ public class DefaultRrdDaoTest extends TestCase {
         return childResource;
     }
     
+    @Test
     public void testFetchLastValue() throws Exception {
         String rrdDir = "snmp" + File.separator + "1" + File.separator + "eth0";
         String rrdFile = "ifInOctets.jrb";
@@ -213,6 +224,7 @@ public class DefaultRrdDaoTest extends TestCase {
         assertEquals("last fetched value", expectedValue, value);
     }
     
+    @Test
     public void testFetchLastValueInRange() throws Exception {
         String rrdDir = "snmp" + File.separator + "1" + File.separator + "eth0";
         String rrdFile = "ifInOctets.jrb";

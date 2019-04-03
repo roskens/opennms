@@ -28,6 +28,8 @@
 
 package org.opennms.netmgt.vacuumd;
 
+import static org.junit.Assert.assertSame;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -38,7 +40,9 @@ import org.easymock.EasyMock;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.test.mock.EasyMockUtils;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Tests transactional capabilities of Vacuumd
@@ -47,7 +51,7 @@ import junit.framework.TestCase;
  * @author <a href=mailto:david@opennms.org>David Hustace</a>
  *
  */
-public class TransactionTest extends TestCase {
+public class TransactionTest {
 	
 	EasyMockUtils m_ezMock = new EasyMockUtils();
     Connection m_conn;
@@ -55,9 +59,8 @@ public class TransactionTest extends TestCase {
     DataSource m_ds;
     DataSource m_ds2;
 
-        @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
         
         m_ds = m_ezMock.createMock(DataSource.class);
         m_ds2 = m_ezMock.createMock(DataSource.class);
@@ -71,11 +74,11 @@ public class TransactionTest extends TestCase {
 		
 	}
 
-        @Override
+	@After
 	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 	
+	@Test
 	public void testCommit() throws Exception {
         
         EasyMock.expect(m_ds.getConnection()).andReturn(m_conn);
@@ -100,6 +103,7 @@ public class TransactionTest extends TestCase {
 		
 	}
     
+    @Test
     public void testRollback() throws Exception {
         
         EasyMock.expect(m_ds.getConnection()).andReturn(m_conn);
@@ -125,6 +129,7 @@ public class TransactionTest extends TestCase {
         
     }
     
+    @Test
     public void testReturnSameConnection() throws Exception {
         
         EasyMock.expect(m_ds.getConnection()).andReturn(m_conn);
@@ -147,6 +152,7 @@ public class TransactionTest extends TestCase {
         
     }
     
+    @Test
     public void testCloseResources() throws Exception {
 
         EasyMock.expect(m_ds.getConnection()).andReturn(m_conn);

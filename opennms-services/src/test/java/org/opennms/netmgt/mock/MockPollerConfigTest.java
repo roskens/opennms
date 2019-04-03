@@ -28,9 +28,15 @@
 
 package org.opennms.netmgt.mock;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Enumeration;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.netmgt.config.poller.Package;
 import org.opennms.netmgt.config.poller.Service;
@@ -41,11 +47,11 @@ import org.opennms.netmgt.config.poller.Service;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class MockPollerConfigTest extends TestCase {
+public class MockPollerConfigTest {
     
     MockPollerConfig m_pollerConfig;
     
-    @Override
+    @Before
     public void setUp() {
         MockNetwork network = new MockNetwork();
         network.setCriticalService("ICMP");
@@ -72,6 +78,7 @@ public class MockPollerConfigTest extends TestCase {
         
     }
     
+    @Test
     public void testPollerConfig() {
         m_pollerConfig.setNodeOutageProcessingEnabled(true);
         m_pollerConfig.setPollInterval("HTTP", 750L);

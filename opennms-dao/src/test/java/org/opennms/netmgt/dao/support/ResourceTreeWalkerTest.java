@@ -35,7 +35,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.netmgt.dao.api.ResourceDao;
 import org.opennms.netmgt.mock.MockResourceType;
@@ -49,16 +50,16 @@ import org.opennms.test.mock.EasyMockUtils;
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class ResourceTreeWalkerTest extends TestCase {
+public class ResourceTreeWalkerTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private ResourceDao m_resourceDao = m_mocks.createMock(ResourceDao.class);
     private ResourceVisitor m_visitor = m_mocks.createMock(ResourceVisitor.class);
     
-    @Override
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
     }
 
+    @Test
     public void testAfterPropertiesSet() {
         ResourceTreeWalker walker = new ResourceTreeWalker();
         walker.setResourceDao(m_resourceDao);
@@ -69,6 +70,7 @@ public class ResourceTreeWalkerTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testAfterPropertiesSetNoResourceDao() {
         ResourceTreeWalker walker = new ResourceTreeWalker();
         walker.setResourceDao(null);
@@ -87,6 +89,7 @@ public class ResourceTreeWalkerTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testAfterPropertiesSetNoVisitor() {
         ResourceTreeWalker walker = new ResourceTreeWalker();
         walker.setResourceDao(m_resourceDao);
@@ -105,6 +108,7 @@ public class ResourceTreeWalkerTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testWalkEmptyList() {
         ResourceTreeWalker walker = new ResourceTreeWalker();
         walker.setResourceDao(m_resourceDao);
@@ -121,6 +125,7 @@ public class ResourceTreeWalkerTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testWalkTopLevel() {
         ResourceTreeWalker walker = new ResourceTreeWalker();
         walker.setResourceDao(m_resourceDao);
@@ -144,6 +149,7 @@ public class ResourceTreeWalkerTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testWalkChildren() {
         ResourceTreeWalker walker = new ResourceTreeWalker();
         walker.setResourceDao(m_resourceDao);

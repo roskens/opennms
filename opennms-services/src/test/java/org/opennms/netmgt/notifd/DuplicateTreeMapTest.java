@@ -28,11 +28,16 @@
 
 package org.opennms.netmgt.notifd;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class DuplicateTreeMapTest extends TestCase {
+public class DuplicateTreeMapTest {
+    @Test
     public void testPutItem() {
         DuplicateTreeMap<Long, String> m = new DuplicateTreeMap<Long, String>();
         m.putItem((long) 1, "foo");

@@ -28,7 +28,12 @@
 
 package org.opennms.web.svclayer.support;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.netmgt.dao.api.GraphDao;
 import org.opennms.netmgt.dao.api.ResourceDao;
@@ -40,7 +45,7 @@ import org.opennms.test.mock.EasyMockUtils;
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class DefaultRrdGraphServiceTest extends TestCase {
+public class DefaultRrdGraphServiceTest {
     private EasyMockUtils m_mockUtils;
     private FileAnticipator m_fileAnticipator;
     
@@ -53,24 +58,25 @@ public class DefaultRrdGraphServiceTest extends TestCase {
     private RrdDao m_rrdDao;
 
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         
         m_mockUtils = new EasyMockUtils();
         m_fileAnticipator = new FileAnticipator(false);
         m_service = new DefaultRrdGraphService();
     }
     
-    @Override
+    @After
     protected void tearDown() throws Exception {
         m_fileAnticipator.tearDown();
     }
     
+    @Test
     public void testAfterPropertiesSet() {
         setUpAll();
     }
 
+    @Test
     public void testNoResourceDao() throws Exception {
         setUpGraphDao();
         setUpRrdDao();
@@ -88,6 +94,7 @@ public class DefaultRrdGraphServiceTest extends TestCase {
         m_mockUtils.verifyAll();
     }
     
+    @Test
     public void testNoGraphDao() {
         setUpResourceDao();
         setUpRrdDao();
@@ -105,6 +112,7 @@ public class DefaultRrdGraphServiceTest extends TestCase {
         m_mockUtils.verifyAll();
     }
 
+    @Test
     public void testNoRrdDao() {
         setUpResourceDao();
         setUpGraphDao();

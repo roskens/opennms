@@ -28,6 +28,9 @@
 
 package org.opennms.netmgt.threshd;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +38,8 @@ import java.util.Map;
 import org.opennms.netmgt.config.threshd.Expression;
 import org.opennms.netmgt.config.threshd.ThresholdType;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 /**
  * A lot of these tests could be construed as checking that JEP is working properly (which we kind of assume
@@ -47,11 +51,11 @@ import junit.framework.TestCase;
  * @author <a href="mailto:cmiskell@opennms.org">Craig Miskell</a>
  *
  */
-public class ThresholdExpressionTestCase extends TestCase {
+public class ThresholdExpressionTestCase {
     
     Expression expression;
     
-    @Override
+    @Before
     public void setUp() {
         expression=new Expression();
         expression.setType(ThresholdType.HIGH);
@@ -61,6 +65,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         expression.setTrigger(1);
    }
     
+    @Test
     public void testEvaluateEvaluateSingleItemWithDivision() throws Exception {
         expression.setExpression("dsname/10");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -75,6 +80,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(100.0));
     }
     
+    @Test
     public void testEvaluateEvaluateSingleItemWithMultiply() throws Exception {
         expression.setExpression("dsname*10");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -89,6 +95,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(1000.0));
     }
     
+    @Test
     public void testEvaluateEvaluateSingleItemWithSubtraction() throws Exception {
         expression.setExpression("dsname-10");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -103,6 +110,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(90.0));
     }
 
+    @Test
     public void testEvaluateEvaluateSingleItemWithAddition() throws Exception {
         expression.setExpression("dsname+10");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -117,6 +125,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(110.0));
     }
     
+    @Test
     public void testEvaluateEvaluateMultipleItemsDivided() throws Exception {
         expression.setExpression("dsname1/dsname2");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -132,6 +141,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(20.0));
     }
     
+    @Test
     public void testEvaluateEvaluateMultipleItemsMultiplied() throws Exception {
         expression.setExpression("dsname1*dsname2");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -147,6 +157,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(100.0));
     }
     
+    @Test
     public void testEvaluateEvaluateMultipleItemsAdded() throws Exception {
         expression.setExpression("dsname1+dsname2");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -162,6 +173,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(25.0));
     }
     
+    @Test
     public void testEvaluateEvaluateMultipleItemsSubtracted() throws Exception {
         expression.setExpression("dsname1-dsname2");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -182,6 +194,7 @@ public class ThresholdExpressionTestCase extends TestCase {
      * we want to threshold not on percentage full (which we get from "Used/Size"), but rather
      * when free space is lower than some number of bytes (KB, MB, GB, TB, whatever)
      */
+    @Test
     public void testSemiComplexExpression() throws Exception {
         expression.setExpression("(hrStorageSize-hrStorageUsed)*hrStorageAllocationUnits");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -200,6 +213,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Threshold Expression result", Double.valueOf(result), Double.valueOf(1024.0*1024.0));
     }
     
+    @Test
     public void testThresholdEntityRequiredDataSources() throws Exception {
         ThresholdEntity entity=new ThresholdEntity();
         expression.setExpression("(hrStorageSize-hrStorageUsed)*hrStorageAllocationUnits");
@@ -222,6 +236,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertTrue("Required data sources should contain hrStorageAllocationUnits: " + dsString, dataSources.contains("hrStorageAllocationUnits"));
     }
 
+    @Test
     public void testEvaluateConditionalFalse() throws Exception {
         // Doesn't work because the expression is actually being evaluated to sniff 
         // the variable names and trueval is never visited by the parser
@@ -246,6 +261,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Conditional Expression result", Double.valueOf(result), Double.valueOf(7.0));
     }
     
+    @Test
     public void testEvaluateConditionalTrue() throws Exception {
         // Doesn't work because the expression is actually being evaluated to sniff 
         // the variable names and trueval is never visited by the parser
@@ -270,6 +286,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         assertEquals("Conditional Expression result", Double.valueOf(result), Double.valueOf(3.0));
     }
     
+    @Test
     public void testAbsoluteValues() throws Exception {
         expression.setExpression("math.abs(variable + 5)");
         ExpressionConfigWrapper wrapper=new ExpressionConfigWrapper(expression);
@@ -281,7 +298,7 @@ public class ThresholdExpressionTestCase extends TestCase {
         Map<String,Double> values=new HashMap<String,Double>();
         values.put("variable", -25.0);
         
-        double result = wrapper.evaluate(values);
+        Double result = wrapper.evaluate(values);
         assertEquals("Conditional Expression result", Double.valueOf(20.0), result);
         
         values.clear();

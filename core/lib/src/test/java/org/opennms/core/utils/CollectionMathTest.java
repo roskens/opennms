@@ -28,17 +28,20 @@
 
 package org.opennms.core.utils;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * 
  * @author <a href="mailto:ranger@opennms.org">Benjamin Reed</a>
  */
-public class CollectionMathTest extends TestCase {
+public class CollectionMathTest {
 	
 	private List<BigDecimal> getTestCollection() {
 		List<BigDecimal> c = new ArrayList<>();
@@ -50,36 +53,43 @@ public class CollectionMathTest extends TestCase {
 		return c;
 	}
 
+	@Test
 	public void testEmpty() {
 		List<BigDecimal> c = new ArrayList<>();
 		assertNull(CollectionMath.percentNotNull(c));
 		assertNull(CollectionMath.percentNull(c));
 	}
 	
+	@Test
 	public void testPercentNotNull() {
 		List<BigDecimal> c = getTestCollection();
 		assertEquals(new BigDecimal(60).doubleValue(), CollectionMath.percentNotNull(c).doubleValue());
 	}
+	@Test
 	public void testPercentNull() {
         List<BigDecimal> c = getTestCollection();
 		assertEquals(new BigDecimal(40).doubleValue(), CollectionMath.percentNull(c).doubleValue());
 	}
 
+	@Test
 	public void testCountNotNull() {
 		List<BigDecimal> c = getTestCollection();
 		assertEquals(3, CollectionMath.countNotNull(c));
 	}
 	
+	@Test
 	public void testCountNull() {
         List<BigDecimal> c = getTestCollection();
 		assertEquals(2, CollectionMath.countNull(c));
 	}
 	
+	@Test
 	public void testAverage() {
 		List<BigDecimal> c = getTestCollection();
 		assertEquals(new BigDecimal(39).doubleValue(), CollectionMath.average(c).doubleValue());
 	}
 	
+	@Test
 	public void testMedian() {
 		List<BigDecimal> c = getTestCollection();
 		assertEquals(new BigDecimal(16).doubleValue(), CollectionMath.median(c).doubleValue());

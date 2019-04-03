@@ -28,17 +28,22 @@
 
 package org.opennms.install;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.test.FileAnticipator;
 
-public class InstallerWebappTest extends TestCase {
+public class InstallerWebappTest {
     private Installer m_installer;
 
     private FileAnticipator m_anticipator;
@@ -49,6 +54,7 @@ public class InstallerWebappTest extends TestCase {
 
     private File m_tomcat_conf_dir;
 
+    @Before
     public void setUp() throws IOException, SQLException {
         m_anticipator = new FileAnticipator();
         File dist = m_anticipator.tempDir("dist");
@@ -81,6 +87,7 @@ public class InstallerWebappTest extends TestCase {
         m_installer.m_webappdir = m_tomcat_webapps.getAbsolutePath();
     }
 
+    @After
     public void tearDown() throws Exception {
         m_anticipator.tearDown();
     }
@@ -91,6 +98,7 @@ public class InstallerWebappTest extends TestCase {
         m_anticipator.deleteExpected();
     }
 
+    @Test
     public void testWebappExistingOpennms() throws Exception {
         m_anticipator.tempDir(m_tomcat_webapps, "opennms");
 
@@ -108,10 +116,12 @@ public class InstallerWebappTest extends TestCase {
         fail("Did not receive expected exception: \"" + expecting + "\"");
     }
 
+    @Test
     public void testWebappNoOpennms() throws Exception {
         m_installer.checkWebappOldOpennmsDir();
     }
 
+    @Test
     public void testServerXmlContext() throws Exception {
         final String expecting = "Old OpenNMS context found";
         final String context = "		<Context \n"
@@ -141,14 +151,17 @@ public class InstallerWebappTest extends TestCase {
         fail("Did not receive expected exception: \"" + expecting + "\"");
     }
 
+    @Test
     public void testServerXmlNoContext() throws Exception {
         m_installer.checkServerXmlOldOpennmsContext();
     }
 
+    @Test
     public void testServerXmlNoFile() throws Exception {
         m_installer.checkServerXmlOldOpennmsContext();
     }
     
+    @Test
     public void testServerVersion41() throws IOException {
         String readme = 
             "$Id$\n"
@@ -165,6 +178,7 @@ public class InstallerWebappTest extends TestCase {
         testServerVersion(readme, running, "4.1");
     }
     
+    @Test
     public void testServerVersion5() throws IOException {
         String running =
             "$Id$\n"
@@ -176,6 +190,7 @@ public class InstallerWebappTest extends TestCase {
         testServerVersion(null, running, "5");
     }
     
+    @Test
     public void testServerVersion55() throws IOException {
         String running = 
             "$Id$\n"

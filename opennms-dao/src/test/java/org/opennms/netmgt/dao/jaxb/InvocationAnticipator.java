@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import org.opennms.netmgt.dao.jaxb.collector.DataCollectionConfigFileTest;
+import org.junit.Assert;
 
 public class InvocationAnticipator implements InvocationHandler {
     public class NullInvocationHandler implements InvocationHandler {
@@ -100,14 +100,14 @@ public class InvocationAnticipator implements InvocationHandler {
         unexpected.removeAll(m_anticipatedCounts.keySet());
         if (!unexpected.isEmpty()) {
             String method = unexpected.iterator().next();
-            DataCollectionConfigFileTest.fail("Unexpected call to method "+method+".  It was called "+getCount(method)+" times");
+            Assert.fail("Unexpected call to method "+method+".  It was called "+getCount(method)+" times");
         }
     }
 
     private void ensureAnticipatedWereReceived() {
         for (Iterator<String> it = m_anticipatedCounts.keySet().iterator(); it.hasNext();) {
             String methodName = it.next();
-            DataCollectionConfigFileTest.assertEquals("Unexpected callCount for method "+methodName, getAnticipatedCount(methodName), getCount(methodName));
+            Assert.assertEquals("Unexpected callCount for method "+methodName, getAnticipatedCount(methodName), getCount(methodName));
         }
     }
 

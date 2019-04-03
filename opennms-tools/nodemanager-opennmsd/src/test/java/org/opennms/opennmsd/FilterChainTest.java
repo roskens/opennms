@@ -28,24 +28,29 @@
 
 package org.opennms.opennmsd;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.junit.Before;
 
 /**
  * FilterChainTest
  *
  * @author brozow
  */
-public class FilterChainTest extends TestCase {
+public class FilterChainTest {
     
     NNMEvent m_event;
     FilterChainBuilder m_chainBldr;
     
+    @Before
     public void setUp() {
         m_chainBldr = new FilterChainBuilder();
         
         m_event = MockNNMEvent.createEvent("Category", "Severity", "name", "1.1.1.1");
     }
     
+    @Test
     public void testNoMatchingFilter() {
         
         m_chainBldr.newFilter();
@@ -55,6 +60,7 @@ public class FilterChainTest extends TestCase {
         assertEquals(Filter.DISCARD, m_chainBldr.getChain().filterEvent(m_event));
     }
     
+    @Test
     public void testOneFilterThatMatches() {
         m_chainBldr.newFilter();
         m_chainBldr.setCategoryMatchPattern("Category");
@@ -64,6 +70,7 @@ public class FilterChainTest extends TestCase {
         
     }
     
+    @Test
     public void testTwoFiltersFirstMatches() {
         m_chainBldr.newFilter();
         m_chainBldr.setCategoryMatchPattern("Category");
@@ -76,6 +83,7 @@ public class FilterChainTest extends TestCase {
         assertEquals(Filter.ACCEPT, m_chainBldr.getChain().filterEvent(m_event));        
     }
 
+    @Test
     public void testTwoFiltersSecondMatches() {
         m_chainBldr.newFilter();
         m_chainBldr.setCategoryMatchPattern("Categorx");
@@ -88,6 +96,7 @@ public class FilterChainTest extends TestCase {
         assertEquals(Filter.PRESERVE, m_chainBldr.getChain().filterEvent(m_event));        
     }
  
+    @Test
     public void testTwoFiltersBothMatches() {
         m_chainBldr.newFilter();
         m_chainBldr.setCategoryMatchPattern("Category");

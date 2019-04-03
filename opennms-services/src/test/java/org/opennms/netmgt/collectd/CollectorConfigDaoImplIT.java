@@ -43,13 +43,19 @@ import org.opennms.netmgt.config.SnmpPeerFactory;
 import org.opennms.test.mock.MockUtil;
 import org.springframework.core.io.InputStreamResource;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 
-public class CollectorConfigDaoImplIT extends TestCase {
-    @Override
+public class CollectorConfigDaoImplIT {
+    @Rule
+    public TestName m_testName = new TestName();
+
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
-        MockUtil.println("------------ Begin Test "+getName()+" --------------------------");
+        MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
 
         MockDatabase m_db = new MockDatabase();
@@ -59,22 +65,17 @@ public class CollectorConfigDaoImplIT extends TestCase {
 
     }
 
-    @Override
-    public void runTest() throws Throwable {
-        super.runTest();
-        MockLogAppender.assertNoWarningsOrGreater();
-    }
-
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        MockUtil.println("------------ End Test "+getName()+" --------------------------");
-        super.tearDown();
+        MockLogAppender.assertNoWarningsOrGreater();
+        MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
     }
 
     private InputStream getInputStreamForFile(String fileName) {
         return getClass().getResourceAsStream(fileName);
     }
 
+    @Test
     public void testInstantiate() throws IOException, Exception {
         initialize();
     }

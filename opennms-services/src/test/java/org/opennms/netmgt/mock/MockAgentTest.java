@@ -28,11 +28,20 @@
 
 package org.opennms.netmgt.mock;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.test.mock.MockUtil;
@@ -60,14 +69,16 @@ import org.snmp4j.util.TableUtils;
  *
  * @author brozow
  */
-public class MockAgentTest extends TestCase {
+public class MockAgentTest {
+    @Rule
+    public TestName m_testName = new TestName();
 
     private MockNetwork m_network;
     private MockProxy m_proxy;
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        MockUtil.println("------------ Begin Test "+getName()+" --------------------------");
+        MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
         
         m_network = new MockNetwork();
@@ -111,7 +122,7 @@ public class MockAgentTest extends TestCase {
 
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
         m_proxy.stop();
 
@@ -126,10 +137,11 @@ public class MockAgentTest extends TestCase {
 	Thread.sleep(5);
         
         MockLogAppender.assertNoWarningsOrGreater();
-        MockUtil.println("------------ End Test "+getName()+" --------------------------");
+        MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
 
     }
 
+    @Test
     public void testWalkSystem() throws IOException {
         
         Snmp snmp = new Snmp(new DefaultUdpTransportMapping());
@@ -160,6 +172,7 @@ public class MockAgentTest extends TestCase {
         
     }
     
+    @Test
     public void testGetSysName() throws IOException {
         
         Snmp snmp = new Snmp(new DefaultUdpTransportMapping());

@@ -28,17 +28,30 @@
 
 package org.opennms.netmgt.rt;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
+
 import java.io.File;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TestName;
 
 import org.opennms.core.test.MockLogAppender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RequestTrackerTest extends TestCase {
+public class RequestTrackerTest {
     private static final Logger LOG = LoggerFactory.getLogger(RequestTrackerTest.class);
+
+    @Rule
+    public TestName m_testName = new TestName();
 
     /**
      * Test Cases for RtTicketerPlugin
@@ -53,18 +66,12 @@ public class RequestTrackerTest extends TestCase {
     /**
      * Don't run this test unless the runRtTests property is set to "true".
      */
-    @Override
+    @BeforeClass
     protected void runTest() throws Throwable {
+        assumeTrue(isRunTest());
         if (!isRunTest()) {
-            System.err.println("Skipping test '" + getName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
+            System.err.println("Skipping test '" + m_testName.getMethodName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
             return;
-        }
-
-        try {
-            System.err.println("------------------- begin " + getName() + " ---------------------");
-            super.runTest();
-        } finally {
-            System.err.println("------------------- end " + getName() + " -----------------------");
         }
     }
 
@@ -76,8 +83,14 @@ public class RequestTrackerTest extends TestCase {
         return "runRtTests";
     }
 
-    @Override
+    @After
+    protected void tearDown() throws Exception {
+        System.err.println("------------------- end "+m_testName.getMethodName()+" -----------------------");
+    }
+
+    @Before
     protected void setUp() throws Exception {
+        System.err.println("------------------- begin "+m_testName.getMethodName()+" ---------------------");
         MockLogAppender.setupLogging();
 
         final String testHome = System.getProperty("user.home") + File.separatorChar + ".opennms" + File.separatorChar + "test-home";
@@ -101,6 +114,7 @@ public class RequestTrackerTest extends TestCase {
         m_ticket.setRequestor("root@localhost");
     }
 
+    @Test
     public void testCreateAndGetTicket() throws Exception {
         Long id = m_tracker.createTicket(m_ticket);
         assertTrue(id != 0);
@@ -109,6 +123,7 @@ public class RequestTrackerTest extends TestCase {
         assertEquals("Ticket Subject", ticket.getSubject());
     }
 
+    @Test
     public void testCreateAndUpdateTicket() throws Exception {
         Long id = m_tracker.createTicket(m_ticket);
         assertTrue(id != 0);
@@ -117,6 +132,7 @@ public class RequestTrackerTest extends TestCase {
         assertEquals("stalled", newTicket.getStatus());
     }
 
+    @Test
     public void testCreateMultilineTicket() throws Exception {
         RTTicket ticket = m_ticket.copy();
         final String text = "This is a test.\n\nmultiline";
@@ -126,6 +142,7 @@ public class RequestTrackerTest extends TestCase {
         ticket = m_tracker.getTicket(id, true);
         assertEquals(text, ticket.getText());
     }
+    @Test
     public void testGetUser() throws Exception {
         RTUser user = m_tracker.getUserInfo("root");
         assertNotNull(user);
@@ -133,17 +150,20 @@ public class RequestTrackerTest extends TestCase {
         assertEquals("Enoch Root", user.getRealname());
     }
 
+    @Test
     public void testGetQueue() throws Exception {
         RTQueue queue = m_tracker.getQueue(1);
         assertNotNull("queue should not be null", queue);
     }
     
+    @Test
     public void testGetQueuesForUser() throws Exception {
         List<RTQueue> queues = m_tracker.getQueuesForUser("root");
         LOG.debug("queues = {}", queues);
         assertTrue("there must be at least one queue", queues.size() > 0);
     }
 
+    @Test
     public void testGetTicketsForQueue() throws Exception {
         List<RTTicket> tickets = m_tracker.getTicketsForQueue("General", 10);
         LOG.debug("tickets = {}", tickets);

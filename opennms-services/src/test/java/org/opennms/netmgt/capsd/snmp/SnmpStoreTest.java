@@ -28,7 +28,9 @@
 
 package org.opennms.netmgt.capsd.snmp;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 import org.opennms.netmgt.snmp.NamedSnmpVar;
 import org.opennms.netmgt.snmp.SnmpInstId;
@@ -48,7 +50,8 @@ import org.opennms.netmgt.snmp.SnmpValue;
  * 
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
   */
-public class SnmpStoreTest extends TestCase {
+public class SnmpStoreTest {
+    @Test
     public void testStoreResultWithValueThenEndOfMibView() {
         String baseOid = ".1.3.6.1.2.1.31.1.1.1.18";
         String ifAliasName = "ifAlias";

@@ -31,22 +31,23 @@ package org.opennms.netmgt.notifd;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.model.notifd.Argument;
 import org.opennms.netmgt.model.notifd.NotificationStrategy;
-public class SnmpTrapNotificationStrategyTest extends TestCase {
+public class SnmpTrapNotificationStrategyTest {
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         MockLogAppender.setupLogging(true);
     }
 
     /*
      * Test method for 'org.opennms.netmgt.notifd.SnmpTrapNotificationStrategy.send(List)'
      */
+    @Test
     public void testSendWithEmptyArgumentList() {
         List<Argument> arguments = new ArrayList<>();
         NotificationStrategy strategy = new SnmpTrapNotificationStrategy();
@@ -57,6 +58,7 @@ public class SnmpTrapNotificationStrategyTest extends TestCase {
     /*
      * Test method for 'org.opennms.netmgt.notifd.SnmpTrapNotificationStrategy.send(List)'
      */
+    @Test
     public void testSendWithNamedHost() {
         List<Argument> arguments = new ArrayList<>();
         Argument arg = new Argument("trapHost", null, "localhost", false);
@@ -68,6 +70,7 @@ public class SnmpTrapNotificationStrategyTest extends TestCase {
     /*
      * Test method for 'org.opennms.netmgt.notifd.SnmpTrapNotificationStrategy.sendV1Trap()'
      */
+    @Test
     public void testSendV1Trap() {
 
     }
@@ -75,6 +78,7 @@ public class SnmpTrapNotificationStrategyTest extends TestCase {
     /*
      * Test method for 'org.opennms.netmgt.notifd.SnmpTrapNotificationStrategy.sendV2Trap()'
      */
+    @Test
     public void testSendV2Trap() {
 
     }

@@ -28,26 +28,30 @@
 
 package org.opennms.netmgt.eventd;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import static org.easymock.EasyMock.createMock;
 
 import org.opennms.netmgt.events.api.EventIpcManager;
 import org.opennms.netmgt.events.api.EventIpcManagerFactory;
 import org.opennms.test.ThrowableAnticipator;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 /**
  * Test case for EventIpcManagerFactory.
  * 
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class EventIpcManagerFactoryTest extends TestCase {
-    @Override
+public class EventIpcManagerFactoryTest {
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         EventIpcManagerFactory.reset();
     }
     
+    @Test
     public void testSetIpcManager() {
         EventIpcManager manager = createMock(EventIpcManager.class);
         EventIpcManagerFactory.setIpcManager(manager);
@@ -55,6 +59,7 @@ public class EventIpcManagerFactoryTest extends TestCase {
         assertEquals("manager", manager, EventIpcManagerFactory.getIpcManager());
     }
     
+    @Test
     public void testSetIpcManagerNull() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalArgumentException("argument ipcManager must not be null"));
@@ -68,6 +73,7 @@ public class EventIpcManagerFactoryTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testGetIpcManagerNotInitialized() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalStateException("this factory has not been initialized"));

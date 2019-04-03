@@ -28,20 +28,24 @@
 
 package org.opennms.netmgt.poller.monitors.support;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Before;
 import org.opennms.netmgt.poller.monitors.support.DNSAddressRR;
 import org.opennms.netmgt.poller.monitors.support.DNSAddressRequest;
 
-public class DNSAddressRequestTest extends TestCase {
+public class DNSAddressRequestTest {
 
     private static final byte[] normalResponseBytes = new byte[] {
         (byte) 0x9e, (byte) 0xf2, (byte) 0x81, (byte) 0x80,
@@ -120,7 +124,6 @@ public class DNSAddressRequestTest extends TestCase {
     private DNSAddressRequest m_request;
 
     @Before
-    @Override
     public void setUp() throws UnknownHostException {
         final String question = InetAddress.getLocalHost().getCanonicalHostName();
         m_request = new DNSAddressRequest(question);

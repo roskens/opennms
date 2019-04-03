@@ -28,9 +28,14 @@
 
 package org.opennms.netmgt.snmp;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
-public class InstanceTrackerTest extends TestCase {
+import org.junit.Test;
+
+public class InstanceTrackerTest {
 	
 	private SnmpObjId m_sysNameOid = SnmpObjId.get(".1.3.6.1.2.1.1.5");
 
@@ -62,14 +67,17 @@ public class InstanceTrackerTest extends TestCase {
 
     }
 
+    @Test
     public void testSingleInstanceTrackerZeroInstance() throws Exception {
         testSingleInstanceTracker("0", SnmpObjId.get(m_sysNameOid, "0"));
     }
     
+    @Test
     public void testSingleInstanceTrackerMultiIdInstance() throws Exception {
         testSingleInstanceTracker("1.2.3", SnmpObjId.get(m_sysNameOid, "1.2.3"));
     }
     
+    @Test
     public void testSingleInstanceTracker(String instance, SnmpObjId receivedOid) throws Exception {
         SnmpInstId inst = new SnmpInstId(instance);
         CollectionTracker it = new SingleInstanceTracker(m_sysNameOid, inst);
@@ -129,15 +137,18 @@ public class InstanceTrackerTest extends TestCase {
         
     }
     
+    @Test
     public void testSingleInstanceTrackerNonZeroInstance() throws Exception {
         testSingleInstanceTracker("1", SnmpObjId.get(m_sysNameOid, "1"));
 
     }
     
+    @Test
     public void testSingleInstanceTrackerNoMatch() throws Exception {
         testSingleInstanceTracker("0", SnmpObjId.get(m_sysNameOid, "1"));
     }
     
+    @Test
     public void testInstanceListTrackerWithAllResults() throws Exception {
         String[] instances = { "1", "3", "5" };
         CollectionTracker it = new InstanceListTracker(m_sysNameOid, toCommaSeparated(instances));
@@ -151,6 +162,7 @@ public class InstanceTrackerTest extends TestCase {
         assertTrue(it.isFinished());
     }
     
+    @Test
     public void testInstanceListTrackerWithNoResults() throws Exception {
         String[] instances = { "1", "3", "5" };
         CollectionTracker it = new InstanceListTracker(m_sysNameOid, toCommaSeparated(instances));
@@ -167,6 +179,7 @@ public class InstanceTrackerTest extends TestCase {
     }
 
     
+    @Test
     public void testColumnTracker() throws Exception {
         SnmpObjId colOid = SnmpObjId.get(".1.3.6.1.2.1.1.5");
         SnmpObjId nextColOid = SnmpObjId.get(".1.3.6.1.2.1.1.6.2");

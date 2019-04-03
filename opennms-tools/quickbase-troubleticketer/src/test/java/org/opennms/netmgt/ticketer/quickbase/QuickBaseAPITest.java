@@ -39,7 +39,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -47,7 +47,7 @@ import org.w3c.dom.NodeList;
 import com.intuit.quickbase.util.QuickBaseClient;
 import com.intuit.quickbase.util.QuickBaseException;
 
-public class QuickBaseAPITest extends TestCase {
+public class QuickBaseAPITest {
     
     public void XXXtestCreateLead() {
         PrintWriter out = null;
@@ -109,6 +109,7 @@ public class QuickBaseAPITest extends TestCase {
         return new QuickBaseClient("brozow@opennms.org", "password");
     }
     
+    @Test
     public void testCreateTicket() throws QuickBaseException, Exception {
         QuickBaseClient qdb = createClient();
         
@@ -130,6 +131,7 @@ public class QuickBaseAPITest extends TestCase {
         
     }
     
+    @Test
     public void testUpdateTicket() {
   
         

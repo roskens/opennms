@@ -28,14 +28,18 @@
 
 package org.opennms.opennmsd;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class DefaultConfigurationTest extends TestCase {
+public class DefaultConfigurationTest {
     
+    @Test
     public void testFileDoesntExist() {
         DefaultConfiguration config = new DefaultConfiguration();
         config.setConfigFile(new File("doesntexist"));
@@ -50,6 +54,7 @@ public class DefaultConfigurationTest extends TestCase {
         
     }
     
+    @Test
     public void testLoadFile() throws IOException {
         File confFile = getTestConfFile("loadTest-opennmsd.conf");
         

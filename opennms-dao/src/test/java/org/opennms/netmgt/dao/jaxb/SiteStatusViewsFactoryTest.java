@@ -28,28 +28,32 @@
 
 package org.opennms.netmgt.dao.jaxb;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.io.IOException;
 
 import org.opennms.netmgt.config.siteStatusViews.View;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
-public class SiteStatusViewsFactoryTest extends TestCase {
+public class SiteStatusViewsFactoryTest {
 	
 	private SiteStatusViewsFactory m_factory;
 
-        @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
 
 		m_factory = new SiteStatusViewsFactory(getClass().getResourceAsStream("/org/opennms/netmgt/config/site-status-views.testdata.xml"));
 	}
 
-        @Override
+	@After
 	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 	
+	@Test
 	public void testGetName() throws IOException {
 		String viewName = "default";
 		View view = m_factory.getView(viewName);

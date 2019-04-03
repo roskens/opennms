@@ -28,64 +28,79 @@
 
 package org.opennms.opennmsd;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-public class FilterTest extends TestCase {
+import org.junit.Test;
+import org.junit.Before;
+
+public class FilterTest {
     
     Filter m_filter;
     NNMEvent m_event;
     
+    @Before
     public void setUp() {
         m_filter = new Filter();
         m_event = MockNNMEvent.createEvent("Category", "Severity", "name", "1.1.1.1");
         
     }
     
+    @Test
     public void testMatchCategory() {
         m_filter.setCategoryMatcher("^.*Category$");
         assertFilterMatches();
     }
     
+    @Test
     public void testMatchCategoryPartial() {
         m_filter.setCategoryMatcher("gor");
         assertFilterMatches();
     }
     
+    @Test
     public void testMismatchCategory() {
         m_filter.setCategoryMatcher("nomatch");
         assertFilterDoesntMatch();
     }
 
+    @Test
     public void testMatchSeverity() {
         m_filter.setSeverityMatcher("ever");
         assertFilterMatches();
     }
 
+    @Test
     public void testMismatchSeverity() {
         m_filter.setSeverityMatcher("nomatch");
         assertFilterDoesntMatch();
     }
 
+    @Test
     public void testMatchName() {
         m_filter.setEventNameMatcher("am");
         assertFilterMatches();
     }
 
+    @Test
     public void testMismatchName() {
         m_filter.setEventNameMatcher("nomatch");
         assertFilterDoesntMatch();
     }
 
+    @Test
     public void testMatchAddress() {
         m_filter.setAddressMatchSpec("1.1-3.*.1,3");
         assertFilterMatches();
     }
 
+    @Test
     public void testMismatchAddress() {
         m_filter.setAddressMatchSpec("192.168.*.*");
         assertFilterDoesntMatch();
     }
     
+    @Test
     public void testCategoryAndAddress() {
         m_filter.setCategoryMatcher("ategory");
         m_filter.setAddressMatchSpec("1.*.*.*");
@@ -93,6 +108,7 @@ public class FilterTest extends TestCase {
         assertFilterMatches();
     }
 
+    @Test
     public void testCategoryButNotAddress() {
         m_filter.setCategoryMatcher("ategory");
         m_filter.setAddressMatchSpec("192.*.*.*");

@@ -28,6 +28,12 @@
 
 package org.opennms.netmgt.model.discovery;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.math.BigInteger;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -38,7 +44,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.core.utils.ByteArrayComparator;
 import org.opennms.core.utils.InetAddressUtils;
@@ -50,7 +56,7 @@ import org.opennms.core.network.IPAddressRange;
  *
  * @author brozow
  */
-public class IPAddressRangeTest extends TestCase {
+public class IPAddressRangeTest {
 
     private final IPAddress zero = new IPAddress("0.0.0.0");
     private final IPAddress one = new IPAddress("0.0.0.1");
@@ -83,6 +89,7 @@ public class IPAddressRangeTest extends TestCase {
         highV6 = new IPAddressRange(maxIPv6MinusFive, maxIPv6);
     }
 
+    @Test
     public void testToBigInteger() {
         IPAddress startAtZero = new IPAddress("0.0.0.0");
         assertTrue(startAtZero.isPredecessorOf(one));
@@ -109,6 +116,7 @@ public class IPAddressRangeTest extends TestCase {
         // assertEquals((long)(Math.pow(2, 16 * 8) - 1.0), maxIPv6.toBigInteger().longValue());
     }
 
+    @Test
     public void testConvertBigIntegerIntoInetAddress() throws UnknownHostException {
         assertEquals(0, new ByteArrayComparator().compare(zero.toOctets(), InetAddressUtils.convertBigIntegerIntoInetAddress(zero.toBigInteger()).getAddress()));
         assertEquals(0, new ByteArrayComparator().compare(one.toOctets(), InetAddressUtils.convertBigIntegerIntoInetAddress(zero.incr().toBigInteger()).getAddress()));
@@ -152,6 +160,7 @@ public class IPAddressRangeTest extends TestCase {
         }
     }
 
+    @Test
     public void testToIpAddrString() throws UnknownHostException {
         assertEquals("0.0.0.0", InetAddressUtils.toIpAddrString(zero.toOctets()));
         assertEquals("0.0.0.1", InetAddressUtils.toIpAddrString(one.toOctets()));
@@ -166,6 +175,7 @@ public class IPAddressRangeTest extends TestCase {
         assertEquals("aaaa:0000:0000:0000:0000:0000:0000:0000", InetAddressUtils.toIpAddrString(InetAddressUtils.addr("AAAA::%0")));
     }
 
+    @Test
     public void testCreate() {
         assertEquals(begin, normal.getBegin());
         assertEquals(end, normal.getEnd());
@@ -176,10 +186,12 @@ public class IPAddressRangeTest extends TestCase {
         assertEquals(new BigInteger("6"), highV6.size());
     }
 
+    @Test
     public void testSingletonRange() {
         assertEquals(BigInteger.ONE, singleton.size());
     }
 
+    @Test
     public void testContains() {
         assertTrue(normal.contains(begin));
         assertTrue(normal.contains(begin.incr()));
@@ -187,6 +199,7 @@ public class IPAddressRangeTest extends TestCase {
         assertTrue(normal.contains(end));
     }
 
+    @Test
     public void testIterator() {
         assertEquals(new BigInteger("3"), small.size());
         Iterator<IPAddress> it = small.iterator();
@@ -199,6 +212,7 @@ public class IPAddressRangeTest extends TestCase {
         assertFalse(it.hasNext());
     }
 
+    @Test
     public void testIterateSingleton() {
         Iterator<IPAddress> it = singleton.iterator();
         assertTrue(it.hasNext());
@@ -206,6 +220,7 @@ public class IPAddressRangeTest extends TestCase {
         assertFalse(it.hasNext());
     }
 
+    @Test
     public void testGetLowestInetAddress() throws UnknownHostException {
         assertNull(InetAddressUtils.getLowestInetAddress(Collections.<InetAddress>emptyList()));
 

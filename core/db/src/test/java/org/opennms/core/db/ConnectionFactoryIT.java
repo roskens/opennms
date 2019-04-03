@@ -28,6 +28,10 @@
 
 package org.opennms.core.db;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.beans.PropertyVetoException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -36,7 +40,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.apache.commons.io.IOUtils;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -47,7 +51,8 @@ import org.opennms.test.DaoTestConfigBean;
  * 
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
-public class ConnectionFactoryIT extends TestCase {
+public class ConnectionFactoryIT {
+	@Test
 	public void testMarshalDataSourceFromConfig() throws Exception {
 		DaoTestConfigBean bean = new DaoTestConfigBean();
 		bean.afterPropertiesSet();
@@ -120,6 +125,7 @@ public class ConnectionFactoryIT extends TestCase {
 		}
 	}
 
+	@Test
 	public void testPoolWithSqlExceptions() throws Exception {
 		DaoTestConfigBean bean = new DaoTestConfigBean();
 		bean.afterPropertiesSet();

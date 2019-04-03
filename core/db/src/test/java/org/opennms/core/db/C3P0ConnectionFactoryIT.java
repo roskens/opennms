@@ -42,13 +42,14 @@ import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.opennmsDataSources.DataSourceConfiguration;
 import org.opennms.netmgt.config.opennmsDataSources.JdbcDataSource;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * 
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
-public class C3P0ConnectionFactoryIT extends TestCase {
+public class C3P0ConnectionFactoryIT {
+    @Test
     public void testMarshalDataSourceFromConfig() throws Exception {
         C3P0ConnectionFactory factory1 = null;
         C3P0ConnectionFactory factory2 = null;

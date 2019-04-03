@@ -28,15 +28,19 @@
 
 package org.opennms.netmgt.ticketer.centric;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 import org.aspcfs.utils.CRMConnection;
 import org.aspcfs.apps.transfer.DataRecord;
 
-public class CentricAPITest extends TestCase {
+public class CentricAPITest {
     
+    @Test
     public void testCreateLead() {
        
 
@@ -116,6 +120,7 @@ public class CentricAPITest extends TestCase {
     }
     
     
+	@Test
 	public void testCreateTicket() {
         
         CRMConnection crm = createConnection();
@@ -208,6 +213,7 @@ public class CentricAPITest extends TestCase {
 */
     }
     
+    @Test
     public void testUpdateTicket() {
   
        // Client ID must already exist in target CRM system and is created

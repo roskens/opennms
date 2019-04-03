@@ -28,11 +28,15 @@
 
 package org.opennms.netmgt.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class OnmsResourceIdTest extends TestCase {
+public class OnmsResourceIdTest {
 
     @Test
     public void testToString() {

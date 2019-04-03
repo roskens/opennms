@@ -28,6 +28,8 @@
 
 package org.opennms.reporting.availability;
 
+import static org.junit.Assert.assertEquals;
+
 /*
  * @author jsartin
  * 
@@ -38,20 +40,21 @@ package org.opennms.reporting.availability;
 import java.util.Calendar;
 import java.util.Locale;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
-public class CalendarTableBuilderTest extends TestCase {
+public class CalendarTableBuilderTest {
 
-        @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
 	}
 
-        @Override
+	@After
 	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 
+	@Test
 	public void testLocaleFrench() {
 		Locale.setDefault(Locale.FRENCH);
 		CalendarTableBuilder builder = new CalendarTableBuilder(2005,05);
@@ -59,6 +62,7 @@ public class CalendarTableBuilderTest extends TestCase {
 		DaysOfWeek days = section.getDaysOfWeek();
 		assertEquals(days.getDayName(0),"lun.");
 		}
+	@Test
 	public void testLocaleEnUs() {
 		Locale.setDefault(Locale.US);
 		CalendarTableBuilder builder = new CalendarTableBuilder(2005,05);
@@ -66,6 +70,7 @@ public class CalendarTableBuilderTest extends TestCase {
 		DaysOfWeek days = section.getDaysOfWeek();
 		assertEquals(days.getDayName(0),"Sun");
 		}
+	@Test
 	public void testVisibleDays() {
 		testVisibleDays(Locale.US, 2004, Calendar.FEBRUARY, 1);
 	}
@@ -85,6 +90,7 @@ public class CalendarTableBuilderTest extends TestCase {
 
 	}
 	
+	@Test
 	public void testGetDaysInMonth() {
 		assertEquals(29, getDaysInMonth(Locale.US, 2004, Calendar.FEBRUARY));
 		assertEquals(28, getDaysInMonth(Locale.US, 2005, Calendar.FEBRUARY));

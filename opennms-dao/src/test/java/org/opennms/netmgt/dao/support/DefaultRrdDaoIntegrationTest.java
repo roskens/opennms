@@ -28,6 +28,9 @@
 
 package org.opennms.netmgt.dao.support;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Collections;
@@ -49,21 +52,22 @@ import org.opennms.netmgt.rrd.RrdStrategy;
 import org.opennms.netmgt.rrd.jrobin.JRobinRrdStrategy;
 import org.opennms.test.FileAnticipator;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class DefaultRrdDaoIntegrationTest extends TestCase {
+public class DefaultRrdDaoIntegrationTest {
     private FileAnticipator m_fileAnticipator;
 
     private RrdStrategy<RrdDef,RrdDb> m_rrdStrategy;
 
     private DefaultRrdDao m_dao;
 
-    @Override
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
 
         m_rrdStrategy = new JRobinRrdStrategy();
         
@@ -76,28 +80,27 @@ public class DefaultRrdDaoIntegrationTest extends TestCase {
         m_dao.afterPropertiesSet();
     }
     
-    @Override
+    @After
     protected void runTest() throws Throwable {
-        super.runTest();
-        
         if (m_fileAnticipator.isInitialized()) {
             m_fileAnticipator.deleteExpected();
         }
     }
 
     
-    @Override
+    @After
     protected void tearDown() throws Exception {
         m_fileAnticipator.tearDown();
         
-        super.tearDown();
     }
 
     
+    @Test
     public void testInit() {
         // Don't do anything... test that the setUp method works
     }
 
+    @Test
     public void testPrintValue() throws Exception {
         long start = System.currentTimeMillis();
         long end = start + (24 * 60 * 60 * 1000);
@@ -130,9 +133,10 @@ public class DefaultRrdDaoIntegrationTest extends TestCase {
         Double value = m_dao.getPrintValue(childResource.getAttributes().iterator().next(), "AVERAGE", start, end);
         
         assertNotNull("value should not be null", value);
-        assertEquals("value", 1.0, value);
+        assertEquals("value", Double.valueOf(1.0), value);
     }
     
+    @Test
     public void testNMS4861() throws Exception
     {
     	//long endTime = 1312775700L;

@@ -28,18 +28,30 @@
 
 package org.opennms.netmgt.ticketer.rt;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeTrue;
+
 import java.io.File;
 import java.util.Date;
+import org.junit.After;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 
 import org.opennms.api.integration.ticketing.PluginException;
 import org.opennms.api.integration.ticketing.Ticket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RtTicketerPluginTest extends TestCase {
+public class RtTicketerPluginTest {
     private static final Logger LOG = LoggerFactory.getLogger(RtTicketerPluginTest.class);
+
+    @Rule
+    public TestName m_testName = new TestName();
 
     /**
      * Test Cases for RtTicketerPlugin
@@ -54,18 +66,12 @@ public class RtTicketerPluginTest extends TestCase {
     /**
      * Don't run this test unless the runRtTests property is set to "true".
      */
-    @Override
+    @BeforeClass
     protected void runTest() throws Throwable {
+        assumeTrue(isRunTest());
         if (!isRunTest()) {
-            System.err.println("Skipping test '" + getName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
+            System.err.println("Skipping test '" + m_testName.getMethodName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
             return;
-        }
-
-        try {
-            System.err.println("------------------- begin " + getName() + " ---------------------");
-            super.runTest();
-        } finally {
-            System.err.println("------------------- end " + getName() + " -----------------------");
         }
     }
 
@@ -77,8 +83,14 @@ public class RtTicketerPluginTest extends TestCase {
         return "runRtTests";
     }
 
-    @Override
+    @After
+    protected void tearDown() throws Exception {
+        System.err.println("------------------- end "+m_testName.getMethodName()+" -----------------------");
+    }
+
+    @Before
     protected void setUp() throws Exception {
+        System.err.println("------------------- begin "+m_testName.getMethodName()+" ---------------------");
         final String testHome = System.getProperty("user.home") + File.separatorChar + ".opennms" + File.separatorChar + "test-home";
         final File testProp = new File(testHome + File.separatorChar + "etc" + File.separatorChar + "rt.properties");
         if (testProp.exists()) {
@@ -98,6 +110,7 @@ public class RtTicketerPluginTest extends TestCase {
 
     }
 
+    @Test
     public void testSaveAndGet() {
 
         try {
@@ -111,6 +124,7 @@ public class RtTicketerPluginTest extends TestCase {
 
     }
 
+    @Test
     public void testUpdateAndGet() {
 
         try {
@@ -130,6 +144,7 @@ public class RtTicketerPluginTest extends TestCase {
 
     }
 
+    @Test
     public void testStateConversions() {
         assertEquals(Ticket.State.OPEN, m_ticketer.rtToOpenNMSState("open"));
         assertEquals(Ticket.State.OPEN, m_ticketer.rtToOpenNMSState("new"));

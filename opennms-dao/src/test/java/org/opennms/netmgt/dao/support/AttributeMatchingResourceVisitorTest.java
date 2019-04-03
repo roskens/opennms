@@ -31,7 +31,7 @@ package org.opennms.netmgt.dao.support;
 import java.util.Collections;
 import java.util.HashSet;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.AttributeVisitor;
@@ -45,10 +45,11 @@ import org.opennms.test.mock.EasyMockUtils;
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class AttributeMatchingResourceVisitorTest extends TestCase {
+public class AttributeMatchingResourceVisitorTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private AttributeVisitor m_attributeVisitor = m_mocks.createMock(AttributeVisitor.class);
     
+    @Test
     public void testAfterPropertiesSet() throws Exception {
         AttributeMatchingResourceVisitor resourceVisitor = new AttributeMatchingResourceVisitor();
         resourceVisitor.setAttributeVisitor(m_attributeVisitor);
@@ -57,6 +58,7 @@ public class AttributeMatchingResourceVisitorTest extends TestCase {
     }
 
 
+    @Test
     public void testAfterPropertiesSetNoAttributeVisitor() throws Exception {
         AttributeMatchingResourceVisitor resourceVisitor = new AttributeMatchingResourceVisitor();
         
@@ -74,6 +76,7 @@ public class AttributeMatchingResourceVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetNoResourceTypeMatch() throws Exception {
         AttributeMatchingResourceVisitor resourceVisitor = new AttributeMatchingResourceVisitor();
         
@@ -91,6 +94,7 @@ public class AttributeMatchingResourceVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
 
+    @Test
     public void testVisitWithMatch() throws Exception {
         AttributeMatchingResourceVisitor resourceVisitor = new AttributeMatchingResourceVisitor();
         resourceVisitor.setAttributeVisitor(m_attributeVisitor);
@@ -108,6 +112,7 @@ public class AttributeMatchingResourceVisitorTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testVisitWithoutMatch() throws Exception {
         AttributeMatchingResourceVisitor resourceVisitor = new AttributeMatchingResourceVisitor();
         resourceVisitor.setAttributeVisitor(m_attributeVisitor);

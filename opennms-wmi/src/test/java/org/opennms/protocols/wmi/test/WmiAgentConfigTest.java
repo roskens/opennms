@@ -28,7 +28,9 @@
 
 package org.opennms.protocols.wmi.test;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Created by IntelliJ IDEA.
@@ -37,16 +39,15 @@ import junit.framework.TestCase;
  * Time: 7:29:43 AM
  * To change this template use File | Settings | File Templates.
  */
-public class WmiAgentConfigTest  extends TestCase {
+public class WmiAgentConfigTest {
     	/*
 	 * Create a placeholder mock object. We will reset() this in each test
 	 * so that we can reuse it.
 	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
-        @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
 	}
 
 	/*
@@ -54,9 +55,8 @@ public class WmiAgentConfigTest  extends TestCase {
 	 *
 	 * @see junit.framework.TestCase#tearDown()
 	 */
-        @Override
+	@After
 	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 
     /**

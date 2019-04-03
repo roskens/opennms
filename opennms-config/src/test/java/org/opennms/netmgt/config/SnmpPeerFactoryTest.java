@@ -28,10 +28,17 @@
 
 package org.opennms.netmgt.config;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.utils.InetAddressUtils;
@@ -39,11 +46,11 @@ import org.opennms.core.utils.LocationUtils;
 import org.opennms.netmgt.snmp.SnmpAgentConfig;
 import org.springframework.core.io.ByteArrayResource;
 
-public class SnmpPeerFactoryTest extends TestCase {
+public class SnmpPeerFactoryTest {
 
     private int m_version;
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
         setVersion(SnmpAgentConfig.VERSION2C);
         SnmpPeerFactory.setInstance(new SnmpPeerFactory(new ByteArrayResource(getSnmpConfig().getBytes())));
@@ -212,11 +219,12 @@ public class SnmpPeerFactoryTest extends TestCase {
 
 
 
-    @Override
+    @After
     protected void tearDown() {
 
     }
 
+    @Test
     public void testProxiedAgent() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("10.0.0.3"));
         assertEquals("10.0.0.3", InetAddressUtils.str(agentConfig.getProxyFor()));
@@ -224,6 +232,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         agentConfig.toString();
     }
 
+    @Test
     public void testDefaultMaxRequestSize() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("10.0.0.1"));
         assertEquals(SnmpAgentConfig.DEFAULT_MAX_REQUEST_SIZE, agentConfig.getMaxRequestSize());
@@ -232,16 +241,19 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals(484, agentConfig.getMaxRequestSize());
     }
 
+    @Test
     public void testDefaultMaxVarsPerPdu() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr(myLocalHost()));
         assertEquals(23, agentConfig.getMaxVarsPerPdu());
     }
 
+    @Test
     public void testConfigureDefaultMaxVarsPerPdu() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("10.0.0.150"));
         assertEquals(55, agentConfig.getMaxVarsPerPdu());
     }
 
+    @Test
     public void testGetMaxRepetitions() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("77.5.5.255"));
         assertEquals("ipmatch", agentConfig.getReadCommunity());
@@ -252,6 +264,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals(2, agentConfig.getMaxRepetitions());
     }
 
+    @Test
     public void testGetTargetFromPatterns() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("77.5.5.255"));
         assertEquals("ipmatch", agentConfig.getReadCommunity());
@@ -270,6 +283,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals("public", agentConfig.getReadCommunity());
     }
 
+    @Test
     public void testGetSnmpAgentConfig() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr(myLocalHost()));
         assertEquals(SnmpAgentConfig.VERSION2C, agentConfig.getVersion());
@@ -279,6 +293,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * This tests getting an SnmpAgentConfig
      * @throws UnknownHostException
      */
+    @Test
     public void testGetConfig() throws UnknownHostException {
         assertNotNull(SnmpPeerFactory.getInstance().getAgentConfig(InetAddress.getLocalHost()));
     }
@@ -287,6 +302,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * This tests for ranges configured for a v2 node and community string
      * @throws UnknownHostException
      */
+    @Test
     public void testGetv2cInRange() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("10.7.23.100"));
         assertNotNull(agentConfig);
@@ -298,6 +314,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * This tests for ranges configured for v3 node and security name
      * @throws UnknownHostException 
      */
+    @Test
     public void testGetv3ConfigInRange() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("1.1.1.50"));
         assertNotNull(agentConfig);
@@ -309,6 +326,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * This tests for context-name configured for v3 node
      * @throws UnknownHostException 
      */
+    @Test
     public void testGetv3ConfigWithContextNameAndMore() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("1.1.1.101"));
         assertNotNull(agentConfig);
@@ -322,6 +340,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * This tests getting a v1 config
      * @throws UnknownHostException
      */
+    @Test
     public void testGetV1Config() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("10.0.0.1"));
         assertNotNull(agentConfig);
@@ -334,6 +353,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * 
      * @throws UnknownHostException
      */
+    @Test
     public void testGetV2cConfig() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance()
                 .getAgentConfig(InetAddressUtils.addr("192.168.0.50"));
@@ -347,6 +367,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * 
      * @throws UnknownHostException
      */
+    @Test
     public void testGetConfigWithValidLocation() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance()
                 .getAgentConfig(InetAddressUtils.addr("192.168.0.50"), "MINION");
@@ -355,6 +376,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals(2500, agentConfig.getTimeout());
     }
 
+    @Test
     public void testGetConfigWithInvalidLocation() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance()
                 .getAgentConfig(InetAddressUtils.addr("192.168.0.51"), "AUSTIN");
@@ -363,6 +385,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals("public", agentConfig.getReadCommunity());
     }
 
+    @Test
     public void testGetV2cConfigWithoutLocation() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance()
                 .getAgentConfig(InetAddressUtils.addr("192.167.0.50"), LocationUtils.DEFAULT_LOCATION_NAME);
@@ -371,6 +394,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals("rangev2", agentConfig.getReadCommunity());
     }
 
+    @Test
     public void testGetV2cConfigWithDifferentLocation() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance()
                 .getAgentConfig(InetAddressUtils.addr("192.166.0.50"));
@@ -380,6 +404,7 @@ public class SnmpPeerFactoryTest extends TestCase {
     }
 
 
+    @Test
     public void testGetV3ConfigWithoutLocation() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance()
                 .getAgentConfig(InetAddressUtils.addr("192.164.0.50"), LocationUtils.DEFAULT_LOCATION_NAME);
@@ -388,6 +413,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals(2400, agentConfig.getTimeout());
     }
 
+    @Test
     public void testNoMatchedDefinitionWithLocationMatch() throws UnknownHostException {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance()
                 .getAgentConfig(InetAddressUtils.addr("192.160.0.50"), "MINION");
@@ -396,6 +422,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals("public", agentConfig.getReadCommunity());
     }
 
+    @Test
     public void testFallbackToDefaultLocation() {
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(
                 InetAddressUtils.addr("10.7.23.100"), "SOME-LOCATION");
@@ -409,6 +436,7 @@ public class SnmpPeerFactoryTest extends TestCase {
      * 
      * @throws UnknownHostException
      */
+    @Test
     public void testReversedRange() throws UnknownHostException {
         SnmpPeerFactory.setInstance(new SnmpPeerFactory(new ByteArrayResource(getBadRangeSnmpConfig().getBytes())));
 
@@ -418,6 +446,7 @@ public class SnmpPeerFactoryTest extends TestCase {
         assertEquals("rangev2c", agentConfig.getReadCommunity());
     }
 
+    @Test
     public void testSnmpv3WithNoAuthNoPriv() throws Exception {
         SnmpPeerFactory.setInstance(new SnmpPeerFactory(new ByteArrayResource(getSnmpConfig().getBytes())));
         SnmpAgentConfig agentConfig = SnmpPeerFactory.getInstance().getAgentConfig(InetAddressUtils.addr("10.11.12.13"));

@@ -28,6 +28,8 @@
 
 package org.opennms.netmgt.statsd;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -56,27 +58,27 @@ import org.opennms.netmgt.model.RrdGraphAttribute;
 import org.opennms.test.ThrowableAnticipator;
 import org.opennms.test.mock.EasyMockUtils;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
 
 /**
  * 
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class ReportDefinitionTest extends TestCase {
+public class ReportDefinitionTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private NodeDao m_nodeDao = m_mocks.createMock(NodeDao.class);
     private ResourceDao m_resourceDao = m_mocks.createMock(ResourceDao.class);
     private MeasurementFetchStrategy m_fetchStrategy = m_mocks.createMock(MeasurementFetchStrategy.class);
     private FilterDao m_filterDao = m_mocks.createMock(FilterDao.class);
     
-    @Override
+    @After
     protected void runTest() throws Throwable {
-        super.runTest();
-        
         m_mocks.verifyAll();
     }
 
     @SuppressWarnings("unchecked")
+    @Test
     public void testBogusReportClass() throws Exception {
         // Not replaying anything, but need to do it before verifyAll() happens
         m_mocks.replayAll();
@@ -96,6 +98,7 @@ public class ReportDefinitionTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSet() {
         // Not replaying anything, but need to do it before verifyAll() happens
         m_mocks.replayAll();
@@ -103,6 +106,7 @@ public class ReportDefinitionTest extends TestCase {
         createReportDefinition();
     }
     
+    @Test
     public void testReportWalking() throws Exception {
         EasyMock.expect(m_resourceDao.findTopLevelResources()).andReturn(new ArrayList<OnmsResource>(0));
         
@@ -118,6 +122,7 @@ public class ReportDefinitionTest extends TestCase {
         assertEquals("results size", 0, report.getResults().size());
     }
 
+    @Test
     public void testUnfilteredResourceAttributeFilteringWithNoMatch() throws Exception {
         MockResourceType resourceType = new MockResourceType();
         resourceType.setName("interfaceSnmp");
@@ -138,6 +143,7 @@ public class ReportDefinitionTest extends TestCase {
         assertEquals("results size", 0, report.getResults().size());
     }
 
+    @Test
     public void testUnfilteredResourceAttributeFilteringWithMatch() throws Exception {
         OnmsAttribute rrdAttribute = new RrdGraphAttribute("IfInOctets", "something", "something else");
         ExternalValueAttribute externalValueAttribute = new ExternalValueAttribute("ifSpeed", "100000000");
@@ -189,6 +195,7 @@ public class ReportDefinitionTest extends TestCase {
         m_mocks.replayAll();
     }
 
+    @Test
     public void testFilteredResourceAttributeFilteringWithNoMatch() throws Exception {
         final OnmsNode node = new OnmsNode();
         node.setId(1);
@@ -220,6 +227,7 @@ public class ReportDefinitionTest extends TestCase {
     }
 
 
+    @Test
     public void testFilteredResourceAttributeFilteringWithMatch() throws Exception {
         OnmsAttribute rrdAttribute = new RrdGraphAttribute("IfInOctets", "something", "something else");
         ExternalValueAttribute externalValueAttribute = new ExternalValueAttribute("ifSpeed", "100000000");

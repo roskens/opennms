@@ -28,13 +28,18 @@
 
 package org.opennms.protocols.wmi.test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.reset;
 import static org.easymock.EasyMock.verify;
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.protocols.wmi.IWmiClient;
 import org.opennms.protocols.wmi.WmiException;
@@ -50,7 +55,7 @@ import org.opennms.protocols.wmi.wbem.OnmsWbemObjectSet;
  * @author <a href="mailto:matt.raykowski@gmail.com">Matt Raykowski</a>
  * @author <a href="http://www.opennms.org">OpenNMS</a>
  */
-public class WmiManagerTest extends TestCase {
+public class WmiManagerTest {
 	private IWmiClient m_WmiMock;
 
 	/*
@@ -59,9 +64,8 @@ public class WmiManagerTest extends TestCase {
 	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
-        @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
 
 		// Create a mock client to use.
 		m_WmiMock = createMock(IWmiClient.class);
@@ -72,9 +76,8 @@ public class WmiManagerTest extends TestCase {
 	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 */
-        @Override
+	@After
 	protected void tearDown() throws Exception {
-		super.tearDown();
 
 		reset(m_WmiMock);
 	}

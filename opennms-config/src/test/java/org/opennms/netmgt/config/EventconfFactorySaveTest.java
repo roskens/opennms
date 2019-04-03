@@ -28,6 +28,12 @@
 
 package org.opennms.netmgt.config;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.util.List;
 
@@ -38,14 +44,16 @@ import org.opennms.netmgt.xml.eventconf.Logmsg;
 import org.opennms.test.FileAnticipator;
 import org.springframework.core.io.FileSystemResource;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * 
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  * @author <a href="mailto:cmiskell@opennms.org">Craig Miskell</a>
  */
-public class EventconfFactorySaveTest extends TestCase {
+public class EventconfFactorySaveTest {
     private static final String knownUEI1="uei.opennms.org/opennmsConfig/eventconf";
     private static final String knownSubfileUEI1="uei.opennms.org/IETF/Bridge/traps/newRoot";
     
@@ -59,9 +67,8 @@ public class EventconfFactorySaveTest extends TestCase {
     private FileAnticipator m_fa;
     private DefaultEventConfDao m_eventConfDao;
     
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         
         m_fa = new FileAnticipator();
         
@@ -84,11 +91,10 @@ public class EventconfFactorySaveTest extends TestCase {
         m_eventConfDao.afterPropertiesSet();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
         m_fa.deleteExpected();
         m_fa.tearDown();
-        super.tearDown();
     }
     
     /**
@@ -103,6 +109,7 @@ public class EventconfFactorySaveTest extends TestCase {
         return fa.expecting(destDir, file);
     }
     
+    @Test
     public void testSave() throws Exception {
         String newUEI1="uei.opennms.org/custom/newTestUEI1";
         String newUEI2="uei.opennms.org/custom/newTestUEI2";
@@ -174,6 +181,7 @@ public class EventconfFactorySaveTest extends TestCase {
         assertEquals(newSeverity, event.getSeverity()); 
     }
     
+    @Test
     public void testAddEvent() {
         Event event=getAddableEvent();
         
@@ -205,6 +213,7 @@ public class EventconfFactorySaveTest extends TestCase {
      * Test adding and event to a specific file
      *
      */
+    @Test
     public void testAddEventToProgrammaticStore() {
         Event event=getAddableEvent();
         
@@ -236,6 +245,7 @@ public class EventconfFactorySaveTest extends TestCase {
         }
     }
     
+    @Test
     public void testRemoveEventToProgrammaticStore() {
         Event event=getAddableEvent();
         

@@ -28,8 +28,13 @@
 
 package org.opennms.netmgt.scheduler;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import junit.framework.TestCase;
+
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.scheduler.mock.MockInterval;
@@ -40,17 +45,13 @@ import org.opennms.netmgt.scheduler.mock.MockScheduler;
  *
  * @author brozow
  */
-public class ScheduleTest extends TestCase {
+public class ScheduleTest {
 
     private MockSchedulable m_schedulable;
     private MockInterval m_interval;
     private MockScheduler m_scheduler;
     private Schedule m_sched;
 
-    public static void main(String[] args) {
-        junit.textui.TestRunner.run(ScheduleTest.class);
-    }
-    
     class MockSchedulable implements ReadyRunnable {
         private volatile int runCount = 0;
         private volatile boolean m_callingAdjustSchedule;
@@ -84,9 +85,8 @@ public class ScheduleTest extends TestCase {
     /*
      * @see TestCase#setUp()
      */
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         MockLogAppender.setupLogging();
         m_schedulable = new MockSchedulable();
         m_scheduler = new MockScheduler();
@@ -97,12 +97,12 @@ public class ScheduleTest extends TestCase {
     /*
      * @see TestCase#tearDown()
      */
-    @Override
+    @After
     protected void tearDown() throws Exception {
         MockLogAppender.assertNoWarningsOrGreater();
-        super.tearDown();
     }
     
+    @Test
     public void testSchedule() {
         m_sched.schedule();
         
@@ -118,6 +118,7 @@ public class ScheduleTest extends TestCase {
         assertRunAndScheduled(1000, 1000, 2, 1);
     }
     
+    @Test
     public void testAdjustSchedule() {
         
         m_sched.schedule();
@@ -163,6 +164,7 @@ public class ScheduleTest extends TestCase {
         
     }
     
+    @Test
     public void testUnschedule() {
         m_sched.schedule();
         
@@ -184,6 +186,7 @@ public class ScheduleTest extends TestCase {
         assertRunAndScheduled(2000, -1, 2, 0);
     }
     
+    @Test
     public void testTemporarilySuspend() {
         m_interval.addSuspension(1500, 2500);
         
@@ -210,6 +213,7 @@ public class ScheduleTest extends TestCase {
         assertRunAndScheduled(3000, 1000, 3, 1);
     }
     
+    @Test
     public void testAdjustScheduleWithinRun() {
         m_schedulable.setCallingAdjustSchedule(true);
         

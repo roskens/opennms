@@ -28,6 +28,11 @@
 
 package org.opennms.netmgt.poller.remote;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import static org.easymock.EasyMock.expect;
 import static org.springframework.util.ObjectUtils.nullSafeEquals;
 
@@ -51,9 +56,10 @@ import org.opennms.netmgt.poller.remote.PollerFrontEnd.PollerFrontEndStates;
 import org.opennms.netmgt.poller.remote.support.DefaultPollerFrontEnd;
 import org.opennms.test.mock.EasyMockUtils;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
-public class PollerFrontEndTest extends TestCase {
+public class PollerFrontEndTest {
 
     public static final String MONITORING_SYSTEM_ID = UUID.randomUUID().toString();
 
@@ -150,14 +156,17 @@ public class PollerFrontEndTest extends TestCase {
 
     private MonitorStatus m_monitorStatus = MonitorStatus.CONFIG_CHANGED;
 
+    @Test
     public void testAfterPropertiesSetWhenNotRegistered() throws Exception {
         testAfterPropertiesSetWithRegisteredId(null);
     }
 
+    @Test
     public void testAfterPropertiesSetWhenRegistered() throws Exception {
         testAfterPropertiesSetWithRegisteredId(MONITORING_SYSTEM_ID);
     }
 
+    @Test
     public void testAlreadyRegistered() throws Exception {
 
         setRegistered();
@@ -174,6 +183,7 @@ public class PollerFrontEndTest extends TestCase {
         m_mock.verifyAll();
     }
 
+    @Test
     public void testConfigCheck() throws Exception {
 
         setRegistered();
@@ -192,12 +202,14 @@ public class PollerFrontEndTest extends TestCase {
         m_mock.verifyAll();
     }
 
+    @Test
     public void testDetails() {
         Map<String, String> details = m_frontEnd.getDetails();
         assertPropertyEquals("os.name", details);
         assertPropertyEquals("os.version", details);
     }
 
+    @Test
     public void testIsRegistered() throws Exception {
         setRegistered();
 
@@ -213,6 +225,7 @@ public class PollerFrontEndTest extends TestCase {
         m_mock.verifyAll();
     }
 
+    @Test
     public void testNotYetRegistered() throws Exception {
         setRegisteredId(null);
 
@@ -228,6 +241,7 @@ public class PollerFrontEndTest extends TestCase {
         m_mock.verifyAll();
     }
 
+    @Test
     public void testPoll() throws Exception {
 
         setRegistered();
@@ -255,6 +269,7 @@ public class PollerFrontEndTest extends TestCase {
 
     }
 
+    @Test
     public void testRegisterNewMonitor() throws Exception {
 
         anticipateAfterPropertiesSet();
@@ -276,6 +291,7 @@ public class PollerFrontEndTest extends TestCase {
 
     }
 
+    @Test
     public void testSetInitialPollTime() throws Exception {
 
         Date start = new Date(1200000000000L);
@@ -310,6 +326,7 @@ public class PollerFrontEndTest extends TestCase {
         m_mock.verifyAll();
     }
 
+    @Test
     public void testStop() throws Exception {
 
         setRegistered();
@@ -332,6 +349,7 @@ public class PollerFrontEndTest extends TestCase {
         m_mock.verifyAll();
     }
     
+    @Test
     public void testPause() throws Exception {
         setRegistered();
         
@@ -357,6 +375,7 @@ public class PollerFrontEndTest extends TestCase {
         m_mock.verifyAll();
     }
     
+    @Test
     public void testDisconnect() throws Exception {
         setRegistered();
         
@@ -387,7 +406,7 @@ public class PollerFrontEndTest extends TestCase {
         m_monitorStatus = status;
     }
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
 
         m_backEnd = m_mock.createMock(PollerBackEnd.class);

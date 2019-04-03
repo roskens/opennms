@@ -28,11 +28,16 @@
 
 package org.opennms.web;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import javax.servlet.ServletContext;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.junit.Test;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.opennms.core.soa.ServiceRegistry;
 import org.opennms.core.spring.web.ServiceRegistryHttpInvokerServiceExporter;
@@ -68,12 +73,12 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 })
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
-public class HttpRemotingWebAppIT extends TestCase {
+public class HttpRemotingWebAppIT {
 
 	@Autowired
 	private ServletContext servletContext;
 
-	@Override
+	@Before
 	public void setUp() throws Exception {
 		MockLogAppender.setupLogging();
 	}

@@ -28,12 +28,17 @@
 
 package org.opennms.netmgt.notifd;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.MockLogAppender;
@@ -51,7 +56,7 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author <a href="mailto:jwhite@datavalet.com">Jesse White</a>
  * @version $Id: $
  */
-public class TicketNotificationStrategyTest extends TestCase {
+public class TicketNotificationStrategyTest {
 
     private EasyMockUtils m_easyMockUtils;
     private MockEventIpcManager m_eventIpcManager;
@@ -97,9 +102,8 @@ public class TicketNotificationStrategyTest extends TestCase {
     };
 
     /** {@inheritDoc} */
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         m_eventIpcManager = new MockEventIpcManager();
         m_eventIpcManager.setSynchronous(true);
         EventIpcManagerFactory.setIpcManager(m_eventIpcManager);
@@ -111,15 +115,16 @@ public class TicketNotificationStrategyTest extends TestCase {
     }
 
     /** {@inheritDoc} */
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown();
     }
         
+    @Test
     public void testNoticeWithNoEventID() {
     	assertEquals("Strategy should fail if no event id is given.", 1, m_ticketNotificationStrategy.send(new ArrayList<Argument>()));
     }
     
+    @Test
     public void testNoticeWithNoAlarmID() {
     	m_ticketNotificationStrategy.setAlarmState(new TicketNotificationStrategy.AlarmState(0));
     	m_ticketNotificationStrategy.setAlarmType(AlarmType.NOT_AN_ALARM);
@@ -128,6 +133,7 @@ public class TicketNotificationStrategyTest extends TestCase {
     	assertTrue("Strategy should log a warning if the event has no alarm id.", !MockLogAppender.noWarningsOrHigherLogged());
     }
     
+    @Test
     public void testCreateTicket() {
         // Setup the event anticipator
     	EventBuilder newSuspectBuilder = new EventBuilder(EventConstants.TROUBLETICKET_CREATE_UEI, m_ticketNotificationStrategy.getName());

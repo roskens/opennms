@@ -28,6 +28,8 @@
 
 package org.opennms.netmgt.correlation;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,20 +42,21 @@ import org.opennms.netmgt.events.api.EventListener;
 
 import static org.easymock.EasyMock.*;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 /**
  * 
  * @author <a href="mailto:brozow@opennms.org">Mathew Brozowski</a>
  */
-public class CorrelatorTest extends TestCase {
+public class CorrelatorTest {
 	
 	List<Object> mocks = new ArrayList<>();
 	private EventIpcManager m_eventIpcManager;
 	private CorrelationEngine m_engine;
 	private Correlator m_correlator;
 
-	@Override
+	@Before
 	protected void setUp() throws Exception {
 		m_eventIpcManager = createMock(EventIpcManager.class);
 		m_engine = createMock(CorrelationEngine.class);
@@ -70,6 +73,7 @@ public class CorrelatorTest extends TestCase {
 		replayMocks();
 	}
 
+	@Test
 	public void testStartStop() throws Exception {
 
 		m_correlator = new Correlator();
@@ -86,6 +90,7 @@ public class CorrelatorTest extends TestCase {
 		verifyMocks();
 	}
 	
+	@Test
 	public void testRegisterForEvents() throws Exception {
 
 		m_correlator = new Correlator();

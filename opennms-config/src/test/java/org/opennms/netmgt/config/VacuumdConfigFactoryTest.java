@@ -30,7 +30,7 @@ package org.opennms.netmgt.config;
 
 import java.io.InputStream;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 
@@ -40,12 +40,13 @@ import org.opennms.core.test.ConfigurationTestUtils;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class VacuumdConfigFactoryTest extends TestCase {
+public class VacuumdConfigFactoryTest {
     /**
      * Check the default vacuumd-configuration.xml file.
      * 
      * @throws Exception
      */
+    @Test
     public void testLoadDefaultConfig() throws Exception {
         InputStream is = ConfigurationTestUtils.getInputStreamForConfigFile("vacuumd-configuration.xml");
         try {

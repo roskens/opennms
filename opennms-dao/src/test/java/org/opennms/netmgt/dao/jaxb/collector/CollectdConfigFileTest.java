@@ -30,30 +30,31 @@ package org.opennms.netmgt.dao.jaxb.collector;
 
 import java.io.IOException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.netmgt.dao.jaxb.InvocationAnticipator;
 import org.opennms.netmgt.dao.jaxb.collector.CollectdConfigFile;
 import org.opennms.netmgt.dao.jaxb.collector.CollectdConfigVisitor;
 import org.springframework.core.io.ClassPathResource;
 
-public class CollectdConfigFileTest extends TestCase {
+public class CollectdConfigFileTest {
     
     private InvocationAnticipator m_invocationAnticipator;
     private CollectdConfigVisitor m_visitor;
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         m_invocationAnticipator = new InvocationAnticipator(CollectdConfigVisitor.class);
         m_visitor = (CollectdConfigVisitor)m_invocationAnticipator.getProxy();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown();
     }
     
+    @Test
     public void testVisitTop() throws IOException {
         
         ClassPathResource resource = new ClassPathResource("/collectdconfiguration-testdata.xml");

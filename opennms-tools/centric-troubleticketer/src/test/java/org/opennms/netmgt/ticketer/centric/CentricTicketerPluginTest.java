@@ -28,20 +28,25 @@
 
 package org.opennms.netmgt.ticketer.centric;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.util.Date;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.api.integration.ticketing.Ticket;
 
-public class CentricTicketerPluginTest extends TestCase {
+public class CentricTicketerPluginTest {
     
     CentricTicketerPlugin m_ticketer;
     
     
     
-    @Override
+    @Before
     protected void setUp() throws Exception {
         
         System.setProperty("opennms.home", "src"+File.separatorChar+"test"+File.separatorChar+"opennms-home");
@@ -49,6 +54,7 @@ public class CentricTicketerPluginTest extends TestCase {
         m_ticketer = new CentricTicketerPlugin();
     }
 
+    @Test
     public void testSave() {
         
         Ticket ticket = new Ticket();
@@ -67,6 +73,7 @@ public class CentricTicketerPluginTest extends TestCase {
         
     }
     
+    @Test
     public void testUpdate() throws Exception {
         
         String summary = "A Ticket at "+new Date();
@@ -112,6 +119,7 @@ public class CentricTicketerPluginTest extends TestCase {
         //assertEquals(ticket.getDetails(), newTicket.getDetails());
     }
     
+    @Test
     public void testGet() {
         
     	//This may need to be changed ;-)

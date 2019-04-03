@@ -28,13 +28,16 @@
 
 package org.opennms.core.utils;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class StringReplaceOperationTest extends TestCase {
+public class StringReplaceOperationTest {
     
+    @Test
     public void testReplaceFirst() {
         String orig = "There was once a quick brown fox. There was once a lazy dog.";
         String expected = "The quick brown fox. There was once a lazy dog.";
@@ -42,6 +45,7 @@ public class StringReplaceOperationTest extends TestCase {
         assertEquals(op.replace(orig), expected);
     }
     
+    @Test
     public void testReplaceAll() {
         String orig = "There was once a quick brown fox. There was once a lazy dog.";
         String expected = "There was twice a quick brown fox. There was twice a lazy dog.";
@@ -49,6 +53,7 @@ public class StringReplaceOperationTest extends TestCase {
         assertEquals(op.replace(orig), expected);
     }
     
+    @Test
     public void testFirstAllFirst() {
         String orig = "There was once a quick brown fox. There was once a lazy dog.";
         String expected = "On the roof was once one quick brown fox. In the basement was once one lazy dog.";

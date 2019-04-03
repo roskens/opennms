@@ -28,12 +28,15 @@
 
 package org.opennms.netmgt.dao.support;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.Map.Entry;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.AttributeStatistic;
@@ -45,8 +48,9 @@ import org.opennms.test.ThrowableAnticipator;
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class TopNAttributeStatisticVisitorTest extends TestCase {
+public class TopNAttributeStatisticVisitorTest {
     
+    @Test
     public void testAfterPropertiesSet() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
         visitor.setCount(20);
@@ -54,6 +58,7 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
     }
 
 
+    @Test
     public void testAfterPropertiesSetNoCount() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
 
@@ -70,6 +75,7 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
 
+    @Test
     public void testVisit() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
         visitor.setCount(20);
@@ -85,6 +91,7 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
         }
     }
 
+    @Test
     public void testVisitWithNull() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
         visitor.setCount(20);
@@ -101,6 +108,7 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testVisitGetResults() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
         visitor.setCount(20);
@@ -117,14 +125,15 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
 
         SortedSet<AttributeStatistic> top = visitor.getResults();
         assertNotNull("topN list should not be null", top);
-        assertEquals("topN list size", 1, top.size());
+        assertEquals("topN list size", 1L, top.size());
         
         int i = 0;
         for (AttributeStatistic stat : top) { 
-            assertEquals("topN[" + i + "] value", 0.0, stat.getStatistic());
+            assertEquals("topN[" + i + "] value", Double.valueOf(0.0), stat.getStatistic());
         }
     }
     
+    @Test
     public void testVisitGetResultsSameValue() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
         visitor.setCount(20);
@@ -147,11 +156,12 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
 
         int i = 0;
         for (AttributeStatistic stat : top) { 
-            assertEquals("topN[" + i + "] value", 0.0, stat.getStatistic());
+            assertEquals("topN[" + i + "] value", Double.valueOf(0.0), stat.getStatistic());
             i++;
         }
     }
     
+    @Test
     public void testVisitGetResultsDifferentValues() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
         visitor.setCount(20);
@@ -174,11 +184,12 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
 
         int i = 0;
         for (AttributeStatistic stat : top) { 
-            assertEquals("topN[" + i + "] value", 4.0 - i, stat.getStatistic());
+            assertEquals("topN[" + i + "] value", Double.valueOf(4.0 - i), stat.getStatistic());
             i++;
         }
     }
     
+    @Test
     public void testVisitGetResultsLimitedByCount() throws Exception {
         BottomNAttributeStatisticVisitor visitor = new TopNAttributeStatisticVisitor();
         visitor.setCount(20);
@@ -201,7 +212,7 @@ public class TopNAttributeStatisticVisitorTest extends TestCase {
 
         int i = 0;
         for (AttributeStatistic stat : top) { 
-            assertEquals("topN[" + i + "] value", 99.0 - i, stat.getStatistic());
+            assertEquals("topN[" + i + "] value", Double.valueOf(99.0 - i), stat.getStatistic());
             i++;
         }
     }

@@ -28,7 +28,12 @@
 
 package org.opennms.install.db;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 
 import org.opennms.core.db.install.Column;
 
@@ -36,7 +41,8 @@ import org.opennms.core.db.install.Column;
  * 
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class ColumnTest extends TestCase {
+public class ColumnTest {
+    @Test
     public void testColumnParsePlain() throws Exception {
         Column column = new Column();
         column.parse("x733ProbableCause integer");
@@ -45,6 +51,7 @@ public class ColumnTest extends TestCase {
         assertNull("column should not have a DEFAULT value", column.getDefaultValue());
     }
     
+    @Test
     public void testColumnParseWithDefaultAndNotNull() throws Exception {
         Column column = new Column();
         column.parse("x733ProbableCause integer default 0 not null");
@@ -53,6 +60,7 @@ public class ColumnTest extends TestCase {
         assertEquals("column DEFAULT value", "0", column.getDefaultValue());
     }
     
+    @Test
     public void testColumnParseWithDefaultDifferent() throws Exception {
         Column oldColumn = new Column();
         oldColumn.parse("x733ProbableCause integer NOT NULL");
@@ -64,6 +72,7 @@ public class ColumnTest extends TestCase {
         assertFalse("old column should not equal new column", oldColumn.equals(newColumn));
     }
     
+    @Test
     public void testColumnParseWithDefaultDifferentSpellingWithNextValSequence() throws Exception {
         Column oldColumn = new Column();
         oldColumn.parse("x733ProbableCause integer DEFAULT nextval('opennmsnxtid') NOT NULL");

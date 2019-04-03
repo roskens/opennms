@@ -28,24 +28,28 @@
 
 package org.opennms.netmgt.tl1d;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.text.SimpleDateFormat;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
-public class Tl1AutonomousMessageProcessorTest extends TestCase {
+public class Tl1AutonomousMessageProcessorTest {
     
     Tl1AutonomousMessageProcessor m_processor = new Tl1AutonomousMessageProcessor();
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown();
     }
 
+    @Test
     public void testProcess() {
         
         String sampleMessage = "   GPON15000 2008-07-31 18:29:49\n" + 
@@ -80,6 +84,7 @@ public class Tl1AutonomousMessageProcessorTest extends TestCase {
      * Two-digit year in header, bare NTFCNCDE value in auto block (both appear to be legal)
      * http://marc.info/?l=opennms-discuss&m=125112385300943&w=2
      */
+    @Test
     public void testProcessAlcatel() {
         
         String sampleMessage = "DSALC003 09-04-20 07:38:35\n" + 
@@ -109,6 +114,7 @@ public class Tl1AutonomousMessageProcessorTest extends TestCase {
         
     }
     
+    @Test
     public void testInstanitateClass() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         Class.forName("org.opennms.netmgt.tl1d.Tl1ClientImpl").newInstance();
     }

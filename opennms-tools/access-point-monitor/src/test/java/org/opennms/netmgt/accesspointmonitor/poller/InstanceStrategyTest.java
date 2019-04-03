@@ -28,12 +28,15 @@
 
 package org.opennms.netmgt.accesspointmonitor.poller;
 
+import static org.junit.Assert.assertEquals;
+
 import org.opennms.netmgt.snmp.SnmpInstId;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class InstanceStrategyTest extends TestCase {
+public class InstanceStrategyTest {
 
+    @Test
     public void testPhysdAddrToAndFromInstance() {
         SnmpInstId instanceId = new SnmpInstId(".0.0.0.0.0.0");
         assertEquals("00:00:00:00:00:00", InstanceStrategy.getPhysAddrFromInstance(instanceId));

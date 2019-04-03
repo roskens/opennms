@@ -30,16 +30,19 @@ package org.opennms.install;
 
 import java.sql.SQLException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
-public class InstallerJniTest extends TestCase {
+public class InstallerJniTest {
 
     private Installer m_installer;
 
+    @Before
     protected void setUp() throws SQLException {
         m_installer = new Installer();
     }
 
+    @Test
     public void testBogus() {
     }
     

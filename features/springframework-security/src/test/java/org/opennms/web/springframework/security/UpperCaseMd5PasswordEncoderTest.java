@@ -28,9 +28,12 @@
 
 package org.opennms.web.springframework.security;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
-public class UpperCaseMd5PasswordEncoderTest extends TestCase {
+import org.junit.Test;
+
+public class UpperCaseMd5PasswordEncoderTest {
+	@Test
 	public void testAdminEncryption() {
 		UpperCaseMd5PasswordEncoder encoder = new UpperCaseMd5PasswordEncoder();
 		assertEquals("encoded admin password", "21232F297A57A5A743894A0E4A801FC3", encoder.encodePassword("admin", null));

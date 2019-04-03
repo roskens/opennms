@@ -28,6 +28,10 @@
 
 package org.opennms.web.svclayer.support;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 import static org.easymock.EasyMock.expect;
 import static org.opennms.core.utils.InetAddressUtils.addr;
 
@@ -47,7 +51,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import junit.framework.AssertionFailedError;
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.dao.api.ApplicationDao;
@@ -81,7 +86,7 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 
-public class DefaultDistributedStatusServiceTest extends TestCase {
+public class DefaultDistributedStatusServiceTest {
 
     /*
     private static final String LOCATION_MONITOR_ID_A = UUID.randomUUID().toString();
@@ -132,9 +137,8 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
     
     public final static String IGNORE_MATCH = "**IGNORE*MATCH**";
         
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
 
         Locale.setDefault(Locale.US);
 
@@ -216,6 +220,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         
     }
     
+    @Test
     public void testFindLocationSpecificStatusNullLocation() {
         DistributedStatusDetailsCommand command = new DistributedStatusDetailsCommand();
         Errors errors = new BindException(command, "command");
@@ -232,6 +237,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testFindLocationSpecificStatusNullApplication() {
         DistributedStatusDetailsCommand command = new DistributedStatusDetailsCommand();
         Errors errors = new BindException(command, "command");
@@ -248,6 +254,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testFindLocationSpecificStatusInvalidLocation() {
         DistributedStatusDetailsCommand command = new DistributedStatusDetailsCommand();
         Errors errors = new BindException(command, "command");
@@ -270,6 +277,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testFindLocationSpecificStatusInvalidApplication() {
         DistributedStatusDetailsCommand command = new DistributedStatusDetailsCommand();
         Errors errors = new BindException(command, "command");
@@ -293,6 +301,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testFindLocationSpecificStatus() {
         DistributedStatusDetailsCommand command = new DistributedStatusDetailsCommand();
         Errors errors = new BindException(command, "command");
@@ -314,6 +323,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         assertEquals("status list size", 2, status.size());
     }
     
+    @Test
     public void testCreateStatus() {
         // We run five times to catch sorting differences (if we don't sort)
         for (int i = 0; i < 5; i++) {
@@ -370,6 +380,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
     }
 
 
+    @Test
     public void testCreateStatusPutUnreportedServicesLast() {
         DistributedStatusDetailsCommand command = new DistributedStatusDetailsCommand();
         Errors errors = new BindException(command, "command");
@@ -428,6 +439,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
 
     
     
+    @Test
     public void testCreateStatusNoLocationMonitor() {
         DistributedStatusDetailsCommand command = new DistributedStatusDetailsCommand();
         Errors errors = new BindException(command, "command");
@@ -455,6 +467,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         m_easyMockUtils.verifyAll();
     }
 
+    @Test
     public void testCreateFacilityStatusTableNoStartDate() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalArgumentException("argument start cannot be null"));
@@ -469,6 +482,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         m_easyMockUtils.verifyAll();
     }
 
+    @Test
     public void testCreateFacilityStatusTableNoEndDate() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalArgumentException("argument end cannot be null"));
@@ -483,6 +497,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         m_easyMockUtils.verifyAll();
     }
 
+    @Test
     public void testCreateFacilityStatusTableStateDateNotBefore() {
         Date start = new Date();
         Date end = new Date(start.getTime() - 1000); // one second before start time
@@ -500,6 +515,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         m_easyMockUtils.verifyAll();
     }
 
+    @Test
     public void testCreateFacilityStatusTableDatesEqual() {
         Date startAndEnd = new Date();
 
@@ -516,6 +532,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         m_easyMockUtils.verifyAll();
     }
 
+    @Test
     public void testCreateFacilityStatusTableNoApplications() {
         expect(m_monitoringLocationDao.findAll()).andReturn(Collections.singletonList(m_locationDefinition1));
         expect(m_applicationDao.findAll()).andReturn(new ArrayList<OnmsApplication>());
@@ -536,6 +553,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         m_easyMockUtils.verifyAll();
     }
     
+    @Test
     public void testCreateFacilityStatusTable() throws Exception {
          // No need to shuffle, since this is a list
         List<OnmsMonitoringLocation> locationDefinitions = new LinkedList<>();
@@ -623,6 +641,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
     /*
      * XXX need to check sorting
      */
+    @Test
     public void testCreateFacilityStatusTableOneApplicationOneOfTwoLocationsReporting() throws Exception {
         OnmsApplication app = m_application2;
         
@@ -677,6 +696,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
     /*
      * XXX need to check sorting
      */
+    @Test
     public void testCreateFacilityStatusTableLayoutApplicationsVertically() throws Exception {
         // No need to shuffle, since this is a list
         List<OnmsMonitoringLocation> locationDefinitions = new LinkedList<>();
@@ -755,6 +775,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
     }
     
     
+    @Test
     public void testPercentageCalculationAllAvailableStartInMiddleOfDay() throws ParseException {
         OnmsMonitoredService httpService = findMonitoredService(m_services, m_ip, "HTTP");
         OnmsMonitoredService httpsService = findMonitoredService(m_services, m_ip, "HTTPS");
@@ -775,6 +796,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         assertEquals("percentage", "100.000%", percentage);
     }
     
+    @Test
     public void testPercentageCalculationOneUnavailableThenAvailaleInMiddleOfDay() throws ParseException {
         OnmsMonitoredService httpService = findMonitoredService(m_services, m_ip, "HTTP");
         OnmsMonitoredService httpsService = findMonitoredService(m_services, m_ip, "HTTPS");
@@ -796,6 +818,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         assertEquals("percentage", "75.000%", percentage);
     }
     
+    @Test
     public void testDetails() {
         List<OnmsMonitoringLocation> locationDefinitions = new LinkedList<>();
         locationDefinitions.add(m_locationDefinition1);
@@ -877,6 +900,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
         expect(m_graphDao.getPrefabGraph(httpsGraph.getName())).andReturn(httpsGraph).atLeastOnce();
     }
     
+    @Test
     public void testWrongLocationDetails() {
         List<OnmsMonitoringLocation> locationDefinitions = new LinkedList<>();
         locationDefinitions.add(m_locationDefinition1);
@@ -943,6 +967,7 @@ public class DefaultDistributedStatusServiceTest extends TestCase {
 
     }
     
+    @Test
     public void testWrongApplicationDetails() {
         List<OnmsMonitoringLocation> locationDefinitions = new LinkedList<>();
         locationDefinitions.add(m_locationDefinition1);

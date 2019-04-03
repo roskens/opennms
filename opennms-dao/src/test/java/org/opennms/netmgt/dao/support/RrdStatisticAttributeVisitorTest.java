@@ -45,18 +45,19 @@ import org.opennms.netmgt.model.StringPropertyAttribute;
 import org.opennms.test.ThrowableAnticipator;
 import org.opennms.test.mock.EasyMockUtils;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class RrdStatisticAttributeVisitorTest extends TestCase {
+public class RrdStatisticAttributeVisitorTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private MeasurementFetchStrategy m_fetchStrategy = m_mocks.createMock(MeasurementFetchStrategy.class);
     private Long m_startTime = System.currentTimeMillis();
     private Long m_endTime = m_startTime + (24 * 60 * 60 * 1000); // one day
     private AttributeStatisticVisitor m_statisticVisitor = m_mocks.createMock(AttributeStatisticVisitor.class);
     
+    @Test
     public void testAfterPropertiesSet() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         attributeVisitor.setFetchStrategy(m_fetchStrategy);
@@ -68,6 +69,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
     }
 
 
+    @Test
     public void testAfterPropertiesSetNoStatisticVisitor() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         
@@ -88,6 +90,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetNoConsolidationFunction() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         
@@ -108,6 +111,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetNoRrdDao() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         
@@ -128,6 +132,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetNoStartTime() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         
@@ -148,6 +153,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetNoEndTime() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         
@@ -168,6 +174,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
 
+    @Test
     public void testVisitWithRrdAttribute() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         attributeVisitor.setFetchStrategy(m_fetchStrategy);
@@ -208,6 +215,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testVisitWithNonRrdAttribute() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         attributeVisitor.setFetchStrategy(m_fetchStrategy);
@@ -227,6 +235,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testVisitWithNotANumberRrdAttribute() throws Exception {
         RrdStatisticAttributeVisitor attributeVisitor = new RrdStatisticAttributeVisitor();
         attributeVisitor.setFetchStrategy(m_fetchStrategy);
@@ -265,6 +274,7 @@ public class RrdStatisticAttributeVisitorTest extends TestCase {
         m_mocks.verifyAll();
     }
 
+    @Test
     public void testVisitTwice() throws Exception {
         final RrdStatisticAttributeVisitor attributeVisitor1 = new RrdStatisticAttributeVisitor();
         attributeVisitor1.setFetchStrategy(m_fetchStrategy);

@@ -28,15 +28,18 @@
 
 package org.opennms.netmgt.model;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.UUID;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class OnmsLocationMonitorTest extends TestCase {
+public class OnmsLocationMonitorTest {
 
     private static final String LOCATION_MONITOR_ID_A = "A" + UUID.randomUUID().toString();
     private static final String LOCATION_MONITOR_ID_B = "B" + UUID.randomUUID().toString();
 
+    @Test
     public void testCompareToEqual() {
         OnmsLocationMonitor o1 = new OnmsLocationMonitor();
         o1.setLocation("a");
@@ -49,6 +52,7 @@ public class OnmsLocationMonitorTest extends TestCase {
         assertEquals("compareTo should return 0 as the two objects are equal", 0, o1.compareTo(o2));
     }
     
+    @Test
     public void testCompareToFirstHigherId() {
         OnmsLocationMonitor o1 = new OnmsLocationMonitor();
         o1.setLocation("a");
@@ -61,6 +65,7 @@ public class OnmsLocationMonitorTest extends TestCase {
         assertEquals("compareTo should return 1 as the first object has a higher ID", 1, o1.compareTo(o2));
     }
     
+    @Test
     public void testCompareToFirstLowerId() {
         OnmsLocationMonitor o1 = new OnmsLocationMonitor();
         o1.setLocation("a");
@@ -73,6 +78,7 @@ public class OnmsLocationMonitorTest extends TestCase {
         assertEquals("compareTo should return 1 as the first object has a lower ID", -1, o1.compareTo(o2));
     }
     
+    @Test
     public void testCompareToFirstHigherName() {
         OnmsLocationMonitor o1 = new OnmsLocationMonitor();
         o1.setLocation("b");
@@ -85,6 +91,7 @@ public class OnmsLocationMonitorTest extends TestCase {
         assertEquals("compareTo should return 1 as the first object has a higher name", 1, o1.compareTo(o2));
     }
     
+    @Test
     public void testCompareToFirstLowerName() {
         OnmsLocationMonitor o1 = new OnmsLocationMonitor();
         o1.setLocation("a");

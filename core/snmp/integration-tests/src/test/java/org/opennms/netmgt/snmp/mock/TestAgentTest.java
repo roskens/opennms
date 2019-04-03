@@ -28,6 +28,12 @@
 
 package org.opennms.netmgt.snmp.mock;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
 import java.util.NoSuchElementException;
 import java.util.Properties;
 
@@ -35,9 +41,10 @@ import org.opennms.netmgt.snmp.ErrorStatus;
 import org.opennms.netmgt.snmp.SnmpObjId;
 import org.opennms.netmgt.snmp.SnmpValue;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
-public class TestAgentTest extends TestCase {
+public class TestAgentTest {
     
     private static final int columnLength = 10;
     private static final String col3Base = ".1.3.5.1.2.3";
@@ -49,7 +56,7 @@ public class TestAgentTest extends TestCase {
         
     private TestAgent m_agent;
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
         m_agent = new TestAgent();
         Properties agentData = new Properties();
@@ -84,12 +91,14 @@ public class TestAgentTest extends TestCase {
         return new MockSnmpValue(SnmpValue.SNMP_OCTET_STRING, oid+"-value");
     }
     
+    @Test
     public void testConstantObjects() {
         assertEquals("noSuchObject", MockSnmpValue.NO_SUCH_OBJECT.toString());
         assertEquals("noSuchInstance", MockSnmpValue.NO_SUCH_INSTANCE.toString());
         assertEquals("endOfMibView", MockSnmpValue.END_OF_MIB.toString());
     }
     
+    @Test
     public void testEmptyAgent() {
         TestAgent agent = new TestAgent();
         SnmpObjId z1 = SnmpObjId.get(zeroInst1Base, "0");
@@ -103,6 +112,7 @@ public class TestAgentTest extends TestCase {
         
     }
     
+    @Test
     public void testLoadSnmpData() throws Exception {
         TestAgent agent = new TestAgent();
         agent.loadSnmpTestData(getClass(), "/loadSnmpDataTest.properties");
@@ -111,6 +121,7 @@ public class TestAgentTest extends TestCase {
         
     }
     
+    @Test
     public void testAgentValueFor() {
         SnmpObjId z1 = SnmpObjId.get(zeroInst1Base, "0");
         SnmpObjId z2 = SnmpObjId.get(zeroInst2Base, "0");
@@ -151,6 +162,7 @@ public class TestAgentTest extends TestCase {
         
     }
 
+    @Test
     public void testFollowingOid() {
         SnmpObjId z1 = SnmpObjId.get(zeroInst1Base);
         SnmpObjId z2 = SnmpObjId.get(zeroInst2Base);
@@ -184,6 +196,7 @@ public class TestAgentTest extends TestCase {
         assertEquals(col2dot1, m_agent.getFollowingObjId(col2dot10));
     }
     
+    @Test
     public void testGet() {
         GetPdu get = TestPdu.getGet();
         get.addVarBind(zeroInst1Base, 0);
@@ -193,6 +206,7 @@ public class TestAgentTest extends TestCase {
         validateGetResponse(get, m_agent.send(get));
     }
 
+    @Test
     public void testGetTooBig() {
         m_agent.setBehaviorToV1();
         m_agent.setMaxResponseSize(5);
@@ -216,6 +230,7 @@ public class TestAgentTest extends TestCase {
     }
 
     
+    @Test
     public void testGetWithInvalidOidV1() {
         m_agent.setBehaviorToV1();
         
@@ -232,6 +247,7 @@ public class TestAgentTest extends TestCase {
         
     }
     
+    @Test
     public void testGetWithNoInstanceV1() {
         m_agent.setBehaviorToV1();
         
@@ -247,6 +263,7 @@ public class TestAgentTest extends TestCase {
         assertEquals(2, resp.getErrorIndex());
     }
 
+    @Test
     public void testGetWithInvalidOidV2() {
         m_agent.setBehaviorToV2();
         
@@ -260,6 +277,7 @@ public class TestAgentTest extends TestCase {
         
     }
     
+    @Test
     public void testGetWithNoInstanceV2() {
         m_agent.setBehaviorToV2();
         
@@ -272,6 +290,7 @@ public class TestAgentTest extends TestCase {
         validateGetResponse(get, m_agent.send(get));
     }
 
+    @Test
     public void testGetWithGenErrV1() {
         m_agent.setBehaviorToV1();
         
@@ -290,6 +309,7 @@ public class TestAgentTest extends TestCase {
         assertEquals(2, resp.getErrorIndex());
     }
     
+    @Test
     public void testGetNextWithGenErrV1() {
         m_agent.setBehaviorToV1();
         
@@ -308,6 +328,7 @@ public class TestAgentTest extends TestCase {
         assertEquals(2, resp.getErrorIndex());
     }
 
+    @Test
     public void testBulkWithGenErr() {
         m_agent.setBehaviorToV2();
         
@@ -340,6 +361,7 @@ public class TestAgentTest extends TestCase {
         }
     }
     
+    @Test
     public void testNext() {
         NextPdu pdu = TestPdu.getNext();
         pdu.addVarBind(zeroInst1Base);
@@ -351,6 +373,7 @@ public class TestAgentTest extends TestCase {
         validateNextResponse(pdu, m_agent.send(pdu));
     }
 
+    @Test
     public void testNextInvalidOidV1() {
         m_agent.setBehaviorToV1();
         
@@ -365,6 +388,7 @@ public class TestAgentTest extends TestCase {
         assertEquals(2, resp.getErrorIndex());
     }
 
+    @Test
     public void testNextInvalidOidV2() {
         m_agent.setBehaviorToV2();
         
@@ -376,6 +400,7 @@ public class TestAgentTest extends TestCase {
         validateNextResponse(pdu, m_agent.send(pdu));
     }
 
+    @Test
     public void testNextWithGenErrV1() {
         m_agent.setBehaviorToV1();
         
@@ -394,6 +419,7 @@ public class TestAgentTest extends TestCase {
         assertEquals(2, resp.getErrorIndex());
     }
 
+    @Test
     public void testNextWithGenErrV2() {
         m_agent.setBehaviorToV2();
         
@@ -433,6 +459,7 @@ public class TestAgentTest extends TestCase {
         }
     }
 
+    @Test
     public void testBulk() {
         m_agent.setBehaviorToV2();
 
@@ -448,6 +475,7 @@ public class TestAgentTest extends TestCase {
         validateBulkResponse(pdu, m_agent.send(pdu));
     }
     
+    @Test
     public void testBulkInV1() {
         try {
             m_agent.setBehaviorToV1();
@@ -466,6 +494,7 @@ public class TestAgentTest extends TestCase {
         }
     }
 
+    @Test
     public void testBulkTooBig() {
         m_agent.setBehaviorToV2();
         m_agent.setMaxResponseSize(4);
@@ -481,6 +510,7 @@ public class TestAgentTest extends TestCase {
         validateBulkResponse(pdu, m_agent.send(pdu));
     }
     
+    @Test
     public void testBulkInvalidOidInNonRepeaterV2() {
         m_agent.setBehaviorToV2();
         BulkPdu pdu = TestPdu.getBulk();
@@ -495,6 +525,7 @@ public class TestAgentTest extends TestCase {
         validateBulkResponse(pdu, m_agent.send(pdu));
     }
 
+    @Test
     public void testBulkInvalidOidInRepeaterV2() {
         m_agent.setBehaviorToV2();
         BulkPdu pdu = TestPdu.getBulk();
@@ -509,6 +540,7 @@ public class TestAgentTest extends TestCase {
         validateBulkResponse(pdu, m_agent.send(pdu));
     }
     
+    @Test
     public void testBulkWithGenErrInNonRepeater() {
         m_agent.setBehaviorToV2();
         
@@ -530,6 +562,7 @@ public class TestAgentTest extends TestCase {
         assertEquals(2, resp.getErrorIndex());
     }
 
+    @Test
     public void testBulkWithGenErrInRepeater() {
         m_agent.setBehaviorToV2();
         

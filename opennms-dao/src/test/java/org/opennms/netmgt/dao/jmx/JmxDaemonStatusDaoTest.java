@@ -28,6 +28,8 @@
 
 package org.opennms.netmgt.dao.jmx;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Map;
 
 import javax.management.MBeanServer;
@@ -35,12 +37,14 @@ import javax.management.MBeanServerFactory;
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.netmgt.model.MockServiceDaemon;
 import org.opennms.netmgt.model.ServiceInfo;
 
-public class JmxDaemonStatusDaoTest extends TestCase {
+public class JmxDaemonStatusDaoTest {
     static private MBeanServer mBeanServer;
 	static private ObjectName objectName[] = new ObjectName[4];
 	static private String[] names = {"test","test2","notifd","test3"};
@@ -60,9 +64,8 @@ public class JmxDaemonStatusDaoTest extends TestCase {
 		}
 	}
 	
-    @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
 		for(int i = 0; i < 4; i++){
 		  MockServiceDaemon serviceDaemonStub = new MockServiceDaemon(names[i]);
 		  serviceDaemonStub.start();
@@ -74,14 +77,14 @@ public class JmxDaemonStatusDaoTest extends TestCase {
 		jmxDaemonStatusDao.setMbeanServer(mBeanServer);
 	}
 
-    @Override
+	@After
 	protected void tearDown() throws Exception {
-		super.tearDown();
 		for(int i = 0; i < 4; i++){
 			mBeanServer.unregisterMBean(objectName[i]);
 		}
 	}
 
+	@Test
 	public void testGetAllStatuses(){
 		// get all the services
 		try{
@@ -98,16 +101,19 @@ public class JmxDaemonStatusDaoTest extends TestCase {
 		}
 	}
 	
+	@Test
 	public void testGetServiceHandleForValidService(){
 		// get notifd service
 		// assert the service returned is not null
 	}
 	
+	@Test
 	public void testGetServiceHandleForInvalidService(){
 		// get nottobefound service
 		// assert null return
 	}
 	
+	@Test
 	public void testGetServiceHandleForNullServiceStr(){
 		// get null service
 		// assert null service passes exception

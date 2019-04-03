@@ -28,7 +28,7 @@
 
 package org.opennms.netmgt.eventd;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.netmgt.config.api.EventConfDao;
 import org.opennms.netmgt.dao.mock.MockEventIpcManager;
@@ -42,10 +42,11 @@ import org.opennms.test.mock.EasyMockUtils;
  * 
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class BroadcastEventProcessorTest extends TestCase {
+public class BroadcastEventProcessorTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private EventConfDao m_eventConfDao = m_mocks.createMock(EventConfDao.class);
     
+    @Test
     public void testInstantiateWithNullEventIpcManager() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalArgumentException("argument eventIpcManager must not be null"));
@@ -59,6 +60,7 @@ public class BroadcastEventProcessorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testInstantiateWithNullEventConfDao() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalArgumentException("argument eventConfDao must not be null"));
@@ -72,12 +74,14 @@ public class BroadcastEventProcessorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testInstantiateAndClose() {
         MockEventIpcManager eventIpcManager = new MockEventIpcManager();
         BroadcastEventProcessor processor = new BroadcastEventProcessor(eventIpcManager, m_eventConfDao);
         processor.close();
     }
     
+    @Test
     public void testReload() {
         MockEventIpcManager eventIpcManager = new MockEventIpcManager();
         BroadcastEventProcessor processor = new BroadcastEventProcessor(eventIpcManager, m_eventConfDao);
@@ -94,6 +98,7 @@ public class BroadcastEventProcessorTest extends TestCase {
         m_mocks.verifyAll();
     }
 
+    @Test
     public void testReloadDaemonConfig() {
         MockEventIpcManager eventIpcManager = new MockEventIpcManager();
         BroadcastEventProcessor processor = new BroadcastEventProcessor(eventIpcManager, m_eventConfDao);

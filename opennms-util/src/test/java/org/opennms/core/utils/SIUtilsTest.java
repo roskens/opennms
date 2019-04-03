@@ -28,18 +28,21 @@
 
 package org.opennms.core.utils;
 
+import static org.junit.Assert.assertEquals;
+
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class SIUtilsTest extends TestCase {
+public class SIUtilsTest {
     /**
      * 10 gigabit ethernet.
      */
+    @Test
     public void testTenGig() {
         assertEquals("10 Gbps", SIUtils.getHumanReadableIfSpeed(10000000000L));
     }
@@ -47,6 +50,7 @@ public class SIUtilsTest extends TestCase {
     /**
      * Gigabit Ethernet.
      */
+    @Test
     public void testOneGig() {
         assertEquals("1 Gbps", SIUtils.getHumanReadableIfSpeed(1000000000L));
     }
@@ -54,6 +58,7 @@ public class SIUtilsTest extends TestCase {
     /**
      * Fast Ethernet.
      */
+    @Test
     public void testOneHundredMeg() {
         assertEquals("100 Mbps", SIUtils.getHumanReadableIfSpeed(100000000L));
     }
@@ -61,6 +66,7 @@ public class SIUtilsTest extends TestCase {
     /**
      * Ethernet.
      */
+    @Test
     public void testTenMeg() {
         assertEquals("10 Mbps", SIUtils.getHumanReadableIfSpeed(10000000L));
     }
@@ -69,6 +75,7 @@ public class SIUtilsTest extends TestCase {
      * DS-1 line speed.
      * @link http://en.wikipedia.org/wiki/Digital_Signal_1
      */
+    @Test
     public void testOnePointFiveFourFourMeg() {
     	DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.getDefault());
         assertEquals("1"+symbols.getDecimalSeparator()+"544 Mbps", SIUtils.getHumanReadableIfSpeed(1544000L));
@@ -77,6 +84,7 @@ public class SIUtilsTest extends TestCase {
     /**
      * 1200bps modem line.
      */
+    @Test
     public void testTwelveHundred() {
     	DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.getDefault());
         assertEquals("1"+symbols.getDecimalSeparator()+"2 kbps", SIUtils.getHumanReadableIfSpeed(1200L));

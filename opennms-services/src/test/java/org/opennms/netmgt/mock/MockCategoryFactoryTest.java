@@ -28,6 +28,9 @@
 
 package org.opennms.netmgt.mock;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 /**
  * @author jsartin
  */
@@ -36,9 +39,11 @@ import org.opennms.netmgt.config.CategoryFactory;
 import org.opennms.netmgt.config.api.CatFactory;
 import org.opennms.netmgt.config.categories.Category;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
-public class MockCategoryFactoryTest extends TestCase {
+public class MockCategoryFactoryTest {
 
 	protected MockCategoryFactory m_mockCatFactory;
 	protected CatFactory m_catFactory;
@@ -74,21 +79,20 @@ public class MockCategoryFactoryTest extends TestCase {
 		" </categorygroup>" +
 		"</catinfo>";
 	
-        @Override
+	@Before
 	protected void setUp() throws Exception {
-		super.setUp();
 		m_mockCatFactory = new MockCategoryFactory(MOCK_CATEGORY_CONFIG);
 		CategoryFactory.setInstance(m_mockCatFactory);
 		m_catFactory = CategoryFactory.getInstance();
 	}
 
-        @Override
+	@After
 	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 
 	
 
+	@Test
 	public void testGetCategory() {
 		
 		Category category = m_catFactory.getCategory(CATLABEL);
@@ -103,6 +107,7 @@ public class MockCategoryFactoryTest extends TestCase {
 		
 	}
 
+	@Test
 	public void testGetEffectiveRule() {
 		assertEquals(EFFECTIVE_RULE,m_catFactory.getEffectiveRule(CATLABEL));
 	}

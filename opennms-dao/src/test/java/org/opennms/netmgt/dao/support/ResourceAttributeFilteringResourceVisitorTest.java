@@ -31,7 +31,7 @@ package org.opennms.netmgt.dao.support;
 import java.util.HashSet;
 import java.util.Set;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.ExternalValueAttribute;
@@ -46,10 +46,11 @@ import org.opennms.test.mock.EasyMockUtils;
 /**
  * @author <a href="dj@opennms.org">DJ Gregor</a>
  */
-public class ResourceAttributeFilteringResourceVisitorTest extends TestCase {
+public class ResourceAttributeFilteringResourceVisitorTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private ResourceVisitor m_delegatedVisitor = m_mocks.createMock(ResourceVisitor.class);
     
+    @Test
     public void testAfterPropertiesSet() throws Exception {
         ResourceAttributeFilteringResourceVisitor filteringVisitor = new ResourceAttributeFilteringResourceVisitor();
         filteringVisitor.setDelegatedVisitor(m_delegatedVisitor);
@@ -58,6 +59,7 @@ public class ResourceAttributeFilteringResourceVisitorTest extends TestCase {
         filteringVisitor.afterPropertiesSet();
     }
     
+    @Test
     public void testAfterPropertiesSetNoDelegatedVisitor() throws Exception {
         ResourceAttributeFilteringResourceVisitor filteringVisitor = new ResourceAttributeFilteringResourceVisitor();
         
@@ -75,6 +77,7 @@ public class ResourceAttributeFilteringResourceVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetNoResourceTypeMatch() throws Exception {
         ResourceAttributeFilteringResourceVisitor filteringVisitor = new ResourceAttributeFilteringResourceVisitor();
         
@@ -92,6 +95,7 @@ public class ResourceAttributeFilteringResourceVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testAfterPropertiesSetNoResourceAttributeValueMatch() throws Exception {
         ResourceAttributeFilteringResourceVisitor filteringVisitor = new ResourceAttributeFilteringResourceVisitor();
         
@@ -109,6 +113,7 @@ public class ResourceAttributeFilteringResourceVisitorTest extends TestCase {
         ta.verifyAnticipated();
     }
     
+    @Test
     public void testVisitWithExternalValueMatch() throws Exception {
         ResourceAttributeFilteringResourceVisitor filteringVisitor = new ResourceAttributeFilteringResourceVisitor();
         filteringVisitor.setDelegatedVisitor(m_delegatedVisitor);
@@ -131,6 +136,7 @@ public class ResourceAttributeFilteringResourceVisitorTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testVisitWithStringPropertyMatch() throws Exception {
         ResourceAttributeFilteringResourceVisitor filteringVisitor = new ResourceAttributeFilteringResourceVisitor();
         filteringVisitor.setDelegatedVisitor(m_delegatedVisitor);
@@ -153,6 +159,7 @@ public class ResourceAttributeFilteringResourceVisitorTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testVisitWithoutMatch() throws Exception {
         ResourceAttributeFilteringResourceVisitor filteringVisitor = new ResourceAttributeFilteringResourceVisitor();
         filteringVisitor.setDelegatedVisitor(m_delegatedVisitor);

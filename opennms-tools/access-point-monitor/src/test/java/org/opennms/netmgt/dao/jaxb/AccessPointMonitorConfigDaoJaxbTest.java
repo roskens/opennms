@@ -28,9 +28,11 @@
 
 package org.opennms.netmgt.dao.jaxb;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.InputStream;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.core.xml.MarshallingResourceFailureException;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -39,8 +41,9 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 
-public class AccessPointMonitorConfigDaoJaxbTest extends TestCase {
+public class AccessPointMonitorConfigDaoJaxbTest {
 
+    @Test
     public void testAfterPropertiesSetWithNoConfigSet() {
         AccessPointMonitorConfigDaoJaxb dao = new AccessPointMonitorConfigDaoJaxb();
 
@@ -55,6 +58,7 @@ public class AccessPointMonitorConfigDaoJaxbTest extends TestCase {
         ta.verifyAnticipated();
     }
 
+    @Test
     public void testAfterPropertiesSetWithBogusFileResource() throws Exception {
         Resource resource = new FileSystemResource("/bogus-file");
         AccessPointMonitorConfigDaoJaxb dao = new AccessPointMonitorConfigDaoJaxb();
@@ -71,6 +75,7 @@ public class AccessPointMonitorConfigDaoJaxbTest extends TestCase {
         ta.verifyAnticipated();
     }
 
+    @Test
     public void testAfterPropertiesSetWithGoodConfigFile() throws Exception {
         AccessPointMonitorConfigDaoJaxb dao = new AccessPointMonitorConfigDaoJaxb();
 

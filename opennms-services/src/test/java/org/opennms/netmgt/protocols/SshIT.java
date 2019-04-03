@@ -28,12 +28,16 @@
 
 package org.opennms.netmgt.protocols;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.InetAddress;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.core.utils.TimeoutTracker;
@@ -44,7 +48,7 @@ import org.opennms.netmgt.poller.monitors.support.Ssh;
  * @author <a href="mailto:brozow@opennms.org">Mathew Brozowski</a>
  * @author <a href="mailto:ranger@opennms.org">Ben Reed</a>
  */
-public class SshIT extends TestCase {
+public class SshIT {
     InetAddress good;
     private static final InetAddress bad = InetAddressUtils.UNPINGABLE_ADDRESS;
 
@@ -54,7 +58,7 @@ public class SshIT extends TestCase {
     private TimeoutTracker tt;
     Ssh ssh;
     
-    @Override
+    @Before
     public void setUp() throws Exception {
         Map<String, String> parameters = new HashMap<String,String>();
         parameters.put("retries", "0");
@@ -69,11 +73,13 @@ public class SshIT extends TestCase {
         good = InetAddressUtils.addr(GOOD_HOST);
     }
     
+    @Test
     public void testSshGood() throws Exception {
         ssh.setAddress(good);
         assertTrue("SSH poll against " + GOOD_HOST + " failed", ssh.poll(tt).isAvailable());
     }
     
+    @Test
     public void testSshBad() throws Exception {
         Date start = new Date();
         ssh.setAddress(bad);

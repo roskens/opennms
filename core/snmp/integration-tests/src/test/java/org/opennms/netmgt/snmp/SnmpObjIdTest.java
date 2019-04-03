@@ -28,11 +28,17 @@
 
 package org.opennms.netmgt.snmp;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.Arrays;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class SnmpObjIdTest extends TestCase {
+public class SnmpObjIdTest {
 
     private void assertArrayEquals(int[] a, int[] b) {
         if (a == null) {
@@ -48,6 +54,7 @@ public class SnmpObjIdTest extends TestCase {
         }
     }
     
+    @Test
     public void testInvalidOids() {
         try {
             SnmpObjId.get(".1.3.5.x.9");
@@ -64,6 +71,7 @@ public class SnmpObjIdTest extends TestCase {
         }
     }
     
+    @Test
     public void testLargeSubId() {
         long subid = ((long)Integer.MAX_VALUE) + 10L;
         String oidStr = ".1.3.5." + subid + ".9";
@@ -71,6 +79,7 @@ public class SnmpObjIdTest extends TestCase {
         assertEquals(oidStr, oid.toString());
     }
     
+    @Test
     public void testCompareWithLargeSubid() {
         long subid = ((long)Integer.MAX_VALUE) + 10L;
         String oidStr = ".1.3.5." + subid + ".9";
@@ -89,6 +98,7 @@ public class SnmpObjIdTest extends TestCase {
     }
 
     
+    @Test
     public void testDecrementWithLargeSubid() {
         long subid = ((long)Integer.MAX_VALUE) + 10L;
         String oidStr = ".1.3.5." + subid;
@@ -99,6 +109,7 @@ public class SnmpObjIdTest extends TestCase {
 
     }
 
+    @Test
     public void testSnmpOidCompare() {
         SnmpObjId oid1 = SnmpObjId.get("1.3.5.7");
         SnmpObjId oid1b = SnmpObjId.get(".1.3.5.7");
@@ -143,6 +154,7 @@ public class SnmpObjIdTest extends TestCase {
         
     }
 
+    @Test
     public void testOidAppendPrefixInstance() {
         SnmpObjId base = SnmpObjId.get(".1.3.5.7");
         SnmpObjId result = SnmpObjId.get(".1.3.5.7.9.8.7.6");
@@ -161,6 +173,7 @@ public class SnmpObjIdTest extends TestCase {
         assertEquals("9.8.7.6", instance.toString());
     }
     
+    @Test
     public void testDecrement() {
         SnmpObjId oid = SnmpObjId.get(".1.3.5.7");
         assertEquals(SnmpObjId.get(".1.3.5.6"), oid.decrement());

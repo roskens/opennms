@@ -28,14 +28,17 @@
 
 package org.opennms.netmgt.accesspointmonitor.poller;
 
+import static org.junit.Assert.assertEquals;
+
 import org.opennms.netmgt.snmp.SnmpValue;
 import org.opennms.netmgt.snmp.SnmpValueFactory;
 import org.opennms.netmgt.snmp.mock.MockSnmpValueFactory;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class TableStrategyTest extends TestCase {
+public class TableStrategyTest {
 
+    @Test
     public void testPhydAddrFromValue() {
         SnmpValueFactory valueFactory = new MockSnmpValueFactory();
 

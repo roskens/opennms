@@ -32,9 +32,10 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class PDFReportRendererTest extends TestCase {
+public class PDFReportRendererTest {
+    @Test
     public void testPdfRendering() throws Exception {
         new PDFReportRenderer().render(
                 new InputStreamReader(

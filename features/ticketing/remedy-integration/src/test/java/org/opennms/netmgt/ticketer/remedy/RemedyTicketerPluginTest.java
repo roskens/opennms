@@ -28,17 +28,27 @@
 
 package org.opennms.netmgt.ticketer.remedy;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeTrue;
+
 import java.io.File;
 import java.util.Date;
+import org.junit.After;
 
-import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 
 import org.opennms.api.integration.ticketing.PluginException;
 import org.opennms.api.integration.ticketing.Ticket;
 import org.opennms.api.integration.ticketing.Ticket.State;
 
-public class RemedyTicketerPluginTest extends TestCase {
+public class RemedyTicketerPluginTest {
 
+	@Rule
+	public TestName m_testName = new TestName();
 		
 	RemedyTicketerPlugin m_ticketer;
 	
@@ -51,18 +61,12 @@ public class RemedyTicketerPluginTest extends TestCase {
      * Don't run this test unless the runOtrsTests property
      * is set to "true".
      */
-    @Override
+    @BeforeClass
     protected void runTest() throws Throwable {
+        assumeTrue(isRunTest());
         if (!isRunTest()) {
-            System.err.println("Skipping test '" + getName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
+            System.err.println("Skipping test '" + m_testName.getMethodName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
             return;
-        }
-            
-        try {
-            System.err.println("------------------- begin "+getName()+" ---------------------");
-            super.runTest();
-        } finally {
-            System.err.println("------------------- end "+getName()+" -----------------------");
         }
     }
 
@@ -74,8 +78,14 @@ public class RemedyTicketerPluginTest extends TestCase {
         return "runRemedyTests";
     }
 
-	@Override
+    @After
+    protected void tearDown() throws Exception {
+        System.err.println("------------------- end "+m_testName.getMethodName()+" -----------------------");
+    }
+
+	 @Before
 	 protected void setUp() throws Exception {
+            System.err.println("------------------- begin "+m_testName.getMethodName()+" ---------------------");
 
 	        System.setProperty("opennms.home", "src" + File.separatorChar + "test" + File.separatorChar + "opennms-home");
 
@@ -91,6 +101,7 @@ public class RemedyTicketerPluginTest extends TestCase {
 
 	
 	 
+	@Test
 	public void testSaveAndGet() {
 	    		
 		try {
@@ -105,6 +116,7 @@ public class RemedyTicketerPluginTest extends TestCase {
 		
 	}
 	
+	@Test
 	public void testOpenCloseStatus() {
 		testSaveAndGet();
 		try {
@@ -150,6 +162,7 @@ public class RemedyTicketerPluginTest extends TestCase {
 		}
 	}
 
+	@Test
 	public void testClosedToCancelledStatus() {
 		testSaveAndGet();
 		try {

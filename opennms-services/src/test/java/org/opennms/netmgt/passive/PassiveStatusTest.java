@@ -28,15 +28,19 @@
 
 package org.opennms.netmgt.passive;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 import org.opennms.netmgt.passive.PassiveStatusKey;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class PassiveStatusTest extends TestCase {
+public class PassiveStatusTest {
 
     /*
      * Test method for 'org.opennms.netmgt.config.PassiveStatus.equals(Object)'
      */
+    @Test
     public void testEqualsObject() {
         PassiveStatusKey ps = new PassiveStatusKey("node1", "1.1.1.1", "ICMP");
         PassiveStatusKey ps2 = new PassiveStatusKey("node1", "2.1.1.1", "HTTP");

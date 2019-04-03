@@ -28,26 +28,30 @@
 
 package org.opennms.netmgt.dao.jaxb.collector;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.netmgt.dao.jaxb.InvocationAnticipator;
 import org.opennms.netmgt.dao.jaxb.collector.DataCollectionConfigFile;
 import org.opennms.netmgt.dao.jaxb.collector.DataCollectionVisitor;
 import org.springframework.core.io.ClassPathResource;
 
-public class DataCollectionConfigFileTest extends TestCase {
+public class DataCollectionConfigFileTest {
     
     private InvocationAnticipator m_invocationAnticipator;
     private DataCollectionVisitor m_visitor;
     
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         
         InvocationHandler noNullsAllowed = new InvocationHandler() {
 
@@ -66,11 +70,11 @@ public class DataCollectionConfigFileTest extends TestCase {
         m_visitor = (DataCollectionVisitor)m_invocationAnticipator.getProxy();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown();
     }
     
+    @Test
     public void testVisit() throws IOException {
         
         ClassPathResource resource = new ClassPathResource("/datacollectionconfigfile-testdata.xml");

@@ -28,19 +28,24 @@
 
 package org.opennms.netmgt.poller.monitors;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.Collections;
 import java.util.Map;
 
 import org.opennms.core.utils.TimeoutTracker;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * 
  * @author <a href="mailto:brozow@opennms.org">Mathew Brozowski</a>
  */
-public class TimeoutTrackerTest extends TestCase {
+public class TimeoutTrackerTest {
     
+    @Test
     public void testShouldRetry() {
         
         int retries = 2;
@@ -59,6 +64,7 @@ public class TimeoutTrackerTest extends TestCase {
     }
     
     
+    @Test
     public void testElapsedTimeButNoStartAttempt() {
         
         Map<String,?> emptyMap = Collections.emptyMap();
@@ -73,6 +79,7 @@ public class TimeoutTrackerTest extends TestCase {
         
     }
     
+    @Test
     public void testElapsedTime() throws InterruptedException {
         
         long sleepTime = 200L;

@@ -28,8 +28,10 @@
 
 package org.opennms.netmgt.mib2events;
 
+import static org.junit.Assert.assertTrue;
+
 import junit.framework.Test;
-import junit.framework.TestCase;
+import org.junit.Test;
 import junit.framework.TestSuite;
 
 /**
@@ -59,6 +61,7 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
+    @Test
     public void testApp()
     {
         assertTrue( true );

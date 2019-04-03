@@ -28,35 +28,45 @@
 
 package org.opennms.test;
 
-import junit.framework.AssertionFailedError;
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-public class ThrowableAnticipatorTest extends TestCase {
+import junit.framework.AssertionFailedError;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
+
+public class ThrowableAnticipatorTest {
     private ThrowableAnticipator m_anticipator;
     private Throwable m_throwable = new Throwable("our test throwable");
 
     public ThrowableAnticipatorTest() {
     }
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
         m_anticipator = new ThrowableAnticipator();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
         m_anticipator.verifyAnticipated();
     }
     
+    @Test
     public void testConstructor() throws Exception {
         setUp();
     }
     
+    @Test
     public void testAnticipate() {
         m_anticipator.anticipate(m_throwable);
         m_anticipator.reset();
     }
     
+    @Test
     public void testThrowableReceivedVoid() {
         try {
             m_anticipator.throwableReceived(null);
@@ -73,6 +83,7 @@ public class ThrowableAnticipatorTest extends TestCase {
         fail("Did not receive expected IllegalArgumentException.");
     }
     
+    @Test
     public void testThrowableReceivedVoidMessage() {
         try {
             m_anticipator.throwableReceived(new Exception());
@@ -89,6 +100,7 @@ public class ThrowableAnticipatorTest extends TestCase {
         fail("Did not receive expected AssertionFailedError.");
     }
     
+    @Test
     public void testThrowableReceivedIgnoreMessage() {
         m_anticipator.anticipate(new Exception(ThrowableAnticipator.IGNORE_MESSAGE));
         try {
@@ -99,11 +111,13 @@ public class ThrowableAnticipatorTest extends TestCase {
             fail("Received unexpected Throwable: " + t);
         }
     }
+    @Test
     public void testThrowableReceived() {
         m_anticipator.anticipate(m_throwable);
         m_anticipator.throwableReceived(m_throwable);
     }
     
+    @Test
     public void testThrowableReceivedNotAnticipated() {
         try {
             m_anticipator.throwableReceived(m_throwable);
@@ -120,6 +134,7 @@ public class ThrowableAnticipatorTest extends TestCase {
         fail("Did not receive expected AssertionFailedError.");
     }
     
+    @Test
     public void testThrowableReceivedNotAnticipatedCheckCause() {
         try {
             m_anticipator.throwableReceived(m_throwable);
@@ -140,12 +155,14 @@ public class ThrowableAnticipatorTest extends TestCase {
         fail("Did not receive expected AssertionFailedError.");
     }
     
+    @Test
     public void testSetFailFast() {
         assertTrue(m_anticipator.isFailFast());
         m_anticipator.setFailFast(false);
         assertFalse(m_anticipator.isFailFast());
     }
     
+    @Test
     public void testSetFailFastWithUnanticipated() {
         assertTrue(m_anticipator.isFailFast());
         m_anticipator.setFailFast(false);
@@ -167,6 +184,7 @@ public class ThrowableAnticipatorTest extends TestCase {
         fail("Did not receive expected AssertionFailedError.");
     }
 
+    @Test
     public void testReset() {
         m_anticipator.setFailFast(false);
         m_anticipator.anticipate(m_throwable);
@@ -176,6 +194,7 @@ public class ThrowableAnticipatorTest extends TestCase {
         m_anticipator.reset();
     }
     
+    @Test
     public void testVerifyAnticipated() {
         m_anticipator.verifyAnticipated();
     }

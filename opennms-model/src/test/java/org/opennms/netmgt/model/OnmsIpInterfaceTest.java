@@ -28,11 +28,15 @@
 
 package org.opennms.netmgt.model;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
 
 
-public class OnmsIpInterfaceTest extends TestCase {
+public class OnmsIpInterfaceTest {
 
+	@Test
 	public void testCollectionTypeGetNull () {
 		PrimaryType collectionType = PrimaryType.get(null);
 		
@@ -40,12 +44,14 @@ public class OnmsIpInterfaceTest extends TestCase {
 		
 	}
 
+	@Test
 	public void testCollectionTypeGetSpaces () {
 		PrimaryType collectionType = PrimaryType.get("   ");
 		
 		assertSame("The expected valus is N for all spaces", PrimaryType.NOT_ELIGIBLE, collectionType);
 	}
 	
+	@Test
 	public void testCollectionTypeGetTwoChars () {
 		
 		try {
@@ -56,6 +62,7 @@ public class OnmsIpInterfaceTest extends TestCase {
 		}
 	}
 
+	@Test
 	public void testCollectionTypeGetZ () {
 		
 		try {
@@ -66,6 +73,7 @@ public class OnmsIpInterfaceTest extends TestCase {
 		}
 	}
 	
+	@Test
 	public void testCollectionTypeComparison () {
 		PrimaryType left = PrimaryType.NOT_ELIGIBLE;
 		PrimaryType right = null;

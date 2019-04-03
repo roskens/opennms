@@ -39,7 +39,8 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.easymock.EasyMock;
 import org.easymock.IArgumentMatcher;
@@ -57,16 +58,17 @@ import org.springframework.security.authentication.event.AuthenticationSuccessEv
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 
-public class SecurityAuthenticationEventOnmsEventBuilderTest extends TestCase {
+public class SecurityAuthenticationEventOnmsEventBuilderTest {
     private EasyMockUtils m_mocks;
     private EventProxy m_eventProxy;
 
-    @Override
+    @Before
     public void setUp() {
         m_mocks = new EasyMockUtils();
         m_eventProxy = m_mocks.createMock(EventProxy.class);
     }
 
+    @Test
     public void testAuthenticationSuccessEventWithEverything() throws Exception {
         String userName = "bar";
         String ip = "1.2.3.4";
@@ -103,6 +105,7 @@ public class SecurityAuthenticationEventOnmsEventBuilderTest extends TestCase {
         m_mocks.verifyAll();
     }
     
+    @Test
     public void testAuthenticationFailureEvent() throws Exception {
         String userName = "bar";
         String ip = "1.2.3.4";
@@ -141,6 +144,7 @@ public class SecurityAuthenticationEventOnmsEventBuilderTest extends TestCase {
     /**
      * This shouldn't trigger an OpenNMS event.
      */
+    @Test
     public void testRandomEvent() throws Exception {
         SecurityAuthenticationEventOnmsEventBuilder builder = new SecurityAuthenticationEventOnmsEventBuilder();
         builder.setEventProxy(m_eventProxy);

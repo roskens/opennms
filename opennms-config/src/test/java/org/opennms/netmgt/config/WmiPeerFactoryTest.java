@@ -28,10 +28,12 @@
 
 package org.opennms.netmgt.config;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.IOException;
 import java.net.InetAddress;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 
@@ -42,7 +44,7 @@ import org.opennms.core.test.ConfigurationTestUtils;
  * @author <a href="mailto:david@opennms.org>David Hustace</a>
  *
  */
-public class WmiPeerFactoryTest extends TestCase {
+public class WmiPeerFactoryTest {
     private WmiPeerFactory getFactory(String amiConfigXml) throws IOException {
         WmiPeerFactory factory = new WmiPeerFactory(ConfigurationTestUtils.getResourceForConfigWithReplacements(amiConfigXml));
         factory.afterPropertiesSet();
@@ -198,6 +200,7 @@ public class WmiPeerFactoryTest extends TestCase {
      *
      * @throws IOException 
      */
+    @Test
     public void testRecombineSpecificIntoRange() throws IOException {
 
         String amiConfigXml = "<?xml version=\"1.0\"?>\n" + 
@@ -235,6 +238,7 @@ public class WmiPeerFactoryTest extends TestCase {
      *
      * @throws IOException 
      */
+    @Test
     public void testRecombineSpecificIntoRangeWithDifferentScopeIds() throws IOException {
 
         String amiConfigXml = "<?xml version=\"1.0\"?>\n" + 
@@ -340,6 +344,7 @@ public class WmiPeerFactoryTest extends TestCase {
      *
      * @throws IOException 
      */
+    @Test
     public void testOverlapsTwoRanges() throws IOException {
 
         String amiConfigXml = "<?xml version=\"1.0\"?>\n" + 

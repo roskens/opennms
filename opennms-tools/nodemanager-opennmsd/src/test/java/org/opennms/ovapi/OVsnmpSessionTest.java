@@ -28,13 +28,20 @@
 
 package org.opennms.ovapi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
 import org.opennms.mock.snmp.MockSnmpAgent;
 import org.opennms.nnm.SnmpObjId;
@@ -48,11 +55,12 @@ import org.opennms.nnm.swig.timeval;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-public class OVsnmpSessionTest extends TestCase {
+public class OVsnmpSessionTest {
     
     MockSnmpAgent m_agent;
     String m_host;
     
+    @Before
     public void setUp() throws Exception {
         Resource snmpData = new ClassPathResource("snmpTestData1.properties");
     
@@ -61,12 +69,14 @@ public class OVsnmpSessionTest extends TestCase {
         m_agent = MockSnmpAgent.createAgentAndRun(snmpData, m_host+"/9161");
     }
     
+    @After
     protected void tearDown() throws Exception {
         Thread.sleep(1000);
         m_agent.shutDownAndWait();
         
     }
 
+    @Test
     public void testOpenClose() throws Exception {
 
         OVsnmpSession sess = open("localhost", 9161);
@@ -82,6 +92,7 @@ public class OVsnmpSessionTest extends TestCase {
         session.close();
     }
     
+    @Test
     public void testCreatePdu() throws Exception {
         SnmpObjId sysName = SnmpObjId.get(".1.3.6.1.2.1.1.5.0");
         
@@ -102,6 +113,7 @@ public class OVsnmpSessionTest extends TestCase {
         request.free();
     }
     
+    @Test
     public void testBlockingSend() {
         SnmpObjId sysName = SnmpObjId.get(".1.3.6.1.2.1.1.5.0");
         
@@ -286,6 +298,7 @@ public class OVsnmpSessionTest extends TestCase {
         
     }
     
+    @Test
     public void testAsynchronousCallbacks() throws Exception {
         
         Thread.sleep(20000);

@@ -28,6 +28,12 @@
 
 package org.opennms.reporting.availability;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -43,9 +49,11 @@ import org.opennms.netmgt.filter.FilterDaoFactory;
 import org.opennms.netmgt.mock.MockCategoryFactory;
 import org.opennms.reporting.availability.svclayer.LegacyAvailabilityDataService;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 
-public class AvailabilityCalculatorIT extends TestCase {
+public class AvailabilityCalculatorIT {
 
     protected MockDatabase m_db;
 
@@ -55,9 +63,8 @@ public class AvailabilityCalculatorIT extends TestCase {
 
     protected MockCategoryFactory m_catFactory;
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
         
         // Reset the FilterDaoFactory so we don't get screwed by having the JdbcFilterDao be connected to an older database
         FilterDaoFactory.setInstance(null);
@@ -220,6 +227,7 @@ public class AvailabilityCalculatorIT extends TestCase {
         return report;
     }
 
+    @Test
     public void testMyDatabase() {
         assertEquals("node DB count", 2, m_db.countRows("select * from node"));
         assertEquals("service DB count", 3,
@@ -240,6 +248,7 @@ public class AvailabilityCalculatorIT extends TestCase {
                      m_db.countRows("select * from ipinterface where iplike(ipaddr,'192.168.100.*')"));
     }
 
+    @Test
     public void testBuiltClassicReport() {
 
         Report report = buildReport(m_calendar, "classic");
@@ -266,6 +275,7 @@ public class AvailabilityCalculatorIT extends TestCase {
 
     }
 
+    @Test
     public void testBuiltCalendarReport() {
 
         Calendar calendar = new GregorianCalendar(2005, 4, 20);
@@ -339,9 +349,8 @@ public class AvailabilityCalculatorIT extends TestCase {
         
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
-        super.tearDown();
     }
 
 }

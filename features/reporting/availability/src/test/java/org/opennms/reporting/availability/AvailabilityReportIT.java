@@ -28,6 +28,12 @@
 
 package org.opennms.reporting.availability;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -48,23 +54,28 @@ import org.opennms.netmgt.filter.FilterDaoFactory;
 import org.opennms.netmgt.mock.MockCategoryFactory;
 import org.opennms.reporting.availability.svclayer.LegacyAvailabilityDataService;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 
-public class AvailabilityReportIT extends TestCase {
+public class AvailabilityReportIT {
+    @Rule
+    public TestName m_testName = new TestName();
 
     protected MockDatabase m_db;
     protected Categories m_categories; 
     protected Calendar calendar;
     protected MockCategoryFactory m_catFactory;
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
-        System.err.println("------------------- begin "+getName()+" ---------------------");
+        System.err.println("------------------- begin "+m_testName.getMethodName()+" ---------------------");
 
         // Reset the FilterDaoFactory so we don't get screwed by having the JdbcFilterDao be connected to an older database
         FilterDaoFactory.setInstance(null);
 
-        super.setUp();
         Locale.setDefault(Locale.US);
         calendar = new GregorianCalendar();
         //date for report run is 18th May 2005
@@ -214,6 +225,7 @@ public class AvailabilityReportIT extends TestCase {
         return report;
     }
 
+    @Test
     public void testMyDatabase () {
         assertEquals("node DB count", 2, m_db.countRows("select * from node"));
         assertEquals("service DB count", 3, m_db.countRows("select * from service"));
@@ -225,6 +237,7 @@ public class AvailabilityReportIT extends TestCase {
 
     }
 
+    @Test
     public void testBuiltClassicReport () throws IOException {
 
         Report report = buildReport(calendar,"classic");
@@ -250,6 +263,7 @@ public class AvailabilityReportIT extends TestCase {
 
 
     }
+    @Test
     public void testBuiltCalendarReport () {
 
         Calendar calendar = new GregorianCalendar(2005,4,20);
@@ -324,12 +338,11 @@ public class AvailabilityReportIT extends TestCase {
 
 
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
         m_db.drop();
-        super.tearDown();
 
-        System.err.println("------------------- end "+getName()+" -----------------------");
+        System.err.println("------------------- end "+m_testName.getMethodName()+" -----------------------");
     }
 
 }

@@ -28,6 +28,10 @@
 
 package org.opennms.netmgt.dao.jaxb;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -42,37 +46,44 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 
 /**
  * Takes too long to run, so it's an IT test now.
  */
-public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
+public class DefaultSurveillanceViewConfigDaoIT {
     private static final String CONFIG_WITH_VIEWS_RESOURCE = "/surveillance-views.testdata.xml";
     private static final String CONFIG_NO_VIEWS_RESOURCE = "/surveillance-views.testdata.noviews.xml";
     
     private DefaultSurveillanceViewConfigDao m_dao;
     
-    @Override
+    @Rule
+    public TestName m_testName = new TestName();
+
+    @Before
     protected void setUp() throws Exception {
-        super.setUp();
-        MockUtil.println("------------ Begin Test "+getName()+" --------------------------");
+        MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
         
         createDaoWithResource(CONFIG_WITH_VIEWS_RESOURCE);
     }
     
-    @Override
+    @After
     public void runTest() throws Throwable {
-        super.runTest();
         MockLogAppender.assertNoWarningsOrGreater();
-        MockUtil.println("------------ End Test "+getName()+" --------------------------");
+        MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
     }
 
+    @Test
     public void testNothing() {
         // test that setUp() / tearDown() works
     }
     
+    @Test
     public void testDefaultView() {
         View view = m_dao.getDefaultView();
         assertNotNull("default view should not be null", view);
@@ -85,6 +96,7 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertEquals("default view row count", 3, view.getRows().size());
     }
     
+    @Test
     public void testViewByName() {
         View view = m_dao.getView("default");
         assertNotNull("default view should not be null", view);
@@ -97,6 +109,7 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertEquals("default view row count", 3, view.getRows().size());
     }
     
+    @Test
     public void testGetViews() {
         List<View> views = m_dao.getViews();
         assertNotNull("views should not be null", views);
@@ -115,6 +128,7 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertEquals("first view row count", 3, rows.size());
     }
     
+    @Test
     public void testGetViewMap() {
         Map<String, View> viewMap = m_dao.getViewMap();
         assertEquals("view count", 1, viewMap.size());
@@ -136,10 +150,12 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertEquals("first view row count", 3, rows.size());
     }
     
+    @Test
     public void testInitNoViews() throws IOException {
         createDaoWithResource(CONFIG_NO_VIEWS_RESOURCE);
     }
     
+    @Test
     public void testGetDefaultViewNoViews() throws IOException {
         createDaoWithResource(CONFIG_NO_VIEWS_RESOURCE);
         
@@ -147,6 +163,7 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertNull("default view should be null", view);
     }
     
+    @Test
     public void testGetViewByNameNoViews() throws IOException {
         createDaoWithResource(CONFIG_NO_VIEWS_RESOURCE);
         
@@ -154,6 +171,7 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertNull("view by name 'default' should be null", view);
     }
     
+    @Test
     public void testGetViewsNoViews() throws IOException {
         createDaoWithResource(CONFIG_NO_VIEWS_RESOURCE);
         
@@ -162,6 +180,7 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertEquals("view count", 0, views.size());
     }
     
+    @Test
     public void testGetViewMapNoViews() throws IOException {
         createDaoWithResource(CONFIG_NO_VIEWS_RESOURCE);
         
@@ -170,10 +189,12 @@ public class DefaultSurveillanceViewConfigDaoIT extends TestCase {
         assertEquals("view count", 0, viewMap.size());
     }
     
+    @Test
     public void testConfigProduction() throws IOException {
         createDaoWithConfigFile("surveillance-views.xml");
     }
     
+    @Test
     public void testConfigExample() throws IOException {
         createDaoWithConfigFile("examples/surveillance-views.xml");
     }

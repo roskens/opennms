@@ -28,6 +28,8 @@
 
 package org.opennms.web.svclayer.support;
 
+import static org.junit.Assert.assertEquals;
+
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;
@@ -38,7 +40,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Before;
 
 import org.opennms.netmgt.dao.api.LocationMonitorDao;
 import org.opennms.netmgt.model.OnmsLocationMonitor;
@@ -53,7 +56,7 @@ import org.springframework.validation.ObjectError;
  * 
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
-public class DefaultDistributedPollerServiceTest extends TestCase {
+public class DefaultDistributedPollerServiceTest {
 
     private static final String LOCATION_MONITOR_ID = UUID.randomUUID().toString();
 
@@ -61,7 +64,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
     private LocationMonitorDao m_locationMonitorDao;
     private DefaultDistributedPollerService m_distributedPollerService;
     
-    @Override
+    @Before
     protected void setUp() {
         m_mocks = new LinkedList<>();
         
@@ -72,6 +75,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         m_distributedPollerService.setLocationMonitorDao(m_locationMonitorDao);
     }
     
+    @Test
     public void testPauseLocationMonitorSuccess() {
         OnmsLocationMonitor locationMonitor = new OnmsLocationMonitor();
         locationMonitor.setId(LOCATION_MONITOR_ID);
@@ -92,6 +96,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         assertEquals("new monitor status", MonitorStatus.PAUSED, locationMonitor.getStatus());
     }
     
+    @Test
     public void testPauseLocationMonitorAlreadyPaused() {
         OnmsLocationMonitor locationMonitor = new OnmsLocationMonitor();
         locationMonitor.setId(LOCATION_MONITOR_ID);
@@ -114,6 +119,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
     }
     
 
+    @Test
     public void testPauseLocationMonitorBindingErrors() {
         LocationMonitorIdCommand command = new LocationMonitorIdCommand();
         
@@ -129,6 +135,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
     }
     
     
+    @Test
     public void testPauseLocationMonitorNullCommand() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalStateException("command argument cannot be null"));
@@ -146,6 +153,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         verifyMocks();
     }
     
+    @Test
     public void testPauseLocationMonitorNullBindException() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalStateException("errors argument cannot be null"));
@@ -162,6 +170,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         verifyMocks();
     }
     
+    @Test
     public void testResumeLocationMonitorSuccess() {
         OnmsLocationMonitor locationMonitor = new OnmsLocationMonitor();
         locationMonitor.setId(LOCATION_MONITOR_ID);
@@ -182,6 +191,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         assertEquals("new monitor status", MonitorStatus.STARTED, locationMonitor.getStatus());
     }
     
+    @Test
     public void testResumeLocationMonitorNotPaused() {
         OnmsLocationMonitor locationMonitor = new OnmsLocationMonitor();
         locationMonitor.setId(LOCATION_MONITOR_ID);
@@ -204,6 +214,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
     }
     
 
+    @Test
     public void testResumeLocationMonitorBindingErrors() {
         LocationMonitorIdCommand command = new LocationMonitorIdCommand();
         
@@ -219,6 +230,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
     }
     
     
+    @Test
     public void testResumeLocationMonitorNullCommand() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalStateException("command argument cannot be null"));
@@ -236,6 +248,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         verifyMocks();
     }
     
+    @Test
     public void testResumeLocationMonitorNullBindException() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalStateException("errors argument cannot be null"));
@@ -252,6 +265,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         verifyMocks();
     }
     
+    @Test
     public void testDeleteLocationMonitorSuccess() {
         OnmsLocationMonitor locationMonitor = new OnmsLocationMonitor();
         locationMonitor.setId(LOCATION_MONITOR_ID);
@@ -271,6 +285,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
     }
     
 
+    @Test
     public void testDeleteLocationMonitorBindingErrors() {
         LocationMonitorIdCommand command = new LocationMonitorIdCommand();
         
@@ -286,6 +301,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
     }
     
     
+    @Test
     public void testDeleteLocationMonitorNullCommand() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalStateException("command argument cannot be null"));
@@ -303,6 +319,7 @@ public class DefaultDistributedPollerServiceTest extends TestCase {
         verifyMocks();
     }
     
+    @Test
     public void testDeleteLocationMonitorNullBindException() {
         ThrowableAnticipator ta = new ThrowableAnticipator();
         ta.anticipate(new IllegalStateException("errors argument cannot be null"));
