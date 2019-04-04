@@ -31,7 +31,7 @@ package org.opennms.netmgt.ticketer.otrs;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.Assume.assumeFalse;
 
 import org.junit.Test;
 import org.junit.After;
@@ -82,7 +82,7 @@ public class OtrsTicketerPluginTest {
      */
     @BeforeClass
     public void runTest() throws Throwable {
-        assumeTrue(isRunTest());
+        assumeFalse(!isRunTest());
         if (!isRunTest()) {
             System.err.println("Skipping test '" + m_testName.getMethodName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
         }
