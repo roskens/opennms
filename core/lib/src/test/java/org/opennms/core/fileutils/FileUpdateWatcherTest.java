@@ -30,6 +30,7 @@ package org.opennms.core.fileutils;
 
 import static com.jayway.awaitility.Awaitility.await;
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.junit.Assume.assumeFalse;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -41,6 +42,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.opennms.core.test.MockLogAppender;
+
+import com.sun.jna.Platform;
 
 public class FileUpdateWatcherTest {
     
@@ -55,6 +59,7 @@ public class FileUpdateWatcherTest {
     
     @Before
     public void before() throws IOException {
+        MockLogAppender.setupLogging();
         testFile = tempFolder.newFile("testWatcher.log");
         fileWatcher = new FileUpdateWatcher(testFile.getAbsolutePath(), fileReload());
 
@@ -73,6 +78,8 @@ public class FileUpdateWatcherTest {
 
     @Test
     public void testFileUpdateWatcher() throws IOException {
+        // JDK on Mac will fail this test due to insufficient support in WatchService.
+        assumeFalse(Platform.isMac());
         
         String hello = "Hello";
         BufferedWriter writer = new BufferedWriter(new FileWriter(testFile));
