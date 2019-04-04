@@ -51,7 +51,7 @@ public class ThrowableAnticipatorTest {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         m_anticipator.verifyAnticipated();
     }
     

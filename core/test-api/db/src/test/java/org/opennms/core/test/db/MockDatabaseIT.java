@@ -86,7 +86,7 @@ public class MockDatabaseIT {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         
         m_db.drop();
         if (m_secondDb != null) m_secondDb.drop();

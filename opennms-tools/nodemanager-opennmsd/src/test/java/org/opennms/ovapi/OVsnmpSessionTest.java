@@ -70,7 +70,7 @@ public class OVsnmpSessionTest {
     }
     
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         Thread.sleep(1000);
         m_agent.shutDownAndWait();
         

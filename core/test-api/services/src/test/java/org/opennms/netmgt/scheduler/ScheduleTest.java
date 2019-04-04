@@ -98,7 +98,7 @@ public class ScheduleTest {
      * @see TestCase#tearDown()
      */
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         MockLogAppender.assertNoWarningsOrGreater();
     }
     

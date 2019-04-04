@@ -63,37 +63,37 @@ public class CollectionMathTest {
 	@Test
 	public void testPercentNotNull() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals(new BigDecimal(60).doubleValue(), CollectionMath.percentNotNull(c).doubleValue());
+		assertEquals("percent not null", new BigDecimal(60).doubleValue(), CollectionMath.percentNotNull(c).doubleValue());
 	}
 	@Test
 	public void testPercentNull() {
         List<BigDecimal> c = getTestCollection();
-		assertEquals(new BigDecimal(40).doubleValue(), CollectionMath.percentNull(c).doubleValue());
+		assertEquals("percent null", new BigDecimal(40).doubleValue(), CollectionMath.percentNull(c).doubleValue());
 	}
 
 	@Test
 	public void testCountNotNull() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals(3, CollectionMath.countNotNull(c));
+		assertEquals("count not null", 3, CollectionMath.countNotNull(c));
 	}
 	
 	@Test
 	public void testCountNull() {
         List<BigDecimal> c = getTestCollection();
-		assertEquals(2, CollectionMath.countNull(c));
+		assertEquals("count null", 2, CollectionMath.countNull(c));
 	}
 	
 	@Test
 	public void testAverage() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals(new BigDecimal(39).doubleValue(), CollectionMath.average(c).doubleValue());
+		assertEquals("average", new BigDecimal(39).doubleValue(), CollectionMath.average(c).doubleValue());
 	}
 	
 	@Test
 	public void testMedian() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals(new BigDecimal(16).doubleValue(), CollectionMath.median(c).doubleValue());
+		assertEquals("median", new BigDecimal(16).doubleValue(), CollectionMath.median(c).doubleValue());
 		c.add(new BigDecimal(22));
-		assertEquals(new BigDecimal(19).doubleValue(), CollectionMath.median(c).doubleValue());
+		assertEquals("updated median", new BigDecimal(19).doubleValue(), CollectionMath.median(c).doubleValue());
 	}
 }

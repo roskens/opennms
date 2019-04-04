@@ -81,7 +81,7 @@ public class DefaultRrdDaoIntegrationTest {
     }
     
     @After
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         if (m_fileAnticipator.isInitialized()) {
             m_fileAnticipator.deleteExpected();
         }
@@ -89,7 +89,7 @@ public class DefaultRrdDaoIntegrationTest {
 
     
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         m_fileAnticipator.tearDown();
         
     }

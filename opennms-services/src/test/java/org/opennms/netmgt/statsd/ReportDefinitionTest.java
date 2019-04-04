@@ -73,7 +73,7 @@ public class ReportDefinitionTest {
     private FilterDao m_filterDao = m_mocks.createMock(FilterDao.class);
     
     @After
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         m_mocks.verifyAll();
     }
 
