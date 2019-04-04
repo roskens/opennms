@@ -42,7 +42,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.opennms.core.test.MockLogAppender;
 
 import com.sun.jna.Platform;
 
@@ -59,7 +58,6 @@ public class FileUpdateWatcherTest {
     
     @Before
     public void before() throws IOException {
-        MockLogAppender.setupLogging();
         testFile = tempFolder.newFile("testWatcher.log");
         fileWatcher = new FileUpdateWatcher(testFile.getAbsolutePath(), fileReload());
 
