@@ -34,6 +34,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.junit.Ignore;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -111,7 +112,8 @@ public class NotificationsITCase implements TemporaryDatabaseAware<MockDatabase>
     protected NotificationAnticipator m_anticipator;
     private PollOutagesConfigManager m_pollOutagesConfigManager;
 
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         MockUtil.println("################# Running Test ################");
 
         DaoTestConfigBean bean = new DaoTestConfigBean();

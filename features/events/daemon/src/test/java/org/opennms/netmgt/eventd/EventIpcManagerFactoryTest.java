@@ -47,7 +47,7 @@ import org.junit.Before;
  */
 public class EventIpcManagerFactoryTest {
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         EventIpcManagerFactory.reset();
     }
     

@@ -47,11 +47,11 @@ import org.junit.Before;
 public class CalendarTableBuilderTest {
 
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 	}
 
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test

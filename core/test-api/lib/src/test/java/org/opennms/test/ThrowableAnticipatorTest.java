@@ -46,7 +46,7 @@ public class ThrowableAnticipatorTest {
     }
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         m_anticipator = new ThrowableAnticipator();
     }
 

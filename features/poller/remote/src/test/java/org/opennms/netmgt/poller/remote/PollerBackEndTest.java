@@ -108,7 +108,7 @@ public class PollerBackEndTest {
     private EasyMockUtils m_mocks = new EasyMockUtils();
 
     @After
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         m_mocks.verifyAll();
     }
 
@@ -345,7 +345,7 @@ public class PollerBackEndTest {
     }
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
 
 
         System.setProperty("opennms.home", "src/test/test-configurations/PollerBackEndTest-home");

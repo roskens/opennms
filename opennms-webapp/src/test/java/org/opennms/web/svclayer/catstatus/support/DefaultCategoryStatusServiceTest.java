@@ -70,7 +70,7 @@ public class DefaultCategoryStatusServiceTest {
 	private OutageDao outageDao;
 	
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		viewDisplayDao = createMock(ViewDisplayDao.class);
 		categoryDao = createMock(CategoryConfigDao.class);
 		outageDao = createMock(OutageDao.class);

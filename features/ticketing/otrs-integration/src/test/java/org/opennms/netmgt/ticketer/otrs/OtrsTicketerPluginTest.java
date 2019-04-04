@@ -81,7 +81,7 @@ public class OtrsTicketerPluginTest {
      * is set to "true".
      */
     @BeforeClass
-    protected void runTest() throws Throwable {
+    public void runTest() throws Throwable {
         assumeTrue(isRunTest());
         if (!isRunTest()) {
             System.err.println("Skipping test '" + m_testName.getMethodName() + "' because system property '" + getRunTestProperty() + "' is not set to 'true'");
@@ -97,12 +97,12 @@ public class OtrsTicketerPluginTest {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         System.err.println("------------------- end "+m_testName.getMethodName()+" -----------------------");
     }
 
 	 @Before
-	 protected void setUp() throws Exception {
+	 public void setUp() throws Exception {
             System.err.println("------------------- begin "+m_testName.getMethodName()+" ---------------------");
 
 	        System.setProperty("opennms.home", "src" + File.separatorChar + "test" + File.separatorChar + "opennms-home");

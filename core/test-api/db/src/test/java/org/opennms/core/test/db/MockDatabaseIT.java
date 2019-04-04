@@ -60,7 +60,7 @@ public class MockDatabaseIT {
     private MockDatabase m_secondDb;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
 
         m_network = new MockNetwork();
         m_network.setCriticalService("ICMP");

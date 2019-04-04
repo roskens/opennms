@@ -103,7 +103,7 @@ public class TicketNotificationStrategyTest {
 
     /** {@inheritDoc} */
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         m_eventIpcManager = new MockEventIpcManager();
         m_eventIpcManager.setSynchronous(true);
         EventIpcManagerFactory.setIpcManager(m_eventIpcManager);

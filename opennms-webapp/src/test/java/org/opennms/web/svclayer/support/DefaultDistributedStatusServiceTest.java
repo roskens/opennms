@@ -138,7 +138,7 @@ public class DefaultDistributedStatusServiceTest {
     public final static String IGNORE_MATCH = "**IGNORE*MATCH**";
         
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
 
         Locale.setDefault(Locale.US);
 

@@ -45,7 +45,7 @@ public class PropertiesUtilsTest {
     private Properties m_propsTwo;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         m_propsOne = new Properties();
         m_propsOne.setProperty("prop.one", "one");
         m_propsOne.setProperty("prop.two", "two");
@@ -65,7 +65,7 @@ public class PropertiesUtilsTest {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
     }
     
     @Test

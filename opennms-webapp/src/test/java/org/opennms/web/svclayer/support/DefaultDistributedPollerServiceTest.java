@@ -65,7 +65,7 @@ public class DefaultDistributedPollerServiceTest {
     private DefaultDistributedPollerService m_distributedPollerService;
     
     @Before
-    protected void setUp() {
+    public void setUp() {
         m_mocks = new LinkedList<>();
         
         m_locationMonitorDao = createMock(LocationMonitorDao.class);

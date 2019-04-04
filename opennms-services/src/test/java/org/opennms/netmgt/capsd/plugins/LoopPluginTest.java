@@ -45,11 +45,11 @@ import org.opennms.netmgt.poller.monitors.support.LoopPlugin;
 public class LoopPluginTest {
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
     }
 
     /*

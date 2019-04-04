@@ -59,7 +59,7 @@ public class DefaultRrdGraphServiceTest {
 
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         
         m_mockUtils = new EasyMockUtils();
         m_fileAnticipator = new FileAnticipator(false);
@@ -67,7 +67,7 @@ public class DefaultRrdGraphServiceTest {
     }
     
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         m_fileAnticipator.tearDown();
     }
     

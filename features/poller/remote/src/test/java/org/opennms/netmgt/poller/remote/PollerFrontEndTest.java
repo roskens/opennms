@@ -407,7 +407,7 @@ public class PollerFrontEndTest {
     }
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
 
         m_backEnd = m_mock.createMock(PollerBackEnd.class);
         m_settings = m_mock.createMock(PollerSettings.class);

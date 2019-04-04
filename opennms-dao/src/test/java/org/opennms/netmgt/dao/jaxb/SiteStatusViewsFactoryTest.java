@@ -44,13 +44,13 @@ public class SiteStatusViewsFactoryTest {
 	private SiteStatusViewsFactory m_factory;
 
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 
 		m_factory = new SiteStatusViewsFactory(getClass().getResourceAsStream("/org/opennms/netmgt/config/site-status-views.testdata.xml"));
 	}
 
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 	
 	@Test

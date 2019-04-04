@@ -70,7 +70,7 @@ public class AvailabilityReportIT {
     protected MockCategoryFactory m_catFactory;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         System.err.println("------------------- begin "+m_testName.getMethodName()+" ---------------------");
 
         // Reset the FilterDaoFactory so we don't get screwed by having the JdbcFilterDao be connected to an older database
@@ -339,7 +339,7 @@ public class AvailabilityReportIT {
 
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         m_db.drop();
 
         System.err.println("------------------- end "+m_testName.getMethodName()+" -----------------------");

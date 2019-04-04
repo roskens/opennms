@@ -38,7 +38,7 @@ public class InstallerJniTest {
     private Installer m_installer;
 
     @Before
-    protected void setUp() throws SQLException {
+    public void setUp() throws SQLException {
         m_installer = new Installer();
     }
 

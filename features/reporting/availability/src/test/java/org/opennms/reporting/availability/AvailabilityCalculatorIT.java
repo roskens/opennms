@@ -64,7 +64,7 @@ public class AvailabilityCalculatorIT {
     protected MockCategoryFactory m_catFactory;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         
         // Reset the FilterDaoFactory so we don't get screwed by having the JdbcFilterDao be connected to an older database
         FilterDaoFactory.setInstance(null);
@@ -350,7 +350,7 @@ public class AvailabilityCalculatorIT {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
     }
 
 }

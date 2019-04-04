@@ -57,7 +57,7 @@ public class CorrelatorTest {
 	private Correlator m_correlator;
 
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		m_eventIpcManager = createMock(EventIpcManager.class);
 		m_engine = createMock(CorrelationEngine.class);
 		

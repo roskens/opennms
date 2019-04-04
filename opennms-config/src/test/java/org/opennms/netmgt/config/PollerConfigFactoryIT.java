@@ -83,7 +83,7 @@ public class PollerConfigFactoryIT {
             "</poller-configuration>\n";
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         MockLogAppender.setupLogging();
         
         DatabaseSchemaConfigFactory.init();
@@ -128,7 +128,7 @@ public class PollerConfigFactoryIT {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
 		MockLogAppender.assertNoWarningsOrGreater();
     }
     

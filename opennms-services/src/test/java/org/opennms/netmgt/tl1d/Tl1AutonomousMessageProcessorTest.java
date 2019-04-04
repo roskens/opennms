@@ -42,11 +42,11 @@ public class Tl1AutonomousMessageProcessorTest {
     Tl1AutonomousMessageProcessor m_processor = new Tl1AutonomousMessageProcessor();
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
     }
 
     @Test

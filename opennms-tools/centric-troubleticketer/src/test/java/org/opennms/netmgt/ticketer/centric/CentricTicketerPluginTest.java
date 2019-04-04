@@ -47,7 +47,7 @@ public class CentricTicketerPluginTest {
     
     
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         
         System.setProperty("opennms.home", "src"+File.separatorChar+"test"+File.separatorChar+"opennms-home");
         

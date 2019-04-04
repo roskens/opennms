@@ -60,7 +60,7 @@ public class TransactionTest {
     DataSource m_ds2;
 
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
         
         m_ds = m_ezMock.createMock(DataSource.class);
         m_ds2 = m_ezMock.createMock(DataSource.class);
@@ -75,7 +75,7 @@ public class TransactionTest {
 	}
 
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 	
 	@Test

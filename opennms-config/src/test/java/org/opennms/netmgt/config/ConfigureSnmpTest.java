@@ -57,7 +57,7 @@ public class ConfigureSnmpTest {
      * @see junit.framework.TestCase#setUp()
      */
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
     	
         Resource rsrc = ConfigurationTestUtils.getSpringResourceForResource(this, "snmp-config-configureSnmpTest.xml");
     	SnmpPeerFactory.setInstance(new SnmpPeerFactory(rsrc));

@@ -40,7 +40,7 @@ import org.opennms.netmgt.model.notifd.NotificationStrategy;
 public class SnmpTrapNotificationStrategyTest {
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         MockLogAppender.setupLogging(true);
     }
 

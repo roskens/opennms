@@ -54,7 +54,7 @@ public class CollectorConfigDaoImplIT {
     public TestName m_testName = new TestName();
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
 
@@ -66,7 +66,7 @@ public class CollectorConfigDaoImplIT {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         MockLogAppender.assertNoWarningsOrGreater();
         MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
     }

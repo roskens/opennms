@@ -68,7 +68,7 @@ public class EventconfFactorySaveTest {
     private DefaultEventConfDao m_eventConfDao;
     
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         
         m_fa = new FileAnticipator();
         
@@ -92,7 +92,7 @@ public class EventconfFactorySaveTest {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         m_fa.deleteExpected();
         m_fa.tearDown();
     }

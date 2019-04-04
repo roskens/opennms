@@ -57,7 +57,7 @@ public class TestAgentTest {
     private TestAgent m_agent;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         m_agent = new TestAgent();
         Properties agentData = new Properties();
         addZeroInstance(agentData, zeroInst1Base);

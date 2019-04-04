@@ -51,7 +51,7 @@ public class DataCollectionConfigFileTest {
     
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         
         InvocationHandler noNullsAllowed = new InvocationHandler() {
 
@@ -71,7 +71,7 @@ public class DataCollectionConfigFileTest {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
     }
     
     @Test

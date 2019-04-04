@@ -65,10 +65,10 @@ public class DefaultSurveillanceViewConfigDaoIT {
     public TestName m_testName = new TestName();
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
-        
+
         createDaoWithResource(CONFIG_WITH_VIEWS_RESOURCE);
     }
     

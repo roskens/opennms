@@ -65,7 +65,7 @@ public class JmxDaemonStatusDaoTest {
 	}
 	
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		for(int i = 0; i < 4; i++){
 		  MockServiceDaemon serviceDaemonStub = new MockServiceDaemon(names[i]);
 		  serviceDaemonStub.start();
@@ -78,7 +78,7 @@ public class JmxDaemonStatusDaoTest {
 	}
 
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 		for(int i = 0; i < 4; i++){
 			mBeanServer.unregisterMBean(objectName[i]);
 		}

@@ -51,7 +51,7 @@ public class SnmpPeerFactoryTest {
     private int m_version;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         setVersion(SnmpAgentConfig.VERSION2C);
         SnmpPeerFactory.setInstance(new SnmpPeerFactory(new ByteArrayResource(getSnmpConfig().getBytes())));
         MockLogAppender.setupLogging(true);
@@ -220,7 +220,7 @@ public class SnmpPeerFactoryTest {
 
 
     @After
-    protected void tearDown() {
+    public void tearDown() {
 
     }
 

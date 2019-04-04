@@ -77,7 +77,7 @@ public class MockAgentTest {
     private MockProxy m_proxy;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
         
@@ -123,7 +123,7 @@ public class MockAgentTest {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         m_proxy.stop();
 
         /*

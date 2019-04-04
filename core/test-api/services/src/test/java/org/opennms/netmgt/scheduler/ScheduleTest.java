@@ -86,7 +86,7 @@ public class ScheduleTest {
      * @see TestCase#setUp()
      */
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         MockLogAppender.setupLogging();
         m_schedulable = new MockSchedulable();
         m_scheduler = new MockScheduler();

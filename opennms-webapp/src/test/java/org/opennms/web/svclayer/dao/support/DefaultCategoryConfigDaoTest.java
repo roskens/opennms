@@ -64,7 +64,7 @@ public class DefaultCategoryConfigDaoTest {
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
 		m_catFactory = new MockCategoryFactory();

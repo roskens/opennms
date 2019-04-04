@@ -80,14 +80,14 @@ public class MockCategoryFactoryTest {
 		"</catinfo>";
 	
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		m_mockCatFactory = new MockCategoryFactory(MOCK_CATEGORY_CONFIG);
 		CategoryFactory.setInstance(m_mockCatFactory);
 		m_catFactory = CategoryFactory.getInstance();
 	}
 
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	

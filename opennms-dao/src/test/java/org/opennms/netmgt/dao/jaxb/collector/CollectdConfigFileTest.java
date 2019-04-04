@@ -45,13 +45,13 @@ public class CollectdConfigFileTest {
     private CollectdConfigVisitor m_visitor;
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         m_invocationAnticipator = new InvocationAnticipator(CollectdConfigVisitor.class);
         m_visitor = (CollectdConfigVisitor)m_invocationAnticipator.getProxy();
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
     }
     
     @Test

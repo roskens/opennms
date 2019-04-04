@@ -65,7 +65,7 @@ public class WmiManagerTest {
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 
 		// Create a mock client to use.
 		m_WmiMock = createMock(IWmiClient.class);
@@ -77,7 +77,7 @@ public class WmiManagerTest {
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@After
-	protected void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 
 		reset(m_WmiMock);
 	}

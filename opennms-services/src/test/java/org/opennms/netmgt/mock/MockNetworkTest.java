@@ -196,7 +196,7 @@ public class MockNetworkTest {
     }
 
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         m_network = new MockNetwork();
         m_network.setCriticalService("ICMP");
         m_network.addNode(1, "Router");
@@ -232,7 +232,7 @@ public class MockNetworkTest {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
     }
 
     @Test
