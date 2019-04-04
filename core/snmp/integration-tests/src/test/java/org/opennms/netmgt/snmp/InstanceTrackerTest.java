@@ -77,8 +77,7 @@ public class InstanceTrackerTest {
         testSingleInstanceTracker("1.2.3", SnmpObjId.get(m_sysNameOid, "1.2.3"));
     }
     
-    @Test
-    public void testSingleInstanceTracker(String instance, SnmpObjId receivedOid) throws Exception {
+    private void testSingleInstanceTracker(String instance, SnmpObjId receivedOid) throws Exception {
         SnmpInstId inst = new SnmpInstId(instance);
         CollectionTracker it = new SingleInstanceTracker(m_sysNameOid, inst);
         
