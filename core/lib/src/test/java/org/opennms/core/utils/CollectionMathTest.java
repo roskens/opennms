@@ -42,6 +42,7 @@ import org.junit.Test;
  * @author <a href="mailto:ranger@opennms.org">Benjamin Reed</a>
  */
 public class CollectionMathTest {
+        private static final double DELTA = 1e-8;
 	
 	private List<BigDecimal> getTestCollection() {
 		List<BigDecimal> c = new ArrayList<>();
@@ -63,37 +64,37 @@ public class CollectionMathTest {
 	@Test
 	public void testPercentNotNull() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals("percent not null", new BigDecimal(60).doubleValue(), CollectionMath.percentNotNull(c).doubleValue());
+		assertEquals(new BigDecimal(60).doubleValue(), CollectionMath.percentNotNull(c).doubleValue(), DELTA);
 	}
 	@Test
 	public void testPercentNull() {
         List<BigDecimal> c = getTestCollection();
-		assertEquals("percent null", new BigDecimal(40).doubleValue(), CollectionMath.percentNull(c).doubleValue());
+		assertEquals(new BigDecimal(40).doubleValue(), CollectionMath.percentNull(c).doubleValue(), DELTA);
 	}
 
 	@Test
 	public void testCountNotNull() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals("count not null", 3, CollectionMath.countNotNull(c));
+		assertEquals(3, CollectionMath.countNotNull(c), DELTA);
 	}
 	
 	@Test
 	public void testCountNull() {
         List<BigDecimal> c = getTestCollection();
-		assertEquals("count null", 2, CollectionMath.countNull(c));
+		assertEquals(2, CollectionMath.countNull(c), DELTA);
 	}
 	
 	@Test
 	public void testAverage() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals("average", new BigDecimal(39).doubleValue(), CollectionMath.average(c).doubleValue());
+		assertEquals(new BigDecimal(39).doubleValue(), CollectionMath.average(c).doubleValue(), DELTA);
 	}
 	
 	@Test
 	public void testMedian() {
 		List<BigDecimal> c = getTestCollection();
-		assertEquals("median", new BigDecimal(16).doubleValue(), CollectionMath.median(c).doubleValue());
+		assertEquals(new BigDecimal(16).doubleValue(), CollectionMath.median(c).doubleValue(), DELTA);
 		c.add(new BigDecimal(22));
-		assertEquals("updated median", new BigDecimal(19).doubleValue(), CollectionMath.median(c).doubleValue());
+		assertEquals(new BigDecimal(19).doubleValue(), CollectionMath.median(c).doubleValue(), DELTA);
 	}
 }
