@@ -22,6 +22,7 @@
     <module>kafka</module>
     <module>karaf</module>
     <module>lib</module>
+    <module>logging</module>
     <module>rest</module>
     <module>services</module>
     <module>schema</module>
