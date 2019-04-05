@@ -38,7 +38,6 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
@@ -66,7 +65,7 @@ public class RequestTrackerTest {
     /**
      * Don't run this test unless the runRtTests property is set to "true".
      */
-    @BeforeClass
+    @Before
     public void runTest() throws Throwable {
         assumeFalse(!isRunTest());
         if (!isRunTest()) {

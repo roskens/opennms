@@ -36,7 +36,6 @@ import static org.junit.Assume.assumeFalse;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import java.rmi.RemoteException;
@@ -80,7 +79,7 @@ public class OtrsTicketerPluginTest {
      * Don't run this test unless the runOtrsTests property
      * is set to "true".
      */
-    @BeforeClass
+    @Before
     public void runTest() throws Throwable {
         assumeFalse(!isRunTest());
         if (!isRunTest()) {

@@ -38,7 +38,6 @@ import org.junit.After;
 
 import org.junit.Test;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 
@@ -66,7 +65,7 @@ public class RtTicketerPluginTest {
     /**
      * Don't run this test unless the runRtTests property is set to "true".
      */
-    @BeforeClass
+    @Before
     public void runTest() throws Throwable {
         assumeFalse(!isRunTest());
         if (!isRunTest()) {
