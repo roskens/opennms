@@ -39,8 +39,12 @@ import liquibase.sqlgenerator.SqlGenerator;
 import liquibase.test.TestContext;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class SetSequenceGeneratorTest extends AbstractSqlGeneratorTest<SetSequenceStatement> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public SetSequenceGeneratorTest() throws Exception {
         super(new SetSequenceGenerator());

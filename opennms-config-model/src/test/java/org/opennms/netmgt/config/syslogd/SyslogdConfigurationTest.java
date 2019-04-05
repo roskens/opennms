@@ -35,11 +35,15 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 import org.opennms.core.xml.JaxbUtils;
 
 public class SyslogdConfigurationTest extends XmlTestNoCastor<SyslogdConfiguration> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public SyslogdConfigurationTest(SyslogdConfiguration sampleObject, Object sampleXml) {
         super(sampleObject, sampleXml, "src/main/resources/xsds/syslog.xsd");

@@ -46,6 +46,8 @@ import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.ipc.sink.api.MessageConsumer;
 import org.opennms.core.ipc.sink.api.MessageConsumerManager;
@@ -94,6 +96,8 @@ import com.google.common.util.concurrent.RateLimiter;
 @JUnitConfigurationEnvironment
 @org.springframework.test.annotation.IfProfileValue(name="runFlappers", value="true")
 public class HeartbeatSinkPerfIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String REMOTE_LOCATION_NAME = "remote";
 

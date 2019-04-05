@@ -33,6 +33,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.netmgt.enlinkd.model.CdpElement;
@@ -48,6 +50,8 @@ import static org.opennms.netmgt.nb.NmsNetworkBuilder.CISCO_WS_C2948_SNMP_RESOUR
 import static org.opennms.netmgt.nb.NmsNetworkBuilder.CISCO_WS_C2948_GLOBAL_DEVICEID;
 
 public class Nms7467EnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private Nms7467NetworkBuilder builder = new Nms7467NetworkBuilder();
 

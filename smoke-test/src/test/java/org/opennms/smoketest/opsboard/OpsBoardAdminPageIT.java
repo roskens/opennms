@@ -39,6 +39,8 @@ import javax.annotation.Nullable;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.smoketest.AbstractPage;
 import org.opennms.smoketest.OpenNMSSeleniumTestCase;
@@ -55,6 +57,8 @@ import org.springframework.test.context.ContextConfiguration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:/META-INF/opennms/emptyContext.xml"})
 public class OpsBoardAdminPageIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private OpsBoardAdminPage adminPage;
 

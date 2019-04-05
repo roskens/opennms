@@ -34,12 +34,16 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.snmp.InetAddrUtils;
 
 public class WmiAgentConfigTest extends XmlTestNoCastor<WmiAgentConfig> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public WmiAgentConfigTest(WmiAgentConfig sampleObject, Object sampleXml) {
         super(sampleObject, sampleXml, null);

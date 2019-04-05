@@ -37,6 +37,8 @@ import java.nio.file.Paths;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -70,6 +72,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class TrapdReloadDaemonIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private final static int SNMP_PORT_AFTER_RELOAD = 1163;
 

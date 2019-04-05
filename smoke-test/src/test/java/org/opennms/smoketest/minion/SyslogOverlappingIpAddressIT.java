@@ -36,6 +36,8 @@ import static org.hamcrest.Matchers.notNullValue;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.criteria.CriteriaBuilder;
 import org.opennms.netmgt.dao.hibernate.EventDaoHibernate;
 import org.opennms.netmgt.dao.hibernate.NodeDaoHibernate;
@@ -59,6 +61,8 @@ import com.google.common.collect.ImmutableList;
  * @author fooker
  */
 public class SyslogOverlappingIpAddressIT extends AbstractSyslogTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /**
      * Override this method to customize the test environment.
      */

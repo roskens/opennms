@@ -33,6 +33,8 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.poller.MonitoredService;
 import org.opennms.netmgt.poller.PollStatus;
 import org.opennms.netmgt.poller.mock.MockMonitoredService;
@@ -45,6 +47,8 @@ import org.opennms.protocols.nsclient.AbstractNsclientTest;
  * @version $Id: $
  */
 public class NsclientMonitorTest extends AbstractNsclientTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testMonitorSuccess() throws Exception {

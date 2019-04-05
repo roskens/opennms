@@ -39,6 +39,8 @@ import java.util.Properties;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.MockLogAppender;
@@ -76,6 +78,8 @@ import org.springframework.transaction.annotation.Transactional;
  * @author <a href="mailto:antonio@opennms.it">Antonio Russo</a>
  */
 public class RancidProvisioningAdapterIntegrationIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private NodeDao m_nodeDao;

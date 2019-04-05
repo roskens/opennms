@@ -37,6 +37,8 @@ import java.util.Arrays;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,6 +50,8 @@ import com.google.common.base.Strings;
  * @author jwhite
  */
 public class RestInfoIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Verifies that each of the known keys in the output contains some value.

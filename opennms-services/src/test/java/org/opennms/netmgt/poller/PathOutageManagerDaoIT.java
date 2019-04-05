@@ -41,6 +41,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.MockLogAppender;
@@ -54,7 +56,6 @@ import org.opennms.netmgt.dao.api.PathOutageManager;
 import org.opennms.netmgt.mock.MockNetwork;
 import org.opennms.netmgt.mock.MockPollerConfig;
 import org.opennms.test.JUnitConfigurationEnvironment;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -73,6 +74,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(tempDbClass=MockDatabase.class,reuseDatabase=false)
 public class PathOutageManagerDaoIT implements TemporaryDatabaseAware<MockDatabase> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private MockNetwork m_network;
 
@@ -101,8 +104,6 @@ public class PathOutageManagerDaoIT implements TemporaryDatabaseAware<MockDataba
 
 	@Before
 	public void setUp() throws Exception {
-
-		MockUtil.println("------------ Begin Test  --------------------------");
 		MockLogAppender.setupLogging();
 
 		m_network = new MockNetwork();
@@ -163,7 +164,6 @@ public class PathOutageManagerDaoIT implements TemporaryDatabaseAware<MockDataba
 	@After
 	public void tearDown() throws Exception {
 		sleep(200);
-		MockUtil.println("------------ End Test  --------------------------");
 	}
 
 	private static void sleep(long millis) {

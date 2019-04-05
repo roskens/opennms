@@ -60,6 +60,8 @@ import static org.opennms.netmgt.nb.NmsNetworkBuilder.SRX_100_SNMP_RESOURCE_B;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.netmgt.enlinkd.model.LldpElement;
@@ -70,6 +72,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.nb.Nms10205bNetworkBuilder;
 
 public class Nms10205bEnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	Nms10205bNetworkBuilder builder = new Nms10205bNetworkBuilder();
 

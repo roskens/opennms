@@ -30,6 +30,8 @@ package org.opennms.netmgt.correlation;
 
 import org.junit.After;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -55,6 +57,8 @@ import org.springframework.test.context.ContextConfiguration;
 })
 @JUnitConfigurationEnvironment
 public class CorrelatorIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private MockEventIpcManager m_eventIpcMgr;

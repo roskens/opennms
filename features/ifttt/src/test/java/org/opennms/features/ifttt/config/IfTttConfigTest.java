@@ -33,10 +33,14 @@ import java.util.Collection;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 
 public class IfTttConfigTest extends XmlTestNoCastor<IfTttConfig> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public IfTttConfigTest(final IfTttConfig sampleObject, final Object sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

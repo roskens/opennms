@@ -48,6 +48,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.MockLogAppender;
@@ -106,6 +108,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 })
 @JUnitTemporaryDatabase(tempDbClass=MockDatabase.class,reuseDatabase=false)
 public class PollerQueryManagerDaoIT implements TemporaryDatabaseAware<MockDatabase> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private Poller m_poller;
 
@@ -147,8 +151,6 @@ public class PollerQueryManagerDaoIT implements TemporaryDatabaseAware<MockDatab
 
 	@Before
 	public void setUp() throws Exception {
-
-		MockUtil.println("------------ Begin Test  --------------------------");
 		MockLogAppender.setupLogging();
 
 		m_network = new MockNetwork();
@@ -232,7 +234,6 @@ public class PollerQueryManagerDaoIT implements TemporaryDatabaseAware<MockDatab
 		stopDaemons();
 		sleep(200);
 		m_db.drop();
-		MockUtil.println("------------ End Test  --------------------------");
 	}
 
 	//

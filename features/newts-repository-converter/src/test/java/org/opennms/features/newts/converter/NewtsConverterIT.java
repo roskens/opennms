@@ -50,6 +50,7 @@ import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -91,6 +92,8 @@ import com.google.common.base.Throwables;
 })
 @JUnitTemporaryDatabase
 public class NewtsConverterIT implements TemporaryDatabaseAware<TemporaryDatabase> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @ClassRule
     public static NewtsInstance s_newtsInstance = new NewtsInstance();

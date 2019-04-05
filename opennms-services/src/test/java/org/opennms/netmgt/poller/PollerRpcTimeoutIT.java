@@ -49,6 +49,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.camel.JmsQueueNameFactory;
 import org.opennms.core.db.DataSourceFactory;
@@ -73,7 +75,6 @@ import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.model.monitoringLocations.OnmsMonitoringLocation;
 import org.opennms.netmgt.poller.pollables.PollableNetwork;
 import org.opennms.test.JUnitConfigurationEnvironment;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
@@ -106,6 +107,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 @JUnitTemporaryDatabase(tempDbClass=MockDatabase.class,reuseDatabase=false)
 @Transactional
 public class PollerRpcTimeoutIT implements TemporaryDatabaseAware<MockDatabase> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public static final String ACTIVEMQ_STORAGE_DIRECTORY = "target/activemq";
     public static final String NONEXISTENT_LOCATION = "DOESNT_EXIST";
@@ -176,8 +179,6 @@ public class PollerRpcTimeoutIT implements TemporaryDatabaseAware<MockDatabase> 
 
     @Before
     public void setUp() throws Exception {
-
-        MockUtil.println("------------ Begin Test  --------------------------");
         MockLogAppender.setupLogging();
 
         m_network = new MockNetwork();
@@ -238,7 +239,6 @@ public class PollerRpcTimeoutIT implements TemporaryDatabaseAware<MockDatabase> 
     @After
     public void tearDown() throws Exception {
         m_eventMgr.finishProcessingEvents();
-        MockUtil.println("------------ End Test  --------------------------");
     }
 
     @Test

@@ -39,6 +39,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.classification.persistence.api.Groups;
 import org.opennms.netmgt.flows.rest.classification.ClassificationRequestDTO;
 import org.opennms.netmgt.flows.rest.classification.RuleDTO;
@@ -49,6 +51,8 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
 public class ClassificationRestIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void setUp() {

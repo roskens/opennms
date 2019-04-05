@@ -41,6 +41,8 @@ import org.apache.camel.util.KeyValueHolder;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.activemq.ActiveMQBroker;
@@ -69,6 +71,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment  
 @org.springframework.test.annotation.IfProfileValue(name="runFlappers", value="true")
 public class LocationAwareDetectorClientIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String REMOTE_LOCATION_NAME = "remote";
 

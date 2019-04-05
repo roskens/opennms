@@ -77,6 +77,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -128,6 +129,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(dirtiesContext = false, tempDbClass = MockDatabase.class, reuseDatabase = false)
 public class KafkaForwarderIT implements TemporaryDatabaseAware<MockDatabase> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(KafkaForwarderIT.class);
 
     private static final String EVENT_TOPIC_NAME = "events";

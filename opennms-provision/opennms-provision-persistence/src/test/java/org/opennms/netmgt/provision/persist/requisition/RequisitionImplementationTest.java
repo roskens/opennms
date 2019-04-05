@@ -40,6 +40,8 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.netmgt.provision.persist.ForeignSourceRepository;
@@ -61,6 +63,8 @@ import org.springframework.test.context.ContextConfiguration;
 })
 @JUnitConfigurationEnvironment
 public class RequisitionImplementationTest implements InitializingBean, ApplicationContextAware {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(RequisitionImplementationTest.class);
 
     private Map<String, ForeignSourceRepository> m_repositories;

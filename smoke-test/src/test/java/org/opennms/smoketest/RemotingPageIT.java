@@ -30,12 +30,16 @@ package org.opennms.smoketest;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * This test is used to make sure that the opennms-remoting webapp is properly
  * initialized and that the JNLP files are installed properly.
  */
 public class RemotingPageIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Before
     public void setUp() throws Exception {
         remotingPage();

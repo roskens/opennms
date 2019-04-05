@@ -58,6 +58,8 @@ import java.util.stream.Collectors;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.soa.ServiceRegistry;
 import org.opennms.core.spring.BeanUtils;
@@ -107,6 +109,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(dirtiesContext=false,tempDbClass=MockDatabase.class,reuseDatabase=false)
 public class AlarmdIT implements TemporaryDatabaseAware<MockDatabase>, InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public class MockNorthbounder implements Northbounder {
 

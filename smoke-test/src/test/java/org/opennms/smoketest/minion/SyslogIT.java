@@ -39,6 +39,8 @@ import java.net.Inet4Address;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.criteria.Criteria;
 import org.opennms.core.criteria.CriteriaBuilder;
 import org.opennms.netmgt.dao.api.EventDao;
@@ -60,6 +62,8 @@ import org.opennms.test.system.api.NewTestEnvironment.ContainerAlias;
  * @author jwhite
  */
 public class SyslogIT extends AbstractSyslogTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canReceiveSyslogMessages() throws Exception {

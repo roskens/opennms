@@ -35,6 +35,8 @@ import java.nio.charset.StandardCharsets;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.dao.mock.MockEventIpcManager;
 import org.opennms.netmgt.mock.OpenNMSITCase;
@@ -46,6 +48,8 @@ import org.opennms.netmgt.translator.EventTranslator;
  * 
  */
 public class EventTranslatorConfigFactoryIT extends OpenNMSITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EventTranslator m_translator;
     private MockEventIpcManager m_eventMgr;
     private String m_passiveStatusConfiguration = getStandardConfig();

@@ -42,7 +42,6 @@ import java.util.Set;
 
 import org.jrobin.core.RrdDb;
 import org.jrobin.core.RrdDef;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -77,7 +76,6 @@ import org.opennms.netmgt.snmp.SnmpAgentConfig;
 import org.opennms.netmgt.snmp.SnmpObjId;
 import org.opennms.netmgt.snmp.SnmpUtils;
 import org.opennms.test.JUnitConfigurationEnvironment;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -184,12 +182,6 @@ public abstract class AbstractSnmpCollectorIT implements InitializingBean, TestC
     }
 
     protected abstract AbstractSnmpCollector createSnmpCollector();
-
-    @After
-    public void tearDown() throws Exception {
-        MockUtil.println("------------ End Test --------------------------");
-        // MockLogAppender.assertNoWarningsOrGreater();
-    }
 
     @Test
     @JUnitCollector(

@@ -35,6 +35,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.MockLogAppender;
@@ -87,6 +89,8 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
         @JUnitSnmpAgent(host = "192.168.0.1", resource = "NMS-8506-cisco.properties")
 })
 public class HwEntityAliasIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * The Class TestOperation.

@@ -35,12 +35,16 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.OwnedInterval;
 import org.opennms.core.utils.OwnedIntervalSequence;
 import org.opennms.core.utils.TimeInterval;
 import org.opennms.core.utils.TimeIntervalSequence;
 
 public class TimeIntervalSequenceTest extends IntervalTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Test
     public void testPreceeds() throws Exception {

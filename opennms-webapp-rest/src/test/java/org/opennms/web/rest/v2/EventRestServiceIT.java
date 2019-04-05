@@ -33,6 +33,8 @@ import java.util.Date;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -70,6 +72,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitTemporaryDatabase
 @Transactional
 public class EventRestServiceIT extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public EventRestServiceIT() {
         super(CXF_REST_V2_CONTEXT_PATH);

@@ -33,6 +33,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -43,6 +45,8 @@ import org.slf4j.LoggerFactory;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MetadataPageIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(MetadataPageIT.class);
     private static final String UNPRIVILEDGED_USERNAME = "foo";
     private static final String UNPRIVILEDGED_PASSWORD = "bar";

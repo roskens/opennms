@@ -41,7 +41,6 @@ import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.config.CategoryFactory;
 import org.opennms.netmgt.config.categories.Category;
 import org.opennms.netmgt.mock.MockCategoryFactory;
-import org.opennms.test.mock.MockUtil;
 
 import org.junit.After;
 import org.junit.Before;
@@ -68,7 +67,6 @@ public class DefaultCategoryConfigDaoTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
 		m_catFactory = new MockCategoryFactory();
 		CategoryFactory.setInstance(m_catFactory);
@@ -78,7 +76,6 @@ public class DefaultCategoryConfigDaoTest {
 	   @After
 	    public void runTest() throws Throwable {
 	        MockLogAppender.assertNoWarningsOrGreater();
-	        MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
 	    }
 
 	    @Test
@@ -97,12 +94,6 @@ public class DefaultCategoryConfigDaoTest {
 		Iterator<Category> i = catColl.iterator();
 		assertEquals(i.next().getLabel(),"Network Interfaces");
 		assertEquals(i.next().getLabel(),"Web Servers");
-		/*Iterator i = list.iterator();
-		while(i.hasNext()) {
-			Category cat = (Category)i.next();
-			MockUtil.println("found a category --" + cat.getLabel());
-			
-		}*/
 	}
 
 }

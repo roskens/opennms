@@ -39,6 +39,8 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -74,6 +76,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 @JUnitTemporaryDatabase
 @Transactional
 public class AssetRecordResourceIT extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 
     @Autowired

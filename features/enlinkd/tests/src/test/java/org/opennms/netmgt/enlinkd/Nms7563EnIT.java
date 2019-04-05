@@ -55,6 +55,8 @@ import static org.opennms.netmgt.nb.NmsNetworkBuilder.HOMESERVER_IF_MAC_MAP;
 import static org.opennms.netmgt.nb.NmsNetworkBuilder.HOMESERVER_CDP_GLOBAL_DEVICE_ID;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.core.utils.LldpUtils.LldpChassisIdSubType;
@@ -69,6 +71,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.nb.Nms7563NetworkBuilder;
 
 public class Nms7563EnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	Nms7563NetworkBuilder builder = new Nms7563NetworkBuilder();
 

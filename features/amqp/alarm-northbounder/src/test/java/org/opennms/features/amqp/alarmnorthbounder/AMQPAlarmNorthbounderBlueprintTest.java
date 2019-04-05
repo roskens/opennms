@@ -33,6 +33,8 @@ import java.util.Properties;
 
 import org.apache.camel.BeanInject;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.camel.CamelBlueprintTest;
 import org.opennms.netmgt.alarmd.api.NorthboundAlarm;
@@ -49,6 +51,8 @@ import com.google.common.collect.Lists;
 @RunWith(SpringJUnit4ClassRunner.class)
 @org.springframework.test.annotation.IfProfileValue(name="runFlappers", value="true")
 public class AMQPAlarmNorthbounderBlueprintTest extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @BeanInject
     protected AlarmNorthbounder alarmNorthbounder;

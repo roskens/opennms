@@ -41,6 +41,8 @@ import java.util.HashSet;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.netmgt.dao.support.PropertiesGraphDao.PrefabGraphTypeDao;
 import org.opennms.netmgt.mock.MockResourceType;
@@ -55,6 +57,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
 public class PropertiesGraphDaoIT extends PropertiesGraphDaoITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testCompareToLessThan() {
         PrefabGraph bits = m_graphs.get("mib2.bits").getObject();

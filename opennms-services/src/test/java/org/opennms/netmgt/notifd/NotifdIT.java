@@ -47,6 +47,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.RowProcessor;
 import org.opennms.netmgt.config.NotificationManager;
 import org.opennms.netmgt.config.notifications.Notification;
@@ -63,6 +65,8 @@ import org.opennms.netmgt.xml.event.Tticket;
  *
  */
 public class NotifdIT extends NotificationsITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     @Override

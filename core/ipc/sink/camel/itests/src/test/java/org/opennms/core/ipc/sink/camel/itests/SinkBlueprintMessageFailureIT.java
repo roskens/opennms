@@ -39,6 +39,8 @@ import org.apache.camel.Component;
 import org.apache.camel.util.KeyValueHolder;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.ipc.sink.api.MessageConsumer;
 import org.opennms.core.ipc.sink.api.MessageConsumerManager;
@@ -72,6 +74,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment
 @org.springframework.test.annotation.IfProfileValue(name="runFlappers", value="true")
 public class SinkBlueprintMessageFailureIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String REMOTE_LOCATION_NAME = "remote";
 

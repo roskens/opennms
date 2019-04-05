@@ -41,6 +41,8 @@ import org.apache.camel.util.KeyValueHolder;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.activemq.ActiveMQBroker;
@@ -81,6 +83,8 @@ import org.springframework.test.context.TestExecutionListeners;
 @TestExecutionListeners(JUnitSnmpAgentExecutionListener.class)
 @JUnitSnmpAgent(host="192.0.2.205", resource="classpath:/loadSnmpDataTest.properties")
 public class LocationAwareSnmpClientIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String REMOTE_LOCATION_NAME = "remote";
 

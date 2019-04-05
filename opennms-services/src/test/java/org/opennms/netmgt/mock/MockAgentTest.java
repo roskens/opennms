@@ -81,7 +81,6 @@ public class MockAgentTest {
 
     @Before
     public void setUp() throws Exception {
-        MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
         
         m_network = new MockNetwork();
@@ -140,8 +139,6 @@ public class MockAgentTest {
 	Thread.sleep(5);
         
         MockLogAppender.assertNoWarningsOrGreater();
-        MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
-
     }
 
     @Test

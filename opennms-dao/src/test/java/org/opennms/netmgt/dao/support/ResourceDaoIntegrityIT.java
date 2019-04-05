@@ -52,6 +52,7 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
@@ -117,6 +118,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(dirtiesContext=false)
 public class ResourceDaoIntegrityIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private EasyMockUtils m_easyMockUtils;
     private FilterDao m_filterDao;

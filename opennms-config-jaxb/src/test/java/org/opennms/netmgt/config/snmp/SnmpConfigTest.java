@@ -37,11 +37,15 @@ import java.util.Collection;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 import org.opennms.core.xml.JaxbUtils;
 
 public class SnmpConfigTest extends XmlTestNoCastor<SnmpConfig> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public SnmpConfigTest(final SnmpConfig sampleObject, final String sampleXml, final String schemaFile) {
         super(sampleObject, sampleXml, schemaFile);

@@ -31,6 +31,8 @@ package org.opennms.netmgt.provision.persist;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -39,6 +41,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a> 
  */
 public class DefaultForeignSourceRepositoryFactoryTest extends ForeignSourceRepositoryTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The m_foreign source repository factory. */
     @Autowired

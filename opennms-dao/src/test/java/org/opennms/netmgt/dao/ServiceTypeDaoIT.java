@@ -31,6 +31,8 @@ package org.opennms.netmgt.dao;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -55,6 +57,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(reuseDatabase=false)
 public class ServiceTypeDaoIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	@Autowired
 	private ServiceTypeDao m_serviceTypeDao;
 

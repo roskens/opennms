@@ -34,6 +34,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.MockLogAppender;
@@ -63,6 +65,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitSnmpAgent(port=TcaDataIT.TEST_SNMP_PORT, host=TcaDataIT.TEST_IP_ADDRESS, resource="classpath:/juniperTcaSample.properties")
 @JUnitConfigurationEnvironment
 public class TcaDataIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	static final int TEST_SNMP_PORT = 9161;
 	static final String TEST_IP_ADDRESS = "127.0.0.1";

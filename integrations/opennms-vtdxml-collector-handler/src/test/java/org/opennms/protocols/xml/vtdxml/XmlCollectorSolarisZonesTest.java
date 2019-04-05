@@ -34,6 +34,8 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * The Test class for XML Collector for Solaris Zones Statistics
@@ -42,6 +44,8 @@ import org.junit.Test;
  * @author <a href="mailto:ronald.roskens@gmail.com">Ronald Roskens</a>
  */
 public class XmlCollectorSolarisZonesTest extends AbstractVTDXmlCollectorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /* (non-Javadoc)
      * @see org.opennms.protocols.xml.collector.AbcstractXmlCollectorTest#getXmlConfigFileName()

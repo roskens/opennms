@@ -42,6 +42,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.IntervalTestCase;
 import org.opennms.core.utils.OwnedInterval;
 import org.opennms.core.utils.OwnedIntervalSequence;
@@ -53,6 +55,8 @@ import org.opennms.netmgt.config.groups.Time;
 import org.opennms.netmgt.config.poller.outages.Outage;
 
 public class BasicScheduleUtilsTest extends IntervalTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testSimpleScheduleExcluded() throws Exception {

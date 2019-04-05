@@ -58,6 +58,8 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.core.utils.InetAddressUtils;
@@ -81,6 +83,8 @@ import org.opennms.netmgt.topologies.service.impl.OnmsTopologyLogger;
  * 
  */
 public class Nms7918EnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static String pe01macaddress = "001319bdb440";
     //mac address found on asw01 port 1

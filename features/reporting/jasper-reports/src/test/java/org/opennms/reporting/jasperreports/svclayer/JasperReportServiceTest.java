@@ -37,6 +37,8 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.api.reporting.ReportException;
 import org.opennms.api.reporting.ReportFormat;
@@ -65,6 +67,8 @@ import net.sf.jasperreports.engine.design.JRDesignExpression;
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
 @ContextConfiguration(locations = { "classpath:/org/opennms/reporting/jasperreports/svclayer/JasperReportServiceTest.xml" })
 public class JasperReportServiceTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     JasperReportService m_reportService;

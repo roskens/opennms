@@ -39,11 +39,15 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.mock.MockNode;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.test.ThreadLocker;
 
 public class NotificationThreadsIT extends NotificationsITCase  {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     @Override

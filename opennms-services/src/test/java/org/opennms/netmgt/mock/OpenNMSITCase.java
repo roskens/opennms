@@ -63,7 +63,6 @@ import org.opennms.netmgt.events.api.EventProcessor;
 import org.opennms.netmgt.events.api.EventProxy;
 import org.opennms.netmgt.snmp.SnmpAgentConfig;
 import org.opennms.netmgt.snmp.SnmpUtils;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -147,7 +146,6 @@ public class OpenNMSITCase {
 
     @Before
     public void setUp() throws Exception {
-        MockUtil.println("------------ Begin Test "+this+" --------------------------");
         MockLogAppender.setupLogging();
         
         if (m_runSupers) {
@@ -241,7 +239,6 @@ public class OpenNMSITCase {
                 MockLogAppender.assertNoWarningsOrGreater();
             }
         } finally {
-            MockUtil.println("------------ End Test "+this+" --------------------------");
         }
     }
 

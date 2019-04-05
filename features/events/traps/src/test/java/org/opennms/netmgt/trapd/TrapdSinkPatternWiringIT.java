@@ -43,6 +43,8 @@ import javax.jms.MessageProducer;
 import org.apache.camel.util.KeyValueHolder;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.opennms.core.ipc.sink.api.MessageConsumerManager;
@@ -69,6 +71,8 @@ import org.springframework.test.context.ContextConfiguration;
 })
 @JUnitConfigurationEnvironment
 public class TrapdSinkPatternWiringIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private AtomicInteger m_port = new AtomicInteger(1162);
 

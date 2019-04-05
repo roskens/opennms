@@ -45,6 +45,8 @@ import org.apache.commons.csv.CSVRecord;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.jasper.helper.MeasurementsHelper;
 
 /**
@@ -52,6 +54,8 @@ import org.opennms.netmgt.jasper.helper.MeasurementsHelper;
  * Verifies multiple reports.
  */
 public class MeasurementQueryExecutorRemoteIT extends AbstractMeasurementQueryExecutorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void before() throws IOException {

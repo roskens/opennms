@@ -30,6 +30,8 @@ package org.opennms.core.ipc.sink.aws.sqs.itests;
 
 import org.apache.camel.util.KeyValueHolder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.ipc.common.aws.sqs.AmazonSQSConfig;
 import org.opennms.core.ipc.common.aws.sqs.MapBasedSQSConfig;
 import org.opennms.core.ipc.common.aws.sqs.AmazonSQSConstants;
@@ -45,6 +47,8 @@ import java.util.Properties;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class AmazonSQSDispatcherBlueprintIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @SuppressWarnings( "rawtypes" )
     @Override

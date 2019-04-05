@@ -32,6 +32,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized;
 import org.opennms.core.test.xml.XmlTest;
 
@@ -40,6 +42,8 @@ import org.opennms.core.test.xml.XmlTest;
  * use the entities directly in the REST API.
  */
 public class UserDefinedLinkTest extends XmlTest<UserDefinedLink> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public UserDefinedLinkTest(final UserDefinedLink sampleObject, final String sampleXml) {
         super(sampleObject, sampleXml, null);

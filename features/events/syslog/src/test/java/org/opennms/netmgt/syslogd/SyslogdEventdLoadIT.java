@@ -47,6 +47,8 @@ import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.ipc.sink.mock.MockMessageDispatcherFactory;
 import org.opennms.core.spring.BeanUtils;
@@ -94,6 +96,8 @@ import com.codahale.metrics.MetricRegistry;
 @JUnitConfigurationEnvironment(systemProperties = { "io.netty.leakDetectionLevel=ADVANCED" })
 @JUnitTemporaryDatabase
 public class SyslogdEventdLoadIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(SyslogdEventdLoadIT.class);
 
     private EventCounter m_eventCounter;

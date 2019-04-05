@@ -29,8 +29,12 @@
 package org.opennms.smoketest;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class NRTGraphIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void canLoadGraph() throws Exception {
         // Request a known graph with an invalid resource id

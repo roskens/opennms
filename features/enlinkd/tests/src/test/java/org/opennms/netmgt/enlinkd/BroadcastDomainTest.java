@@ -40,6 +40,8 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.enlinkd.model.BridgeElement;
 import org.opennms.netmgt.enlinkd.model.BridgeMacLink;
@@ -57,6 +59,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import com.google.common.collect.Sets;
 
 public class BroadcastDomainTest extends EnLinkdTestHelper {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
             
     @Before
     public void setUp() throws Exception {

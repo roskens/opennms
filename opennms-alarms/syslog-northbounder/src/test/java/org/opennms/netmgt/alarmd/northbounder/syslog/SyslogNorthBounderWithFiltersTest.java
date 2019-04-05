@@ -42,6 +42,8 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.alarmd.api.NorthboundAlarm;
 import org.opennms.netmgt.model.OnmsAlarm;
 import org.opennms.netmgt.model.OnmsEvent;
@@ -60,6 +62,8 @@ import com.google.common.collect.Lists;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class SyslogNorthBounderWithFiltersTest extends SyslogNorthBounderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /* (non-Javadoc)
      * @see org.opennms.netmgt.alarmd.northbounder.syslog.SyslogNorthBounderTest#testForwardAlarms()

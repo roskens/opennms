@@ -33,6 +33,8 @@ import org.apache.commons.jxpath.JXPathContext;
 import org.apache.commons.jxpath.Pointer;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import java.io.File;
 import java.util.HashMap;
@@ -40,6 +42,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class JsonCollectorArrayIT extends JsonCollectorITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Override
     public String getConfigFileName() {

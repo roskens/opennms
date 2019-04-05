@@ -39,6 +39,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.MethodSorters;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.model.OnmsNode;
@@ -49,6 +51,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class KSCEditorIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(KSCEditorIT.class);
 
     private Integer m_nodeId;

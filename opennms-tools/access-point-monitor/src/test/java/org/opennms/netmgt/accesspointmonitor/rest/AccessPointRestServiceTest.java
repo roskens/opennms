@@ -31,6 +31,8 @@ package org.opennms.netmgt.accesspointmonitor.rest;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -57,6 +59,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class AccessPointRestServiceTest extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private AccessPointDatabasePopulator m_databasePopulator;

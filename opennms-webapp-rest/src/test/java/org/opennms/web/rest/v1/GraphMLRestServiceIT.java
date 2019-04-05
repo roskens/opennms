@@ -32,6 +32,8 @@ import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.soa.ServiceRegistry;
 import org.opennms.core.spring.BeanUtils;
@@ -64,6 +66,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class GraphMLRestServiceIT extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Override
     protected void afterServletStart() throws Exception {

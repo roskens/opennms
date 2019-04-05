@@ -31,8 +31,12 @@ package org.opennms.smoketest;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class FooterIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void verifyDisplayVersionForLoggedInUser() {
         assertNotNull(findElementByXpath("//*[@id=\"footer\"]/p"));

@@ -38,6 +38,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -50,6 +52,8 @@ import org.opennms.netmgt.snmp.SnmpAgentConfig;
 
 @RunWith(Parameterized.class)
 public class SnmpIfCollectorIT extends SnmpCollectorITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	public SnmpIfCollectorIT(int config) {
 		setVersion(config);

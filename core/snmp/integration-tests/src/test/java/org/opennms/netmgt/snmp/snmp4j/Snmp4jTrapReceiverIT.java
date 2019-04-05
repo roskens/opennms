@@ -43,6 +43,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.snmp.SnmpConfiguration;
 import org.opennms.netmgt.snmp.SnmpInstId;
@@ -69,6 +71,8 @@ import org.snmp4j.smi.UdpAddress;
 import org.snmp4j.transport.DefaultUdpTransportMapping;
 
 public class Snmp4jTrapReceiverIT extends MockSnmpAgentITCase implements CommandResponder {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(Snmp4jTrapReceiverIT.class);
 
     private int m_trapCount;

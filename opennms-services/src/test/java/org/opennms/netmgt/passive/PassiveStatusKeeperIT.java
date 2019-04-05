@@ -88,7 +88,6 @@ public class PassiveStatusKeeperIT {
 
     @Before
     public void setUp() throws Exception {
-//        MockUtil.println("------------ Begin Test "+getName()+" --------------------------");
         MockLogAppender.setupLogging();
 
         createMockNetwork();
@@ -118,7 +117,6 @@ public class PassiveStatusKeeperIT {
         sleep(200);
         MockLogAppender.assertNoWarningsOrGreater();
         m_db.drop();
-//        MockUtil.println("------------ End Test "+getName()+" --------------------------");
     }
     
 

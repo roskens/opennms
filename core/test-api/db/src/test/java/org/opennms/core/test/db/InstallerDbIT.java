@@ -52,6 +52,8 @@ import java.util.regex.Pattern;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.db.install.Column;
 import org.opennms.core.db.install.Constraint;
 import org.opennms.core.db.install.Table;
@@ -60,6 +62,8 @@ import org.opennms.test.ThrowableAnticipator;
 import org.springframework.util.StringUtils;
 
 public class InstallerDbIT extends InstallerDbITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testCreateSequences() throws Exception {
         getInstallerDb().createSequences();

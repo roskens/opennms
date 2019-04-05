@@ -169,8 +169,6 @@ public class PollablesIT {
         DaoTestConfigBean bean = new DaoTestConfigBean();
         bean.afterPropertiesSet();
 
-        MockUtil.println("------------ Begin Test --------------------------");
-
         MockLogAppender.setupLogging();
 
         m_mockNetwork = new MockNetwork();

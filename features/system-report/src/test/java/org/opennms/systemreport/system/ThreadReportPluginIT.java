@@ -37,10 +37,14 @@ import javax.annotation.Resource;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.systemreport.SystemReportPlugin;
 
 public class ThreadReportPluginIT extends ReportPluginITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Resource(name="threadReportPlugin")
     private SystemReportPlugin m_threadReportPlugin;
 

@@ -35,6 +35,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.threshd.Threshold;
 import org.opennms.netmgt.config.threshd.ThresholdType;
 import org.opennms.netmgt.events.api.EventConstants;
@@ -44,6 +46,8 @@ import org.opennms.netmgt.xml.event.Event;
 import org.opennms.test.ThrowableAnticipator;
 
 public class ThresholdEvaluatorHighLowTest extends AbstractThresholdEvaluatorTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testConstructorThresholdNull() {

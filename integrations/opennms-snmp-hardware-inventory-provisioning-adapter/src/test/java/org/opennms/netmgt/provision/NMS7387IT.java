@@ -29,6 +29,8 @@
 package org.opennms.netmgt.provision;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,6 +40,8 @@ import org.springframework.transaction.annotation.Transactional;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class NMS7387IT extends AbstractSingleHardwareAdapterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test adapter.

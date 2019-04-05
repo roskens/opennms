@@ -39,6 +39,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.Event;
@@ -51,6 +53,8 @@ import io.searchbox.core.SearchResult;
 
 
 public class RawEventToIndexTest extends AbstractEventToIndexTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final Logger LOG = LoggerFactory.getLogger(RawEventToIndexTest.class);
 
 	private static final String EVENT_INDEX_TYPE = "eventdata";

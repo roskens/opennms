@@ -51,6 +51,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.tasks.Task;
@@ -152,6 +154,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment(systemProperties="org.opennms.provisiond.enableDiscovery=false")
 @DirtiesContext(classMode=ClassMode.AFTER_EACH_TEST_METHOD) // XXX classMode right?
 public class ProvisionerIT extends ProvisioningITCase implements InitializingBean, MockSnmpDataProviderAware {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(ProvisionerIT.class);
     @Autowired
     private MockEventIpcManager m_mockEventIpcManager;

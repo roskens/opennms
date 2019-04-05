@@ -87,8 +87,6 @@ public abstract class MockSnmpAgentITCase {
         agentCleanup();
     
         //MockLogAppender.assertNoWarningsOrGreater();
-
-        MockUtil.println("------------ End Test --------------------------");
     }
 
 	protected void agentCleanup() throws InterruptedException {

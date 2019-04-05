@@ -36,6 +36,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 import org.opennms.netmgt.collection.api.AttributeType;
@@ -46,6 +48,8 @@ import org.opennms.netmgt.collection.api.AttributeType;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class XmlDataCollectionConfigTest extends XmlTestNoCastor<XmlDataCollectionConfig> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final XmlDataCollectionConfig sampleObject;
 

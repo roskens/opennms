@@ -6,6 +6,8 @@ import java.net.URL;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +19,8 @@ import org.slf4j.LoggerFactory;
  * @author mvrueden
  */
 public class OsgiDeployedApplicationsIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(OsgiDeployedApplicationsIT.class);
 

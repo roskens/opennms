@@ -40,6 +40,8 @@ import java.util.Set;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.collection.test.JUnitCollector;
 import org.opennms.core.spring.BeanUtils;
@@ -64,7 +66,6 @@ import org.opennms.netmgt.model.ResourcePath;
 import org.opennms.netmgt.rrd.RrdStrategy;
 import org.opennms.netmgt.rrd.jrobin.JRobinRrdStrategy;
 import org.opennms.test.JUnitConfigurationEnvironment;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -89,6 +90,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 @JUnitConfigurationEnvironment(systemProperties="org.opennms.rrd.storeByGroup=false")
 @JUnitTemporaryDatabase(reuseDatabase=false) // Relies on records created in @Before so we need a fresh database for each test
 public class SnmpCollectorWithMibPropertiesIT implements InitializingBean, TestContextAware {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The Constant TEST_NODE_LABEL. */
     private final static String TEST_NODE_LABEL = "sample.local"; 
@@ -189,7 +192,6 @@ public class SnmpCollectorWithMibPropertiesIT implements InitializingBean, TestC
      */
     @After
     public void tearDown() throws Exception {
-        MockUtil.println("------------ End Test --------------------------");
         MockLogAppender.assertNoWarningsOrGreater();
     }
 

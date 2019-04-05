@@ -29,6 +29,8 @@
 package org.opennms.reporting.svclayer;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.netmgt.dao.api.OnmsReportConfigDao;
@@ -50,6 +52,8 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
         "classpath:/org/opennms/reporting/availability/svclayer/AvailabilityReportServiceTest.xml"
 })
 public class AvailabilityReportServiceTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Autowired
     @Qualifier("mockClassicCalculator")

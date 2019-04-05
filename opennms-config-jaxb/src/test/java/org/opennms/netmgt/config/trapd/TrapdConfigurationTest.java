@@ -35,11 +35,15 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.xml.XmlTestNoCastor;
 import org.opennms.core.xml.JaxbUtils;
 
 public class TrapdConfigurationTest extends XmlTestNoCastor<TrapdConfiguration> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	public TrapdConfigurationTest(final TrapdConfiguration sampleObject,
 			final Object sampleXml, final String schemaFile) {

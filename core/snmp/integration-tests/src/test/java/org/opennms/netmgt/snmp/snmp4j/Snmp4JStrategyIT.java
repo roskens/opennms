@@ -36,6 +36,8 @@ import java.util.concurrent.CompletableFuture;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.snmp.SnmpObjId;
 import org.opennms.netmgt.snmp.SnmpValue;
 import org.snmp4j.PDU;
@@ -48,6 +50,8 @@ import org.snmp4j.smi.VariableBinding;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class Snmp4JStrategyIT extends MockSnmpAgentITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Override
 	protected boolean usingMockStrategy() {

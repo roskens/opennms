@@ -32,6 +32,8 @@ import static org.ops4j.pax.exam.CoreOptions.maven;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.karaf.KarafTestCase;
 import org.ops4j.pax.exam.junit.PaxExam;
@@ -42,6 +44,8 @@ import org.ops4j.pax.exam.spi.reactors.PerMethod;
 @ExamReactorStrategy(PerMethod.class)
 @Ignore("Does not work with Karaf 4.2.3 anymore")
 public class FeatureInstallKarafIT extends KarafTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * This test attempts to install all features from the standard Karaf

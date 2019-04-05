@@ -35,6 +35,8 @@ import java.net.InetSocketAddress;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.criteria.CriteriaBuilder;
 import org.opennms.netmgt.dao.hibernate.MinionDaoHibernate;
 import org.opennms.netmgt.model.minion.OnmsMinion;
@@ -54,6 +56,8 @@ import com.google.common.util.concurrent.RateLimiter;
  * @author Seth
  */
 public class SyslogKafkaElasticsearch5IT extends AbstractSyslogTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(SyslogKafkaElasticsearch5IT.class);
 

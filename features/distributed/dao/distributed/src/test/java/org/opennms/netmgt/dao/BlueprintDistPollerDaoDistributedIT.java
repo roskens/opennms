@@ -34,6 +34,8 @@ import java.util.Properties;
 
 import org.apache.camel.util.KeyValueHolder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.camel.CamelBlueprintTest;
@@ -48,6 +50,8 @@ import org.springframework.test.context.ContextConfiguration;
 @RunWith( OpenNMSJUnit4ClassRunner.class )
 @ContextConfiguration( locations = { "classpath:/META-INF/opennms/emptyContext.xml" } )
 public class BlueprintDistPollerDaoDistributedIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String LOCATION = "TEST_LOCATION";
 
     @SuppressWarnings("rawtypes")

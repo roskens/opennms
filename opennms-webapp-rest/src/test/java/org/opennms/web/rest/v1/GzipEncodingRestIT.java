@@ -42,6 +42,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
@@ -81,6 +83,8 @@ import com.google.common.io.CharStreams;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class GzipEncodingRestIT extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private ApplicationDao applicationDao;

@@ -39,6 +39,8 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -82,6 +84,8 @@ import com.google.common.collect.Sets;
 @JUnitTemporaryDatabase
 @Transactional
 public class AlarmRepositoryIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Autowired
     DatabasePopulator m_dbPopulator;

@@ -46,6 +46,8 @@ import org.dhcp4java.DHCPOption;
 import org.dhcp4java.DHCPPacket;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -63,6 +65,8 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations={"classpath*:/META-INF/opennms/detectors.xml","classpath:/META-INF/opennms/applicationContext-soa.xml"})
 @JUnitConfigurationEnvironment
 public class DhcpDetectorTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // This should be a real, working DHCP server on the network
     private static String DHCP_SERVER_IP = "192.168.0.1";

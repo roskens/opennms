@@ -39,6 +39,8 @@ import org.apache.commons.jxpath.JXPathContext;
 import org.apache.commons.jxpath.Pointer;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.protocols.json.collector.JsonCollectorITCase;
 import org.opennms.protocols.json.collector.MockDocumentBuilder;
 
@@ -49,6 +51,8 @@ import org.opennms.protocols.json.collector.MockDocumentBuilder;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class JsonCollectorSolarisZonesIT extends JsonCollectorITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /* (non-Javadoc)
      * @see org.opennms.protocols.xml.collector.AbcstractXmlCollectorTest#getXmlConfigFileName()

@@ -37,6 +37,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.MockLogAppender;
@@ -83,6 +85,8 @@ import org.springframework.util.Assert;
 		@JUnitSnmpAgent(host="192.0.2.204", resource = "classpath:/snmpAssetTestData.properties")
 })
 public class SnmpAssetProvisioningAdapterFullIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Autowired
 	private NodeDao m_nodeDao;

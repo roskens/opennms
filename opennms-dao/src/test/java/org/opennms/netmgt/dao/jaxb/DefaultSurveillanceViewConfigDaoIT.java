@@ -41,7 +41,6 @@ import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.config.surveillanceViews.ColumnDef;
 import org.opennms.netmgt.config.surveillanceViews.RowDef;
 import org.opennms.netmgt.config.surveillanceViews.View;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -69,7 +68,6 @@ public class DefaultSurveillanceViewConfigDaoIT {
 
     @Before
     public void setUp() throws Exception {
-        MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
 
         createDaoWithResource(CONFIG_WITH_VIEWS_RESOURCE);
@@ -78,7 +76,6 @@ public class DefaultSurveillanceViewConfigDaoIT {
     @After
     public void runTest() throws Throwable {
         MockLogAppender.assertNoWarningsOrGreater();
-        MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
     }
 
     @Test

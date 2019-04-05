@@ -42,6 +42,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.link.TopologyProvider;
 import org.opennms.smoketest.BSMAdminIT;
 import org.opennms.smoketest.BSMAdminIT.BsmAdminPage;
@@ -57,6 +59,8 @@ import com.google.common.collect.Lists;
  * @author jwhite
  */
 public class BSMTopologyIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private BsmAdminPage bsmAdminPage;
     private TopologyUIPage topologyUiPage;

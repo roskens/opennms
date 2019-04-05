@@ -32,6 +32,8 @@ import static org.ops4j.pax.exam.CoreOptions.maven;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
@@ -41,6 +43,8 @@ import org.ops4j.pax.exam.spi.reactors.PerMethod;
 @ExamReactorStrategy(PerMethod.class)
 @Ignore("This doesn't work because of problems with the system classpath")
 public class FeaturesBootKarafIT extends OnmsKarafTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	/**
 	 * This test attempts to install all features from the OpenNMS

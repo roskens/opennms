@@ -47,6 +47,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.MethodSorters;
 import org.opennms.core.web.HttpClientWrapper;
 import org.opennms.core.xml.JaxbUtils;
@@ -67,6 +69,8 @@ import com.google.common.collect.Lists;
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GraphMLTopologyIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final String URL = getBaseUrl() + "opennms/rest/graphml/test-graph";
 

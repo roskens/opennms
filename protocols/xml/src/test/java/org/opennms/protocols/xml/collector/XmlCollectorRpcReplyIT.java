@@ -33,6 +33,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * The Test class for XML Collector for Juniper RPC Replay Statistics
@@ -40,6 +42,8 @@ import org.junit.Test;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class XmlCollectorRpcReplyIT extends XmlCollectorITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /* (non-Javadoc)
      * @see org.opennms.protocols.xml.collector.AbcstractXmlCollectorTest#getXmlConfigFileName()

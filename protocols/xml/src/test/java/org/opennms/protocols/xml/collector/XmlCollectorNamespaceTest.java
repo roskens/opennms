@@ -38,6 +38,8 @@ import javax.xml.xpath.XPathFactory;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -50,6 +52,8 @@ import org.w3c.dom.NodeList;
  * @author <a href="mailto:david.schlenk@spanlink.com">David Schlenk</a>
  */
 public class XmlCollectorNamespaceTest extends XmlCollectorITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /* (non-Javadoc)
      * @see org.opennms.protocols.xml.collector.AbcstractXmlCollectorTest#getXmlConfigFileName()

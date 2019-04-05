@@ -32,6 +32,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * <p>JUnit Test Class for NsclientManager.</p>
@@ -40,6 +42,8 @@ import org.junit.Test;
  * @version $Id: $
  */
 public class NSClientTest extends AbstractNsclientTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private NsclientManager m_nsclientManager;
 

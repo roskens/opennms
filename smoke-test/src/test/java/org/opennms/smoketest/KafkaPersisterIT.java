@@ -34,6 +34,8 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.smoketest.utils.RestClient;
 import org.opennms.test.system.api.TestEnvironment;
 import org.opennms.test.system.api.TestEnvironmentBuilder;
@@ -41,6 +43,8 @@ import org.opennms.test.system.api.NewTestEnvironment.ContainerAlias;
 
 /* Tests kafka persister as standalone persister with osgi as timeseries strategy */
 public class KafkaPersisterIT extends BaseKafkaPersisterIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @ClassRule
     public static final TestEnvironment getTestEnvironment() {

@@ -45,6 +45,7 @@ import javax.sql.DataSource;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -95,6 +96,8 @@ import com.google.common.collect.ImmutableMap;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(reuseDatabase=false)
 public class NotificationManagerIT implements InitializingBean {
+    @org.junit.Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	@Autowired
 	private DataSource m_dataSource;
 

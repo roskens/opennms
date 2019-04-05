@@ -43,6 +43,8 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.xml.event.Event;
 import org.opennms.netmgt.xml.event.Parm;
 import org.opennms.smoketest.minion.CommandTestUtils;
@@ -53,6 +55,8 @@ import org.opennms.test.system.api.TestEnvironmentBuilder;
 import org.opennms.test.system.api.utils.SshClient;
 
 public class KafkaProducerIT extends BaseKafkaPersisterIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @ClassRule
     public static final TestEnvironment getTestEnvironment() {

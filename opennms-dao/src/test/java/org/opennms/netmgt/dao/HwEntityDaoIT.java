@@ -30,6 +30,8 @@ package org.opennms.netmgt.dao;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -66,6 +68,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(dirtiesContext=false)
 public class HwEntityDaoIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The node DAO. */
     @Autowired

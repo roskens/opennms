@@ -44,6 +44,8 @@ import org.apache.commons.codec.binary.Base64;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.spring.BeanUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +64,8 @@ import org.springframework.security.web.FilterChainProxy;
         "classpath:/applicationContext-ldapTest.xml"
 })*/
 public class LdapAuthTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     /**
      * @author brozow

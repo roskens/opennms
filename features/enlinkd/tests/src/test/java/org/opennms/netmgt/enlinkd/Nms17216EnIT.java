@@ -83,6 +83,8 @@ import static org.opennms.netmgt.nb.NmsNetworkBuilder.SWITCH5_NAME;
 import static org.opennms.netmgt.nb.NmsNetworkBuilder.SWITCH5_SNMP_RESOURCE;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.core.utils.InetAddressUtils;
@@ -105,6 +107,8 @@ import org.opennms.netmgt.topologies.service.api.OnmsTopologyVertex;
 import org.opennms.netmgt.topologies.service.impl.OnmsTopologyLogger;
 
 public class Nms17216EnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
         
     Nms17216NetworkBuilder builder = new Nms17216NetworkBuilder();    
     /*

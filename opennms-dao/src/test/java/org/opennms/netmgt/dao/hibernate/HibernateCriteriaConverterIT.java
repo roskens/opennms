@@ -34,6 +34,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.criteria.Alias.JoinType;
 import org.opennms.core.criteria.CriteriaBuilder;
@@ -65,6 +67,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitTemporaryDatabase
 @Transactional
 public class HibernateCriteriaConverterIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(HibernateCriteriaConverterIT.class);
 
     @Autowired

@@ -33,6 +33,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.MethodSorters;
 import org.opennms.netmgt.events.api.EventConstants;
 import org.opennms.netmgt.model.events.EventBuilder;
@@ -43,6 +45,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AlarmsPageIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Before
     public void createAlarm() throws Exception {
         final EventBuilder builder = new EventBuilder(EventConstants.IMPORT_FAILED_UEI, "AlarmsPageTest");

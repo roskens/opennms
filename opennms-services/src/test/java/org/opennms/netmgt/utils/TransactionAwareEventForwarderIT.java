@@ -30,6 +30,8 @@ package org.opennms.netmgt.utils;
 
 import org.junit.After;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -68,6 +70,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class TransactionAwareEventForwarderIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private TransactionAwareEventForwarder m_proxy;

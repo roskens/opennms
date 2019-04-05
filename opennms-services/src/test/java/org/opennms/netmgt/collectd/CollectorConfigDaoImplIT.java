@@ -40,7 +40,6 @@ import org.opennms.netmgt.config.DataCollectionConfigFactory;
 import org.opennms.netmgt.config.DatabaseSchemaConfigFactory;
 import org.opennms.netmgt.config.DefaultDataCollectionConfigDao;
 import org.opennms.netmgt.config.SnmpPeerFactory;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.core.io.InputStreamResource;
 
 import org.junit.Test;
@@ -58,7 +57,6 @@ public class CollectorConfigDaoImplIT {
 
     @Before
     public void setUp() throws Exception {
-        MockUtil.println("------------ Begin Test "+m_testName.getMethodName()+" --------------------------");
         MockLogAppender.setupLogging();
 
         MockDatabase m_db = new MockDatabase();
@@ -71,7 +69,6 @@ public class CollectorConfigDaoImplIT {
     @After
     public void tearDown() throws Exception {
         MockLogAppender.assertNoWarningsOrGreater();
-        MockUtil.println("------------ End Test "+m_testName.getMethodName()+" --------------------------");
     }
 
     private InputStream getInputStreamForFile(String fileName) {

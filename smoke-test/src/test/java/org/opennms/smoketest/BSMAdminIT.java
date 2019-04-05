@@ -41,6 +41,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
@@ -63,6 +65,8 @@ import com.google.common.collect.Lists;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @org.springframework.test.annotation.IfProfileValue(name="runFlappers", value="true")
 public class BSMAdminIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(BSMAdminIT.class);
 

@@ -35,6 +35,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.concurrent.CompletableFuture;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.soa.ServiceRegistry;
 import org.opennms.core.test.MockLogAppender;
@@ -66,6 +68,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class DiscoveryRestServiceIT extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     ServiceRegistry serviceRegistry;

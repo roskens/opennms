@@ -34,6 +34,8 @@ import static org.easymock.EasyMock.verify;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.netmgt.dao.api.DatabaseReportConfigDao;
@@ -58,6 +60,8 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
         "classpath:/org/opennms/reporting/core/svclayer/support/DefaultReportStoreServiceTest.xml"
 })
 public class DefaultReportStoreServiceTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     ReportStoreService m_reportStoreService;

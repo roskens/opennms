@@ -39,6 +39,8 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.groups.Group;
 import org.opennms.netmgt.config.notifications.Notification;
 import org.opennms.netmgt.mock.MockNode;
@@ -46,6 +48,8 @@ import org.opennms.netmgt.xml.event.Event;
 
 
 public class TaskCreationIT extends NotificationsITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private static final int INTERVAL = 1000;
     private Notification m_notif;

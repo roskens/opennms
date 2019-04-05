@@ -102,7 +102,6 @@ public class BasePersisterTest {
 
     @Before
     public void setUp() throws Exception {
-        MockUtil.println("------------ Begin Test " + m_testName.getMethodName() + " --------------------------");
         MockLogAppender.setupLogging();
 
         m_fileAnticipator = new FileAnticipator();
@@ -133,7 +132,6 @@ public class BasePersisterTest {
     public void tearDown() throws Exception {
         m_fileAnticipator.deleteExpected(true);
         m_fileAnticipator.tearDown();
-        MockUtil.println("------------ End Test " + m_testName.getMethodName() + " --------------------------");
     }
     
     @Test

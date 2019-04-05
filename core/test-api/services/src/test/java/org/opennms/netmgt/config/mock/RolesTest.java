@@ -42,6 +42,8 @@ import java.util.Iterator;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.IntervalTestCase;
 import org.opennms.core.test.MockLogAppender;
@@ -65,6 +67,8 @@ import org.opennms.netmgt.config.groups.Role;
 import org.opennms.netmgt.config.users.User;
 
 public class RolesTest extends IntervalTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private GroupManager m_groupManager;
     private UserManager m_userManager;
     private WebRoleManager m_roleMgr;

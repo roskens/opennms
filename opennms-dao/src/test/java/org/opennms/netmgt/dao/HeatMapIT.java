@@ -32,6 +32,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -63,6 +65,8 @@ import org.junit.Assert;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(dirtiesContext = false)
 public class HeatMapIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Autowired
     private NodeDao m_nodeDao;
 

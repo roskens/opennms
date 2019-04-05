@@ -45,6 +45,8 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.link.Layout;
 import org.opennms.features.topology.link.TopologyProvider;
 import org.openqa.selenium.By;
@@ -73,6 +75,8 @@ import com.google.common.collect.Lists;
  * @author jwhite
  */
 public class TopologyIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(TopologyIT.class);
 

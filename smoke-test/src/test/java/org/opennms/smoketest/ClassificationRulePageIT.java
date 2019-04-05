@@ -43,6 +43,8 @@ import java.util.stream.IntStream;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.rest.classification.ClassificationRequestDTO;
 import org.opennms.netmgt.flows.rest.classification.RuleDTO;
 import org.opennms.netmgt.flows.rest.classification.RuleDTOBuilder;
@@ -59,6 +61,8 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 
 public class ClassificationRulePageIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static int DEFAULT_WAIT_TIME = 2000;
 

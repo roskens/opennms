@@ -32,8 +32,12 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class TemporaryDatabaseITCaseIT extends TemporaryDatabaseITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Override
     public void testNothing() {

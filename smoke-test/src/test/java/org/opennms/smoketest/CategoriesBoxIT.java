@@ -30,10 +30,14 @@ package org.opennms.smoketest;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class CategoriesBoxIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void before() {

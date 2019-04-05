@@ -31,6 +31,8 @@ package org.opennms.netmgt.correlation.drools;
 import static org.opennms.core.utils.InetAddressUtils.addr;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.events.api.EventConstants;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.Event;
@@ -38,6 +40,8 @@ import org.opennms.test.mock.EasyMockUtils;
 
 
 public class DependencyRulesTest extends CorrelationRulesTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     
     @Test

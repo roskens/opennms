@@ -34,6 +34,8 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * The Class NumericNodeLevelDataTest.
@@ -41,6 +43,8 @@ import org.junit.Test;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class NumericNodeLevelDataTest extends JsonCollectorITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /* (non-Javadoc)
      * @see org.opennms.protocols.json.collector.AbstractJsonCollectorTest#getJSONConfigFileName()

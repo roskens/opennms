@@ -35,6 +35,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.measurements.api.FetchResults;
 import org.opennms.netmgt.measurements.model.FilterDef;
 import org.opennms.netmgt.measurements.model.QueryMetadata;
@@ -42,6 +44,8 @@ import org.opennms.netmgt.measurements.model.QueryMetadata;
 import com.google.common.collect.RowSortedTable;
 
 public class PercentilePerfTest extends AnalyticsFilterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Verify that a large result set gets processed in a reasonable amount of time.

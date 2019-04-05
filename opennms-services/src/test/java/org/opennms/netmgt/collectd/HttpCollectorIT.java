@@ -40,6 +40,8 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.collection.test.JUnitCollector;
 import org.opennms.core.spring.BeanUtils;
@@ -98,6 +100,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 @JUnitConfigurationEnvironment(systemProperties="org.opennms.rrd.storeByGroup=false")
 @JUnitTemporaryDatabase
 public class HttpCollectorIT implements TestContextAware, InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private PlatformTransactionManager m_transactionManager;

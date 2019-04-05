@@ -37,6 +37,8 @@ import java.util.Properties;
 import org.joda.time.Duration;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.concurrent.PausibleScheduledThreadPoolExecutor;
 import org.opennms.core.spring.BeanUtils;
@@ -90,6 +92,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitConfigurationEnvironment(systemProperties="org.opennms.provisiond.enableDiscovery=false")
 @DirtiesContext
 public class ProvisionerRescanExistingFalseIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(ProvisionerRescanExistingFalseIT.class);
 
     @Autowired

@@ -32,6 +32,8 @@ import java.net.InetAddress;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.nrtg.api.model.CollectionJob;
 import org.opennms.nrtg.api.model.DefaultCollectionJob;
 
@@ -65,6 +67,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitSnmpAgent(port = 9161, host = "127.0.0.1", resource = "classpath:/juniperTcaSample.properties")
 public class TcaProtocolCollectorTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private ProtocolCollector protocolCollector;

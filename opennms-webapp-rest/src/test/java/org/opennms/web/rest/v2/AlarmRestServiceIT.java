@@ -48,6 +48,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -98,6 +100,8 @@ import com.google.common.collect.ImmutableMap;
 @JUnitTemporaryDatabase
 @Transactional
 public class AlarmRestServiceIT extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String NODE_2_IP = "192.168.1.2";
     private static final String NODE_1_IP = "192.168.1.1";

@@ -31,8 +31,12 @@ package org.opennms.core.test.db;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class IPLikeCoverageIT extends InstallerDbITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /*
      * This set of coverage data matches that in https://github.com/OpenNMS/iplike/blob/master/tests.dat

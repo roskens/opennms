@@ -40,6 +40,8 @@ import org.hibernate.Hibernate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.MockDatabase;
@@ -82,6 +84,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(dirtiesContext=false,tempDbClass=MockDatabase.class)
 public class AlarmdDriver implements TemporaryDatabaseAware<MockDatabase>, ActionVisitor, ScenarioHandler {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(AlarmdDriver.class);
 

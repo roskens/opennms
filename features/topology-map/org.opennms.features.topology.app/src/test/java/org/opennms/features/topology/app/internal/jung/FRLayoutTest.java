@@ -36,6 +36,8 @@ import java.util.List;
 
 import org.apache.commons.collections15.Transformer;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.Graph;
 import org.opennms.features.topology.api.GraphContainer;
 import org.opennms.features.topology.api.Layout;
@@ -52,6 +54,8 @@ import org.slf4j.LoggerFactory;
 import edu.uci.ics.jung.graph.SparseGraph;
 
 public class FRLayoutTest extends AbstractLayoutTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(FRLayoutTest.class);
     

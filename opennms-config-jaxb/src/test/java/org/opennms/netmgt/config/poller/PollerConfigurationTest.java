@@ -39,6 +39,8 @@ import java.util.Properties;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.Parameterized.Parameters;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.MockLogger;
@@ -50,6 +52,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PollerConfigurationTest extends XmlTestNoCastor<PollerConfiguration> {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(PollerConfigurationTest.class);
 
     public PollerConfigurationTest(final PollerConfiguration sampleObject, final Object sampleXml) {

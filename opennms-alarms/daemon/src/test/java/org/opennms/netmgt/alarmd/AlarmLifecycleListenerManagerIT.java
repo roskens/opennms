@@ -50,6 +50,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.criteria.Criteria;
 import org.opennms.core.criteria.restrictions.EqRestriction;
@@ -99,6 +101,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 })
 @JUnitTemporaryDatabase(dirtiesContext=false,tempDbClass=MockDatabase.class)
 public class AlarmLifecycleListenerManagerIT implements TemporaryDatabaseAware<MockDatabase>, AlarmLifecycleListener {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private Alarmd m_alarmd;

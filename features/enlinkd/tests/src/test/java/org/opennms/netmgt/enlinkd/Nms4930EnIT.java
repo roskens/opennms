@@ -43,6 +43,8 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.netmgt.enlinkd.model.BridgeMacLink;
@@ -264,6 +266,8 @@ common macs on shared link: 8
 //                                                           10.100.1.7:001e58a6aed7:101
 
 public class Nms4930EnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	Nms4930NetworkBuilder builder = new Nms4930NetworkBuilder();
     String[] macsonbbport = { 

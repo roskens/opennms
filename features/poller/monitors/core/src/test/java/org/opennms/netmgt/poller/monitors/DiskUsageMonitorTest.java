@@ -39,6 +39,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
@@ -71,6 +72,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitSnmpAgent(host = DiskUsageMonitorTest.TEST_IP_ADDRESS, resource = "classpath:/org/opennms/netmgt/snmp/snmpTestData1.properties")
 public class DiskUsageMonitorTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     static final String TEST_IP_ADDRESS = "127.0.0.1";
 

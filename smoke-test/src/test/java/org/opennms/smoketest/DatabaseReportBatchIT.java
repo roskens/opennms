@@ -34,6 +34,8 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -44,6 +46,8 @@ import org.openqa.selenium.WebElement;
  * We do NOT test ALL.
  */
 public class DatabaseReportBatchIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void before() {

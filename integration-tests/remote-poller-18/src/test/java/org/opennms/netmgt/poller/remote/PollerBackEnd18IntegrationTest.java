@@ -36,6 +36,8 @@ import java.rmi.registry.Registry;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.soa.ServiceRegistry;
 import org.opennms.core.spring.BeanUtils;
@@ -78,6 +80,8 @@ import org.springframework.test.context.ContextConfiguration;
 })
 @JUnitTemporaryDatabase
 public class PollerBackEnd18IntegrationTest implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Autowired
 	LocationMonitorDao m_locationMonitorDao;

@@ -43,6 +43,8 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Subqueries;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -91,6 +93,8 @@ import com.google.common.collect.Sets;
 @JUnitTemporaryDatabase
 @DirtiesContext // XXX needed? JUnitTemporaryDatabase marks dirty by default
 public class AlarmRepositoryFilterIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     DatabasePopulator m_dbPopulator;

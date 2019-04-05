@@ -36,6 +36,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.provision.persist.foreignsource.ForeignSource;
 import org.opennms.netmgt.provision.persist.foreignsource.PluginConfig;
 import org.opennms.netmgt.provision.persist.requisition.Requisition;
@@ -46,6 +48,8 @@ import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.core.io.ClassPathResource;
 
 public class MockForeignSourceRepositoryTest extends ForeignSourceRepositoryTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private String m_defaultForeignSourceName;
 
     private ForeignSourceRepository m_foreignSourceRepository;

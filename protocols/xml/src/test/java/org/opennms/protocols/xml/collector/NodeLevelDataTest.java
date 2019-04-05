@@ -34,6 +34,8 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.collection.api.CollectionAttribute;
 import org.opennms.netmgt.collection.api.CollectionResource;
 import org.opennms.netmgt.collection.api.CollectionSet;
@@ -45,6 +47,8 @@ import org.opennms.netmgt.collection.support.AbstractCollectionSetVisitor;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class NodeLevelDataTest extends XmlCollectorITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * The Class CountVisitor.

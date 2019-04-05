@@ -48,6 +48,8 @@ import javax.xml.bind.DatatypeConverter;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -93,6 +95,8 @@ import com.google.common.collect.Lists;
 @JUnitTemporaryDatabase
 @Transactional
 public class AlarmStatsRestServiceIT extends AbstractSpringJerseyRestTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(AlarmStatsRestServiceIT.class);
 
     @Autowired

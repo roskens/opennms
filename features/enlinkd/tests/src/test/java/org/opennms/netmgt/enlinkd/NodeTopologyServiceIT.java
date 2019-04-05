@@ -34,6 +34,8 @@ import static org.junit.Assert.assertThat;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.enlinkd.model.IpInterfaceTopologyEntity;
 import org.opennms.netmgt.enlinkd.model.NodeTopologyEntity;
 import org.opennms.netmgt.enlinkd.service.api.NodeTopologyService;
@@ -41,6 +43,8 @@ import org.opennms.netmgt.nb.Nms17216NetworkBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class NodeTopologyServiceIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private NodeTopologyService nodeTopologyService;

@@ -35,12 +35,16 @@ import static org.hamcrest.Matchers.nullValue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.smoketest.OpenNMSSeleniumTestCase;
 
 import io.restassured.RestAssured;
 
 // Ensures if "X-Requeste-With" is set to "XMLHttpRequest" no "WWW-Authenticate" header is sent with the response
 public class XRequestedWithRestIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void setUp() {

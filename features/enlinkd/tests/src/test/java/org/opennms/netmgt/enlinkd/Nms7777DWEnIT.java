@@ -35,6 +35,8 @@ import static org.opennms.netmgt.nb.NmsNetworkBuilder.DW_NAME;
 import static org.opennms.netmgt.nb.NmsNetworkBuilder.DW_SNMP_RESOURCE;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.netmgt.enlinkd.model.LldpElement;
@@ -42,6 +44,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.nb.Nms7777DWNetworkBuilder;
 
 public class Nms7777DWEnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	Nms7777DWNetworkBuilder builder = new Nms7777DWNetworkBuilder();
 

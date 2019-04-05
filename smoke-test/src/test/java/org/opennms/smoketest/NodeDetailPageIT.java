@@ -39,6 +39,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.http.client.methods.HttpGet;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.events.api.EventConstants;
 import org.opennms.netmgt.model.events.EventBuilder;
@@ -49,6 +51,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 public class NodeDetailPageIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public static class NodeDetailPage {
 

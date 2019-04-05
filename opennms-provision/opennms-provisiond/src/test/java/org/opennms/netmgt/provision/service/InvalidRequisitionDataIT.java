@@ -34,6 +34,8 @@ import static org.junit.Assert.assertNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.MockLogAppender;
@@ -73,6 +75,8 @@ import org.springframework.test.context.ContextConfiguration;
 @DirtiesContext
 // @Ignore("These tests are fixed in 1.13, and backporting the fixes are not worth it.  Narf.")
 public class InvalidRequisitionDataIT extends ProvisioningITCase implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Autowired
     private MockNodeDao m_nodeDao;

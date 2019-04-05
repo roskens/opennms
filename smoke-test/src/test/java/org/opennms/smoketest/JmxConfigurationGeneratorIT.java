@@ -9,6 +9,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -29,6 +31,8 @@ import com.google.common.collect.Collections2;
  * Verifies that the Vaadin JMX Configuration Generator Application is deployed correctly.
  */
 public class JmxConfigurationGeneratorIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(JmxConfigurationGeneratorIT.class);
     private static final String MBEANS_VIEW_TREE_WAIT_NAME = "com.zaxxer.hikari";
 

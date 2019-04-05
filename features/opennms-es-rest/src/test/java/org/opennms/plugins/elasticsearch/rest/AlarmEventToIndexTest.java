@@ -43,6 +43,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.test.elastic.ElasticSearchRule;
 import org.opennms.core.test.elastic.ElasticSearchServerConfig;
 import org.opennms.netmgt.dao.api.DistPollerDao;
@@ -64,6 +65,8 @@ import io.searchbox.core.SearchResult;
 
 
 public class AlarmEventToIndexTest extends AbstractEventToIndexTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final Logger LOG = LoggerFactory.getLogger(AlarmEventToIndexTest.class);
 	
 	public static final int INDEX_WAIT_SECONDS=10; // time to wait for index to catch up

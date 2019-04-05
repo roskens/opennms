@@ -36,6 +36,8 @@ import java.util.Properties;
 
 import org.apache.camel.util.KeyValueHolder;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.ipc.sink.api.MessageDispatcherFactory;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -47,6 +49,8 @@ import org.springframework.test.context.ContextConfiguration;
 @RunWith(OpenNMSJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/opennms/emptyContext.xml" })
 public class SyslogdReceiverCamelNettyBlueprintIT extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @SuppressWarnings("rawtypes")
     @Override

@@ -33,6 +33,8 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -47,6 +49,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class ProvisioningNewUIIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String NODE_LABEL = "localNode";
     private static final String NODE_FOREIGNID = "localNode";
     private static final String NODE_IPADDR = "127.0.0.1";

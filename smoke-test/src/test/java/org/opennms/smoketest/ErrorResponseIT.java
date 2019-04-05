@@ -43,6 +43,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.web.HttpClientWrapper;
 
 /**
@@ -50,6 +52,8 @@ import org.opennms.core.web.HttpClientWrapper;
  * See HZN-1108.
  */
 public class ErrorResponseIT extends OpenNMSSeleniumTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyErrorResponseV1() throws IOException {

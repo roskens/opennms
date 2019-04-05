@@ -40,6 +40,8 @@ import java.util.Set;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.collection.test.JUnitCollector;
 import org.opennms.core.spring.BeanUtils;
@@ -67,7 +69,6 @@ import org.opennms.netmgt.snmp.SnmpAgentConfig;
 import org.opennms.netmgt.snmp.SnmpObjId;
 import org.opennms.netmgt.snmp.SnmpUtils;
 import org.opennms.test.JUnitConfigurationEnvironment;
-import org.opennms.test.mock.MockUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -97,6 +98,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitTemporaryDatabase
 @Transactional
 public class SnmpCollectorMinMaxValIT implements TestContextAware, InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(SnmpCollectorMinMaxValIT.class);
     private static final String TEST_HOST_ADDRESS = "192.0.2.205";
     private static final String TEST_NODE_LABEL = "TestNode"; 
@@ -181,13 +184,6 @@ public class SnmpCollectorMinMaxValIT implements TestContextAware, InitializingB
         m_collectionSpecification = CollectorTestUtils.createCollectionSpec("SNMP", collector, "default");
         m_collectionAgent = DefaultSnmpCollectionAgent.create(iface.getId(), m_ipInterfaceDao, m_transactionManager);
     }
-
-    @After
-    public void tearDown() throws Exception {
-        MockUtil.println("------------ End Test --------------------------");
-        // MockLogAppender.assertNoWarningsOrGreater();
-    }
-
 
     @Test
     @JUnitCollector(

@@ -38,6 +38,8 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -80,6 +82,8 @@ import org.springframework.test.context.ContextConfiguration;
 })
 @JUnitTemporaryDatabase(dirtiesContext=false,tempDbClass=MockDatabase.class)
 public class ScanReportPollerFrontEndIT implements TemporaryDatabaseAware<MockDatabase>, InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(ScanReportPollerFrontEndIT.class);
 
     @Autowired

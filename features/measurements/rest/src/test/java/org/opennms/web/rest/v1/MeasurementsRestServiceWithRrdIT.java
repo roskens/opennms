@@ -38,6 +38,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -78,6 +80,8 @@ import com.google.common.collect.Lists;
 @Transactional
 @Ignore
 public class MeasurementsRestServiceWithRrdIT extends MeasurementsRestServiceITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(MeasurementsRestServiceWithRrdIT.class);
     private static final File s_rrdDirectory = new File("src/test/resources/share/rrd");
 

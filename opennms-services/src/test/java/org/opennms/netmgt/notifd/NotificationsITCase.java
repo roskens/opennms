@@ -67,7 +67,6 @@ import org.opennms.netmgt.mock.MockPollerConfig;
 import org.opennms.netmgt.mock.NotificationAnticipator;
 import org.opennms.test.DaoTestConfigBean;
 import org.opennms.test.JUnitConfigurationEnvironment;
-import org.opennms.test.mock.MockUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -114,8 +113,6 @@ public class NotificationsITCase implements TemporaryDatabaseAware<MockDatabase>
 
     @Before
     public void setUp() throws Exception {
-        MockUtil.println("################# Running Test ################");
-
         DaoTestConfigBean bean = new DaoTestConfigBean();
         bean.afterPropertiesSet();
 
@@ -167,10 +164,6 @@ public class NotificationsITCase implements TemporaryDatabaseAware<MockDatabase>
 //        m_anticipator.waitForAnticipated(2000);
 //        
 //        m_anticipator.reset();
-    
-        MockUtil.println("################ Finish Setup ################");
-
-    
     }
 
     protected MockNetwork createMockNetwork() {

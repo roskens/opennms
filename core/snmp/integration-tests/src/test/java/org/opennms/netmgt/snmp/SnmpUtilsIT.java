@@ -44,6 +44,8 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -55,6 +57,8 @@ import org.springframework.core.io.ClassPathResource;
 
 @RunWith(Parameterized.class)
 public class SnmpUtilsIT extends MockSnmpAgentITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	
 	@Parameters
 	public static List<Object[]> data() {

@@ -33,6 +33,8 @@ import static org.ops4j.pax.exam.CoreOptions.maven;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.karaf.KarafTestCase;
 import org.ops4j.pax.exam.junit.PaxExam;
@@ -51,6 +53,8 @@ import org.ops4j.pax.exam.spi.reactors.PerMethod;
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerMethod.class)
 public class OnmsExperimentalFeaturesKarafIT extends KarafTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Before
 	public void setUp() {

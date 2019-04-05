@@ -38,6 +38,8 @@ import com.google.common.collect.Lists;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
@@ -75,6 +77,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitTemporaryDatabase(reuseDatabase=false) // relies on setUp()
 @Transactional
 public class MeasurementsRestServiceWithJrbIT extends MeasurementsRestServiceITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(MeasurementsRestServiceWithJrbIT.class);
 

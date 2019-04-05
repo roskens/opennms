@@ -45,6 +45,8 @@ import org.apache.camel.util.KeyValueHolder;
 import org.apache.commons.io.IOUtils;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.core.test.camel.CamelBlueprintTest;
 import org.opennms.netmgt.dao.api.NodeDao;
@@ -58,6 +60,8 @@ import org.opennms.netmgt.xml.event.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class EifAdapterBlueprintTest extends CamelBlueprintTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @BeanInject
     protected EventIpcManager eventIpcManager;

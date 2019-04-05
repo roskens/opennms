@@ -42,6 +42,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.api.integration.ticketing.PluginException;
 import org.opennms.api.integration.ticketing.RelatedAlarmSummary;
@@ -82,6 +84,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(reuseDatabase = false)
 public class DefaultTicketerServiceLayerIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Autowired
     private TicketerServiceLayer m_ticketerServiceLayer;
 

@@ -33,6 +33,8 @@ import java.util.Collection;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -44,6 +46,8 @@ import com.google.common.collect.TreeBasedTable;
 
 @RunWith(Parameterized.class)
 public class PercentileTest extends AnalyticsFilterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {     

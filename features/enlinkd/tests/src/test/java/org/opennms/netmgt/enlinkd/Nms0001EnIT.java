@@ -48,6 +48,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgent;
 import org.opennms.core.test.snmp.annotations.JUnitSnmpAgents;
 import org.opennms.netmgt.enlinkd.model.IsIsElement;
@@ -56,6 +58,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.nb.Nms0001NetworkBuilder;
 
 public class Nms0001EnIT extends EnLinkdBuilderITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	Nms0001NetworkBuilder builder = new Nms0001NetworkBuilder();
 

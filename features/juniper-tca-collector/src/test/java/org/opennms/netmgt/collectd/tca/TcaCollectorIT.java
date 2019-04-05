@@ -44,6 +44,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.opennms.core.collection.test.CollectionSetUtils;
@@ -113,6 +114,8 @@ import org.springframework.transaction.annotation.Transactional;
 @JUnitSnmpAgent(host = TcaCollectorIT.TEST_NODE_IP, port = 9161, resource = "classpath:/juniperTcaSample.properties")
 @Transactional
 public class TcaCollectorIT implements InitializingBean {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder m_tempFolder = new TemporaryFolder();

@@ -37,6 +37,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockPlatformTransactionManager;
 import org.opennms.netmgt.collection.api.CollectionAgent;
 import org.opennms.netmgt.collection.api.CollectionAttribute;
@@ -61,6 +63,8 @@ import org.springframework.transaction.PlatformTransactionManager;
  * @version $Id: $
  */
 public class NsclientCollectorTest extends AbstractNsclientTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private PlatformTransactionManager m_transactionManager;
 
