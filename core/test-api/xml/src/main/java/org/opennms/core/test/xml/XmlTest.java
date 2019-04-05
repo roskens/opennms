@@ -69,10 +69,12 @@ import org.custommonkey.xmlunit.Difference;
 import org.custommonkey.xmlunit.NodeDetail;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.xml.JaxbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -107,6 +109,9 @@ abstract public class XmlTest<T> {
         m_sampleXml = sampleXml;
         m_schemaFile = schemaFile;
     }
+
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void setUp() {
