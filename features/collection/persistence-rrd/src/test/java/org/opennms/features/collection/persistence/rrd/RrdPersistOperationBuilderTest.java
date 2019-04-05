@@ -34,9 +34,13 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.collection.persistence.rrd.RrdPersistOperationBuilder;
 
 public class RrdPersistOperationBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canFormatNumbers() {

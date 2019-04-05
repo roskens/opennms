@@ -34,8 +34,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.poller.PollStatus;
 public class PollStatusTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     protected PollStatus statusDown1      = null;
     protected PollStatus statusDown2      = null;
     protected PollStatus statusDown3      = null;

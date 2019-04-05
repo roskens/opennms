@@ -41,6 +41,8 @@ import javax.validation.ConstraintViolationException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.criteria.Alias;
 import org.opennms.core.criteria.Criteria;
@@ -87,6 +89,8 @@ import com.google.common.collect.Lists;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(reuseDatabase = false, tempDbClass = MockDatabase.class)
 public class BusinessServiceDaoIT { 
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     @Qualifier("bsmDatabasePopulator")

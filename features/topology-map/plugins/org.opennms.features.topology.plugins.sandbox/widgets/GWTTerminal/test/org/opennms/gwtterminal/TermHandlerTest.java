@@ -33,6 +33,8 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.gwtterminal.client.Code;
 import org.opennms.gwtterminal.client.TermHandler;
 
@@ -42,6 +44,8 @@ import com.google.gwt.event.dom.client.KeyPressEvent;
 
 @SuppressWarnings("unused")
 public class TermHandlerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private TermHandler termHandler;
 	private final int CTRL_KEY = KeyCodes.KEY_CTRL;

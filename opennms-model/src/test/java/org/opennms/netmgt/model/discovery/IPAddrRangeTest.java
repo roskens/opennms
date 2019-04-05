@@ -38,6 +38,8 @@ import java.net.UnknownHostException;
 import java.util.Iterator;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.core.network.IPAddress;
 
@@ -47,6 +49,8 @@ import org.opennms.core.network.IPAddress;
  * @author brozow
  */
 public class IPAddrRangeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final IPAddress addr2 = new IPAddress("192.168.1.3");
     private final IPAddress addr3 = new IPAddress("192.168.1.5");

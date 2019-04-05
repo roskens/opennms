@@ -30,8 +30,12 @@ package org.opennms.features.vaadin.jmxconfiggenerator.ui;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class HeaderPanelTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testGenerateLabel() {
         HeaderPanel panel = new HeaderPanel();

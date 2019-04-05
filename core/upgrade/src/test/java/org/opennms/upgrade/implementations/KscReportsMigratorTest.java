@@ -37,6 +37,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.KSC_PerformanceReportFactory;
 import org.opennms.upgrade.api.OnmsUpgradeException;
 
@@ -46,6 +48,8 @@ import org.opennms.upgrade.api.OnmsUpgradeException;
  * @author Alejandro Galue <agalue@opennms.org>
  */
 public class KscReportsMigratorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Sets up the test.

@@ -48,6 +48,8 @@ import org.jrobin.core.RrdException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.ArgumentCaptor;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -77,6 +79,8 @@ import org.opennms.test.FileAnticipator;
 import org.springframework.transaction.PlatformTransactionManager;
 
 public class CollectableServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private CollectionSpecification spec;
     private Scheduler scheduler;

@@ -38,6 +38,8 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.http.JUnitHttpServerExecutionListener;
 import org.opennms.core.test.http.annotations.JUnitHttpServer;
@@ -59,6 +61,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
     JUnitHttpServerExecutionListener.class
 })
 public class HttpUrlConnectionIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test the Servlet with a simple POST Request based on XML Data.

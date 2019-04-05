@@ -37,6 +37,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.newts.api.Context;
 import org.opennms.newts.api.Counter;
 import org.opennms.newts.api.Duration;
@@ -56,6 +58,8 @@ import com.google.common.base.Throwables;
 import com.google.common.collect.Lists;
 
 public class NewtsWriterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Uses a latch to verify that multiple that multiple threads

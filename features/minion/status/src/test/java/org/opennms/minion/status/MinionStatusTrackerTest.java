@@ -53,6 +53,8 @@ import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.criteria.Criteria;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.MockLogger;
@@ -78,6 +80,8 @@ import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionOperations;
 public class MinionStatusTrackerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String FOREIGN_SOURCE = "Test";
     private static final String MINION_HEARTBEAT = MinionStatusTracker.MINION_HEARTBEAT;
     private static final String MINION_RPC = MinionStatusTracker.MINION_RPC;

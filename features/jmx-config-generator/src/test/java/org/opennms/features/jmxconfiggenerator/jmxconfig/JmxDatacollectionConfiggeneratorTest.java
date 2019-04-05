@@ -49,6 +49,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.jmxconfiggenerator.jmxconfig.query.MBeanServerQueryException;
 import org.opennms.features.jmxconfiggenerator.log.Slf4jLogAdapter;
 import org.opennms.netmgt.config.collectd.jmx.JmxDatacollectionConfig;
@@ -63,6 +65,8 @@ import com.google.common.base.Throwables;
  * @author Markus Neumann <markus@opennms.com>
  */
 public class JmxDatacollectionConfiggeneratorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(JmxDatacollectionConfiggeneratorTest.class);
 

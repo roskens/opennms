@@ -40,10 +40,14 @@ import java.net.Socket;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 
 
 public class Pop3ServerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private Pop3Server m_pop3Server;
     private Socket m_socket;
     private BufferedReader m_in;

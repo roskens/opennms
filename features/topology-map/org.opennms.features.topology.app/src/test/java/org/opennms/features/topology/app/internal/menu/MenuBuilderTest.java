@@ -34,6 +34,8 @@ import java.util.List;
 
 import org.easymock.EasyMock;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.app.internal.TestOperationContext;
 
 import com.google.common.collect.Lists;
@@ -41,6 +43,8 @@ import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.UI;
 
 public class MenuBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void createMenuTest() {

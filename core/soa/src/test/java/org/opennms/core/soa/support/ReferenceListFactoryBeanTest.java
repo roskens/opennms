@@ -34,6 +34,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.soa.Registration;
 import org.opennms.core.soa.RegistrationListener;
 import org.opennms.core.soa.ServiceRegistry;
@@ -45,6 +47,8 @@ import org.opennms.core.soa.ServiceRegistry;
  * @author brozow
  */
 public class ReferenceListFactoryBeanTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     /**
      * RegistrationListenerImplementation

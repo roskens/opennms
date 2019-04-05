@@ -37,6 +37,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.dao.support.PropertiesGraphDao;
 import org.opennms.netmgt.model.PrefabGraph;
 import org.opennms.netmgt.model.ResourceId;
@@ -49,6 +51,8 @@ import org.springframework.core.io.FileSystemResource;
  * @author Alejandro Galue <agalue@opennms.org>
  */
 public class GraphResultsControllerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	/** The controller. */
 	private GraphResultsController m_controller;

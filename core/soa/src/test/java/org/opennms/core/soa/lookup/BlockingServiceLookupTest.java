@@ -43,10 +43,14 @@ import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.soa.ServiceRegistry;
 import org.opennms.core.soa.support.DefaultServiceRegistry;
 
 public class BlockingServiceLookupTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // Verifies that after a certain time, we bail even if the service is not yet available
     @Test

@@ -59,6 +59,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.alarmd.northbounder.jms.JmsDestination;
 import org.opennms.netmgt.alarmd.northbounder.jms.JmsNorthbounderConfig;
 import org.opennms.netmgt.alarmd.northbounder.jms.JmsNorthbounderConfigDao;
@@ -69,6 +71,8 @@ import org.springframework.core.io.Resource;
  * The Class JmsConfigDaoTest.
  */
 public class JmsConfigDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The XML as XML first only some UEIs. */
     String xmlAsXmlFirstOnlySomeUeis = ""

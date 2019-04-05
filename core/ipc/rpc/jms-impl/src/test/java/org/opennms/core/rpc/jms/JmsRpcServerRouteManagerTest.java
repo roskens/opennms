@@ -31,9 +31,13 @@ package org.opennms.core.rpc.jms;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.rpc.jms.JmsRpcServerRouteManager;
 
 public class JmsRpcServerRouteManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void getJmsSelectorTest() {

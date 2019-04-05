@@ -41,6 +41,8 @@ import java.util.Map;
 import junit.framework.TestCase;
 import org.junit.runner.RunWith;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Ignore;
@@ -63,6 +65,8 @@ import org.springframework.test.context.ContextConfiguration;
     "classpath:/META-INF/opennms/emptyContext.xml"
 })
 public class FtpMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FtpMonitor m_monitor = new FtpMonitor();
     private ServerSocket m_serverSocket = null;
     private Thread m_serverThread = null;

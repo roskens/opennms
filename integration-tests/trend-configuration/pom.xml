@@ -9,7 +9,6 @@
   <artifactId>org.opennms.integration-tests.trend-configuration</artifactId>
   <packaging>jar</packaging>
   <name>OpenNMS :: Integration Tests :: Trend-Configuration</name>
-
   <dependencies>
     <dependency>
       <groupId>org.opennms.core.test-api</groupId>
@@ -46,6 +45,11 @@
     <dependency>
       <groupId>org.opennms</groupId>
       <artifactId>opennms-dao-mock</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

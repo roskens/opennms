@@ -30,6 +30,8 @@ package org.opennms.netmgt.telemetry.protocols.sflow.parser;
 
 import org.bson.json.JsonWriter;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.opennms.netmgt.telemetry.protocols.sflow.parser.proto.flows.Record;
@@ -49,6 +51,8 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
 public class BlackboxTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final static Path FOLDER = Paths.get("src/test/resources/flows");
     private final static Record.DataFormat DATA_FORMAT0_1 = Record.DataFormat.from(0, 1);
     private final static Record.DataFormat DATA_FORMAT0_3 = Record.DataFormat.from(0, 3);

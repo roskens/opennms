@@ -34,6 +34,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.bsm.persistence.api.BusinessServiceEntity;
 import org.opennms.netmgt.bsm.service.BusinessServiceSearchCriteriaBuilder;
 import org.opennms.netmgt.bsm.service.model.BusinessService;
@@ -44,6 +46,8 @@ import org.opennms.netmgt.bsm.service.model.graph.internal.BusinessServiceGraphI
 import com.google.common.collect.ImmutableList;
 
 public class BusinessServiceCriteriaTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private List<BusinessService> businessServices = new ArrayList<>();
 

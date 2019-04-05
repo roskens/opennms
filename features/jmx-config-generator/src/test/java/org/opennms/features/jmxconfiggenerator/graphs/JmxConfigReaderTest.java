@@ -31,6 +31,8 @@ package org.opennms.features.jmxconfiggenerator.graphs;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.jmxconfiggenerator.log.Slf4jLogAdapter;
 
 import java.io.IOException;
@@ -42,6 +44,8 @@ import java.util.Collection;
  */
 
 public class JmxConfigReaderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private JmxConfigReader jmxConfigReader;
     private GraphConfigGenerator graphConfigGenerator;

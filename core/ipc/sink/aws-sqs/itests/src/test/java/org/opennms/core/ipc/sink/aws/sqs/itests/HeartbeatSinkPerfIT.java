@@ -36,6 +36,8 @@ import com.codahale.metrics.Timer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -81,6 +83,8 @@ import static org.mockito.Mockito.when;
 })
 @JUnitConfigurationEnvironment
 public class HeartbeatSinkPerfIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The consumer manager. */
     @Autowired

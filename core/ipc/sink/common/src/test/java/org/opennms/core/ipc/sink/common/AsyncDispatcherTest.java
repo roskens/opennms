@@ -45,6 +45,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -55,6 +57,8 @@ import org.opennms.core.ipc.sink.api.SinkModule;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AsyncDispatcherTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final int QUEUE_SIZE = 100;
     private static final int NUM_THREADS = 16;

@@ -34,6 +34,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.netmgt.alarmd.northbounder.drools.DroolsEngine;
 import org.opennms.netmgt.alarmd.northbounder.drools.DroolsNorthbounderConfig;
@@ -46,6 +47,8 @@ import org.springframework.core.io.FileSystemResource;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class DroolsNorthbounderConfigDaoIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The temporary folder. */
     @Rule

@@ -31,10 +31,14 @@ package org.opennms.netmgt.flows.elastic;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.plugins.elasticsearch.rest.index.IndexStrategy;
 import org.opennms.plugins.elasticsearch.rest.index.IndexStrategyFactory;
 
 public class IndexStrategyFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void verifyInitialization() {
         // Verify initialization for each IndexStrategy (case matches)

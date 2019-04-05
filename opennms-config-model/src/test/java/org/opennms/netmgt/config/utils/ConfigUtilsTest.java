@@ -37,8 +37,12 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class ConfigUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private void expectException(final Runnable r) {
         Exception expected = null;
         try {

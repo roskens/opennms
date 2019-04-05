@@ -43,6 +43,8 @@ import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.opennms.core.rpc.api.RequestTimedOutException;
@@ -82,6 +84,8 @@ import com.google.common.collect.Lists;
         "org.opennms.netmgt.icmp.pingerClass=org.opennms.netmgt.icmp.jna.JnaPinger"
 })
 public class PollableServiceConfigIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private LocationAwarePollerClient m_locationAwarePollerClient;

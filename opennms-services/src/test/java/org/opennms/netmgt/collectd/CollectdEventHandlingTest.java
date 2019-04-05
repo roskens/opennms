@@ -34,6 +34,8 @@ import static org.junit.Assert.assertTrue;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.dao.mock.MockTransactionTemplate;
 import org.opennms.netmgt.events.api.EventConstants;
@@ -43,6 +45,8 @@ import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.Event;
 
 public class CollectdEventHandlingTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private Collectd collectd = new Collectd();
 

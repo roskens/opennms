@@ -35,6 +35,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.ServiceConfigFactory;
@@ -46,6 +48,8 @@ import org.opennms.netmgt.config.service.ServiceConfiguration;
  * @author Alejandro Galue <agalue@opennms.org>
  */
 public class ServiceConfigMigratorOfflineTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Sets up the test.

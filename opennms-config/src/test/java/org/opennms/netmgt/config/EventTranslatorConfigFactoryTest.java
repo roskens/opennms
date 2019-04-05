@@ -34,6 +34,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.xml.event.AlarmData;
 import org.opennms.netmgt.xml.event.Event;
 import org.opennms.netmgt.xml.event.UpdateField;
@@ -41,6 +43,8 @@ import org.opennms.netmgt.xml.event.UpdateField;
 import static org.junit.Assert.*;
 
 public class EventTranslatorConfigFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static String SEVERITY = "severity";
     private static String LOG_MSG = "logmsg";

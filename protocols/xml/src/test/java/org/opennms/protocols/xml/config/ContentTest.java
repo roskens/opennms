@@ -32,6 +32,8 @@ import net.sf.json.JSONObject;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.protocols.http.FormFields;
 import org.opennms.protocols.xml.config.Request;
@@ -42,6 +44,8 @@ import org.opennms.protocols.xml.config.Request;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class ContentTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test XML content.

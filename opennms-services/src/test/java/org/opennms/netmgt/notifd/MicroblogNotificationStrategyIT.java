@@ -36,6 +36,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
 import org.opennms.netmgt.dao.jaxb.DefaultMicroblogConfigurationDao;
@@ -53,6 +55,8 @@ import org.springframework.core.io.Resource;
  */
 @JUnitTemporaryDatabase
 public class MicroblogNotificationStrategyIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     protected DefaultMicroblogConfigurationDao m_dao;
     protected Resource m_daoConfigResource;

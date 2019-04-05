@@ -32,6 +32,8 @@ import java.io.File;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.rrd.model.RrdXport;
 
@@ -41,6 +43,8 @@ import org.opennms.netmgt.rrd.model.RrdXport;
  * @author Alejandro Galue <agalue@opennms.org>
  */
 public class RrdXportTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Parses the Xport.

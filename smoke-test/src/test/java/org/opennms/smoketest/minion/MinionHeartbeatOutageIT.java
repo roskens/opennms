@@ -43,6 +43,7 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.Timeout;
 import org.opennms.core.criteria.CriteriaBuilder;
 import org.opennms.netmgt.dao.hibernate.EventDaoHibernate;
@@ -76,6 +77,8 @@ import com.spotify.docker.client.exceptions.DockerException;
  * @author Seth
  */
 public class MinionHeartbeatOutageIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Rule
     public TestEnvironment testEnvironment = getTestEnvironment();
 

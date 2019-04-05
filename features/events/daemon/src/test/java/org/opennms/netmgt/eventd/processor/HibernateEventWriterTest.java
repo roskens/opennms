@@ -37,6 +37,8 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.events.api.EventProcessorException;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.Event;
@@ -52,6 +54,8 @@ import com.codahale.metrics.MetricRegistry;
  * @author jesse
  */
 public class HibernateEventWriterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private HibernateEventWriter eventWriter;
     private TransactionOperations transactionManager;

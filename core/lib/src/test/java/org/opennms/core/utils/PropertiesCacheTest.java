@@ -35,11 +35,15 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.google.common.base.Ticker;
 import com.google.common.cache.CacheBuilder;
 
 public class PropertiesCacheTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final String FILE1 = "src/test/resources/share/rrd/snmp/1/strings.properties";
     private final String FILE2 = "src/test/resources/share/rrd/snmp/2/strings.properties";
 

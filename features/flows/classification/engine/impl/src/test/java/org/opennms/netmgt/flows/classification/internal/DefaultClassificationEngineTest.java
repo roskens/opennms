@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.network.IPAddress;
 import org.opennms.core.network.IPAddressRange;
 import org.opennms.netmgt.flows.classification.ClassificationEngine;
@@ -48,6 +49,8 @@ import org.opennms.netmgt.flows.classification.persistence.api.RuleBuilder;
 import com.google.common.collect.Lists;
 
 public class DefaultClassificationEngineTest {
+    @org.junit.Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyRuleEngineBasic() {

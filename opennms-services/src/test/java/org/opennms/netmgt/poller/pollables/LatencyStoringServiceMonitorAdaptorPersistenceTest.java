@@ -40,6 +40,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.collection.persistence.rrd.RrdPersisterFactory;
@@ -64,6 +65,8 @@ import com.google.common.collect.Maps;
  * @author jwhite
  */
 public class LatencyStoringServiceMonitorAdaptorPersistenceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder m_tempFolder = new TemporaryFolder();

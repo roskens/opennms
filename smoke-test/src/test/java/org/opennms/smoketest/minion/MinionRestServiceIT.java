@@ -5,6 +5,8 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.netmgt.model.OnmsMonitoringSystem;
 import org.opennms.netmgt.model.minion.OnmsMinion;
@@ -14,6 +16,8 @@ import org.opennms.smoketest.utils.RestClient;
 import static org.junit.Assert.assertEquals;
 
 public class MinionRestServiceIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String MINION_ID = "0001-1234";
     

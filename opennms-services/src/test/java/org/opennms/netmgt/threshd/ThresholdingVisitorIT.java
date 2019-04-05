@@ -56,6 +56,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.collection.test.MockCollectionAgent;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.rpc.mock.MockRpcClientFactory;
@@ -131,6 +133,8 @@ import org.springframework.core.io.FileSystemResource;
  *
  */
 public class ThresholdingVisitorIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(ThresholdingVisitorIT.class);
 
     FilterDao m_filterDao;

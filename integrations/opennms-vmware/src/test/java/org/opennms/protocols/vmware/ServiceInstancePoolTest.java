@@ -39,6 +39,8 @@ import javax.net.ssl.TrustManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.vmware.vim25.ManagedObjectReference;
 import com.vmware.vim25.UserSession;
@@ -47,6 +49,8 @@ import com.vmware.vim25.mo.ServiceInstance;
 import com.vmware.vim25.mo.SessionManager;
 
 public class ServiceInstancePoolTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private ServiceInstancePool serviceInstancePool;
     private int instanceCounter;
 

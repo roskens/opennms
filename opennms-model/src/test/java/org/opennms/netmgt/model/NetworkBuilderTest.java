@@ -34,10 +34,14 @@ import static org.junit.Assert.assertNull;
 import static org.opennms.core.utils.InetAddressUtils.addr;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.NetworkBuilder.InterfaceBuilder;
 import org.opennms.netmgt.model.OnmsNode.NodeType;
 
 public class NetworkBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testMultipleIpInterfacesWithOneIfIndex() {
         final NetworkBuilder nb = new NetworkBuilder();

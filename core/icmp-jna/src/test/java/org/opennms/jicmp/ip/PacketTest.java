@@ -37,6 +37,8 @@ import java.net.InetAddress;
 import java.nio.ByteBuffer;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.jicmp.ip.ICMPPacket.Type;
 import org.opennms.jicmp.ip.IPPacket.Protocol;
 import org.opennms.jicmp.jna.NativeDatagramPacket;
@@ -48,6 +50,8 @@ import org.opennms.jicmp.jna.NativeDatagramPacket;
  * @author brozow
  */
 public class PacketTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     byte[] ip = new byte[] {
         (byte)0x45, (byte)0x00, (byte)0x40, (byte)0x00,

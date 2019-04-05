@@ -37,6 +37,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.sun.jna.Platform;
 
@@ -49,6 +51,8 @@ import com.sun.jna.Platform;
 
 @Ignore
 public class PingThreadIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Before
     public void setUp() throws Exception {

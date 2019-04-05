@@ -39,7 +39,6 @@
       </plugin>
     </plugins>
   </build>
-
   <dependencies>
     <dependency>
       <groupId>org.opennms.features.alarms.history</groupId>
@@ -100,7 +99,6 @@
       <artifactId>mapstruct-jdk8</artifactId>
       <version>${mapstructVersion}</version>
     </dependency>
-
     <!-- Test Scope -->
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
@@ -197,6 +195,11 @@
       <groupId>org.opennms.core.test-api</groupId>
       <artifactId>org.opennms.core.test-api.alarm</artifactId>
       <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

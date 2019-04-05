@@ -44,6 +44,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.ConfigFileConstants;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -54,6 +56,8 @@ import org.w3c.dom.Node;
  * @author Alejandro Galue <agalue@opennms.org>
  */
 public class JettyConfigMigratorOfflineTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The factory. */
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

@@ -34,6 +34,8 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.measurements.model.QueryResponse;
 
 import net.sf.jasperreports.engine.JRField;
@@ -42,6 +44,8 @@ import net.sf.jasperreports.engine.JRField;
  * Verifies that the {@link MeasurementDataSource} is working correctly.
  */
 public class MeasurementDataSourceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testUnmarshal() {

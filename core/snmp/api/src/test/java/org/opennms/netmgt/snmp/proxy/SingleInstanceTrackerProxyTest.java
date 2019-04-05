@@ -38,6 +38,8 @@ import java.util.Collections;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.snmp.GatheringTracker;
 import org.opennms.netmgt.snmp.SingleInstanceTracker;
 import org.opennms.netmgt.snmp.SnmpInstId;
@@ -46,6 +48,8 @@ import org.opennms.netmgt.snmp.SnmpResult;
 import org.opennms.netmgt.snmp.SnmpValue;
 
 public class SingleInstanceTrackerProxyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private GatheringTracker gatherer = new GatheringTracker();
     private SnmpObjId base = SnmpObjId.get(".1.3.6.1.2.1.1");
     private SnmpInstId instance = new SnmpInstId(2);

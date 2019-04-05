@@ -32,6 +32,8 @@ import java.io.File;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * The Class EventAdminApplicationTest.
@@ -39,6 +41,8 @@ import org.junit.Test;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a> 
  */
 public class EventAdminApplicationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test normalize filename.

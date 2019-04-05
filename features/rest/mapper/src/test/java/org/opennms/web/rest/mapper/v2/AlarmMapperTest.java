@@ -39,6 +39,8 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.xml.JsonTest;
@@ -72,6 +74,8 @@ import com.google.common.io.Resources;
 })
 @JUnitConfigurationEnvironment
 public class AlarmMapperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private EventConfDao eventConfDao;

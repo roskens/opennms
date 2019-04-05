@@ -35,10 +35,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.aspcfs.utils.CRMConnection;
 import org.aspcfs.apps.transfer.DataRecord;
 
 public class CentricAPITest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Test
     public void testCreateLead() {

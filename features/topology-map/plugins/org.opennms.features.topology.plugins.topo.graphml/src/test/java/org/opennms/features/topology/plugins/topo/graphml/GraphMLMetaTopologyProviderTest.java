@@ -39,6 +39,7 @@ import java.util.Iterator;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.features.graphml.model.InvalidGraphException;
 import org.opennms.features.topology.api.support.breadcrumbs.BreadcrumbStrategy;
@@ -52,6 +53,8 @@ import com.google.common.io.Files;
 import com.google.common.io.Resources;
 
 public class GraphMLMetaTopologyProviderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();

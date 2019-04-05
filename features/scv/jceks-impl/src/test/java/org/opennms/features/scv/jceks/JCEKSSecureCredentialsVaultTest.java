@@ -39,6 +39,7 @@ import java.security.cert.CertificateException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.features.scv.api.Credentials;
 import org.opennms.features.scv.api.SecureCredentialsVault;
@@ -47,6 +48,8 @@ import org.opennms.features.scv.jceks.JCEKSSecureCredentialsVault;
 import com.google.common.collect.Sets;
 
 public class JCEKSSecureCredentialsVaultTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();

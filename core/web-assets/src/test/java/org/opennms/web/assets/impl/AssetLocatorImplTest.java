@@ -43,6 +43,8 @@ import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.web.assets.api.AssetResource;
 import org.springframework.core.io.ClassPathResource;
@@ -51,6 +53,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.util.FileCopyUtils;
 
 public class AssetLocatorImplTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private AssetLocatorImpl m_locator;
 
     @Before

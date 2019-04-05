@@ -52,6 +52,8 @@ import java.util.TreeSet;
 
 import junit.framework.AssertionFailedError;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.core.utils.InetAddressUtils;
@@ -87,6 +89,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 
 public class DefaultDistributedStatusServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /*
     private static final String LOCATION_MONITOR_ID_A = UUID.randomUUID().toString();

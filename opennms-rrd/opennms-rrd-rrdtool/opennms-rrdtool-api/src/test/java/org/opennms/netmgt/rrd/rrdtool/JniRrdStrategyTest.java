@@ -32,6 +32,8 @@ import java.io.File;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.opennms.core.test.MockLogAppender;
@@ -45,6 +47,8 @@ import org.springframework.util.StringUtils;
  */
 @RunWith(BlockJUnit4ClassRunner.class)
 public class JniRrdStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private JniRrdStrategy m_strategy;
 

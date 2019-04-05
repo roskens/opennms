@@ -38,6 +38,8 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -55,6 +57,8 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations="classpath:/META-INF/opennms/emptyContext.xml")
 @JUnitHttpServer(port=10342)
 public class SeleniumMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Before
 	public void setup() throws Exception{

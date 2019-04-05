@@ -35,11 +35,14 @@ import java.nio.file.Paths;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.core.xml.MarshallingResourceFailureException;
 import org.opennms.netmgt.config.collectd.jmx.JmxDatacollectionConfig;
 
 public class JMXDataCollectionConfigDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();

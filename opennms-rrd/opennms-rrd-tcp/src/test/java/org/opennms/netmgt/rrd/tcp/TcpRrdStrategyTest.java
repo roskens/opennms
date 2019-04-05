@@ -44,6 +44,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.rrd.RrdAttributeType;
 import org.opennms.netmgt.rrd.RrdDataSource;
@@ -66,6 +68,8 @@ import org.python.util.PythonInterpreter;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class TcpRrdStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(TcpRrdStrategyTest.class);
 
     private QueuingTcpRrdStrategy m_strategy;

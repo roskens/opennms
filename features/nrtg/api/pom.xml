@@ -18,19 +18,22 @@
   <description>The API contains the models for the NRTG projects. It has models for collection jobs, measurements and protocol collectors.</description>
   <dependencies>
     <!-- Logging -->
-
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <scope>provided</scope>
     </dependency>
-
     <!-- <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-classic</artifactId> 
 			<version>1.0.4</version> </dependency> -->
     <!-- Testing -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

@@ -40,6 +40,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -48,6 +50,8 @@ import com.intuit.quickbase.util.QuickBaseClient;
 import com.intuit.quickbase.util.QuickBaseException;
 
 public class QuickBaseAPITest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     public void XXXtestCreateLead() {
         PrintWriter out = null;

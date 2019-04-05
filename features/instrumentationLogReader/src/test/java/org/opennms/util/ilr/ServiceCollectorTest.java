@@ -31,10 +31,14 @@ package org.opennms.util.ilr;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.util.ilr.LogMessage;
 
 
 public class ServiceCollectorTest { 
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Test(expected=IllegalArgumentException.class)
     public void testServiceIDCheck() {

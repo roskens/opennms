@@ -36,6 +36,8 @@ import java.util.HashMap;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.api.integration.ticketing.Plugin;
 import org.opennms.api.integration.ticketing.PluginException;
 import org.opennms.api.integration.ticketing.Ticket;
@@ -60,6 +62,8 @@ import com.google.common.collect.ImmutableMap;
  * @author <a href="mailto:jonathan@opennms.org">Jonathan Sartin</a>
  */
 public class DroolsTicketerServiceLayerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private DefaultTicketerServiceLayer m_droolsTicketerServiceLayer;
     private EasyMockUtils m_easyMockUtils;

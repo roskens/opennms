@@ -32,9 +32,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.enlinkd.service.api.CompositeKey;
 
 public class CompositeKeyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test(expected = IllegalArgumentException.class)
     public void shouldRejectNoKeysInvocation() {
         new CompositeKey();

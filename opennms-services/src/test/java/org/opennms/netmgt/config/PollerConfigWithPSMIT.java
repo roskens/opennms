@@ -40,6 +40,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.opennms.core.db.DataSourceFactory;
@@ -55,6 +57,8 @@ import org.opennms.netmgt.poller.mock.MockMonitoredService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PollerConfigWithPSMIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void setUp() throws Exception {

@@ -37,9 +37,13 @@ import java.util.List;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 
 public class UndirectedPairGeneratorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void shouldRejectListsWithLessThan2Elements() {
         assertThrows(IllegalArgumentException.class, () -> new UndirectedPairGenerator<>(null));

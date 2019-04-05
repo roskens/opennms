@@ -39,6 +39,8 @@ import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.TopologyServiceClient;
 import org.opennms.features.topology.api.support.SimpleGraphBuilder;
 import org.opennms.features.topology.api.support.breadcrumbs.BreadcrumbStrategy;
@@ -55,6 +57,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 public class BreadcrumbPathCalculatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private TopologyServiceClient topologyServiceClient;
 

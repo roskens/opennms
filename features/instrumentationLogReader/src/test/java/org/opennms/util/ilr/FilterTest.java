@@ -36,9 +36,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.util.ilr.Filter.Predicate;
 
 public class FilterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     Filter filter = new Filter();
     Collector c = new Collector();
     ServiceCollector svcCollector = new ServiceCollector(null);

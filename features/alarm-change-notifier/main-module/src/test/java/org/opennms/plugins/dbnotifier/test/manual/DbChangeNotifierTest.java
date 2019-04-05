@@ -34,6 +34,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.plugins.dbnotifier.DatabaseChangeNotifier;
 import org.opennms.plugins.dbnotifier.DbNotificationClientQueueImpl;
@@ -43,6 +45,8 @@ import org.opennms.plugins.dbnotifier.alarmnotifier.AlarmChangeNotificationClien
 
 
 public class DbChangeNotifierTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void test1() {

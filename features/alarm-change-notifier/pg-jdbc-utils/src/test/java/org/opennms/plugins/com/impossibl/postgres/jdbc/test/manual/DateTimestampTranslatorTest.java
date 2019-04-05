@@ -38,6 +38,8 @@ import java.util.Calendar;
 import javax.xml.bind.DatatypeConverter;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.plugins.com.impossibl.postgres.jdbc.TimestampUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +49,8 @@ import org.slf4j.LoggerFactory;
 // alternative is https://github.com/impossibl/pgjdbc-ng/blob/pgjdbc-ng-0.6/src/test/java/com/impossibl/postgres/jdbc/TimestampUtils.java
 
 public class DateTimestampTranslatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final Logger LOG = LoggerFactory.getLogger(DateTimestampTranslatorTest.class);
 
 	@Test

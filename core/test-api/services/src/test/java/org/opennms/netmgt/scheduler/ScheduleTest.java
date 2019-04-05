@@ -33,6 +33,8 @@ import static org.junit.Assert.assertNotNull;
 
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -46,6 +48,8 @@ import org.opennms.netmgt.scheduler.mock.MockScheduler;
  * @author brozow
  */
 public class ScheduleTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private MockSchedulable m_schedulable;
     private MockInterval m_interval;

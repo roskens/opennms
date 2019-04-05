@@ -33,6 +33,8 @@ import java.io.File;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.netmgt.config.DefaultEventConfDao;
 import org.opennms.netmgt.xml.eventconf.Event;
@@ -50,6 +52,8 @@ import com.vaadin.v7.ui.TextField;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a> 
  */
 public class EventFormTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The Event Configuration DAO. */
     private DefaultEventConfDao dao;

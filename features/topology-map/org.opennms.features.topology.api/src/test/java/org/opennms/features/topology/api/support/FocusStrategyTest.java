@@ -30,12 +30,16 @@ package org.opennms.features.topology.api.support;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.topo.AbstractVertex;
 import org.opennms.features.topology.api.topo.GraphProvider;
 
 import com.google.common.collect.Lists;
 
 public class FocusStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testFocusStrategies() {

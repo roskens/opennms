@@ -34,6 +34,7 @@
               <!-- append to the packaging phase. -->
               <goals>
                 <goal>single</goal>
+              
                 <!-- goals == mojos -->
               </goals>
             </execution>
@@ -61,7 +62,13 @@
       <version>4.8.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
 <!--
   <repositories>
     <repository>

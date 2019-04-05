@@ -36,6 +36,8 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.OnmsLocationMonitor;
 import org.opennms.netmgt.model.OnmsLocationMonitor.MonitorStatus;
 import org.opennms.netmgt.model.OnmsLocationSpecificStatus;
@@ -46,6 +48,8 @@ import org.opennms.web.rest.v1.support.TimeChunker;
 
 
 public class AvailCalculatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private OnmsLocationMonitor m_locationMon;
     private OnmsMonitoredService m_svc;

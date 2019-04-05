@@ -30,12 +30,16 @@ package org.opennms.features.vaadin.jmxconfiggenerator.data;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  *
  * @author Markus von Rüden
  */
 public class SimpleEntryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	
 	@Test
 	public void testHashCodeAndEquals() {

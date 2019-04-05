@@ -29,6 +29,8 @@ package org.opennms.netmgt.alarmd.northbounder.syslog;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.alarmd.api.NorthboundAlarm;
 import org.opennms.netmgt.model.OnmsAlarm;
 import org.opennms.netmgt.model.OnmsEvent;
@@ -42,6 +44,8 @@ import com.google.common.collect.Lists;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class SyslogFilterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test filter parsing.

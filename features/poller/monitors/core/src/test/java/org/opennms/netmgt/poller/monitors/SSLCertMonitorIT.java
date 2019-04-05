@@ -39,6 +39,8 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -55,6 +57,8 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations={"classpath:/META-INF/opennms/emptyContext.xml"})
 @JUnitConfigurationEnvironment
 public class SSLCertMonitorIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // The certificate JUnitHttpServer uses is valid:
     //   from  Tue Nov 08 14:30:45 CET 2016

@@ -41,6 +41,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.apache.commons.io.IOUtils;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -52,6 +54,8 @@ import org.opennms.test.DaoTestConfigBean;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
 public class ConnectionFactoryIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	@Test
 	public void testMarshalDataSourceFromConfig() throws Exception {
 		DaoTestConfigBean bean = new DaoTestConfigBean();

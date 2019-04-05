@@ -33,6 +33,8 @@ import static org.junit.Assert.assertNotNull;
 import java.io.InputStream;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.xml.AbstractJaxbConfigDao;
@@ -44,6 +46,8 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 
 public class AbstractJaxbConfigDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testAfterPropertiesSetWithNoConfigSet() {

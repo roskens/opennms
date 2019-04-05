@@ -38,6 +38,8 @@ import org.opennms.netmgt.events.api.EventIpcManagerFactory;
 import org.opennms.test.ThrowableAnticipator;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 /**
@@ -46,6 +48,8 @@ import org.junit.Before;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class EventIpcManagerFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Before
     public void setUp() throws Exception {
         EventIpcManagerFactory.reset();

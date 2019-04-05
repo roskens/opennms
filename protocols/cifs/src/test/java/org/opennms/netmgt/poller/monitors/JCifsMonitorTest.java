@@ -51,6 +51,8 @@ import jcifs.smb.SmbFilenameFilter;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.netmgt.poller.MonitoredService;
 import org.opennms.netmgt.poller.PollStatus;
@@ -70,6 +72,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({SmbFile.class, JCifsMonitor.class})
 public class JCifsMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private SmbFile mockSmbFileValidPath;
     private SmbFile mockSmbFileInvalidPath;
     private SmbFile mockSmbFolderNotEmpty;

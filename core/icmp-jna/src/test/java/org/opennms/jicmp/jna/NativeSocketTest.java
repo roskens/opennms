@@ -47,6 +47,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TestName;
 
 /**
@@ -56,6 +57,8 @@ import org.junit.rules.TestName;
  */
 @Ignore
 public class NativeSocketTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final ExecutorService m_executor = Executors.newCachedThreadPool();
 

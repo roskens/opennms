@@ -30,6 +30,8 @@ package org.opennms.netmgt.ticketer.tsrm;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.ArgumentMatcher;
 import org.opennms.api.integration.ticketing.PluginException;
 import org.opennms.api.integration.ticketing.Ticket;
@@ -54,6 +56,8 @@ import com.ibm.maximo.SHSIMPINCSetType;
 import com.ibm.maximo.wsdl.shsimpinc.SHSIMPINCPortType;
 
 public class TsrmMockTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public TsrmTicketerPlugin m_ticketer;
     public SHSIMPINCPortType port;

@@ -38,6 +38,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.plugins.topo.asset.AssetGraphGenerator;
 import org.opennms.features.topology.plugins.topo.asset.GeneratorConfig;
 import org.opennms.features.topology.plugins.topo.asset.GeneratorConfigBuilder;
@@ -51,6 +53,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FilterParserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final Logger LOG = LoggerFactory.getLogger(FilterParserTest.class);
 
 	// Tests of simple filters

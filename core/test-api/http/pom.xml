@@ -53,5 +53,10 @@
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-webapp</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

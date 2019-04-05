@@ -40,6 +40,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.telemetry.api.adapter.Adapter;
 import org.opennms.netmgt.telemetry.api.adapter.AdapterFactory;
 import org.opennms.netmgt.telemetry.api.adapter.TelemetryMessageLog;
@@ -47,6 +49,8 @@ import org.opennms.netmgt.telemetry.config.api.AdapterDefinition;
 import org.opennms.netmgt.telemetry.config.api.PackageDefinition;
 
 public class TelemetryAdapterRegistryImplTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // We just need the type of the adapter
     private static class DummyAdapterFactory implements AdapterFactory {

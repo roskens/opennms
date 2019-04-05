@@ -34,10 +34,14 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.wsman.WSManEndpoint;
 import org.springframework.core.io.FileSystemResource;
 
 public class WSManConfigDaoJaxbTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void canBuildEndpointForSpecific() throws UnknownHostException {
         WSManConfigDaoJaxb configDao = new WSManConfigDaoJaxb();

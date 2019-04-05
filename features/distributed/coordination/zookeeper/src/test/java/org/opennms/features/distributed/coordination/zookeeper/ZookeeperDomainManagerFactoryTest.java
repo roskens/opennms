@@ -32,12 +32,16 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.distributed.coordination.api.DomainManagerFactory;
 
 /**
  * Tests for {@link ZookeeperDomainManagerFactory}.
  */
 public class ZookeeperDomainManagerFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /**
      * Verifies the factory generates the correct instance type.
      */

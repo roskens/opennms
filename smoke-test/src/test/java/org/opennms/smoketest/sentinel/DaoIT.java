@@ -42,6 +42,7 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.Timeout;
 import org.opennms.smoketest.NullTestEnvironment;
 import org.opennms.smoketest.OpenNMSSeleniumTestCase;
@@ -54,6 +55,8 @@ import org.slf4j.LoggerFactory;
 
 // Verifies that all exposed service DAOs can be loaded in a sentinel container
 public class DaoIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public Timeout timeout = new Timeout(20, TimeUnit.MINUTES);

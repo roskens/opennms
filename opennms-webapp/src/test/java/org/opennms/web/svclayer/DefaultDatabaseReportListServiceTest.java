@@ -32,6 +32,8 @@ import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.reporting.model.basicreport.BasicReportDefinition;
 import org.opennms.features.reporting.repository.global.GlobalReportRepository;
 import org.opennms.web.svclayer.model.DatabaseReportDescription;
@@ -46,6 +48,8 @@ import static org.junit.Assert.assertEquals;
 //import org.springframework.core.io.Resource;
 // TODO indigo: Improve tests and refactor for spring injection
 public class DefaultDatabaseReportListServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private DefaultDatabaseReportListService m_defaultDatabaseReportListService;
 

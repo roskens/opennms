@@ -34,12 +34,16 @@ import static org.mockito.Mockito.mock;
 import java.net.UnknownHostException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.collection.api.CollectionAgent;
 import org.opennms.netmgt.config.wsman.Definition;
 import org.opennms.netmgt.config.wsman.SystemDefinition;
 import org.opennms.netmgt.model.OnmsNode;
 
 public class WSManDataCollectionConfigDaoJaxbTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canEvaluteSystemDefinitionRules() throws UnknownHostException {

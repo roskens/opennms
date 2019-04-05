@@ -36,9 +36,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 
 public class HttpClientWrapperConfigHelperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void shouldSetProxySettingsCorrectly(){

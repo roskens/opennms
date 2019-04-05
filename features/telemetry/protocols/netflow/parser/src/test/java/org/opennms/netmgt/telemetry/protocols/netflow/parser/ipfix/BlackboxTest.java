@@ -42,6 +42,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ipfix.proto.Header;
@@ -51,6 +53,8 @@ import org.opennms.netmgt.telemetry.protocols.netflow.parser.session.Session;
 
 @RunWith(Parameterized.class)
 public class BlackboxTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final static Path FOLDER = Paths.get("src/test/resources/flows");
 
     @Parameterized.Parameters(name = "file: {0}")

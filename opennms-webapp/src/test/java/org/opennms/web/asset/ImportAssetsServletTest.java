@@ -35,6 +35,8 @@ import org.junit.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +51,8 @@ import org.slf4j.LoggerFactory;
  */
 
 public class ImportAssetsServletTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private Logger logger = LoggerFactory.getLogger(ImportAssetsServletTest.class);
     private ImportAssetsServlet m_importAssetServlet;

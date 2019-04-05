@@ -37,11 +37,15 @@ import java.nio.ByteBuffer;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.google.common.io.BaseEncoding;
 import com.google.common.primitives.UnsignedLong;
 
 public class BufferUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testSignedInteger() throws Exception {

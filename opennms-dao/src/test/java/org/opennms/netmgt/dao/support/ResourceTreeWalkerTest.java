@@ -36,6 +36,8 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.netmgt.dao.api.ResourceDao;
@@ -51,6 +53,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class ResourceTreeWalkerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private ResourceDao m_resourceDao = m_mocks.createMock(ResourceDao.class);
     private ResourceVisitor m_visitor = m_mocks.createMock(ResourceVisitor.class);

@@ -38,6 +38,8 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.kafka.producer.model.OpennmsModelProtos;
 import org.opennms.netmgt.config.api.EventConfDao;
 import org.opennms.netmgt.dao.api.HwEntityDao;
@@ -55,6 +57,8 @@ import org.springframework.transaction.support.TransactionOperations;
  * Tests for {@link ProtobufMapper}.
  */
 public class ProtoBufMapperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private ProtobufMapper protobufMapper = new ProtobufMapper(mock(EventConfDao.class), mock(HwEntityDao.class),
             mock(TransactionOperations.class), mock(NodeDao.class), 1);

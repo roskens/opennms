@@ -45,12 +45,16 @@ import java.util.List;
 
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.util.ilr.Collector;
 import org.opennms.util.ilr.Collector.SortColumn;
 import org.opennms.util.ilr.Collector.SortOrder;
 
 
 public class CollectorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private Date getDate(String dateString) throws ParseException {
         return new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss,S").parse(dateString);
     }

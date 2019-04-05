@@ -41,6 +41,8 @@ import java.util.List;
 import java.util.UUID;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.netmgt.dao.api.LocationMonitorDao;
@@ -57,6 +59,8 @@ import org.springframework.validation.ObjectError;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class DefaultDistributedPollerServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String LOCATION_MONITOR_ID = UUID.randomUUID().toString();
 

@@ -35,11 +35,15 @@ import java.io.IOException;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.elastic.ElasticFlowRepositoryInitializer;
 import org.opennms.plugins.elasticsearch.rest.template.DefaultTemplateLoader;
 import org.opennms.plugins.elasticsearch.rest.template.Version;
 
 public class DefaultTemplateLoaderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyTemplateLoading() throws IOException {

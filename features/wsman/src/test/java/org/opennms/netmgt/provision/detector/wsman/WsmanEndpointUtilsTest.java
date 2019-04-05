@@ -33,9 +33,13 @@ import static org.junit.Assert.assertEquals;
 import java.net.MalformedURLException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.wsman.WSManEndpoint;
 
 public class WsmanEndpointUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canConvertToAndFromMap() throws MalformedURLException {

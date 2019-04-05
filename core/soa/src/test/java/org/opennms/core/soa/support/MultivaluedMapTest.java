@@ -38,6 +38,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Set;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.soa.support.MultivaluedMap;
 import org.opennms.core.soa.support.MultivaluedMapImpl;
 
@@ -48,6 +50,8 @@ import org.opennms.core.soa.support.MultivaluedMapImpl;
  * @author brozow
  */
 public class MultivaluedMapTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private MultivaluedMap<String, String> map = new MultivaluedMapImpl<String, String>();
     

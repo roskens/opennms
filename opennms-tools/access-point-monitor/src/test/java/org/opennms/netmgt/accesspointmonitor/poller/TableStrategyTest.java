@@ -35,8 +35,12 @@ import org.opennms.netmgt.snmp.SnmpValueFactory;
 import org.opennms.netmgt.snmp.mock.MockSnmpValueFactory;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class TableStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testPhydAddrFromValue() {

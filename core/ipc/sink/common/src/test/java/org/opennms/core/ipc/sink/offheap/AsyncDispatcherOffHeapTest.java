@@ -51,6 +51,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.ipc.sink.api.AsyncDispatcher;
 import org.opennms.core.ipc.sink.api.SinkModule;
 import org.opennms.core.ipc.sink.common.ThreadLockingDispatcherFactory;
@@ -58,6 +60,8 @@ import org.opennms.core.ipc.sink.common.ThreadLockingSyncDispatcher;
 import org.osgi.service.cm.ConfigurationAdmin;
 
 public class AsyncDispatcherOffHeapTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final static String OFFHEAP_SIZE = "offHeapSize";
     private final static String ENABLE_OFFHEAP = "enableOffHeap";

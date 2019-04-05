@@ -34,10 +34,14 @@ import java.util.Collections;
 import java.util.Optional;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.google.common.collect.ImmutableMap;
 
 public class PropertyTreeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void test() {

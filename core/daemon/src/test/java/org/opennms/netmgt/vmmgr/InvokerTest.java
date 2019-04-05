@@ -41,6 +41,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.service.InvokeAtType;
@@ -59,6 +61,8 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
     DirtiesContextTestExecutionListener.class
 })
 public class InvokerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private List<InvokerService> m_services = null;
     private MBeanServer m_server;
 

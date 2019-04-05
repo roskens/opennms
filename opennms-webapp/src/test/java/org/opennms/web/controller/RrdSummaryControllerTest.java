@@ -36,6 +36,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.attrsummary.Summary;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.dao.api.ResourceDao;
@@ -50,6 +52,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.collect.ImmutableSortedMap;
 
 public class RrdSummaryControllerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private RrdSummaryController m_controller;
     private DefaultRrdSummaryService m_rrdSummaryService;

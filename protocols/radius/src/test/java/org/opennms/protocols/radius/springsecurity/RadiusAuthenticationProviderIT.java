@@ -34,6 +34,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.tinyradius.util.RadiusServer;
@@ -41,6 +43,8 @@ import org.tinyradius.util.RadiusServer;
 import net.jradius.client.auth.CHAPAuthenticator;
 
 public class RadiusAuthenticationProviderIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String SHARED_SECRET = "SECRET";
     private static final String USER = "user1";

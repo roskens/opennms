@@ -37,6 +37,8 @@ import java.net.InetAddress;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.snmp.SnmpAgentConfig;
 import org.opennms.netmgt.snmp.SnmpUtils;
 import org.opennms.netmgt.snmp.SnmpWalker;
@@ -64,6 +66,8 @@ import org.snmp4j.transport.DefaultUdpTransportMapping;
  * are *equal to* the requested VBs.
  */
 public class TrackerSuccessorIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(TrackerSuccessorIT.class);
 
     private DefaultUdpTransportMapping transportMapping;

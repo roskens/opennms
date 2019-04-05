@@ -36,6 +36,8 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.features.topology.api.BoundingBox;
 import org.opennms.features.topology.api.Point;
@@ -44,6 +46,8 @@ import org.opennms.features.topology.api.topo.SearchResult;
 import org.opennms.features.topology.api.topo.VertexRef;
 
 public class SavedHistoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final String searchQuery = "query";
 
 	@Test

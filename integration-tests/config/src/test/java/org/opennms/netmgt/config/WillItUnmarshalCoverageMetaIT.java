@@ -43,6 +43,8 @@ import java.util.TreeSet;
 import org.apache.commons.io.FileUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.slf4j.Logger;
@@ -64,6 +66,8 @@ import com.google.common.collect.ImmutableList;
  */
 @RunWith(value = Parameterized.class)
 public class WillItUnmarshalCoverageMetaIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(WillItUnmarshalCoverageMetaIT.class);
 
     /**

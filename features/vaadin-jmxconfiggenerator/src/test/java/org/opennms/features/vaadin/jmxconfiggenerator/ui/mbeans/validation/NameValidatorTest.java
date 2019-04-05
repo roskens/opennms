@@ -30,6 +30,8 @@ package org.opennms.features.vaadin.jmxconfiggenerator.ui.mbeans.validation;
 
 import com.vaadin.v7.data.Validator;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import static org.junit.Assert.fail;
 
@@ -38,6 +40,8 @@ import static org.junit.Assert.fail;
  * @author Markus von Rüden
  */
 public class NameValidatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void testValidate() {

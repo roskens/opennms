@@ -43,6 +43,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.alarms.driver.Scenario;
 import org.opennms.core.test.alarms.driver.ScenarioResults;
 import org.opennms.core.test.alarms.driver.State;
@@ -62,6 +64,8 @@ import org.opennms.netmgt.model.OnmsSeverity;
  * @author jwhite
  */
 public class AlarmdBlackboxIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Verifies the basic life-cycle of a trigger, followed by a clear.

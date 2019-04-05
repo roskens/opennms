@@ -37,6 +37,8 @@ import java.util.Optional;
 import org.bson.RawBsonDocument;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ParserBase;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.Protocol;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ie.Semantics;
@@ -53,6 +55,8 @@ import org.opennms.netmgt.telemetry.protocols.netflow.parser.ie.values.UnsignedV
 import com.google.common.primitives.UnsignedLong;
 
 public class PacketHandlerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void test() throws Exception {

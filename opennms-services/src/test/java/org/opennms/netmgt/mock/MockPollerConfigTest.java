@@ -36,6 +36,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Enumeration;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.netmgt.config.poller.Package;
@@ -48,6 +50,8 @@ import org.opennms.netmgt.config.poller.Service;
  * Window - Preferences - Java - Code Style - Code Templates
  */
 public class MockPollerConfigTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     MockPollerConfig m_pollerConfig;
     

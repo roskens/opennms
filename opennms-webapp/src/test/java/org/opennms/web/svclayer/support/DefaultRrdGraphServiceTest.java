@@ -32,6 +32,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -46,6 +48,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class DefaultRrdGraphServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mockUtils;
     private FileAnticipator m_fileAnticipator;
     

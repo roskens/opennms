@@ -37,6 +37,8 @@ import java.util.concurrent.ExecutionException;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.tasks.Task;
 import org.opennms.core.test.MockLogAppender;
@@ -75,6 +77,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitTemporaryDatabase
 @Ignore("This test flaps because it doesn't account for provision ordering correctly")
 public class PolicyIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public static interface BackgroundTask {
         public void await() throws InterruptedException;

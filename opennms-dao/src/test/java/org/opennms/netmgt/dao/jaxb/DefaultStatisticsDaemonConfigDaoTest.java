@@ -35,6 +35,8 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.netmgt.config.statsd.model.Report;
@@ -48,6 +50,8 @@ import org.springframework.core.io.InputStreamResource;
  * @see DefaultStatisticsDaemonConfigDao
  */
 public class DefaultStatisticsDaemonConfigDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testAfterPropertiesSetWithGoodConfigFile() throws Exception {
         DefaultStatisticsDaemonConfigDao dao = new DefaultStatisticsDaemonConfigDao();

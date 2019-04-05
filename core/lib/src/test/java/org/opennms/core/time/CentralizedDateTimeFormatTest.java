@@ -38,8 +38,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class CentralizedDateTimeFormatTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void shouldOutputeDateTimeIncludingTimeZone() throws IOException {

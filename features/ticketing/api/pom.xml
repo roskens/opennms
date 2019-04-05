@@ -10,7 +10,6 @@
   <artifactId>org.opennms.features.ticketing.api</artifactId>
   <packaging>bundle</packaging>
   <name>OpenNMS :: Features :: Ticketing :: API</name>
-
   <build>
     <plugins>
       <plugin>
@@ -29,6 +28,11 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

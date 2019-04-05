@@ -1,26 +1,21 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>org.opennms.plugins</groupId>
     <artifactId>alarm-change-notifier.parent</artifactId>
     <version>25.0.0-SNAPSHOT</version>
   </parent>
-
   <!-- LicenceAuthenticator -->
   <modelVersion>4.0.0</modelVersion>
   <artifactId>alarm-change-notifier.pg-jdbc-utils</artifactId>
   <name>alarm-change-notifier.pg-jdbc-utils</name>
   <description>some timestamp utils taken from pg-jdbc test classes</description>
   <packaging>bundle</packaging>
-
   <build>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
       </plugin>
-
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
@@ -32,6 +27,7 @@
             <Import-Package>
               *
             </Import-Package>
+          
             <!-- <Import-Package> -->
             <!-- org.apache.felix.service.command, -->
             <!-- * -->
@@ -39,11 +35,9 @@
           </instructions>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-
         <configuration>
           <excludes>
             <!-- prevent tests running in this package. These are manual one off development tests -->
@@ -51,7 +45,6 @@
           </excludes>
         </configuration>
       </plugin>
-
     </plugins>
     <testResources>
       <testResource>
@@ -70,7 +63,6 @@
       <artifactId>slf4j-api</artifactId>
       <scope>provided</scope>
     </dependency>
-
     <!-- ensures pgjdbc-ng is in repository before needed -->
     <dependency>
       <!-- PostgreSQL Asychronous Notification JDBC driver -->
@@ -85,7 +77,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-
     <!-- OSGi netty dependencies for pgjdbc-ng -->
     <dependency>
       <groupId>io.netty</groupId>
@@ -123,7 +114,6 @@
       <version>${netty4Version}</version>
       <scope>provided</scope>
     </dependency>
-
     <!-- Byte code generator - completely optional -->
     <!-- <dependency> -->
     <!-- <groupId>org.javassist</groupId> -->
@@ -132,7 +122,6 @@
     <!-- <scope>provided</scope> -->
     <!-- <optional>true</optional> -->
     <!-- </dependency> -->
-
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
@@ -158,7 +147,6 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
-
     <!-- opennms dependencies -->
     <!-- <dependency> -->
     <!-- <groupId>org.opennms.osgi</groupId> -->
@@ -180,14 +168,16 @@
     <!-- <version>${opennmsVersion}</version> -->
     <!-- <scope>provided</scope> -->
     <!-- </dependency> -->
-
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
       <version>${json-simpleVersion}</version>
       <scope>provided</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-
 </project>

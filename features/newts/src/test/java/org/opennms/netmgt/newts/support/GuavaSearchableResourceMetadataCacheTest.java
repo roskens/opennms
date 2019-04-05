@@ -32,6 +32,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.newts.api.Context;
 import org.opennms.newts.api.Resource;
 import org.opennms.newts.cassandra.search.ResourceMetadata;
@@ -40,6 +42,8 @@ import org.springframework.test.annotation.IfProfileValue;
 import com.codahale.metrics.MetricRegistry;
 
 public class GuavaSearchableResourceMetadataCacheTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private MetricRegistry m_registry = new MetricRegistry();
 

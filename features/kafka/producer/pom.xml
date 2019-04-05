@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xsi:schemaLocation="
-        http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd
-">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="         http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
   <parent>
     <groupId>org.opennms.features</groupId>
     <artifactId>org.opennms.features.kafka</artifactId>
     <version>25.0.0-SNAPSHOT</version>
   </parent>
-
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.opennms.features.kafka</groupId>
   <artifactId>org.opennms.features.kafka.producer</artifactId>
-
   <name>OpenNMS :: Features :: Kafka :: Producer</name>
-
   <packaging>bundle</packaging>
-
   <build>
     <plugins>
       <plugin>
@@ -36,7 +26,6 @@
       </plugin>
     </plugins>
   </build>
-
   <dependencies>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -120,7 +109,6 @@
       <artifactId>org.opennms.features.topologies.service.api</artifactId>
       <version>${project.version}</version>
     </dependency>
-
     <!-- Test -->
     <dependency>
       <groupId>junit</groupId>
@@ -188,7 +176,7 @@
       <artifactId>opennms-dao-mock</artifactId>
       <scope>test</scope>
     </dependency>
-        <dependency>
+    <dependency>
       <groupId>org.opennms.core.test-api</groupId>
       <artifactId>org.opennms.core.test-api.db</artifactId>
       <scope>test</scope>
@@ -207,6 +195,11 @@
     <dependency>
       <groupId>org.opennms.features.enlinkd</groupId>
       <artifactId>org.opennms.features.enlinkd.service.api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

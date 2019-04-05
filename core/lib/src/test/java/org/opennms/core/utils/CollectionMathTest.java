@@ -36,12 +36,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * 
  * @author <a href="mailto:ranger@opennms.org">Benjamin Reed</a>
  */
 public class CollectionMathTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
         private static final double DELTA = 1e-8;
 	
 	private List<BigDecimal> getTestCollection() {

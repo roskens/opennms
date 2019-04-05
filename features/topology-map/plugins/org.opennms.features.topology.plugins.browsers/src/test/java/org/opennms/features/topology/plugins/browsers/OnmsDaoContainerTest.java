@@ -35,12 +35,16 @@ import java.util.List;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.criteria.Criteria;
 import org.opennms.netmgt.dao.api.AlarmDao;
 import org.opennms.netmgt.dao.mock.MockTransactionTemplate;
 import org.opennms.netmgt.model.OnmsAlarm;
 
 public class OnmsDaoContainerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testGetItemIdsWithOnlyOneItem() {

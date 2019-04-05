@@ -32,6 +32,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -47,6 +49,8 @@ import java.net.URLConnection;
  * @since 1.8.1
  */
 public class GenericURLStreamHandlerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private GenericURLStreamHandler m_generGenericURLStreamHandler;
 
     private Class<? extends URLConnection> m_testClass;

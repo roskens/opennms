@@ -31,6 +31,8 @@ package org.opennms.netmgt.dao.jaxb.collector;
 import java.io.IOException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -40,6 +42,8 @@ import org.opennms.netmgt.dao.jaxb.collector.CollectdConfigVisitor;
 import org.springframework.core.io.ClassPathResource;
 
 public class CollectdConfigFileTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private InvocationAnticipator m_invocationAnticipator;
     private CollectdConfigVisitor m_visitor;

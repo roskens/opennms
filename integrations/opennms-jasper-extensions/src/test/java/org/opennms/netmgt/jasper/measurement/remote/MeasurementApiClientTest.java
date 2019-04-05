@@ -30,8 +30,12 @@ package org.opennms.netmgt.jasper.measurement.remote;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class MeasurementApiClientTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testAuthenticationRequired() {
         Assert.assertFalse(MeasurementApiClient.isAuthenticationRequired(null, null));

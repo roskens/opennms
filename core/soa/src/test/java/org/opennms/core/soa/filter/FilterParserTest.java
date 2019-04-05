@@ -35,6 +35,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.soa.Filter;
 
 
@@ -44,6 +46,8 @@ import org.opennms.core.soa.Filter;
  * @author brozow
  */
 public class FilterParserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private void parseFilterThenValidateString(String filterString) {
         parseFilterThenValidateString(filterString, filterString);

@@ -44,6 +44,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * The Test Class for JmxRrdMigratorOffline.
@@ -51,6 +53,8 @@ import org.junit.Test;
  * @author Alejandro Galue <agalue@opennms.org>
  */
 public class JmxRrdMigratorOfflineTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Sets up the test.

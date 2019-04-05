@@ -38,6 +38,8 @@ import java.util.Map;
 import org.easymock.EasyMock;
 import org.junit.After;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.api.EventConfDao;
 import org.opennms.netmgt.eventd.EventExpander;
 import org.opennms.netmgt.eventd.EventUtil;
@@ -53,6 +55,8 @@ import com.codahale.metrics.MetricRegistry;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class EventExpanderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     
     private EventConfDao m_eventConfDao = m_mocks.createMock(EventConfDao.class);

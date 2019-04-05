@@ -36,6 +36,8 @@ import java.io.InputStream;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.MarshallingResourceFailureException;
 import org.opennms.protocols.xml.config.XmlDataCollectionConfig;
 import org.opennms.test.ThrowableAnticipator;
@@ -50,6 +52,8 @@ import org.springframework.core.io.Resource;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class XmlDataCollectionConfigDaoJaxbTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test after properties set with no configuration set.

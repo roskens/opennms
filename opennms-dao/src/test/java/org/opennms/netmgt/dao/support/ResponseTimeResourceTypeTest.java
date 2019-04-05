@@ -45,6 +45,7 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.netmgt.dao.api.IpInterfaceDao;
 import org.opennms.netmgt.dao.api.MonitoringLocationDao;
@@ -58,6 +59,8 @@ import org.opennms.netmgt.model.ResourceTypeUtils;
 import org.opennms.netmgt.model.monitoringLocations.OnmsMonitoringLocation;
 
 public class ResponseTimeResourceTypeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String NON_DEFAULT_LOCATION_NAME = "!" + MonitoringLocationDao.DEFAULT_MONITORING_LOCATION_ID;
 

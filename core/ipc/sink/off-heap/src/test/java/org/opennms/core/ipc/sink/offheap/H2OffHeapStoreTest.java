@@ -41,6 +41,8 @@ import java.util.concurrent.Executors;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.ipc.sink.api.WriteFailedException;
 import org.osgi.service.cm.ConfigurationAdmin;
 import org.slf4j.Logger;
@@ -48,6 +50,8 @@ import org.slf4j.LoggerFactory;
 
 
 public class H2OffHeapStoreTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(H2OffHeapStoreTest.class);
     private H2OffHeapStore queue;

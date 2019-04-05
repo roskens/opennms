@@ -21,10 +21,14 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import com.bt.bcos.adapter.AdapterIf;
 import org.opennms.xmlclient.bcos.OpenNmsBcosAdapter;
 
 public class CatalystRemoveTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void removetest1(){

@@ -36,6 +36,8 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.events.api.AnnotationBasedEventListenerAdapter;
 import org.opennms.netmgt.events.api.EventConstants;
 import org.opennms.netmgt.events.api.EventSubscriptionService;
@@ -53,6 +55,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author brozow
  */
 public class AnnotationBasedEventListenerAdapterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private static final String ANNOTATED_NAME = "AnotatedListenerName";
     private static final String OVERRIDEN_NAME = "OverriddenName";

@@ -34,6 +34,8 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +46,8 @@ import org.opennms.test.JUnitConfigurationEnvironment;
 
 @JUnitConfigurationEnvironment
 public class RequisitionFrom18Test {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(RequisitionFrom18Test.class);
     private FilesystemForeignSourceRepository m_foreignSourceRepository;
 

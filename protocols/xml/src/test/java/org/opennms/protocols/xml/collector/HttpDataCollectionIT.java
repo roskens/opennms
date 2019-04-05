@@ -41,6 +41,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.opennms.core.collection.test.CollectionSetUtils;
@@ -85,6 +86,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
     JUnitHttpServerExecutionListener.class
 })
 public class HttpDataCollectionIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder m_temporaryFolder = new TemporaryFolder();

@@ -41,6 +41,8 @@ import org.easymock.EasyMock;
 import org.easymock.IAnswer;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.OnmsAttribute;
 import org.opennms.netmgt.model.ResourcePath;
 import org.opennms.netmgt.model.ResourceTypeUtils;
@@ -68,6 +70,8 @@ import com.google.common.collect.Sets;
  * @author jwhite
  */
 public class NewtsResourceStorageDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private SearchableResourceMetadataCache m_cache = new MockSearchableResourceMetadataCache();
     private Context m_context = Context.DEFAULT_CONTEXT;

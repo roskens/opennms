@@ -33,8 +33,12 @@ import static org.junit.Assert.assertThat;
 import static org.opennms.plugins.elasticsearch.rest.EventToIndex.isOID;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class EventToIndexTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void verifyIsOID() {
         assertThat(isOID(".3"), is(true));

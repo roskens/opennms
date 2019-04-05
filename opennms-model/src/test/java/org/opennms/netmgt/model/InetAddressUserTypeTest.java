@@ -34,8 +34,12 @@ import java.sql.ResultSet;
 
 import org.easymock.EasyMock;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class InetAddressUserTypeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testInetAddressType() throws Exception {

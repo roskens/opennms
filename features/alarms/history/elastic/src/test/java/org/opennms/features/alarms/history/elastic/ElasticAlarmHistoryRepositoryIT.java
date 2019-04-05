@@ -45,6 +45,7 @@ import org.elasticsearch.painless.PainlessPlugin;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.test.elastic.ElasticSearchRule;
 import org.opennms.core.test.elastic.ElasticSearchServerConfig;
 import org.opennms.core.time.PseudoClock;
@@ -61,6 +62,8 @@ import io.searchbox.client.JestClient;
 import java.util.Date;
 
 public class ElasticAlarmHistoryRepositoryIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String HTTP_PORT = "9205";
     private static final String HTTP_TRANSPORT_PORT = "9305";

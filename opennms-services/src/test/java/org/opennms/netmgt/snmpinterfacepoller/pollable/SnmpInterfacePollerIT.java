@@ -36,6 +36,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.rpc.mock.MockRpcClientFactory;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -61,6 +63,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment
 @JUnitSnmpAgent(host = "192.168.2.2", resource = "classpath:/snmpInterfacePollerTestData.properties")
 public class SnmpInterfacePollerIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private LocationAwareSnmpClient locationAwareSnmpClient;
 

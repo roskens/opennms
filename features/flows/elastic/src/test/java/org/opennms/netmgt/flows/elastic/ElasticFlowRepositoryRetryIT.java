@@ -33,6 +33,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.Timeout;
 import org.opennms.core.test.elastic.ElasticSearchRule;
 import org.opennms.core.test.elastic.ElasticSearchServerConfig;
@@ -55,6 +56,8 @@ import com.google.common.collect.Lists;
 import io.searchbox.client.JestClient;
 
 public class ElasticFlowRepositoryRetryIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final long START_DELAY = 10000; // in ms
     private static final long EXECUTION_TIME_DIFF = 2500; // in ms

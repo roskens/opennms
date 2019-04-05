@@ -31,6 +31,8 @@ package org.opennms.netmgt.dao.support;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import static org.junit.Assert.*;
 import org.opennms.netmgt.collection.api.CollectionResource;
 import org.opennms.netmgt.collection.support.ObjectNameStorageStrategy;
@@ -40,6 +42,8 @@ import org.opennms.netmgt.model.ResourcePath;
 /**
  */
 public class ObjectNameStorageStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test(expected = IllegalArgumentException.class)
     public void testSetNullParameters() {

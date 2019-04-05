@@ -38,6 +38,8 @@ import org.easymock.EasyMock;
 import org.easymock.IAnswer;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.api.integration.ticketing.Plugin;
 import org.opennms.api.integration.ticketing.PluginException;
 import org.opennms.api.integration.ticketing.Ticket;
@@ -58,6 +60,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author <a href="mailto:jonathan@opennms.org">Jonathan Sartin</a>
  */
 public class DefaultTicketerServiceLayerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private DefaultTicketerServiceLayer m_defaultTicketerServiceLayer;
     private EasyMockUtils m_easyMockUtils;

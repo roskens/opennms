@@ -59,9 +59,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.newts.converter.rrd.converter.LogUtils.Level;
 
 public class JRobinConverterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final double ACCEPTABLE_DOUBLE_DELTA = 0.00000000001;
     JRobinConverter m_converter = null;
     private static final long SECONDS_PER_HOUR = 3600L;

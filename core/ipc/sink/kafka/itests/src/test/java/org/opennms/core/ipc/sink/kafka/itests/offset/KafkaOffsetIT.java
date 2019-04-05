@@ -41,6 +41,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.runner.RunWith;
 import org.opennms.core.ipc.common.kafka.KafkaSinkConstants;
 import org.opennms.core.ipc.sink.kafka.server.offset.KafkaOffset;
@@ -57,6 +58,8 @@ import org.springframework.test.context.ContextConfiguration;
         "classpath:/applicationContext-test-ipc-sink-kafka.xml" })
 @JUnitConfigurationEnvironment
 public class KafkaOffsetIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public JUnitKafkaServer kafkaServer = new JUnitKafkaServer();

@@ -46,6 +46,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Matchers;
 import org.mockito.Mockito;
 import org.opennms.features.topology.api.BoundingBox;
@@ -102,6 +104,8 @@ import org.osgi.framework.BundleContext;
 import com.google.common.collect.Lists;
 
 public class BundleContextHistoryManagerTest  {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String searchQuery = "search query 1";
     private static final String idAlarm = "1";

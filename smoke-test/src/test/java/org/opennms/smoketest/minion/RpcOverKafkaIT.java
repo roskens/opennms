@@ -41,6 +41,8 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.smoketest.NullTestEnvironment;
 import org.opennms.smoketest.OpenNMSSeleniumTestCase;
 import org.opennms.smoketest.utils.RestClient;
@@ -54,6 +56,8 @@ import org.slf4j.LoggerFactory;
 
 
 public class RpcOverKafkaIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private static final String LOCALHOST = "127.0.0.1";
     private static TestEnvironment m_testEnvironment;

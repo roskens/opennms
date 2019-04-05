@@ -38,6 +38,7 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.smoketest.NullTestEnvironment;
 import org.opennms.smoketest.OpenNMSSeleniumTestCase;
 import org.opennms.smoketest.telemetry.FlowPacket;
@@ -57,6 +58,8 @@ import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 
 public class SinglePortFlowsIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TestEnvironment testEnvironment = getTestEnvironment();

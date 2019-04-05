@@ -30,6 +30,8 @@ package org.opennms.features.topology.plugins.topo.asset;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.support.breadcrumbs.BreadcrumbStrategy;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.Event;
@@ -37,6 +39,8 @@ import org.opennms.netmgt.xml.event.Event;
 import com.google.common.collect.Lists;
 
 public class GeneratorConfigBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyBuildEvent() {

@@ -33,6 +33,8 @@ import static org.junit.Assert.*;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.measurements.api.ExpressionEngine;
 import org.opennms.netmgt.measurements.api.exceptions.ExpressionException;
 import org.opennms.netmgt.measurements.api.FetchResults;
@@ -44,6 +46,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 public class JEXLExpressionEngineEnhancedTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final double DELTA = 1e-15;
 
 	private final ExpressionEngine jexlExpressionEngine = new JEXLExpressionEngine();

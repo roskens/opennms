@@ -42,6 +42,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.collection.test.CollectionSetUtils;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.core.wsman.WSManClientFactory;
@@ -79,6 +81,8 @@ import com.mycila.xmltool.XMLDoc;
 import com.mycila.xmltool.XMLTag;
 
 public class WSManCollectorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canProcessEnumerationResults() {

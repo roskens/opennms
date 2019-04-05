@@ -38,6 +38,8 @@ import java.util.SortedSet;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.dao.api.ResourceDao;
 import org.opennms.netmgt.dao.api.StatisticsReportDao;
 import org.opennms.netmgt.model.ResourceId;
@@ -58,6 +60,8 @@ import org.springframework.validation.BindException;
  * @author <a href="dj@opennms.org">DJ Gregor</a>
  */
 public class DefaultStatisticsReportServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     
     private DefaultStatisticsReportService m_service = new DefaultStatisticsReportService();

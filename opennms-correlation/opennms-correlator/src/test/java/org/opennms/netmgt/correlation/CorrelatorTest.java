@@ -43,6 +43,8 @@ import org.opennms.netmgt.events.api.EventListener;
 import static org.easymock.EasyMock.*;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 /**
@@ -50,6 +52,8 @@ import org.junit.Before;
  * @author <a href="mailto:brozow@opennms.org">Mathew Brozowski</a>
  */
 public class CorrelatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	
 	List<Object> mocks = new ArrayList<>();
 	private EventIpcManager m_eventIpcManager;

@@ -39,6 +39,8 @@ import org.opennms.netmgt.config.threshd.Expression;
 import org.opennms.netmgt.config.threshd.ThresholdType;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 /**
@@ -52,6 +54,8 @@ import org.junit.Before;
  *
  */
 public class ThresholdExpressionTestCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     Expression expression;
     

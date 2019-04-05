@@ -80,7 +80,6 @@
             <id>add-groovy-source</id>
             <phase>generate-sources</phase>
             <goals>
-            
               <goal>add-source</goal>
             </goals>
             <configuration>
@@ -277,7 +276,6 @@ groovy.compiler.output.path=target/classes
       <artifactId>log4j-over-slf4j</artifactId>
       <scope>runtime</scope>
     </dependency>
-
     <!-- test dependencies -->
     <dependency>
       <groupId>org.opennms.core.test-api</groupId>
@@ -315,16 +313,23 @@ groovy.compiler.output.path=target/classes
       <artifactId>org.opennms.features.springframework-security</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-
   <repositories>
     <repository>
-      <snapshots><enabled>false</enabled></snapshots>
-      <releases><enabled>true</enabled></releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
       <id>opennms-repo</id>
       <name>OpenNMS Maven Repository</name>
       <url>http://maven.opennms.org/content/groups/opennms.org-release</url>
     </repository>
   </repositories>
-
 </project>

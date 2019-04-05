@@ -38,6 +38,8 @@ import java.net.UnknownHostException;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.wsman.WSManClient;
 import org.opennms.core.wsman.WSManClientFactory;
 import org.opennms.netmgt.config.wsman.Definition;
@@ -51,6 +53,8 @@ import com.google.common.collect.Maps;
 import com.mycila.xmltool.XMLDoc;
 
 public class WSManMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final static Node EXAMPLE_NODE = XMLDoc.newDocument(true).addRoot("body")
             .addTag("DCIM_ComputerSystem")
                 .addTag("IdentifyingDescriptions")

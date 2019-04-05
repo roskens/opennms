@@ -30,6 +30,8 @@ package org.opennms.netmgt.trapd;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.core.ipc.sink.api.Message;
 import org.opennms.core.ipc.sink.api.SinkModule;
@@ -37,6 +39,8 @@ import org.opennms.netmgt.config.TrapdConfig;
 import org.opennms.netmgt.model.OnmsDistPoller;
 
 public class TrapSinkModuleTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testEqualsAndHashCode() throws Exception {

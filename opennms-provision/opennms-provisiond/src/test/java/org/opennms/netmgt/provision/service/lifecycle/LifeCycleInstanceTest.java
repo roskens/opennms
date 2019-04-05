@@ -36,6 +36,8 @@ import java.util.concurrent.Executors;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.tasks.DefaultTaskCoordinator;
 import org.opennms.core.tasks.TaskCoordinator;
 import org.opennms.core.test.MockLogAppender;
@@ -51,6 +53,8 @@ import org.opennms.netmgt.provision.service.lifecycle.annotations.Attribute;
  * @author brozow
  */
 public class LifeCycleInstanceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     /*
      * TODO

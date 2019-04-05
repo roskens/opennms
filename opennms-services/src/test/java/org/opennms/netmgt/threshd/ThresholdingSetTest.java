@@ -38,6 +38,8 @@ import java.nio.file.Paths;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.Level;
 import org.opennms.core.test.LoggingEvent;
@@ -48,6 +50,8 @@ import org.opennms.netmgt.mock.MockNetwork;
 import org.opennms.netmgt.rrd.RrdRepository;
 
 public class ThresholdingSetTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Before
     public void setUp() throws Exception {
         MockLogAppender.setupLogging();

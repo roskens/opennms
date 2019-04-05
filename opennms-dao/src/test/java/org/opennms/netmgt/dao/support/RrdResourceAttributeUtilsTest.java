@@ -44,6 +44,8 @@ import java.util.Set;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.PropertiesCache;
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.OnmsAttribute;
@@ -58,6 +60,8 @@ import org.opennms.test.ThrowableAnticipator;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class RrdResourceAttributeUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FileAnticipator m_fileAnticipator;
     private File m_snmp;
     private File m_node;

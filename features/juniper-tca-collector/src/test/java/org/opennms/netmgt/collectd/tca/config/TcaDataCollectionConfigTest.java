@@ -54,6 +54,8 @@ import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.test.FileAnticipator;
 import org.xml.sax.SAXException;
 
@@ -63,6 +65,8 @@ import org.xml.sax.SAXException;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class TcaDataCollectionConfigTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	/** The marshaller. */
 	private Marshaller marshaller;

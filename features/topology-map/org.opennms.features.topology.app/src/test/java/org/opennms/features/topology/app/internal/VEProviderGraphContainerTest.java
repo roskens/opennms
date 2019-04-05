@@ -45,6 +45,8 @@ import java.util.Set;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.features.topology.api.Graph;
 import org.opennms.features.topology.api.GraphContainer;
@@ -70,6 +72,8 @@ import org.opennms.features.topology.app.internal.service.SimpleServiceLocator;
 import org.opennms.netmgt.enlinkd.persistence.api.TopologyEntityCache;
 
 public class VEProviderGraphContainerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private GraphProvider m_graphProvider;
 	private GraphContainer m_graphContainer;

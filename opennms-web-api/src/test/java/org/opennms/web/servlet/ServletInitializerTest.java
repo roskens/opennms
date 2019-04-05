@@ -32,6 +32,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.test.JUnitConfigurationEnvironment;
@@ -47,6 +49,8 @@ import java.util.Collections;
 @ContextConfiguration(locations = { "classpath:/META-INF/opennms/applicationContext-soa.xml" })
 @JUnitConfigurationEnvironment
 public class ServletInitializerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Verifies that {@link ServletInitializer#init} does not override existing

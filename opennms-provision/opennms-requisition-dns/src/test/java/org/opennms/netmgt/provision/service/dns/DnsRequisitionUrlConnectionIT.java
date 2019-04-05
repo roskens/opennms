@@ -32,6 +32,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.dns.JUnitDNSServerExecutionListener;
@@ -67,6 +69,8 @@ import java.net.URLConnection;
                         JUnitDNSServerExecutionListener.class
 })
 public class DnsRequisitionUrlConnectionIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String TEST_URL = "dns://localhost:9153/example.com";
 

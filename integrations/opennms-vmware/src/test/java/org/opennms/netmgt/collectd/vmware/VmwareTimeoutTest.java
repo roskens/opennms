@@ -40,6 +40,8 @@ import javax.net.ssl.TrustManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.collectd.VmwareCimCollector;
 import org.opennms.netmgt.collectd.VmwareCollector;
 import org.opennms.netmgt.collection.api.CollectionAgent;
@@ -65,6 +67,8 @@ import com.vmware.vim25.ws.Client;
 import com.vmware.vim25.ws.WSClient;
 
 public class VmwareTimeoutTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     final CollectionAgent collectionAgent = new CollectionAgent() {
         @Override

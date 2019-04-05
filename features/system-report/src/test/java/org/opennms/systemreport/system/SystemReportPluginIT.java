@@ -33,11 +33,15 @@ import static org.junit.Assert.assertTrue;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.systemreport.SystemReportPlugin;
 import org.springframework.core.io.ByteArrayResource;
 
 public class SystemReportPluginIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private SystemReportPlugin m_javaReportPlugin = new JavaReportPlugin();
     private SystemReportPlugin m_osReportPlugin = new OSReportPlugin();
 

@@ -34,11 +34,15 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class SIUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /**
      * 10 gigabit ethernet.
      */

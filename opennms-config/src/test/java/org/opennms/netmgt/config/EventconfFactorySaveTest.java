@@ -45,6 +45,8 @@ import org.opennms.test.FileAnticipator;
 import org.springframework.core.io.FileSystemResource;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -54,6 +56,8 @@ import org.junit.Before;
  * @author <a href="mailto:cmiskell@opennms.org">Craig Miskell</a>
  */
 public class EventconfFactorySaveTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String knownUEI1="uei.opennms.org/opennmsConfig/eventconf";
     private static final String knownSubfileUEI1="uei.opennms.org/IETF/Bridge/traps/newRoot";
     

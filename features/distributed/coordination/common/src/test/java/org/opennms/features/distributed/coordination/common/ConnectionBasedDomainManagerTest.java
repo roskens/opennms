@@ -41,12 +41,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.distributed.coordination.api.Role;
 
 /**
  * Tests for {@link ConnectionBasedDomainManager}.
  */
 public class ConnectionBasedDomainManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String id = "test.id";
     private static final String domain = "test.domain";
     private final CompletableFuture<Thread> connectThreadFuture = new CompletableFuture<>();

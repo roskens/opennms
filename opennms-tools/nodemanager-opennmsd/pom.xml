@@ -131,9 +131,14 @@ groovy.compiler.output.path=target/classes
       <artifactId>groovy-all</artifactId>
       <version>1.5.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <repositories>
-<!--
+    <!--
     <repository>
       <snapshots>
         <enabled>false</enabled>
@@ -149,8 +154,12 @@ groovy.compiler.output.path=target/classes
     </repository>
 -->
     <repository>
-      <snapshots><enabled>true</enabled></snapshots>
-      <releases><enabled>false</enabled></releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
       <id>opennms-snapshots</id>
       <name>OpenNMS Snapshot Repository</name>
       <url>http://maven.opennms.org/content/groups/opennms.org-snapshot</url>

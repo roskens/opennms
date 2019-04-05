@@ -36,6 +36,7 @@ import java.io.IOException;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.dao.api.ResourceDao;
@@ -45,6 +46,8 @@ import org.opennms.netmgt.rrd.NullRrdStrategy;
 import org.opennms.netmgt.rrd.RrdStrategy;
 
 public class NodeSnmpResourceTypeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();

@@ -37,6 +37,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -54,6 +56,8 @@ import org.opennms.netmgt.xml.event.Event;
  * @author brozow
  */
 public class MockDatabaseIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private MockNetwork m_network;
     private MockDatabase m_db;

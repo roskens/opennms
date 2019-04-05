@@ -36,10 +36,14 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.google.gson.Gson;
 
 public class QueryProviderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Gson gson = new Gson();
 

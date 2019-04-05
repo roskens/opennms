@@ -34,6 +34,8 @@ import static org.junit.Assert.fail;
 import java.nio.ByteBuffer;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.dao.api.DistPollerDao;
 import org.opennms.netmgt.dao.api.MonitoringLocationDao;
@@ -42,6 +44,8 @@ import org.opennms.netmgt.dao.api.MonitoringLocationDao;
  * @author Seth
  */
 public class Nms6730Test {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void testCustomSyslogParser() throws Exception {

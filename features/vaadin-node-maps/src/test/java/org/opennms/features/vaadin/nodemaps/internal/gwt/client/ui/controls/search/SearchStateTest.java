@@ -40,6 +40,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.ComponentTracker;
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.OpenNMSEventManager;
@@ -75,6 +77,8 @@ import com.google.gwt.user.client.History;
     "com.google.gwt.core.client.impl.SchedulerImpl"
 })
 public class SearchStateTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     final Logger LOG = Logger.getLogger(SearchStateTest.class.getName());
 
     private ValueItem m_mockSearchInput = new TestValueItem();

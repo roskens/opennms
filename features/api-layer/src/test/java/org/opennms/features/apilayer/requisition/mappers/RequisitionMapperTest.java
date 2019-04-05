@@ -37,6 +37,8 @@ import java.util.Arrays;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mapstruct.factory.Mappers;
 import org.opennms.integration.api.v1.config.requisition.SnmpPrimaryType;
 import org.opennms.integration.api.v1.config.requisition.beans.RequisitionBean;
@@ -53,6 +55,8 @@ import org.opennms.netmgt.provision.persist.requisition.RequisitionMonitoredServ
 import org.opennms.netmgt.provision.persist.requisition.RequisitionNode;
 
 public class RequisitionMapperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final RequisitionMapper mapper = Mappers.getMapper(RequisitionMapper.class);
 

@@ -31,6 +31,8 @@ package org.opennms.opennmsd;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 /**
@@ -39,6 +41,8 @@ import org.junit.Before;
  * @author brozow
  */
 public class FilterChainTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     NNMEvent m_event;
     FilterChainBuilder m_chainBldr;

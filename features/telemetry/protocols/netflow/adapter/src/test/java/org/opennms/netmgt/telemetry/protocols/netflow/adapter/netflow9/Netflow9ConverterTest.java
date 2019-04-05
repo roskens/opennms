@@ -46,6 +46,8 @@ import java.util.List;
 import org.bson.BsonDocument;
 import org.bson.RawBsonDocument;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.api.Flow;
 import org.opennms.netmgt.telemetry.protocols.netflow.adapter.netflow9.Netflow9Converter;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.InvalidPacketException;
@@ -57,6 +59,8 @@ import org.opennms.netmgt.telemetry.protocols.netflow.parser.session.Session;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.session.TcpSession;
 
 public class Netflow9ConverterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private Netflow9Converter nf9Converter = new Netflow9Converter();
 

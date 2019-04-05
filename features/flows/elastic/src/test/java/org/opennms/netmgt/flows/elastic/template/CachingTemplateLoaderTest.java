@@ -37,6 +37,8 @@ import static org.mockito.Mockito.verify;
 import java.io.IOException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.elastic.ElasticFlowRepositoryInitializer;
 import org.opennms.plugins.elasticsearch.rest.template.CachingTemplateLoader;
 import org.opennms.plugins.elasticsearch.rest.template.DefaultTemplateLoader;
@@ -44,6 +46,8 @@ import org.opennms.plugins.elasticsearch.rest.template.TemplateLoader;
 import org.opennms.plugins.elasticsearch.rest.template.Version;
 
 public class CachingTemplateLoaderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Version version = new Version(6,2,3);
 

@@ -50,6 +50,8 @@ import java.util.Map;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * This test can be run manually to generate docs for the search
@@ -60,6 +62,8 @@ import org.junit.Test;
  */
 @Ignore
 public class SearchPropertiesToAsciidocTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private static final String HEADER_FORMAT = "[[%sProperties]]\n" +
 		".%s Properties\n" +

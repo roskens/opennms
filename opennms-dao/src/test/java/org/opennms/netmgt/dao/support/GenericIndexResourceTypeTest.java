@@ -40,6 +40,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.collection.api.StorageStrategy;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.dao.api.ResourceDao;
@@ -52,6 +54,8 @@ import org.opennms.test.mock.EasyMockUtils;
 import com.google.common.base.Throwables;
 
 public class GenericIndexResourceTypeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String RRD_FILE_NAME = "ds.nullRrd";
 

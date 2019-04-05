@@ -37,6 +37,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.MockLogAppender;
@@ -75,6 +77,8 @@ import com.codahale.metrics.MetricRegistry;
  * framework instead of this base class.
  */
 public class OpenNMSITCase {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     protected static MockDatabase m_db;
     protected static MockNetwork m_network;
     protected static Eventd m_eventd;

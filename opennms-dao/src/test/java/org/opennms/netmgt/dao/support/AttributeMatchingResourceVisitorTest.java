@@ -32,6 +32,8 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.AttributeVisitor;
@@ -46,6 +48,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class AttributeMatchingResourceVisitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private AttributeVisitor m_attributeVisitor = m_mocks.createMock(AttributeVisitor.class);
     

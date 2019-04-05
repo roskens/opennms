@@ -36,9 +36,13 @@ import java.io.InputStream;
 import java.time.ZoneId;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.SyslogdConfigFactory;
 
 public class RadixTreeSyslogParserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void shouldHonorTimezoneSettings() throws Exception {

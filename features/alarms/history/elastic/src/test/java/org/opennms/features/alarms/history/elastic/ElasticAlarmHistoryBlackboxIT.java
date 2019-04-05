@@ -48,6 +48,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.test.alarms.driver.Scenario;
 import org.opennms.core.test.alarms.driver.ScenarioResults;
 import org.opennms.core.test.elastic.ElasticSearchRule;
@@ -72,6 +73,8 @@ import io.searchbox.client.JestClient;
  * points in time, and make sure that they match expectations.
  */
 public class ElasticAlarmHistoryBlackboxIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String HTTP_PORT = "9205";
     private static final String HTTP_TRANSPORT_PORT = "9305";
 

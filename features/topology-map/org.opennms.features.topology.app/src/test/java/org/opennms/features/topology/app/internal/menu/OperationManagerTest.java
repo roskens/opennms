@@ -38,6 +38,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.features.topology.api.GraphContainer;
 import org.opennms.features.topology.api.Operation;
@@ -49,6 +51,8 @@ import com.google.common.collect.Lists;
 import com.vaadin.ui.MenuBar;
 
 public class OperationManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void submenuAlphabeticalOrderTest() {
         OperationManager cmdManager = new OperationManager();

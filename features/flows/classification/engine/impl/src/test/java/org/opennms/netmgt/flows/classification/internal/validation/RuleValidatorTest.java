@@ -31,6 +31,7 @@ package org.opennms.netmgt.flows.classification.internal.validation;
 import static org.opennms.netmgt.flows.classification.internal.validation.ValidatorTestUtils.verify;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.netmgt.flows.classification.FilterService;
 import org.opennms.netmgt.flows.classification.error.ErrorContext;
 import org.opennms.netmgt.flows.classification.error.Errors;
@@ -41,6 +42,8 @@ import org.opennms.netmgt.flows.classification.persistence.api.RuleBuilder;
 import org.slf4j.LoggerFactory;
 
 public class RuleValidatorTest {
+    @org.junit.Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyNameIsRequired() {

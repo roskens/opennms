@@ -32,12 +32,16 @@ import java.net.UnknownHostException;
 
 import org.junit.After;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * @author Donald Desloge
  *
  */
 public class SmbDetectorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
 //    private SmbDetector m_detector;
     

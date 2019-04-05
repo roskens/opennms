@@ -33,6 +33,8 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import java.net.URL;
 
@@ -44,6 +46,8 @@ import java.net.URL;
  * @since 1.10.1
  */
 public class GenericURLConnectionTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private GenericURLConnection m_genericURLConnection;
 

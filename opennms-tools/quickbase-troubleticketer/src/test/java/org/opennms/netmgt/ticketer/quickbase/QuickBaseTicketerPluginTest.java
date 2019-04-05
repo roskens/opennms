@@ -36,11 +36,15 @@ import java.io.File;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.api.integration.ticketing.Ticket;
 
 public class QuickBaseTicketerPluginTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     QuickBaseTicketerPlugin m_ticketer;
     

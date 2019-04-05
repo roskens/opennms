@@ -34,6 +34,8 @@ import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.geocoder.Coordinates;
 import org.opennms.features.geocoder.GeocoderService;
 import org.opennms.features.vaadin.nodemaps.internal.NodeMapComponent;
@@ -46,6 +48,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import com.vaadin.server.PaintTarget;
 
 public class OpenlayersWidgetCompontentTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private NodeDao m_nodeDao;
     private AssetRecordDao m_assetDao;
     private GeocoderService m_geocoder;

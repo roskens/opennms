@@ -55,8 +55,8 @@
       <type>pom</type>
     </dependency>
     <dependency>
-       <groupId>org.opennms.core</groupId>
-       <artifactId>org.opennms.core.lib</artifactId>
+      <groupId>org.opennms.core</groupId>
+      <artifactId>org.opennms.core.lib</artifactId>
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
@@ -76,6 +76,11 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

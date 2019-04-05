@@ -32,6 +32,8 @@ import org.junit.Assert;
 
 import org.easymock.EasyMock;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.collection.api.StorageStrategyService;
 import org.opennms.netmgt.model.ResourcePath;
 
@@ -39,6 +41,8 @@ import org.opennms.netmgt.model.ResourcePath;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class FrameRelayStorageStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Test
     public void testStrategy() {

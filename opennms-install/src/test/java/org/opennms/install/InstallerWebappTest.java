@@ -38,12 +38,16 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
 import org.opennms.test.FileAnticipator;
 
 public class InstallerWebappTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private Installer m_installer;
 
     private FileAnticipator m_anticipator;

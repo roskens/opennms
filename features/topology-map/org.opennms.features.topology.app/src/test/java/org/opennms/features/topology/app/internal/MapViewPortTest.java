@@ -32,10 +32,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.BoundingBox;
 import org.opennms.features.topology.api.Point;
 
 public class MapViewPortTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private double m_delta = 0.001;
     @Test
     public void testGetBounds() {

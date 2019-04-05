@@ -34,6 +34,8 @@ import java.io.IOException;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.ami.AmiConfig;
@@ -56,6 +58,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 })
 @JUnitConfigurationEnvironment
 public class AmiPeerFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /* (non-Javadoc)
      * @see junit.framework.TestCase#setUp()
      */

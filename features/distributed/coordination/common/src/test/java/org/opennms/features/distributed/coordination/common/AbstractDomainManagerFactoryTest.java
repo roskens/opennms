@@ -32,6 +32,8 @@ import static junit.framework.TestCase.assertSame;
 import static org.junit.Assert.assertNotSame;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.distributed.coordination.api.DomainManager;
 import org.opennms.features.distributed.coordination.api.DomainManagerFactory;
 
@@ -39,6 +41,8 @@ import org.opennms.features.distributed.coordination.api.DomainManagerFactory;
  * Tests for {@link AbstractDomainManagerFactory}.
  */
 public class AbstractDomainManagerFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /**
      * Tests the caching of domain managers.
      */

@@ -43,6 +43,7 @@ import java.util.Map;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.core.collection.test.CollectionSetUtils;
 import org.opennms.core.utils.InetAddressUtils;
@@ -65,6 +66,8 @@ import org.opennms.netmgt.dao.JdbcDataCollectionConfigDao;
 import org.opennms.netmgt.model.ResourcePath;
 
 public class JdbcCollectorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();

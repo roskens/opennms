@@ -34,10 +34,14 @@ import com.vaadin.v7.data.util.BeanItem;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.topo.AbstractVertex;
 import org.opennms.netmgt.topologies.service.api.OnmsTopology;
 
 public class ComponentTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	@Test
 	public void testComponentBeanProperties() throws Exception {
 		Collection<?> ids = new BeanItem<>(new AbstractVertex(OnmsTopology.TOPOLOGY_NAMESPACE_LINKD, "fakeId")).getItemPropertyIds();

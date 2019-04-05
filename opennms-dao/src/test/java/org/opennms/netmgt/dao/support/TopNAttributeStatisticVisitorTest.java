@@ -37,6 +37,8 @@ import java.util.SortedSet;
 import java.util.Map.Entry;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.AttributeStatistic;
@@ -49,6 +51,8 @@ import org.opennms.test.ThrowableAnticipator;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class TopNAttributeStatisticVisitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Test
     public void testAfterPropertiesSet() throws Exception {

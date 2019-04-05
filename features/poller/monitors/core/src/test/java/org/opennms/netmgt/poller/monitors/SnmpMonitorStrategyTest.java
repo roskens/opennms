@@ -38,6 +38,8 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.poller.MonitoredService;
@@ -54,6 +56,8 @@ import org.opennms.test.ThrowableAnticipator;
  * Preferences - Java - Code Style - Code Templates
  */
 public class SnmpMonitorStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private SnmpMonitorStrategy monitor = new SnmpMonitorStrategy() {
         @Override

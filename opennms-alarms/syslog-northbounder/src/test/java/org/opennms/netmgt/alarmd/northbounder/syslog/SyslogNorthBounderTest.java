@@ -43,6 +43,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -82,6 +84,8 @@ import org.springframework.test.context.ContextConfiguration;
 // TODO:Would be great to do something like the following annotation...
 // @JUnitSyslogServer(port=8514)
 public class SyslogNorthBounderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The Constant SERVER_HOST. */
     private static final String SERVER_HOST = "127.0.0.1";

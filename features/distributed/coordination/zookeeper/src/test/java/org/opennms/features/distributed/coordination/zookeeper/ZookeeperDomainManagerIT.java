@@ -44,6 +44,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.features.distributed.coordination.api.DomainManager;
 import org.opennms.features.distributed.coordination.api.Role;
@@ -54,6 +55,8 @@ import com.jayway.awaitility.core.ConditionTimeoutException;
  * Integration tests for {@link ZookeeperDomainManager}.
  */
 public class ZookeeperDomainManagerIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String domain = "test.domain";
     private static final String id = "test.id";
     @Rule

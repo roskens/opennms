@@ -38,6 +38,7 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.netmgt.flows.classification.csv.CsvImportResult;
 import org.opennms.netmgt.flows.classification.csv.CsvService;
 import org.opennms.netmgt.flows.classification.internal.validation.RuleValidator;
@@ -47,6 +48,8 @@ import org.opennms.netmgt.flows.classification.persistence.api.RuleBuilder;
 import com.google.common.collect.Lists;
 
 public class CsvServiceTest {
+    @org.junit.Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyExportForEmptyRule() {

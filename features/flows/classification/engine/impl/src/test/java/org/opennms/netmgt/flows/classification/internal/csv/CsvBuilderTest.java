@@ -32,9 +32,13 @@ package org.opennms.netmgt.flows.classification.internal.csv;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.classification.persistence.api.RuleBuilder;
 
 public class CsvBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyBuilder() {

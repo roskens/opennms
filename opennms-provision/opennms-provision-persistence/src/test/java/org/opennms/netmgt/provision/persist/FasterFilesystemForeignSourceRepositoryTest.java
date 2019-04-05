@@ -37,6 +37,8 @@ import java.util.Set;
 
 import org.joda.time.Duration;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.http.annotations.JUnitHttpServer;
@@ -51,6 +53,8 @@ import org.springframework.test.context.ContextConfiguration;
 @RunWith(OpenNMSJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:/org/opennms/netmgt/provision/persist/emptyContext.xml")
 public class FasterFilesystemForeignSourceRepositoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testActiveForeignSourceNames() throws Exception {

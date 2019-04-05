@@ -42,6 +42,7 @@ import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.Timeout;
 import org.opennms.smoketest.NullTestEnvironment;
 import org.opennms.smoketest.OpenNMSSeleniumTestCase;
@@ -54,6 +55,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 public class HealthCheckIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @ClassRule
     public static TestEnvironment testEnvironment = getTestEnvironment();

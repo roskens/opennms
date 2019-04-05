@@ -33,11 +33,15 @@ import static org.junit.Assert.assertEquals;
 import java.util.Optional;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.bsm.service.model.Status;
 
 import com.google.common.collect.Lists;
 
 public class HighestSeverityAboveTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testReduce() {

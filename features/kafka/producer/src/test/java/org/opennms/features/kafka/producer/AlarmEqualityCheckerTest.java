@@ -33,12 +33,16 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.kafka.producer.model.OpennmsModelProtos;
 
 /**
  * Tests for {@link AlarmEqualityChecker}.
  */
 public class AlarmEqualityCheckerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /**
      * Tests that two alarms match except for their excluded fields.
      */

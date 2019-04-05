@@ -44,12 +44,15 @@ import org.opennms.test.mock.MockUtil;
 import org.springframework.core.io.InputStreamResource;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 
 public class CollectorConfigDaoImplIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Rule
     public TestName m_testName = new TestName();
 

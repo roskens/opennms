@@ -34,9 +34,13 @@ import static org.opennms.core.web.HttpClientWrapperConfigHelper.PARAMETER_KEYS.
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.notifd.Argument;
 
 public class HttpNotificationStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void shouldExtractUrlFromArgument() {

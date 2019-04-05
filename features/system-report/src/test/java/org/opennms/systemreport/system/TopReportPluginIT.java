@@ -37,12 +37,16 @@ import java.util.Properties;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.systemreport.ResourceLocator;
 import org.springframework.core.io.FileSystemResource;
 
 public class TopReportPluginIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private ResourceLocator m_resourceLocator;
     private TopReportPlugin m_reportPlugin;
 

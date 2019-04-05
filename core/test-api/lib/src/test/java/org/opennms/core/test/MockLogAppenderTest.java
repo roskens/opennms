@@ -36,6 +36,8 @@ import junit.framework.AssertionFailedError;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,6 +45,8 @@ import org.slf4j.LoggerFactory;
  * @author brozow
  */
 public class MockLogAppenderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(MockLogAppenderTest.class);
 
     @Before

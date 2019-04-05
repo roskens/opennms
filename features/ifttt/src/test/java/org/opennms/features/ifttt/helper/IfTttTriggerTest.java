@@ -43,6 +43,8 @@ import org.apache.http.message.BasicStatusLine;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
 import org.mockito.invocation.InvocationOnMock;
@@ -54,6 +56,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(HttpClients.class)
 public class IfTttTriggerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String TEST_KEY = "abc123def456";
     private static final String TEST_EVENT = "xyz";
 

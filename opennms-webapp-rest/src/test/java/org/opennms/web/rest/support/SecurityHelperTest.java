@@ -29,6 +29,8 @@
 package org.opennms.web.rest.support;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.stubbing.Answer;
 
 import javax.ws.rs.WebApplicationException;
@@ -52,6 +54,8 @@ import static org.opennms.web.api.Authentication.ROLE_REST;
 import static org.opennms.web.api.Authentication.ROLE_USER;
 
 public class SecurityHelperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String USER = "joe";
     private static final String OTHER_USER = "bob";
 

@@ -37,6 +37,8 @@ import org.easymock.EasyMock;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.rpc.mock.MockRpcClientFactory;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.MockPlatformTransactionManager;
@@ -67,6 +69,8 @@ import org.springframework.transaction.PlatformTransactionManager;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class RrdPersistOperationBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FileAnticipator m_fileAnticipator;
     private File m_snmpDirectory;
     private OnmsIpInterface m_intf;

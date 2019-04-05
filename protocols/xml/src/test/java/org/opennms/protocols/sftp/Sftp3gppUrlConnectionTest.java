@@ -35,6 +35,8 @@ import java.util.Date;
 import org.junit.Assert;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.opennms.protocols.xml.collector.UrlFactory;
@@ -45,6 +47,8 @@ import org.opennms.protocols.xml.collector.UrlFactory;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class Sftp3gppUrlConnectionTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The Constant LOG. */
     private static final Logger LOG = LoggerFactory.getLogger(Sftp3gppUrlConnectionTest.class);

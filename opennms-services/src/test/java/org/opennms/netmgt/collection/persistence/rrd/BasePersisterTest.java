@@ -38,6 +38,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TestName;
 import org.opennms.core.rpc.mock.MockRpcClientFactory;
 import org.opennms.core.test.MockLogAppender;
@@ -81,6 +82,8 @@ import com.google.common.collect.Sets;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class BasePersisterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FileAnticipator m_fileAnticipator;
     private File m_snmpDirectory;
     private BasePersister m_persister;

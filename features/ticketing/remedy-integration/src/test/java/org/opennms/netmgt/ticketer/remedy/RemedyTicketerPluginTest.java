@@ -37,6 +37,7 @@ import org.junit.After;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 
@@ -45,6 +46,8 @@ import org.opennms.api.integration.ticketing.Ticket;
 import org.opennms.api.integration.ticketing.Ticket.State;
 
 public class RemedyTicketerPluginTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Rule
 	public TestName m_testName = new TestName();

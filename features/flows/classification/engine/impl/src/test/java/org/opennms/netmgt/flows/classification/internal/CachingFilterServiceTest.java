@@ -29,12 +29,16 @@
 package org.opennms.netmgt.flows.classification.internal;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.core.cache.CacheConfigBuilder;
 import org.opennms.netmgt.flows.classification.FilterService;
 import org.opennms.netmgt.flows.classification.exception.InvalidFilterException;
 
 public class CachingFilterServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyCaching() {

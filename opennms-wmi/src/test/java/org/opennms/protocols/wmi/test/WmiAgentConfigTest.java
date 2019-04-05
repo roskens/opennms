@@ -29,6 +29,8 @@
 package org.opennms.protocols.wmi.test;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -40,6 +42,8 @@ import org.junit.Before;
  * To change this template use File | Settings | File Templates.
  */
 public class WmiAgentConfigTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     	/*
 	 * Create a placeholder mock object. We will reset() this in each test
 	 * so that we can reuse it.

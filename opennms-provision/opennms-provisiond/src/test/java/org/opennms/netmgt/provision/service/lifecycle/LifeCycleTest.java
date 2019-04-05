@@ -36,6 +36,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.tasks.DefaultTaskCoordinator;
 import org.opennms.core.tasks.TaskCoordinator;
 import org.opennms.core.test.MockLogAppender;
@@ -47,6 +49,8 @@ import org.opennms.core.test.MockLogAppender;
  * @author brozow
  */
 public class LifeCycleTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private final String[] m_expectedPhases = new String[] {"phase1", "phase2", "phase3"};
     private DefaultLifeCycleRepository m_lifeCycleRepository;

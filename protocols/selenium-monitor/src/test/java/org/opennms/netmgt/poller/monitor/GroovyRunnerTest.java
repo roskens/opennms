@@ -37,6 +37,8 @@ import java.util.List;
 
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.Computer;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
@@ -45,6 +47,8 @@ import org.opennms.netmgt.junit.runner.SeleniumComputer;
 
 
 public class GroovyRunnerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     
     @Test

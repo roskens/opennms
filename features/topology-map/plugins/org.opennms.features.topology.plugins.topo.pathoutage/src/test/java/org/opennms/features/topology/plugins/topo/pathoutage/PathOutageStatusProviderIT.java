@@ -38,6 +38,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
@@ -80,6 +82,8 @@ import com.google.common.collect.Lists;
 @JUnitTemporaryDatabase(reuseDatabase = false)
 @Transactional
 public class PathOutageStatusProviderIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	/**
 	 * Constant IP-address used for testing purposes

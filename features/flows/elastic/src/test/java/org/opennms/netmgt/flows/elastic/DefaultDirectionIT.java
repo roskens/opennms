@@ -42,6 +42,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.test.elastic.ElasticSearchRule;
 import org.opennms.core.test.elastic.ElasticSearchServerConfig;
 import org.opennms.netmgt.dao.mock.MockNodeDao;
@@ -64,6 +65,8 @@ import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 
 public class DefaultDirectionIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static Logger LOG = LoggerFactory.getLogger(DefaultDirectionIT.class);
     private static final String HTTP_PORT = "9205";
     private static final String HTTP_TRANSPORT_PORT = "9305";

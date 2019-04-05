@@ -45,6 +45,8 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.apilayer.collectors.CollectionSetMapper;
 import org.opennms.integration.api.v1.collectors.CollectionSet;
 import org.opennms.integration.api.v1.collectors.resource.AttributeBuilder;
@@ -68,6 +70,8 @@ import org.opennms.netmgt.collection.support.PersistAllSelectorStrategy;
 import org.opennms.netmgt.model.ResourcePath;
 
 public class CollectionSetMapperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String GENERIC_INSTANCE = "sample-instance";
     private static final String NODE_LABEL = "piedmont";

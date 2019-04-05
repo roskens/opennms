@@ -42,9 +42,13 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.poller.remote.PollerTheme;
 
 public class MetadataFieldReaderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testValidFields() throws Exception {
         final Set<MetadataField> fields = getReader("target/test-classes/metadata.properties").getMetadataFields();

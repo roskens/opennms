@@ -29,12 +29,16 @@
 package org.opennms.plugins.elasticsearch.rest.archive.manual;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.plugins.elasticsearch.rest.EventForwarderImpl;
 import org.opennms.plugins.elasticsearch.rest.archive.OnmsHistoricEventsToEs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class OnmsHistoricEventsToEsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final Logger LOG = LoggerFactory.getLogger(OnmsHistoricEventsToEsTest.class);
 	
 	private String onmsUrl="http://localhost:8980";

@@ -41,6 +41,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.rpc.mock.MockRpcClientFactory;
@@ -89,6 +90,8 @@ import org.opennms.netmgt.snmp.proxy.common.LocationAwareSnmpClientRpcImpl;
  *
  */
 public class CollectionResourceWrapperIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private boolean m_ignoreWarnings = false;
     private LocationAwareSnmpClient m_locationAwareSnmpClient = new LocationAwareSnmpClientRpcImpl(new MockRpcClientFactory());
 

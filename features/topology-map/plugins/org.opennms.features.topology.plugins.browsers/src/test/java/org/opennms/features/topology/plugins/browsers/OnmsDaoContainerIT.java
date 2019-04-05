@@ -35,6 +35,8 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -69,6 +71,8 @@ import org.springframework.transaction.support.TransactionOperations;
 @RunWith(OpenNMSJUnit4ClassRunner.class)
 @Transactional
 public class OnmsDaoContainerIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private DatabasePopulator m_databasePopulator;

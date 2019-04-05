@@ -30,6 +30,8 @@ package org.opennms.netmgt.provision.service;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.provision.persist.foreignsource.PluginConfig;
 
@@ -39,6 +41,8 @@ import org.opennms.netmgt.provision.persist.foreignsource.PluginConfig;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class IpInterfaceScanTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Check regular expression rule.

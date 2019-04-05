@@ -38,6 +38,8 @@ import java.util.ArrayList;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.provision.persist.DefaultForeignSourceService;
 import org.opennms.netmgt.provision.persist.FilesystemForeignSourceRepository;
 import org.opennms.netmgt.provision.persist.ForeignSourceService;
@@ -46,6 +48,8 @@ import org.opennms.netmgt.provision.persist.foreignsource.PluginConfig;
 
 
 public class DefaultForeignSourceServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FilesystemForeignSourceRepository m_deployed;
     private FilesystemForeignSourceRepository m_pending;
     private ForeignSourceService m_service;

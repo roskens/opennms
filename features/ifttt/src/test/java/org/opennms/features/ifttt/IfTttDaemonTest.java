@@ -46,6 +46,8 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
 import org.mockito.invocation.InvocationOnMock;
@@ -70,6 +72,8 @@ import org.springframework.transaction.support.TransactionOperations;
 
 @RunWith(PowerMockRunner.class)
 public class IfTttDaemonTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(IfTttDaemonTest.class);
 
     private class ResultEntry {

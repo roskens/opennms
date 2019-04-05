@@ -44,6 +44,8 @@ import java.util.Map;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.url.GenericURLFactory;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.provision.persist.LocationAwareRequisitionClient;
@@ -53,6 +55,8 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.io.CharStreams;
 
 public class RequisitionUrlConnectionTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void setUp() {

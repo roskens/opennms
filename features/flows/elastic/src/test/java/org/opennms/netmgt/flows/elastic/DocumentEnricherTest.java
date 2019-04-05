@@ -37,6 +37,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.dao.api.InterfaceToNodeCache;
 import org.opennms.netmgt.dao.api.NodeDao;
@@ -47,6 +49,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import com.google.common.collect.Lists;
 
 public class DocumentEnricherTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private DocumentEnricher enricher;
     private AtomicInteger nodeDaoGetCounter;

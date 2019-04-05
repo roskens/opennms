@@ -37,10 +37,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.netmgt.jasper.measurement.EmptyJRDataSource;
 import org.opennms.netmgt.jasper.measurement.MeasurementDataSource;
 
 public class RemoteMeasurementDataSourceWrapperIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(9999);
 

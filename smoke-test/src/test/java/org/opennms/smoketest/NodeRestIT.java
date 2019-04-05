@@ -41,6 +41,8 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.model.OnmsIpInterface;
 import org.opennms.netmgt.model.OnmsMonitoredService;
@@ -56,6 +58,8 @@ import org.opennms.test.system.api.NewTestEnvironment.ContainerAlias;
  * Rest API
  */
 public class NodeRestIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static TestEnvironment m_testEnvironment;
     private static RestClient restClient;

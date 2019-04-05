@@ -29,6 +29,8 @@
 package org.opennms.netmgt.eventd;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.netmgt.config.api.EventConfDao;
 import org.opennms.netmgt.dao.mock.MockEventIpcManager;
@@ -43,6 +45,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class BroadcastEventProcessorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private EventConfDao m_eventConfDao = m_mocks.createMock(EventConfDao.class);
     

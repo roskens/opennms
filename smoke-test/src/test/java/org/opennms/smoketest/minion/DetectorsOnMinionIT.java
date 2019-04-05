@@ -46,6 +46,8 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.OnmsMonitoredService;
 import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.model.PrimaryType;
@@ -62,6 +64,8 @@ import org.slf4j.LoggerFactory;
 import org.opennms.test.system.api.NewTestEnvironment.ContainerAlias;
 
 public class DetectorsOnMinionIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(DetectorsOnMinionIT.class);
 

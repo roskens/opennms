@@ -33,11 +33,15 @@ import java.io.File;
 import java.nio.file.Paths;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AssetGraphDefinitionRepositoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final Logger LOG = LoggerFactory.getLogger(AssetGraphDefinitionRepositoryTest.class);
 
 	@Test

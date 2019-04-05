@@ -29,6 +29,8 @@
 package org.opennms.features.newts.converter;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.rrd.model.v3.DS;
 import org.opennms.netmgt.rrd.model.v3.DSType;
 import org.opennms.newts.api.Resource;
@@ -38,6 +40,8 @@ import com.google.common.base.Optional;
 import com.google.common.primitives.UnsignedLong;
 
 public class NewtsConverterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test(expected=IllegalArgumentException.class)
     public void cantConvertOutOfRangeCounterToSample() {

@@ -40,6 +40,8 @@ import static org.mockito.Mockito.when;
 import org.easymock.EasyMock;
 import org.junit.After;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockPlatformTransactionManager;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.collection.api.CollectionAgent;
@@ -51,6 +53,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import org.springframework.transaction.PlatformTransactionManager;
 
 public class DefaultCollectionAgentTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @After
     public void tearDown() {

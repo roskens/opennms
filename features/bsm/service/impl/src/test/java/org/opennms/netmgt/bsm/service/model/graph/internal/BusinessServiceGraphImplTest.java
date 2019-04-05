@@ -37,6 +37,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.bsm.mock.MockBusinessServiceHierarchy;
 import org.opennms.netmgt.bsm.mock.MockBusinessServiceHierarchy.Builder;
 import org.opennms.netmgt.bsm.service.model.BusinessService;
@@ -46,6 +48,8 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 public class BusinessServiceGraphImplTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canCalculateVertexLevel()  {

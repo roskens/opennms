@@ -36,6 +36,8 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.rrd.model.v1.RRDv1;
 import org.opennms.netmgt.rrd.model.v1.CFType;
@@ -48,6 +50,8 @@ import org.opennms.netmgt.rrd.model.v1.RRA;
  * @author Alejandro Galue <agalue@opennms.org>
  */
 public class RRDv1IT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Parses a simple RRD.

@@ -34,9 +34,13 @@ import static org.junit.Assert.assertTrue;
 import javax.servlet.ServletContext;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.opennms.core.soa.ServiceRegistry;
@@ -74,6 +78,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class HttpRemotingWebAppIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Autowired
 	private ServletContext servletContext;

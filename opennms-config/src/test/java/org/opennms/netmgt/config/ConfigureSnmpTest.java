@@ -36,6 +36,8 @@ import static org.junit.Assert.assertTrue;
 import java.net.UnknownHostException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -51,6 +53,8 @@ import org.springframework.core.io.Resource;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class ConfigureSnmpTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     final private int m_startingDefCount = 5;
 
     /* (non-Javadoc)

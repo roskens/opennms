@@ -41,12 +41,16 @@ import java.util.Objects;
 import org.bson.BsonDocument;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.api.Flow;
 import org.opennms.netmgt.telemetry.protocols.sflow.adapter.SFlowConverter;
 
 import com.google.common.io.Files;
 
 public class SFlowConverterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private BsonDocument bsonDocument;
 
     @Before

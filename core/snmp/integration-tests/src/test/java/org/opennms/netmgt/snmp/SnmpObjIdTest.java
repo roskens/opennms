@@ -37,8 +37,12 @@ import static org.junit.Assert.fail;
 import java.util.Arrays;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class SnmpObjIdTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private void assertArrayEquals(int[] a, int[] b) {
         if (a == null) {

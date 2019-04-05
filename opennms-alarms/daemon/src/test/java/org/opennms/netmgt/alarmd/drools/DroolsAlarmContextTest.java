@@ -36,9 +36,13 @@ import static org.mockito.Mockito.when;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.OnmsAlarm;
 
 public class DroolsAlarmContextTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canDetermineWhenAlarmShouldBeUpdatedForSnapshot() {

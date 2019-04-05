@@ -19,11 +19,15 @@ package org.opennms.xmlclient.bcos;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.bt.bcos.adapter.AdapterIf;
 import org.opennms.xmlclient.bcos.OpenNmsBcosAdapter;
 
 public class BcosCommitTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void commitTest(){

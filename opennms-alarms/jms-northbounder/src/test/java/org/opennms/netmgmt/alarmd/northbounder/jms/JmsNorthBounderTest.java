@@ -47,6 +47,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -87,6 +89,8 @@ import com.google.common.collect.Lists;
 })
 @JUnitConfigurationEnvironment
 public class JmsNorthBounderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     /** The Constant NODE_LABEL. */
     private static final String NODE_LABEL = "schlazor";

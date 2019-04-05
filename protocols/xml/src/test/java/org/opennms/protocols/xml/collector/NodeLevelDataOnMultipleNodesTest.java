@@ -42,6 +42,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.core.collection.test.MockCollectionAgent;
 import org.opennms.core.test.MockLogAppender;
@@ -68,6 +69,8 @@ import org.springframework.core.io.Resource;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class NodeLevelDataOnMultipleNodesTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder m_temporaryFolder = new TemporaryFolder();

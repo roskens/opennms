@@ -42,9 +42,13 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.provision.persist.requisition.Requisition;
 
 public class RequisitionFileUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FilesystemForeignSourceRepository m_repository;
     private Path m_requisitionDirectory;
     private String m_importDirectory;

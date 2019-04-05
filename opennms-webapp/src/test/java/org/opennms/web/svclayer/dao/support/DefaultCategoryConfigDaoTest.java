@@ -47,6 +47,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TestName;
 
 /**
@@ -54,6 +55,8 @@ import org.junit.rules.TestName;
  *
  */
 public class DefaultCategoryConfigDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Rule
     public TestName m_testName = new TestName();
 	

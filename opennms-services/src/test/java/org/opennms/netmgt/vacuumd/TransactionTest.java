@@ -41,6 +41,8 @@ import org.opennms.core.db.DataSourceFactory;
 import org.opennms.test.mock.EasyMockUtils;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -52,6 +54,8 @@ import org.junit.Before;
  *
  */
 public class TransactionTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	
 	EasyMockUtils m_ezMock = new EasyMockUtils();
     Connection m_conn;

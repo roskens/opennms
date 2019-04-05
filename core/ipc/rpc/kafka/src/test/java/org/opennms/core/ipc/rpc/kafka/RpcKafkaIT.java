@@ -63,6 +63,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.ipc.common.kafka.OsgiKafkaConfigProvider;
 import org.opennms.core.rpc.api.RemoteExecutionException;
 import org.opennms.core.rpc.api.RequestTimedOutException;
@@ -77,6 +78,8 @@ import org.osgi.service.cm.ConfigurationAdmin;
 import com.google.common.base.Strings;
 
 public class RpcKafkaIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String KAFKA_CONFIG_PID = "org.opennms.core.ipc.rpc.kafka.";
     public static final String REMOTE_LOCATION_NAME = "remote";

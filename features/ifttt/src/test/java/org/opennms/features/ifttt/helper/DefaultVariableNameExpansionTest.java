@@ -30,9 +30,13 @@ package org.opennms.features.ifttt.helper;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.OnmsSeverity;
 
 public class DefaultVariableNameExpansionTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void replaceTest() {

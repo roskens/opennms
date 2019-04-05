@@ -37,6 +37,8 @@ import org.easymock.EasyMock;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.collection.api.StorageStrategyService;
 import org.opennms.netmgt.config.datacollection.Parameter;
@@ -48,6 +50,8 @@ import org.opennms.netmgt.snmp.SnmpAgentConfig;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class SiblingColumnStorageStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private StorageStrategyService service;
     private SiblingColumnStorageStrategy strategy;

@@ -36,10 +36,14 @@ import java.net.URISyntaxException;
 import java.nio.file.Paths;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.google.common.collect.Lists;
 
 public class RepositoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canGenerateMavenUris() throws URISyntaxException {

@@ -42,10 +42,14 @@ import java.sql.Connection;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class ConnectionTrackerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Before
     public void setUp() {
     }

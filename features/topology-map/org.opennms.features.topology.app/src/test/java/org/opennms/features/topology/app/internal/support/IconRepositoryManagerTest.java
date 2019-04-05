@@ -32,11 +32,15 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.ConfigurableIconRepository;
 
 import com.google.common.collect.Maps;
 
 public class IconRepositoryManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static class TestIconRepository implements ConfigurableIconRepository {
 

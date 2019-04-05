@@ -38,6 +38,8 @@ import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -45,6 +47,8 @@ import org.opennms.netmgt.model.MockServiceDaemon;
 import org.opennms.netmgt.model.ServiceInfo;
 
 public class JmxDaemonStatusDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     static private MBeanServer mBeanServer;
 	static private ObjectName objectName[] = new ObjectName[4];
 	static private String[] names = {"test","test2","notifd","test3"};

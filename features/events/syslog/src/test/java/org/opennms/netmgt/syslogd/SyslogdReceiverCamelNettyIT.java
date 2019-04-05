@@ -47,6 +47,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.core.ipc.sink.common.ThreadLockingDispatcherFactory;
 import org.opennms.core.ipc.sink.common.ThreadLockingSyncDispatcher;
@@ -60,6 +62,8 @@ import com.google.common.util.concurrent.RateLimiter;
 import io.netty.util.ResourceLeakDetector;
 
 public class SyslogdReceiverCamelNettyIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public static final String NETTY_LEAK_DETECTION_LEVEL = "io.netty.leakDetectionLevel";
 

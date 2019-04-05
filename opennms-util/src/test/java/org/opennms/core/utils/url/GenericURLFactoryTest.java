@@ -31,6 +31,8 @@ package org.opennms.core.utils.url;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * <p>GenericURLFactoryTest class.</p>
@@ -40,6 +42,8 @@ import org.junit.Test;
  * @since 1.8.1
  */
 public class GenericURLFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * URL factory to test

@@ -43,6 +43,8 @@ import org.easymock.EasyMock;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.dao.api.ResourceDao;
 import org.opennms.netmgt.measurements.api.FetchResults;
 import org.opennms.netmgt.measurements.impl.NewtsFetchStrategy.LateAggregationParams;
@@ -68,6 +70,8 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 public class NewtsFetchStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private Context m_context;
     private ResourceDao m_resourceDao;
     private SampleRepository m_sampleRepository;

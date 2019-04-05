@@ -47,6 +47,7 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -56,6 +57,8 @@ import org.junit.rules.TestName;
  * Takes too long to run, so it's an IT test now.
  */
 public class DefaultSurveillanceViewConfigDaoIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String CONFIG_WITH_VIEWS_RESOURCE = "/surveillance-views.testdata.xml";
     private static final String CONFIG_NO_VIEWS_RESOURCE = "/surveillance-views.testdata.noviews.xml";
     

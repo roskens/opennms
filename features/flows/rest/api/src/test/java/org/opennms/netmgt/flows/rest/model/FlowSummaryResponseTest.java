@@ -32,11 +32,15 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.xml.JsonTest;
 
 import com.google.common.collect.Lists;
 
 public class FlowSummaryResponseTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testMarshalJson() throws IOException {

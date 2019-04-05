@@ -34,8 +34,12 @@ import static org.junit.Assert.assertFalse;
 import org.opennms.netmgt.passive.PassiveStatusKey;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class PassiveStatusTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /*
      * Test method for 'org.opennms.netmgt.config.PassiveStatus.equals(Object)'

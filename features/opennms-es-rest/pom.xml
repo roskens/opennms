@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
   <parent>
     <groupId>org.opennms</groupId>
     <artifactId>org.opennms.features</artifactId>
     <version>25.0.0-SNAPSHOT</version>
   </parent>
-
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.opennms.features</groupId>
   <artifactId>org.opennms.features.opennms-es-rest</artifactId>
   <name>OpenNMS :: Features :: ElasticSearch Rest</name>
   <description>${name}</description>
   <packaging>bundle</packaging>
-
   <properties>
     <json-simpleVersion>1.1.1</json-simpleVersion>
   </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -27,7 +23,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <build>
     <plugins>
       <plugin>
@@ -45,7 +40,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-
         <configuration>
           <excludes>
             <!-- prevent tests running in this package. These are manual one off development tests -->
@@ -55,7 +49,6 @@
       </plugin>
     </plugins>
   </build>
-
   <dependencies>
     <!-- actual dependencies (get added to features.xml) -->
     <dependency>
@@ -68,7 +61,6 @@
       <artifactId>org.opennms.core.cache</artifactId>
       <version>${project.version}</version>
     </dependency>
-
     <!-- Provided Scope -->
     <dependency>
       <groupId>org.apache.karaf.shell</groupId>
@@ -146,7 +138,6 @@
       <version>${jestGsonVersion}</version>
       <scope>provided</scope>
     </dependency>
-
     <!-- Test Scope -->
     <!--
       A parent module defines netty-all with a specific verison, but Elastic requires
@@ -201,7 +192,6 @@
       <version>${elasticsearchNettyVersion}</version>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>org.opennms.core.test-api</groupId>
       <artifactId>org.opennms.core.test-api.elasticsearch</artifactId>
@@ -245,6 +235,10 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-
 </project>

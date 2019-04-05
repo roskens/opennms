@@ -31,6 +31,8 @@ package org.opennms.netmgt.model;
 import org.junit.Assert;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 
 /**
@@ -39,6 +41,8 @@ import org.opennms.core.xml.JaxbUtils;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class OnmsHwEntityTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test equals.

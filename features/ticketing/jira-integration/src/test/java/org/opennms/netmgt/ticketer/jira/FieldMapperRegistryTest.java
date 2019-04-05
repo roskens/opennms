@@ -34,6 +34,8 @@ import java.util.Properties;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.atlassian.jira.rest.client.api.domain.FieldSchema;
 import com.atlassian.jira.rest.client.api.domain.input.ComplexIssueInputFieldValue;
@@ -41,6 +43,8 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 
 public class FieldMapperRegistryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // Helper to build a jira field schema
     private static class FieldSchemaBuilder {

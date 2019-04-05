@@ -33,6 +33,8 @@ import static org.junit.Assert.assertEquals;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.soa.Registration;
 import org.opennms.core.soa.ServiceRegistry;
 
@@ -43,6 +45,8 @@ import org.opennms.core.soa.ServiceRegistry;
  * @author brozow
  */
 public class RegistrationListenerBeanTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private int m_totalProvided = 0;
     

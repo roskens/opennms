@@ -40,6 +40,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.snmp.SnmpInstId;
 import org.opennms.netmgt.snmp.SnmpObjId;
 import org.opennms.netmgt.snmp.SnmpResult;
@@ -48,6 +50,8 @@ import org.opennms.netmgt.snmp.SnmpValue;
 import org.opennms.netmgt.snmp.TableTracker;
 
 public class TableTrackerProxyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private List<SnmpRowResult> rows = new ArrayList<>();
     private SnmpObjId table = SnmpObjId.get(".1.3.6.1.2.1");
     private TableTracker tracker = new TableTracker(table) {

@@ -36,6 +36,8 @@ import java.util.Map;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.netmgt.config.CategoryFactory;
@@ -50,6 +52,8 @@ import org.xml.sax.SAXException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DataSenderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /*
      * This doesn't work unless we have a receiver on the other end.... more of an integration test
      */

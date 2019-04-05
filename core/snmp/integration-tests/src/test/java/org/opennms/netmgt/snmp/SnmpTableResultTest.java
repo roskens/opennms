@@ -38,11 +38,15 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * @author brozow
  */
 public class SnmpTableResultTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private SnmpTableResult m_tableResult;
     private TestRowCallback m_rowCallback;

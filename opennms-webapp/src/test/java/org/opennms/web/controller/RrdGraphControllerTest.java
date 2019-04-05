@@ -36,6 +36,8 @@ import java.util.GregorianCalendar;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 /**
@@ -58,6 +60,8 @@ import org.springframework.mock.web.MockHttpServletRequest;
  * 
  */
 public class RrdGraphControllerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private final static int ONE_HOUR_IN_MILLIS=60*60*1000;
 	private final static int ONE_DAY_IN_MILLIS=24 * ONE_HOUR_IN_MILLIS;

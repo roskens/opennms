@@ -53,6 +53,8 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runners.MethodSorters;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -65,6 +67,8 @@ import com.google.common.io.Files;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ConfigTesterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final static String OPENNMS_HOME_NAME = "opennms.home";
     private String opennmsHomeOriginal;

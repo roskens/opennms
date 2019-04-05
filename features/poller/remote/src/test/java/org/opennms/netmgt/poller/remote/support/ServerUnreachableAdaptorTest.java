@@ -38,10 +38,14 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.netmgt.poller.remote.PollerBackEnd;
 
 public class ServerUnreachableAdaptorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testPollerStartingWhenBackEndReturnsFalse() {
         String id = UUID.randomUUID().toString();

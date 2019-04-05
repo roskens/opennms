@@ -39,6 +39,8 @@ import java.util.Map;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -47,6 +49,8 @@ import org.opennms.netmgt.provision.service.requisition.RequisitionUrlConnection
 
 @RunWith(Parameterized.class)
 public class VmwareRequisitionUrlTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final String vmwareUrl;
     private final String requisitionUrl;
 

@@ -43,6 +43,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.siteStatusViews.Category;
 import org.opennms.netmgt.config.siteStatusViews.RowDef;
 import org.opennms.netmgt.config.siteStatusViews.View;
@@ -56,6 +58,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.web.svclayer.model.AggregateStatus;
 
 public class DefaultSiteStatusServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private NodeDao m_nodeDao;
     private CategoryDao m_categoryDao;

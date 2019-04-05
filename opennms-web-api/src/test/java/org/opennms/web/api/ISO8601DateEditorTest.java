@@ -38,8 +38,12 @@ import java.util.TimeZone;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class ISO8601DateEditorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private ISO8601DateEditor m_editor;
 
     @Before

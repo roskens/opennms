@@ -32,6 +32,8 @@ import java.io.File;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.rrd.model.v1.RRDv1;
 
 /**
@@ -40,6 +42,8 @@ import org.opennms.netmgt.rrd.model.v1.RRDv1;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a> 
  */
 public class NMS6369IT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test JRobin parse.

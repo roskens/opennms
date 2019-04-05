@@ -34,8 +34,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class StringCollapserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void shouldCollapseAllStringsWhenCollapsingAtBeginningIsTrue() {

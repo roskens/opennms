@@ -30,12 +30,16 @@ package org.opennms.netmgt.jasper;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.jasper.measurement.MeasurementExecutorFactory;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.query.QueryExecuterFactory;
 
 public class OnmsQueryExecutorFactoryBundleTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyJrobinNotSupported() throws JRException {

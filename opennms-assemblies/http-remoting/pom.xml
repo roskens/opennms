@@ -114,14 +114,7 @@
             <configuration>
               <artifactItems>
                 <artifactItem>org.opennms.features:org.opennms.features.remote-poller-jnlp:tar.gz:jnlp
-                  <groupId>org.opennms.features</groupId>
-                  <artifactId>org.opennms.features.remote-poller-jnlp</artifactId>
-                  <version>${project.version}</version>
-                  <classifier>jnlp</classifier>
-                  <type>tar.gz</type>
-                  <overWrite>true</overWrite>
-                  <outputDirectory>${project.build.directory}/dependency/webstart</outputDirectory>
-                </artifactItem>
+                  <groupId>org.opennms.features</groupId><artifactId>org.opennms.features.remote-poller-jnlp</artifactId><version>${project.version}</version><classifier>jnlp</classifier><type>tar.gz</type><overWrite>true</overWrite><outputDirectory>${project.build.directory}/dependency/webstart</outputDirectory></artifactItem>
               </artifactItems>
             </configuration>
           </execution>
@@ -193,7 +186,6 @@
       <type>tar.gz</type>
       <scope>provided</scope>
     </dependency>
-
     <!-- dependencies that should exist in $OPENNMS_HOME/lib -->
     <dependency>
       <groupId>org.opennms</groupId>
@@ -251,7 +243,6 @@
       <artifactId>apache-jsp</artifactId>
       <scope>provided</scope>
     </dependency>
-
     <!-- test dependencies -->
     <dependency>
       <groupId>org.opennms</groupId>
@@ -310,16 +301,23 @@
       <artifactId>opennms-rrdtool-api</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-
   <repositories>
     <repository>
-      <snapshots><enabled>false</enabled></snapshots>
-      <releases><enabled>true</enabled></releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
       <id>opennms-repo</id>
       <name>OpenNMS Repository</name>
       <url>http://maven.opennms.org/content/groups/opennms.org-release</url>
     </repository>
   </repositories>
-
 </project>

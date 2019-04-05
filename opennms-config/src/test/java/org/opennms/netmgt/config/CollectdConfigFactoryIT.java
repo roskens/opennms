@@ -35,6 +35,8 @@ import java.io.InputStream;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -53,6 +55,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 })
 @JUnitConfigurationEnvironment
 public class CollectdConfigFactoryIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private CollectdConfigFactory m_factory;
 

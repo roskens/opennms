@@ -42,6 +42,8 @@ import javax.mail.search.SubjectTerm;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.javamail.ReadmailConfig;
 import org.opennms.netmgt.config.javamail.ReadmailHost;
 import org.opennms.netmgt.config.javamail.ReadmailProtocol;
@@ -52,6 +54,8 @@ import org.opennms.netmgt.config.javamail.SendmailProtocol;
 import org.opennms.netmgt.config.javamail.UserAuth;
 
 public class JavaReadMailerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     /**
      * Un-ignore this test with a proper gmail account

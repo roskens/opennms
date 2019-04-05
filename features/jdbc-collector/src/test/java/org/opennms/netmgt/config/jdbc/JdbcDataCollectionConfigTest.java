@@ -51,12 +51,16 @@ import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.collection.api.AttributeType;
 import org.opennms.test.FileAnticipator;
 import org.xml.sax.SAXException;
 
 public class JdbcDataCollectionConfigTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FileAnticipator fa;
     
     private JdbcDataCollectionConfig jdcc;

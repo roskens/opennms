@@ -41,10 +41,14 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
 public class CalendarTableBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Before
 	public void setUp() throws Exception {

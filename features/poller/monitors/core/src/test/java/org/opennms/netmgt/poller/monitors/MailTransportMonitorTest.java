@@ -45,6 +45,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.poller.MonitoredService;
@@ -59,6 +61,8 @@ import org.springframework.core.io.Resource;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
 public class MailTransportMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     MailTransportMonitor m_monitor;
     Map<String, Object> m_params;

@@ -44,6 +44,8 @@ import java.net.UnknownHostException;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.snmp.TrapInformation;
 import org.opennms.netmgt.snmp.snmp4j.Snmp4JTrapNotifier;
 import org.snmp4j.PDU;
@@ -59,6 +61,8 @@ import org.snmp4j.smi.VariableBinding;
  * using JAXB serialization for these objects.
  */
 public class TrapNotificationSerializationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	
 	private InetAddress inetAddress;
 	

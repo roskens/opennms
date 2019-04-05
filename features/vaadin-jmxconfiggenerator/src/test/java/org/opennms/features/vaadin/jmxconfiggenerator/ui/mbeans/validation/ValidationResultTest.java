@@ -31,12 +31,16 @@ package org.opennms.features.vaadin.jmxconfiggenerator.ui.mbeans.validation;
 import com.vaadin.v7.data.Validator;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class ValidationResultTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testGetErrorCount() {

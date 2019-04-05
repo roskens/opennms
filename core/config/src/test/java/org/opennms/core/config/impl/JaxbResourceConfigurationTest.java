@@ -38,12 +38,16 @@ import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.config.api.ConfigurationResource;
 import org.opennms.core.config.api.ConfigurationResourceException;
 import org.opennms.netmgt.config.collectd.CollectdConfiguration;
 import org.springframework.core.io.FileSystemResource;
 
 public class JaxbResourceConfigurationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     protected File getConfigFile() throws IOException {
         final File configFile = new File("target/test-classes/collectd-configuration.xml");

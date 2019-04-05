@@ -31,6 +31,8 @@ package org.opennms.netmgt.flows.elastic.template;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.plugins.elasticsearch.rest.template.IndexSettings;
 import org.opennms.plugins.elasticsearch.rest.template.TemplateMerger;
 
@@ -40,6 +42,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class TemplateMergerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void verifyEmptyTemplateMergeWithEmptySettings() {
         assertEquals("{}", new TemplateMerger().merge("{}", new IndexSettings()));

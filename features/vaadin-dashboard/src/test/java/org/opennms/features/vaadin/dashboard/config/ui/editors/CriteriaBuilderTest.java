@@ -31,6 +31,8 @@ package org.opennms.features.vaadin.dashboard.config.ui.editors;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Assert;
 import org.opennms.core.criteria.CriteriaBuilder;
 import org.opennms.core.criteria.restrictions.BetweenRestriction;
@@ -53,6 +55,8 @@ import org.opennms.netmgt.model.OnmsEvent;
 import org.opennms.netmgt.model.OnmsNode;
 
 public class CriteriaBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public void testRestriction(final String criteria, Restriction restriction) {
         final CriteriaBuilder criteriaBuilder = new CriteriaBuilder(OnmsAlarm.class);

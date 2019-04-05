@@ -56,12 +56,16 @@ import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
 import org.apache.curator.framework.state.ConnectionState;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.distributed.coordination.api.Role;
 
 /**
  * Tests for {@link ZookeeperDomainManager}.
  */
 public class ZookeeperDomainManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final AtomicInteger connectionAttempts = new AtomicInteger(0);
     private final AtomicInteger disconnectionAttempts = new AtomicInteger(0);
     private final List<CompletableFuture<Void>> activeFutures = new CopyOnWriteArrayList<>();

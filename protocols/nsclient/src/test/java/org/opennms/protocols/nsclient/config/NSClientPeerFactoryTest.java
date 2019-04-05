@@ -35,6 +35,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * JUnit tests for the configureSNMP event handling and optimization of
@@ -44,6 +46,8 @@ import org.junit.Test;
  *
  */
 public class NSClientPeerFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * @throws IOException 

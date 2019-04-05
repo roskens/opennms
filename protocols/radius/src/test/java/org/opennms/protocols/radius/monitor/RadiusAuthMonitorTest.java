@@ -40,6 +40,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.Level;
 import org.opennms.core.test.MockLogAppender;
@@ -70,6 +72,8 @@ import org.tinyradius.util.RadiusServer;
 })
 @JUnitConfigurationEnvironment
 public class RadiusAuthMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Autowired
     private MockMonitoringLocationDao m_locationDao;
 

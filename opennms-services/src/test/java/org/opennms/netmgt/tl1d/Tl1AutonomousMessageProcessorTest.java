@@ -34,10 +34,14 @@ import static org.junit.Assert.assertNotNull;
 import java.text.SimpleDateFormat;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
 public class Tl1AutonomousMessageProcessorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     Tl1AutonomousMessageProcessor m_processor = new Tl1AutonomousMessageProcessor();
 

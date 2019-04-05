@@ -32,8 +32,12 @@ import java.util.Objects;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class OnmsGeolocationMergeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // Verify that merging of geolocation's is working properly
     // See NMS-9316

@@ -37,6 +37,8 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -57,6 +59,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @version $Id: $
  */
 public class TicketNotificationStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private EasyMockUtils m_easyMockUtils;
     private MockEventIpcManager m_eventIpcManager;

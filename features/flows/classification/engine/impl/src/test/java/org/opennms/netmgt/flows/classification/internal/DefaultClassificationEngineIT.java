@@ -38,6 +38,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
@@ -74,6 +75,8 @@ import com.google.common.collect.Lists;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase
 public class DefaultClassificationEngineIT {
+    @org.junit.Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private ClassificationGroupDao groupDao;

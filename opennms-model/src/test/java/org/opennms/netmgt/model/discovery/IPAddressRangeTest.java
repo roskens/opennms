@@ -45,6 +45,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.core.utils.ByteArrayComparator;
 import org.opennms.core.utils.InetAddressUtils;
@@ -57,6 +59,8 @@ import org.opennms.core.network.IPAddressRange;
  * @author brozow
  */
 public class IPAddressRangeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final IPAddress zero = new IPAddress("0.0.0.0");
     private final IPAddress one = new IPAddress("0.0.0.1");

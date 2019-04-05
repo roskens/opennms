@@ -30,6 +30,8 @@ package org.opennms.features.jmxconfiggenerator.graphs;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.jmxconfiggenerator.log.Slf4jLogAdapter;
 
 import java.io.IOException;
@@ -37,6 +39,8 @@ import java.io.InputStream;
 import java.util.Collection;
 
 public class GraphConfigGeneratorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // Verify that the default snmp-graph.properties template is not deleted
     @Test

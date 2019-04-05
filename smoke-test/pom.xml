@@ -38,9 +38,13 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
                     <versionRange>[1.8,)</versionRange>
-                    <goals><goal>run</goal></goals>
+                    <goals>
+                      <goal>run</goal>
+                    </goals>
                   </pluginExecutionFilter>
-                  <action><ignore></ignore></action>
+                  <action>
+                    <ignore></ignore>
+                  </action>
                 </pluginExecution>
               </pluginExecutions>
             </lifecycleMappingMetadata>
@@ -50,23 +54,23 @@
     </pluginManagement>
     <plugins>
       <plugin>
-         <inherited>false</inherited>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-antrun-plugin</artifactId>
-         <version>1.8</version>
-         <executions>
-           <execution>
-             <phase>validate</phase>
-             <configuration>
-               <target>
-                 <echo message="skipITs = ${skipITs}"/>
-               </target>
-             </configuration>
-             <goals>
-               <goal>run</goal>
-             </goals>
-           </execution>
-         </executions>
+        <inherited>false</inherited>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <configuration>
+              <target>
+                <echo message="skipITs = ${skipITs}"/>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -80,16 +84,16 @@
         </configuration>
       </plugin>
       <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-resources-plugin</artifactId>
-         <version>2.7</version>
-         <configuration>
-           <encoding>UTF-8</encoding>
-           <nonFilteredFileExtensions>
-             <nonFilteredFileExtension>raw</nonFilteredFileExtension>
-             <nonFilteredFileExtension>dat</nonFilteredFileExtension>
-           </nonFilteredFileExtensions>
-         </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <nonFilteredFileExtensions>
+            <nonFilteredFileExtension>raw</nonFilteredFileExtension>
+            <nonFilteredFileExtension>dat</nonFilteredFileExtension>
+          </nonFilteredFileExtensions>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -241,16 +245,16 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.opennms</groupId>
-        <artifactId>opennms-provision-persistence</artifactId>
-        <version>${project.version}</version>
-        <!-- Exclude all transitive dependencies -->
-        <exclusions>
-            <exclusion>
-                <groupId>*</groupId>
-                <artifactId>*</artifactId>
-            </exclusion>
-        </exclusions>
+      <groupId>org.opennms</groupId>
+      <artifactId>opennms-provision-persistence</artifactId>
+      <version>${project.version}</version>
+      <!-- Exclude all transitive dependencies -->
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.opennms.core.test-api</groupId>
@@ -374,18 +378,35 @@
       <artifactId>rest-assured</artifactId>
       <version>3.0.3</version>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
-      <snapshots><enabled>false</enabled><updatePolicy>${updatePolicy}</updatePolicy></snapshots>
-      <releases><enabled>true</enabled><updatePolicy>${updatePolicy}</updatePolicy></releases>
+      <snapshots>
+        <enabled>false</enabled>
+        <updatePolicy>${updatePolicy}</updatePolicy>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>${updatePolicy}</updatePolicy>
+      </releases>
       <id>opennms-repo</id>
       <name>OpenNMS Repository</name>
       <url>http://maven.opennms.org/content/groups/opennms.org-release</url>
     </repository>
     <repository>
-      <snapshots><enabled>true</enabled><updatePolicy>${updatePolicy}</updatePolicy></snapshots>
-      <releases><enabled>false</enabled><updatePolicy>${updatePolicy}</updatePolicy></releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>${updatePolicy}</updatePolicy>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+        <updatePolicy>${updatePolicy}</updatePolicy>
+      </releases>
       <id>opennms-snapshots</id>
       <name>OpenNMS Snapshot Maven Repository</name>
       <url>http://maven.opennms.org/content/groups/opennms.org-snapshot</url>

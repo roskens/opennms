@@ -39,6 +39,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.soa.Registration;
 import org.opennms.core.soa.RegistrationHook;
 import org.opennms.core.soa.RegistrationListener;
@@ -52,6 +54,8 @@ import org.opennms.core.soa.ServiceRegistry;
  * @author brozow
  */
 public class DefaultServiceRegistryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private ServiceRegistry m_registry = new DefaultServiceRegistry();
     

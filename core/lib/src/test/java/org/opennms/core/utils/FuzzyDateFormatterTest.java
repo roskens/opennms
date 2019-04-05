@@ -33,12 +33,16 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * 
  * @author <a href="mailto:ranger@opennms.org">Benjamin Reed</a>
  */
 public class FuzzyDateFormatterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     protected Date now = new Date();
 
     @Test

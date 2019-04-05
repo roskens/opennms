@@ -43,6 +43,8 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ipfix.proto.Header;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ipfix.proto.Packet;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.session.TcpSession;
@@ -51,6 +53,8 @@ import org.opennms.netmgt.telemetry.protocols.netflow.parser.session.Session;
 import com.google.common.base.Throwables;
 
 public class ParserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canReadValidIPFIX() throws IOException, URISyntaxException {

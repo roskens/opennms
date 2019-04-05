@@ -28,9 +28,9 @@
   </build>
   <dependencies>
     <dependency>
-	  <groupId>org.opennms.features.bsm</groupId>
-	  <artifactId>org.opennms.features.bsm.service.api</artifactId>
-	  <version>${project.version}</version>
+      <groupId>org.opennms.features.bsm</groupId>
+      <artifactId>org.opennms.features.bsm.service.api</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -64,7 +64,6 @@
       <groupId>net.sf.jung</groupId>
       <artifactId>jung-visualization</artifactId>
     </dependency>
-
     <!-- Test Dependencies -->
     <dependency>
       <groupId>junit</groupId>
@@ -116,6 +115,11 @@
       <groupId>org.opennms.features.bsm</groupId>
       <artifactId>test-util</artifactId>
       <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

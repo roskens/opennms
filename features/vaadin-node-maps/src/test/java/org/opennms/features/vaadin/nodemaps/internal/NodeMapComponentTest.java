@@ -39,10 +39,14 @@ import java.util.logging.Logger;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.MapNode;
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.NodeMapState;
 
 public class NodeMapComponentTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Before
     public void setUp() throws Exception {
         Logger.getLogger(MapNode.class.getName()).setLevel(Level.ALL);

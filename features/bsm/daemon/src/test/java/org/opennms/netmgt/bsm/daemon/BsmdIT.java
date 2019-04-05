@@ -44,6 +44,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.profiler.Timer;
 import org.opennms.core.spring.BeanUtils;
@@ -97,6 +99,8 @@ import com.google.common.collect.Lists;
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase(reuseDatabase = false)
 public class BsmdIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final ArrayList<String> REQUIRED_EVENT_UEIS = Lists.newArrayList(
             EventConstants.NODE_LOST_SERVICE_EVENT_UEI,

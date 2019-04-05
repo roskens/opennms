@@ -56,6 +56,8 @@ import java.util.TreeMap;
 import java.util.UUID;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -101,6 +103,8 @@ import org.opennms.netmgt.xml.event.Event;
 import org.opennms.test.mock.EasyMockUtils;
 
 public class PollerBackEndTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String LOCATION_MONITOR_ID = UUID.randomUUID().toString();
     private static final String APPLICATION_NAME = "AwesomeApp";

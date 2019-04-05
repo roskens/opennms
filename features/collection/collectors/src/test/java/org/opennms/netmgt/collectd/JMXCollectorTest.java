@@ -49,6 +49,8 @@ import javax.management.ObjectName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.collection.test.CollectionSetUtils;
 import org.opennms.core.collection.test.MockCollectionAgent;
 import org.opennms.netmgt.collectd.jmxhelper.JmxTest;
@@ -70,6 +72,8 @@ import org.opennms.netmgt.jmx.connection.JmxConnectors;
  * @author Markus Neumann <Markus@OpenNMS.org>
  */
 public class JMXCollectorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private JMXCollector jmxCollector;
 

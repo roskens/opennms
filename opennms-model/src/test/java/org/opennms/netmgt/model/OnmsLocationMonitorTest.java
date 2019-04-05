@@ -33,8 +33,12 @@ import static org.junit.Assert.assertEquals;
 import java.util.UUID;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class OnmsLocationMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final String LOCATION_MONITOR_ID_A = "A" + UUID.randomUUID().toString();
     private static final String LOCATION_MONITOR_ID_B = "B" + UUID.randomUUID().toString();

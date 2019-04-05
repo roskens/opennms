@@ -40,6 +40,7 @@ import java.util.Set;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.netmgt.bsm.mock.MockAlarmWrapper;
 import org.opennms.netmgt.bsm.mock.MockBusinessServiceHierarchy;
@@ -59,6 +60,8 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
 public class DefaultBusinessServiceStateMachineTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();

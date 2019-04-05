@@ -34,6 +34,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.netmgt.config.DefaultEventConfDao;
 import org.opennms.netmgt.eventd.EventExpander;
@@ -45,6 +47,8 @@ import org.springframework.core.io.FileSystemResource;
 import com.codahale.metrics.MetricRegistry;
 
 public class NewSuspectLocationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final String NEW_SUSPECT_UEI = "uei.opennms.org/internal/discovery/newSuspect";
     private final String CUSTOM_LOCATION = "Ponyville";
 

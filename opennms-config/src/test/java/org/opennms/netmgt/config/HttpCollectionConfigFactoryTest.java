@@ -36,6 +36,8 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * 
@@ -43,6 +45,8 @@ import org.junit.Test;
  *
  */
 public class HttpCollectionConfigFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testHttpCollectionConfigFactoryReader() throws IOException {

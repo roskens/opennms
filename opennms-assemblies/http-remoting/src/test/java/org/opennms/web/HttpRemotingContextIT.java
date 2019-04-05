@@ -33,6 +33,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.core.db.DataSourceFactory;
@@ -53,6 +55,8 @@ import org.springframework.web.context.ContextLoaderListener;
  * @author Seth
  */
 public class HttpRemotingContextIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private String contextPath = "/opennms/http-remoting";
 

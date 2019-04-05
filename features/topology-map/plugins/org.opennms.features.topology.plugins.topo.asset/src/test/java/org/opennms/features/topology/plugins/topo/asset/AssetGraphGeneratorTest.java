@@ -37,6 +37,8 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.graphml.model.GraphML;
 import org.opennms.features.graphml.model.GraphMLReader;
 import org.opennms.features.graphml.model.GraphMLWriter;
@@ -50,6 +52,8 @@ import org.opennms.netmgt.model.OnmsNode;
 import com.google.common.collect.Lists;
 
 public class AssetGraphGeneratorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	public static final String GRAPHML_TEST_TOPOLOGY_FILE_NAME="/test-graph-complex.xml";
 

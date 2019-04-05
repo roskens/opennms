@@ -40,6 +40,8 @@ import java.io.IOException;
 
 import junit.framework.AssertionFailedError;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -49,6 +51,8 @@ import org.junit.Before;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class FileAnticipatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private FileAnticipator m_anticipator;
     
     @Before

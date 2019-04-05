@@ -38,6 +38,8 @@ import java.util.concurrent.TimeUnit;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
@@ -55,6 +57,8 @@ import org.opennms.util.ilr.Duration;
 
 @RunWith(Theories.class)
 public class DurationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     static Date timestamp(String dateString) {
         return BaseLogMessage.parseTimestamp(dateString);

@@ -36,8 +36,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class SnmpUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	/**
 	 * This test is designed to test the issues in bug NMS-5281.

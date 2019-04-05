@@ -3,9 +3,13 @@ package org.opennms.smoketest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 
 public class FocusedVertexIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private TopologyIT.TopologyUIPage topologyUIPage;
 

@@ -30,6 +30,8 @@ package org.opennms.netmgt.daemon;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
@@ -46,6 +48,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitConfigurationEnvironment(systemProperties=ConditionalActiveMQContext.DISABLE_BROKER_SYS_PROP + "=true")
 @JUnitTemporaryDatabase(dirtiesContext=false)
 public class ConditionalActiveMQContextIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     ActiveMQConnectionFactory activeMQConnectionFactory;

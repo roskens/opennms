@@ -19,11 +19,15 @@ package org.opennms.xmlclient;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.xmlclient.OpenNmsXmlClient;
 import org.opennms.xmlclient.ClientPropertiesLoader;
 
 public class NodeAddTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void nodeAddTest(){

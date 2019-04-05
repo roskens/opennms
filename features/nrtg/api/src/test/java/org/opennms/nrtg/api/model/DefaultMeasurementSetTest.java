@@ -30,6 +30,8 @@ package org.opennms.nrtg.api.model;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -43,6 +45,8 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class DefaultMeasurementSetTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testGetMeasurements() throws Exception {
 

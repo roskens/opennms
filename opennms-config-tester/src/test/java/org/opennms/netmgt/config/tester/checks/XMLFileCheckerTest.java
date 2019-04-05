@@ -34,8 +34,12 @@ import java.io.IOException;
 import java.io.Writer;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class XMLFileCheckerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void shouldSucceedOnFileWithCorrectSyntax() throws IOException {

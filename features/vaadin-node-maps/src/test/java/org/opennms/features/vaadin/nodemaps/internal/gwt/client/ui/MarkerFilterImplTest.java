@@ -38,6 +38,8 @@ import java.util.logging.Logger;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.AlarmSeverity;
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.ComponentTracker;
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.NodeMarker;
@@ -45,6 +47,8 @@ import org.opennms.features.vaadin.nodemaps.internal.gwt.client.OpenNMSEventMana
 import org.opennms.features.vaadin.nodemaps.internal.gwt.client.SimpleNodeMarker;
 
 public class MarkerFilterImplTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     public class WrappedMarkerFilterImpl extends MarkerFilterImpl {
         private int m_filterUpdatedCalls = 0;
 

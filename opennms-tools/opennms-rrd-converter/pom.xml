@@ -57,12 +57,17 @@
       <type>pom</type>
     </dependency>
     <dependency>
-        <groupId>org.opennms</groupId>
-        <artifactId>opennms-rrd-model</artifactId>
+      <groupId>org.opennms</groupId>
+      <artifactId>opennms-rrd-model</artifactId>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

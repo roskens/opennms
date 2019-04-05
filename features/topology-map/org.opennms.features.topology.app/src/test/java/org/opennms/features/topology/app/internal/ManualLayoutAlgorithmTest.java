@@ -33,6 +33,8 @@ import java.util.Objects;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.features.topology.api.Graph;
 import org.opennms.features.topology.api.LayoutAlgorithm;
@@ -50,6 +52,8 @@ import org.opennms.netmgt.topology.persistence.api.VertexPositionEntity;
 import com.google.common.collect.ImmutableMap;
 
 public class ManualLayoutAlgorithmTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private class ManualTest {
         private final Graph graph;

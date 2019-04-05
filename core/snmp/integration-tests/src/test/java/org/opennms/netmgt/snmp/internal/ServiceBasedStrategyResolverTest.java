@@ -39,12 +39,16 @@ import java.util.Properties;
 
 import org.junit.After;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.snmp.ClassBasedStrategyResolver;
 import org.opennms.netmgt.snmp.SnmpStrategy;
 import org.opennms.netmgt.snmp.SnmpUtils;
 import org.opennms.netmgt.snmp.StrategyResolver;
 
 public class ServiceBasedStrategyResolverTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @After
     public void tearDown() {
         final Properties sysProps = System.getProperties();

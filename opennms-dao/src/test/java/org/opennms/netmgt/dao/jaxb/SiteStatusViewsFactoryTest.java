@@ -36,10 +36,14 @@ import java.io.IOException;
 import org.opennms.netmgt.config.siteStatusViews.View;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
 public class SiteStatusViewsFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	
 	private SiteStatusViewsFactory m_factory;
 

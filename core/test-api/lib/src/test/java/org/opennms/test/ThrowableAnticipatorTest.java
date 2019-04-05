@@ -35,10 +35,14 @@ import static org.junit.Assert.fail;
 
 import junit.framework.AssertionFailedError;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
 public class ThrowableAnticipatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private ThrowableAnticipator m_anticipator;
     private Throwable m_throwable = new Throwable("our test throwable");
 

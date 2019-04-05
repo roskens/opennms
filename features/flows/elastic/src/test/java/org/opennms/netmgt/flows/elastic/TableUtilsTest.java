@@ -37,12 +37,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.flows.api.Directional;
 
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
 
 public class TableUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canSortEmptyTable() {

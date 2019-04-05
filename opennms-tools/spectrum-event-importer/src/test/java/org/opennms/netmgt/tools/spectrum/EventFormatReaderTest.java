@@ -34,6 +34,8 @@ import org.junit.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.springframework.core.io.FileSystemResource;
 
@@ -42,6 +44,8 @@ import org.springframework.core.io.FileSystemResource;
  *
  */
 public class EventFormatReaderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Before
     public void setUp() {
         MockLogAppender.setupLogging();

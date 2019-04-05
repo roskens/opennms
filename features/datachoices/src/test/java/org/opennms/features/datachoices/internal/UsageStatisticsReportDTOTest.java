@@ -33,11 +33,15 @@ import static org.junit.Assert.assertEquals;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.datachoices.internal.UsageStatisticsReportDTO;
 
 import com.google.common.collect.Maps;
 
 public class UsageStatisticsReportDTOTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canMarshallToJson() {

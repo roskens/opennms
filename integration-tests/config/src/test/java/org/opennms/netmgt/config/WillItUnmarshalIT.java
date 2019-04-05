@@ -48,6 +48,8 @@ import org.custommonkey.xmlunit.Difference;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.opennms.core.test.ConfigurationTestUtils;
@@ -155,6 +157,8 @@ import junit.framework.AssertionFailedError;
  */
 @RunWith(value = Parameterized.class)
 public class WillItUnmarshalIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Pattern COMMENT_START_PATTERN = Pattern.compile("\\s*[\\r\\n]*\\s*<!--", Pattern.DOTALL | Pattern.MULTILINE);
 

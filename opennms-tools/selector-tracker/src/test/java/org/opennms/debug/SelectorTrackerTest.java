@@ -37,9 +37,13 @@ import java.nio.channels.DatagramChannel;
 import java.nio.channels.Selector;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 
 public class SelectorTrackerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void test() throws IOException {

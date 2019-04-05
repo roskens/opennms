@@ -42,6 +42,8 @@ import java.util.TimeZone;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -50,6 +52,8 @@ import org.opennms.netmgt.events.api.EventConstants;
 
 @RunWith(Parameterized.class)
 public class EventConstantsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // Test Parameters
     private final Locale m_testLocale;

@@ -38,8 +38,12 @@ import net.sf.jasperreports.engine.base.JRBaseQuery;
 import net.sf.jasperreports.engine.design.JRDesignDataset;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class ResourceQueryFieldsProviderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private class TestDatasetImpl extends JRDesignDataset{
         

@@ -31,6 +31,8 @@ package org.opennms.core.utils;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * 
@@ -42,6 +44,8 @@ import org.junit.Test;
  * 
  */
 public class WebSecurityUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void testBasicSanitizeString() {

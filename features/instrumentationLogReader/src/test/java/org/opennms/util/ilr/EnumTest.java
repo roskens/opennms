@@ -31,9 +31,13 @@ package org.opennms.util.ilr;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.util.ilr.Collector.SortColumn;
 
 public class EnumTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testSetSortColumn(){
         String param = "TOTALCOLLECTS";

@@ -39,6 +39,8 @@ import java.util.List;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.Graph;
 import org.opennms.features.topology.api.GraphContainer;
 import org.opennms.features.topology.api.SelectionContext;
@@ -54,6 +56,8 @@ import org.opennms.osgi.VaadinApplicationContextCreator;
 import org.osgi.framework.BundleContext;
 
 public class OSGiVerticesUpdateManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private class DummyOnmsServiceManager implements OnmsServiceManager {
 

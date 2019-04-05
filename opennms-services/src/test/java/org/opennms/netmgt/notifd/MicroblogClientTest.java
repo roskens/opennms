@@ -34,9 +34,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.springframework.security.util.InMemoryResource;
 
 public class MicroblogClientTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final String m_consumerKey = "";
     private final String m_consumerSecret = "";
 

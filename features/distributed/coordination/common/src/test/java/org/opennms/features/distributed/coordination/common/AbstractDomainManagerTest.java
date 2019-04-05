@@ -41,12 +41,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.distributed.coordination.api.Role;
 
 /**
  * Tests for {@link AbstractDomainManager}.
  */
 public class AbstractDomainManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String becomeActiveCallback = "becomeActive";
     private static final String becomeStandbyCallback = "becomeStandby";
     private static final String onRegisterCallback = "onFirstRegister";

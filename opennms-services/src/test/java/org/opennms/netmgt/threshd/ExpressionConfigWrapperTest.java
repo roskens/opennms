@@ -36,6 +36,8 @@ import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.config.threshd.Expression;
 
@@ -44,6 +46,8 @@ import org.opennms.netmgt.config.threshd.Expression;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class ExpressionConfigWrapperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private final String FORMULA = "ifSpeed > 0 and ifSpeed < 100000000 ? ((ifInOctets * 8 / ifSpeed) * 100) : (ifHighSpeed > 0 ? (((ifHCInOctets * 8) / (ifHighSpeed * 1000000)) * 100) : 0)";
 

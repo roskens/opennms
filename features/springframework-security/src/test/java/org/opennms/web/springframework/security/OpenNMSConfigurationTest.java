@@ -38,9 +38,13 @@ import javax.security.auth.login.Configuration;
 import javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.bootstrap.OpenNMSProxyLoginModule;
 
 public class OpenNMSConfigurationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static AppConfigurationEntry newEntry(String name) {
         return new AppConfigurationEntry(name, LoginModuleControlFlag.OPTIONAL, Collections.emptyMap());

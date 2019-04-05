@@ -42,6 +42,8 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.opennms.core.config.impl.JaxbResourceConfiguration;
@@ -62,6 +64,8 @@ import org.springframework.core.io.ClassPathResource;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class AgentConfigurationResourceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private TestFilterDao m_filterDao;
     private TestMonitoredServiceDao m_monitoredServiceDao;
     private TestSnmpConfigDao m_snmpConfigDao;

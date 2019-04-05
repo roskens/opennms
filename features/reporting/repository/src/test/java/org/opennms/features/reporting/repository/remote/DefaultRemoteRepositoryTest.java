@@ -31,6 +31,8 @@ package org.opennms.features.reporting.repository.remote;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.reporting.dao.remoterepository.DefaultRemoteRepositoryConfigDao;
 import org.opennms.features.reporting.model.basicreport.BasicReportDefinition;
 import org.slf4j.Logger;
@@ -54,6 +56,8 @@ import static org.junit.Assert.*;
 // TODO tak: test needs a full working remote repository server with configuration
 @Ignore
 public class DefaultRemoteRepositoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private Logger logger = LoggerFactory.getLogger(DefaultRemoteRepositoryTest.class);
     

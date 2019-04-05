@@ -29,6 +29,11 @@
       <artifactId>org.opennms.features.ticketing.api</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <!-- this jar is not yet released so we disable it during tagging -->
   <profiles>

@@ -32,6 +32,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 
 /**
@@ -40,6 +42,8 @@ import org.junit.Test;
  * @author brozow
  */
 public class DefaultTimeAdjustmentTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final long m_jitter = 2;
     
     @Test

@@ -54,6 +54,8 @@ import org.jboss.netty.handler.codec.protobuf.ProtobufDecoder;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.opennms.core.collection.test.MockCollectionAgent;
@@ -81,6 +83,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
         "classpath:/META-INF/opennms/applicationContext-tcp.xml"
 })
 public class TcpOutputStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @ClassRule
     public static TemporaryFolder tempFolder = new TemporaryFolder();

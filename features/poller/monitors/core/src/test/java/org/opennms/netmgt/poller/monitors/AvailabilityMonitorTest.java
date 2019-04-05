@@ -34,6 +34,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.poller.MonitoredService;
 import org.opennms.netmgt.poller.PollStatus;
@@ -44,6 +46,8 @@ import org.opennms.netmgt.poller.support.SimpleMonitoredService;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
 public class AvailabilityMonitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test method for {@link org.opennms.netmgt.poller.support.AvailabilityMonitor#poll(org.opennms.netmgt.poller.MonitoredService, Map)}.

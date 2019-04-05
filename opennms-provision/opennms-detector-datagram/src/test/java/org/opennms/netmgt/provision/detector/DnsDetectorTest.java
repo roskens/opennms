@@ -37,6 +37,8 @@ import java.net.UnknownHostException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.core.test.dns.JUnitDNSServerExecutionListener;
@@ -62,6 +64,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
     })
 })
 public class DnsDetectorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private DnsDetector m_detector;
 

@@ -36,6 +36,8 @@ import java.net.UnknownHostException;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.snmp.TrapInformation;
 import org.opennms.netmgt.snmp.snmp4j.Snmp4JTrapNotifier;
@@ -51,6 +53,8 @@ import org.snmp4j.smi.TimeTicks;
 import org.snmp4j.smi.VariableBinding;
 
 public class TrapDTOMapperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void object2dtoTest() throws UnknownHostException {

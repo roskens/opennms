@@ -31,10 +31,14 @@ package org.opennms.enlinkd.generator.protocol;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.enlinkd.generator.TopologySettings;
 
 
 public class BridgeProtocolTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testAdoptAndVerifySettings() {

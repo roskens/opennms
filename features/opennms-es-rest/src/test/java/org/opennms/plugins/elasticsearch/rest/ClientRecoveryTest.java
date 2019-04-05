@@ -32,6 +32,7 @@ import java.time.Instant;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.test.elastic.ElasticSearchRule;
 import org.opennms.core.test.elastic.ElasticSearchServerConfig;
 import org.opennms.plugins.elasticsearch.rest.index.IndexStrategy;
@@ -45,6 +46,8 @@ import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 
 public class ClientRecoveryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private static final Logger LOG = LoggerFactory.getLogger(ClientRecoveryTest .class);
 	private static final String HTTP_PORT = "9200";
 	private static final String HTTP_TRANSPORT_PORT = "9300";

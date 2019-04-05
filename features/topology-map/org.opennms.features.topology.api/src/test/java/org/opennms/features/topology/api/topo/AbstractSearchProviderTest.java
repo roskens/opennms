@@ -38,9 +38,13 @@ import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.GraphContainer;
 
 public class AbstractSearchProviderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public class TestVertexRef implements VertexRef{
 

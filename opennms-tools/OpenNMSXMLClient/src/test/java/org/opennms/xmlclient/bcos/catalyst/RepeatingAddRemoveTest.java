@@ -18,6 +18,8 @@
 package org.opennms.xmlclient.bcos.catalyst;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import static org.junit.Assert.*;
 import com.bt.bcos.adapter.AdapterIf;
 import java.util.HashMap;
@@ -35,6 +37,8 @@ import org.opennms.xmlclient.bcos.OpenNmsBcosAdapter;
  *
  */
 public class RepeatingAddRemoveTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void addnode1(){

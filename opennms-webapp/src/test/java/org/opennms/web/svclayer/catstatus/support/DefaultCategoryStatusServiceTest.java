@@ -59,10 +59,14 @@ import org.opennms.web.svclayer.dao.CategoryConfigDao;
 import org.opennms.web.svclayer.dao.ViewDisplayDao;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 
 public class DefaultCategoryStatusServiceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private DefaultCategoryStatusService categoryStatusService;
 	private ViewDisplayDao viewDisplayDao;

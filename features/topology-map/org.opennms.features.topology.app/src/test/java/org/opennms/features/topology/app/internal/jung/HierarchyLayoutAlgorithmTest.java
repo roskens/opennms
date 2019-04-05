@@ -34,6 +34,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.features.topology.api.GraphContainer;
 import org.opennms.features.topology.api.topo.AbstractEdge;
@@ -45,6 +47,8 @@ import org.opennms.features.topology.app.internal.TestGraph;
 import org.opennms.features.topology.app.internal.TestVertex;
 
 public class HierarchyLayoutAlgorithmTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final double delta = 0.00001d;
     private final List<Vertex> vertices = new ArrayList<>();
     final List<Edge> edges = new ArrayList<>();

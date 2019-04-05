@@ -34,6 +34,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.web.navigate.LocationBasedNavBarEntry;
 import org.opennms.web.navigate.MenuDropdownNavBarEntry;
 import org.opennms.web.navigate.NavBarEntry;
@@ -43,6 +45,8 @@ import org.springframework.mock.web.MockServletContext;
 import com.google.common.collect.Lists;
 
 public class NavBarControllerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     NavBarController navBarController;
 
     @Before

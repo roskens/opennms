@@ -44,6 +44,7 @@ import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.Timeout;
 import org.mockito.Mockito;
 import org.opennms.plugins.elasticsearch.rest.OnmsJestClient;
@@ -57,6 +58,8 @@ import io.searchbox.client.config.HttpClientConfig;
 import io.searchbox.core.Index;
 
 public class DefaultRequestExecutorIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Rule
     public Timeout timeout = new Timeout(30, TimeUnit.SECONDS);

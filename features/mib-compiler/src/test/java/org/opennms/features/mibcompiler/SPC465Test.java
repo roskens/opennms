@@ -39,6 +39,8 @@ import org.jsmiparser.smi.SmiModule;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.mibcompiler.api.MibParser;
 import org.opennms.features.mibcompiler.services.JsmiMibParser;
 
@@ -48,6 +50,8 @@ import org.opennms.features.mibcompiler.services.JsmiMibParser;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a> 
  */
 public class SPC465Test {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The Constant MIB_DIR. */
     protected static final File MIB_DIR = new File("src/test/resources");

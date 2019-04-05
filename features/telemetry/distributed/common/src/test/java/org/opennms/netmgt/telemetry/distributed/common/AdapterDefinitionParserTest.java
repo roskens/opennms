@@ -35,11 +35,15 @@ import java.util.Map;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.telemetry.config.api.AdapterDefinition;
 
 import com.google.common.collect.ImmutableMap;
 
 public class AdapterDefinitionParserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyMultipleAdapters() {

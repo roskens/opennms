@@ -57,6 +57,8 @@ import java.util.stream.Collectors;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.utils.InetAddressUtils;
@@ -78,6 +80,8 @@ import org.slf4j.LoggerFactory;
  * @author ms043660
  */
 public class ConvertToEventTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final Logger LOG = LoggerFactory.getLogger(ConvertToEventTest.class);
     private static final SyslogConfigBean radixConfig = new SyslogConfigBean();

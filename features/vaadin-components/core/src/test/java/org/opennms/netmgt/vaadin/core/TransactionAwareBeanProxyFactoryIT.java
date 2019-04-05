@@ -31,6 +31,8 @@ package org.opennms.netmgt.vaadin.core;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -59,6 +61,8 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 @JUnitConfigurationEnvironment
 @JUnitTemporaryDatabase // we need a real database in order to haave the TransactionOperations available, etc.
 public class TransactionAwareBeanProxyFactoryIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public class Dummy {
 

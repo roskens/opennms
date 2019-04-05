@@ -36,6 +36,8 @@ import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.plugins.elasticsearch.rest.OnmsJestClient;
 
@@ -45,6 +47,8 @@ import io.searchbox.client.config.HttpClientConfig;
 import io.searchbox.core.Search;
 
 public class LimitedRetriesRequestExecutorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyRetryHandling() throws IOException {

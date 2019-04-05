@@ -59,6 +59,8 @@ import org.opennms.test.ThrowableAnticipator;
 import org.opennms.test.mock.EasyMockUtils;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 
 /**
@@ -66,6 +68,8 @@ import org.junit.After;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class ReportDefinitionTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private NodeDao m_nodeDao = m_mocks.createMock(NodeDao.class);
     private ResourceDao m_resourceDao = m_mocks.createMock(ResourceDao.class);

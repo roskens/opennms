@@ -33,6 +33,8 @@ import java.net.URL;
 import org.junit.Assert;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.protocols.http.HttpUrlConnection;
 import org.opennms.protocols.http.HttpUrlHandler;
 import org.opennms.protocols.http.HttpsUrlHandler;
@@ -47,6 +49,8 @@ import org.opennms.protocols.sftp.SftpUrlHandler;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class UrlFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test time parser.

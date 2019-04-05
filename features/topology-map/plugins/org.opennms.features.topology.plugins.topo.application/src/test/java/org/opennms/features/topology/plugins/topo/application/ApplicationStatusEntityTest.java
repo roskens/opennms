@@ -32,11 +32,15 @@ import java.util.Date;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.dao.api.ApplicationStatusEntity;
 import org.opennms.netmgt.model.OnmsSeverity;
 
 public class ApplicationStatusEntityTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testKey() {
         ApplicationStatusEntity entity = new ApplicationStatusEntity(100, InetAddressUtils.getLocalHostAddress(), 20, new Date(), OnmsSeverity.NORMAL, 20L);

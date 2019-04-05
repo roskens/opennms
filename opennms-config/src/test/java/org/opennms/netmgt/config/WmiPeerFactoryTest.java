@@ -34,6 +34,8 @@ import java.io.IOException;
 import java.net.InetAddress;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.core.test.ConfigurationTestUtils;
 
@@ -45,6 +47,8 @@ import org.opennms.core.test.ConfigurationTestUtils;
  *
  */
 public class WmiPeerFactoryTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private WmiPeerFactory getFactory(String amiConfigXml) throws IOException {
         WmiPeerFactory factory = new WmiPeerFactory(ConfigurationTestUtils.getResourceForConfigWithReplacements(amiConfigXml));
         factory.afterPropertiesSet();

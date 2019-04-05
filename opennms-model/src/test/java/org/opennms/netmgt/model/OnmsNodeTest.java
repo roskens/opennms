@@ -30,12 +30,16 @@ package org.opennms.netmgt.model;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * Basic unit tests for OnmsNode Class
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
 public class OnmsNodeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /*
      * Test the equals method of the PrimaryType class and therefore the getPrimaryInterface method

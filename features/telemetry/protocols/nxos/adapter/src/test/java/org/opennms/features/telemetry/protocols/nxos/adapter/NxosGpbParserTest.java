@@ -38,6 +38,8 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.telemetry.protocols.nxos.adapter.NxosGpbParserUtil;
 import org.opennms.netmgt.telemetry.protocols.nxos.adapter.proto.TelemetryBis;
 
@@ -45,6 +47,8 @@ import com.google.common.io.Resources;
 import com.google.protobuf.ExtensionRegistry;
 
 public class NxosGpbParserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final ExtensionRegistry s_registry = ExtensionRegistry.newInstance();
     public TelemetryBis.Telemetry telemetryMsg;

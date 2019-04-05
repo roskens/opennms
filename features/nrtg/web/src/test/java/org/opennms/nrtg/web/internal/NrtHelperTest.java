@@ -38,12 +38,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.PrefabGraph;
 
 /**
  * @author Markus@OpenNMS.org
  */
 public class NrtHelperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final Map<String,String> m_emptyMap = Collections.emptyMap();
     private NrtHelper nrtHelper = new NrtHelper();
 

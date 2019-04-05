@@ -36,6 +36,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.vaadin.jmxconfiggenerator.Config;
 import org.opennms.features.vaadin.jmxconfiggenerator.TestHelper;
 import org.opennms.features.vaadin.jmxconfiggenerator.ui.mbeans.NameProvider;
@@ -49,6 +51,8 @@ import com.vaadin.v7.data.Validator;
 
 
 public class AttributeValidatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final NameProvider nameProvider = TestHelper.DUMMY_NAME_PROVIDER;
 

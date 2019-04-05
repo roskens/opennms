@@ -35,9 +35,13 @@ import static org.junit.Assert.assertTrue;
 import javax.servlet.ServletException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.web.alarm.AlarmIdNotFoundException;
 
 public class ExceptionUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test(expected=ServletException.class)
     public void getRootCauseThrowsOnNull() throws ServletException {

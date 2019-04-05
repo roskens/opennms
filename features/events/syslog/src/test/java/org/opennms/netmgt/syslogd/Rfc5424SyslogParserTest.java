@@ -40,9 +40,13 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.SyslogdConfigFactory;
 
 public class Rfc5424SyslogParserTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void shouldHonorTimezoneWithConfiguredDefault() throws IOException {
         checkDateParserWith(TimeZone.getTimeZone("CET"), "timezone=\"CET\" ");

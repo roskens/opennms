@@ -29,6 +29,8 @@
 package org.opennms.netmgt.model;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.xml.XmlTest;
 import org.opennms.core.test.xml.JsonTest;
 import org.opennms.core.utils.InetAddressUtils;
@@ -38,6 +40,8 @@ import java.io.IOException;
 import java.util.Date;
 
 public class OnmsOutageTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testMarshalXml() {

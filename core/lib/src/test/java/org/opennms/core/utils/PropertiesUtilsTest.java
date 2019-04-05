@@ -36,10 +36,14 @@ import static org.junit.Assert.fail;
 import java.util.Properties;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
 public class PropertiesUtilsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private Properties m_propsOne;
     private Properties m_propsTwo;

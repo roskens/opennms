@@ -34,12 +34,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
 
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class EventdConfigManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	@Test
 	public void defaultQueueLength() throws FileNotFoundException, IOException {

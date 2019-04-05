@@ -34,8 +34,12 @@ import static org.junit.Assert.assertNull;
 import java.time.ZoneId;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class TimeZoneIdAdapterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void shouldMarshalAndUnmarshalValidZoneId(){

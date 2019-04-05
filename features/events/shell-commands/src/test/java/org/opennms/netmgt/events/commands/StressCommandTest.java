@@ -31,10 +31,14 @@ package org.opennms.netmgt.events.commands;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.google.common.collect.Lists;
 
 public class StressCommandTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Test
     public void testEventGenerator() {
         new StressCommand() {

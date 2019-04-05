@@ -38,6 +38,7 @@ import java.net.InetAddress;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -70,6 +71,8 @@ import org.snmp4j.util.TableUtils;
  * @author brozow
  */
 public class MockAgentTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     @Rule
     public TestName m_testName = new TestName();
 

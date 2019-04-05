@@ -55,6 +55,8 @@ import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.provision.persist.foreignsource.ForeignSource;
 import org.opennms.netmgt.provision.persist.foreignsource.ForeignSourceCollection;
@@ -63,6 +65,8 @@ import org.opennms.test.FileAnticipator;
 import org.xml.sax.SAXException;
 
 public class PersistenceSerializationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private ForeignSourceCollection fsw;
     private AbstractForeignSourceRepository fsr;
     private Marshaller m;

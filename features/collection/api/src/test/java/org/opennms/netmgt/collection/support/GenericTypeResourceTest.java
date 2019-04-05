@@ -36,6 +36,8 @@ import static org.mockito.Mockito.when;
 import java.util.Collections;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.collection.api.CollectionResource;
 import org.opennms.netmgt.collection.api.ResourceType;
 import org.opennms.netmgt.collection.support.builder.GenericTypeResource;
@@ -43,6 +45,8 @@ import org.opennms.netmgt.collection.support.builder.NodeLevelResource;
 import org.opennms.netmgt.model.ResourcePath;
 
 public class GenericTypeResourceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Validates the behavior of instance name sanitization in the GenericTypeResource

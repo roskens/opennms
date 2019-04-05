@@ -37,10 +37,14 @@ import javax.validation.ValidatorFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.bsm.persistence.api.IPServiceEdgeEntity;
 import org.opennms.netmgt.bsm.persistence.api.functions.map.IdentityEntity;
 
 public class FriendlyNameValidationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static String FRIENDLYNAME_EMPTY="";
     private static String FRIENDLYNAME_THIRTY_CHARS ="012345678901234567890123456789";
     private static String FRIENDLYNAME_TOO_LONG = FRIENDLYNAME_THIRTY_CHARS + "X";

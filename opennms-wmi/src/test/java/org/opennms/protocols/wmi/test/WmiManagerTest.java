@@ -38,6 +38,8 @@ import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.reset;
 import static org.easymock.EasyMock.verify;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -56,6 +58,8 @@ import org.opennms.protocols.wmi.wbem.OnmsWbemObjectSet;
  * @author <a href="http://www.opennms.org">OpenNMS</a>
  */
 public class WmiManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 	private IWmiClient m_WmiMock;
 
 	/*

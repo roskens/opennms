@@ -33,6 +33,8 @@ import static org.junit.Assert.assertEquals;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.xml.event.Event;
 
 
@@ -40,6 +42,8 @@ import org.opennms.netmgt.xml.event.Event;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
 public class EventBuilderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	/**
 	 * Test method for {@link org.opennms.netmgt.model.events.EventBuilder#getEvent()}.

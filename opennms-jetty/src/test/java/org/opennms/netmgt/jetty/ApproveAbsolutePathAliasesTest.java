@@ -37,8 +37,12 @@ import java.net.URISyntaxException;
 
 import org.eclipse.jetty.util.resource.PathResource;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class ApproveAbsolutePathAliasesTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canApproveDoubleSlash() throws URISyntaxException, IOException {

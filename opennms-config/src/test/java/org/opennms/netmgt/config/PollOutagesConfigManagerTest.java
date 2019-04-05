@@ -42,11 +42,15 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.config.poller.outages.Outage;
 import org.springframework.core.io.FileSystemResource;
 
 public class PollOutagesConfigManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private PollOutagesConfigManager m_manager;
     File m_configFile = new File("target/test-poller-configuration.xml");

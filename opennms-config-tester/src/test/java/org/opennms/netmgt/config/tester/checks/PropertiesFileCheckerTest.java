@@ -36,10 +36,14 @@ import java.util.Collection;
 import java.util.Properties;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.google.common.collect.Lists;
 
 public class PropertiesFileCheckerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 
     @Test

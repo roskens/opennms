@@ -64,6 +64,8 @@ import javax.net.ssl.SSLSocketFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.netmgt.collectd.vmware.vijava.VmwarePerformanceValues;
 import org.opennms.protocols.vmware.ServiceInstancePool;
@@ -111,6 +113,8 @@ import com.vmware.vim25.ws.WSClient;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ServiceInstance.class, PerformanceManager.class, VmwareViJavaAccess.class, MorUtil.class, PerfProviderSummary.class, HostSystem.class, HostNetworkSystem.class, CIMClient.class})
 public class VmwareViJavaAccessTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private VmwareViJavaAccess vmwareViJavaAccess;
     private PerformanceManager mockPerformanceManager;

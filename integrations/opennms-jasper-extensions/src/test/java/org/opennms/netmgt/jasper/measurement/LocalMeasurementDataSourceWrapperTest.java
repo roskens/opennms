@@ -33,6 +33,8 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
@@ -51,6 +53,8 @@ import net.sf.jasperreports.engine.JRException;
         locations = {"/META-INF/opennms/applicationContext-measurements-NMS-8337.xml"}
 )
 public class LocalMeasurementDataSourceWrapperTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Autowired
     private ApplicationContext applicationContext;

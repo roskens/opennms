@@ -36,6 +36,8 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.kscReports.Report;
 import org.opennms.netmgt.config.kscReports.ReportsList;
@@ -44,6 +46,8 @@ import org.springframework.core.io.FileSystemResource;
 
 /** This test verifies the issue NMS-10309 **/
 public class ResourceIdDecodeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private ReportsList configForLegacyReport;
     private ReportsList config;

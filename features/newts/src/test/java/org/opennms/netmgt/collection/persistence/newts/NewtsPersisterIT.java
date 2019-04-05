@@ -38,6 +38,8 @@ import java.util.Collections;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.netmgt.collection.api.AttributeType;
@@ -78,6 +80,8 @@ import com.google.common.base.Optional;
         "org.opennms.timeseries.strategy=newts"
 })
 public class NewtsPersisterIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @ClassRule
     public static NewtsInstance s_newtsInstance = new NewtsInstance();

@@ -31,8 +31,12 @@ package org.opennms.util.ilr;
 import static org.junit.Assert.*;
 import org.opennms.util.ilr.Main;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class MainTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     Main main = new Main();
     public void setup(String testFile, String sortFlag) {
         String [] args = new String[2];

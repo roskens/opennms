@@ -30,9 +30,13 @@ package org.opennms.features.topology.plugins.topo.application;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.topo.VertexRef;
 
 public class ApplicationVertexTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testHierarchy() {

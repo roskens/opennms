@@ -30,6 +30,8 @@ package org.opennms.tip.ram;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -44,6 +46,8 @@ import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
  * @author brozow
  */
 public class RestClientTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private Client m_client;
     private WebResource m_resource;

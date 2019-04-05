@@ -42,6 +42,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.core.soa.ServiceRegistry;
 import org.opennms.core.soa.support.DefaultServiceRegistry;
@@ -49,6 +50,8 @@ import org.opennms.core.soa.support.DefaultServiceRegistry;
 import com.google.common.collect.Maps;
 
 public class ConfigReloadingContainerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private ServiceRegistry registry = DefaultServiceRegistry.INSTANCE;
 

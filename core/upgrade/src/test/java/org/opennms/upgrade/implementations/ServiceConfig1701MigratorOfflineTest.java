@@ -41,6 +41,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -57,6 +59,8 @@ import org.opennms.netmgt.config.service.ServiceConfiguration;
  */
 @RunWith(Parameterized.class)
 public class ServiceConfig1701MigratorOfflineTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final String m_testFile;
     private final int m_totalBefore;
     private final int m_totalAfter;

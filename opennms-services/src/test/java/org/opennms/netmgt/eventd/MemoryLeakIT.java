@@ -32,6 +32,8 @@ import java.net.InetSocketAddress;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.mock.OpenNMSITCase;
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.events.api.EventProxy;
@@ -44,6 +46,8 @@ import org.opennms.netmgt.events.api.support.TcpEventProxy;
  * @author brozow
  */
 public class MemoryLeakIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private static final long MINS = 8*60*60*1000L;
 

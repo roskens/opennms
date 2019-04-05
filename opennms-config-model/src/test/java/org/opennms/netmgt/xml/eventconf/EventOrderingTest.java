@@ -38,6 +38,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.xml.eventconf.EventOrdering.EventOrderIndex;
 
 /**
@@ -45,6 +47,8 @@ import org.opennms.netmgt.xml.eventconf.EventOrdering.EventOrderIndex;
  *
  */
 public class EventOrderingTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private class Item implements Comparable<Item>{
         private int m_label;

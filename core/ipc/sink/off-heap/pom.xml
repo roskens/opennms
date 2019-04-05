@@ -79,5 +79,10 @@
       <artifactId>metrics-core</artifactId>
       <version>3.1.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

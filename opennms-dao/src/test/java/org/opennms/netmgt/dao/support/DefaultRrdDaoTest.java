@@ -39,6 +39,8 @@ import java.io.IOException;
 import java.util.HashSet;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.netmgt.mock.MockResourceType;
@@ -58,6 +60,8 @@ import org.springframework.util.StringUtils;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class DefaultRrdDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private RrdStrategy<?,?> m_rrdStrategy = m_mocks.createMock(RrdStrategy.class);
     

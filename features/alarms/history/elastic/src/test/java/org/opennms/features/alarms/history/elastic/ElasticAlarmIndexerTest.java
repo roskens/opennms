@@ -36,6 +36,8 @@ import static org.mockito.Mockito.mock;
 import java.util.Date;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.OnmsAlarm;
 import org.opennms.netmgt.model.OnmsEvent;
 import org.opennms.netmgt.model.OnmsMemo;
@@ -49,6 +51,8 @@ import com.codahale.metrics.MetricRegistry;
 import io.searchbox.client.JestClient;
 
 public class ElasticAlarmIndexerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private final ElasticAlarmIndexer elasticAlarmIndexer = new ElasticAlarmIndexer(mock(MetricRegistry.class),
             mock(JestClient.class), mock(TemplateInitializer.class));
 

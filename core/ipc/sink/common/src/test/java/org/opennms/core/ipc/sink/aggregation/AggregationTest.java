@@ -46,6 +46,8 @@ import java.util.Objects;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.ipc.sink.api.AggregationPolicy;
 import org.opennms.core.ipc.sink.api.AsyncPolicy;
 import org.opennms.core.ipc.sink.api.Message;
@@ -59,6 +61,8 @@ import org.osgi.framework.BundleContext;
 import com.google.common.util.concurrent.RateLimiter;
 
 public class AggregationTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final int COMPLETION_SIZE = 10;
     private static final int COMPLETION_INTERVAL_MS = 500;

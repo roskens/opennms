@@ -29,6 +29,8 @@
 package org.opennms.netmgt.notifd;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.soa.support.DefaultServiceRegistry;
 import org.opennms.netmgt.model.notifd.NotificationStrategy;
 
@@ -39,6 +41,8 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 public class ServiceRegistryExecutorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void canFindServiceUsingFilter() {

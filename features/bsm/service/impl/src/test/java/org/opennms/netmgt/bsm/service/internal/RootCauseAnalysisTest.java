@@ -33,6 +33,8 @@ import static org.junit.Assert.assertEquals;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.bsm.mock.MockAlarmWrapper;
 import org.opennms.netmgt.bsm.mock.MockBusinessServiceHierarchy;
 import org.opennms.netmgt.bsm.mock.MockBusinessServiceHierarchy.HierarchyBuilder.BusinessServiceBuilder;
@@ -41,6 +43,8 @@ import org.opennms.netmgt.bsm.service.model.functions.reduce.HighestSeverity;
 import org.opennms.netmgt.bsm.service.model.graph.GraphVertex;
 
 public class RootCauseAnalysisTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Verifies that the RCA and IA algorithms can be performed

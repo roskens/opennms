@@ -35,6 +35,8 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 
 /**
@@ -43,6 +45,8 @@ import org.junit.Test;
  * @author brozow
  */
 public class ParameterMapTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private static final int[] INT_ARRAY_VAL = new int[] { 1, 2, 3};
     private static final int[] DEFAULT_INT_ARRAY = new int[] { 4, 5, 6 };

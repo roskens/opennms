@@ -36,6 +36,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
@@ -45,6 +47,8 @@ import org.opennms.netmgt.dao.jaxb.collector.DataCollectionVisitor;
 import org.springframework.core.io.ClassPathResource;
 
 public class DataCollectionConfigFileTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private InvocationAnticipator m_invocationAnticipator;
     private DataCollectionVisitor m_visitor;

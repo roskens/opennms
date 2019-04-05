@@ -39,6 +39,8 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.opennms.core.xml.AbstractJaxbConfigDao;
@@ -54,6 +56,8 @@ import org.springframework.core.io.ClassPathResource;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class DataCollectionConfigResourceTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     public static class TestDataCollectionConfigDao extends AbstractJaxbConfigDao<DatacollectionConfig,DatacollectionConfig> implements DataCollectionConfigDao {
 
         public TestDataCollectionConfigDao() {

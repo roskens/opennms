@@ -57,9 +57,13 @@ import org.opennms.netmgt.poller.remote.support.DefaultPollerFrontEnd;
 import org.opennms.test.mock.EasyMockUtils;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 public class PollerFrontEndTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     public static final String MONITORING_SYSTEM_ID = UUID.randomUUID().toString();
 

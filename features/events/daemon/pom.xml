@@ -43,7 +43,6 @@
       <groupId>commons-beanutils</groupId>
       <artifactId>commons-beanutils</artifactId>
     </dependency>
-
     <!-- Test dependencies -->
     <dependency>
       <groupId>junit</groupId>
@@ -93,11 +92,11 @@
       <artifactId>org.opennms.features.collection.persistence.rrd</artifactId>
       <scope>test</scope>
     </dependency>
-	<dependency>
-	  <groupId>org.opennms.core.ipc.sink</groupId>
-	  <artifactId>org.opennms.core.ipc.sink.xml</artifactId>
-	</dependency>
-	<dependency>
+    <dependency>
+      <groupId>org.opennms.core.ipc.sink</groupId>
+      <artifactId>org.opennms.core.ipc.sink.xml</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.opennms.core.test-api</groupId>
       <artifactId>org.opennms.core.test-api.kafka</artifactId>
       <version>${project.version}</version>
@@ -123,6 +122,11 @@
       <groupId>org.opennms.core.ipc.sink.kafka</groupId>
       <artifactId>org.opennms.core.ipc.sink.kafka.server</artifactId>
       <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opennms.core.test-api</groupId>
+      <artifactId>org.opennms.core.test-api.logging</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

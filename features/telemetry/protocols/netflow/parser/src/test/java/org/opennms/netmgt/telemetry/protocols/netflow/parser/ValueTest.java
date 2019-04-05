@@ -37,6 +37,8 @@ import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ie.values.BooleanValue;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ie.values.DateTimeValue;
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ie.values.FloatValue;
@@ -49,6 +51,8 @@ import org.opennms.netmgt.telemetry.protocols.netflow.parser.ie.values.StringVal
 import org.opennms.netmgt.telemetry.protocols.netflow.parser.ie.values.UnsignedValue;
 
 public class ValueTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     // TODO: Test BasicList, SubTemplateList, SubTemplateMultiList
 

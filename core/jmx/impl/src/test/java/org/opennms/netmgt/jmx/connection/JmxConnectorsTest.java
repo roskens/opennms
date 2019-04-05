@@ -30,9 +30,13 @@ package org.opennms.netmgt.jmx.connection;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.jmx.impl.connection.connectors.DefaultConnectionManager;
 
 public class JmxConnectorsTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testConnectionHasConnectorAssigned() throws IllegalAccessException, JmxServerConnectionException {

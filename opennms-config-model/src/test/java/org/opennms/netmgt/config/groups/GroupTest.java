@@ -31,8 +31,12 @@ package org.opennms.netmgt.config.groups;
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class GroupTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /* NMS-9785 */
     @Test
     public void testEmptyComments() {

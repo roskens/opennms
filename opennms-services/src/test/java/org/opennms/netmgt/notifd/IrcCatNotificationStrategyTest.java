@@ -34,6 +34,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.config.NotificationManager;
 import org.opennms.netmgt.model.notifd.Argument;
 
@@ -41,6 +43,8 @@ import org.opennms.netmgt.model.notifd.Argument;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class IrcCatNotificationStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /**
      * This doesn't really do anything, but it's a placeholder so that the testSend() test can be left disabled.
      */

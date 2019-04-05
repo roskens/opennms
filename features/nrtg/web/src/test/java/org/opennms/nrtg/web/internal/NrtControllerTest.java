@@ -32,6 +32,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.opennms.nrtg.web.internal.NrtController.MetricTuple;
@@ -41,6 +43,8 @@ import org.opennms.nrtg.web.internal.NrtController.MetricTuple;
  * @author Markus Neumann
  */
 public class NrtControllerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private NrtController nrtController;
     

@@ -37,12 +37,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.poller.monitors.support.LoopPlugin;
 public class LoopPluginTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Before
     public void setUp() throws Exception {

@@ -34,6 +34,8 @@ import java.sql.Statement;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.spring.BeanUtils;
@@ -60,6 +62,8 @@ import org.springframework.test.context.ContextConfiguration;
 @JUnitTemporaryDatabase(reuseDatabase = false)
 @RunWith(OpenNMSJUnit4ClassRunner.class)
 public class TrendConfigurationIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final Logger LOG = LoggerFactory.getLogger(TrendConfigurationIT.class);
 
     @Autowired

@@ -34,10 +34,13 @@ import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 
 import com.google.common.collect.Lists;
 
 public class RuleTest {
+    @org.junit.Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyCalculatePriority() {

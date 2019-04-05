@@ -30,6 +30,8 @@ package org.opennms.netmgt.model;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 
 /**
@@ -38,6 +40,8 @@ import org.junit.Test;
  * @author <a href="mailto:david@openms.org">David Hustace</a>
  */
 public class OnmsAssetRecordTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void equalsSameObject() {

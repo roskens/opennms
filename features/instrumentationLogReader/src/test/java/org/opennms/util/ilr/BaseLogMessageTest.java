@@ -41,6 +41,8 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -55,6 +57,8 @@ import org.opennms.util.ilr.BaseLogMessage.MsgType;
  */
 @RunWith(Parameterized.class)
 public class BaseLogMessageTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     static Date timestamp(String dateString) throws ParseException {
         return BaseLogMessage.parseTimestamp(dateString);

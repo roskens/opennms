@@ -29,6 +29,8 @@
 package org.opennms.core.xml;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import java.nio.ByteBuffer;
 
@@ -37,6 +39,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ByteBufferXmlAdapterTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private final ByteBufferXmlAdapter adapter = new ByteBufferXmlAdapter();
 

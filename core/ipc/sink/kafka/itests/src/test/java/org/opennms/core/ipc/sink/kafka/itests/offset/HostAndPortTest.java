@@ -31,9 +31,13 @@ package org.opennms.core.ipc.sink.kafka.itests.offset;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.ipc.sink.kafka.server.offset.HostAndPort;
 
 public class HostAndPortTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testHostAndPortWithMultipleBrokers() {

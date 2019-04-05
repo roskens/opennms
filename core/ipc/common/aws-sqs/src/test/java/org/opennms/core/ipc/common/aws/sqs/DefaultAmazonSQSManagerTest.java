@@ -40,6 +40,8 @@ import java.util.Map;
 import org.opennms.core.utils.SystemInfoUtils;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * The Class DefaultAmazonSQSManagerTest.
@@ -47,6 +49,8 @@ import org.junit.Test;
  * @author <a href="mailto:agalue@opennms.org">Alejandro Galue</a>
  */
 public class DefaultAmazonSQSManagerTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Test queue name.

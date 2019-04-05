@@ -37,15 +37,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.Before;
 import org.opennms.netmgt.poller.monitors.support.DNSAddressRR;
 import org.opennms.netmgt.poller.monitors.support.DNSAddressRequest;
 
 public class DNSAddressRequestTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private static final byte[] normalResponseBytes = new byte[] {
         (byte) 0x9e, (byte) 0xf2, (byte) 0x81, (byte) 0x80,

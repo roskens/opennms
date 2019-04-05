@@ -32,6 +32,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 import org.opennms.netmgt.mock.MockResourceType;
 import org.opennms.netmgt.model.ExternalValueAttribute;
@@ -47,6 +49,8 @@ import org.opennms.test.mock.EasyMockUtils;
  * @author <a href="dj@opennms.org">DJ Gregor</a>
  */
 public class ResourceAttributeFilteringResourceVisitorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private EasyMockUtils m_mocks = new EasyMockUtils();
     private ResourceVisitor m_delegatedVisitor = m_mocks.createMock(ResourceVisitor.class);
     

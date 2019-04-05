@@ -37,12 +37,16 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.tasks.DefaultTaskCoordinator.SerialRunnable;
 
 /**
  * @author Seth
  */
 public class TaskCoordinatorTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Make sure that task executions on the {@link RunnableActor} thread are

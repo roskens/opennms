@@ -46,6 +46,8 @@ import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * Tests Marshaling of North bound Alarm
@@ -56,6 +58,8 @@ import org.junit.Test;
  * @author <a href="mailto:david@opennms.org">David Hustace</a>
  */
 public class JAXBTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * The Class TestNorthBoundAlarm.

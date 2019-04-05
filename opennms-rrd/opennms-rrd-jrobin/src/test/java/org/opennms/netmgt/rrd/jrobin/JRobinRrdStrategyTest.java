@@ -49,6 +49,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.rrd.RrdAttributeType;
 import org.opennms.netmgt.rrd.RrdDataSource;
@@ -66,6 +68,8 @@ import org.springframework.util.StringUtils;
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class JRobinRrdStrategyTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     private RrdStrategy<RrdDef,RrdDb> m_strategy;
     private FileAnticipator m_fileAnticipator;

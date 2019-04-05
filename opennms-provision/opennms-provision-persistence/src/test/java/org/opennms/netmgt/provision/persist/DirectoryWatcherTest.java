@@ -42,11 +42,15 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.spring.FileReloadCallback;
 import org.opennms.core.test.MockLogAppender;
 import org.springframework.core.io.Resource;
 
 public class DirectoryWatcherTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private FileSystemBuilder m_bldr;
 	private DirectoryWatcher<String> m_watcher;

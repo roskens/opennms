@@ -39,6 +39,8 @@ import javax.sql.DataSource;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
@@ -52,6 +54,8 @@ import org.springframework.test.context.ContextConfiguration;
         "classpath:/migratorTest.xml"
 })
 public class TemporaryDatabaseExecutionListenerNoClassAnnotationIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     //@Autowired
     private DataSource m_dataSource;

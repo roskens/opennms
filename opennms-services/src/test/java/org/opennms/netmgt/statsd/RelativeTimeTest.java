@@ -40,6 +40,8 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -50,6 +52,8 @@ import org.opennms.netmgt.collection.api.TimeKeeper;
  */
 @RunWith(Parameterized.class)
 public class RelativeTimeTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private TimeZone m_timeZone;
     private int m_offset;
     private int m_startYear;

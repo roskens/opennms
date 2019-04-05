@@ -49,11 +49,15 @@ import javax.servlet.jsp.JspWriter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.opennms.core.time.CentralizedDateTimeFormat;
 
 public class DateTimeTagTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private TimeZone m_defaultZone;
 
     @Before

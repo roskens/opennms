@@ -31,10 +31,14 @@ package org.opennms.plugins.dbnotifier.test.manual;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.plugins.dbnotifier.DbNotifierDataSourceFactory;
 import com.impossibl.postgres.jdbc.PGDataSource;
 
 public class TestLoadDbNotifierDataSourceFactory {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	
 	@Test

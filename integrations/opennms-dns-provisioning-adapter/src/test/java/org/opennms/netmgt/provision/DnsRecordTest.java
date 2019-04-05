@@ -30,10 +30,14 @@ package org.opennms.netmgt.provision;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.model.NetworkBuilder;
 
 import static org.junit.Assert.assertEquals;
 public class DnsRecordTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
 	private NetworkBuilder nb;
     private String hostname = "www.test.opennms.org";

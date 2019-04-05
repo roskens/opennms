@@ -29,11 +29,15 @@
 package org.opennms.netmgt.daemon;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 /**
  * @author <a href="mailto:dj@opennms.org">DJ Gregor</a>
  */
 public class AbstractSpringContextJmxServiceDaemonTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     /**
      * This is a test for bug #2479 where we would see an NPE in manager.log
      * if we tried to call stop() on a daemon that hadn't been successfully

@@ -44,6 +44,8 @@ import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -80,6 +82,8 @@ import com.amazonaws.services.sqs.model.Message;
 })
 @JUnitConfigurationEnvironment
 public class HeartbeatSinkIT {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The local message dispatcher factory. */
     @Autowired

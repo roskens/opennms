@@ -40,6 +40,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.netmgt.alarmd.api.AlarmLifecycleListener;
 import org.opennms.netmgt.dao.api.AlarmDao;
 import org.opennms.netmgt.dao.mock.MockTransactionTemplate;
@@ -48,6 +50,8 @@ import org.opennms.netmgt.model.OnmsAlarm;
 import com.google.common.collect.Maps;
 
 public class AlarmLifecycleListenerManagerSnapshotTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /**
      * Verifies that the {@link AlarmLifecycleListener} does invoke

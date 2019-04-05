@@ -39,6 +39,8 @@ import java.util.stream.Collectors;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.topology.api.topo.AbstractVertex;
 import org.opennms.features.topology.api.topo.Criteria;
 import org.opennms.features.topology.api.topo.Status;
@@ -52,6 +54,8 @@ import org.opennms.netmgt.model.alarm.AlarmSummary;
 import com.google.common.collect.Lists;
 
 public class AlarmStatusProviderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private AlarmDao m_alarmDao;
     private LinkdStatusProvider m_statusProvider;

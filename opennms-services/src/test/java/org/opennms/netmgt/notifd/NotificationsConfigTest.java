@@ -31,6 +31,8 @@ package org.opennms.netmgt.notifd;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
 import org.opennms.core.test.MockLogAppender;
 import org.opennms.netmgt.config.NotificationManager;
@@ -40,6 +42,8 @@ import org.opennms.netmgt.config.notifications.Notification;
 import org.opennms.test.mock.MockUtil;
 
 public class NotificationsConfigTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     
     @Test
     public void testFormattedNotificationsXml() throws Exception {

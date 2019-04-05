@@ -36,6 +36,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TemporaryFolder;
 import org.opennms.core.xml.JaxbUtils;
 import org.opennms.netmgt.config.datacollection.DatacollectionConfig;
@@ -45,6 +46,8 @@ import org.opennms.upgrade.api.OnmsUpgradeException;
  * The Class DataCollectionConfigMigrator17OfflineTest.
  */
 public class DataCollectionConfigMigrator17OfflineTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The temporary folder. */
     @Rule

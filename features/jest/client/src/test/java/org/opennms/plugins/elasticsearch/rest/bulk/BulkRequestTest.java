@@ -34,8 +34,12 @@ import static org.opennms.plugins.elasticsearch.rest.bulk.BulkRequest.SLEEP_TIME
 import static org.opennms.plugins.elasticsearch.rest.bulk.BulkRequest.getSleepTime;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class BulkRequestTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testSleepTime() {

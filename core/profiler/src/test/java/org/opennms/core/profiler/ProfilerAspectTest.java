@@ -32,8 +32,12 @@ import static org.opennms.core.profiler.ProfilerAspect.humanReadable;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 
 public class ProfilerAspectTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void testHumanReadable() {

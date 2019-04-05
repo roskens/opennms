@@ -36,6 +36,8 @@ import java.io.File;
 import java.io.FileWriter;
 
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -44,6 +46,8 @@ import org.springframework.core.io.Resource;
  * The Test Class for SyslogNorthbounderConfigDao.
  */
 public class SyslogConfigDaoTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     /** The XML. */
     String xml = "" +

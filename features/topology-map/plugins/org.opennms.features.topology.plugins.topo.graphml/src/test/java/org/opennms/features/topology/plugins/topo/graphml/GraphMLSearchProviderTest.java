@@ -36,6 +36,8 @@ import java.util.stream.Collectors;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Test;
+import org.opennms.core.test.logging.TestCasePrinterRule;
+import org.junit.Rule;
 import org.opennms.features.graphml.model.GraphMLGraph;
 import org.opennms.features.graphml.model.InvalidGraphException;
 import org.opennms.features.topology.api.OperationContext;
@@ -50,6 +52,8 @@ import org.opennms.netmgt.enlinkd.persistence.api.TopologyEntityCache;
 import org.opennms.osgi.OnmsServiceManager;
 
 public class GraphMLSearchProviderTest {
+    @Rule
+    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     @Test
     public void verifyContributesTo() {
