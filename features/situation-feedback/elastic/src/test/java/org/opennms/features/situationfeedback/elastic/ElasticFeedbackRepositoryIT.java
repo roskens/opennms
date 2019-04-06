@@ -40,7 +40,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.elastic.ElasticSearchRule;
 import org.opennms.core.test.elastic.ElasticSearchServerConfig;
 import org.opennms.features.situationfeedback.api.AlarmFeedback;

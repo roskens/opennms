@@ -65,7 +65,7 @@ import org.easymock.EasyMock;
 import org.easymock.IAnswer;
 import org.easymock.IArgumentMatcher;
 import org.opennms.core.criteria.Criteria;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.collection.api.TimeKeeper;
 import org.opennms.netmgt.config.PollerConfig;

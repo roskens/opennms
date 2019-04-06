@@ -34,7 +34,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.netmgt.config.NotificationManager;
 import org.opennms.netmgt.config.mock.MockNotifdConfigManager;
 import org.opennms.netmgt.config.mock.MockNotificationManager;

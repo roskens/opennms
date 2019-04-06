@@ -57,7 +57,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.time.ZonedDateTimeBuilder;
 import org.opennms.netmgt.config.SyslogdConfigFactory;
 import org.slf4j.Logger;

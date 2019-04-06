@@ -46,7 +46,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.netmgt.alarmd.api.NorthboundAlarm;
 import org.opennms.netmgt.dao.api.MonitoringLocationDao;

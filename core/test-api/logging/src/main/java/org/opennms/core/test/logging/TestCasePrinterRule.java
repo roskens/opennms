@@ -52,8 +52,11 @@ public class TestCasePrinterRule implements TestRule {
     }
 
     private class TestCasePrinter extends ExternalResource {
+        private final Boolean debug = "true".equals(System.getProperty("mock.printTestMethod", "true"));
+
         @Override
         protected void before() throws Throwable {
+            if (!debug) { return; }
             m_timeStart = System.currentTimeMillis();
             m_out.write(m_beforeContent.getBytes());
         };
@@ -61,10 +64,11 @@ public class TestCasePrinterRule implements TestRule {
 
         @Override
         protected void after() {
+            if (!debug) { return; }
             try {
                 m_timeEnd = System.currentTimeMillis();
                 double seconds = (m_timeEnd-m_timeStart)/1000.0;
-                m_out.write(("Time elapsed: "+DF.format(seconds)+" sec\n").getBytes());
+                m_out.write(("Test time elapsed: "+DF.format(seconds)+" sec\n").getBytes());
                 m_out.write(m_afterContent.getBytes());
             } catch (IOException ioe) { /* ignore */
             }

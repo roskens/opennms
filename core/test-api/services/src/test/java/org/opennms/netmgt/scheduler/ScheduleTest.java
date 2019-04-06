@@ -38,7 +38,7 @@ import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.netmgt.scheduler.mock.MockInterval;
 import org.opennms.netmgt.scheduler.mock.MockScheduler;
 

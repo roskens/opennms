@@ -41,7 +41,7 @@ import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.opennms.core.spring.FileReloadContainer;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.netmgt.dao.support.PropertiesGraphDao.PrefabGraphTypeDao;
 import org.opennms.netmgt.model.PrefabGraph;
 import org.opennms.test.FileAnticipator;

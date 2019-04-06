@@ -52,7 +52,7 @@ import org.junit.Rule;
 import org.mockito.Mockito;
 import org.opennms.core.ipc.sink.common.ThreadLockingDispatcherFactory;
 import org.opennms.core.ipc.sink.common.ThreadLockingSyncDispatcher;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.netmgt.config.SyslogdConfig;
 import org.opennms.netmgt.dao.api.DistPollerDao;
 import org.opennms.netmgt.syslogd.api.SyslogConnection;

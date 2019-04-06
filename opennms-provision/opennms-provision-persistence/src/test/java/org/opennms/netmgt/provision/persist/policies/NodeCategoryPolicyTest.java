@@ -39,7 +39,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.opennms.core.spring.BeanUtils;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.netmgt.model.OnmsNode;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.transaction.annotation.Transactional;

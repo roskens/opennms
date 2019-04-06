@@ -54,7 +54,7 @@ import org.junit.runner.RunWith;
 import org.opennms.core.schema.Migration;
 import org.opennms.core.schema.MigrationException;
 import org.opennms.core.schema.Migrator;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
 import org.slf4j.Logger;

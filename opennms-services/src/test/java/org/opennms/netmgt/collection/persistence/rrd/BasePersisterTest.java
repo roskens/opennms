@@ -41,7 +41,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TestName;
 import org.opennms.core.rpc.mock.MockRpcClientFactory;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.MockPlatformTransactionManager;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.netmgt.collectd.DefaultSnmpCollectionAgent;

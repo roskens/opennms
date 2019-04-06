@@ -33,7 +33,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.netmgt.provision.persist.requisition.Requisition;
 import org.opennms.test.JUnitConfigurationEnvironment;

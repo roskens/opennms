@@ -37,7 +37,7 @@ import static org.junit.Assert.assertFalse;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.netmgt.config.CategoryFactory;
 import org.opennms.netmgt.config.categories.Category;
 import org.opennms.netmgt.mock.MockCategoryFactory;

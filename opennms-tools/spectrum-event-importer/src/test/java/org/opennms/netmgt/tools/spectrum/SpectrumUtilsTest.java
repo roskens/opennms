@@ -35,7 +35,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.opennms.netmgt.xml.eventconf.Varbindsdecode;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 
 /**
  * @author jeffg

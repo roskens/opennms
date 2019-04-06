@@ -42,6 +42,7 @@ import org.opennms.core.utils.AbstractTimeIntervalSequence;
 import org.opennms.core.utils.OwnedInterval;
 import org.opennms.core.utils.Owner;
 import org.opennms.core.utils.TimeInterval;
+import org.opennms.core.test.logging.MockLogAppender;
 
 public class IntervalTestCase {
 

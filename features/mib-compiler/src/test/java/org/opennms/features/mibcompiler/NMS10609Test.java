@@ -41,7 +41,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.features.mibcompiler.api.MibParser;
 import org.opennms.features.mibcompiler.services.JsmiMibParser;
 import org.opennms.netmgt.xml.eventconf.Events;

@@ -44,7 +44,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.opennms.core.test.ConfigurationTestUtils;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.utils.Base64;
 import org.opennms.netmgt.eventd.datablock.EventConfData;
 import org.opennms.netmgt.model.events.EventBuilder;

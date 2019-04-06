@@ -42,7 +42,7 @@ import org.junit.Rule;
 import org.junit.After;
 import org.junit.Before;
 
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.core.utils.LocationUtils;
 import org.opennms.netmgt.snmp.SnmpAgentConfig;

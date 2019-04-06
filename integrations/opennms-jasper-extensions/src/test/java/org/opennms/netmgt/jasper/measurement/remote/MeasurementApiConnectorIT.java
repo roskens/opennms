@@ -49,9 +49,9 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
-import org.opennms.core.test.Level;
-import org.opennms.core.test.LoggingEvent;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.Level;
+import org.opennms.core.test.logging.LoggingEvent;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

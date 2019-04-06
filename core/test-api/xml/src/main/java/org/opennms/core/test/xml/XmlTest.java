@@ -73,7 +73,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.xml.JaxbUtils;
 import org.slf4j.Logger;

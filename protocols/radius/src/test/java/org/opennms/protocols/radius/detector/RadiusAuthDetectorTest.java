@@ -42,7 +42,7 @@ import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.protocols.radius.monitor.MockRadiusServer;
 import org.springframework.beans.BeansException;

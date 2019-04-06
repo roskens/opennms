@@ -902,6 +902,7 @@
             <org.opennms.rrd.usequeue>false</org.opennms.rrd.usequeue>
             <java.awt.headless>true</java.awt.headless>
             <mock.debug>${mock.debug}</mock.debug>
+            <mock.printTestMethod>${mock.printTestMethod}</mock.printTestMethod>
             <mock.rundbtests>${mock.rundbtests}</mock.rundbtests>
             <mock.leaveDatabase>${mock.leaveDatabase}</mock.leaveDatabase>
             <mock.leaveDatabaseOnFailure>${mock.leaveDatabaseOnFailure}</mock.leaveDatabaseOnFailure>
@@ -1154,6 +1155,7 @@
     <sass.maven.plugin.version>1.1.2-ONMS-20131018-1</sass.maven.plugin.version>
 
     <mock.debug>false</mock.debug>
+    <mock.printTestMethod>true</mock.printTestMethod>
     <mock.rundbtests>true</mock.rundbtests>
     <mock.leaveDatabase>false</mock.leaveDatabase>
     <mock.leaveDatabaseOnFailure>false</mock.leaveDatabaseOnFailure>

@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2012-2012 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2012 The OpenNMS Group, Inc.
+ * Copyright (C) 2013-2014 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -26,33 +26,17 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.core.test;
+package org.opennms.core.test.logging;
 
-public class LoggingEvent {
-    private final String m_name;
-    private final Level m_level;
-    private final String m_message;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
 
-    public LoggingEvent(final String name, final Level level, final String message) {
-        m_name = name;
-        m_level = level;
-        m_message = message;
-    }
+public class MockLoggerFactory implements ILoggerFactory {
 
-    public String getLoggerName() {
-        return m_name;
-    }
-
-    public String getMessage() {
-        return m_message;
-    }
-
-    public Level getLevel() {
-        return m_level;
-    }
-
-    @Override
-    public String toString() {
-        return m_name + "(" + m_level + "): " + m_message;
+    /**
+     * Return an appropriate {@link MockLogger} instance by name.
+     */
+    public Logger getLogger(final String name) {
+        return new MockLogger(name);
     }
 }

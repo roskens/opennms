@@ -43,7 +43,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TestName;
 
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

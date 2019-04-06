@@ -40,7 +40,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import org.opennms.core.db.DataSourceFactory;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.db.MockDatabase;
 import org.opennms.netmgt.config.CategoryFactory;
 import org.opennms.netmgt.config.DatabaseSchemaConfigFactory;

@@ -40,7 +40,7 @@ import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.mockito.Mockito;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.systemreport.ResourceLocator;
 import org.springframework.core.io.FileSystemResource;
 

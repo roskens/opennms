@@ -38,7 +38,7 @@ import org.junit.Rule;
 import org.junit.Before;
 
 import org.opennms.core.db.DataSourceFactory;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.db.MockDatabase;
 import org.opennms.test.DaoTestConfigBean;
 import org.springframework.mock.web.MockFilterConfig;

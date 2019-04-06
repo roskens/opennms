@@ -32,18 +32,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.opennms.core.test.MockLogAppender.assertNoWarningsOrGreater;
+import static org.opennms.core.test.logging.MockLogAppender.assertNoWarningsOrGreater;
 
 import java.io.File;
 import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
+import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
 import org.opennms.core.xml.JaxbUtils;

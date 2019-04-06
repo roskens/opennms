@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.core.test;
+package org.opennms.core.test.logging;
 
 import org.slf4j.spi.LocationAwareLogger;
 

@@ -40,7 +40,7 @@ import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.opennms.core.tasks.DefaultTaskCoordinator;
 import org.opennms.core.tasks.TaskCoordinator;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 
 
 /**

@@ -53,7 +53,7 @@ import org.mockito.Matchers;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.opennms.core.criteria.Criteria;
-import org.opennms.core.test.MockLogAppender;
+import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.features.ifttt.config.IfTttConfig;
 import org.opennms.features.ifttt.helper.DefaultVariableNameExpansion;
 import org.opennms.features.ifttt.helper.VariableNameExpansion;
