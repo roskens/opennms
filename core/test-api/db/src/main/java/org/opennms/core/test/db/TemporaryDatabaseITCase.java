@@ -42,7 +42,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
@@ -62,8 +61,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author djgregor
  */
 public class TemporaryDatabaseITCase {
-    @Rule
-    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
     private static final String LEAVE_PROPERTY = "mock.leaveDatabase";
     private static final String LEAVE_ON_FAILURE_PROPERTY = "mock.leaveDatabaseOnFailure";
 

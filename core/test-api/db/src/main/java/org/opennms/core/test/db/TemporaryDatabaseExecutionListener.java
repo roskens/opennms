@@ -43,8 +43,6 @@ import java.util.concurrent.Future;
 import javax.sql.DataSource;
 
 import org.junit.Test;
-import org.opennms.core.test.logging.TestCasePrinterRule;
-import org.junit.Rule;
 import org.junit.internal.MethodSorter;
 import org.opennms.core.db.DataSourceFactory;
 import org.opennms.core.db.HikariCPConnectionFactory;
@@ -69,8 +67,6 @@ import org.springframework.util.Assert;
  * @author <a href="mailto:brozow@opennms.org">Mathew Brozowski</a>
  */
 public class TemporaryDatabaseExecutionListener extends AbstractTestExecutionListener {
-    @Rule
-    public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
     private boolean m_createNewDatabases = false;
     private TemporaryDatabase m_database;
