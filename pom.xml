@@ -723,7 +723,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.6.201602180812</version>
+        <version>0.8.3</version>
         <configuration>
           <!-- TODO: Figure out how to configure this to be the same path for all projects -->
           <classDumpDir>${opennms.build.basedir}/target/jacoco/classes</classDumpDir>
@@ -956,7 +956,7 @@
           <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
           <forkCount>1</forkCount>
           <reuseForks>false</reuseForks>
-          <rerunFailingTestsCount>1</rerunFailingTestsCount>
+          <rerunFailingTestsCount>0</rerunFailingTestsCount>
           <skipITs>${skipITs}</skipITs>
         </configuration>
         <executions>
@@ -995,7 +995,6 @@
         </configuration>
       </plugin>
       <!-- jacoco code coverage testing library -->
-      <!--
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -1003,20 +1002,19 @@
           <execution>
             <id>default-prepare-agent</id>
             <goals>
-              <!- - Add the jacoco agent configuration to the argLine for surefire - ->
+              <!-- Add the jacoco agent configuration to the argLine for surefire -->
               <goal>prepare-agent</goal>
             </goals>
           </execution>
           <execution>
             <id>default-prepare-agent-integration</id>
             <goals>
-              <!- - Add the jacoco agent configuration to the argLine for surefire - ->
+              <!-- Add the jacoco agent configuration to the argLine for surefire -->
               <goal>prepare-agent-integration</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
-      -->
       <plugin>
         <groupId>org.apache.cxf</groupId>
         <artifactId>cxf-xjc-plugin</artifactId>
