@@ -32,6 +32,7 @@ import static org.easymock.EasyMock.anyObject;
 import static org.easymock.EasyMock.eq;
 
 import java.io.File;
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -114,6 +115,7 @@ public class DuplicatePrimaryAddressIT {
 
     @Before
     public void setUp() {
+        MockLogAppender.setupLogging();
         MockServiceCollector.setDelegate(null);
     }
 
@@ -168,14 +170,15 @@ public class DuplicatePrimaryAddressIT {
      * @throws Exception the exception
      */
     private void initialize(boolean scheduleExistingNodes) throws Exception {
-        MockLogAppender.setupLogging();
-
         m_eventIpcManager = new MockEventIpcManager();
         EventIpcManagerFactory.setIpcManager(m_eventIpcManager);
 
         m_mockUtils = new EasyMockUtils();
 
+        List<InetAddress> m_addrs = new ArrayList<>();
+        m_addrs.add(InetAddressUtils.getInetAddress("192.168.1.1"));
         m_filterDao = m_mockUtils.createMock(FilterDao.class);
+        EasyMock.expect(m_filterDao.getActiveIPAddressList("IPADDR IPLIKE *.*.*.*")).andReturn(m_addrs).anyTimes();
         FilterDaoFactory.setInstance(m_filterDao);
 
         Resource resource = new ClassPathResource("etc/poll-outages.xml");
