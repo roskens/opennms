@@ -39,7 +39,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
-import org.junit.rules.TestName;
 import org.opennms.core.rpc.mock.MockRpcClientFactory;
 import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.MockPlatformTransactionManager;
@@ -96,9 +95,6 @@ public class BasePersisterTest {
     private RrdStrategy<?, ?> m_rrdStrategy;
     private FilesystemResourceStorageDao m_resourceStorageDao;
     private LocationAwareSnmpClient m_locationAwareSnmpClient = new LocationAwareSnmpClientRpcImpl(new MockRpcClientFactory());
-
-    /* erg, Rule fields must be public */
-    @Rule public TestName m_testName = new TestName();
 
     @Before
     public void setUp() throws Exception {

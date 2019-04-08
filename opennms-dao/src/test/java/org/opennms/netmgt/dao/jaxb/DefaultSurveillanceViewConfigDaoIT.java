@@ -50,7 +50,6 @@ import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
-import org.junit.rules.TestName;
 
 /**
  * Takes too long to run, so it's an IT test now.
@@ -63,9 +62,6 @@ public class DefaultSurveillanceViewConfigDaoIT {
     
     private DefaultSurveillanceViewConfigDao m_dao;
     
-    @Rule
-    public TestName m_testName = new TestName();
-
     @Before
     public void setUp() throws Exception {
         MockLogAppender.setupLogging();

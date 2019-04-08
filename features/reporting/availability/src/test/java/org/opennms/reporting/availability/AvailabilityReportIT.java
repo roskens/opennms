@@ -59,13 +59,10 @@ import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
-import org.junit.rules.TestName;
 
 public class AvailabilityReportIT {
     @Rule
     public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
-    @Rule
-    public TestName m_testName = new TestName();
 
     protected MockDatabase m_db;
     protected Categories m_categories; 
@@ -74,8 +71,6 @@ public class AvailabilityReportIT {
 
     @Before
     public void setUp() throws Exception {
-        System.err.println("------------------- begin "+m_testName.getMethodName()+" ---------------------");
-
         // Reset the FilterDaoFactory so we don't get screwed by having the JdbcFilterDao be connected to an older database
         FilterDaoFactory.setInstance(null);
 
@@ -344,8 +339,6 @@ public class AvailabilityReportIT {
     @After
     public void tearDown() throws Exception {
         m_db.drop();
-
-        System.err.println("------------------- end "+m_testName.getMethodName()+" -----------------------");
     }
 
 }

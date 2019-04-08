@@ -40,7 +40,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
-import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.opennms.core.spring.BeanUtils;
 import org.opennms.core.test.logging.MockLogAppender;
@@ -77,9 +76,6 @@ public class DiskUsageMonitorTest implements InitializingBean {
 
     static final String TEST_IP_ADDRESS = "127.0.0.1";
 
-    @Rule
-    public TestName m_test = new TestName();
-
     @Autowired
     private SnmpPeerFactory m_snmpPeerFactory;
     
@@ -95,7 +91,6 @@ public class DiskUsageMonitorTest implements InitializingBean {
 
     @Before
     public void setUp() throws Exception {
-        System.out.println("------------ begin test " + m_test.getMethodName() + " ------------");
         m_ignoreWarnings = false;
         MockLogAppender.setupLogging();
         monitor = new DiskUsageMonitor();
@@ -107,7 +102,6 @@ public class DiskUsageMonitorTest implements InitializingBean {
         if (!m_ignoreWarnings ) {
             MockLogAppender.assertNoWarningsOrGreater();
         }
-        System.out.println("------------ end test " + m_test.getMethodName() + " ------------");
     }
 
     @Test(expected = RuntimeException.class)

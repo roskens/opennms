@@ -48,7 +48,6 @@ import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
-import org.junit.rules.TestName;
 
 /**
  * NativeSocketTest
@@ -65,12 +64,8 @@ public class NativeSocketTest {
     Server m_server;
     int m_port = 0;
 
-    @Rule
-    public TestName m_testName = new TestName();
-
     @Before
     public void setUp() throws Exception {
-        System.err.println("------------------- begin " + m_testName.getMethodName() + " ---------------------");
         m_server = new Server(m_port);
         m_server.start();
         m_server.waitForStart();
@@ -81,7 +76,6 @@ public class NativeSocketTest {
     public void tearDown() throws InterruptedException {
         m_server.stop();
         m_port = 0;
-        System.err.println("------------------- end " + m_testName.getMethodName() + " -----------------------");
     }
 
     public void printf(final String fmt, final Object... args) {

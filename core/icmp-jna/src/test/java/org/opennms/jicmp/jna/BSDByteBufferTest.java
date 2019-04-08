@@ -43,7 +43,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
-import org.junit.rules.TestName;
 
 import com.sun.jna.LastErrorException;
 import com.sun.jna.Native;
@@ -73,19 +72,6 @@ public class BSDByteBufferTest {
 
     public void printf(String fmt, Object... args) {
         System.err.print(String.format(fmt, args));
-    }
-
-    @Rule
-    public TestName m_testName = new TestName();
-
-    @Before
-    public void setUp() throws Exception {
-        System.err.println("------------------- begin " + m_testName.getMethodName() + " ---------------------");
-    }
-
-    @After
-    public void tearDown() throws InterruptedException {
-        System.err.println("------------------- end " + m_testName.getMethodName() + " -----------------------");
     }
 
     @Test(timeout=30000)

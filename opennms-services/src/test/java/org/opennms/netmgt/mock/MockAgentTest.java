@@ -42,7 +42,6 @@ import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
-import org.junit.rules.TestName;
 
 import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.test.mock.MockUtil;
@@ -73,8 +72,6 @@ import org.snmp4j.util.TableUtils;
 public class MockAgentTest {
     @Rule
     public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
-    @Rule
-    public TestName m_testName = new TestName();
 
     private MockNetwork m_network;
     private MockProxy m_proxy;
