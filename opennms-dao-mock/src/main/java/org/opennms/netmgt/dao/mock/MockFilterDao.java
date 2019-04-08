@@ -81,9 +81,20 @@ public class MockFilterDao implements FilterDao, InitializingBean {
             builder.ne("isManaged", "D");
             builder.distinct();
             final Criteria criteria = builder.toCriteria();
-            for (final OnmsIpInterface iface : m_ipInterfaceDao.findMatching(criteria)) {
+            m_ipInterfaceDao.findMatching(criteria).forEach(iface -> {
                 addrs.add(iface.getIpAddress());
-            }
+            });
+            return addrs;
+        } else if (rule.equals("IPADDR IPLIKE *.*.*.*")) {
+            Assert.notNull(m_ipInterfaceDao);
+            final CriteriaBuilder builder = new CriteriaBuilder(OnmsIpInterface.class);
+            builder.iplike("ipAddress", "*.*.*.*");
+            builder.ne("isManaged", "D");
+            builder.distinct();
+            final Criteria criteria = builder.toCriteria();
+            m_ipInterfaceDao.findMatching(criteria).forEach(iface -> {
+                addrs.add(iface.getIpAddress());
+            });
             return addrs;
         }
         throw new UnsupportedOperationException("Not yet implemented!");
