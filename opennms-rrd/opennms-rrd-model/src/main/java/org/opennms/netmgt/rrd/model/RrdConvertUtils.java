@@ -93,7 +93,7 @@ public class RrdConvertUtils {
         }
         try {
             XMLReader xmlReader = XMLReaderFactory.createXMLReader();
-            xmlReader.setProperty(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            xmlReader.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
             Process process = Runtime.getRuntime().exec(new String[] {rrdBinary, "dump", sourceFile.getAbsolutePath()});
             SAXSource source = new SAXSource(xmlReader, new InputSource(new InputStreamReader(process.getInputStream())));
