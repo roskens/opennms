@@ -300,7 +300,7 @@ public abstract class JaxbUtils {
 
         LOG.trace("namespace filter for class {}: {}", clazz, filter);
         final XMLReader xmlReader = XMLReaderFactory.createXMLReader();
-        xmlReader.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        xmlReader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 
         filter.setParent(xmlReader);
