@@ -152,7 +152,7 @@ public class RrdtoolXportFetchStrategy extends AbstractRrdBasedFetchStrategy {
             executor.execute(cmdLine);
 
             final XMLReader xmlReader = XMLReaderFactory.createXMLReader();
-            xmlReader.setProperty(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            xmlReader.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
             final SAXSource source = new SAXSource(xmlReader, new InputSource(
                     new StringReader(stdout.toString())));
