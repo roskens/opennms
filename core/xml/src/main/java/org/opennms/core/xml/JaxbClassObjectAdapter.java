@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2014-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.XMLConstants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -99,7 +100,9 @@ public class JaxbClassObjectAdapter extends XmlAdapter<Object, Object> {
 
         try {
             final String s = JaxbUtils.marshal(from);
-            final DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            final DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            docFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            final DocumentBuilder builder = docFactory.newDocumentBuilder();
             final Document doc = builder.parse(new ByteArrayInputStream(s.getBytes()));
             final Node node = doc.getDocumentElement();
             LOG.trace("marshal: node = {}", node);

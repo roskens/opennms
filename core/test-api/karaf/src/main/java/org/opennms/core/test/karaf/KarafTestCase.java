@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2014-2015 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2015 The OpenNMS Group, Inc.
+ * Copyright (C) 2014-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -59,6 +59,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 import javax.security.auth.Subject;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -122,6 +123,7 @@ public abstract class KarafTestCase {
         Objects.requireNonNull(pomFile, "Unable to find pom.xml!  This should not happen...");
         try {
             final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             final DocumentBuilder db = dbf.newDocumentBuilder(); 
             final Document doc = db.parse(pomFile);
             final Element root = doc.getDocumentElement();

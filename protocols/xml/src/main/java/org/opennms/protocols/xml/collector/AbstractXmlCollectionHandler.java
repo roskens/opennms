@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2011-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2011-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -473,6 +473,7 @@ public abstract class AbstractXmlCollectionHandler implements XmlCollectionHandl
         is = preProcessHtml(request, is);
         is = applyXsltTransformation(request, is);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
         factory.setIgnoringComments(true);
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
