@@ -37,6 +37,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.sax.SAXSource;
+import javax.xml.XMLConstants;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
@@ -151,6 +152,7 @@ public class RrdtoolXportFetchStrategy extends AbstractRrdBasedFetchStrategy {
             executor.execute(cmdLine);
 
             final XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+            xmlReader.setProperty(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
             final SAXSource source = new SAXSource(xmlReader, new InputSource(
                     new StringReader(stdout.toString())));

@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2013-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2013-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -36,6 +36,7 @@ import java.io.InputStreamReader;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.sax.SAXSource;
+import javax.xml.XMLConstants;
 
 import org.jrobin.core.RrdDb;
 import org.jrobin.core.RrdException;
@@ -92,6 +93,7 @@ public class RrdConvertUtils {
         }
         try {
             XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+            xmlReader.setProperty(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
             Process process = Runtime.getRuntime().exec(new String[] {rrdBinary, "dump", sourceFile.getAbsolutePath()});
             SAXSource source = new SAXSource(xmlReader, new InputSource(new InputStreamReader(process.getInputStream())));

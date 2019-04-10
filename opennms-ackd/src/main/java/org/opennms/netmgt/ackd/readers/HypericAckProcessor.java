@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2009-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2009-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -529,6 +529,8 @@ public class HypericAckProcessor implements AckProcessor {
         // Instantiate a JAXB context to parse the alert status
         JAXBContext context = JAXBContext.newInstance(new Class[] { HypericAlertStatuses.class, HypericAlertStatus.class });
         XMLInputFactory xmlif = XMLInputFactory.newInstance();
+        xmlif.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, Boolean.FALSE);
+        xmlif.setProperty(XMLInputFactory.SUPPORT_DTD, Boolean.FALSE);
         XMLEventReader xmler = xmlif.createXMLEventReader(reader);
         EventFilter filter = new EventFilter() {
             @Override

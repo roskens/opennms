@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2018 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2018 The OpenNMS Group, Inc.
+ * Copyright (C) 2018-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -33,6 +33,7 @@ import java.nio.file.Path;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.XMLConstants;
 
 import org.xml.sax.SAXException;
 
@@ -49,7 +50,9 @@ public class XMLFileChecker {
 
     public void forSyntax() {
         try {
-            DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file.toFile());
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            factory.newDocumentBuilder().parse(file.toFile());
             // Document was parsed => we assume its a valid XML
         } catch (SAXException | ParserConfigurationException | IOException e) {
             throw new ConfigCheckValidationException(e);

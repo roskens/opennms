@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2011-2016 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2016 The OpenNMS Group, Inc.
+ * Copyright (C) 2011-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -62,6 +62,7 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+import javax.xml.XMLConstants;
 
 import org.apache.commons.io.IOUtils;
 import org.custommonkey.xmlunit.DetailedDiff;
@@ -184,10 +185,13 @@ abstract public class XmlTest<T> {
         saxParserFactory.setValidating(true);
         saxParserFactory.setNamespaceAware(true);
         saxParserFactory.setSchema(schema);
+        saxParserFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
 
         assertTrue("make sure our SAX implementation can validate", saxParserFactory.isValidating());
 
         final Validator validator = schema.newValidator();
+        validator.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        validator.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
         final ByteArrayInputStream inputStream = new ByteArrayInputStream(xml.getBytes());
         final Source source = new StreamSource(inputStream);
 

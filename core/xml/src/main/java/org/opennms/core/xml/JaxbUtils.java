@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2011-2017 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2017 The OpenNMS Group, Inc.
+ * Copyright (C) 2011-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -68,6 +68,7 @@ import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+import javax.xml.XMLConstants;
 
 import org.apache.commons.io.IOUtils;
 import org.eclipse.persistence.jaxb.MarshallerProperties;
@@ -299,6 +300,7 @@ public abstract class JaxbUtils {
 
         LOG.trace("namespace filter for class {}: {}", clazz, filter);
         final XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+        xmlReader.setProperty(XMLConstants.FEATURE_SECURE_PROCESSING, true);
         xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 
         filter.setParent(xmlReader);
