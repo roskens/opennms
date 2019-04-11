@@ -26,6 +26,35 @@
           </instructions>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>keytool-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-test-resources</phase>
+            <id>clean</id>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+          <execution>
+            <phase>generate-test-resources</phase>
+            <id>genkey</id>
+            <goals>
+              <goal>generateKeyPair</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <keystore>${project.build.directory}/test-classes/JUnitHttpServer.keystore</keystore>
+          <dname>CN=OpenNMS Test, OU=Unit Tests, O=OpenNMS, L=Pittsboro, ST=NC, C=US</dname>
+          <keypass>opennms</keypass>
+          <storepass>opennms</storepass>
+          <alias>OpenNMS-Test</alias>
+          <keyalg>RSA</keyalg>
+          <keysize>2048</keysize>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <dependencies>

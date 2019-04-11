@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2012-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2012-2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -29,19 +29,35 @@
 package org.opennms.netmgt.poller.monitors;
 
 import static org.junit.Assert.assertTrue;
+import static org.easymock.EasyMock.expect;
+import static org.powermock.api.easymock.PowerMock.*;
 
+import java.io.InputStream;
+import java.io.FileInputStream;
 import java.net.UnknownHostException;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Map;
 import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.Properties;
+import java.net.InetAddress;
 
+import org.easymock.EasyMock;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.opennms.core.test.logging.TestCasePrinterRule;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
+import org.opennms.core.test.logging.MockLogger;
 import org.opennms.core.test.logging.MockLogAppender;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.http.annotations.JUnitHttpServer;
@@ -53,21 +69,43 @@ import org.opennms.test.JUnitConfigurationEnvironment;
 import org.springframework.test.context.ContextConfiguration;
 
 
-@RunWith(OpenNMSJUnit4ClassRunner.class)
+@RunWith(PowerMockRunner.class)
+@PowerMockRunnerDelegate(OpenNMSJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:/META-INF/opennms/emptyContext.xml"})
 @JUnitConfigurationEnvironment
+@PrepareForTest({DnsUtils.class})
+@PowerMockIgnore({"javax.*","org.xml.*","com.sun.*","org.w3c.*"})
 public class SSLCertMonitorIT {
     @Rule
     public TestCasePrinterRule m_printerRule = new TestCasePrinterRule(System.out);
 
-    // The certificate JUnitHttpServer uses is valid:
-    //   from  Tue Nov 08 14:30:45 CET 2016
-    //   until Fri Nov 03 14:30:45 CET 2017
-    private static final long EXPIRE_DATE = 1509715800000L;
+    private static long m_expireDate = System.currentTimeMillis();
+
+    @BeforeClass
+    public static void setUpKeystore() {
+        try {
+            final char[] keyStorePassword = "opennms".toCharArray();
+            KeyStore.ProtectionParameter protParam = new KeyStore.PasswordProtection(keyStorePassword);
+            final KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
+            try (InputStream keyStoreData = new FileInputStream("target/test-classes/JUnitHttpServer.keystore")) {
+                keystore.load(keyStoreData, keyStorePassword);
+                X509Certificate cert = (X509Certificate) keystore.getCertificate("OpenNMS-Test");
+                m_expireDate = cert.getNotAfter().getTime();
+            }
+        } catch (Exception e) {
+        }
+    }
 
     @Before
     public void setUp() throws Exception {
-        MockLogAppender.setupLogging();
+        final Properties props = new Properties();
+        props.setProperty(MockLogger.LOG_KEY_PREFIX + "org.eclipse.jetty.io", "WARN");
+        props.setProperty(MockLogger.LOG_KEY_PREFIX + "org.eclipse.jetty.server", "WARN");
+        MockLogAppender.setupLogging(props);
+        mockStatic(DnsUtils.class);
+        expect(DnsUtils.resolveHostname("localhost",false)).andReturn(InetAddress.getByName("127.0.0.1"));
+        expect(DnsUtils.resolveHostname("www.google.com", false)).andThrow(new UnknownHostException("Could not perform A record lookup for host: www.google.com"));
+        replay(DnsUtils.class);
     }
 
     @Test
@@ -77,7 +115,7 @@ public class SSLCertMonitorIT {
             @Override
             protected Calendar getCalendarInstance() {
                 final Calendar cal = GregorianCalendar.getInstance();
-                cal.setTimeInMillis(EXPIRE_DATE - 86400000 * 5);
+                cal.setTimeInMillis(m_expireDate - 86400000 * 5 - 45000);
                 return cal;
             }
         };
@@ -101,7 +139,7 @@ public class SSLCertMonitorIT {
             @Override
             protected Calendar getCalendarInstance() {
                 final Calendar cal = GregorianCalendar.getInstance();
-                cal.setTimeInMillis(EXPIRE_DATE - 86400000 * 4);
+                cal.setTimeInMillis(m_expireDate - 86400000 * 4);
                 return cal;
             }
         };
@@ -125,7 +163,7 @@ public class SSLCertMonitorIT {
             @Override
             protected Calendar getCalendarInstance() {
                 final Calendar cal = GregorianCalendar.getInstance();
-                cal.setTimeInMillis(EXPIRE_DATE - 86400000 * -1);
+                cal.setTimeInMillis(m_expireDate - 86400000 * -1);
                 return cal;
             }
         };
@@ -149,7 +187,7 @@ public class SSLCertMonitorIT {
             @Override
             protected Calendar getCalendarInstance() {
                 final Calendar cal = GregorianCalendar.getInstance();
-                cal.setTimeInMillis(EXPIRE_DATE - 86400000 * 5);
+                cal.setTimeInMillis(m_expireDate - 86400000 * 5 - 45000);
                 return cal;
             }
         };
@@ -174,7 +212,7 @@ public class SSLCertMonitorIT {
             @Override
             protected Calendar getCalendarInstance() {
                 final Calendar cal = GregorianCalendar.getInstance();
-                cal.setTimeInMillis(EXPIRE_DATE - 86400000 * 5);
+                cal.setTimeInMillis(m_expireDate - 86400000 * 5);
                 return cal;
             }
         };
@@ -193,8 +231,7 @@ public class SSLCertMonitorIT {
         assertTrue(status.isUnavailable());
     }
 
-    @Test
-    @Ignore
+    @Test(expected = UnknownHostException.class)
     public void testInternetWebsite() throws UnknownHostException {
         SSLCertMonitor monitor = new SSLCertMonitor();
         Map<String, Object> parameters = new ConcurrentSkipListMap<String, Object>();
