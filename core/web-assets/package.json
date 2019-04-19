@@ -64,7 +64,7 @@
         "webpack-bundle-analyzer": "^2.13.1",
         "webpack-cli": "^2.1.5",
         "webpack-md5-hash": "^0.0.6",
-        "yargs": "^11.0.0"
+        "yargs": "^13.2.2"
     },
     "dependencies": {
         "angular": "1.5.11",
@@ -105,9 +105,9 @@
         "js-joda-timezone": "2.0.0",
         "leaflet": "1.0.2",
         "leaflet.markercluster": "1.0.0",
+        "moment": "2.22.2",
         "popper.js": "^1.14.3",
         "ui-bootstrap4": "^3.0.4",
-        "moment": "2.22.2",
         "underscore": "1.8.3"
     },
     "peerDependencies": {
