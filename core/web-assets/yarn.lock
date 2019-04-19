@@ -136,7 +136,7 @@
     globals "^11.1.0"
     lodash "^4.17.11"
 
-"@babel/types@^7.0.0", "@babel/types@^7.3.0", "@babel/types@^7.4.0":
+"@babel/types@^7.0.0", "@babel/types@^7.2.0", "@babel/types@^7.3.0", "@babel/types@^7.4.0":
   version "7.4.0"
   resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/@babel/types/-/types-7.4.0.tgz#670724f77d24cce6cc7d8cf64599d511d164894c"
   integrity sha512-aPvkXyU2SPOnztlgo8n9cEiXW755mgyvueUPcpStqdzoSPm0fjO0vQBjLkt3JKJW7ufikfcnMTTPsN1xaTsBPA==
@@ -1037,12 +1037,13 @@ babel-messages@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-angularjs-annotate@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-angularjs-annotate/-/babel-plugin-angularjs-annotate-0.9.0.tgz#5c499bb04d9ae5802b31e1068aedb8b2286a83af"
+babel-plugin-angularjs-annotate@^0.10.0:
+  version "0.10.0"
+  resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/babel-plugin-angularjs-annotate/-/babel-plugin-angularjs-annotate-0.10.0.tgz#4213b3aaae494a087aad0b8237c5d0716d22ca76"
+  integrity sha512-NPE7FOAxcLPCUR/kNkrhHIjoScR3RyIlRH3yRn79j8EZWtpILVnCOdA9yKfsOmRh6BHnLHKl8ZAThc+YDd/QwQ==
   dependencies:
-    babel-code-frame "^6.26.0"
-    babel-types "^6.26.0"
+    "@babel/code-frame" "^7.0.0"
+    "@babel/types" "^7.2.0"
     simple-is "~0.2.0"
 
 babel-plugin-check-es2015-constants@^6.22.0, babel-plugin-check-es2015-constants@^6.3.13:
