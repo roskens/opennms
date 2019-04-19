@@ -29,7 +29,7 @@
         "babel-preset-env": "^1.7.0",
         "babel-preset-es2015-nostrict": "^6.6.2",
         "babel-preset-latest": "^6.24.1",
-        "cache-loader": "^1.2.2",
+        "cache-loader": "^3.0.0",
         "copy-webpack-plugin": "^5.0.2",
         "css-loader": "^0.28.11",
         "eslint": "^5.16.0",
