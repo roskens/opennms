@@ -67,7 +67,7 @@
         "yargs": "^13.2.2"
     },
     "dependencies": {
-        "angular": "1.5.11",
+        "angular": "1.7.8",
         "angular-animate": "1.5.11",
         "angular-bootstrap-checkbox": "^0.5.0",
         "angular-bootstrap-confirm": "^2.5.1",
