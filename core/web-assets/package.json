@@ -78,7 +78,7 @@
         "angular-resource": "1.5.11",
         "angular-route": "1.5.11",
         "angular-sanitize": "1.5.11",
-        "angular-ui-router": "^1.0.3",
+        "angular-ui-router": "^1.0.22",
         "backshift": "https://github.com/opennms/backshift.git#1.2.3",
         "bootbox": "4.4.0",
         "bootstrap": "4.1.3",

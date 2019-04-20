@@ -336,9 +336,10 @@
   resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
   integrity sha512-SOhuU4wNBxhhTHxYaiG5NY4HBhDIDnJF60GU+2LqHAdKKer86//e4yg69aENCtQ04n0ovz+tq2YPME5t5yp4pw==
 
-"@uirouter/core@5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@uirouter/core/-/core-5.0.3.tgz#e2b5b1e45190e20c67ba4e15c013de5d4e0ccab3"
+"@uirouter/core@5.0.23":
+  version "5.0.23"
+  resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/@uirouter/core/-/core-5.0.23.tgz#363b4bea635a1b48900dc7e65793a65a3b58a79e"
+  integrity sha512-rwFOH++z/KY8y+h0IOpQ5uC8Nim6E0EBCQrIjhVCr+XKYXgpK+VdtuOLFdogvbJ3AAi5Z7ei00qdEr7Did5CAg==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -637,11 +638,12 @@ angular-sanitize@1.5.11:
   version "1.5.11"
   resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.5.11.tgz#ebfb3f343e543f9b2ef050fb4c2e9ee048d1772f"
 
-angular-ui-router@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/angular-ui-router/-/angular-ui-router-1.0.3.tgz#bf2494caae95c37cf01af3761d89747cfed2db45"
+angular-ui-router@^1.0.22:
+  version "1.0.22"
+  resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/angular-ui-router/-/angular-ui-router-1.0.22.tgz#54a88a06baba576e186fa1b4d5aac913eb4ccb08"
+  integrity sha512-cuq0+Di6spKEIQ1aZCGORPU9uZzJRFzuiMQDB2vLUDlo1DS8tR8/KxlThqmz6iw+8KtmUArI+5IMINSp/jwUKg==
   dependencies:
-    "@uirouter/core" "5.0.3"
+    "@uirouter/core" "5.0.23"
 
 angular@1.5.11:
   version "1.5.11"
