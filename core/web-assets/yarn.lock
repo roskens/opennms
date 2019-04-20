@@ -8361,9 +8361,10 @@ uglifyjs-webpack-plugin@^2.1.2:
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
 
-ui-bootstrap4@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/ui-bootstrap4/-/ui-bootstrap4-3.0.4.tgz#e42c61a0fd383c2a7b176505270cff4cab9e4e9e"
+ui-bootstrap4@^3.0.6:
+  version "3.0.6"
+  resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/ui-bootstrap4/-/ui-bootstrap4-3.0.6.tgz#bec796879455569872a1575786ca643ab00172ea"
+  integrity sha512-Kh38WAu/S8EiyKRMaATkFjsbQplJHvP+g2lxitE5SbjQTDieua8T7d+mQNxbxTjfmJqGtVzsHQCHRmBVdKPeOg==
 
 uid-number@^0.0.6:
   version "0.0.6"

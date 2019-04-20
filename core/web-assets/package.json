@@ -106,7 +106,7 @@
         "leaflet.markercluster": "1.0.0",
         "moment": "2.24.0",
         "popper.js": "^1.14.3",
-        "ui-bootstrap4": "^3.0.4",
+        "ui-bootstrap4": "^3.0.6",
         "underscore": "1.8.3"
     },
     "peerDependencies": {
