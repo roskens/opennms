@@ -90,7 +90,7 @@
         "flot.navigate": "https://github.com/OpenNMS/flot-navigate.git#master",
         "flot.saveas": "https://github.com/RangerRick/flot-saveas.git#master",
         "font-awesome": "^4.7.0",
-        "holderjs": "^2.9.4",
+        "holderjs": "^2.9.6",
         "ionicons": "2.0.1",
         "ip-address": "^5.9.0",
         "jquery": "3.4.0",
