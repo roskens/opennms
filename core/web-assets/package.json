@@ -104,7 +104,7 @@
         "js-joda-timezone": "2.0.2",
         "leaflet": "1.0.2",
         "leaflet.markercluster": "1.0.0",
-        "moment": "2.22.2",
+        "moment": "2.24.0",
         "popper.js": "^1.14.3",
         "ui-bootstrap4": "^3.0.4",
         "underscore": "1.8.3"
