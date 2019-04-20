@@ -629,9 +629,10 @@ angular-mocks@1.5.11:
   version "1.5.11"
   resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.5.11.tgz#a0e1dd0ea55fd77ee7a757d75536c5e964c86f81"
 
-angular-resource@1.5.11:
-  version "1.5.11"
-  resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.5.11.tgz#d93ea619184a2e0ee3ae338265758363172929f0"
+angular-resource@1.7.8:
+  version "1.7.8"
+  resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/angular-resource/-/angular-resource-1.7.8.tgz#9577dbcc02cdbb76398febc5fc7ee103c86c5c50"
+  integrity sha512-zuPQ0ZX9Q8WnZ0KMtJlKYUSIXWRQSbFzMkRV9zG8cYYSsMAZlXar5Hqmd5gzxC3O28AGM7BCEJ+iYs3UNL4qdA==
 
 angular-route@1.5.11:
   version "1.5.11"
