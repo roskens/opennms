@@ -2741,11 +2741,7 @@ d3-zoom@1:
     d3-selection "1"
     d3-transition "1"
 
-d3@3.5.17:
-  version "3.5.17"
-  resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
-
-d3@^5.8.0:
+d3@5.9.2, d3@^5.8.0:
   version "5.9.2"
   resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/d3/-/d3-5.9.2.tgz#64e8a7e9c3d96d9e6e4999d2c8a2c829767e67f5"
   integrity sha512-ydrPot6Lm3nTWH+gJ/Cxf3FcwuvesYQ5uk+j/kXEH/xbuYWYWTMAHTJQkyeuG8Y5WM5RSEYB41EctUrXQQytRQ==
