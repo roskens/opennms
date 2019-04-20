@@ -4941,13 +4941,15 @@ js-base64@^2.1.9:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.3.tgz#2e545ec2b0f2957f41356510205214e98fad6582"
 
-js-joda-timezone@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/js-joda-timezone/-/js-joda-timezone-2.0.0.tgz#54352ea91004dbe846855c29a2c5961128a25b7b"
+js-joda-timezone@2.0.2:
+  version "2.0.2"
+  resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/js-joda-timezone/-/js-joda-timezone-2.0.2.tgz#9e95df374200e01448173e73ee0b5681c79283f4"
+  integrity sha512-d7aFR6Oa5ScsupMSUUFWOh3Iz/EFq4M8+owch4V2FDr94P1+f/hch/xvTMHusM6dYeYCkvky+eRKHKnTn7YjDw==
 
-js-joda@1.8.2:
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/js-joda/-/js-joda-1.8.2.tgz#4a7f3aa0cd1e386c35d7628a741184d761cb1401"
+js-joda@1.10.1:
+  version "1.10.1"
+  resolved "http://nexus.mn.elfin.net:8081/repository/npmjs-registry/js-joda/-/js-joda-1.10.1.tgz#41e2f0a646dd63f2bf75d74471743eaafc91a5f2"
+  integrity sha512-lDBKliZf2oLX4h1EjzkhBulpQRv51A9x2nhX1XnP1PD0LU7a30I7CKtAWZ//5c+Z6aWG8TO996vVr+4owE9vWA==
 
 js-message@1.0.5:
   version "1.0.5"
