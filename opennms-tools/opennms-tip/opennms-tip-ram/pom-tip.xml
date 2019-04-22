@@ -193,13 +193,6 @@
         </executions>
       </plugin>
 
-<!--      <plugin>-->
-<!--        <artifactId>maven-eclipse-plugin</artifactId>-->
-<!--        <configuration>-->
-<!--          <wtpversion>2.0</wtpversion>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>maven-jetty-plugin</artifactId>

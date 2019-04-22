@@ -69,26 +69,6 @@
           </systemProperties>
         </configuration>
       </plugin>
-      <!-- Generates the GWT Container and Nature for GWT projects when eclipse:eclipse is run -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <configuration>
-          <additionalBuildcommands>
-            <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-            <buildcommand>com.google.gwt.eclipse.core.gwtProjectValidator</buildcommand>
-          </additionalBuildcommands>
-          <additionalProjectnatures>
-            <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-            <projectnature>com.google.gwt.eclipse.core.gwtNature</projectnature>
-          </additionalProjectnatures>
-          <classpathContainers>
-            <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-            <classpathContainer>com.google.gwt.eclipse.core.GWT_CONTAINER</classpathContainer>
-          </classpathContainers>
-        </configuration>
-      </plugin>
-      
     </plugins>
   </build>
     
