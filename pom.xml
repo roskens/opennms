@@ -150,9 +150,6 @@
     <module>opennms-wmi</module>
     <module>opennms-asterisk</module>
   </modules>
-  <prerequisites>
-    <maven>3.6.1</maven>
-  </prerequisites>
   <build>
   <extensions>
     <extension>
