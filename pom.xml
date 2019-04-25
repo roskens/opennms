@@ -867,17 +867,6 @@
             <phase>validate</phase>
             <configuration>
               <target>
-                <condition property="java.versionokay">
-                  <or>
-                    <!-- Don't forget to update the <fail> message below -->
-                    <contains string="${java.version}" substring="1.8."/>
-                    <contains string="${java.vm.version}" substring="1.8."/>
-                  </or>
-                </condition>
-                <fail unless="java.versionokay">You must use Java 1.8 to build!</fail>
-                <echo message="update policy is ${updatePolicy}"/>
-              </target>
-              <target>
                 <property name="opennms.build.basedir" location="." />
                 <mkdir dir="${opennms.build.basedir}/target/jacoco/classes" />
                 <echo message="base directory is ${opennms.build.basedir}" />
