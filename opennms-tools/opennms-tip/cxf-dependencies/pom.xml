@@ -175,25 +175,4 @@
       <scope>${provided.by.opennms}</scope>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <snapshots><enabled>false</enabled></snapshots>
-      <releases><enabled>true</enabled></releases>
-      <id>opennms-repo</id>
-      <name>OpenNMS Maven Repository</name>
-      <url>http://maven.opennms.org/content/groups/opennms.org-release</url>
-    </repository>
-    <!-- OpenNMS private download URL -->
-    <!-- see http://www.opennms.org/wiki/TIP_Maven_Repository -->
-    <repository>
-      <releases/>
-      <id>tip-repo</id>
-      <url>http://tip.opennms.org/content/repositories/tip-repo</url>
-    </repository>
-    <repository>
-      <snapshots/>
-      <id>tip-snapshot</id>
-      <url>http://tip.opennms.org/content/repositories/tip-snapshot</url>
-    </repository>
-  </repositories>
 </project>

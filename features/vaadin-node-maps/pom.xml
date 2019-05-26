@@ -98,35 +98,6 @@
 
 	</build>
 
-	<repositories>
-		<repository>
-			<id>vaadin-snapshots</id>
-			<releases><enabled>false</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
-			<url>http://maven.opennms.org/content/repositories/vaadin-snapshots/</url>
-		</repository>
-		<repository>
-			<id>vaadin-addons</id>
-			<url>http://maven.opennms.org/content/repositories/vaadin-addons/</url>
-		</repository>
-		<repository>
-			<snapshots><enabled>false</enabled></snapshots>
-			<releases><enabled>true</enabled></releases>
-			<id>opennms-repo</id>
-			<name>OpenNMS Repository</name>
-			<url>http://maven.opennms.org/content/groups/opennms.org-release/</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>vaadin-snapshots</id>
-			<snapshots><enabled>true</enabled></snapshots>
-			<releases><enabled>false</enabled></releases>
-			<url>http://maven.opennms.org/content/repositories/vaadin-snapshots/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<dependencies>
 		<!-- OSGi Dependencies -->
 
