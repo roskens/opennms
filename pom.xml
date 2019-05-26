@@ -1553,9 +1553,9 @@
                 <version>${project.version}</version>
               </dependency>
               <dependency>
-                <groupId>com.github.sevntu.checkstyle</groupId>
+                <groupId>com.github.sevntu-checkstyle</groupId>
                 <artifactId>sevntu-checkstyle-maven-plugin</artifactId>
-                <version>1.23.1</version>
+                <version>1.24.0</version>
               </dependency>
             </dependencies>
             <configuration>
