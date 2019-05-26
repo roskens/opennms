@@ -108,4 +108,11 @@
       <artifactId>ecj</artifactId>
     </dependency>
   </dependencies>
+  <repositories>
+    <repository>
+      <id>jasperreports</id>
+      <name>Jasperreports Maven Repository</name>
+      <url>http://jasperreports.sourceforge.net/maven2</url>
+    </repository>
+  </repositories>
 </project>
