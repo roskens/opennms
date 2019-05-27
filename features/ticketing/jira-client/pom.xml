@@ -119,4 +119,14 @@
             </exclusions>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>atlassian-public</id>
+            <name>Atlassian Repository</name>
+            <!-- url>http://maven.atlassian.com/content/repositories/atlassian-public/</url -->
+            <url>http://repo.spring.io/plugins-release</url>
+        </repository>
+    </repositories>
+
 </project>
