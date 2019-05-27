@@ -1032,6 +1032,13 @@
       <version>${project.version}</version>
     </dependency>
   </dependencies>
+  <repositories>
+    <repository>
+      <id>thirdparty</id>
+      <name>Thirdparty</name>
+      <url>http://localhost:8081/repository/thirdparty/</url>
+    </repository>
+  </repositories>
   <pluginRepositories>
     <pluginRepository>
       <id>thirdparty</id>
