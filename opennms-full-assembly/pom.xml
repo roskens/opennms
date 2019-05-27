@@ -983,4 +983,11 @@
     You need to have all Maven repos here that contain artifacts that you need installed
     into the Karaf system folder.
   -->
+  <repositories>
+    <repository>
+      <id>thirdparty</id>
+      <name>Thirdparty</name>
+      <url>http://localhost:8081/repository/thirdparty/</url>
+    </repository>
+  </repositories>
 </project>
