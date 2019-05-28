@@ -1,0 +1,2281 @@
+This Topic documents the various resources that are not available from maven-central and are used during a build.
+
+If you wanted to setup a local nexus mirror, then these resources need to be installed to a local hosted repository.
+
+I started with removing all <repositories> and <pluginRepositories> blocks from all pom.xml files in the OpenNMS source tree.
+When I discovered an unmet dependency, I would fetch that resource from the OpenNMS maven.opennms.org and upload it into my hosted thirdparty repository.
+
+
+# Thirdparty resources
+
+## com.github.sevntu.checkstyle:sevntu-checkstyle-maven-plugin:1.23.1
+### Dependency
+```
+<dependency>
+  <groupId>com.github.sevntu.checkstyle</groupId>
+  <artifactId>sevntu-checkstyle-maven-plugin</artifactId>
+  <version>1.23.1</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (check-license) on project opennms: Execution check-license of goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check failed: Plugin org.apache.maven.plugins:maven-checkstyle-plugin:2.17 or one of its dependencies could not be resolved: Could not find artifact com.github.sevntu.checkstyle:sevntu-checkstyle-maven-plugin:jar:1.23.1 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+```
+
+### Analysis
+Versions of sevntu-checkstyle-maven-plugin prior to 1.24 were never published to maven-central. When sevntu-checkstyle-maven-plugin was added to central, its maven coordinates were:
+```
+<dependency>
+  <groupId>com.github.sevntu-checkstyle</groupId>
+  <artifactId>sevntu-checkstyle-maven-plugin</artifactId>
+  <version>1.24.0</version>
+</dependency>
+
+```
+
+----
+## org.asteriskjava:asterisk-java:jar:1.0.0-preview-20090427
+### Dependency
+```
+<dependency>
+  <groupId>org.asteriskjava</groupId>
+  <artifactId>asterisk-java</artifactId>
+  <version>1.0.0-preview-20090427</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project asterisk-dependencies: Could not resolve dependencies for project org.opennms.dependencies:asterisk-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.asteriskjava:asterisk-java:jar:1.0.0-preview-20090427 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+```
+
+### Analysis
+Starting with the 1.0.0-m2 release, asterisk-java has been published on maven-central.
+http://asterisk-java.org/asterisk-java-sync-to-maven-central-repo-386/
+
+
+http://asterisk-java.org/
+
+### Fix
+```
+```
+
+
+----
+## org.dnsjava:dnsjava:jar:2.1.3
+### Dependency
+```
+<dependency>
+  <groupId>org.dnsjava</groupId>
+  <artifactId>dnsjava</artifactId>
+  <version>2.1.3</version>
+</dependency>
+```
+### Repository
+```
+<repositories>
+  <repository>
+    <id>thirdparty</id>
+    <name>Thirdparty</name>
+    <url>http://maven.opennms.org/repository/thirdparty</url>
+  </repository>
+</repositories>
+```
+### Error
+```
+[ERROR] Failed to execute goal on project dnsjava-dependencies: Could not resolve dependencies for project org.opennms.dependencies:dnsjava-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.dnsjava:dnsjava:jar:2.1.3 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+```
+
+### Analysis
+* http://www.dnsjava.org/
+* https://sourceforge.net/projects/dnsjava/files/dnsjava/2.1.3/dnsjava-2.1.3.jar/download
+
+jar file is not published to maven central
+
+### Fix
+```
+# mvn deploy:deploy-file -DgroupId=org.dnsjava -DartifactId=dnsjava -Dversion=2.1.3 -Dfile=dnsjava-2.1.3.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+----
+## com.lowagie:itext:jar:2.1.7.js4
+### Dependency
+```
+    <dependency>
+      <groupId>com.lowagie</groupId>
+      <artifactId>itext</artifactId>
+      <version>2.1.7.js4</version>
+      <exclusions>
+        <exclusion>
+          <groupId>eclipse</groupId>
+          <artifactId>jdtcore</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.bouncycastle</groupId>
+          <artifactId>bctsp-jdk14</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>bouncycastle</groupId>
+          <artifactId>bcmail-jdk14</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>bouncycastle</groupId>
+          <artifactId>bcprov-jdk14</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+```
+### Repository
+```
+<repositories>
+  <repository>
+    <id>jasperreports</id>
+    <name>Jasperreports Maven Repository</name>
+    <url>http://jasperreports.sourceforge.net/maven2</url>
+  </repository>
+</repositories>
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jasper-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jasper-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact com.lowagie:itext:jar:2.1.7.js4 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+```
+
+### Analysis
+```
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=250962, ConflictMarker.markTime=115975, ConflictMarker.nodeCount=87, ConflictIdSorter.graphTime=94060, ConflictIdSorter.topsortTime=34727, ConflictIdSorter.conflictIdCount=60, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3016275, ConflictResolver.conflictItemCount=84, DefaultDependencyCollector.collectTime=164203093, DefaultDependencyCollector.transformTime=3521659}
+[DEBUG] org.opennms.dependencies:jasper-dependencies:pom:25.0.0-SNAPSHOT
+[DEBUG]    net.sf.jasperreports:jasperreports:jar:6.3.0:compile
+[DEBUG]       commons-beanutils:commons-beanutils:jar:1.8.3:compile (version managed from 1.9.0) (exclusions managed)
+[DEBUG]       commons-collections:commons-collections:jar:3.2.2:compile (version managed from 3.2.2)
+[DEBUG]       org.jfree:jcommon:jar:1.0.23:compile
+[DEBUG]       org.jfree:jfreechart:jar:1.0.19:compile
+[DEBUG]       com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile (version managed from 2.1.4)
+[DEBUG]       com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:compile (version managed from 2.1.4)
+[DEBUG]       com.fasterxml.jackson.core:jackson-annotations:jar:2.9.8:compile (version managed from 2.1.4)
+[DEBUG]       org.apache.lucene:lucene-core:jar:4.5.1:compile
+[DEBUG]       org.apache.lucene:lucene-analyzers-common:jar:4.5.1:compile
+[DEBUG]       org.apache.lucene:lucene-queryparser:jar:4.5.1:compile
+[DEBUG]          org.apache.lucene:lucene-queries:jar:4.5.1:compile
+[DEBUG]          org.apache.lucene:lucene-sandbox:jar:4.5.1:compile
+[DEBUG]             jakarta-regexp:jakarta-regexp:jar:1.4:compile
+[DEBUG]       org.olap4j:olap4j:jar:0.9.7.309-JS-3:compile
+[DEBUG]       com.google.zxing:core:jar:2.3.0:compile
+[DEBUG]       com.ibm.icu:icu4j:jar:57.1:compile
+[DEBUG]    org.codehaus.castor:castor-xml:jar:1.4.1:compile
+[DEBUG]       org.codehaus.castor:castor-core:jar:1.4.1:compile
+[DEBUG]       org.apache.commons:commons-lang3:jar:3.4:compile (version managed from 3.4)
+[DEBUG]       org.apache.commons:commons-collections4:jar:4.1:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile
+[DEBUG]    com.lowagie:itext:jar:2.1.7.js4:compile
+[DEBUG]    org.slf4j:jcl-over-slf4j:jar:1.7.21:runtime
+[DEBUG]       org.slf4j:slf4j-api:jar:1.7.21:compile (version managed from 1.7.21)
+[DEBUG]    org.opennms.dependencies:jfreechart-dependencies:pom:25.0.0-SNAPSHOT:compile
+[DEBUG]    org.opennms.dependencies:spring-dependencies:pom:25.0.0-SNAPSHOT:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-aop:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-aspects:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-beans:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-context:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-context-support:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-core:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-expression:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-instrument:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-oxm:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-jdbc:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-jms:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-messaging:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-orm:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-tx:jar:4.2.9.RELEASE_1:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.aopalliance:jar:1.0_6:compile
+[DEBUG]       org.apache.servicemix.bundles:org.apache.servicemix.bundles.aspectj:jar:1.8.6_1:compile
+[DEBUG]       javax.annotation:jsr250-api:jar:1.0:compile (version managed from 1.0)
+[DEBUG]       org.opennms.dependencies:hibernate-dependencies:pom:25.0.0-SNAPSHOT:compile (version managed from 25.0.0-SNAPSHOT)
+[DEBUG]          org.hibernate:hibernate-core:jar:3.6.10.Final:compile
+[DEBUG]             antlr:antlr:jar:2.7.7:compile (version managed from 2.7.6)
+[DEBUG]             dom4j:dom4j:jar:1.6.1:compile
+[DEBUG]             org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[DEBUG]             org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.1.Final:compile (version managed from 1.0.1.Final)
+[DEBUG]             javax.transaction:jta:jar:1.1:compile
+[DEBUG]          xml-apis:xml-apis:jar:1.4.01:compile (version managed from 1.4.01)
+[DEBUG]       org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile (version managed from 1.9.13)
+[DEBUG]       org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:compile (version managed from 1.9.13)
+[DEBUG]       org.codehaus.jackson:jackson-jaxrs:jar:1.9.13:compile (version managed from 1.9.13)
+[DEBUG]       org.codehaus.jackson:jackson-xc:jar:1.9.13:compile (version managed from 1.9.13)
+[DEBUG]       org.apache.geronimo.specs:geronimo-jms_1.1_spec:jar:1.1.1:compile
+[DEBUG]       org.javassist:javassist:jar:3.18.2-GA:compile
+[DEBUG]    commons-digester:commons-digester:jar:2.1:compile (exclusions managed)
+[DEBUG]    org.eclipse.jdt.core.compiler:ecj:jar:4.4.2:compile
+```
+
+
+http://jasperreports.sourceforge.net/maven2/com/lowagie/itext/2.1.7.js4/
+
+
+----
+## alt.dev.jmta:jmta:jar:1.0
+### Dependency
+```
+<dependency>
+  <groupId>alt.dev.jmta</groupId>
+  <artifactId>jmta</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+### Repository
+```
+<repositories>
+  <repository>
+    <id>thirdparty</id>
+    <name>Thirdparty</name>
+    <url>http://maven.opennms.org/repository/thirdparty</url>
+  </repository>
+</repositories>
+```
+
+### Error
+```
+[ERROR] Failed to execute goal on project javamail-dependencies: Could not resolve dependencies for project org.opennms.dependencies:javamail-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact alt.dev.jmta:jmta:jar:1.0 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+```
+
+### Analysis
+From https://www.oracle.com/technetwork/java/javamail/third-party-136965.html
+
+* JMTA is a very simplistic Mail Transport Agent (MTA) for JavaMail. In other words, a send-only SMTP server. While not as extensive as other packages, it has the advantage of simplicity. You can find a compiled jar as well as the minimalistic source code at the following location:http://zoe.nu/misc/jmta.tgz. JMTA is licensed under a [zlib/libpng type license](http://www.opensource.org/licenses/zlib-license.php). JMTA depends on[JNDI-DNS](http://java.sun.com/j2se/1.4.2/docs/guide/jndi/jndi-dns.html)
+
+This library was released in May 2004. The jar file was uploaded to the OpenNMS maven repository.
+
+
+### Fix
+```
+# mvn deploy:deploy-file -DartifactId=jmta -DgroupId=alt.dev.jmta -Dversion=1.0 -Dfile=jmta-1.0.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+----
+## org.samba.jcifs:jcifs:jar:1.3.14
+### Dependency
+```
+  <dependencies>
+    <dependency>
+      <groupId>org.samba.jcifs</groupId>
+      <artifactId>jcifs</artifactId>
+      <version>${jcifsVersion}</version>
+    </dependency>
+  </dependencies>
+```
+### Repository
+```
+<repositories>
+  <repository>
+    <id>thirdparty</id>
+    <name>Thirdparty</name>
+    <url>http://localhost:8081/repository/thirdparty</url>
+  </repository>
+</repositories>
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jcifs-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jcifs-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.samba.jcifs:jcifs:jar:1.3.14 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://www.jcifs.org/
+
+This library only supports SMB1 and will not work work against SMB2 or later protocol versions.
+
+
+### Fix
+```
+# mvn deploy:deploy-file -DartifactId=jcifs -DgroupId=org.samba.jcifs -Dversion=1.3.14 -Dfile=jcifs-1.3.14.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+----
+## org.jinterop:j-interop:jar:2.0.8
+### Dependency
+```
+<dependency>
+  <groupId>org.jinterop</groupId>
+  <artifactId>j-interop</artifactId>
+  <version>2.0.8</version>
+</dependency>
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jinterop-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jinterop-dependencies:pom:25.0.0-SNAPSHOT: The following artifacts could not be resolved: org.jinterop:j-interop:jar:2.0.8, org.jinterop:j-interopdeps:jar:2.0.8: Could not find artifact org.jinterop:j-interop:jar:2.0.8 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+http://j-interop.org/
+
+https://sourceforge.net/projects/j-interop/files/j-interop/j-Interop%202.08/j-Interop_2_08.zip/download
+
+### Fix
+```
+# mvn deploy:deploy-file -DartifactId=j-interop -DgroupId=org.jinterop -Dversion=2.0.8 -Dfile=j-interop.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+----
+## org.jinterop:j-interopdeps:jar:2.0.8
+### Dependency
+```
+<dependency>
+  <groupId>org.jinterop</groupId>
+  <artifactId>j-interopdeps</artifactId>
+  <version>2.0.8</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jinterop-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jinterop-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.jinterop:j-interopdeps:jar:2.0.8 in thirdparty (http://localhost:8081/repository/thirdparty/) -> [Help 1]
+```
+
+### Analysis
+http://j-interop.org/
+
+https://sourceforge.net/projects/j-interop/files/j-interop/j-Interop%202.08/j-Interop_2_08.zip/download
+
+### Fix
+```
+# mvn deploy:deploy-file -DartifactId=j-interop -DgroupId=org.jinteropdeps -Dversion=2.0.8 -Dfile=j-interopdeps.jar -Durl=http://localhost:8081/repository/thirdparty  -DrepositoryId=thirdparty
+```
+
+----
+## javax.samples.jnlp:jnlp-servlet:jar:1.6.0
+### Dependency
+```
+    <dependency>
+      <groupId>javax.samples.jnlp</groupId>
+      <artifactId>jnlp-servlet</artifactId>
+      <version>1.6.0</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jnlp-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jnlp-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact javax.samples.jnlp:jnlp-servlet:jar:1.6.0 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+JNLP ( Java Network Launch Protocol ) is used to launch a client application with resources hosted on a remote server. 
+
+
+### Fix
+```
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/javax/samples/jnlp/jnlp-servlet/1.6.0/jnlp-servlet-1.6.0.jar
+# mvn deploy:deploy-file -DgroupId=javax.samples.jnlp -DartifactId=jnlp-servlet -Dversion=1.6.0 -Dfile=jnlp-servlet-1.6.0.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/javax/samples/jnlp/jnlp-servlet/1.6.0/jnlp-servlet-1.6.0.jar
+
+----
+## org.jrobin:jrobin:jar:1.6.0
+### Dependency
+```
+<dependency>
+  <groupId>org.jrobin</groupId>
+  <artifactId>jrobin</artifactId>
+  <version>1.6.0</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jrobin-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jrobin-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.jrobin:jrobin:jar:1.6.0 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+http://github.com/OpenNMS/jrobin.git 
+
+### Fix
+```
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/jrobin/jrobin/1.6.0/jrobin-1.6.0.jar
+# mvn deploy:deploy-file -DgroupId=org.jrobin -DartifactId=jrobin -Dversion=1.6.0 -Dfile=jrobin-1.6.0.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+
+# git clone http://github.com/OpenNMS/jrobin.git
+# cd jrobin
+# git checkout -b jrobin-1.6.0-1
+# mvn test
+# mvn deploy:deploy -DaltDeploymentRepository=thirdparty::default::http://localhost:8081/repository/thirdparty
+
+```
+
+
+----
+## org.opennms:jrrd-api:jar:1.1.0
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms</groupId>
+  <artifactId>jrrd-api</artifactId>
+  <version>1.1.0</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jrrd-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jrrd-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.opennms:jrrd-api:jar:1.1.0 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/jrrd
+
+
+### Fix
+```
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jrrd-api/1.1.0/jrrd-api-1.1.0.jar
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jrrd-api/1.1.0/jrrd-api-1.1.0.pom
+# mvn deploy:deploy-file -DpomFile=jrrd-api-1.1.0.pom -Dfile=jrrd-api-1.1.0.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+
+```
+
+----
+## org.opennms:jrrd2-api:jar:2.0.3
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms</groupId>
+  <artifactId>jrrd2-api</artifactId>
+  <version>2.0.3</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jrrd2-dependencies: Could not resolve dependencies for project org.opennms.dependencies:jrrd2-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.opennms:jrrd2-api:jar:2.0.3 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/jrrd2
+
+
+### Fix
+```
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jrrd2-api/2.0.3/jrrd2-api-2.0.3.jar
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jrrd2-api/2.0.3/jrrd2-api-2.0.3.pom
+# mvn deploy:deploy-file -DpomFile=jrrd2-api-2.0.3.pom -Dfile=jrrd2-api-2.0.3.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+
+```
+
+
+----
+## org.opennms:rancid-api:jar:1.0.4
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms</groupId>
+  <artifactId>rancid-api</artifactId>
+  <version>1.0.4</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project rancid-dependencies: Could not resolve dependencies for project org.opennms.dependencies:rancid-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.opennms:rancid-api:jar:1.0.4 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/rancid-api
+
+
+### Fix
+```
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/rancid-api/1.0.4/rancid-api-1.0.4.jar
+# wget http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/rancid-api/1.0.4/rancid-api-1.0.4.pom
+# mvn deploy:deploy-file -DpomFile=rancid-api-1.0.4.pom -Dfile=rancid-api-1.0.4.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+
+```
+
+
+----
+## org.smslib:smslib:jar:3.5.3
+### Dependency
+```
+<dependency>
+  <groupId>org.smslib</groupId>
+  <artifactId>smslib</artifactId>
+  <version>3.5.3</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project smslib-dependencies: Could not resolve dependencies for project org.opennms.dependencies:smslib-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.smslib:smslib:jar:3.5.3 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://code.google.com/archive/p/smslib/source
+https://github.com/tdelenikas/smslib-v3/tree/v3.5.3
+
+SMSLIB is no longer actively being developed...
+There used to be an smslib maven repository, but its no longer available.
+
+
+### Fix
+```
+# wget http://maven.opennms.org/service/local/repositories/smslib-repo/content/org/smslib/smslib/3.5.3/smslib-3.5.3.jar
+# mvn deploy:deploy-file -DgroupId=org.smslib -DartifactId=smslib -Dversion=3.5.3 -Dfile=smslib-3.5.3.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+----
+## org.opennms.lib:org.opennms.lib.tracker:jar:0.7
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms.lib</groupId>
+  <artifactId>org.opennms.lib.tracker</artifactId>
+  <version>0.7</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project tracker-dependencies: Could not resolve dependencies for project org.opennms.dependencies:tracker-dependencies:pom:25.0.0-SNAPSHOT: Could not find artifact org.opennms.lib:org.opennms.lib.tracker:jar:0.7 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/org-opennms
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/lib/org.opennms.lib.tracker/0.7/org.opennms.lib.tracker-0.7.jar
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/lib/org.opennms.lib.tracker/0.7/org.opennms.lib.tracker-0.7.pom
+# mvn deploy:deploy-file -Dfile=org.opennms.lib.tracker-0.7.jar -DpomFile=org.opennms.lib.tracker-0.7.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+----
+## org.opennms:org.opennms.lib:pom:6
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project tracker-dependencies: Could not resolve dependencies for project org.opennms.dependencies:tracker-dependencies:pom:25.0.0-SNAPSHOT: Failed to collect dependencies at org.opennms.lib:org.opennms.lib.tracker:jar:0.7: Failed to read artifact descriptor for org.opennms.lib:org.opennms.lib.tracker:jar:0.7: Could not find artifact org.opennms:org.opennms.lib:pom:6 in thirdparty (http://localhost:8081/repository/thirdparty/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/org-opennms
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/content/repositories/opennms-repo-local/org/opennms/org.opennms.lib/6/org.opennms.lib-6.pom
+# mvn deploy:deploy-file -Dfile=org.opennms.lib-6.pom -DpomFile=org.opennms.lib-6.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+## org.opennms:master:pom:6
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project tracker-dependencies: Could not resolve dependencies for project org.opennms.dependencies:tracker-dependencies:pom:25.0.0-SNAPSHOT: Failed to collect dependencies at org.opennms.lib:org.opennms.lib.tracker:jar:0.7: Failed to read artifact descriptor for org.opennms.lib:org.opennms.lib.tracker:jar:0.7: Could not find artifact org.opennms:master:pom:6 in thirdparty (http://localhost:8081/repository/thirdparty/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/org-opennms
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/content/repositories/opennms-repo-local/org/opennms/master/6/master-6.pom
+# mvn deploy:deploy-file -Dfile=master-6.pom -DpomFile=master-6.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+## org.opennms:jicmp-api:jar:2.0.1
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms</groupId>
+  <artifactId>jicmp-api</artifactId>
+  <version>2.0.1</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project opennms-icmp-jni: Could not resolve dependencies for project org.opennms:opennms-icmp-jni:bundle:25.0.0-SNAPSHOT: Could not find artifact org.opennms:jicmp-api:jar:2.0.1 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/jicmp
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jicmp-api/2.0.1/jicmp-api-2.0.1.pom
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jicmp-api/2.0.1/jicmp-api-2.0.1.jar
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jicmp-api/2.0.1/jicmp-api-2.0.1-sources.jar
+# mvn deploy:deploy-file -Dfile=jicmp-api-2.0.1.jar -Dpackaging=jar -DpomFile=jicmp-api-2.0.1.pom -Dsources=jicmp-api-2.0.1-sources.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+## org.opennms:jicmp6-api:jar:2.0.1
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms</groupId>
+  <artifactId>jicmp6-api</artifactId>
+  <version>2.0.1</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project opennms-icmp-jni6: Could not resolve dependencies for project org.opennms:opennms-icmp-jni6:bundle:25.0.0-SNAPSHOT: Could not find artifact org.opennms:jicmp6-api:jar:2.0.1 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/jicmp6
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jicmp6-api/2.0.1/jicmp6-api-2.0.1.pom
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jicmp6-api/2.0.1/jicmp6-api-2.0.1.jar
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/opennms/jicmp6-api/2.0.1/jicmp6-api-2.0.1-sources.jar
+# mvn deploy:deploy-file -Dfile=jicmp6-api-2.0.1.jar -Dpackaging=jar -DpomFile=jicmp6-api-2.0.1.pom -Dsources=jicmp6-api-2.0.1-sources.jar -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+##
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.2:testCompile (default-testCompile) on project opennms-
+rrd-model: Compilation failure: Compilation failure: 
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[35,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[36,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6369IT.java:[33,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6369IT.java:[34,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[37,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[38,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6302IT.java:[33,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6302IT.java:[34,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[40,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[41,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[33,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[34,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdXportTest.java:[33,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdXportTest.java:[34,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[55,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6369IT.java:[49,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.NMS6369IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[57,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[100,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[139,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6302IT.java:[50,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.NMS6302IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[62,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[105,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[116,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[127,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[166,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[195,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[223,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[238,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[52,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdConvertUtilsIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[64,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdConvertUtilsIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[77,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdConvertUtilsIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[89,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdConvertUtilsIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[101,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdConvertUtilsIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdConvertUtilsIT.java:[113,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdConvertUtilsIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdXportTest.java:[50,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdXportTest
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[75,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[91,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[96,17] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[
+101,17] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[122,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[125,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RrdMergeIT.java:[126,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RrdMergeIT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6369IT.java:[52,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.NMS6369IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6369IT.java:[55,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.NMS6369IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[60,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[61,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[62,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[65,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[66,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[67,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[70,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[71,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[72,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[73,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[76,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[77,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[78,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[81,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[82,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[83,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[87,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[88,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[91,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[92,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[103,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[105,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[109,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[110,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[112,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[113,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[114,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[115,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[119,17] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[120,17] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[129,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[130,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[144,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[145,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[146,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[154,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[155,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[158,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[159,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv1IT.java:[163,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv1IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/NMS6302IT.java:[53,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.NMS6302IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[65,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[66,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[67,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[70,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[71,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[72,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[75,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[76,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[77,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[78,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[81,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[82,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[83,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[86,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] /home/roskens/Documents/devjam2018.git/opennms-rrd/opennms-rrd-model/src/test/java/org/opennms/netmgt/rrd/model/RRDv3IT.java:[87,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.rrd.model.RRDv3IT
+[ERROR] -> [Help 1]
+```
+
+### Analysis
+Missing dependency on junit:junit
+
+### Fix
+
+
+
+----
+## com.eclipsesource.jaxrs:publisher-api:jar:1.0.2.ONMS
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project org.opennms.container.bridge.rest: Could not resolve dependencies for project org.opennms.container.bridge:org.opennms.container.bridge.rest:bundle:25.0.0-SNAPSHOT: Could not find artifact com.eclipsesource.jaxrs:publisher-api:jar:1.0.2.ONMS in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/osgi-jax-rs-connector
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/com/eclipsesource/jaxrs/publisher-api/1.0.2.ONMS/publisher-api-1.0.2.ONMS.pom
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/com/eclipsesource/jaxrs/publisher-api/1.0.2.ONMS/publisher-api-1.0.2.ONMS.jar
+# mvn deploy:deploy-file -Dfile=publisher-api-1.0.2.ONMS.jar -Dpackaging=jar -DpomFile=publisher-api-1.0.2.ONMS.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+----
+## com.eclipsesource.jaxrs:connector:pom:1.0.2.ONMS
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project org.opennms.container.bridge.rest: Could not resolve dependencies for project org.opennms.container.bridge:org.opennms.container.bridge.rest:bundle:25.0.0-SNAPSHOT: Failed to collect dependencies at com.eclipsesource.jaxrs:publisher-api:jar:1.0.2.ONMS: Failed to read artifact descriptor for com.eclipsesource.jaxrs:publisher-api:jar:1.0.2.ONMS: Could not find artifact com.eclipsesource.jaxrs:connector:pom:1.0.2.ONMS in thirdparty (http://localhost:8081/repository/thirdparty/) -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/com/eclipsesource/jaxrs/connector/1.0.2.ONMS/connector-1.0.2.ONMS.pom
+# mvn deploy:deploy-file -Dfile=connector-1.0.2.ONMS.pom -DpomFile=connector-1.0.2.ONMS.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+## com.eclipsesource:osgi-jaxrs-connector:pom:1.0.2.ONMS
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project org.opennms.container.bridge.rest: Could not resolve dependencies for project org.opennms.container.bridge:org.opennms.container.bridge.rest:bundle:25.0.0-SNAPSHOT: Failed to collect dependencies at com.eclipsesource.jaxrs:publisher-api:jar:1.0.2.ONMS: Failed to read artifact descriptor for com.eclipsesource.jaxrs:publisher-api:jar:1.0.2.ONMS: Could not find artifact com.eclipsesource:osgi-jaxrs-connector:pom:1.0.2.ONMS in thirdparty (http://localhost:8081/repository/thirdparty/) -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/com/eclipsesource/osgi-jaxrs-connector/1.0.2.ONMS/osgi-jaxrs-connector-1.0.2.ONMS.pom
+# mvn deploy:deploy-file -Dfile=osgi-jaxrs-connector-1.0.2.ONMS.pom -DpomFile=osgi-jaxrs-connector-1.0.2.ONMS.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+## frontend-maven-plugin
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+```
+
+### Analysis
+The frontend-maven-plugin downloads files from 3 download roots. OpenNMS repository is overriding them, so use a profile to set them back to their defaults.
+
+
+### Fix
+```
+<settings>
+  <profiles>
+    <profile>
+      <id>frontend-maven-plugin-properties</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
+        <npmDownloadRoot>https://registry.npmjs.org/npm/-/</npmDownloadRoot>
+        <yarnDownloadRoot>https://github.com/yarnpkg/yarn/releases/download/</yarnDownloadRoot>
+      </properties>
+    </profile>
+  </profiles>
+</settings>
+
+```
+
+
+
+----
+## com.eclipsesource.jaxrs:features:xml:features:1.0.2.ONMS
+### Dependency
+```
+```
+### Repository
+```
+  <repositories>
+    <repository>
+      <id>thirdparty</id>
+      <name>Thirdparty</name>
+      <url>http://maven.opennms.org/repository/thirdparty</url>
+    </repository>
+  </repositories>
+```
+### Error
+```
+[ERROR] Failed to execute goal on project opennms-osgi-core-rest: Could not resolve dependencies for project org.opennms.osgi:opennms-osgi-core-rest:bundle:25.0.0-SNAPSHOT: Could not find artifact com.eclipsesource.jaxrs:features:xml:features:1.0.2.ONMS in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+
+[ERROR] Failed to execute goal org.apache.karaf.tooling:karaf-maven-plugin:4.2.3:features-add-to-repository (features-add-to-repository) on project repository: Error populating repository: Can't resolve artifact com.eclipsesource.jaxrs:features:xml:features:1.0.2.ONMS: Could not find artifact com.eclipsesource.jaxrs:features:xml:features:1.0.2.ONMS in central (https://repo.maven.apache.org/maven2/)
+
+```
+### Location
+* features/opennms-osgi-core-rest/pom.xml
+* features/sentinel/repository/pom.xml
+* features/minion/core/repository/pom.xml
+* features/minion/repository/pom.xml
+* opennms-full-assembly/pom.xml
+
+### Analysis
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/com/eclipsesource/jaxrs/features/1.0.2.ONMS/features-1.0.2.ONMS.pom
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/com/eclipsesource/jaxrs/features/1.0.2.ONMS/features-1.0.2.ONMS-features.xml
+# mvn deploy:deploy-file -Dfile=features-1.0.2.ONMS-features.xml -Dpackaging=xml -Dclassifier=features -DpomFile=features-1.0.2.ONMS.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+----
+## com.eclipsesource.jaxrs:karaf-integration:pom:1.0.2.ONMS
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project opennms-osgi-core-rest: Could not resolve dependencies for project org.opennms.osgi:opennms-osgi-core-rest:bundle:25.0.0-SNAPSHOT: Failed to collect dependencies at com.eclipsesource.jaxrs:features:xml:features:1.0.2.ONMS: Failed to read artifact descriptor for com.eclipsesource.jaxrs:features:xml:features:1.0.2.ONMS: Could not find artifact com.eclipsesource.jaxrs:karaf-integration:pom:1.0.2.ONMS in thirdparty (http://localhost:8081/repository/thirdparty/) -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/com/eclipsesource/jaxrs/karaf-integration/1.0.2.ONMS/karaf-integration-1.0.2.ONMS.pom
+# mvn deploy:deploy-file -Dfile=karaf-integration-1.0.2.ONMS-features.xml -DpomFile=karaf-integration-1.0.2.ONMS.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+##
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.2:testCompile (default-testCompile) on project org.open
+nms.features.measurements.impl: Compilation failure: Compilation failure: 
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Chom
+pTest.java:[31,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Chom
+pTest.java:[32,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Deri
+vativeTest.java:[34,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Deri
+vativeTest.java:[35,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Deri
+vativeTest.java:[36,24] package org.junit.runner does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Deri
+vativeTest.java:[37,25] package org.junit.runners does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Deri
+vativeTest.java:[38,39] package org.junit.runners.Parameterized does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Deri
+vativeTest.java:[45,2] cannot find symbol
+[ERROR]   symbol: class RunWith
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Outl
+ierFilterIT.java:[31,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Outl
+ierFilterIT.java:[32,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/UtilsTest.ja
+va:[31,24] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/UtilsTest.ja
+va:[31,1] static import only from classes and interfaces
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/UtilsTest.ja
+va:[33,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/TrendLineIT.java:[31,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/TrendLineIT.java:[32,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentilePerfTest.java:[31,24] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentilePerfTest.java:[31,1] static import only from classes and interfaces
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentilePerfTest.java:[37,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[34,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[35,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[36,24] package org.junit.runner does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[37,25] package org.junit.runners does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[38,39] package org.junit.runners.Parameterized does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[45,2] cannot find symbol
+[ERROR]   symbol: class RunWith
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[31,24] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[31,1] static import only from classes and interfaces
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[35,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/JEXLFilterTest.java:[31,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/JEXLFilterTest.java:[32,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/HWForecastIT.java:[31,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/HWForecastIT.java:[32,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[31,24] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[35,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[41,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[76,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[113,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/DerivativeTest.java:[47,6] cannot find symbol
+[ERROR]   symbol:   class Parameters
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.DerivativeTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/DerivativeTest.java:[74,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.DerivativeTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Outl
+ierFilterIT.java:[39,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[73,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[104,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[141,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/UtilsTest.java:[37,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.UtilsTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/TrendLineIT.java:[40,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.TrendLineIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentilePerfTest.java:[53,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentilePerfTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[47,6] cannot find symbol
+[ERROR]   symbol:   class Parameters
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentileTest
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentileTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[80,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentileTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[51,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[56,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[61,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[67,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[86,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[167,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressi
+onEngineTest.java:[226,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[297,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[331,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[365,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[371,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[380,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineTest.java:[387,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/JEXLFilterTest.java:[41,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.JEXLFilterTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/HWForecastIT.java:[42,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.HWForecastIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/HWForecastIT.java:[48,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.HWForecastIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[51,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[75,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[98,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[122,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[147,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[179,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressi
+onEngineEnhancedTest.java:[213,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/JEXLExpressionEngineEnhancedTest.java:[237,10] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.JEXLExpressionEngineEnhancedTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[63,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[69,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[71,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[72,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[106,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/ChompTest.java:[108,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/Chom
+pTest.java:[109,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.ChompTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/DerivativeTest.java:[91,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.DerivativeTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/DerivativeTest.java:[93,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.DerivativeTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/DerivativeTest.java:[94,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.DerivativeTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[63,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[64,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[69,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[70,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[94,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[100,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[126,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[127,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[131,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[132,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[136,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/OutlierFilterIT.java:[137,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.OutlierFilterIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/impl/UtilsTest.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.measurements.impl.UtilsTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/TrendLineIT.java:[60,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.TrendLineIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/TrendLineIT.java:[61,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.TrendLineIT
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentilePerfTest.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(double,java.lang.Double,double)
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentilePerfTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[98,9] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentileTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[100,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentileTest
+[ERROR] /home/roskens/Documents/devjam2018.git/features/measurements/impl/src/test/java/org/opennms/netmgt/measurements/filters/impl/PercentileTest.java:[101,13] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.opennms.netmgt.measurements.filters.impl.PercentileTest
+[ERROR] -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+
+
+
+----
+## org.dstovall:onejar-maven-plugin:jar:1.4.4
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Plugin org.dstovall:onejar-maven-plugin:1.4.4 or one of its dependencies could not be resolved: Could not find artifact org.dstovall:onejar-maven-plugin:jar:1.4.4 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+### Location
+* features/jmx-config-generator/pom.xml
+* opennms-assemblies/remote-poller-onejar/pom.xml
+
+
+### Analysis
+https://sourceforge.net/projects/one-jar/
+https://code.google.com/archive/p/onejar-maven-plugin/
+https://storage.googleapis.com/google-code-archive-source/v2/code.google.com/onejar-maven-plugin/source-archive.zip
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/onejar-maven-plugin.googlecode.com/content/org/dstovall/onejar-maven-plugin/1.4.4/onejar-maven-plugin-1.4.4.pom
+# wget -q http://maven.opennms.org/service/local/repositories/onejar-maven-plugin.googlecode.com/content/org/dstovall/onejar-maven-plugin/1.4.4/onejar-maven-plugin-1.4.4.jar
+# mvn deploy:deploy-file -Dfile=onejar-maven-plugin-1.4.4.jar -DpomFile=onejar-maven-plugin-1.4.4.pom -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+## com.vaadin:vaadin-context-menu:jar:2.0.0
+### Dependency
+```
+```
+### Repository
+```
+  <repositories>
+    <repository>
+      <id>vaadin-addons</id>
+      <name>Vaadin Addons Maven Repository</name>
+      <url>http://maven.vaadin.com/vaadin-addons</url>
+    </repository>
+  </repositories>
+```
+### Error
+```
+[INFO] --------------------< org.opennms.features:vaadin >---------------------
+[INFO] Building OpenNMS :: Features :: Vaadin + Dependencies 25.0.0-SNAPSHOT [279/642]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/vaadin/vaadin-context-menu/2.0.0/vaadin-cont
+ext-menu-2.0.0.pom
+[WARNING] The POM for com.vaadin:vaadin-context-menu:jar:2.0.0 is missing, no dependency information available
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/vaadin/addon/confirmdialog/3.2.0/confirmdialog-3.2.0.pom
+[WARNING] The POM for org.vaadin.addon:confirmdialog:jar:3.2.0 is missing, no dependency information available
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/vaadin/vaadin-context-menu/2.0.0/vaadin-context-menu-2.0.0.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/vaadin/addon/confirmdialog/3.2.0/confirmdialog-3.2.0.jar
+
+[ERROR] Failed to execute goal on project vaadin: Could not resolve dependencies for project org.opennms.features:vaadin:pom:25.0.0-SNAPSHOT: The following artifacts could not be resolved: com.vaadin:vaadin-context-menu:jar:2.0.0, org.vaadin.addon:confirmdialog:jar:3.2.0: Could not find artifact com.vaadin:vaadin-context-menu:jar:2.0.0 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+
+[ERROR] Failed to execute goal org.apache.karaf.tooling:karaf-maven-plugin:4.2.3:features-add-to-repository (features-add-to-repository) on project opennms-full-assembly: Error populating repository: Error resolving feature vaadin/25.0.0.SNAPSHOT: Error resolving artifact mvn:com.vaadin/vaadin-context-menu/2.0.0: Can't resolve artifact com.vaadin:vaadin-context-menu:jar:2.0.0: Could not find artifact com.vaadin:vaadin-context-menu:jar:2.0.0 in thirdparty (http://localhost:8081/repository/thirdparty/)
+```
+### Locations
+* features/vaadin-dashboard/pom.xml
+* features/vaadin/pom.xml
+* opennms-full-assembly/pom.xml
+
+
+### Analysis
+Artifact in vaadin-addons repository.
+
+
+### Fix
+```
+```
+
+
+
+----
+## org.vaadin.addon:confirmdialog:jar:3.2.0
+### Dependency
+```
+```
+### Repository
+```
+  <repositories>
+    <repository>
+      <id>vaadin-addons</id>
+      <name>Vaadin Addons Maven Repository</name>
+      <url>http://maven.vaadin.com/vaadin-addons</url>
+    </repository>
+  </repositories>
+```
+### Error
+```
+[INFO] --------------------< org.opennms.features:vaadin >---------------------
+[INFO] Building OpenNMS :: Features :: Vaadin + Dependencies 25.0.0-SNAPSHOT [279/642]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/vaadin/vaadin-context-menu/2.0.0/vaadin-cont
+ext-menu-2.0.0.pom
+[WARNING] The POM for com.vaadin:vaadin-context-menu:jar:2.0.0 is missing, no dependency information available
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/vaadin/addon/confirmdialog/3.2.0/confirmdialog-3.2.0.pom
+[WARNING] The POM for org.vaadin.addon:confirmdialog:jar:3.2.0 is missing, no dependency information available
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/vaadin/vaadin-context-menu/2.0.0/vaadin-context-menu-2.0.0.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/vaadin/addon/confirmdialog/3.2.0/confirmdialog-3.2.0.jar
+
+[ERROR] Failed to execute goal on project vaadin: Could not resolve dependencies for project org.opennms.features:vaadin:pom:25.0.0-SNAPSHOT: The following artifacts could not be resolved: com.vaadin:vaadin-context-menu:jar:2.0.0, org.vaadin.addon:confirmdialog:jar:3.2.0: Could not find artifact com.vaadin:vaadin-context-menu:jar:2.0.0 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+Artifact in vaadin-addons repository.
+
+
+### Fix
+
+
+
+----
+## org.discotools.gwt.leaflet:gwtl-core:jar:0.3-ONMS-20131014-1
+### Dependency
+```
+<dependency>
+  <groupId>org.discotools.gwt.leaflet</groupId>
+  <artifactId>gwtl-core</artifactId>
+  <version>0.3-ONMS-20131014-1</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project vaadin-node-maps: Could not resolve dependencies for project org.opennms.features:vaadin-node-maps:bundle:25.0.0-SNAPSHOT: Could not find artifact org.discotools.gwt.leaflet:gwtl-core:jar:0.3-ONMS-20131014-1 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://github.com/kengu/gwt-leaflet
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/discotools/gwt/leaflet/gwtl-core/0.3-ONMS-20131014-1/gwtl-core-0.3-ONMS-20131014-1.jar
+# mvn deploy:deploy-file -Dfile=gwtl-core-0.3-ONMS-20131014-1.jar -DgroupId=org.discotools.gwt.leaflet -DartifactId=gwtl-core -Dversion=0.3-ONMS-20131014-1 -DgeneratePom=false -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty
+```
+
+
+
+----
+## org.vaadin.addons:dragdroplayouts:jar:1.4.2
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project vaadin-dashboard: Could not resolve dependencies for project org.opennms.features:vaadin-dashboard:bundle:25.0.0-SNAPSHOT: Could not find artifact org.vaadin.addons:dragdroplayouts:jar:1.4.2 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+
+
+
+----
+## com.atlassian.jira:jira-rest-java-client-api:jar:3.0.0, com.atlassian.jira:jira-rest-java-client-core:jar:3.0.0
+### Dependency
+```
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-api</artifactId>
+            <version>${jiraClientVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-core</artifactId>
+            <version>${jiraClientVersion}</version>
+        </dependency>
+```
+### Repository
+```
+    <repositories>
+        <repository>
+            <id>atlassian-public</id>
+            <name>Atlassian Repository</name>
+            <url>http://maven.atlassian.com/content/repositories/atlassian-public/</url>
+        </repository>
+    </repositories>
+```
+### Error
+```
+[ERROR] Failed to execute goal on project jira-client: Could not resolve dependencies for project org.opennms.features:jira-client:bundle:25.0.0-SNAPSHOT: The following artifacts could not be resolved: com.atlassian.jira:jira-rest-java-client-api:jar:3.0.0, com.atlassian.jira:jira-rest-java-client-core:jar:3.0.0: Could not find artifact com.atlassian.jira:jira-rest-java-client-api:jar:3.0.0 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+
+
+
+----
+## org.opennms.elasticsearch:elasticsearch-drift-plugin:jar:1.1.0-SNAPSHOT
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms.elasticsearch</groupId>
+  <artifactId>elasticsearch-drift-plugin</artifactId>
+  <version>1.1.0-SNAPSHOT</version>
+</dependency>
+```
+### Repository
+```
+  <repositories>
+    <repository>
+      <id>sonatype-nexus-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+  </repositories>
+```
+### Error
+```
+[ERROR] Failed to execute goal on project org.opennms.features.flows.elastic: Could not resolve dependencies for project org.opennms.features.flows:org.opennms.features.flows.elastic:bundle:25.0.0-SNAPSHOT: Could not find artifact org.opennms.elasticsearch:elasticsearch-drift-plugin:jar:1.1.0-SNAPSHOT -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+
+
+
+----
+## org.codehaus.mojo:webstart-maven-plugin:jar:1.0-beta-7-ONMS-20140424
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[INFO] ----< org.opennms.features:org.opennms.features.remote-poller-jnlp >----
+[INFO] Building OpenNMS :: Features :: Remote Poller :: JNLP 25.0.0-SNAPSHOT [471/642]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/webstart-maven-plugin/1.0-beta-7-ONMS-20140424/webstart-maven-plugin-1.0-beta-7-ONMS-20140424.pom
+[WARNING] The POM for org.codehaus.mojo:webstart-maven-plugin:jar:1.0-beta-7-ONMS-20140424 is missing, no dependency information available
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/webstart-maven-plugin/1.0-beta-7-ONMS-20140424/webstart-maven-plugin-1.0-beta-7-ONMS-20140424.jar
+
+
+[ERROR] Plugin org.codehaus.mojo:webstart-maven-plugin:1.0-beta-7-ONMS-20140424 or one of its dependencies could not be resolved: Could not find artifact org.codehaus.mojo:webstart-maven-plugin:jar:1.0-beta-7-ONMS-20140424 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://www.mojohaus.org/webstart/webstart-maven-plugin/
+
+
+### Fix
+```
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/codehaus/mojo/webstart-maven-plugin/1.0-beta-7-ONMS-20140424/webstart-maven-plugin-1.0-beta-7-ONMS-20140424.pom
+# wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/codehaus/mojo/webstart-maven-plugin/1.0-beta-7-ONMS-20140424/webstart-maven-plugin-1.0-beta-7-ONMS-20140424.jar
+# mvn deploy:deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=webstart-maven-plugin-1.0-beta-7-ONMS-20140424.jar -DpomFile=webstart-maven-plugin-1.0-beta-7-ONMS-20140424.pom
+```
+
+
+
+----
+##
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Plugin org.codehaus.mojo:webstart-maven-plugin:1.0-beta-7-ONMS-20140424 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.codehaus.mojo:webstart-maven-plugin:jar:1.0-beta-7-ONMS-20140424: Could not find artifact org.codehaus.mojo:webstart:pom:1.0-beta-7-ONMS-20140424 in thirdparty (http://localhost:8081/repository/thirdparty/) -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+```
+# wget -q wget -q http://maven.opennms.org/service/local/repositories/opennms-repo-local/content/org/codehaus/mojo/webstart/1.0-beta-7-ONMS-20140424/webstart-1.0-beta-7-ONMS-20140424.pom
+# mvn deploy:deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=webstart-1.0-beta-7-ONMS-20140424.pom -DpomFile=webstart-1.0-beta-7-ONMS-20140424.pom
+```
+
+
+
+----
+## junit:junit
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.2:testCompile (default-testCompile) on project opennms-reverse-dns-provisioning-adapter: Compilation failure: Compilation failure: 
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[31,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[32,17] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[35,24] package org.junit does not exist
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[35,1] static import only from classes and interfaces
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[43,6] cannot find symbol
+[ERROR]   symbol:   class Before
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[51,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[59,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[68,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[76,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[84,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[92,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[100,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[108,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[54,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[56,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[63,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[64,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[72,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[73,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[79,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[81,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/pro
+vision/ReverseDnsRecordTest.java:[87,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[88,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[89,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[95,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[96,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[97,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[103,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[105,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[111,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[112,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] /home/roskens/Documents/devjam2018.git/integrations/opennms-reverse-dns-provisioning-adapter/src/test/java/org/opennms/netmgt/provision/ReverseDnsRecordTest.java:[113,9] cannot find symbol
+[ERROR]   symbol:   method assertEquals(java.lang.String,java.lang.String)
+[ERROR]   location: class org.opennms.netmgt.provision.ReverseDnsRecordTest
+[ERROR] -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+
+
+
+----
+## org.krupczak:xmp:jar:1.40
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project org.opennms.protocols.xmp: Could not resolve dependencies for project org.opennms.protocols:org.opennms.protocols.xmp:bundle:25.0.0-SNAPSHOT: Could not find artifact org.krupczak:xmp:jar:1.40 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://www.krupczak.org/index.php/Distributions - there doesn't appear to be any link for the 1.40 version?
+
+### Fix
+```
+# wget -q http://maven.opennms.org/content/repositories/opennms-repo-local/org/krupczak/xmp/1.40/xmp-1.40.pom
+# wget -q http://maven.opennms.org/content/repositories/opennms-repo-local/org/krupczak/xmp/1.40/xmp-1.40.jar
+# mvn deploy:deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=xmp-1.40.jar -DpomFile=xmp-1.40.pom
+```
+
+
+----
+## org.sblim.slp:sblimSLPClient:jar:1.17, org.sblim.wbem:sblimCIMClient:jar:1.17
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project opennms-vmware: Could not resolve dependencies for project org.opennms:opennms-vmware:bundle:25.0.0-SNAPSHOT: The following artifacts could not be resolved: org.sblim.slp:sblimSLPClient:jar:1.17, org.sblim.wbem:sblimCIMClient:jar:1.17: Could not find artifact org.sblim.slp:sblimSLPClient:jar:1.17 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+https://sourceforge.net/projects/sblim/
+
+slim-cim-client - source & binaries for 1.17 do not appear to be available any more.
+
+### Fix
+```
+# wget -q http://repo.opennms.org/maven2/org/sblim/slp/sblimSLPClient/1.17/sblimSLPClient-1.17.jar
+# mvn deploy:deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=sblimSLPClient-1.17.jar -DgroupId=org.sblim.slp -DartifactId=sblimSLPClient -Dversion=1.17
+# wget -q http://repo.opennms.org/maven2/org/sblim/wbem/sblimCIMClient/1.17/sblimCIMClient-1.17.jar
+# mvn deploy:deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=sblimCIMClient-1.17.jar  -DgroupId=org.sblim.wbem -DartifactId=sblimCIMClient -Dversion=1.17
+```
+
+
+
+----
+## org.dstovall:onejar-maven-plugin:jar:1.4.4
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Plugin org.dstovall:onejar-maven-plugin:1.4.4 or one of its dependencies could not be resolved: Could not find artifact org.dstovall:onejar-maven-plugin:jar:1.4.4 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+### Location
+* features/jmx-config-generator/pom.xml
+* opennms-assemblies/remote-poller-onejar/pom.xml
+
+### Analysis
+
+
+
+### Fix
+
+
+
+----
+## org.codehaus.mojo:jasperreports-maven-plugin:jar:1.0-beta-4-OPENNMS-20160912-1
+### Dependency
+```
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jasperreports-maven-plugin</artifactId>
+        <version>${jasperreportsMavenPluginVersion}</version>
+      </plugin>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Plugin org.codehaus.mojo:jasperreports-maven-plugin:1.0-beta-4-OPENNMS-20160912-1 or one of its dependencies could not be resolved: Could not find artifact org.codehaus.mojo:jasperreports-maven-plugin:jar:1.0-beta-4-OPENNMS-20160912-1 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+
+### Analysis
+
+https://github.com/OpenNMS/jasperreports-maven-plugin.git
+
+https://github.com/alexnederlof/Jasper-report-maven-plugin
+
+### Fix
+```
+# wget -q http://repo.opennms.org/maven2/org/codehaus/mojo/jasperreports-maven-plugin/1.0-beta-4-OPENNMS-20160912-1/jasperreports-maven-plugin-1.0-beta-4-OPENNMS-20160912-1.pom
+# wget -q http://repo.opennms.org/maven2/org/codehaus/mojo/jasperreports-maven-plugin/1.0-beta-4-OPENNMS-20160912-1/jasperreports-maven-plugin-1.0-beta-4-OPENNMS-20160912-1.jar
+# wget -q http://repo.opennms.org/maven2/org/codehaus/mojo/jasperreports-maven-plugin/1.0-beta-4-OPENNMS-20160912-1/jasperreports-maven-plugin-1.0-beta-4-OPENNMS-20160912-1-sources.jar
+# mvn deploy:deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=jasperreports-maven-plugin-1.0-beta-4-OPENNMS-20160912-1.jar -DpomFile=jasperreports-maven-plugin-1.0-beta-4-OPENNMS-20160912-1.pom -Dsources=jasperreports-maven-plugin-1.0-beta-4-OPENNMS-20160912-1-sources.jar
+```
+
+
+----
+## geoGoogle:geoGoogle:jar:1.5.1-20110518onms1
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal on project opennms-base-assembly: Could not resolve dependencies for project org.opennms:opennms-base-assembly:pom:25.0.0-SNAPSHOT: Could not find artifact geoGoogle:geoGoogle:jar:1.5.1-20110518onms1 in central (https://repo.maven.apache.org/maven2/) -> [Help 1]
+```
+
+### Analysis
+
+
+### Fix
+```
+# wget -q http://repo.opennms.org/maven2/geoGoogle/geoGoogle/1.5.1-20110518onms1/geoGoogle-1.5.1-20110518onms1.pom
+# wget -q http://repo.opennms.org/maven2/geoGoogle/geoGoogle/1.5.1-20110518onms1/geoGoogle-1.5.1-20110518onms1.jar
+# mvn deploy:deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=geoGoogle-1.5.1-20110518onms1.jar -DpomFile=geoGoogle-1.5.1-20110518onms1.pom
+
+```
+opennms-base-assembly/pom.xml needs to include thirdparty repository.
+
+
+----
+## org.opennms.maven.plugins:opennms-warmerge-plugin:jar:0.4
+### Dependency
+```
+<dependency>
+  <groupId>org.opennms.maven.plugins</groupId>
+  <artifactId>opennms-warmerge-plugin</artifactId>
+  <version>0.4</version>
+</dependency>
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Plugin org.opennms.maven.plugins:opennms-warmerge-plugin:0.4 or one of its dependencies could not be resolved: Failure to find org.opennms.maven.plugins:opennms-warmerge-plugin:jar:0.4 in http://localhost:8081/repository/maven-central/ was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+```
+
+### Analysis
+https://github.com/OpenNMS/maven-plugins.git/opennms-warmerge-plugin
+
+### Fix
+```
+# wget -q http://repo.opennms.org/maven2/org/opennms/maven/plugins/opennms-warmerge-plugin/0.4/opennms-warmerge-plugin-0.4.pom
+# wget -q http://repo.opennms.org/maven2/org/opennms/maven/plugins/opennms-warmerge-plugin/0.4/opennms-warmerge-plugin-0.4.jar
+# mvn deploy-file -Durl=http://localhost:8081/repository/thirdparty -DrepositoryId=thirdparty -Dfile=opennms-warmerge-plugin-0.4.jar -DpomFile=opennms-warmerge-plugin-0.4.pom
+
+```
+
+
+----
+## com.eclipsesource.jaxrs:jersey-min:jar:1.0.2.ONMS
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal org.apache.karaf.tooling:karaf-maven-plugin:4.2.3:features-add-to-repository (features-add-to-repository) 
+on project opennms-full-assembly: Error populating repository: Error resolving feature jax-rs-connector/1.0.2.ONMS: Error resolving artifact mvn:com.eclipsesource.jaxrs/jersey-min/1.0.2.ONMS: Can't resolve artifact com.eclipsesource.jaxrs:jersey-min:jar:1.0.2.ONMS: Could not find artifact com.eclipsesource.jaxrs:jersey-min:jar:1.0.2.ONMS in thirdparty (http://localhost:8081/repository/thirdparty/)
+```
+
+### Analysis
+
+
+### Fix
+```
+# git clone https://github.com/OpenNMS/osgi-jax-rs-connector.git
+# cd osgi-jax-rs-connector
+# mvn test
+# mvn deploy:deploy -DaltDeploymentRepository=thirdparty::default::http://localhost:8081/repository/thirdparty
+```
+
+
+----
+## org.opennms:rancid-api:jar:1.0.3
+### Dependency
+```
+```
+### Repository
+```
+```
+### Error
+```
+[ERROR] Failed to execute goal org.apache.karaf.tooling:karaf-maven-plugin:4.2.3:features-add-to-repository (features-add-to-repository-experimental) on project opennms-full-assembly: Error populating repository: Error resolving feature opennms-webapp/25.0.0.SNAPSHOT: Error resolving artifact wrap:mvn:org.opennms/rancid-api/1.0.3: Can't resolve artifact org.opennms:rancid-api:jar:1.0.3: Could not find artifact org.opennms:rancid-api:jar:1.0.3 in thirdparty (http://localhost:8081/repository/thirdparty/)
+```
+
+### Analysis
+container/features/src/main/resources/features-experimental.xml was not updated when version of org.opennms:rancid-api:jar was updated.
+
+
+### Fix
+```
+diff --git a/container/features/src/main/resources/features-experimental.xml b/container/features/src/main/resources/features-experimental.xml
+index 138634232b6..119921e797b 100644
+--- a/container/features/src/main/resources/features-experimental.xml
++++ b/container/features/src/main/resources/features-experimental.xml
+@@ -135,7 +135,7 @@
+       <bundle>mvn:org.opennms.features/org.opennms.features.request-tracker/${project.version}</bundle>
+ 
+       <!-- TODO: Make this JAR into a bundle -->
+-      <bundle>wrap:mvn:org.opennms/rancid-api/1.0.3</bundle>
++      <bundle>wrap:mvn:org.opennms/rancid-api/1.0.4</bundle>
+ 
+       <bundle>mvn:org.opennms/opennms-web-api/${project.version}</bundle>
+       <bundle>mvn:org.opennms.core/org.opennms.core.web-assets/${project.version}</bundle>
+```
+
+----
+## Other Resources
+This is a list of other maven repositories that you could also mirror locally. 
+
+```
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/event/atlassian-event/2.2.0/atlassian-event-2.2.0.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/event/atlassian-event/2.2.0/atlassian-event-2.2.0.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/httpclient/atlassian-httpclient-apache-httpcomponents/0.13.2/atlassian-httpclient-apache-httpcomponents-0.13.2.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/httpclient/atlassian-httpclient-apache-httpcomponents/0.13.2/atlassian-httpclient-apache-httpcomponents-0.13.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/httpclient/atlassian-httpclient-api/0.13.2/atlassian-httpclient-api-0.13.2.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/httpclient/atlassian-httpclient-api/0.13.2/atlassian-httpclient-api-0.13.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/httpclient/atlassian-httpclient-spi/0.13.2/atlassian-httpclient-spi-0.13.2.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/httpclient/atlassian-httpclient-spi/0.13.2/atlassian-httpclient-spi-0.13.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/jira/jira-rest-java-client-api/3.0.0/jira-rest-java-client-api-3.0.0.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/jira/jira-rest-java-client-api/3.0.0/jira-rest-java-client-api-3.0.0.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/jira/jira-rest-java-client-core/3.0.0/jira-rest-java-client-core-3.0.0.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/jira/jira-rest-java-client-core/3.0.0/jira-rest-java-client-core-3.0.0.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/jira/jira-rest-java-client-parent/3.0.0/jira-rest-java-client-parent-3.0.0.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-base-pom/30/atlassian-base-pom-30.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-base-pom/31/atlassian-base-pom-31.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-base-pom/36.1/atlassian-base-pom-36.1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-base-pom/36/atlassian-base-pom-36.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-base-pom/45/atlassian-base-pom-45.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-public-pom/23/atlassian-public-pom-23.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-public-pom/24/atlassian-public-pom-24.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-public-pom/28/atlassian-public-pom-28.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-public-pom/29.1/atlassian-public-pom-29.1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/pom/atlassian-public-pom/35/atlassian-public-pom-35.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/sal/sal-api/2.7.0/sal-api-2.7.0.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/sal/sal-api/2.7.0/sal-api-2.7.0.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/sal/sal-parent/2.7.0/sal-parent-2.7.0.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/util/concurrent/atlassian-util-concurrent/0.0.12/atlassian-util-concurrent-0.0.12.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/util/concurrent/atlassian-util-concurrent/2.4.0/atlassian-util-concurrent-2.4.0.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/util/concurrent/atlassian-util-concurrent/2.4.0-M9/atlassian-util-concurrent-2.4.0-M9.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/util/concurrent/atlassian-util-concurrent/2.4.0-M9/atlassian-util-concurrent-2.4.0-M9.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/atlassian/webhooks/atlassian-webhooks-plugin-parent/0.13.2/atlassian-webhooks-plugin-parent-0.13.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/sun/jersey/jersey-client/1.5/jersey-client-1.5.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/sun/jersey/jersey-client/1.5/jersey-client-1.5.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/sun/jersey/jersey-core/1.5/jersey-core-1.5.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/sun/jersey/jersey-core/1.5/jersey-core-1.5.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/sun/jersey/jersey-json/1.5/jersey-json-1.5.jar 
+atlassian-public: http://repo.spring.io/plugins-release/com/sun/jersey/jersey-json/1.5/jersey-json-1.5.pom 
+atlassian-public: http://repo.spring.io/plugins-release/com/sun/jersey/jersey-project/1.5/jersey-project-1.5.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpasyncclient/4.0-beta3-atlassian-1/httpasyncclient-4.0-beta3-atlassian-1.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpasyncclient/4.0-beta3-atlassian-1/httpasyncclient-4.0-beta3-atlassian-1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpasyncclient-cache/4.0-beta3-atlassian-1/httpasyncclient-cache-4.0-beta3-atlassian-1.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpasyncclient-cache/4.0-beta3-atlassian-1/httpasyncclient-cache-4.0-beta3-atlassian-1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpclient-cache/4.2.1-atlassian-2/httpclient-cache-4.2.1-atlassian-2.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpclient-cache/4.2.1-atlassian-2/httpclient-cache-4.2.1-atlassian-2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpcomponents-asyncclient/4.0-beta3-atlassian-1/httpcomponents-asyncclient-4.0-beta3-atlassian-1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpcomponents-client/4.1.2/httpcomponents-client-4.1.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpcomponents-client/4.2.1-atlassian-2/httpcomponents-client-4.2.1-atlassian-2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpcomponents-core/4.2.2/httpcomponents-core-4.2.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpcore-nio/4.2.2/httpcore-nio-4.2.2.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpcore-nio/4.2.2/httpcore-nio-4.2.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/project/4.1.1/project-4.1.1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/apache/httpcomponents/project/6/project-6.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/codehaus/jettison/jettison/1.1/jettison-1.1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/external/2.2.0-b21/external-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/external/asm-all-repackaged/2.2.0-b21/asm-all-repackaged-2.2.0-b21.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/external/asm-all-repackaged/2.2.0-b21/asm-all-repackaged-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/external/cglib/2.2.0-b21/cglib-2.2.0-b21.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/external/cglib/2.2.0-b21/cglib-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/external/javax.inject/2.2.0-b21/javax.inject-2.2.0-b21.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/external/javax.inject/2.2.0-b21/javax.inject-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-api/2.2.0-b21/hk2-api-2.2.0-b21.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-api/2.2.0-b21/hk2-api-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-bom/2.2.0-b21/hk2-bom-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-kernel-parent/2.2.0-b21/hk2-kernel-parent-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-locator/2.2.0-b21/hk2-locator-2.2.0-b21.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-locator/2.2.0-b21/hk2-locator-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-parent/2.2.0-b21/hk2-parent-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-public/2.2.0-b21/hk2-public-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-utils/2.2.0-b21/hk2-utils-2.2.0-b21.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/hk2-utils/2.2.0-b21/hk2-utils-2.2.0-b21.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/jersey/core/jersey-common/2.4.1/jersey-common-2.4.1.jar 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/jersey/core/jersey-common/2.4.1/jersey-common-2.4.1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/jersey/project/2.4.1/project-2.4.1.pom 
+atlassian-public: http://repo.spring.io/plugins-release/org/glassfish/pom/8/pom-8.pom 
+atlassian-public: http://repo.spring.io/plugins-release/stax/stax-api/1.0.1/stax-api-1.0.1.jar 
+atlassian-public: http://repo.spring.io/plugins-release/stax/stax-api/1.0.1/stax-api-1.0.1.pom 
+jasperreports: http://jasperreports.sourceforge.net/maven2/com/lowagie/itext/2.1.7.js4/itext-2.1.7.js4.jar 
+jasperreports: http://jasperreports.sourceforge.net/maven2/com/lowagie/itext/2.1.7.js4/itext-2.1.7.js4.pom 
+jasperreports: http://jasperreports.sourceforge.net/maven2/com/lowagie/itext/2.1.7.js5/itext-2.1.7.js5.jar 
+jasperreports: http://jasperreports.sourceforge.net/maven2/com/lowagie/itext/2.1.7.js5/itext-2.1.7.js5.pom 
+jaspersoft-third-party: http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/org/olap4j/olap4j/0.9.7.309-JS-3/olap4j-0.9.7.309-JS-3.jar 
+jaspersoft-third-party: http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/org/olap4j/olap4j/0.9.7.309-JS-3/olap4j-0.9.7.309-JS-3.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/net/socialchange/doctype/doctype-changer/1.1/doctype-changer-1.1.jar 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/net/socialchange/doctype/doctype-changer/1.1/doctype-changer-1.1.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/drools/drools-bom/7.7.0.Final/drools-bom-7.7.0.Final.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/arquillian/arquillian-bom/1.1.10.Final/arquillian-bom-1.1.10.Final.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/arquillian/selenium/selenium-bom/2.53.0/selenium-bom-2.53.0.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/jboss-parent/21/jboss-parent-21.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/jdocbook/jdocbook-core/1.1.1/jdocbook-core-1.1.1.jar 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/jdocbook/jdocbook-core/1.1.1/jdocbook-core-1.1.1.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/pressgang/pressgang-highlight/3.1.3/pressgang-highlight-3.1.3.jar 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/pressgang/pressgang-highlight/3.1.3/pressgang-highlight-3.1.3.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/pressgang/pressgang-jdocbook-style/3.1.3/pressgang-jdocbook-style-3.1.3.jdocbook-style 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/pressgang/pressgang-jdocbook-style/3.1.3/pressgang-jdocbook-style-3.1.3.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/pressgang/pressgang-tools/3.1.3/pressgang-tools-3.1.3.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/pressgang/pressgang-xslt-ns/3.1.3/pressgang-xslt-ns-3.1.3.jar 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/pressgang/pressgang-xslt-ns/3.1.3/pressgang-xslt-ns-3.1.3.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-bom/2.0.0-alpha-8/shrinkwrap-descriptors-bom-2.0.0-alpha-8.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-bom/2.0.0/shrinkwrap-descriptors-bom-2.0.0.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-bom/2.2.0/shrinkwrap-resolver-bom-2.2.0.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.2/shrinkwrap-bom-1.2.2.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.6/shrinkwrap-bom-1.2.6.pom 
+jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/kie/kie-user-bom-parent/7.7.0.Final/kie-user-bom-parent-7.7.0.Final.pom 
+maven-restlet: http://maven.restlet.org/com/noelios/restlet/com.noelios.restlet/1.1.10/com.noelios.restlet-1.1.10.jar 
+maven-restlet: http://maven.restlet.org/com/noelios/restlet/com.noelios.restlet/1.1.10/com.noelios.restlet-1.1.10.pom 
+maven-restlet: http://maven.restlet.org/com/noelios/restlet/com.noelios.restlet.ext.simple/1.1.10/com.noelios.restlet.ext.simple-1.1.10.jar 
+maven-restlet: http://maven.restlet.org/com/noelios/restlet/com.noelios.restlet.ext.simple/1.1.10/com.noelios.restlet.ext.simple-1.1.10.pom 
+maven-restlet: http://maven.restlet.org/org/restlet/org.restlet/1.1.10/org.restlet-1.1.10.jar 
+maven-restlet: http://maven.restlet.org/org/restlet/org.restlet/1.1.10/org.restlet-1.1.10.pom 
+maven-restlet: http://maven.restlet.org/org/simpleframework/org.simpleframework/3.1.3/org.simpleframework-3.1.3.jar 
+maven-restlet: http://maven.restlet.org/org/simpleframework/org.simpleframework/3.1.3/org.simpleframework-3.1.3.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-bouncycastle/2.14.3-02/nexus-buildsupport-bouncycastle-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-bouncycastle/2.7.2-01/nexus-buildsupport-bouncycastle-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-bouncycastle/2.9.1-02/nexus-buildsupport-bouncycastle-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-commons/2.14.3-02/nexus-buildsupport-commons-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-commons/2.7.2-01/nexus-buildsupport-commons-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-commons/2.9.1-02/nexus-buildsupport-commons-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-db/2.14.3-02/nexus-buildsupport-db-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-db/2.9.1-02/nexus-buildsupport-db-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-goodies/2.14.3-02/nexus-buildsupport-goodies-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-goodies/2.7.2-01/nexus-buildsupport-goodies-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-goodies/2.9.1-02/nexus-buildsupport-goodies-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-groovy/2.14.3-02/nexus-buildsupport-groovy-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-groovy/2.7.2-01/nexus-buildsupport-groovy-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-groovy/2.9.1-02/nexus-buildsupport-groovy-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-guice/2.14.3-02/nexus-buildsupport-guice-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-guice/2.7.2-01/nexus-buildsupport-guice-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-guice/2.9.1-02/nexus-buildsupport-guice-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-gwt/2.14.3-02/nexus-buildsupport-gwt-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-httpclient/2.14.3-02/nexus-buildsupport-httpclient-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-httpclient/2.7.2-01/nexus-buildsupport-httpclient-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-httpclient/2.9.1-02/nexus-buildsupport-httpclient-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-insight/2.14.3-02/nexus-buildsupport-insight-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-jetty/2.14.3-02/nexus-buildsupport-jetty-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-jetty/2.7.2-01/nexus-buildsupport-jetty-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-jetty/2.9.1-02/nexus-buildsupport-jetty-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-logging/2.14.3-02/nexus-buildsupport-logging-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-logging/2.7.2-01/nexus-buildsupport-logging-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-logging/2.9.1-02/nexus-buildsupport-logging-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-maven/2.14.3-02/nexus-buildsupport-maven-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-maven/2.7.2-01/nexus-buildsupport-maven-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-maven/2.9.1-02/nexus-buildsupport-maven-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-messaging/2.14.3-02/nexus-buildsupport-messaging-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-metrics/2.14.3-02/nexus-buildsupport-metrics-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-metrics/2.7.2-01/nexus-buildsupport-metrics-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-metrics/2.9.1-02/nexus-buildsupport-metrics-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-osgi/2.14.3-02/nexus-buildsupport-osgi-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-osgi/2.9.1-02/nexus-buildsupport-osgi-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-other/2.14.3-02/nexus-buildsupport-other-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-other/2.7.2-01/nexus-buildsupport-other-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-other/2.9.1-02/nexus-buildsupport-other-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-plexus/2.14.3-02/nexus-buildsupport-plexus-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-plexus/2.7.2-01/nexus-buildsupport-plexus-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-plexus/2.9.1-02/nexus-buildsupport-plexus-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-rest/2.14.3-02/nexus-buildsupport-rest-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-rest/2.7.2-01/nexus-buildsupport-rest-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-rest/2.9.1-02/nexus-buildsupport-rest-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-shiro/2.14.3-02/nexus-buildsupport-shiro-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-shiro/2.7.2-01/nexus-buildsupport-shiro-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-shiro/2.9.1-02/nexus-buildsupport-shiro-2.9.1-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-testing/2.14.3-02/nexus-buildsupport-testing-2.14.3-02.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-testing/2.7.2-01/nexus-buildsupport-testing-2.7.2-01.pom 
+rso-public-grid: https://repository.sonatype.org/content/groups/sonatype-public-grid/org/sonatype/nexus/buildsupport/nexus-buildsupport-testing/2.9.1-02/nexus-buildsupport-testing-2.9.1-02.pom 
+servicemix: http://svn.apache.org/repos/asf/servicemix/m2-repo/org/apache/maven/shared/maven-osgi/0.2.0/maven-osgi-0.2.0.jar 
+servicemix: http://svn.apache.org/repos/asf/servicemix/m2-repo/org/apache/maven/shared/maven-osgi/0.2.0/maven-osgi-0.2.0.pom 
+sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/opennms/elasticsearch/elasticsearch-drift-plugin/1.1.0-SNAPSHOT/elasticsearch-drift-plugin-1.1.0-20190128.201808-1.jar 
+sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/opennms/elasticsearch/elasticsearch-drift-plugin/1.1.0-SNAPSHOT/elasticsearch-drift-plugin-1.1.0-20190128.201808-1.pom 
+sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/opennms/elasticsearch/elasticsearch-drift-plugin/1.1.0-SNAPSHOT/maven-metadata.xml 
+spring.io: http://repo.spring.io/plugins-release/com/noelios/restlet/com.noelios.restlet/1.1.10/com.noelios.restlet-1.1.10.pom 
+spring.io: http://repo.spring.io/plugins-release/com/noelios/restlet/com.noelios.restlet.ext.simple/1.1.10/com.noelios.restlet.ext.simple-1.1.10.pom 
+spring.io: http://repo.spring.io/plugins-release/org/restlet/org.restlet/1.1.10/org.restlet-1.1.10.pom 
+spring.io: http://repo.spring.io/plugins-release/org/simpleframework/org.simpleframework/3.1.3/org.simpleframework-3.1.3.pom 
+vaadin-addons: http://maven.vaadin.com/vaadin-addons/com/vaadin/vaadin-context-menu/2.0.0/vaadin-context-menu-2.0.0.jar 
+vaadin-addons: http://maven.vaadin.com/vaadin-addons/com/vaadin/vaadin-context-menu/2.0.0/vaadin-context-menu-2.0.0.pom 
+vaadin-addons: http://maven.vaadin.com/vaadin-addons/org/vaadin/addon/confirmdialog/3.2.0/confirmdialog-3.2.0.jar 
+vaadin-addons: http://maven.vaadin.com/vaadin-addons/org/vaadin/addon/confirmdialog/3.2.0/confirmdialog-3.2.0.pom 
+vaadin-addons: http://maven.vaadin.com/vaadin-addons/org/vaadin/addons/dragdroplayouts/1.4.2/dragdroplayouts-1.4.2.jar 
+vaadin-addons: http://maven.vaadin.com/vaadin-addons/org/vaadin/addons/dragdroplayouts/1.4.2/dragdroplayouts-1.4.2.pom 
+```
