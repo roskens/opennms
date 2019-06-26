@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.jaxb;
+package org.opennms.protocols.wsman.dao.jaxb;
 
 import java.net.InetAddress;
 import java.util.Objects;
@@ -38,7 +38,7 @@ import org.opennms.core.xml.AbstractJaxbConfigDao;
 import org.opennms.netmgt.config.wsman.Definition;
 import org.opennms.netmgt.config.wsman.Range;
 import org.opennms.netmgt.config.wsman.WsmanConfig;
-import org.opennms.netmgt.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
 
 public class WSManConfigDaoJaxb extends AbstractJaxbConfigDao<WsmanConfig, WsmanConfig> implements WSManConfigDao {
 

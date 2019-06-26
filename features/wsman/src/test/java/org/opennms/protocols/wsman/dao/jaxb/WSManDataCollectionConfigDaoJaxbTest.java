@@ -26,8 +26,9 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.jaxb;
+package org.opennms.protocols.wsman.dao.jaxb;
 
+import org.opennms.protocols.wsman.dao.jaxb.WSManDataCollectionConfigDaoJaxb;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 

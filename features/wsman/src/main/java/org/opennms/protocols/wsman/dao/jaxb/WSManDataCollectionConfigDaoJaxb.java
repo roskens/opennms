@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao.jaxb;
+package org.opennms.protocols.wsman.dao.jaxb;
 
 import java.nio.file.Paths;
 import java.util.List;
@@ -39,7 +39,7 @@ import org.opennms.netmgt.config.wsman.Group;
 import org.opennms.netmgt.config.wsman.SystemDefinition;
 import org.opennms.netmgt.config.wsman.WsmanAgentConfig;
 import org.opennms.netmgt.config.wsman.WsmanDatacollectionConfig;
-import org.opennms.netmgt.dao.WSManDataCollectionConfigDao;
+import org.opennms.protocols.wsman.dao.WSManDataCollectionConfigDao;
 import org.opennms.netmgt.model.OnmsNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

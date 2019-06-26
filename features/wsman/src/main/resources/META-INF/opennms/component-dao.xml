@@ -10,9 +10,9 @@
 
   <context:annotation-config/>
 
-  <bean id="wsManDataCollectionConfigDao" class="org.opennms.netmgt.dao.jaxb.WSManDataCollectionConfigDaoJaxb" />
+  <bean id="wsManDataCollectionConfigDao" class="org.opennms.protocols.wsman.dao.jaxb.WSManDataCollectionConfigDaoJaxb" />
 
-  <bean id="wsManConfigDao" class="org.opennms.netmgt.dao.jaxb.WSManConfigDaoJaxb">
+  <bean id="wsManConfigDao" class="org.opennms.protocols.wsman.dao.jaxb.WSManConfigDaoJaxb">
     <property name="configResource" value="file:${opennms.home}/etc/wsman-config.xml" />
   </bean>
 

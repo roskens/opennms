@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao;
+package org.opennms.protocols.wsman.dao;
 
 import java.net.InetAddress;
 import java.net.MalformedURLException;

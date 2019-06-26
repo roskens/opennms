@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.collectd;
+package org.opennms.protocols.wsman.collector;
 
 import java.io.File;
 import java.util.AbstractMap.SimpleEntry;
@@ -68,8 +68,8 @@ import org.opennms.netmgt.config.wsman.Group;
 import org.opennms.netmgt.config.wsman.Groups;
 import org.opennms.netmgt.config.wsman.WsmanAgentConfig;
 import org.opennms.netmgt.config.wsman.WsmanDatacollectionConfig;
-import org.opennms.netmgt.dao.WSManConfigDao;
-import org.opennms.netmgt.dao.WSManDataCollectionConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManDataCollectionConfigDao;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.rrd.RrdRepository;
