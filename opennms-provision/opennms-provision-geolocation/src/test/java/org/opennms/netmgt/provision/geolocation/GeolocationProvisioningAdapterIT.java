@@ -26,8 +26,9 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.provision;
+package org.opennms.netmgt.provision.geolocation;
 
+import org.opennms.netmgt.provision.geolocation.GeolocationProvisioningAdapter;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

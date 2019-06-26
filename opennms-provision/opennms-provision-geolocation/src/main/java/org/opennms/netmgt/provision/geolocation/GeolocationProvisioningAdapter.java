@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.provision;
+package org.opennms.netmgt.provision.geolocation;
 
 import java.util.Objects;
 
@@ -42,6 +42,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
 import com.google.common.base.Strings;
+import org.opennms.netmgt.provision.ProvisioningAdapterException;
+import org.opennms.netmgt.provision.SimplerQueuedProvisioningAdapter;
 
 public class GeolocationProvisioningAdapter extends SimplerQueuedProvisioningAdapter implements InitializingBean {
 
