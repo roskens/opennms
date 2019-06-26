@@ -18,8 +18,8 @@
     <!-- Netty -->
     <dependency>
       <groupId>io.netty</groupId>
-      <artifactId>netty-all</artifactId>
-      <version>${netty4Version}</version>
+      <artifactId>netty</artifactId>
+      <version>3.9.4.Final</version>
     </dependency>
   </dependencies>
 </project>
