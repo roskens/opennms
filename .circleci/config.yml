@@ -145,6 +145,11 @@ workflows:
       - integration-test:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - master
+                - develop
       - smoke-test-full:
           requires:
             - build-horizon-oci
