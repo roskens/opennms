@@ -68,7 +68,7 @@ public class CollectorListIT {
             "org.opennms.netmgt.collectd.VmwareCimCollector",
             "org.opennms.netmgt.collectd.VmwareCollector",
             "org.opennms.netmgt.collectd.WmiCollector",
-            "org.opennms.netmgt.collectd.WsManCollector",
+            "org.opennms.protocols.wsman.collector.WsManCollector",
             "org.opennms.protocols.xml.collector.XmlCollector")
             .build();
 
