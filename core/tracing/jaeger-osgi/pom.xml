@@ -43,6 +43,8 @@
                   <exclude>commons-codec:commons-codec</exclude>
                   <exclude>com.squareup.okhttp3:okhttp</exclude>
                   <exclude>com.squareup.okio:okio</exclude>
+                  <exclude>com.google.code.gson:gson</exclude>
+                  <exclude>org.slf4j:slf4j-api</exclude>
                 </excludes>
               </artifactSet>
               <filters>
