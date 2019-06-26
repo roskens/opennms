@@ -26,8 +26,9 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.poller.monitors;
+package org.opennms.protocols.wsman.poller;
 
+import org.opennms.protocols.wsman.poller.WsManMonitor;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.mock;
@@ -41,7 +42,7 @@ import org.junit.Test;
 import org.opennms.core.wsman.WSManClient;
 import org.opennms.core.wsman.WSManClientFactory;
 import org.opennms.netmgt.config.wsman.Definition;
-import org.opennms.netmgt.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
 import org.opennms.netmgt.poller.MonitoredService;
 import org.opennms.netmgt.poller.PollStatus;
 import org.springframework.expression.spel.SpelParseException;

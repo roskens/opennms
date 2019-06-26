@@ -26,8 +26,9 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.collectd;
+package org.opennms.protocols.wsman.collector;
 
+import org.opennms.protocols.wsman.collector.WsManCollector;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
 import static org.mockito.Mockito.mock;
@@ -40,8 +41,8 @@ import org.opennms.netmgt.config.wsman.Collection;
 import org.opennms.netmgt.config.wsman.Definition;
 import org.opennms.netmgt.config.wsman.Rrd;
 import org.opennms.netmgt.config.wsman.WsmanDatacollectionConfig;
-import org.opennms.netmgt.dao.WSManConfigDao;
-import org.opennms.netmgt.dao.WSManDataCollectionConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManDataCollectionConfigDao;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.snmp.InetAddrUtils;

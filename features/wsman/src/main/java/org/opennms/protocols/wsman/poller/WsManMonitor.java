@@ -26,7 +26,7 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.poller.monitors;
+package org.opennms.protocols.wsman.poller;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -42,7 +42,7 @@ import org.opennms.core.wsman.exceptions.WSManException;
 import org.opennms.core.wsman.utils.ResponseHandlingUtils;
 import org.opennms.core.wsman.utils.RetryNTimesLoop;
 import org.opennms.netmgt.config.wsman.WsmanAgentConfig;
-import org.opennms.netmgt.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
 import org.opennms.netmgt.poller.MonitoredService;
 import org.opennms.netmgt.poller.PollStatus;
 import org.opennms.netmgt.poller.monitors.support.ParameterSubstitutingMonitor;

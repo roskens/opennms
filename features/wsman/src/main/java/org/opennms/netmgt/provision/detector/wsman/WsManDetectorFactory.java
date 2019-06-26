@@ -33,7 +33,7 @@ import java.util.Map;
 
 import org.opennms.core.wsman.WSManClientFactory;
 import org.opennms.core.wsman.cxf.CXFWSManClientFactory;
-import org.opennms.netmgt.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.model.OnmsNode;
 import org.opennms.netmgt.provision.DetectRequest;

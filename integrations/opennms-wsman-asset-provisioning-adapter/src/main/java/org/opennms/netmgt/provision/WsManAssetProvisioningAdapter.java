@@ -51,7 +51,7 @@ import org.opennms.netmgt.config.wsman.WsmanAgentConfig;
 import org.opennms.netmgt.config.wsmanAsset.adapter.AssetField;
 import org.opennms.netmgt.config.wsmanAsset.adapter.WqlObj;
 import org.opennms.netmgt.daemon.DaemonTools;
-import org.opennms.netmgt.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.events.api.EventConstants;
 import org.opennms.netmgt.events.api.annotations.EventHandler;

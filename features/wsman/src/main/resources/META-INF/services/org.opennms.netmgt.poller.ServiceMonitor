@@ -1,1 +1,1 @@
-org.opennms.netmgt.poller.monitors.WsManMonitor
+org.opennms.protocols.wsman.poller.WsManMonitor

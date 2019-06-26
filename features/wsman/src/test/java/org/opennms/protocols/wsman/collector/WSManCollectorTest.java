@@ -26,8 +26,9 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.collectd;
+package org.opennms.protocols.wsman.collector;
 
+import org.opennms.protocols.wsman.collector.WsManCollector;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.Matchers.any;
@@ -65,8 +66,8 @@ import org.opennms.netmgt.config.wsman.Attrib;
 import org.opennms.netmgt.config.wsman.Collection;
 import org.opennms.netmgt.config.wsman.Definition;
 import org.opennms.netmgt.config.wsman.Group;
-import org.opennms.netmgt.dao.WSManConfigDao;
-import org.opennms.netmgt.dao.WSManDataCollectionConfigDao;
+import org.opennms.protocols.wsman.dao.WSManConfigDao;
+import org.opennms.protocols.wsman.dao.WSManDataCollectionConfigDao;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.dao.support.SiblingColumnStorageStrategy;
 import org.opennms.netmgt.model.OnmsNode;

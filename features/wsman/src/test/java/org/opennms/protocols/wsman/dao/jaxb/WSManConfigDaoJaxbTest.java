@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2010-2015 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2015 The OpenNMS Group, Inc.
+ * Copyright (C) 2010-2016 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2016 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -26,19 +26,25 @@
  *     http://www.opennms.com/
  *******************************************************************************/
 
-package org.opennms.netmgt.dao;
+package org.opennms.protocols.wsman.dao.jaxb;
 
-import java.util.List;
+import org.opennms.protocols.wsman.dao.jaxb.WSManConfigDaoJaxb;
+import static org.junit.Assert.assertEquals;
 
-import org.opennms.netmgt.collection.api.CollectionAgent;
-import org.opennms.netmgt.config.wsman.Collection;
-import org.opennms.netmgt.config.wsman.Group;
-import org.opennms.netmgt.config.wsman.WsmanAgentConfig;
-import org.opennms.netmgt.config.wsman.WsmanDatacollectionConfig;
-import org.opennms.netmgt.model.OnmsNode;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
-public interface WSManDataCollectionConfigDao {
-    public WsmanDatacollectionConfig getConfig();
-    public Collection getCollectionByName(String name);
-    public List<Group> getGroupsForAgent(Collection collection, CollectionAgent agent, WsmanAgentConfig agentConfig, OnmsNode node);
+import org.junit.Test;
+import org.opennms.core.wsman.WSManEndpoint;
+import org.springframework.core.io.FileSystemResource;
+
+public class WSManConfigDaoJaxbTest {
+    @Test
+    public void canBuildEndpointForSpecific() throws UnknownHostException {
+        WSManConfigDaoJaxb configDao = new WSManConfigDaoJaxb();
+        configDao.setConfigResource(new FileSystemResource("src/test/resources/wsman-config.xml"));
+        configDao.afterPropertiesSet();
+        WSManEndpoint endpoint = configDao.getEndpoint(InetAddress.getByName("172.23.1.2"));
+        assertEquals("http://172.23.1.2:5985/ws-man", endpoint.getUrl().toString());
+    }
 }
