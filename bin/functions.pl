@@ -385,7 +385,7 @@ sub get_version_from_java {
 	my ($output, $bindir, $shortversion, $version, $build, $java_home);
 
 	$output = `"$javacmd" -version 2>\&1`;
-	($version) = $output =~ / version \"?([\d\.]+?(?:[\+\-\_]\S+?)?)\"?(?: \d\d\d\d-\d\d-\d\d)?$/ms;
+	($version) = $output =~ / version \"?([\d\.]+?(?:[\+\-\_]\S+?)?)\"?(?: \d\d\d\d-\d\d-\d\d)?(?: LTS)?$/ms;
 	if (defined $version) {
 		($version, $build) = $version =~ /^([\d\.]+)(?:[\+\-\_](.*?))?$/;
 		($shortversion) = $version =~ /^(\d+\.\d+|\d+)/;
@@ -438,7 +438,7 @@ sub find_java_home {
 
 	my $highest_valid = undef;
 
-	for my $majorversion (sort keys %$versions) {
+	for my $majorversion (sort { $b cmp $a } keys %$versions) {
 		if (looks_like_number($majorversion) and looks_like_number($minimum_java) and ($majorversion < $minimum_java or $majorversion >= $maximum_java)) {
 			next;
 		}
