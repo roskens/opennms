@@ -1196,9 +1196,12 @@
 
       Set java.security.egd so that entropy exhaustion doesn't cause
       problematic pauses when starting MockSnmpAgent in unit tests.
+
+      Use ParallelGC and ParallelOldGC when running unit/integration tests.
     -->
     <argLineMemory>-Xmx1g</argLineMemory>
-    <argLine>${argLineMemory} -Djava.security.egd=/dev/./urandom -Dpoller.logfile=/tmp/remote-poller.log --illegal-access=permit</argLine>
+    <argLineGC>-XX:+UseParallelGC -XX:+UseParallelOldGC</argLineGC>
+    <argLine>${argLineMemory} ${argLineGC} -Djava.security.egd=/dev/./urandom -Dpoller.logfile=/tmp/remote-poller.log --illegal-access=permit</argLine>
     <skipITs>true</skipITs>
 
     <!--
