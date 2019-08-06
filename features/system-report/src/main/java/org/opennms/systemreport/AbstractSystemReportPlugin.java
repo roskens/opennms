@@ -1,8 +1,8 @@
 /*******************************************************************************
  * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2010-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2010-2020 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2020 The OpenNMS Group, Inc.
  *
  * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
@@ -40,6 +40,7 @@ import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.StringReader;
 import java.lang.management.ManagementFactory;
+import java.lang.reflect.InaccessibleObjectException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.nio.MappedByteBuffer;
@@ -346,16 +347,20 @@ public abstract class AbstractSystemReportPlugin implements SystemReportPlugin {
     protected void addGetters(final Object o, final Map<String,Resource> map) {
         if (o != null) {
             for (Method method : o.getClass().getDeclaredMethods()) {
-                method.setAccessible(true);
-                if (method.getName().startsWith("get") && Modifier.isPublic(method.getModifiers())) {
-                    Object value;
-                    try {
-                        value = method.invoke(o);
-                    } catch (Throwable e) {
-                        value = e;
+                try {
+                    method.setAccessible(true);
+                    if (method.getName().startsWith("get") && Modifier.isPublic(method.getModifiers())) {
+                        Object value;
+                        try {
+                            value = method.invoke(o);
+                        } catch (Throwable e) {
+                            value = e;
+                        }
+                        final String key = method.getName().replaceFirst("^get", "").replaceAll("([A-Z])", " $1").replaceFirst("^ ", "").replaceAll("\\bVm\\b", "VM");
+                        map.put(key, getResource(value.toString()));
                     }
-                    final String key = method.getName().replaceFirst("^get", "").replaceAll("([A-Z])", " $1").replaceFirst("^ ", "").replaceAll("\\bVm\\b", "VM");
-                    map.put(key, getResource(value.toString()));
+                } catch (InaccessibleObjectException e) {
+                    LOG.debug("addGetters", e);
                 }
             }
         }
