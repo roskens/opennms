@@ -1267,10 +1267,10 @@ angular-bootstrap-toggle@0.4.2:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/angular-bootstrap-toggle/-/angular-bootstrap-toggle-0.4.2.tgz#62b188190c7d93976bfd8697958186266e7c546a"
 
-angular-cookies@~1.5.11:
-  version "1.5.11"
-  resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.5.11.tgz#88558de7c5044dcc3abeb79614d7ef8107ba49c0"
-  integrity sha1-iFWN58UETcw6vreWFNfvgQe6ScA=
+angular-cookies@~1.7.8:
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.7.8.tgz#c674dcfd37168e3d7def6bed165a38f75f96dbc9"
+  integrity sha512-oS2X8XLYyLrwSBUKmcGkHxphwTtAEdi3eriSwMX/WUl5D6fRZ4EcBY4DaHN+tYDnzJ1i2lFa82/oq0kTKxZmyg==
 
 "angular-growl-v2@https://github.com/JanStevens/angular-growl-2#v0.7.9":
   version "0.7.9"
