@@ -3982,9 +3982,10 @@ flatted@^2.0.0:
   version "1.0.0"
   resolved "https://github.com/RangerRick/flot-saveas.git#d06a55e6215e19b714179fdeda1d32b87f28dccc"
 
-"flot@https://github.com/flot/flot.git#v0.8.3":
-  version "0.8.3"
-  resolved "https://github.com/flot/flot.git#453b017cc5acfd75e252b93e8635f57f4196d45d"
+flot@^3.2.9:
+  version "3.2.9"
+  resolved "https://registry.yarnpkg.com/flot/-/flot-3.2.9.tgz#94c1beb81991fa721536d719e9abff5dd5c4430c"
+  integrity sha512-WdURjlC4onvTMxB4LvXIKGXg6cJb2ZnrMEUMXzwjDOFRKQaYFaXDTcTvVycd3bVel6HRWt7bgivBBR9Mi4JAMg==
 
 flush-write-stream@^1.0.0:
   version "1.0.2"
