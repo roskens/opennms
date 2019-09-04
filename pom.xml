@@ -1307,7 +1307,7 @@
     <jnaVersion>4.4.0</jnaVersion>
     <jodaTimeVersion>2.1</jodaTimeVersion>
     <jrubyVersion>9.1.16.0</jrubyVersion>
-    <jsonVersion>20171018</jsonVersion>
+    <jsonVersion>20190722</jsonVersion>
     <jsoupVersion>1.7.2</jsoupVersion>
     <jsonlibVersion>2.4</jsonlibVersion>
     <jsonlibBundleVersion>2.4_1</jsonlibBundleVersion>
