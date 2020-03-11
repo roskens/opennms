@@ -119,6 +119,20 @@ public class SSLCertMonitor extends ParameterSubstitutingMonitor {
     public static final String PARAMETER_STLS_START = "starttls-start";
 
     public static final String PARAMETER_STLS_START_RESP = "starttls-start-response";
+
+    private int resolveKeyedInteger(final MonitoredService svc, final Map<String, Object> parameters, final String key, final int defaultValue) {
+        final String strKey = PropertiesUtils.substitute(resolveKeyedString(parameters, key, ""),
+                                                         getServiceProperties(svc));
+        if (strKey == null || strKey.isEmpty()) {
+            return defaultValue;
+        }
+        try {
+            return Integer.parseInt(strKey);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("Required parameter '"+key+"' is not an integer.");
+        }
+    }
+
     /**
      * {@inheritDoc}
      *
@@ -135,20 +149,19 @@ public class SSLCertMonitor extends ParameterSubstitutingMonitor {
     public PollStatus poll(final MonitoredService svc, final Map<String, Object> parameters) {
         TimeoutTracker tracker = new TimeoutTracker(parameters, DEFAULT_RETRY, DEFAULT_TIMEOUT);
 
-        // Port
-        int port = ParameterMap.getKeyedInteger(parameters, PARAMETER_PORT, DEFAULT_PORT);
-        if (port == DEFAULT_PORT) {
-            throw new RuntimeException("Required parameter 'port' is not present in supplied properties.");
+        int port = resolveKeyedInteger(svc, parameters, PARAMETER_PORT, DEFAULT_PORT);
+        if (port <= 0) {
+            throw new RuntimeException("Required parameter '"+PARAMETER_PORT+"' must be a positive value.");
         }
 
         // Remaining days
-        int validityDays = ParameterMap.getKeyedInteger(parameters, PARAMETER_DAYS, DEFAULT_DAYS);
+        int validityDays = resolveKeyedInteger(svc, parameters, PARAMETER_DAYS, DEFAULT_DAYS);
         if (validityDays <= 0) {
-            throw new RuntimeException("Required parameter 'days' must be a positive value.");
+            throw new RuntimeException("Required parameter '"+PARAMETER_DAYS+"' must be a positive value.");
         }
 
         // Server name (optional)
-        final String serverName = PropertiesUtils.substitute(ParameterMap.getKeyedString(parameters, PARAMETER_SERVER_NAME, ""),
+        final String serverName = PropertiesUtils.substitute(resolveKeyedString(parameters, PARAMETER_SERVER_NAME, ""),
                                                              getServiceProperties(svc));
 
         final String stlsInitiate = PropertiesUtils.substitute(resolveKeyedString(parameters, PARAMETER_STLS_INIT, ""),
