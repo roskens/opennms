@@ -50,7 +50,7 @@ import javax.net.ssl.SSLSocket;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
-import org.apache.http.conn.ssl.StrictHostnameVerifier;
+import org.apache.http.conn.ssl.DefaultHostnameVerifier;
 import org.opennms.core.utils.InetAddressUtils;
 import org.opennms.core.utils.ParameterMap;
 import org.opennms.core.utils.PropertiesUtils;
@@ -227,7 +227,7 @@ public class SSLCertMonitor extends ParameterSubstitutingMonitor {
                     sslSocket.setSSLParameters(sslParameters);
 
                     // Check certificates host name
-                    if (!new StrictHostnameVerifier().verify(serverName, sslSocket.getSession())) {
+                    if (!new DefaultHostnameVerifier().verify(serverName, sslSocket.getSession())) {
                         serviceStatus = PollStatus.unavailable("Host name verification failed - certificate common name is invalid");
                         continue;
                     }
