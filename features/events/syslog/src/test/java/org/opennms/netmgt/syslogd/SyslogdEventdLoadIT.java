@@ -193,7 +193,7 @@ public class SyslogdEventdLoadIT implements InitializingBean {
         SyslogdTestUtils.startSyslogdGracefully(m_syslogd);
     }
 
-    @Test(timeout=120000)
+    @Test(timeout=150000)
     @Transactional
     public void testDefaultSyslogd() throws Exception {
         startSyslogdGracefully();
@@ -228,7 +228,7 @@ public class SyslogdEventdLoadIT implements InitializingBean {
         System.err.println(String.format("total time: %d, wait time: %d, events per second: %8.4f", total, (end - mid), eventsPerSecond));
     }
 
-    @Test(timeout=120000)
+    @Test(timeout=150000)
     @Transactional
     public void testRfcSyslog() throws Exception {
         loadSyslogConfiguration("/etc/syslogd-rfc-configuration.xml");
@@ -256,7 +256,7 @@ public class SyslogdEventdLoadIT implements InitializingBean {
         assertEquals(1, m_eventCounter.getCount());
     }
 
-    @Test(timeout=120000)
+    @Test(timeout=150000)
     @Transactional
     public void testNGSyslog() throws Exception {
         loadSyslogConfiguration("/etc/syslogd-syslogng-configuration.xml");
@@ -284,7 +284,7 @@ public class SyslogdEventdLoadIT implements InitializingBean {
         assertEquals(1, m_eventCounter.getCount());
     }
 
-    @Test(timeout=120000)
+    @Test(timeout=150000)
     @Transactional
     public void testEventd() throws Exception {
         m_eventd.start();
