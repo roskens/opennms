@@ -46,7 +46,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.opennms.core.ipc.sink.mock.MockMessageDispatcherFactory;
 import org.opennms.core.spring.BeanUtils;
@@ -125,6 +127,9 @@ public class SyslogdEventdLoadIT implements InitializingBean {
 
     private SyslogSinkModule m_syslogSinkModule;
 
+    @Rule
+    public TestName m_testName = new TestName();
+
     @Override
     public void afterPropertiesSet() throws Exception {
         BeanUtils.assertAutowiring(this);
@@ -132,6 +137,7 @@ public class SyslogdEventdLoadIT implements InitializingBean {
 
     @Before
     public void setUp() throws Exception {
+        System.out.println("------------------- begin " + m_testName.getMethodName() + " ---------------------");
     	MockLogAppender.setupLogging(true, "DEBUG");
 
         loadSyslogConfiguration("/etc/syslogd-loadtest-configuration.xml");
@@ -154,6 +160,7 @@ public class SyslogdEventdLoadIT implements InitializingBean {
             m_syslogd.stop();
         }
         MockLogAppender.assertNoErrorOrGreater();
+        System.out.println("------------------- end " + m_testName.getMethodName() + " -----------------------");
     }
 
     private void loadSyslogConfiguration(final String configuration) throws IOException {
