@@ -1,0 +1,91 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  target-branch: develop
+  ignore:
+  - dependency-name: io.netty:netty-resolver-dns
+    versions:
+    - 4.1.56.Final
+  - dependency-name: io.netty:netty-common
+    versions:
+    - 4.1.56.Final
+  - dependency-name: io.netty:netty-buffer
+    versions:
+    - 4.1.56.Final
+  - dependency-name: io.netty:netty-handler
+    versions:
+    - 4.1.56.Final
+  - dependency-name: io.netty:netty-transport
+    versions:
+    - 4.1.56.Final
+  - dependency-name: io.netty:netty-codec
+    versions:
+    - 4.1.56.Final
+  - dependency-name: io.netty:netty-all
+    versions:
+    - 4.1.56.Final
+  - dependency-name: org.springframework.security:spring-security-taglibs
+    versions:
+    - 5.4.2
+  - dependency-name: org.springframework.security:spring-security-acl
+    versions:
+    - 5.4.2
+  - dependency-name: org.springframework.security:spring-security-config
+    versions:
+    - 5.4.2
+  - dependency-name: org.springframework.security:spring-security-remoting
+    versions:
+    - 5.4.2
+  - dependency-name: org.springframework.security:spring-security-core
+    versions:
+    - 5.4.2
+  - dependency-name: com.fasterxml.jackson.module:jackson-module-jaxb-annotations
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.datatype:jackson-datatype-guava
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.dataformat:jackson-dataformat-smile
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.dataformat:jackson-dataformat-cbor
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.core:jackson-databind
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.core:jackson-core
+    versions:
+    - 2.12.0
+  - dependency-name: com.fasterxml.jackson.core:jackson-annotations
+    versions:
+    - 2.12.0
+  - dependency-name: xerces:xercesImpl
+    versions:
+    - 2.12.0
+- package-ecosystem: npm
+  directory: "/core/web-assets"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  target-branch: develop
+  ignore:
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
